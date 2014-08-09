@@ -1,0 +1,111 @@
+/*
+//
+// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xyo-mod-toolbar i{
+	font-size:32px;
+	color:#999;
+	text-align:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.xyo-mod-toolbar img{
+	width:32px;
+	height:32px;
+}
+
+.xyo-mod-toolbar .thumbnail{
+	width:80px;
+	height:64px;
+	cursor:pointer;
+	float:left;
+	text-decoration:none;
+	margin-right:6px;
+}
+
+.xyo-mod-toolbar .caption{
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:3px;
+	margin-bottom:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+	text-align:center;
+	font-size: 0.9em;
+}
+
+.xyo-mod-toolbar .separator{
+	overflow:hidden;
+	width: 1px;
+	height: 64px;
+	background-color: #ddd;
+	margin-left: 0px;
+	margin-right: 6px;
+	float:left;
+}
+
+/*
+.xyo_mod_toolbar div.toolbar_item{
+    position:relative;
+    width:auto;
+    height:50px;
+	overflow:hidden;
+    float:left;
+    display:block;
+    margin:0px 0px 0px 0px;
+    padding:1px 1px 1px 1px;
+    cursor:pointer;
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align:center;
+}
+
+
+.xyo_mod_toolbar div.toolbar_item:hover{
+    border:1px solid #9FCFFF;
+    background-color: #E4F2FF;
+    padding:0px 0px 0px 0px;
+}
+
+.xyo_mod_toolbar .toolbar_item .min_width_px{
+    width:64px;
+    height:1px;
+    display:block;
+    overflow:hidden;
+}
+
+
+.xyo_mod_toolbar .toolbar_item .item_img{
+    width:32px;
+    height:32px;
+    border:0px;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}
+
+.xyo_mod_toolbar .toolbar_item .item_txt{
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}
+
+.xyo_mod_toolbar .toolbar_separator{
+	overflow:hidden;
+	width: 1px;
+	height: 52px;
+	background-color: #9FCFFF;
+	margin-left: 1px;
+	margin-right: 1px;
+	float:left;
+}
+*/

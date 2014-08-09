@@ -1,0 +1,15 @@
+<?php defined('XYO_CLOUD') or die('Access is denied'); if(true){}else{// xyo_datasource - datasource ?>
+id:13,name,enabled,description
+1,db.table.xyo_settings,1,
+2,db.table.xyo_core,1,
+3,db.table.xyo_datasource,1,
+4,db.table.xyo_language,1,
+5,db.table.xyo_module,1,
+6,db.table.xyo_module_group,1,
+7,db.table.xyo_module_parameter,1,
+8,db.table.xyo_acl_module,1,
+9,db.table.xyo_user,1,
+10,db.table.xyo_user_group,1,
+11,db.table.xyo_user_group_x_user_group,1,
+12,db.table.xyo_user_x_user_group,1,
+13,db.table.xyo_user_x_core,1,

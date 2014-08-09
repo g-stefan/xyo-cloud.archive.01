@@ -1,0 +1,41 @@
+/*
+
+This is free and unencumbered software released into the public domain.
+For more information, please refer to <http://unlicense.org/>
+
+Example:
+	<span class="text-in-circle">1</span>
+
+*/
+
+.text-in-circle {
+  background: #999;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #eee;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.35em;
+  margin-top: 3px;
+  margin-right: 6px;
+  text-align: center;
+  width: 1.35em;
+  font-size: 0.8em; 
+}
+
+.text-in-circle-active {
+  background: #fff;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #38d;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.35em;
+  margin-top: 3px;
+  margin-right: 6px;
+  text-align: center;
+  width: 1.35em;
+  font-size: 0.8em; 
+}

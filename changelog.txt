@@ -1,0 +1,11 @@
+2014.08.03
++ version 2.0.0
++ jQuery and Bootstrap based 
+
+2014.07.16
++ added varchar and float datasource field types
+
+2014.07.02
++ added xyo-mod-jsonx, require config system_user_captcha=false to allow remote authorization 
+
+--=*=--
