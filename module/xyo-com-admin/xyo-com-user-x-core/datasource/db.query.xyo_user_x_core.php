@@ -26,7 +26,7 @@ $this->set("query_item", array(
 
 $this->set("query_link", array(
     "user_x_core" => "base",
-    "core" => array("outer", array("user_group" => "id"), array("user_x_core" => "id_xyo_core")),
+    "core" => array("outer", array("core" => "id"), array("user_x_core" => "id_xyo_core")),
     "user" => array("outer", array("user" => "id"), array("user_x_core" => "id_xyo_user"))
 ));
 
