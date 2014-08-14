@@ -10,12 +10,12 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->set("application_title", "User groups");
 
-$this->set("head_username", "User");
+$this->set("head_name", "User");
 $this->set("head_user_group", "Group");
 $this->set("head_enabled", "Enabled");
 $this->set("head_id", "Id");
 
-$this->set("search_username","User");
+$this->set("search_name","User");
 $this->set("search_user_group","Group");
 
 $this->set("select_xyo_user_any", "- user -");

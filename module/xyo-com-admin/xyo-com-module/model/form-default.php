@@ -17,7 +17,7 @@ $this->setElementValue("version","");
 $this->setElementValue("parent","");
 $this->setElementValue("cmd",0);
 $this->setElementValue("component",0);
-$this->setElementValue("is_module",0);
+$this->setElementValue("is_module","");
 
 if($this->isNew){
 	$this->setElementValue("id_xyo_module_group",0);

@@ -14,7 +14,7 @@ if($this->id_xyo_user){
 
 $this->ds->setGroup("id",true);
 $this->ds->setGroup("user_group",true);
-$this->ds->setGroup("username",true);
+$this->ds->setGroup("name",true);
 
 if(!$this->user->isInGroup("wheel")){
 		$this->ds->pushOperator("and");

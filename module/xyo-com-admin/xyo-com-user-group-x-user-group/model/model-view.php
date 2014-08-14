@@ -53,6 +53,7 @@ if ($this->id_xyo_user_group_super) {
     unset($this->tableHead["user_group_super"]);
     unset($this->tableSelect["user_group_super"]);
     unset($this->tableSort["user_group_super"]);
+    unset($this->tableSearch["user_group_super"]);
     unset($this->tableType["user_group_super"]);
     unset($this->tableSelect["user_group"]);
     unset($this->tableSelectInfo["user_group"]);    

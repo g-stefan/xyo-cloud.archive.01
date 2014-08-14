@@ -17,7 +17,7 @@ if($maxlength==0){
 	$maxlength=" maxlength=\"".$maxlength."\"";
 };
 
-$this->setHtmFooterJsSource("\$(function(){\$(\"#".($this->getElementId($element))."\").".
+$this->setHtmlFooterJsSource("\$(function(){\$(\"#".($this->getElementId($element))."\").".
 "tinymce({\r\n".
 "    selector: \"textarea\",\r\n".
 "    theme: \"modern\",\r\n".

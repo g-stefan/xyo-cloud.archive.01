@@ -10,14 +10,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->tableHead = array(
     "#" => "#",
-    "username" => "head_username",
+    "name" => "head_name",
     "user_group" => "head_user_group",
     "enabled" => "head_enabled",
     "id" => "head_id"
 );
 
 $this->tableSearch = array(
-    "username" => true,
+    "name" => true,
     "user_group" => true
 );
 
@@ -27,7 +27,7 @@ $this->tableSelect = array(
 );
 
 $this->tableType=array(
-    "username" => array("action",
+    "name" => array("action",
 	array(
 		"action" => "edit",
 		"id" => array($this->tablePrimaryKey)
@@ -36,7 +36,7 @@ $this->tableType=array(
 );
 
 $this->tableSort = array(
-    "username" => "ascendent",
+    "name" => "ascendent",
     "user_group" => "none",
 	"enabled" => "none",
 	"id" => "none"
@@ -57,10 +57,11 @@ $this->tableSelectInfo = array(
 );
 
 if ($this->id_xyo_user) {
-    unset($this->tableHead["username"]);
-    unset($this->tableSelect["username"]);
-    unset($this->tableSort["username"]);
-    unset($this->tableType["username"]);
+    unset($this->tableHead["name"]);
+    unset($this->tableSelect["name"]);
+    unset($this->tableSort["name"]);
+    unset($this->tableSearch["name"]);
+    unset($this->tableType["name"]);
     unset($this->tableSelect["id_xyo_user_group"]);
     unset($this->tableSelectInfo["id_xyo_user_group"]);
     

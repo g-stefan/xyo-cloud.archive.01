@@ -17,7 +17,7 @@ $this->tableHead = array(
 );
 
 $this->tableSearch = array(
-    "username" => true,
+    "name" => true,
     "core" => true
 );
 
@@ -27,7 +27,7 @@ $this->tableSelect = array(
 );
 
 $this->tableType = array(
-    "username" => array("action",array(
+    "name" => array("action",array(
         "action" => "edit",
         "id" => array($this->tablePrimaryKey)
     )),
@@ -35,7 +35,7 @@ $this->tableType = array(
 );
 
 $this->tableSort = array(
-    "username" => "ascendent",
+    "name" => "ascendent",
     "core" => "none",
 	"enabled" => "none",
 	"id" => "none"
@@ -52,10 +52,11 @@ $this->tableSelectInfo = array(
 );
 
 if ($this->id_xyo_user) {
-    unset($this->tableHead["username"]);
-    unset($this->tableSelect["username"]);    
-    unset($this->tableSort["username"]);    
-    unset($this->tableType["username"]);       
+    unset($this->tableHead["name"]);
+    unset($this->tableSelect["name"]);    
+    unset($this->tableSort["name"]);  
+    unset($this->tableSearch["name"]);   
+    unset($this->tableType["name"]);       
  
 	$this->tableType["core"]=array("action",array(	        
         	    "action" => "edit",

@@ -16,11 +16,11 @@ $this->registerModuleAcl("xyo-com-user","xyo-control-panel","administrator","adm
 
 $this->registerModule($module, null, "xyo-com-user-x-user-group", true, false, true, null, null);
 $this->linkModuleVersion("xyo-com-user-x-user-group");
-$this->registerModuleAcl("xyo-com-user-x-user-group","xyo-control-panel","administrator","administrator",101,true);
+$this->registerModuleAcl("xyo-com-user-x-user-group","xyo-none","administrator","administrator",101,true);
 
 $this->registerModule($module, null, "xyo-com-user-x-core", true, false, true, null, null);
 $this->linkModuleVersion("xyo-com-user-x-core");
-$this->registerModuleAcl("xyo-com-user-x-core","xyo-control-panel","administrator","administrator",102,true);
+$this->registerModuleAcl("xyo-com-user-x-core","xyo-none","administrator","administrator",102,true);
 
 $this->registerModule($module, null, "xyo-com-user-group", true, false, true, null, null);
 $this->linkModuleVersion("xyo-com-user-group");
@@ -28,7 +28,7 @@ $this->registerModuleAcl("xyo-com-user-group","xyo-control-panel","administrator
 
 $this->registerModule($module, null, "xyo-com-user-group-x-user-group", true, false, true, null, null);
 $this->linkModuleVersion("xyo-com-user-group-x-user-group");
-$this->registerModuleAcl("xyo-com-user-group-x-user-group","xyo-control-panel","administrator","wheel",104,true);
+$this->registerModuleAcl("xyo-com-user-group-x-user-group","xyo-none","administrator","wheel",104,true);
 
 $this->registerModule($module, null, "xyo-com-core", true, false, true, null, null);
 $this->linkModuleVersion("xyo-com-core");

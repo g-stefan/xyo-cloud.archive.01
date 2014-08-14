@@ -121,7 +121,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 		$this->htmlFooter->setJs($this->name, $file, $if_);
 	}
 
-	public function setHtmFooterJsSource($file) {
+	public function setHtmlFooterJsSource($file) {
 		$this->htmlFooter->jsSource($this->name, $file);
 	}
 

@@ -74,13 +74,13 @@ if($ds->load(0,1)&&$layer&&$connection){
 		"ajax-js"=>1
 	));
 	$js.="\",success:function(result){eval(result);}});";
-	$this->setHtmFooterJsSource($js);
+	$this->setHtmlFooterJsSource($js);
 }else{
 	$js="";
 	$js.="progressBarSetProcent1(100);";
 	$js.="progressBarSetProcent2(100);";
 	$js.="statusInfo(\"".$this->getFromLanguage("msg_done").".\");";	
-	$this->setHtmFooterJsSource($js);
+	$this->setHtmlFooterJsSource($js);
 };
 
 ?>

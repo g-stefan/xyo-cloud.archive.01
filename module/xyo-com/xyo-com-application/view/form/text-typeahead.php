@@ -30,7 +30,7 @@ if(strlen($model)==0){
 	return;
 };
 
-$this->setHtmFooterJsSource("\$(function(){\$(\"#".($this->getElementId($element))."\").".
+$this->setHtmlFooterJsSource("\$(function(){\$(\"#".($this->getElementId($element))."\").".
 "typeahead({\r\n".
 "	highlight: true\r\n".
 "},{\r\n".

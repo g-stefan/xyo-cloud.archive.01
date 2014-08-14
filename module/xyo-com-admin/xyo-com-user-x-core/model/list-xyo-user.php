@@ -13,7 +13,7 @@ $user["*"] = $this->getFromLanguage("select_xyo_user_any");
 $dsUser = &$this->getDataSource("db.table.xyo_user");
 if ($dsUser) {
     $dsUser->clear();
-    $dsUser->setOrder("username",1);
+    $dsUser->setOrder("name",1);
     for ($dsUser->load(); $dsUser->isValid(); $dsUser->loadNext()) {
         $user[$dsUser->id] = $dsUser->name;
     }

@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $element = $this->getParameter("element");
-$this->setHtmFooterJsSource("\$(function(){\$(\"#date_".($this->getElementId($element))."\").datepicker();});");
+$this->setHtmlFooterJsSource("\$(function(){\$(\"#date_".($this->getElementId($element))."\").datepicker();});");
 
 ?>
 <div class="form-group <?php if($this->isElementError($element)){echo " has-error";}; ?>">

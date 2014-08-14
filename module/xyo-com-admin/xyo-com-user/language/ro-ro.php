@@ -61,5 +61,5 @@ $this->set("select_invisible_any", "- invizibil-");
 $this->set("select_invisible_enabled", "da");
 $this->set("select_invisible_disabled", "nu");
 
-
+$this->set("select_xyo_core_any", "- core -");
 

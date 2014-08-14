@@ -20,7 +20,7 @@ $this->set("query_item", array(
     "id_xyo_user_group" => array("user_x_user_group" => "id_xyo_user_group"),
     "enabled" => array("user_x_user_group" => "enabled"),
     "user_group" => array("user_group" => "name"),
-    "username" => array("user" => "username"),
+    "name" => array("user" => "name"),
 ));
 
 $this->set("query_link", array(

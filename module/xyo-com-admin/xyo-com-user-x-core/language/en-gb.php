@@ -15,7 +15,7 @@ $this->set("head_core", "Core");
 $this->set("head_enabled", "Enabled");
 $this->set("head_id", "Id");
 
-$this->set("search_username","User");
+$this->set("search_name","User");
 $this->set("search_core","Core");
 
 $this->set("select_xyo_user_any", "- user -");

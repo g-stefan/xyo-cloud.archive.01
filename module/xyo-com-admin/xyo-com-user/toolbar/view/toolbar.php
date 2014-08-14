@@ -35,6 +35,15 @@ $this->setItemAfter("logout","user_group",
         "callUserXUserGroup();"
 );
 
+$this->setItemAfter("user_group","core",
+        "item-js",
+        "media/sys/images/utilities-terminal2-32.png",
+        "core",
+        true,
+        "#",
+        "callUserXCore();"
+);
+
 $this->setItem("new",
         "item-js",
         "media/sys/images/contact-new-32.png",

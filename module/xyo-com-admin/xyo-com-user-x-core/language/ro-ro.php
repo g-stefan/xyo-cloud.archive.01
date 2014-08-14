@@ -14,7 +14,7 @@ $this->set("head_name", "Utilizator");
 $this->set("head_core", "Core");
 $this->set("head_id", "Id");
 
-$this->set("search_username", "Utilizator");
+$this->set("search_name", "Utilizator");
 $this->set("search_core","Core");
 
 $this->set("select_xyo_user_any", "- utilizator -");

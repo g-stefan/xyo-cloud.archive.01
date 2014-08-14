@@ -27,6 +27,7 @@ $this->tableSearch = array(
 
 $this->tableSelect = array(
     "id_xyo_user_group" => true,
+    "id_xyo_core" => true,
     "enabled" => true
 );
 
@@ -57,10 +58,12 @@ $this->tableSort = array(
 );
 
 $this->processModel("list-xyo-user-group");
+$this->processModel("list-xyo-core");
 $this->processModel("list-enabled");
 
 $this->tableSelectInfo = array(
     "id_xyo_user_group" => $this->getParameter("list_id_xyo_user_group", array()),
+    "id_xyo_core" => $this->getParameter("list_id_xyo_core", array()),
     "enabled" => $this->getParameter("list_enabled", array())
 );
 

@@ -17,3 +17,11 @@ $this->eGenerateCallRequest(
 );
 
 
+$this->eGenerateCallRequest(
+	array("action"=>"view"),
+	"xyo-com-user-x-core",
+	array("id_xyo_user"=>0),
+	"id_xyo_user",
+	"callUserXCore"
+);
+
