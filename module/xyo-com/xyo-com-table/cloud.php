@@ -12,4 +12,6 @@ $this->setReferenceBase($module, "xyo-com-application");
 $this->setReferenceLink($module, "lib-mod-bootstrap-feedback-left");
 $this->setReferenceLink($module, "lib-mod-bootstrap-select");
 $this->setReferenceLink($module, "lib-mod-fontawesome");
+$this->setReferenceLink($module, "lib-mod-jquery-stickytableheaders");
 $this->setVersion($module, "2.0.0");
+

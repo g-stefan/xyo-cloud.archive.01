@@ -85,6 +85,11 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-jquery-typeahead", "xyo-info-about", null, null, 0, true);
 	$setup->linkModuleVersion("lib-mod-jquery-typeahead");
 
+	$setup->registerModule("lib", null, "lib-mod-jquery-stickytableheaders", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-jquery-stickytableheaders", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-jquery-stickytableheaders", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-jquery-stickytableheaders");
+
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource", true, false, false, null, null);
 	$setup->registerModuleAcl("xyo-mod-datasource", "xyo-none", null, null, 0, true);

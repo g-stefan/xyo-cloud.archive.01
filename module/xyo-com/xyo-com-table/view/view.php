@@ -226,7 +226,7 @@ function doValueSave(key){
         <div class="clearfix" ></div>
    
 <div class="table-responsive" style="margin-left:6px;margin-right:6px;">
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" id="com_table">
 	<thead>
                 <?php
                 foreach ($this->tableHead as $key => $value) {
@@ -613,3 +613,11 @@ foreach($this->tableType as $key_=>$value_){
 
 	$this->generateView("view-return");
 	$this->generateView("view-call");
+
+	$this->setHtmlFooterJsSource(
+		"$(document).ready(function() {".
+		"$(\"#com_table\").stickyTableHeaders();".
+		"})"	
+	);
+
+

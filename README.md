@@ -9,3 +9,4 @@ MVC Framework for PHP
 - ACL based system
 - Module management and auhorization
 - Quantum database connector (Active Record Pattern bassed query with fields in separate tables/databases/backends or another quantum query)
++ jQuery, Bootstrap

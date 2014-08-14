@@ -1,0 +1,15 @@
+/*
+//
+// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+#com_table thead th{
+	vertical-align:middle;
+	background-color:#fff;
+	border:1px solid #DDDDDD;
+}
+
