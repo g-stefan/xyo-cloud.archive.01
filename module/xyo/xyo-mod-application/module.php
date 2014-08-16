@@ -139,6 +139,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 		};
 		if(count($scan)) {
 			foreach($scan as $formElement) {
+				$this->language->includeFile($this->cloud->get("path_base")."form/language/".$this->getSystemLanguage()."/".$formElement.".php");
 				$this->processViewX($formElement,"-require","form");
 				$this->applicationFormElementCache_[$formElement]=true;
 			};

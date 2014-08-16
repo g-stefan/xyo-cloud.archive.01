@@ -466,7 +466,7 @@ class xyo_mod_Setup extends xyo_Module {
 
 	function getFileList($path) {
 		$this_ = array();
-		if (!$dh = opendir($path)
+		if (!$dh = @opendir($path)
 		   ) {
 			return $this_;
 		};
@@ -492,7 +492,7 @@ class xyo_mod_Setup extends xyo_Module {
 
 	function getFileList2($path) {
 		$this_ = array();
-		if (!$dh = opendir($path)
+		if (!$dh = @opendir($path)
 		   ) {
 			return $this_;
 		}
@@ -1095,11 +1095,23 @@ class xyo_mod_Setup extends xyo_Module {
 
 		$file_ = $this->getModulePath($module_) . "/view/form/" . $name_ . ".php";
 		if (file_exists($file_)) {
-			if (copy($file_, $this->cloud->get("path_base") . "form/" . $name_ . ".php")) {
-				return true;
-			};
+			copy($file_, $this->cloud->get("path_base") . "form/" . $name_ . ".php");				
 		};
-		return false;
+
+		$path_="view/form/language/";
+		$fileList_ = $this->getFileList($this->getModulePath($module_) . $path_);
+		foreach($fileList_ as $k=>$v){
+			$pos1=strrpos($v,$path_)+strlen($path_);
+			$pos2=strrpos($v,"/".$name_ . ".php",$pos1);
+			if($pos2){
+				$lang_=substr($v,$pos1,$pos2-$pos1);
+				@mkdir($this->cloud->get("path_base") . "form/language");
+				@mkdir($this->cloud->get("path_base") . "form/language/" .$lang_);
+				@copy($v,$this->cloud->get("path_base") . "form/language/" .$lang_."/". $name_ . ".php");
+			};
+		}; 		
+
+		return true;
 	}
 
 	function uninstallFormElement($name_) {
