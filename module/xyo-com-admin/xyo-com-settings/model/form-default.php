@@ -11,11 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 foreach($this->items as $item) {
 	if(!is_null($item["name"])){
-		$this->ds->clear();
-		$this->ds->name=$item["name"];
-		$this->ds->tryLoad(0,1);		
-		$this->ds->value=$this->getElementValueStr($item["name"],$item["default_value"]);
-		$this->ds->save();		
+		$this->setElementValue($item["name"],$item["default_value"]);
 	};
 };
 

@@ -8,13 +8,12 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->generateElement("group-row-begin",null);
 
-$this->generateElement("group-begin", null);
-$this->generateElement("text", "website_title");
-$this->generateElement("integer", "user_logoff_after_idle_time");
-$this->generateElement("select", "system_user_action");
-$this->generateElement("select", "system_user_captcha");
-$this->generateElement("group-end", null);
+foreach($this->items as $item) {
+	if($item["type"]=="select"){
+		$this->generateElement($item["type"],$item["name"]);
+	}else{
+		$this->generateElement($item["type"],$item["name"],$item["parameters"]);
+	};
+};
 
-$this->generateElement("group-row-end",null);

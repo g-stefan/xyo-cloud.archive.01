@@ -298,7 +298,16 @@ function doValueSave(key){
 
 				};
 		}else{
-                  	$this->eLanguage($value);
+					if (array_key_exists($key, $this->tableSort)){
+
+						echo "<a href=\"#\" style=\"text-decoration:none;color:#000;\" onclick=\"javascript:$('#sort_x_" . $sort_value_next[$key] . "_" . $key . "').val('".$sort_value_next[$key]."');$('#".$this->getFormName()."').submit();return false;\">";
+			                        $this->eLanguage($value);
+						echo $sort_img[$sort_value[$key]];	
+						echo "</a>";
+
+					}else{
+			                        $this->eLanguage($value);
+					};
                  };
 
                  echo "</th>";
