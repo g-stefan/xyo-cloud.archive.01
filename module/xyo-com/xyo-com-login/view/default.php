@@ -34,11 +34,16 @@ $useCaptcha=false;
 if($sysCaptcha){
 	if ($this->isError("error")) {
 		$useCaptcha=true;
+		$_SESSION["user_captcha_force"]=1;
 	}else{
-		$captcha=md5("" . rand());
-		$_SESSION["user_captcha_rnd"]=$rnd;
-		$_SESSION["user_captcha_key"]=md5($rnd.md5($captcha));
-		$parameters=array_merge($parameters,array("user_captcha"=>$captcha));
+		if(array_key_exists("user_captcha_force",$_SESSION)){
+			$useCaptcha=true;
+		}else{
+			$captcha=md5("" . rand());	
+			$_SESSION["user_captcha_rnd"]=$rnd;
+			$_SESSION["user_captcha_key"]=md5($rnd.md5($captcha));
+			$parameters=array_merge($parameters,array("user_captcha"=>$captcha));
+		};
 	};
 };
 

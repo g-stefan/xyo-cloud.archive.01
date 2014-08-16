@@ -265,6 +265,8 @@ class xyo_mod_ds_User extends xyo_Module {
 						$this->info->language = $dsLanguage->name;
 					};
 				};
+			
+				unset($_SESSION["user_captcha_force"]);
 
 				if ($this->mode) {
 					if ($this->useAction) {
