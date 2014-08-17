@@ -9,6 +9,6 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setParameter("toolbar", "toolbar/default");
-$this->processModel("list-layer");
-$this->processModel("list-connection");
+$this->processModel("select-layer");
+$this->processModel("select-connection");
 $this->setView("default");

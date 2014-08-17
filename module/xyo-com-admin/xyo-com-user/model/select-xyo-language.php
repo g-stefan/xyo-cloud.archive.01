@@ -19,5 +19,5 @@ if ($dsLanguage) {
     }
 };
 
-$this->returnParameter("list_id_xyo_language",$language);
+$this->returnParameter("select_id_xyo_language",$language);
 

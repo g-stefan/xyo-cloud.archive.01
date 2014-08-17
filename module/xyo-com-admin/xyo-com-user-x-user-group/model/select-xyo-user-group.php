@@ -14,16 +14,16 @@ $dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
 if ($dsUserGroup) {
     $dsUserGroup->clear();
     $dsUserGroup->setOrder("name",1);
-	if(!$this->user->isInGroup("wheel")){	
+
+if(!$this->user->isInGroup("wheel")){
 		$dsUserGroup->pushOperator("and");
 		$dsUserGroup->setOperator("name","!=","wheel",null,false,false);	
-	};
+};
+
     for ($dsUserGroup->load(); $dsUserGroup->isValid(); $dsUserGroup->loadNext()) {
-
-
         $userGroup[$dsUserGroup->id] = $dsUserGroup->name;
     }
 };
 
-$this->returnParameter("list_id_xyo_user_group",$userGroup);
+$this->returnParameter("select_id_xyo_user_group",$userGroup);
 

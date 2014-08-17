@@ -10,9 +10,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->processModel("datasource-init");
 
-$listDatasource = $this->getParameter("list_datasource", array());
+$selectDatasource = $this->getParameter("select_datasource", array());
 $allOk = true;
-foreach ($listDatasource as $key => $value) {
+foreach ($selectDatasource as $key => $value) {
 	if ($value == "yes") {
 		continue;
 	};

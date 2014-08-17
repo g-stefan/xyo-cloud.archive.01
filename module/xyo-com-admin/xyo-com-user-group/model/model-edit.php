@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("list-enabled",null,false);
+$this->processModel("select-enabled-edit",null,false);

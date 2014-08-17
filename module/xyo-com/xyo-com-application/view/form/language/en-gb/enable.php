@@ -8,6 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("select_enabled_all", "- enabled -");
 $this->set("select_enabled_enabled", "yes");
 $this->set("select_enabled_disabled", "no");

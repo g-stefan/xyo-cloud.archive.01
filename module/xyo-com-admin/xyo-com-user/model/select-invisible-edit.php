@@ -9,10 +9,9 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $invisible = array(
-    "*" => $this->getFromLanguage("select_invisible_any"),
     "1" => $this->getFromLanguage("select_invisible_enabled"),
     "0" => $this->getFromLanguage("select_invisible_disabled")
 );
 
-$this->returnParameter("list_invisible", $invisible);
+$this->returnParameter("select_invisible", $invisible);
 

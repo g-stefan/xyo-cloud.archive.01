@@ -41,14 +41,14 @@ $this->tableSort = array(
 	"id" => "none"
 );
 
-$this->processModel("list-xyo-core");
+$this->processModel("select-xyo-core");
 
-$this->processModel("list-enabled");
-$this->processModel("list-allow");
+$this->processModel("select-enabled");
+$this->processModel("select-allow");
 
 $this->tableSelectInfo = array(
-    "id_xyo_core" => $this->getParameter("list_id_xyo_core", array()),
-    "enabled" => $this->getParameter("list_enabled", array())
+    "id_xyo_core" => $this->getParameter("select_id_xyo_core", array()),
+    "enabled" => $this->getParameter("select_enabled", array())
 );
 
 if ($this->id_xyo_user) {

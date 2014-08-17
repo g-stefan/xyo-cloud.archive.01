@@ -8,11 +8,10 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$cmd = array(
-	       "*" => $this->getFromLanguage("select_cmd_any"),
-	       "1" => $this->getFromLanguage("select_cmd_enabled"),
-	       "0" => $this->getFromLanguage("select_cmd_disabled")
-       );
+$enabled = array(
+		   "1" => $this->getFromLanguage("select_enabled_enabled"),
+		   "0" => $this->getFromLanguage("select_enabled_disabled")
+	   );
 
-$this->returnParameter("list_cmd", $cmd);
+$this->returnParameter("select_acl_enabled", $enabled);
 

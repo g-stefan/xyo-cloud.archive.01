@@ -8,13 +8,13 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("list-enabled",null,false);
-$this->processModel("list-cmd",null,false);
-$this->processModel("list-component",null,false);
+$this->processModel("select-enabled-edit",null,false);
+$this->processModel("select-cmd-edit",null,false);
+$this->processModel("select-component-edit",null,false);
 
 if($this->isNew) {
-	$this->processModel("list-acl-enabled",null,false);
-	$this->processModel("list-xyo-core",null,false);
-	$this->processModel("list-xyo-module-group",null,false);
-	$this->processModel("list-xyo-user-group",null,false);
+	$this->processModel("select-acl-enabled-edit",null,false);
+	$this->processModel("select-xyo-core",null,false);
+	$this->processModel("select-xyo-module-group",null,false);
+	$this->processModel("select-xyo-user-group",null,false);
 }

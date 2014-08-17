@@ -8,11 +8,11 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("list-xyo-language",null,false);
+$this->processModel("select-xyo-language",null,false);
 
 if($this->isNew){
-    $this->processModel("list-xyo-user-group",null,false);
+    $this->processModel("select-xyo-user-group",null,false);
 };
 
-$this->processModel("list-enabled",null,false);
-$this->processModel("list-invisible",null,false);
+$this->processModel("select-enabled-edit",null,false);
+$this->processModel("select-invisible-edit",null,false);

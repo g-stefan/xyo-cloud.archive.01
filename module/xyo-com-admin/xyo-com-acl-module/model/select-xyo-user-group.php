@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$userGroup = array();
-$userGroup["*"] = $this->getFromLanguage("select_xyo_user_group_any");
+$listUserGroup = array();
+$listUserGroup["*"] = $this->getFromLanguage("select_xyo_user_group_any");
 $dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
 if ($dsUserGroup) {
     $dsUserGroup->clear();
@@ -21,9 +21,9 @@ if(!$this->user->isInGroup("wheel")){
 };
 
     for ($dsUserGroup->load(); $dsUserGroup->isValid(); $dsUserGroup->loadNext()) {
-        $userGroup[$dsUserGroup->id] = $dsUserGroup->name;
+        $listUserGroup[$dsUserGroup->id] = $dsUserGroup->name;
     }
-};
+}
 
-$this->returnParameter("list_id_xyo_user_group",$userGroup);
+$this->returnParameter("select_id_xyo_user_group", $listUserGroup);
 

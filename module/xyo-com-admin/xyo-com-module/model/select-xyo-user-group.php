@@ -25,5 +25,5 @@ if ($dsUserGroup) {
 	}
 }
 
-$this->returnParameter("list_id_xyo_user_group", $listUserGroup);
+$this->returnParameter("select_id_xyo_user_group", $listUserGroup);
 

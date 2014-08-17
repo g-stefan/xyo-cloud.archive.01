@@ -13,8 +13,8 @@ $connection=$this->getElementValueStr("connection","db");
 ?>
             <select class="selectpicker" data-width="auto" name="<?php $this->eElementName("connection"); ?>" id="<?php $this->eElementId("connection"); ?>" >
             <?php
-					$list_connection=$this->getParameter("list_connection",array());
-                    foreach ($list_connection as $value) {
+					$selectConnection=$this->getParameter("select_connection",array());
+                    foreach ($selectConnection as $value) {
                         $selected = "";
                         if ($value === $connection) {
                             $selected = "selected=\"selected\" ";

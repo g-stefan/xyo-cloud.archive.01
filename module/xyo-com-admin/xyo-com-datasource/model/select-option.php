@@ -15,4 +15,4 @@ $option = array(
     "destroy" => $this->getFromLanguage("select_option_destroy")        
 );
 
-$this->returnParameter("list_option", $option);
+$this->returnParameter("select_option", $option);

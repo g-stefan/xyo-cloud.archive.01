@@ -19,5 +19,5 @@ if ($dsModule) {
     }
 }
 
-$this->returnParameter("list_id_xyo_module", $listModule);
+$this->returnParameter("select_id_xyo_module", $listModule);
 

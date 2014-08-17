@@ -41,12 +41,12 @@ $this->tableSort = array(
 	"id" => "none"
 );
 
-$this->processModel("list-xyo-user-group");
-$this->processModel("list-enabled");
+$this->processModel("select-xyo-user-group");
+$this->processModel("select-enabled");
 
 $this->tableSelectInfo = array(
-    "user_group" => $this->getParameter("list_id_xyo_user_group", array()),
-    "enabled" => $this->getParameter("list_enabled", array())
+    "user_group" => $this->getParameter("select_id_xyo_user_group", array()),
+    "enabled" => $this->getParameter("select_enabled", array())
 );
 
 if ($this->id_xyo_user_group_super) {

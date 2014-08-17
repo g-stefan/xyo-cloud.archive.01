@@ -17,4 +17,4 @@ $list_layer = array(
 	"postgresql"=>"postgresql"
 );
 
-$this->returnParameter("list_layer",$list_layer);
+$this->returnParameter("select_layer",$list_layer);

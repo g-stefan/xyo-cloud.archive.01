@@ -14,5 +14,5 @@ $allow = array(
     "0" => $this->getFromLanguage("select_allow_disabled")
 );
 
-$this->returnParameter("list_allow", $allow);
+$this->returnParameter("select_allow", $allow);
 

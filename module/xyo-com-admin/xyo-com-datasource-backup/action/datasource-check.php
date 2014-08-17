@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setParameter("toolbar", "toolbar/default");
-$this->processModel("list-layer");
+$this->processModel("selest-layer");
 $this->setView("default");
 
 $allOk = true;

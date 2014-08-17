@@ -46,13 +46,13 @@ $this->tableSort=array(
 			 "id"=>"none"
 		 );
 
-$this->processModel("list-enabled");
-$this->processModel("list-cmd");
-$this->processModel("list-component");
+$this->processModel("select-enabled");
+$this->processModel("select-cmd");
+$this->processModel("select-component");
 
 $this->tableSelectInfo=array(
-			       "enabled" => $this->getParameter("list_enabled",array()),
-			       "cmd" => $this->getParameter("list_cmd",array()),
-			       "component" => $this->getParameter("list_component",array())
+			       "enabled" => $this->getParameter("select_enabled",array()),
+			       "cmd" => $this->getParameter("select_cmd",array()),
+			       "component" => $this->getParameter("select_component",array())
 		       );
 

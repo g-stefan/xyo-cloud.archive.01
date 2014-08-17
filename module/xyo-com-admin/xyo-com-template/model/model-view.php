@@ -41,10 +41,10 @@ $this->tableSort = array(
     "id" => "none"
 );
 
-$this->processModel("list-xyo-core", null, false);
+$this->processModel("select-xyo-core", null, false);
 
 $this->tableSelectInfo = array(
-    "id_xyo_core" => $this->getParameter("list_id_xyo_core", array())
+    "id_xyo_core" => $this->getParameter("select_id_xyo_core", array())
 );
 
 

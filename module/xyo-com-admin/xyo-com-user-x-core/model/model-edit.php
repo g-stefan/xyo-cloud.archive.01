@@ -10,7 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 if($this->id_xyo_user){
 }else{
-    $this->processModel("list-xyo-user",null,false);
+    $this->processModel("select-xyo-user",null,false);
 }
-$this->processModel("list-xyo-core",null,false);
-$this->processModel("list-enabled",null,false);
+$this->processModel("select-xyo-core",null,false);
+$this->processModel("select-enabled-edit",null,false);

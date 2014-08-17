@@ -16,7 +16,7 @@ $enabled = array(
 		   "0" => $this->getFromLanguage("select_enabled_disabled")
 	   );
 
-$this->returnParameter("list_enabled", $enabled);
+$this->returnParameter("select_enabled", $enabled);
 
 
 if($this->id_xyo_module>0) {
@@ -24,7 +24,7 @@ if($this->id_xyo_module>0) {
 	foreach($this->items as $item) {
 		if(!is_null($item["name"])){
 			if($item["type"]=="select"){
-				$this->returnParameter("list_".$item["name"],$item["parameters"]);
+				$this->returnParameter("select_".$item["name"],$item["parameters"]);
 			};
 		};                                   
 	};

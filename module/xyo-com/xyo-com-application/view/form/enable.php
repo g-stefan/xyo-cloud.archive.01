@@ -10,7 +10,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $element = $this->getParameter("element");
 $select_list = array(
-    "*" => $this->getFromLanguage("select_enabled_default_disabled"),
     "1" => $this->getFromLanguage("select_enabled_enabled"),
     "0" => $this->getFromLanguage("select_enabled_disabled")
 );

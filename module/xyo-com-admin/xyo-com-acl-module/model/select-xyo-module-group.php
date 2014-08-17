@@ -19,5 +19,5 @@ if ($dsModuleGroup) {
     }
 }
 
-$this->returnParameter("list_id_xyo_module_group", $listModuleGroup);
+$this->returnParameter("select_id_xyo_module_group", $listModuleGroup);
 

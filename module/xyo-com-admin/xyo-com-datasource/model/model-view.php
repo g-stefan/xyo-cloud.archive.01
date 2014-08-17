@@ -39,9 +39,9 @@ $this->tableSort = array(
 	"id" => "none"
 );
 
-$this->processModel("list-enabled");
+$this->processModel("select-enabled");
 
 $this->tableSelectInfo = array(
-    "enabled" => $this->getParameter("list_enabled", array())
+    "enabled" => $this->getParameter("select_enabled", array())
 );
 

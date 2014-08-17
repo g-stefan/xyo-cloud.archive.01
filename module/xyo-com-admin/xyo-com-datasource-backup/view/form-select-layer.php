@@ -13,8 +13,8 @@ $layer=$this->getElementValueStr("layer","xyo");
 ?>
             <select class="selectpicker" data-width="auto" name="<?php $this->eElementName("layer"); ?>" id="<?php $this->eElementId("layer"); ?>" onChange="this.form.submit();">
             <?php
-					$list_layer=$this->getParameter("list_layer",array());
-                    foreach ($list_layer as $value) {
+					$list_layer=$this->getParameter("select_layer",array());
+                    foreach ($selectLayer as $value) {
                         $selected = "";
                         if ($value === $layer) {
                             $selected = "selected=\"selected\" ";

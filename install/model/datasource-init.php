@@ -100,5 +100,5 @@ if (!$allOk) {
     $this->setError("error", "datasource_init");
 };
 
-$this->returnParameter("list_datasource", $listDatasource);
+$this->returnParameter("select_datasource", $listDatasource);
 

@@ -45,15 +45,15 @@ $this->tableSort = array(
 if ($this->id_xyo_user) {
     
 } else {
-    $this->processModel("list-xyo-user-group");
+    $this->processModel("select-xyo-user-group");
 }
 
-$this->processModel("list-enabled");
-$this->processModel("list-allow");
+$this->processModel("select-enabled");
+$this->processModel("select-allow");
 
 $this->tableSelectInfo = array(
-    "id_xyo_user_group" => $this->getParameter("list_id_xyo_user_group", array()),
-    "enabled" => $this->getParameter("list_enabled", array())
+    "id_xyo_user_group" => $this->getParameter("select_id_xyo_user_group", array()),
+    "enabled" => $this->getParameter("select_enabled", array())
 );
 
 if ($this->id_xyo_user) {

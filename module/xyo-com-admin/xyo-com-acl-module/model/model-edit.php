@@ -8,18 +8,18 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("list-enabled",null,false);
-$this->processModel("list-xyo-core",null,false);
+$this->processModel("select-enabled-edit",null,false);
+$this->processModel("select-xyo-core",null,false);
 
 if($this->id_xyo_module_group){}else{
-	$this->processModel("list-xyo-module-group",null,false);
+	$this->processModel("select-xyo-module-group",null,false);
 }
 
 if($this->id_xyo_module){}else{
-	$this->processModel("list-xyo-module",null,false);
+	$this->processModel("select-xyo-module",null,false);
 }
 
-$this->processModel("list-xyo-user-group",null,false);
+$this->processModel("select-xyo-user-group",null,false);
 
 if($this->isNew){
     $this->setElementValue("order",0);

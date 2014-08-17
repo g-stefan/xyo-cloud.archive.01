@@ -49,20 +49,20 @@ $this->tableSort = array(
 	"id"=> "none"
 );
 
-$this->processModel("list-enabled", null, false);
-$this->processModel("list-xyo-core", null, false);
+$this->processModel("select-enabled", null, false);
+$this->processModel("select-xyo-core", null, false);
 
 if ($this->id_xyo_module_group) {}else{
-	$this->processModel("list-xyo-module-group", null, false);
+	$this->processModel("select-xyo-module-group", null, false);
 }
 
-$this->processModel("list-xyo-user-group", null, false);
+$this->processModel("select-xyo-user-group", null, false);
 
 $this->tableSelectInfo = array(
-    "id_xyo_module_group" => $this->getParameter("list_id_xyo_module_group", array()),
-    "id_xyo_user_group" => $this->getParameter("list_id_xyo_user_group", array()),
-    "id_xyo_core" => $this->getParameter("list_id_xyo_core", array()),
-    "enabled" => $this->getParameter("list_enabled", array())
+    "id_xyo_module_group" => $this->getParameter("select_id_xyo_module_group", array()),
+    "id_xyo_user_group" => $this->getParameter("select_id_xyo_user_group", array()),
+    "id_xyo_core" => $this->getParameter("select_id_xyo_core", array()),
+    "enabled" => $this->getParameter("select_enabled", array())
 );
 
 

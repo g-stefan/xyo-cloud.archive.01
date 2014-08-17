@@ -43,8 +43,8 @@ $this->ds->order = $this->getElementValueInt("order", 0, "*");
 $this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
 
 
-$this->processModel("list-xyo-module", null, false);
-$list_id_xyo_module = $this->getParameter("list_id_xyo_module", array());
+$this->processModel("select-xyo-module", null, false);
+$list_id_xyo_module = $this->getParameter("select_id_xyo_module", array());
 if (array_key_exists($this->ds->id_xyo_module, $list_id_xyo_module)) {
     $this->ds->module = $list_id_xyo_module[$this->ds->id_xyo_module];
 }

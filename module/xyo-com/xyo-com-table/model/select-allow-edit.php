@@ -8,5 +8,10 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("select-enabled-edit", null, false);
-$this->processModel("select-option", null, false);
+$allow = array(
+    "1" => $this->getFromLanguage("select_allow_enabled"),
+    "0" => $this->getFromLanguage("select_allow_disabled")
+);
+
+$this->returnParameter("select_allow", $allow);
+

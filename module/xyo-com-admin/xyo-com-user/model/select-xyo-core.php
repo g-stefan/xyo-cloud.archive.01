@@ -19,5 +19,5 @@ if ($dsCore) {
     }
 }
 
-$this->returnParameter("list_id_xyo_core", $listCore);
+$this->returnParameter("select_id_xyo_core", $listCore);
 

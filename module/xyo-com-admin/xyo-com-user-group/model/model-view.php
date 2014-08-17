@@ -40,9 +40,9 @@ $this->tableSort = array(
 	"id" => "none"
 );
 
-$this->processModel("list-enabled", null, false);
+$this->processModel("select-enabled", null, false);
 
 $this->tableSelectInfo = array(
-    "enabled" => $this->getParameter("list_enabled", array())
+    "enabled" => $this->getParameter("select_enabled", array())
 );
 

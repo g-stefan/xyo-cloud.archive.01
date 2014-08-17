@@ -59,8 +59,8 @@ defined('XYO_CLOUD') or die('Access is denied');
                         <label for="package"><?php $this->eLanguage("label_package"); ?></label><br/>
                         <select name="package" class="selectpicker" data-width="auto">
             <?php
-                        $this->processModel("list-packages");
-                        $packagesList = $this->getParameter("list_packages", array("*" => $this->getFromLanguage("package_none")));
+                        $this->processModel("select-packages");
+                        $packagesList = $this->getParameter("select_packages", array("*" => $this->getFromLanguage("package_none")));
 
                         foreach ($packagesList as $key => $value) {
                             $selected = "";
@@ -74,8 +74,8 @@ defined('XYO_CLOUD') or die('Access is denied');
         <?php
                     } else {
                         echo "<br />";
-                        $this->processModel("list-packages");
-                        $packagesList = $this->getParameter("list_packages", array("*" => $this->getFromLanguage("package_none")));
+                        $this->processModel("select-packages");
+                        $packagesList = $this->getParameter("select_packages", array("*" => $this->getFromLanguage("package_none")));
                         if (array_key_exists("*", $packagesList)) {
                             $this->eLanguage("no_package_found");
                         } else {

@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $element = $this->getParameter("element");
-$select_list = $this->getParameter("list_" . $element);
+$select_list = $this->getParameter("select_" . $element);
 $select_value = $this->getElementValue($element);
 ?>	
 <div class="form-group<?php if($this->isElementError($element)){echo " has-error";}; ?>">
