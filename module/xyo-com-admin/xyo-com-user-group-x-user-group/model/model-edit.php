@@ -14,5 +14,5 @@ if($this->id_xyo_user_group_super){
     $this->processModel("select-xyo-user-group-super",null,false);
 }
 
-$this->processModel("select-xyo-user-group",null,false);
+$this->processModel("select-xyo-user-group-edit",null,false);
 $this->processModel("select-enabled-edit",null,false);

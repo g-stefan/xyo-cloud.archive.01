@@ -24,3 +24,6 @@ $this->set("select_xyo_user_group_any", "- grup utilizator -");
 
 $this->set("label_id_xyo_user", "Utilizator");
 $this->set("label_id_xyo_user_group", "Grup utilizator");
+
+$this->set("select_xyo_user_group_none","- nici unul -");
+

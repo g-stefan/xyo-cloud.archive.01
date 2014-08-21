@@ -33,4 +33,8 @@ $this->set("label_id_xyo_user_group","Grup utilizator");
 $this->set("label_id_xyo_core","Baza sistem");
 
 
+$this->set("select_xyo_core_any_edit","- oricare -");
+$this->set("select_xyo_module_group_any_edit","- nici unul -");
+$this->set("select_xyo_user_group_any_edit","- oricare -");
+$this->set("select_xyo_module_any_edit","- nici unul -");
 

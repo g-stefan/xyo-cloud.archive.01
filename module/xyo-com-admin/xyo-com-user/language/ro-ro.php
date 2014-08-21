@@ -62,4 +62,5 @@ $this->set("select_invisible_enabled", "da");
 $this->set("select_invisible_disabled", "nu");
 
 $this->set("select_xyo_core_any", "- core -");
-
+$this->set("select_xyo_user_group_none","- nici unul -");
+$this->set("select_xyo_language_none","- nici una -");

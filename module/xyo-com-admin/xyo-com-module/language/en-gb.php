@@ -53,3 +53,7 @@ $this->set("label_acl_enabled","Enabled");
 $this->set("select_xyo_user_group_any","- user group -");
 $this->set("select_xyo_core_any","- core -");
 
+$this->set("select_xyo_core_any_edit","- any -");
+$this->set("select_xyo_module_group_any_edit","- none -");
+$this->set("select_xyo_user_group_any_edit","- any -");
+

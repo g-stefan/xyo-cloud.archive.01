@@ -22,3 +22,5 @@ $this->set("select_xyo_user_group_any","- group -");
 
 $this->set("search_user_group_super","Super group");
 $this->set("search_user_group","Group");
+
+$this->set("select_xyo_user_group_any_edit","- none -");

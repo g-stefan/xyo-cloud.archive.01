@@ -23,3 +23,5 @@ $this->set("select_xyo_user_group_any", "- user group -");
 
 $this->set("label_id_xyo_user", "User");
 $this->set("label_id_xyo_user_group", "User group");
+
+$this->set("select_xyo_user_group_none","- none -");

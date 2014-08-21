@@ -63,5 +63,5 @@ $this->set("select_invisible_enabled", "yes");
 $this->set("select_invisible_disabled", "no");
 
 $this->set("select_xyo_core_any", "- core -");
-
-
+$this->set("select_xyo_user_group_none","- none -");
+$this->set("select_xyo_language_none","- none -");

@@ -23,3 +23,5 @@ $this->set("select_xyo_core_any", "- core -");
 
 $this->set("label_id_xyo_user", "User");
 $this->set("label_id_xyo_core", "Core");
+
+$this->set("select_xyo_core_any_edit","- any -");

@@ -14,7 +14,7 @@ $this->processModel("select-component-edit",null,false);
 
 if($this->isNew) {
 	$this->processModel("select-acl-enabled-edit",null,false);
-	$this->processModel("select-xyo-core",null,false);
-	$this->processModel("select-xyo-module-group",null,false);
-	$this->processModel("select-xyo-user-group",null,false);
+	$this->processModel("select-xyo-core-edit",null,false);
+	$this->processModel("select-xyo-module-group-edit",null,false);
+	$this->processModel("select-xyo-user-group-edit",null,false);
 }
