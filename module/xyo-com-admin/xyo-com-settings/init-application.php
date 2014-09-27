@@ -11,8 +11,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setApplicationIcon("media/sys/images/utilities-terminal-48.png");
 $this->setApplicationDataSource("db.table.xyo_settings");
 
-$this->requireElement(array("select","text","integer","group-begin","group-end","group-row-begin","group-row-end","enable"));
-
 $this->setDefaultAction($this->getRequest("action", "view"));
 
 // system settings

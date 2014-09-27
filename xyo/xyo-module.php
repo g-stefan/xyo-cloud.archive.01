@@ -1085,7 +1085,7 @@ class xyo_Module extends xyo_Config {
 
 	public function getElementValueStr($element, $default=null) {
 		$retV=$this->getElementValue($element);
-		if($retV) {
+		if(!is_null($retV)) {
 			return trim($retV);
 		}
 		return $default;

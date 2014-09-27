@@ -21,3 +21,4 @@ if($this->hasRequestStack($request)){
 	echo "};";	
 	echo $this->ejsEnd();
 };
+

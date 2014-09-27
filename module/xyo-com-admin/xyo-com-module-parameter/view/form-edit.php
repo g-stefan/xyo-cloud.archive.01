@@ -10,10 +10,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 if($this->id_xyo_module>0) {
 
-	if($item["type"]=="select"){
-		$this->generateElement($item["type"],$item["name"]);
-	}else{
-		$this->generateElement($item["type"],$item["name"],$item["parameters"]);
+	foreach($this->items as $item) {
+		if($item["type"]=="select"){
+			$this->generateElement($item["type"],$item["name"]);
+		}else{
+			$this->generateElement($item["type"],$item["name"],$item["parameters"]);
+		};
 	};
 
 };
+

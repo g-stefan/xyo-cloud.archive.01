@@ -35,6 +35,7 @@ class xyo_com_ModuleParameter2 extends xyo_com_Application {
     }
 
     public function addItem($type, $name=null, $defaultValue=null, $parameters=null) {
+	$this->requireElement(array($type));
         $item = array();
         $item["type"] = $type;
         $item["name"] = $name;

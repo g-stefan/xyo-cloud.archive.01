@@ -8,8 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setElementValue("id", 0);
-$this->setElementValue("name", "");
-$this->setElementValue("description", "");
-$this->setElementValue("enabled", 1);
-$this->setElementValue("option", "create");
+$this->loadModule("lib-mod-jquery-tinymce");

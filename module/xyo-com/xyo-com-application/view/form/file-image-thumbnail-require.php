@@ -8,14 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$list_layer = array(
-	"xyo"=>"xyo",
-	"csv"=>"csv",
-	"sqlite"=>"sqlite",
-	"sqlite3"=>"sqlite3",
-	"mysql"=>"mysql",
-	"postgresql"=>"postgresql"
-);
-
-$this->returnParameter("select_layer",$list_layer);
-
+$this->loadModule("lib-mod-bootstrap-fileinput");
+$this->loadModule("xyo-mod-thumbnail");
+$this->setHtmlHeadCss("media/sys/css/xyo-file-image-thumbnail.css");

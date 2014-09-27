@@ -25,8 +25,14 @@ class xyo_mod_Thumbnail extends xyo_Module {
 	$wwwFile="thumbnails/".basename($imageName,".".$fileExtension)."_".$width."x".$height.".".$fileExtension;
 	$thumbFile=$basePath.$wwwFile;
 	if($force){}else{
-		if(file_exists($thumbFile)){return $wwwFile;}
-	}
+		if(file_exists($thumbFile)){
+			$t1=filemtime($imageName);
+			$t2=filemtime($thumbFile);
+			if($t2>=$t1){
+				return $wwwFile;
+			};
+		};
+	};
 	if($fileExtension==="png"||
 	   $fileExtension==="jpg"||
 	   $fileExtension==="jpeg"

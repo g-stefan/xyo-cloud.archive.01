@@ -11,8 +11,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setApplicationIcon("media/sys/images/utilities-terminal-48.png");
 $this->setApplicationDataSource("db.table.xyo_module_parameter");
 
-$this->requireElement(array("select","text","integer","group-begin","group-end","group-row-begin","group-row-end"));
-
 $this->setDefaultAction($this->getRequest("action", "view"));
 
 $id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);

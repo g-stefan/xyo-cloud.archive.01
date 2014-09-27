@@ -12,6 +12,7 @@ if($this->id_xyo_module>0) {
 
 	foreach($this->items as $item) {
 		if(!is_null($item["name"])){
+			$this->processElement($item["type"],$item["name"],$item["parameters"]);
 			$this->ds->clear();
 			$this->ds->id_xyo_module=$this->id_xyo_module;
 			$this->ds->name=$item["name"];

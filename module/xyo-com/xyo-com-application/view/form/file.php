@@ -17,7 +17,10 @@ $this->setHtmlFooterJsSource("\$(function(){\$(\"#".$this->getElementId($element
     <label class="control-label" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
     <input type="file" class="form-control"
        name="<?php $this->eElementName($element); ?>"
-       value="<?php $this->eElementValue($element, ""); ?>"
+       value=""
        id="<?php $this->eElementId($element); ?>" ></input>
+    <input type="hidden"
+       name="<?php $this->eElementName($element); ?>_file"
+       value="<?php $this->eElementValue($element); ?>" ></input>
 </div>
 

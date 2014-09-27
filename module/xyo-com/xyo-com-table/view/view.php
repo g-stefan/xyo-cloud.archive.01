@@ -453,6 +453,17 @@ function doValueSave(key){
 	                        echo " class=\"form-control\"";
         	                echo " />";
 			}else
+			if($this->tableType[$key_][0]=="date"){
+				$format=$this->tableType[$key_][1];
+				if($format=="d-m-Y"){
+					echo substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4); 
+				}else
+				if($format=="d/m/Y"){
+					echo substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4); 
+				}else{
+					echo $value[$key_];
+				};				
+			}else
 			if($this->tableType[$key_][0]=="action"){
 				if($value["@write"]){
 					$p = "{";

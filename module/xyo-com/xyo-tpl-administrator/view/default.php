@@ -23,7 +23,7 @@ echo "<" . "?" . "xml version=\"1.0\" encoding=\"UTF-8\"" . "?" . ">\n";
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 		<div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#template-main-navbar-collapse">
 		        <span class="sr-only">Toggle navigation</span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
@@ -36,7 +36,7 @@ echo "<" . "?" . "xml version=\"1.0\" encoding=\"UTF-8\"" . "?" . ">\n";
 			    	</span>
                       </span>
 	    	</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<div class="collapse navbar-collapse" id="template-main-navbar-collapse">
 			<?php $this->execModule("xyo-mod-sys-menu", array("group" => "xyo-desktop")); ?>			
 		        <span class="nav navbar-nav navbar-right navbar-nav-span">
 				<?php $this->execGroup("xyo-status"); ?>

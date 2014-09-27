@@ -26,3 +26,5 @@ $this->installFormElement($module,"group-wide-begin");
 $this->installFormElement($module,"group-wide-end");
 $this->installFormElement($module,"text-typeahead");
 $this->installFormElement($module,"enable");
+$this->installFormElement($module,"file-image-thumbnail");
+$this->installFormElement($module,"html-file");

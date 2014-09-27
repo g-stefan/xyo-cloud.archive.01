@@ -27,7 +27,7 @@ if($this->isNew){
         return false;
     }
 <?php $this->ejsEnd(); ?>
-<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" >
+<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" enctype="multipart/form-data">
 	<?php $this->generateView($formView); ?>                    
         <input type="hidden" name="action" value="default" />
 	<input type="hidden" name="<?php $this->eElementName("id"); ?>" value="<?php echo $this->eElementValue("id", 0); ?>" />

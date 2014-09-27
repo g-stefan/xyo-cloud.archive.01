@@ -90,6 +90,11 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-jquery-stickytableheaders", "xyo-info-about", null, null, 0, true);
 	$setup->linkModuleVersion("lib-mod-jquery-stickytableheaders");
 
+	$setup->registerModule("lib", null, "lib-mod-slimbox2", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-slimbox2", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-slimbox2", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-slimbox2");
+
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource", true, false, false, null, null);
 	$setup->registerModuleAcl("xyo-mod-datasource", "xyo-none", null, null, 0, true);
