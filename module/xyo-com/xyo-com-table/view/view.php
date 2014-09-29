@@ -168,7 +168,7 @@ function doValueSave(key){
 
 <?php
 
-	echo "<div class=\"row-fluid\">";
+	echo "<div class=\"row-fluid\" style=\"margin-bottom:6px;\">";
 	echo "<div class=\"span6\">";
 	
         foreach ($this->tableSearch as $key => $value) {
@@ -217,6 +217,7 @@ function doValueSave(key){
         }
        
         echo "</div>";
+	echo "<div class=\"clearfix\"></div>";
         echo "</div>";
 
 
