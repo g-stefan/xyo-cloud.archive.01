@@ -133,7 +133,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 			$dsUserGroupXUserGroup->enabled = 1;
 
 			for ($dsUserGroupXUserGroup->load(); $dsUserGroupXUserGroup->isValid(); $dsUserGroupXUserGroup->loadNext()) {
-				$listUserGroup[$dsUserGroupXUserGroup->id] = $dsUserGroupXUserGroup->id;
+				$listUserGroup[$dsUserGroupXUserGroup->id_xyo_user_group] = $dsUserGroupXUserGroup->id_xyo_user_group;
 			}
 		}
 
