@@ -25,9 +25,6 @@ if ($layer === "postgresql") {
 } else
 if ($layer === "sqlite") {
     $moduleName = "xyo-mod-datasource-sqlite";
-} else
-if ($layer === "sqlite3") {
-    $moduleName = "xyo-mod-datasource-sqlite3";
 } else {
     $this->setError("error", array("unknown_layer" => $layer));
     return;

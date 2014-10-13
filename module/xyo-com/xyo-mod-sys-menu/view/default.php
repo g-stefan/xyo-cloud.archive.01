@@ -118,3 +118,4 @@ if (count($this->menu)) {
     xyo_mod_sys_menu__generate($this->menu, 0);
     echo "</ul>";
 };
+

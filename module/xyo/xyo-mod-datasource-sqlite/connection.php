@@ -10,304 +10,360 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 class xyo_mod_datasource_sqlite_Connection {
 
-    var $db;
-    var $debug;
-    var $log;
-    var $cloud;
-    var $module;
-    var $name;
-    var $database;
-    var $mode;
+	var $db;
+	var $debug;
+	var $log;
+	var $cloud;
+	var $module;
+	var $name;
+	var $database;
+	var $mode;
 
-    function __construct(&$cloud, &$module, $name, $database, $mode) {
-        $this->cloud = &$cloud;
-        $this->module = &$module;
-        $this->name = $name;
-        $this->database = $database;
-        $this->mode = $mode;
+	function __construct(&$cloud, &$module, $name, $database, $mode) {
+		$this->cloud = &$cloud;
+		$this->module = &$module;
+		$this->name = $name;
+		$this->database = $database;
+		$this->mode = $mode;
 
-        $this->db = null;
-        $this->debug = false;
-        $this->log = false;
-    }
+		$this->db = null;
+		$this->debug = false;
+		$this->log = false;
+	}
 
-    function setLog($log) {
-        $this->log = $log;
-    }
+	function setLog($log) {
+		$this->log = $log;
+	}
 
-    function setDebug($debug) {
-        $this->debug = $debug;
-    }
+	function setDebug($debug) {
+		$this->debug = $debug;
+	}
 
-    function getDateNow() {
-        return date("Y-m-d H:i:s");
-    }
+	function getDateNow() {
+		return date("Y-m-d H:i:s");
+	}
 
-    function debug() {
-        if ($this->debug) {
-            if (sqlite_last_error($this->db) != 0) {
-                echo sqlite_last_error($this->db) . ": " . sqlite_error_string(sqlite_last_error($this->db)) . "\n";
-            };
-        };
-    }
+	function debug() {
+		if ($this->debug) {
+			if ($this->db->lastErrorCode() != 0) {
+				echo $this->db->lastErrorCode() . ": " . $this->db->lastErrorMsg() . "\n";
+			};
+		};
+	}
 
-    function debug2($query) {
-        if ($this->debug) {
-            if (sqlite_last_error($this->db) != 0) {
-                echo "on:" . $query . "\n";
-                echo sqlite_last_error($this->db) . ": " . sqlite_error_string(sqlite_last_error($this->db)) . "\n";
-            };
-        };
-    }
+	function debug2($query) {
+		if ($this->debug) {
+			if ($this->db->lastErrorCode() != 0) {
+				echo "on:" . $query . "\n";
+				echo $this->db->lastErrorCode() . ": " . $this->db->lastErrorMsg() . "\n";
+			};
+		};
+	}
 
-    function open() {
-        if ($this->db)
-            return true;
-        $this->db = sqlite_open($this->database, $this->mode, $error);
-        if (!$this->db) {
-            $this->db = null;
-            return false;
-        };
-        return true;
-    }
+	function open() {
+		if ($this->db) {
+			return true;
+		}
+		try {
+			$this->db = new SQLite3($this->database);
+		} catch(Exception $e) {
+			$this->db = null;
+			return false;
+		};
+		return true;
+	}
 
-    function close() {
-        if ($this->db) {
-            sqlite_close($this->db);
-            $this->db = null;
-        }
-    }
+	function close() {
+		if ($this->db) {
+			$this->db->close();
+			$this->db = null;
+		}
+	}
 
-    function sqliteQuery_($query) {
-        if ($this->log) {
+	function sqliteQuery_($query) {
+		if ($this->log) {
 
-            $retV = sqlite_unbuffered_query($this->db, $query);
+			$retV = $this->db->query($query);
 
-            $fs = fopen($this->cloud->get("path_log") . "sqlite." . $this->name . ".log", "ab");
-            if ($fs) {
-                fwrite($fs, date("Y-m-d H:i:s") . "\n");
-                fwrite($fs, $query);
-                fwrite($fs, "\n");
-                if ($retV) {
-                    fwrite($fs, "Ok\n");
-                } else {
-                    fwrite($fs, "Fail\n");
-                };
-                fwrite($fs, "\n");
-                fclose($fs);
-            };
+			$fs = fopen($this->cloud->get("path_log") . "sqlite." . $this->name . ".log", "ab");
+			if ($fs) {
+				fwrite($fs, date("Y-m-d H:i:s") . "\n");
+				fwrite($fs, $query);
+				fwrite($fs, "\n");
+				if ($retV) {
+					fwrite($fs, "Ok\n");
+				} else {
+					fwrite($fs, "Fail\n");
+				};
+				fwrite($fs, "\n");
+				fclose($fs);
+			};
 
-            return $retV;
-        };
-        return sqlite_unbuffered_query($this->db, $query);
-    }
+			return $retV;
+		};
+		return $this->db->query($query);
+	}
 
-    function queryDirect($query) {
-        $result = $this->sqliteQuery_($query);
-        if (!$result) {
-            $this->debug2($query);
-            $result = null;
-        };
-        return $result;
-    }
+	function sqliteQuerySingle_($query) {
+		if ($this->log) {
 
-    function queryDirect2($query) {
-        return sqlite_unbuffered_query($this->db, $query);
-    }
+			$retV = $this->db->querySingle($query);
 
-    function query($query) {
-        $query = $this->parseQuery($query);
-        if ($query) {
-            return $this->queryDirect($query);
-        };
-        return null;
-    }
+			$fs = fopen($this->cloud->get("path_log") . "sqlite." . $this->name . ".log", "ab");
+			if ($fs) {
+				fwrite($fs, date("Y-m-d H:i:s") . "\n");
+				fwrite($fs, $query);
+				fwrite($fs, "\n");
+				if ($retV) {
+					fwrite($fs, "Ok\n");
+				} else {
+					fwrite($fs, "Fail\n");
+				};
+				fwrite($fs, "\n");
+				fclose($fs);
+			};
 
-    function safeTypeValue($type_, $value_) {
-        if ($type_ == "int") {
-            if (strcmp($value_, "DEFAULT") == 0)
-                return "NULL";
-            return $this->safeValue(1 * $value_);
-        }else
-        if ($type_ == "float") {
-            if (strcmp($value_, "DEFAULT") == 0)
-                return "NULL";
-            return $this->safeValue(1 * $value_);
-        }else
-        if ($type_ == "text") {
-            if (is_null($value_)) {
-                return "NULL";
-            };
-            return "'" . $this->safeValue($value_) . "'";
-        } else
-        if ($type_ == "varchar") {
-            if (is_null($value_)) {
-                return "NULL";
-            };
-            return "'" . $this->safeValue($value_) . "'";
-        } else
-        if ($type_ == "date") {
-            if (is_null($value_)) {
-                return "NULL";
-            };
-            if ($value_ == "NOW") {
-                return "TIME('NOW','localtime')";
-            };
-            return "'" . $this->safeValue($value_) . "'";
-        } else
-        if ($type_ == "time") {
-            if (is_null($value_)) {
-                return "NULL";
-            };
-            if ($value_ == "NOW") {
-                return "DATE('NOW','localtime')";
-            };
-            return "'" . $this->safeValue($value_) . "'";
-        } else
-        if ($type_ == "datetime") {
-            if (is_null($value_)) {
-                return "NULL";
-            };
-            if ($value_ == "NOW") {
-                return "DATETIME('NOW','localtime')";
-            };
-            return "'" . $this->safeValue($value_) . "'";
-        };
-        return null;
-    }
+			return $retV;
+		};
+		return $this->db->querySingle($query);
+	}
 
-    function safeTypeValueSourceCode($type_, $value_) {
-        if ($type_ == "int") {
-            if (strcmp($value_, "DEFAULT") == 0)
-                return "\"DEFAULT\"";
-            return 1 * $value_;
-        }else
-        if ($type_ == "text") {
-            if (is_null($value_)) {
-                return "null";
-            };
-            return "\"" . addslashes($value_) . "\"";
-        } else
-        if ($type_ == "date") {
-            if (is_null($value_)) {
-                return "null";
-            };
-            if ($value_ == "NOW") {
-                return "\"NOW\"";
-            };
-            return "\"" . addslashes($value_) . "\"";
-        } else
-        if ($type_ == "datetime") {
-            if (is_null($value_)) {
-                return "null";
-            };
-            if ($value_ == "NOW") {
-                return "\"NOW\"";
-            };
-            return "\"" . addslashes($value_) . "\"";
-        };
-        return null;
-    }
+	function queryDirect($query) {
+		$result = $this->sqliteQuery_($query);
+		if (!$result) {
+			$this->debug2($query);
+			$result = null;
+		};
+		return $result;
+	}
 
-    function safeDefaultEmptyValue($type_) {
-        if ($this->fieldType_[$type_] == "int") {
-            return 0;
-        }else
-            return null;
-    }
+	function queryDirectSingle($query) {
+		$result = $this->sqliteQuerySingle_($query);
+		if (!$result) {
+			$this->debug2($query);
+			$result = null;
+		};
+		return $result;
+	}
 
-    function queryValue($query, $default_=null) {
-        $result = $this->query($query);
-        if ($result) {
-            if (sqlite_valid($result)) {
-                return sqlite_fetch_single($result);
-            };
-        };
-        return $default_;
-    }
 
-    function queryValueDefaultDirect($query, $default_) {
-        $result = $this->sqliteQuery_($query);
-        if (!$result) {
-            $this->debug2($query);
-            return $default_;
-        };
-        if (sqlite_valid($result)) {
-            return sqlite_fetch_single($result);
-        };
-        return $default_;
-    }
+	function queryDirect2($query) {
+		return $this->db->query($query);
+	}
 
-    function queryAssoc($query) {
-        $result = $this->query($query);
-        if ($result) {
-            $data = sqlite_fetch_array($result, SQLITE_ASSOC);
-            if ($data) {
-                return $data;
-            };
-        };
-        return false;
-    }
+	function queryDirect2Single($query) {
+		return $this->db->querySingle($query);
+	}
 
-    function parseQuery($query) {
-        // extract #(name),check,replace #(name) with `table`
-        $allOk = true;
-        $replaceSource = array();
-        $replaceDestination = array();
-        $regex_pattern = "/#\(`([^`\)]*)`\)/";
-        if (preg_match_all($regex_pattern, $query, $matches) >= 1) {
-            foreach ($matches[1] as $match) {
-                $table = $this->module->getDataSourceParameter($this->name . ".table." . $match);
-                if ($table) {
-                    $replaceSource[] = "#(`" . $match . "`)";
-                    $replaceDestination[] = $table;
-                } else {
-                    $allOk = false;
-                    break;
-                };
-            };
-            if ($allOk) {
-                return str_replace($replaceSource, $replaceDestination, $query);
-            };
-        } else {
-            return $query;
-        };
-        return false;
-    }
 
-    function safeQuery($query, $params) {
-        // extract @(name),check,replace @(name) with safe `value`
-        $allOk = true;
-        $replaceSource = array();
-        $replaceDestination = array();
-        $regex_pattern = "/@\(`([^`\)]*)`\)/";
-        if (preg_match_all($regex_pattern, $query, $matches) >= 1) {
-            foreach ($matches[1] as $match) {
-                $value = array_key_exists($match, $params);
-                if ($value) {
-                    $replaceSource[] = "@(`" . $match . "`)";
-                    $replaceDestination[] = $this->safeValue($params[$match]);
-                } else {
-                    $allOk = false;
-                    break;
-                };
-            };
-            if ($allOk) {
-                return $this->parseQuery(str_replace($replaceSource, $replaceDestination, $query));
-            };
-        } else {
-            return $this->parseQuery($query);
-        };
-        return false;
-    }
+	function query($query) {
+		$query = $this->parseQuery($query);
+		if ($query) {
+			return $this->queryDirect($query);
+		};
+		return null;
+	}
 
-    function safeValue($value) {
-        return sqlite_escape_string($value);
-    }
+	function querySingle($query) {
+		$query = $this->parseQuery($query);
+		if ($query) {
+			return $this->queryDirectSingle($query);
+		};
+		return null;
+	}
 
-    function safeLikeValue($value) {
-        return sqlite_escape_string($value);
-    }
+
+	function safeTypeValue($type_, $value_) {
+		if ($type_ == "int") {
+			if (strcmp($value_, "DEFAULT") == 0) {
+				return "NULL";
+			}
+			return $this->safeValue(1 * $value_);
+		} else if ($type_ == "bigint") {
+			if (strcmp($value_, "DEFAULT") == 0) {
+				return "NULL";
+			}
+			return $this->safeValue(1 * $value_);
+		} else if ($type_ == "float") {
+			if (strcmp($value_, "DEFAULT") == 0) {
+				return "NULL";
+			}
+			return $this->safeValue(1 * $value_);
+		} else if ($type_ == "text") {
+			if (is_null($value_)) {
+				return "NULL";
+			};
+			return "'" . $this->safeValue($value_) . "'";
+		} else if ($type_ == "varchar") {
+			if (is_null($value_)) {
+				return "NULL";
+			};
+			return "'" . $this->safeValue($value_) . "'";
+		} else if ($type_ == "date") {
+			if (is_null($value_)) {
+				return "NULL";
+			};
+			if ($value_ == "NOW") {
+				return "TIME('NOW','localtime')";
+			};
+			return "'" . $this->safeValue($value_) . "'";
+		} else if ($type_ == "time") {
+			if (is_null($value_)) {
+				return "NULL";
+			};
+			if ($value_ == "NOW") {
+				return "DATE('NOW','localtime')";
+			};
+			return "'" . $this->safeValue($value_) . "'";
+		} else if ($type_ == "datetime") {
+			if (is_null($value_)) {
+				return "NULL";
+			};
+			if ($value_ == "NOW") {
+				return "DATETIME('NOW','localtime')";
+			};
+			return "'" . $this->safeValue($value_) . "'";
+		};
+		return null;
+	}
+
+	function safeTypeValueSourceCode($type_, $value_) {
+		if ($type_ == "int") {
+			if (strcmp($value_, "DEFAULT") == 0) {
+				return "\"DEFAULT\"";
+			}
+			return 1 * $value_;
+		} else if ($type_ == "bigint") {
+			if (strcmp($value_, "DEFAULT") == 0) {
+				return "\"DEFAULT\"";
+			}
+			return 1 * $value_;
+		} else if ($type_ == "float") {
+			if (strcmp($value_, "DEFAULT") == 0) {
+				return "\"DEFAULT\"";
+			}
+			return 1 * $value_;
+		} else if ($type_ == "text") {
+			if (is_null($value_)) {
+				return "null";
+			};
+			return "\"" . addslashes($value_) . "\"";
+		} else if ($type_ == "date") {
+			if (is_null($value_)) {
+				return "null";
+			};
+			if ($value_ == "NOW") {
+				return "\"NOW\"";
+			};
+			return "\"" . addslashes($value_) . "\"";
+		} else if ($type_ == "datetime") {
+			if (is_null($value_)) {
+				return "null";
+			};
+			if ($value_ == "NOW") {
+				return "\"NOW\"";
+			};
+			return "\"" . addslashes($value_) . "\"";
+		};
+		return null;
+	}
+
+	function safeDefaultEmptyValue($type_) {
+		if (($this->fieldType_[$type_] == "int")||
+			($this->fieldType_[$type_] == "bigint")) {
+			return 0;
+		} else {
+			return null;
+		}
+	}
+
+	function queryValue($query, $default_=null) {
+		$result = $this->querySingle($query);
+		if ($result) {
+			return $result;
+		};
+		return $default_;
+	}
+
+	function queryValueDefaultDirect($query, $default_) {
+		$result = $this->sqliteQuerySingle_($query);
+		if (!$result) {
+			$this->debug2($query);
+			return $default_;
+		};
+		return $result;
+	}
+
+	function queryAssoc($query) {
+		$result = $this->query($query);
+		if ($result) {
+			$data = $result->fetchArray(SQLITE3_ASSOC);
+			if ($data) {
+				return $data;
+			};
+		};
+		return false;
+	}
+
+	function parseQuery($query) {
+		// extract #(name),check,replace #(name) with `table`
+		$allOk = true;
+		$replaceSource = array();
+		$replaceDestination = array();
+		$regex_pattern = "/#\(`([^`\)]*)`\)/";
+		if (preg_match_all($regex_pattern, $query, $matches) >= 1) {
+			foreach ($matches[1] as $match) {
+				$table = $this->module->getDataSourceParameter($this->name . ".table." . $match);
+				if ($table) {
+					$replaceSource[] = "#(`" . $match . "`)";
+					$replaceDestination[] = $table;
+				} else {
+					$allOk = false;
+					break;
+				};
+			};
+			if ($allOk) {
+				return str_replace($replaceSource, $replaceDestination, $query);
+			};
+		} else {
+			return $query;
+		};
+		return false;
+	}
+
+	function safeQuery($query, $params) {
+		// extract @(name),check,replace @(name) with safe `value`
+		$allOk = true;
+		$replaceSource = array();
+		$replaceDestination = array();
+		$regex_pattern = "/@\(`([^`\)]*)`\)/";
+		if (preg_match_all($regex_pattern, $query, $matches) >= 1) {
+			foreach ($matches[1] as $match) {
+				$value = array_key_exists($match, $params);
+				if ($value) {
+					$replaceSource[] = "@(`" . $match . "`)";
+					$replaceDestination[] = $this->safeValue($params[$match]);
+				} else {
+					$allOk = false;
+					break;
+				};
+			};
+			if ($allOk) {
+				return $this->parseQuery(str_replace($replaceSource, $replaceDestination, $query));
+			};
+		} else {
+			return $this->parseQuery($query);
+		};
+		return false;
+	}
+
+	function safeValue($value) {
+		return SQLite3::escapeString($value);
+	}
+
+	function safeLikeValue($value) {
+		return SQLite3::escapeString($value);
+	}
 
 }
 

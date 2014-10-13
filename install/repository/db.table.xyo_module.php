@@ -95,6 +95,16 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-slimbox2", "xyo-info-about", null, null, 0, true);
 	$setup->linkModuleVersion("lib-mod-slimbox2");
 
+	$setup->registerModule("lib", null, "lib-mod-bootstrap-back-to-top", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-bootstrap-back-to-top", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-bootstrap-back-to-top", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-bootstrap-back-to-top");
+
+	$setup->registerModule("lib", null, "lib-mod-jquery-cookie", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-jquery-cookie", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-jquery-cookie", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-jquery-cookie");
+
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource", true, false, false, null, null);
 	$setup->registerModuleAcl("xyo-mod-datasource", "xyo-none", null, null, 0, true);
@@ -111,10 +121,6 @@ if ($setup) {
 	$setup->registerModule("xyo", null, "xyo-mod-datasource-sqlite", true, false, false, null, null);
 	$setup->registerModuleAcl("xyo-mod-datasource-sqlite", "xyo-none", null, null, 0, true);
 	$setup->linkModuleVersion("xyo-mod-datasource-sqlite");
-
-	$setup->registerModule("xyo", null, "xyo-mod-datasource-sqlite3", true, false, false, null, null);
-	$setup->registerModuleAcl("xyo-mod-datasource-sqlite3", "xyo-none", null, null, 0, true);
-	$setup->linkModuleVersion("xyo-mod-datasource-sqlite3");
 
 	$setup->registerModule("xyo", null, "xyo-mod-datasource-xyo", true, false, false, null, null);
 	$setup->registerModuleAcl("xyo-mod-datasource-xyo", "xyo-none", null, null, 0, true);

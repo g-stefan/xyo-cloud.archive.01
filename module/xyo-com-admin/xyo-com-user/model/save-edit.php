@@ -118,10 +118,26 @@ if ($this->ds->save()) {
                 
             } else {
                 $this->setError("error", "err_new_user_x_user_group_save_error");
-            }
+            };
         } else {
             $this->setError("error", array("err_datasource_not_found" => "db.table.xyo_user_x_user_group"));
-        }
+        };
+
+        $dsUserXCore = &$this->getDataSource("db.table.xyo_user_x_core");
+        if ($dsUserXCore) {
+            $dsUserXCore->clear();
+            $dsUserXCore->id_xyo_user = $this->ds->id;
+            $dsUserXCore->id_xyo_core = 0; // initially any core
+            $dsUserXCore->enabled = 1;
+            if ($dsUserXCore->save()) {
+                
+            } else {
+                $this->setError("error", "err_new_user_x_core_save_error");
+            };
+        } else {
+            $this->setError("error", array("err_datasource_not_found" => "db.table.xyo_user_x_core"));
+        };
+
     }
     
     if($this->ds->id==$this->user->info->id){

@@ -50,8 +50,8 @@ class xyo_mod_sys_Menu extends xyo_mod_Application {
     public function addModule(&$menu, $module) {
         $path = $this->cloud->getModulePath($module);
         if ($path) {
-            $this->loadLanguageFromPathDirect($path . "sys/menu/language/",$this->getSystemLanguage());
-            $file = $path . "sys/menu/menu.php";
+            $this->loadLanguageFromPathDirect($path . "sys/language/",$this->getSystemLanguage());
+            $file = $path . "sys/menu.php";
             if (file_exists($file)) {
                 include($file);
             } else {

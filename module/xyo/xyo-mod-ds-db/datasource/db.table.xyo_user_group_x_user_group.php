@@ -11,8 +11,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->set("table_primary_key", "id");
 
 $this->set("table_item", array(
-		   "id" => array("int","DEFAULT","unsigned","auto_increment"),
-		   "id_xyo_user_group_super" => array("int",0,"unsigned"),
-		   "id_xyo_user_group" => array("int",0,"unsigned"),
+		   "id" => array("bigint","DEFAULT","unsigned","auto_increment"),
+		   "id_xyo_user_group_super" => array("bigint",0,"unsigned"),
+		   "id_xyo_user_group" => array("bigint",0,"unsigned"),
 		   "enabled" => array("int",0,"unsigned")
 	   ));

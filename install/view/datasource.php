@@ -13,7 +13,6 @@ $layerList = array(
 	"xyo",
 	"csv",
 	"sqlite",
-	"sqlite3",
 	"mysql",
 	"postgresql"
 );

@@ -637,7 +637,11 @@ foreach($this->tableType as $key_=>$value_){
 
 	$this->setHtmlFooterJsSource(
 		"$(document).ready(function() {".
-		"$(\"#com_table\").stickyTableHeaders();".
+			"if($('#template-navbar-fixed-top').length){".
+				"$(\"#com_table\").stickyTableHeaders({fixedOffset: $('#template-navbar-fixed-top').height()});".
+			"}else{".
+				"$(\"#com_table\").stickyTableHeaders();".
+			"}".
 		"})"	
 	);
 

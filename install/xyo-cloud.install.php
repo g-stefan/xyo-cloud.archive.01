@@ -34,7 +34,6 @@ $this->setModule("xyo", null, "xyo-mod-datasource", true,null,false,true,false);
 $this->setModule("xyo", null, "xyo-mod-datasource-xyo", true,null,false,true,false);
 $this->setModule("xyo", null, "xyo-mod-datasource-csv", true,null,false,true,false);
 $this->setModule("xyo", null, "xyo-mod-datasource-sqlite", true,null,false,true,false);
-$this->setModule("xyo", null, "xyo-mod-datasource-sqlite3", true,null,false,true,false);
 $this->setModule("xyo", null, "xyo-mod-datasource-mysql", true,null,false,true,false);
 $this->setModule("xyo", null, "xyo-mod-datasource-postgresql", true,null,false,true,false);
 //

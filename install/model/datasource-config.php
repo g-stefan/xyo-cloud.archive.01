@@ -27,9 +27,6 @@ if ($layer === "postgresql") {
 } else
 if ($layer === "sqlite") {
     $moduleName = "xyo-mod-datasource-sqlite";
-} else
-if ($layer === "sqlite3") {
-    $moduleName = "xyo-mod-datasource-sqlite3";
 } else {
     $this->setError("error", array("unknown_layer" => $layer));
     return;
@@ -109,15 +106,6 @@ if ($fileHandle) {
         fwrite($fileHandle, "\$this->setConnection(\"db\"," .
                 "\$this->cloud->get(\"path_base_absolute\")" .
                 ".\"repository/datasource/db." . md5(date("l jS \of F Y h:i:s A")) . ".sqlite\",0666);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(\"db\",\"debug\"," .
-                "true);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(\"db\",\"log\"," .
-                "false);\r\n");
-    } else
-    if ($layer === "sqlite3") {
-        fwrite($fileHandle, "\$this->setConnection(\"db\"," .
-                "\$this->cloud->get(\"path_base_absolute\")" .
-                ".\"repository/datasource/db." . md5(date("l jS \of F Y h:i:s A")) . ".sqlite3\",0666);\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(\"db\",\"debug\"," .
                 "true);\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(\"db\",\"log\"," .

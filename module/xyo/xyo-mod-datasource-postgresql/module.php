@@ -15,142 +15,140 @@ $className = "xyo_mod_datasource_PostgreSql";
 
 class xyo_mod_datasource_PostgreSql extends xyo_Module {
 
-    var $ds;
-    var $connectionList_;
-    var $dataSourceList_;
+	var $ds;
+	var $connectionList_;
+	var $dataSourceList_;
 
-    function __construct(&$object, &$cloud) {
-        parent::__construct($object, $cloud);
+	function __construct(&$object, &$cloud) {
+		parent::__construct($object, $cloud);
 
-        $this->ds = &$this->cloud->getModule("xyo-mod-datasource");
-        if ($this->ds) {
-        } else {
-            $this->moduleDisable();
-            return;
-        };
+		$this->ds = &$this->cloud->getModule("xyo-mod-datasource");
+		if ($this->ds) {
+		} else {
+			$this->moduleDisable();
+			return;
+		};
 
-        if ($this->isBase("xyo_mod_datasource_PostgreSql")) {
+		if ($this->isBase("xyo_mod_datasource_PostgreSql")) {
 
-            require_once($this->path . "connection.php");
-            require_once($this->path . "table.php");
-            require_once($this->path . "query.php");
-        }
+			require_once($this->path . "connection.php");
+			require_once($this->path . "table.php");
+			require_once($this->path . "query.php");
+		}
 
-        $this->connectionList_ = array();
-        $this->dataSourceList_ = array();
+		$this->connectionList_ = array();
+		$this->dataSourceList_ = array();
 
-    }
+	}
 
-    function setConnection($name, $user, $password, $server, $port, $database, $prefix) {
-        $this->connectionList_[$name] = new xyo_mod_datasource_postgresql_Connection($this->cloud, $this, $name, $user, $password, $server, $port, $database, $prefix);
-    }
+	function setConnection($name, $user, $password, $server, $port, $database, $prefix) {
+		$this->connectionList_[$name] = new xyo_mod_datasource_postgresql_Connection($this->cloud, $this, $name, $user, $password, $server, $port, $database, $prefix);
+	}
 
-    function setConnectionOption($name, $option, $value) {
-        $v_ = &$this->getConnection($name);
-        if ($v_) {
-            if (strcmp($option, "debug") == 0) {
-                $v_->setDebug($value);
-            } else
-            if (strcmp($option, "log") == 0) {
-                $v_->setLog($value);
-            };
-        };
-    }
+	function setConnectionOption($name, $option, $value) {
+		$v_ = &$this->getConnection($name);
+		if ($v_) {
+			if (strcmp($option, "debug") == 0) {
+				$v_->setDebug($value);
+			} else if (strcmp($option, "log") == 0) {
+				$v_->setLog($value);
+			};
+		};
+	}
 
-    function getLayer() {
-        return "postgresql";
-    }
+	function getLayer() {
+		return "postgresql";
+	}
 
-    function setDataSourceDescriptor($name, $descriptor) {
-        $this->dataSourceList_[$name] = $descriptor;
-    }
+	function setDataSourceDescriptor($name, $descriptor) {
+		$this->dataSourceList_[$name] = $descriptor;
+	}
 
-    function getDataSourceList() {
-        return array_keys($this->dataSourceList_);
-    }
+	function getDataSourceList() {
+		return array_keys($this->dataSourceList_);
+	}
 
-    function getDataSourceParameter($name) {
-        if (array_key_exists($name, $this->dataSourceList_)) {
-            return $this->dataSourceList_[$name][1];
-        };
-        return null;
-    }
+	function getDataSourceParameter($name) {
+		if (array_key_exists($name, $this->dataSourceList_)) {
+			return $this->dataSourceList_[$name][1];
+		};
+		return null;
+	}
 
-    function &getConnection($name) {
-        $retV = null;
-        if (array_key_exists($name, $this->connectionList_)) {
-            $retV = $this->connectionList_[$name];
-        };
-        return $retV;
-    }
+	function &getConnection($name) {
+		$retV = null;
+		if (array_key_exists($name, $this->connectionList_)) {
+			$retV = $this->connectionList_[$name];
+		};
+		return $retV;
+	}
 
-    function &getDataSource($name, $as_=null) { // postgresql.connexion_name.table/query.name
-        $v_ = null;
-        $matches = array();
-        if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
-            if (count($matches) > 3) {
+	function &getDataSource($name, $as_=null) { // postgresql.connexion_name.table/query.name
+		$v_ = null;
+		$matches = array();
+		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
+			if (count($matches) > 3) {
 
 				if (array_key_exists($matches[1], $this->connectionList_)) {
-				}else{
+				} else {
 					$this->includeConfig("config.ds.".$matches[1]);
 				};
 
 
-                if (array_key_exists($matches[1], $this->connectionList_)) {
-                    if (array_key_exists($name, $this->dataSourceList_)) {
-                        if ($this->dataSourceList_[$name]) {
+				if (array_key_exists($matches[1], $this->connectionList_)) {
+					if (array_key_exists($name, $this->dataSourceList_)) {
+						if ($this->dataSourceList_[$name]) {
 
-                            if (strcmp($matches[2], "table") == 0) {
-                                if ($this->connectionList_[$matches[1]]->open()) {
+							if (strcmp($matches[2], "table") == 0) {
+								if ($this->connectionList_[$matches[1]]->open()) {
 
 
-                                    $v_ = new xyo_mod_datasource_postgresql_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-                                    if ($v_->isOk()) {
-                                        
-                                    } else {
-                                        $v_ = null;
-                                    };
-                                };
-                            } else
-                            if (strcmp($matches[2], "query") == 0) {
-                                if ($this->connectionList_[$matches[1]]->open()) {
+									$v_ = new xyo_mod_datasource_postgresql_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
+									if ($v_->isOk()) {
 
-                                    $v_ = new xyo_mod_datasource_postgresql_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-                                    if ($v_->isOk()) {
-                                        
-                                    } else {
-                                        $v_ = null;
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        };
-        return $v_;
-    }
+									} else {
+										$v_ = null;
+									};
+								};
+							} else if (strcmp($matches[2], "query") == 0) {
+								if ($this->connectionList_[$matches[1]]->open()) {
 
-    function setModuleDataSource($module, $name) {
-        $descriptor = $this->cloud->get("path_base") . "datasource/" . $name . ".php";
-        if (file_exists($descriptor)) {
-            
-        } else {
-            $descriptor = $this->cloud->getModulePath($module);
-            if ($descriptor) {
-                $descriptor.="datasource/" . $name . ".php";
-                if (file_exists($descriptor)) {
-                    
-                } else {
-                    return false;
-                }
-            }
-        }
+									$v_ = new xyo_mod_datasource_postgresql_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
+									if ($v_->isOk()) {
 
-        $this->ds->setDataSourceDescriptor($name, $descriptor);
-        $this->setDataSourceDescriptor($name, $descriptor);
-        return true;
-    }
+									} else {
+										$v_ = null;
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+		return $v_;
+	}
+
+	function setModuleDataSource($module, $name) {
+		$descriptor = $this->cloud->get("path_base") . "datasource/" . $name . ".php";
+		if (file_exists($descriptor)) {
+
+		} else {
+			$descriptor = $this->cloud->getModulePath($module);
+			if ($descriptor) {
+				$descriptor.="datasource/" . $name . ".php";
+				if (file_exists($descriptor)) {
+
+				} else {
+					return false;
+				}
+			}
+		}
+
+		$this->ds->setDataSourceDescriptor($name, $descriptor);
+		$this->setDataSourceDescriptor($name, $descriptor);
+		return true;
+	}
 
 }
 

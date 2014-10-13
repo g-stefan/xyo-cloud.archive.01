@@ -10,20 +10,20 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 class xyo_mod_datasource_quantum_Connection {
 
-    var $module;
-    var $name;
+	var $module;
+	var $name;
 
-    function __construct(&$module, $name) {
-        $this->module = &$module;
-        $this->name = $name;       
-    }
+	function __construct(&$module, $name) {
+		$this->module = &$module;
+		$this->name = $name;
+	}
 
-    function open() {
-		return true;        
-    }
+	function open() {
+		return true;
+	}
 
-    function close() {
-        
-    }
+	function close() {
+
+	}
 
 };

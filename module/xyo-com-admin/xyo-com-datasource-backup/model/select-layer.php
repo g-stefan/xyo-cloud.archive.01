@@ -12,7 +12,6 @@ $list_layer = array(
 	"xyo"=>"xyo",
 	"csv"=>"csv",
 	"sqlite"=>"sqlite",
-	"sqlite3"=>"sqlite3",
 	"mysql"=>"mysql",
 	"postgresql"=>"postgresql"
 );

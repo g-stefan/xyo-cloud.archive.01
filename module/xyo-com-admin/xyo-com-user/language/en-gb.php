@@ -54,6 +54,7 @@ $this->set("err_new_user_x_user_group_save_error", "Unable to save user default 
 $this->set("err_logout_this_user", "Can't logout yourself using that");
 $this->set("err_delete_this_user", "Can't delete yourself");
 $this->set("err_id_user_not_found", "User id not found");
+$this->set("err_new_user_x_core_save_error","Unable to save user default core");
 
 $this->set("info_logout_ok", "Logout successfully");
 

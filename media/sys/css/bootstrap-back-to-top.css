@@ -1,0 +1,22 @@
+/*
+This is free and unencumbered software released into the public domain.
+http://unlicense.org/
+*/
+
+/* Scroll to top */
+#top-link-block{
+	z-index:4;
+}
+
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px; /* negative of the offset - height of link element */
+    right: 10px; /* padding from the right side of the window */
+}
+
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 18px; /* height of link element */
+    right: 10px; /* padding from the right side of the window */
+}
+

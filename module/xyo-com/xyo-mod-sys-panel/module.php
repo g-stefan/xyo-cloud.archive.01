@@ -57,8 +57,8 @@ class xyo_mod_sys_Panel extends xyo_mod_Application {
     public function addModule($module) {
         $path = $this->cloud->getModulePath($module);
         if ($path) {
-            $this->loadLanguageFromPathDirect($path . "sys/panel/language/", $this->getSystemLanguage());
-            $file = $path . "sys/panel/panel.php";
+            $this->loadLanguageFromPathDirect($path . "sys/language/", $this->getSystemLanguage());
+            $file = $path . "sys/panel.php";
             if (file_exists($file)) {
                 include($file);
             } else {

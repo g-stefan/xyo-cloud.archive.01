@@ -26,10 +26,10 @@ if(strlen($fileName)){
 };
 
 if(strlen($fileName)==0){
-	$fileName="<i class=\"glyphicon glyphicon-picture\" style=\"color:#ddd;width:".$thumbSize[0]."px;font-size:".((int)$thumbSize[0]/2)."px;line-height:".(((int)$thumbSize[0]/2)+18)."px;\"></i></div>";
+	$fileName="<i class=\"glyphicon glyphicon-picture\" style=\"color:#ddd;width:".$thumbSize[0]."px;font-size:".((int)$thumbSize[0]/2)."px;line-height:".(((int)$thumbSize[0]/2)+18)."px;\"></i>";
 };
 
-$fileNameNone="<i class=\\'glyphicon glyphicon-picture\\' style=\\'color:#ddd;width:".$thumbSize[0]."px;font-size:".((int)$thumbSize[0]/2)."px;line-height:".(((int)$thumbSize[0]/2)+18)."px;\\'></i></div>";
+$fileNameNone="<i class=\\'glyphicon glyphicon-picture\\' style=\\'color:#ddd;width:".$thumbSize[0]."px;font-size:".((int)$thumbSize[0]/2)."px;line-height:".(((int)$thumbSize[0]/2)+18)."px;\\'></i>";
 
 ?>
 <div class="form-group<?php if($this->isElementError($element)){echo " has-error";}; ?>">

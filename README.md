@@ -4,7 +4,7 @@ XYO Cloud
 MVC Framework for PHP
 
 - Object based 
-- Multiple database backends (Php, Csv, MySql, Postgresql, SQlite, SQlite3)
+- Multiple database backends (Php, Csv, MySql, Postgresql, SQlite3)
 - Active Record Pattern
 - ACL based system
 - Module management and auhorization
