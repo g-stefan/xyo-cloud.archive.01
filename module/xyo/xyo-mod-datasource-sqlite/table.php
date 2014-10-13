@@ -946,7 +946,7 @@ class xyo_mod_datasource_sqlite_Table extends xyo_Config {
 				}else
 				if (strcmp($value_, "bigint") == 0) {
 
-					$query.="[" . $key_ . "] BIGINT PRIMARY KEY ASC";
+					$query.="[" . $key_ . "] INTEGER PRIMARY KEY ASC";
 					$x = false;
 				};
 
