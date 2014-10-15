@@ -32,3 +32,32 @@
 .xyo-file-image-thumbnail-delete-sub:hover{
 	background-color:#d32;	
 }
+
+.xyo-file-image-thumbnail-toggle.collapsed .glyphicon-chevron-down {
+	display: none;
+}
+
+.xyo-file-image-thumbnail-toggle.collapsed .glyphicon-chevron-left {
+	display: inline-block;
+}
+ 
+.xyo-file-image-thumbnail-toggle .glyphicon-chevron-left {
+	display: none;
+}
+
+.xyo-file-image-thumbnail-link-on{
+	margin-right: 10px;
+}
+
+.xyo-file-image-thumbnail-link-on i{
+	color: #0C0;
+}
+
+.xyo-file-image-thumbnail-link-off{
+	margin-right: 10px;
+}
+
+.xyo-file-image-thumbnail-link-off i{
+	color: #ccc;
+}
+

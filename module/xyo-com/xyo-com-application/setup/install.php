@@ -28,3 +28,5 @@ $this->installFormElement($module,"text-typeahead");
 $this->installFormElement($module,"enable");
 $this->installFormElement($module,"file-image-thumbnail");
 $this->installFormElement($module,"html-file");
+$this->installFormElement($module,"group-box-begin");
+$this->installFormElement($module,"group-box-end");

@@ -23,7 +23,7 @@ if(strlen($fileName)){
 			};
 		}else{
 			if($extension){
-				$fileName.=".".pathinfo($_FILES[$elementName]["name"], PATHINFO_EXTENSION);
+				$fileName.=".".strtolower(pathinfo($_FILES[$elementName]["name"], PATHINFO_EXTENSION));
 			};
 			if (move_uploaded_file($_FILES[$elementName]["tmp_name"], $fileName)) {				
 				if($deleteBeforeSave){

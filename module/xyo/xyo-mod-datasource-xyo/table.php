@@ -224,6 +224,8 @@ class xyo_mod_datasource_xyo_Table extends xyo_Config {
 		$retV = new xyo_mod_datasource_xyo_Table($this->module_, $this->connection_, $this->name_, $this->datasource_, $this->descriptor_, $this->as_, false);
 		if ($retV) {
 
+			$retV->realName_ =$this->realName_;
+
 			$retV->storageHint_=$this->storageHint_;
 			$retV->fileName_ = $this->fileName_;
 
