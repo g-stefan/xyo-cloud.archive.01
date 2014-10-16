@@ -24,3 +24,8 @@ if(strlen($format)){
 		};
 	};
 };
+
+$value=$this->getElementValue($element);
+if(strlen($value)==0){
+	$this->setElementValue($element,null);	
+};
