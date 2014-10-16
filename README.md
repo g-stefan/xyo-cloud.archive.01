@@ -8,5 +8,5 @@ MVC Framework for PHP
 - Active Record Pattern
 - ACL based system
 - Module management and auhorization
-- Quantum database connector (Active Record Pattern bassed query with fields in separate tables/databases/backends or another quantum query)
+- Quantum database connector (Active Record Pattern based query with fields in separate tables/databases/backends or another quantum query)
 + jQuery, Bootstrap
