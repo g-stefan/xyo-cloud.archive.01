@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->loadModule("lib-mod-bootstrap-fileinput");
+$this->requireModule("lib-mod-bootstrap-fileinput");
 

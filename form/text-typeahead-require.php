@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->loadModule("lib-mod-jquery-tinymce");
+$this->requireModule("lib-mod-jquery-typeahead");

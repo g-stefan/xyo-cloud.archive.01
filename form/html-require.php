@@ -8,6 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->loadModule("lib-mod-bootstrap-feedback-left");
-$this->loadModule("lib-mod-fontawesome");
-
+$this->requireModule("lib-mod-jquery-tinymce");

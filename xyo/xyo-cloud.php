@@ -249,9 +249,7 @@ class xyo_Cloud extends xyo_Config {
 	public function getModulePath($module) {
 		$o = &$this->getModuleObject($module);
 		if ($o) {
-			//if($o["loaded"]){
-				return $o["path"];
-			//};
+			return $o["path"];		
 		};
 		return null;
 	}
@@ -339,6 +337,14 @@ class xyo_Cloud extends xyo_Config {
 			return $module_["enabled"];
 		}
 		return false;
+	}
+
+	public function requireModule($module) {
+		if($this->loadModule($module)){
+			
+		}else{
+			die("FATAL: Required module ".$module." not found.");
+		};
 	}
 
 	public function &getGroup($group) {
@@ -447,8 +453,6 @@ class xyo_Cloud extends xyo_Config {
 			$parameters = array();
 		}
 
-
-		//echo "SET-MODULE:".$module."::".$pathModule."<br/>";
 		$this->modules_[$module] = array();
 		$this->modules_[$module]["parent"] = $moduleParent;
 		$this->modules_[$module]["module"] = $module;

@@ -338,6 +338,10 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->loadModule($module);
 	}
 
+	public function requireModule($module) {
+		return $this->cloud->requireModule($module);
+	}
+
 	public function execModule($module, $params=null) {
 		return $this->cloud->execModule($module, $params);
 	}
