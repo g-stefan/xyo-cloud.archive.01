@@ -18,9 +18,15 @@ if($this->id_xyo_module>0) {
 			$this->ds->name=$item["name"];
 			$this->ds->tryLoad(0,1);		
 			$this->ds->value=$this->getElementValueStr($item["name"],$item["default_value"]);
+			$this->ds->enabled=1;
 			$this->ds->save();		
 		};
 	};
 
+	$dsModule=&$this->getDataSource("db.table.xyo_module");
+	$dsModule->clear();
+	$dsModule->id=$this->id_xyo_module;
+	$dsModule->parameter=1;
+	$dsModule->save();	
 };
 

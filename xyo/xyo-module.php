@@ -647,6 +647,19 @@ class xyo_Module extends xyo_Config {
 		return $default;
 	}
 
+	public function getParameterBase($name, $default=null) {
+		if (array_key_exists($name, $this->parameters_)) {
+			return $this->parameters_[$name];
+		}
+		foreach ($this->modulePathBase_ as $module_ => $path) {
+			$moduleX=&$this->getModule($module_);
+			if($moduleX->isParameter($name)){
+				return $moduleX->getParameter($name,$default);
+			};			
+		};	
+		return $default;
+	}
+
 	public function returnParameter($name, $value) {
 		$this->returnParameters_[$name] = $value;
 		$this->parameters_[$name] = $value;

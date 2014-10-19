@@ -191,6 +191,11 @@ if ($setup) {
 	$setup->registerModuleAcl("xyo-tpl-administrator", "xyo-template", "administrator", null, 0, true);
 	$setup->selectMouleAclAsTemplate("xyo-tpl-administrator","administrator", null);
 
+	$setup->registerModule("xyo-com", null, "xyo-tpl-administrator-dashboard", true, false, false, null, null);
+	$setup->linkModuleVersion("xyo-tpl-administrator-dashboard");
+	$setup->registerModuleAcl("xyo-tpl-administrator-dashboard", "xyo-template", "administrator", null, 0, true);
+	$setup->selectMouleAclAsTemplate("xyo-tpl-administrator-dashboard","administrator", null);
+
 	$setup->registerModule("xyo-com", null, "xyo-tpl-public", true, false, false, null, null);
 	$setup->linkModuleVersion("xyo-tpl-public");
 	$setup->registerModuleAcl("xyo-tpl-public", "xyo-template", "public", null, 0, true);
@@ -207,6 +212,10 @@ if ($setup) {
 	$setup->registerModule("xyo-com", null, "xyo-mod-sys-panel", true, false, false, null, null);
 	$setup->registerModuleAcl("xyo-mod-sys-panel", "xyo-none", null, null, 0, true);
 	$setup->linkModuleVersion("xyo-mod-sys-panel");
+
+	$setup->registerModule("xyo-com", null, "xyo-mod-sys-sidebar", true, false, false, null, null);
+	$setup->registerModuleAcl("xyo-mod-sys-sidebar", "xyo-none", null, null, 0, true);
+	$setup->linkModuleVersion("xyo-mod-sys-sidebar");
 
 	$setup->registerModule("xyo-com", null, "xyo-com-main", true, false, true, null, null);
 	$setup->registerModuleAcl("xyo-com-main", "xyo-desktop", null, "authenticated", 0, true);

@@ -30,11 +30,13 @@ foreach ($panel as $key => &$value) {
 				<div class="col-lg-1 col-md-1"></div>
 					<div class="col-lg-9 col-md-9 col-sm-12">
 
+
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<?php $this->eLanguage("alt_install"); ?>
                 </div>
 		<div class="panel-body">
+
 
 <div class="containter">
 	<div class="row">
@@ -55,9 +57,15 @@ foreach ($panel as $key => &$value) {
 
 		</div>
 	</div>
+
+
+
         				</div>
 				<div class="col-lg-1 col-md-1"></div>
 			</div>	
 		</div>
-	</div>
+	
+
+
+	<div class="clearfix"></div>
 

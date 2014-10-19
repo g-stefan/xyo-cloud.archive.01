@@ -26,8 +26,8 @@ class xyo_com_ModuleParameter2 extends xyo_com_Application {
     public function addModule($module) {
         $path = $this->cloud->getModulePath($module);
         if ($path) {
-            $this->loadLanguageFromPathDirect($path . "sys/parameters/language/", $this->getSystemLanguage());
-            $file = $path . "sys/parameters/parameters.php";
+            $this->loadLanguageFromPathDirect($path . "sys/language/", $this->getSystemLanguage());
+            $file = $path . "sys/parameters.php";
             if (file_exists($file)) {
                 include($file);
             };         

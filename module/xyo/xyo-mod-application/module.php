@@ -20,6 +20,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 
 	protected $applicationDataSource;
 	protected $applicationFormElementCache_;
+	protected $applicationPluginCache_;
 
 	protected $ds;
 	protected $isNew;
@@ -50,6 +51,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 			$this->applicationDataSource=null;
 
 			$this->applicationFormElementCache_=array();
+			$this->applicationPluginCache_=array();
 		}
 	}
 
@@ -163,6 +165,36 @@ class xyo_mod_Application extends xyo_mod_Language {
 		};
 		if(array_key_exists($elType,$this->applicationFormElementCache_)) {
 			if($this->processViewX($elType,"","form",array_merge($parameters,array("element" => $elName)))) {
+				return true;
+			};
+		};
+		return false;
+	}
+
+	public function requirePlugin($plugin) {
+		$scan=array();
+		foreach($plugin as $value) {
+			if(array_key_exists($value,$this->applicationPluginCache_)) {
+			} else {
+				$scan[]=$value;
+			};
+		};
+		if(count($scan)) {
+			foreach($scan as $plugin_) {
+				$this->language->includeFile($this->cloud->get("path_base")."plugin/language/".$this->getSystemLanguage()."/".$plugin_.".php");
+				$this->processViewX($plugin_,"-require","plugin");
+				$this->applicationPluginCache_[$plugin_]=true;
+			};
+		};
+	}
+
+	public function generatePlugin($plugin,$parameters=null) {
+		if($parameters) {
+		} else {
+			$parameters=array();
+		};
+		if(array_key_exists($plugin,$this->applicationPluginCache_)) {
+			if($this->processViewX($plugin,"","plugin",$parameters)) {
 				return true;
 			};
 		};

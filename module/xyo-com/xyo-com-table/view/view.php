@@ -8,6 +8,11 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$compactView="";
+if(1*$this->getParameter("xyo_com_table_compact_view")){
+	$compactView="table-condensed";
+};
+
 $select_info = $this->getParameter("select_info", array());
 $search_value = $this->getParameter("search_value", array());
 $select_value = $this->getParameter("select_value", array());
@@ -63,7 +68,6 @@ function xyo_com_table_processImage_($image,$defaultColor){
 	};	
 	return $img;
 };
-
 
 
 ?>
@@ -227,7 +231,7 @@ function doValueSave(key){
         <div class="clearfix" ></div>
    
 <div class="table-responsive" style="margin-left:6px;margin-right:6px;">
-    <table class="table table-striped table-bordered table-hover" id="com_table">
+    <table class="table table-striped table-bordered table-hover <?php echo $compactView; ?>" id="com_table">
 	<thead>
                 <?php
                 foreach ($this->tableHead as $key => $value) {

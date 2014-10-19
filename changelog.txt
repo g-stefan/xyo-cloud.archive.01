@@ -1,3 +1,8 @@
+2014.10.19
++ dashboard style template (xyo-tpl-administrator-dashboard)
++ plugins (like form elements) - common pieces of code for view ui
++ bigint type for database
+
 2014.09.28
 + form elements additions
 * several bugs
