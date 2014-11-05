@@ -9,10 +9,10 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->ds->clear();
-$this->ds-> {$this->tablePrimaryKey} = $this->id;
+$this->ds-> {$this->primaryKey} = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
 
-	$this->processModel("package-write-link", null, false);
+	$this->processModel("package-write-link");
 
 	if ($this->isError()) {
 		break;

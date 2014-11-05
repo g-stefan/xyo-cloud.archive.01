@@ -8,6 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
+$element = $this->getArgument("element");
 ?>
 <input type="hidden" name="<?php $this->eElementName($element); ?>" value="<?php $this->eElementValue($element); ?>" id="<?php $this->eElementId($element); ?>" ></input>

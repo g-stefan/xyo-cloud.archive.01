@@ -27,7 +27,6 @@ $this->set("label_cmd","Command");
 $this->set("label_element","Element");
 $this->set("label_version","Version");
 $this->set("label_description","Description");
-$this->set("label_is_module","Is module");
 
 $this->set("select_component_any","- component -");
 $this->set("select_component_enabled","yes");

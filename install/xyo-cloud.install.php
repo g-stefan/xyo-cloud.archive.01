@@ -51,7 +51,6 @@ $this->setModule("lib", null, "lib-mod-bootstrap-feedback-left", true,null,false
 $this->setModule("lib", null, "lib-mod-bootstrap-select", true,null,false,true,false);
 //
 $this->setModule("xyo", null, "xyo-mod-application", true,null,false,true,false);
-
 //
 $this->setModule("xyo", null, "xyo-mod-ds-loader-ds", true,null,false,true,false);
 //

@@ -30,5 +30,5 @@ if ($layer === "sqlite") {
     return;
 }
 
-$this->returnParameter("layer_module", $moduleName);
-$this->returnParameter("layer_config", $fileName);
+$this->setParameter("layer_module", $moduleName);
+$this->setParameter("layer_config", $fileName);

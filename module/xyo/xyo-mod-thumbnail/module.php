@@ -17,12 +17,11 @@ class xyo_mod_Thumbnail extends xyo_Module {
     }
 
     public function makeThumbnail($basePath,$imageName,$width,$height,$force=false){
-	$imageName=strtolower($imageName);
         $fileExtension=$this->getFileExtension($imageName);
 	if($fileExtension){}else{return null;};	
 	if($width){}else{$width=null;};
 	if($height){}else{$height=null;};
-	$wwwFile="thumbnails/".basename($imageName,".".$fileExtension)."_".$width."x".$height.".".$fileExtension;
+	$wwwFile=strtolower("thumbnails/".basename($imageName,".".$fileExtension)."_".$width."x".$height.".".$fileExtension);
 	$thumbFile=$basePath.$wwwFile;
 	if($force){}else{
 		if(file_exists($thumbFile)){

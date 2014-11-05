@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
-$maxlength= 1*$this->getParameter("maxlength");
+$element = $this->getArgument("element");
+$maxlength= 1*$this->getArgument("maxlength");
 
 if($maxlength==0){
 	$maxlength="";
@@ -17,17 +17,12 @@ if($maxlength==0){
 	$maxlength=" maxlength=\"".$maxlength."\"";
 };
 
-$width= 1*$this->getParameter("width");
+$width= 1*$this->getArgument("width");
 
 if($width==0){
 	$width="";
 }else{
 	$width="width:".$maxlength.";";
-};
-
-$model=$this->getParameter("model","");
-if(strlen($model)==0){
-	return;
 };
 
 $this->setHtmlFooterJsSource("\$(function(){\$(\"#".($this->getElementId($element))."\").".

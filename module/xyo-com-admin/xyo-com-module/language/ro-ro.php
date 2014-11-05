@@ -27,7 +27,6 @@ $this->set("label_element","Element");
 $this->set("label_cmd","Comanda");
 $this->set("label_version","Versiune");
 $this->set("label_description","Descriere");
-$this->set("label_is_module","Este alt modul");
 
 $this->set("select_component_any","- componenta -");
 $this->set("select_component_default_none","- nu -");

@@ -14,5 +14,5 @@ $enabled = array(
     "0" => $this->getFromLanguage("select_enabled_disabled")
 );
 
-$this->returnParameter("select_enabled", $enabled);
+$this->setParameter("select_enabled", $enabled);
 

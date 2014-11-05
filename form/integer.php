@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
-$width= $this->getParameter("width","96px");
+$element = $this->getArgument("element");
+$width= $this->getArgument("width","96px");
 
 ?>
 <div class="form-group<?php if($this->isElementError($element)){echo " has-error";}; ?>">

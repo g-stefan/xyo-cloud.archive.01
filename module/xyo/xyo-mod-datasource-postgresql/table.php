@@ -769,7 +769,7 @@ class xyo_mod_datasource_postgresql_Table extends xyo_Config {
 		if($this->primaryKey_) {
 			if (is_null($this-> {$this->primaryKey_})) {
 				if (($this->fieldType_[$this->primaryKey_] === "int"||
-					($this->fieldType_[$this->primaryKey_] === "bigint")) {
+					($this->fieldType_[$this->primaryKey_] === "bigint"))) {
 					$this-> {$this->primaryKey_} = new xyo_mod_datasource_EmptyField();
 				};
 			};

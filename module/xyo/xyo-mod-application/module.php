@@ -20,11 +20,12 @@ class xyo_mod_Application extends xyo_mod_Language {
 
 	protected $applicationDataSource;
 	protected $applicationFormElementCache_;
-	protected $applicationPluginCache_;
+	protected $applicationWidgetCache_;
 
 	protected $ds;
 	protected $isNew;
-	protected $id;
+	protected $primaryKey;
+	protected $primaryKeyValue;
 
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
@@ -47,11 +48,12 @@ class xyo_mod_Application extends xyo_mod_Language {
 
 			$this->ds = null;
 			$this->isNew = true;
-			$this->id = 0;
+			$this->primaryKeyValue = null;
+			$this->primaryKey = "_unknown_";
 			$this->applicationDataSource=null;
 
 			$this->applicationFormElementCache_=array();
-			$this->applicationPluginCache_=array();
+			$this->applicationWidgetCache_=array();
 		}
 	}
 
@@ -123,8 +125,8 @@ class xyo_mod_Application extends xyo_mod_Language {
 		$this->htmlFooter->setJs($this->name, $file, $if_);
 	}
 
-	public function setHtmlFooterJsSource($file) {
-		$this->htmlFooter->jsSource($this->name, $file);
+	public function setHtmlFooterJsSource($source) {
+		$this->htmlFooter->jsSource($this->name, $source);
 	}
 
 	public function setApplicationDataSource($name) {
@@ -141,60 +143,60 @@ class xyo_mod_Application extends xyo_mod_Language {
 		};
 		if(count($scan)) {
 			foreach($scan as $formElement) {
-				$this->language->includeFile($this->cloud->get("path_base")."form/language/".$this->getSystemLanguage()."/".$formElement.".php");
+				$this->language->includeFile($this->cloud->get("path_base")."form/language/".strtolower($this->getSystemLanguage())."/".$formElement.".php");
 				$this->processViewX($formElement,"-require","form");
 				$this->applicationFormElementCache_[$formElement]=true;
 			};
 		};
 	}
 
-	public function processElement($elType,$elName,$parameters=null) {
-		if($parameters) {
+	public function processElement($elType,$elName=null,$arguments=null) {
+		if($arguments) {
 		} else {
-			$parameters=array();
+			$arguments=array();
 		};
 		if(array_key_exists($elType,$this->applicationFormElementCache_)) {
-			$this->processViewX($elType,"-process","form",array_merge($parameters,array("element" => $elName)));
+			$this->processViewX($elType,"-process","form",array_merge($arguments,array("element" => $elName)));
 		};
 	}
 
-	public function generateElement($elType,$elName,$parameters=null) {
-		if($parameters) {
+	public function generateElement($elType,$elName=null,$arguments=null) {
+		if($arguments) {
 		} else {
-			$parameters=array();
+			$arguments=array();
 		};
 		if(array_key_exists($elType,$this->applicationFormElementCache_)) {
-			if($this->processViewX($elType,"","form",array_merge($parameters,array("element" => $elName)))) {
+			if($this->processViewX($elType,"","form",array_merge($arguments,array("element" => $elName)))) {
 				return true;
 			};
 		};
 		return false;
 	}
 
-	public function requirePlugin($plugin) {
+	public function requireWidget($widget) {
 		$scan=array();
-		foreach($plugin as $value) {
-			if(array_key_exists($value,$this->applicationPluginCache_)) {
+		foreach($widget as $value) {
+			if(array_key_exists($value,$this->applicationWidgetCache_)) {
 			} else {
 				$scan[]=$value;
 			};
 		};
 		if(count($scan)) {
-			foreach($scan as $plugin_) {
-				$this->language->includeFile($this->cloud->get("path_base")."plugin/language/".$this->getSystemLanguage()."/".$plugin_.".php");
-				$this->processViewX($plugin_,"-require","plugin");
-				$this->applicationPluginCache_[$plugin_]=true;
+			foreach($scan as $widget_) {
+				$this->language->includeFile($this->cloud->get("path_base")."widget/language/".strtolower($this->getSystemLanguage())."/".$widget_.".php");
+				$this->processViewX($plugin_,"-require","widget");
+				$this->applicationWidgetCache_[$plugin_]=true;
 			};
 		};
 	}
 
-	public function generatePlugin($plugin,$parameters=null) {
+	public function generateWidget($widget,$parameters=null) {
 		if($parameters) {
 		} else {
 			$parameters=array();
 		};
-		if(array_key_exists($plugin,$this->applicationPluginCache_)) {
-			if($this->processViewX($plugin,"","plugin",$parameters)) {
+		if(array_key_exists($widget,$this->applicationWidgetCache_)) {
+			if($this->processViewX($widget,"","widget",$parameters)) {
 				return true;
 			};
 		};
@@ -209,29 +211,33 @@ class xyo_mod_Application extends xyo_mod_Language {
 		return false;
 	}
 
-	public function setId($value_) {
-		$id_ = explode(";", $value_);
-		$c=count($id_);
+	public function setPrimaryKey($value_) {
+		$this->primaryKey=$value_;
+	}
+
+	public function setPrimaryKeyValue($value_) {
+		$primaryKeyValue_ = explode(",", $value_);
+		$c=count($primaryKeyValue_);
 		if ($c) {
 			if($c==1) {
-				$this->id=1*$id_[0];
+				$this->primaryKeyValue=$primaryKeyValue_[0];
 			} else {
-				$this->id=array();
-				foreach ($id_ as $value) {
-					$this->id[]=1*$value;
+				$this->primaryKeyValue=array();
+				foreach ($primaryKeyValue_ as $value) {
+					$this->primaryKeyValue[]=$value;
 				}
-				$this->id=array_unique($this->id);
+				$this->primaryKeyValue=array_unique($this->primaryKeyValue);
 			}
 			return true;
 		}
 		return false;
 	}
 
-	public function setIdOne($value_) {
-		$id_ = explode(";", $value_);
-		$c=count($id_);
+	public function setPrimaryKeyValueOne($value_) {
+		$primaryKeyValue_ = explode(",", $value_);
+		$c=count($primaryKeyValue_);
 		if ($c) {
-			$this->id=1*$id_[0];
+			$this->primaryKeyValue=$primaryKeyValue_[0];
 			return true;
 		}
 		return false;

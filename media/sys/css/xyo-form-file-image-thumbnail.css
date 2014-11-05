@@ -1,0 +1,63 @@
+/*
+//
+// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xyo-form-file-image-thumbnail-delete{
+	position:relative;
+	display:block;
+	height:0px;
+	overflow:visible;
+}
+
+.xyo-form-file-image-thumbnail-delete-sub{
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:3;
+	display:block;
+	color:#fff;
+	padding:3px 12px;
+	font-size:1em;
+	background-color:#e54;
+	border:1px solid #e1e1e8;
+	border-radius:0px 4px 0px 4px;
+	cursor: pointer;
+}
+
+.xyo-form-file-image-thumbnail-delete-sub:hover{
+	background-color:#d32;	
+}
+
+.xyo-form-file-image-thumbnail-toggle.collapsed .glyphicon-chevron-down {
+	display: none;
+}
+
+.xyo-form-file-image-thumbnail-toggle.collapsed .glyphicon-chevron-left {
+	display: inline-block;
+}
+ 
+.xyo-form-file-image-thumbnail-toggle .glyphicon-chevron-left {
+	display: none;
+}
+
+.xyo-form-file-image-thumbnail-link-on{
+	margin-right: 10px;
+}
+
+.xyo-form-file-image-thumbnail-link-on i{
+	color: #0C0;
+}
+
+.xyo-form-file-image-thumbnail-link-off{
+	margin-right: 10px;
+}
+
+.xyo-form-file-image-thumbnail-link-off i{
+	color: #ccc;
+}
+

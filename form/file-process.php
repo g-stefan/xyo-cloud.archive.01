@@ -8,10 +8,10 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
-$fileName = $this->getParameter("filename","");
-$extension = $this->getParameter("extension",false);
-$deleteBeforeSave = $this->getParameter("delete_before_save",false);
+$element = $this->getArgument("element");
+$fileName = $this->getArgument("filename","");
+$extension = $this->getArgument("extension",false);
+$deleteBeforeSave = $this->getArgument("delete_before_save",false);
 $isOk=false;
 $elementName = $this->getElementName($element);
 $this->setElementValue($element,"");

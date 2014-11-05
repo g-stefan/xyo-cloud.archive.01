@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
-$maxlength= 1*$this->getParameter("maxlength");
+$element = $this->getArgument("element");
+$maxlength= 1*$this->getArgument("maxlength");
 
 if($maxlength==0){
 	$maxlength="";

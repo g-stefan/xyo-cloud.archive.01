@@ -1,0 +1,26 @@
+/*
+//
+// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xyo-form-group-box-wide{
+	width: 65em;
+	margin-left: 1em;
+}
+
+/*
+// Screen small
+*/
+
+@media (max-width: 768px) {
+
+	.xyo-form-group-box-wide{
+		width: 32em;
+		margin-left: 1em;
+	}
+
+}

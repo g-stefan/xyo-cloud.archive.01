@@ -14,7 +14,7 @@ $this->set("head_name", "Nume");
 $this->set("head_username", "Utilizator");
 $this->set("head_id", "Id");
 $this->set("head_logged_on", "Ultimul login");
-$this->set("head_enabled", "Activad");
+$this->set("head_enabled", "Activat");
 $this->set("head_logged_in", "Este logat");
 $this->set("head_created_on", "Creat");
 $this->set("head_invisible","Invizibil");
@@ -29,6 +29,7 @@ $this->set("label_username", "Nume utilizator");
 $this->set("label_password1", "Parola");
 $this->set("label_password2", "Introduce parola din nou");
 $this->set("label_enabled", "Activat");
+$this->set("label_picture", "Poza");
 $this->set("label_description", "Descriere");
 $this->set("label_id_xyo_user_group", "Grup utilizator implicit");
 $this->set("label_id_xyo_language", "Limba implicita");
@@ -38,6 +39,7 @@ $this->set("search_username", "Utilizator");
 $this->set("search_name", "Nume");
 
 $this->set("form_edit_user", "Modifica utilizator");
+$this->set("form_title_user", "Utilizator");
 
 $this->set("el_id_empty", "este gol");
 $this->set("el_name_empty", "este gol");

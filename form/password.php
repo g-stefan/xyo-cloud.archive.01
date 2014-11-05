@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
+$element = $this->getArgument("element");
 
 ?>
 <div class="form-group has-feedback has-feedback-left<?php if($this->isElementError($element)){echo " has-error";}; ?>">

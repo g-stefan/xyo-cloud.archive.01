@@ -18,5 +18,3 @@ $this->setHtmlHeadTitle($this->getSetting("website_title","XYO Cloud"));
 $this->setHtmlHeadLink("shortcut icon","media/sys/images/applications-internet.ico","image/x-icon");
 $this->setHtmlHeadCss("media/sys/css/xyo-tpl-administrator-dashboard.css");
 $this->setHtmlFooterJs("media/sys/js/xyo-tpl-administrator-dashboard.js");
-
-$this->requirePlugin(array("test-plugin"));

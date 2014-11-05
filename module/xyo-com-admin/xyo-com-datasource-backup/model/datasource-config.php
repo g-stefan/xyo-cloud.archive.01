@@ -12,8 +12,8 @@ $layer = $this->getElementValue("layer", "xyo");
 $connection = $this->getElementValue("connection", "db");
 $date=date("YmdHis");
 $stamp=md5(time().rand());
-$this->returnParameter("date", $date);
-$this->returnParameter("stamp", $stamp);
+$this->setParameter("date", $date);
+$this->setParameter("stamp", $stamp);
 
 $configFileName = null;
 $fileName = $this->cloud->get("path_base") . "config/config.ds.backup.php";
@@ -39,7 +39,7 @@ if ($layer === "sqlite") {
 
 $configFileName = $fileName;
 
-$this->returnParameter("config_file", $configFileName);
+$this->setParameter("config_file", $configFileName);
 
 $fileHandle = null;
 if ($fileName) {

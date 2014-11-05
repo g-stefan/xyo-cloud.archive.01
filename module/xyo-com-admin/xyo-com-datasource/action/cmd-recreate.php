@@ -8,11 +8,11 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("select-id");
+$this->processModel("set-primary-key-value");
 $this->processModel("set-ds");
 if ($this->isError()) {
     
 }else{
     $this->processModel("cmd-recreate");
 }
-$this->doRedirect("view");
+$this->doRedirect("table-view");

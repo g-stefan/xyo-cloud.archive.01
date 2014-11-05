@@ -226,7 +226,7 @@ class xyo_mod_ds_User extends xyo_Module {
 			} else {
 				return false;
 			};
-
+			                        
 			$checkPasword = md5(md5($this->dsUser->username . $password) . $this->info->rnd);
 			$chk = "";
 
@@ -247,7 +247,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				}
 				$chk = "password";
 			};
-
+		
 			if (($this->info->$chk === $checkPasword)&&($captchaOk)) {
 
 				$this->info->id = $this->dsUser->id;
@@ -289,7 +289,37 @@ class xyo_mod_ds_User extends xyo_Module {
 					//
 					// update session only on authorization
 					//
-					$this->dsUser->session = $this->info->session;
+
+					//
+					// allow secondary requests (from services)
+					// that will not unauthorize current session 
+					//
+					if($this->cloud->getRequest("user_service",0)){
+					}else{
+						if(strlen($this->dsUser->session)==0){
+							$this->dsUser->session = $this->info->session;
+							$this->dsUser->session_rnd = $this->info->rnd;
+						}else{
+							//
+							// set session from database to allow multiple browser sessions							
+							// logout from one session, force logoff to all
+							//
+							 
+							// first verify if user/password changed
+							$checkPasword = md5(md5($this->dsUser->username . $password) . $this->dsUser->session_rnd);
+							if($checkPasword!=$this->info->session){
+								// update new credentials
+								$this->dsUser->session=$this->info->session;
+								$this->dsUser->session_rnd=$this->info->rnd;
+							}else{
+								$this->info->session=$this->dsUser->session;
+								$this->info->rnd=$this->dsUser->session_rnd;							
+							};
+						};
+					};
+					//
+					//
+					//
 					$this->dsUser->logged_on = "NOW";
 					$this->dsUser->logged_in = 1;
 					$this->dsUser->action_on = "NOW";
@@ -321,8 +351,7 @@ class xyo_mod_ds_User extends xyo_Module {
 					$this->dsUser->save();
 				}
 			}
-		}
-
+		}		                        
 
 		$this->info->id = 0;
 		$this->info->name = "Guest";

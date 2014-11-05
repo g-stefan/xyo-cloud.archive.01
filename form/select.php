@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
+$element = $this->getArgument("element");
 $select_list = $this->getParameter("select_" . $element);
 $select_value = $this->getElementValue($element);
 ?>	
@@ -28,3 +28,11 @@ $select_value = $this->getElementValue($element);
 ?>
 	</select>
 </div>
+
+<?php
+
+if($this->isAjax()){
+	$this->ejsBegin();
+	echo "$(\"#".$this->getElementId($element)."\").selectpicker();";
+	$this->ejsEnd();
+};

@@ -9,5 +9,4 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setReferenceBase($module,"xyo-com-application");
-$this->setReferenceLink($module, "lib-mod-bootstrap-select");
 $this->setVersion($module,"1.0.0.0");

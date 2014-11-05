@@ -66,21 +66,6 @@ class xyo_mod_Setup extends xyo_Module {
 		return false;
 	}
 
-	function setModuleIsModule($module, $isModule) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $module;
-				if ($dsModule->load(0, 1)) {
-					$dsModule->is_module = $isModule;
-					return $dsModule->save();
-				}
-			}
-		}
-		return false;
-	}
-
 	function setModuleVersion($module, $version) {
 		$ds = &$this->cloud->getModule("xyo-mod-datasource");
 		if ($ds) {
@@ -233,7 +218,11 @@ class xyo_mod_Setup extends xyo_Module {
 	function setDataSource($module_, $name_) {
 		$ds = &$this->cloud->getModule("xyo-mod-datasource");
 		if ($ds) {
-			$ds->setDataSourceDescriptor($name_, $this->getModulePath($module_) . "datasource/" . $name_ . ".php");
+			if($module_){
+				$ds->setDataSourceDescriptor($name_, $this->getModulePath($module_) . "datasource/" . $name_ . ".php");
+			}else{
+				$ds->setDataSourceDescriptor($name_, "datasource/" . $name_ . ".php");
+			};
 			$ds_ = &$ds->getDataSource($name_);
 			if ($ds_) {
 				if ($ds_->getType() == "table") {
@@ -289,7 +278,11 @@ class xyo_mod_Setup extends xyo_Module {
 				$dsDataSource->tryLoad();
 				$dsDataSource->enabled = 1;
 				$dsDataSource->description = $description_;
-				$dsDataSource->descriptor = $this->getPathRelativeToBase($this->getModulePath($module_)) . "datasource/" . $name_ . ".php";
+				if($module_){
+					$dsDataSource->descriptor = $this->getPathRelativeToBase($this->getModulePath($module_)) . "datasource/" . $name_ . ".php";
+				}else{
+					$dsDataSource->descriptor = "datasource/" . $name_ . ".php";
+				};
 				if ($dsDataSource->save()) {
 					$ds = &$ds->getDataSource($name_);
 					if ($ds) {

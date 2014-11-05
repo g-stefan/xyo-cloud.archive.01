@@ -10,6 +10,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setApplicationIcon("media/sys/images/system-users-48.png");
 $this->setApplicationDataSource("db.table.xyo_user_group");
+$this->setPrimaryKey("id");
 
-$this->requireElement(array("select","text","textarea","order","group-begin","group-end","group-row-begin","group-row-end"));
-
+$this->requireElement(array(
+	"select",
+	"text",
+	"textarea",
+	"order",
+	"group-begin",
+	"group-end",
+	"group-row-begin",
+	"group-row-end"
+));

@@ -17,7 +17,8 @@ if($this->user->isAuthorized()){
 }else{
 		$request=$this->getRequestDirect();
 		$module=$this->moduleFromRequest($request);
-		if($module=="xyo-com-login"){
+		if($module=="xyo-com-login"
+			||$module=="xyo-com-logout"){
 		}else{
 			$this->setRequestDirect($this->callRequest($this->requestModuleDirect($module),$request));
 		};

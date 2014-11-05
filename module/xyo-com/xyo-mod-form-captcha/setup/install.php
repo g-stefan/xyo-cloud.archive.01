@@ -7,5 +7,3 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-
-$this->installFormElement($module,"captcha");

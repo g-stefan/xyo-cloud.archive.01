@@ -14,5 +14,5 @@ $cmd = array(
 	       "0" => $this->getFromLanguage("select_cmd_disabled")
        );
 
-$this->returnParameter("select_cmd", $cmd);
+$this->setParameter("select_cmd", $cmd);
 

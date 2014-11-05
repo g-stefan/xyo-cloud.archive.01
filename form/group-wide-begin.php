@@ -8,9 +8,9 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$title=$this->getParameter("title");
+$title=$this->getArgument("title",$this->getParameter("form_title"));
 
 ?>
-	<div class="panel panel-default pull-left" style="width:64em;margin-left:1em;">
+	<div class="panel panel-default pull-left xyo-form-group-wide">
 		<div class="panel-heading"><?php $this->eLanguage($title); ?></div>
 		<div class="panel-body">

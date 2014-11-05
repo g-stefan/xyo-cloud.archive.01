@@ -19,5 +19,5 @@ if ($dsUser) {
     }
 };
 
-$this->returnParameter("select_id_xyo_user",$user);
+$this->setParameter("select_id_xyo_user",$user);
 

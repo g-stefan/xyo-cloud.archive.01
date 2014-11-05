@@ -9,3 +9,4 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->set("application","Login");
+$this->set("label_no_language_selector","No language selector");

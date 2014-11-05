@@ -12,9 +12,17 @@ $className = "xyo_com_Login";
 
 class xyo_com_Login extends xyo_mod_Application {
 
-    function __construct(&$object, &$cloud) {
-        parent::__construct($object, $cloud);
-    }
+	function __construct(&$object, &$cloud) {
+        	parent::__construct($object, $cloud);
+		//
+		// force logoff
+		//
+                $user=&$this->cloud->getModule("xyo-mod-ds-user");
+                if($user){
+                    $user->makeResetCookie();
+                    $user->doLogout();
+                };
+	}
 
 	function eFormAction($request=null){
 		$this->eRequestUri($this->xyo_array_merge_ex_(

@@ -16,9 +16,7 @@ class xyo_Module extends xyo_Config {
 	protected $returnValue;
 	protected $isOk;
 	//
-	protected $moduleBaseClass_;
-	protected $parameters_;
-	protected $parametersStack_;
+	protected $moduleBaseClass_;	
 	protected $elementValue_;
 	protected $elementPrefix_;
 	protected $elementPrefixV_;
@@ -32,11 +30,16 @@ class xyo_Module extends xyo_Config {
 	protected $redirectMax_;
 	protected $defaultAction_;
 	protected $viewTemplate_;
-	protected $returnParameters_;
 	protected $keepRequest_;
 	protected $modulePathBase_;
 	protected $moduleCallList_;
-//
+	//
+	protected $parameters_;
+	protected $parametersStack_;
+	//
+	protected $arguments_;
+	protected $argumentsStack_;
+	//
 	protected $viewPath;
 
 	public function __construct(&$object, &$cloud) {
@@ -53,7 +56,10 @@ class xyo_Module extends xyo_Config {
 			$this->parameters_ = array();
 		};
 		$this->parametersStack_ = array();
-		$this->returnParameters_ = array();
+		//
+		$this->arguments_ = array();
+		$this->argumentsStack_ = array();
+		//
 		$this->redirectMax_ = 8;
 
 		$this->instance = 0;
@@ -80,34 +86,15 @@ class xyo_Module extends xyo_Config {
 	}
 
 	public function pushParameters() {
-		$this->parametersStack_[] = array($this->parameters_, $this->returnParameters_);
-		$this->returnParameters_ = array();
+		$this->parametersStack_[] = $this->parameters_;
 	}
 
-	public function popParameters($mode=false,$default=array()) {
-		$retV=$default;
-		$pop_ = array_pop($this->parametersStack_);
-		if ($pop_) {
-			if($mode) {
-				$retV=array_merge($default,$this->returnParameters_);
-				$this->parameters_ = $pop_[0];
-				$this->returnParameters_ = $pop_[1];
-			} else {
-				$this->parameters_ = array_merge($pop_[0], $this->returnParameters_);
-				$this->returnParameters_ = $pop_[1];
-			}
+	public function popParameters() {
+		$this->parameters_ = array_pop($this->parametersStack_);
+		if ($this->parameters_) {
 		} else {
-			// stack unwinding error
-			if($mode) {
-				$retV=array_merge($default,$this->returnParameters_);
-				$this->parameters_ = array();
-				$this->returnParameters_ = array();
-			} else {
-				$this->parameters_ = $this->returnParameters_;
-				$this->returnParameters_ = array();
-			}
+			$this->parameters_=array();
 		}
-		return $retV;
 	}
 
 	public function mergeParameters($parameters) {
@@ -115,6 +102,26 @@ class xyo_Module extends xyo_Config {
 			return;
 		};
 		$this->parameters_ = array_merge($this->parameters_, $parameters);
+	}
+
+	public function pushArguments() {
+		$this->argumentsStack_[] = $this->arguments_;
+		$this->arguments_ = array();
+	}
+
+	public function popArguments() {
+		$this->arguments_ = array_pop($this->argumentsStack_);
+		if ($this->arguments_) {
+		} else {
+			$this->arguments_=array();
+		}
+	}
+
+	public function mergeArguments($arguments) {
+		if (is_null($arguments)) {
+			return;
+		};
+		$this->arguments_ = array_merge($this->arguments_, $arguments);
 	}
 
 	public function moduleInit() {
@@ -185,11 +192,11 @@ class xyo_Module extends xyo_Config {
 		}
 	}
 
-	public function applicationView($parameters=null) {
+	public function applicationView($arguments=null) {
 		if ($this->viewTemplate_) {
-			$this->generateView($this->viewTemplate_,$parameters);
+			$this->generateView($this->viewTemplate_,$arguments);
 		} else {
-			$this->generateView($this->nameView_,$parameters);
+			$this->generateView($this->nameView_,$arguments);
 		}
 	}
 
@@ -221,20 +228,20 @@ class xyo_Module extends xyo_Config {
 		return $this->viewTemplate_;
 	}
 
-	public function generateCurrentView($parameters=null) {
-		return $this->generateViewFromModule($this->name, $this->nameView_, $parameters);
+	public function generateCurrentView($arguments=null) {
+		return $this->generateViewFromModule($this->name, $this->nameView_, $arguments);
 	}
 
-	public function generateView($name=null, $parameters=null) {
-		return $this->generateViewFromModule($this->name, $name, $parameters);
+	public function generateView($name=null, $arguments=null) {
+		return $this->generateViewFromModule($this->name, $name, $arguments);
 	}
 
-	public function processModel($name=null, $parameters=null, $push=true) {
-		return $this->processModelFromModule($this->name, $name, $parameters, $push);
+	public function processModel($name=null, $arguments=null) {
+		return $this->processModelFromModule($this->name, $name, $arguments);
 	}
 
-	public function doAction($name=null, $parameters=null) {
-		return $this->doActionFromModule($this->name, $name, $parameters);
+	public function doAction($name=null, $arguments=null) {
+		return $this->doActionFromModule($this->name, $name, $arguments);
 	}
 
 	public function getCallBase___($name) {
@@ -258,26 +265,26 @@ class xyo_Module extends xyo_Config {
 		return $base_;
 	}
 
-	public function processModelBase($name=null, $parameters=null, $push=true) {
+	public function processModelBase($name=null, $arguments=null) {
 		$base_=$this->getCallBase___($name);
 		if($base_) {
-			return $this->processModelFromModule($base_, $name, $parameters, $push);
+			return $this->processModelFromModule($base_, $name, $arguments);
 		}
 		return null;
 	}
 
-	public function generateViewBase($name=null, $parameters=null) {
+	public function generateViewBase($name=null, $arguments=null) {
 		$base_=$this->getCallBase___($name);
 		if($base_) {
-			return $this->generateViewFromModule($base_, $name, $parameters);
+			return $this->generateViewFromModule($base_, $name, $arguments);
 		}
 		return null;
 	}
 
-	public function doActionBase($name=null, $parameters=null) {
+	public function doActionBase($name=null, $arguments=null) {
 		$base_=$this->getCallBase___($name);
 		if($base_) {
-			return $this->doActionFromModule($base_, $name, $parameters);
+			return $this->doActionFromModule($base_, $name, $arguments);
 		}
 		return null;
 	}
@@ -342,16 +349,16 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->requireModule($module);
 	}
 
-	public function execModule($module, $params=null) {
-		return $this->cloud->execModule($module, $params);
+	public function execModule($module, $parameters=null) {
+		return $this->cloud->execModule($module, $parameters);
 	}
 
 	public function loadGroup($group) {
 		return $this->cloud->loadGroup($group);
 	}
 
-	public function execGroup($group, $params=null) {
-		return $this->cloud->execGroup($group, $params);
+	public function execGroup($group, $parameters=null) {
+		return $this->cloud->execGroup($group, $parameters);
 	}
 
 	public function &getModule($module) {
@@ -660,30 +667,29 @@ class xyo_Module extends xyo_Config {
 		return $default;
 	}
 
-	public function returnParameter($name, $value) {
-		$this->returnParameters_[$name] = $value;
-		$this->parameters_[$name] = $value;
+	public function setArgument($name, $value) {
+		$this->arguments_[$name] = $value;
 	}
 
-	public function returnParameters($parameters_) {
-		$this->returnParameters_=array_merge($this->returnParameters_,$parameters_);
-		$this->parameters_=array_merge($this->parameters_,$parameters_);
-	}
-
-	public function keepParameter($name) {
-		if (array_key_exists($name, $this->parameters_)) {
-			$this->returnParameters_[$name] = $this->parameters_[$name];
+	public function getArgument($name, $default=null) {
+		if (array_key_exists($name, $this->arguments_)) {
+			return $this->arguments_[$name];
 		}
+		return $default;
 	}
 
-	public function generateCurrentViewFromModule($module, $parameters=null) {
-		return $this->generateViewFromModule($module, $this->nameView_, $parameters);
+	public function generateCurrentViewFromModule($module, $arguments=null) {
+		return $this->generateViewFromModule($module, $this->nameView_, $arguments);
 	}
 
-	public function generateViewFromModule($module, $name=null, $parameters=null) {
+	public function generateViewFromModule($module, $name=null, $arguments=null) {
 		$this->moduleCallList_[]=$module;
-		$this->pushParameters();
-		$this->mergeParameters($parameters);
+		$this->pushArguments();
+		$this->arguments_=$arguments;
+		if($this->arguments_){
+		}else{
+			$this->arguments_=array();
+		};
 		if ($name) {
 
 		} else {
@@ -696,14 +702,14 @@ class xyo_Module extends xyo_Config {
 				if ($pathT) {
 					$this->viewPath=$pathT . "sys/view/" . $module_ . "/";
 					if ($this->includeFile($pathT . "sys/view/" . $module_ . "/" . $name . ".php")) {
-						$this->popParameters();
+						$this->popArguments();
 						array_pop($this->moduleCallList_);
 						return true;
 					}
 				}
 				$this->viewPath=$path . "view/";
 				if ($this->includeFile($path . "view/" . $name . ".php")) {
-					$this->popParameters();
+					$this->popArguments();
 					array_pop($this->moduleCallList_);
 					return true;
 				}
@@ -712,7 +718,7 @@ class xyo_Module extends xyo_Config {
 			if ($pathT) {
 				$this->viewPath=$pathT . "sys/view/" . $module . "/";
 				if ($this->includeFile($pathT . "sys/view/" . $module . "/" . $name . ".php")) {
-					$this->popParameters();
+					$this->popArguments();
 					array_pop($this->moduleCallList_);
 					return true;
 				}
@@ -721,27 +727,31 @@ class xyo_Module extends xyo_Config {
 			if ($path) {
 				$this->viewPath=$path . "view/";
 				if ($this->includeFile($path . "view/" . $name . ".php")) {
-					$this->popParameters();
+					$this->popArguments();
 					array_pop($this->moduleCallList_);
 					return true;
 				}
 			}
 		}
 
-		$this->popParameters();
+		$this->popArguments();
 		array_pop($this->moduleCallList_);
 		return false;
 	}
 
-	public function processViewX($name_,$suffix_,$path_,$parameters=null) {
+	public function processViewX($name_,$suffix_,$path_,$arguments=null) {
 		$this->moduleCallList_[]=$this->name;
-		$this->pushParameters();
-		$this->mergeParameters($parameters);
+		$this->pushArguments();
+		$this->arguments_=$arguments;
+		if($this->arguments_){
+		}else{
+			$this->arguments_=array();
+		};
 
 		$this->viewPath=$this->cloud->getTemplatePath() . "view/".$path_."/";
 		$file_=$this->viewPath.$name_.$suffix_.".php";
 		if($this->includeFile($file_)) {
-			$this->popParameters();
+			$this->popArguments();
 			array_pop($this->moduleCallList_);
 			return true;
 		};
@@ -749,7 +759,7 @@ class xyo_Module extends xyo_Config {
 		$this->viewPath=$this->cloud->get("path_base") . $path_."/";
 		$file_=$this->viewPath.$name_.$suffix_.".php";
 		if($this->includeFile($file_)) {
-			$this->popParameters();
+			$this->popArguments();
 			array_pop($this->moduleCallList_);
 			return true;
 		};
@@ -757,7 +767,7 @@ class xyo_Module extends xyo_Config {
 		$this->viewPath=$this->cloud->getTemplatePath() . "sys/view/".$this->name."/".$path_."/";
 		$file_=$this->viewPath.$name_.$suffix_.".php";
 		if($this->includeFile($file_)) {
-			$this->popParameters();
+			$this->popArguments();
 			array_pop($this->moduleCallList_);
 			return true;
 		};
@@ -767,51 +777,41 @@ class xyo_Module extends xyo_Config {
 			$this->viewPath=$path . "view/".$path_."/";
 			$file_=$this->viewPath.$name_.$suffix_.".php";
 			if($this->includeFile($file_)) {
-				$this->popParameters();
+				$this->popArguments();
 				array_pop($this->moduleCallList_);
 				return true;
 			};
 
 		};
 
-		$this->popParameters();
+		$this->popArguments();
 		array_pop($this->moduleCallList_);
 		return false;
 	}
 
-	public function callFromThis($name=null, $parameters=null, $push=true, $mode=false,$default=array()) {
-		return $this->callFromModule($this->name, $name, $parameters, $push, $mode,$default);
+	public function callFromThis($name=null, $arguments=null) {
+		return $this->callFromModule($this->name, $name, $arguments);
 	}
 
-	public function callFromModule($module, $name=null, $parameters=null, $push=true, $mode=false,$default=array()) {
+	public function callFromModule($module, $name=null, $arguments=null) {
 		$this->moduleCallList_[]=$module;
-		if ($push) {
-			$this->pushParameters();
-		}
-		$this->mergeParameters($parameters);
+		$this->pushArguments();
+		$this->arguments_=$arguments;
+		if($this->arguments_){
+		}else{
+			$this->arguments_=array();
+		};
 		if ($name) {
 
 		} else {
 			array_pop($this->moduleCallList_);
-			if($mode) {
-				return null;
-			}
 			return false;
-		}
+		};
 		if ($module === $this->name) {
 			foreach ($this->modulePathBase_ as $path) {
 				if ($this->includeFile($path . $name . ".php")) {
 					array_pop($this->moduleCallList_);
-					if ($push) {
-						if($mode) {
-							return $this->popParameters($mode,$default);
-						} else {
-							$this->popParameters();
-						}
-					}
-					if($mode) {
-						return null;
-					}
+					$this->popArguments();
 					return true;
 				}
 			}
@@ -820,49 +820,30 @@ class xyo_Module extends xyo_Config {
 			if ($path) {
 				if ($this->includeFile($path . $name . ".php")) {
 					array_pop($this->moduleCallList_);
-					if ($push) {
-						if($mode) {
-							return $this->popParameters($mode,$default);
-						} else {
-							$this->popParameters();
-						}
-					}
-					if($mode) {
-						return null;
-					}
+					$this->popArguments();
 					return true;
 				}
 			}
 		}
 		array_pop($this->moduleCallList_);
-		if ($push) {
-			if($mode) {
-				$this->popParameters($mode,$default);
-				return null;
-			} else {
-				$this->popParameters();
-			}
-		}
-		if($mode) {
-			return null;
-		}
+		$this->popArguments();
 		return false;
 	}
 
-	public function processModelFromModule($module, $name=null, $parameters=null, $push=true, $mode=false) {
+	public function processModelFromModule($module, $name=null, $arguments=null) {
 		if($name) {
 		} else {
 			$name="default";
 		};
-		return $this->callFromModule($module, "model/".$name, $parameters, $push, $mode);
+		return $this->callFromModule($module, "model/".$name, $arguments);
 	}
 
-	public function doActionFromModule($module, $name=null, $parameters=null) {
+	public function doActionFromModule($module, $name=null, $arguments=null) {
 		if($name) {
 		} else {
 			$name="default";
 		};
-		return $this->callFromModule($module, "action/".$name, $parameters, false, false);
+		return $this->callFromModule($module, "action/".$name, $arguments);
 	}
 
 	public function keepRequest($name) {
@@ -1142,4 +1123,17 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->get($name,$default_);
 	}
 
+	public function isAjaxJs(){
+		return $this->cloud->isAjaxJs();
+	}
+
+	public function isAjax(){
+		return $this->cloud->isAjax();
+	}
+
+	public function isJSON(){
+		return $this->cloud->isJSON();
+	}
+
 }
+

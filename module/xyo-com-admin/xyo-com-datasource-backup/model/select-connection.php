@@ -14,4 +14,4 @@ if($modDs){
 	$list=array_keys($modDs->getDataSourceConnectionProviderList());
 };
 
-$this->returnParameter("select_connection",$list);
+$this->setParameter("select_connection",$list);

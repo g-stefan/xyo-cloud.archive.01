@@ -18,4 +18,4 @@ if(count($list)){}else{
     $list["*"]=$this->getFromLanguage("package_none");
 };
 
-$this->returnParameter("select_packages",$list);
+$this->setParameter("select_packages",$list);

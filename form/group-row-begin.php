@@ -8,8 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$title=$this->getParameter("title");
-
 ?>
 <div style="position: relative; float: right; right: 50%;">
 <div style="position: relative; float: right; right: -50%;">

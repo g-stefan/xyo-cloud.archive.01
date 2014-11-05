@@ -12,6 +12,7 @@ $this->setDataSource("db.query.xyo_user_x_core");
 
 $this->setApplicationIcon("media/sys/images/system-users2-48.png");
 $this->setApplicationDataSource("db.query.xyo_user_x_core");
+$this->setPrimaryKey("id");
 $this->requireElement(array("select","group-begin","group-end","group-row-begin","group-row-end"));
 
 $this->id_xyo_user = 1 * $this->getParameterRequest("id_xyo_user", 0);

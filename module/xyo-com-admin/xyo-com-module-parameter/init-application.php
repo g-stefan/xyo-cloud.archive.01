@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setApplicationIcon("media/sys/images/utilities-terminal-48.png");
 $this->setApplicationDataSource("db.table.xyo_module_parameter");
 
-$this->setDefaultAction($this->getRequest("action", "view"));
+$this->setDefaultAction($this->getRequest("action", "form-edit"));
 
 $id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);
 $this->id_xyo_module = 1 * $this->getParameterRequest("id_xyo_module", 0);

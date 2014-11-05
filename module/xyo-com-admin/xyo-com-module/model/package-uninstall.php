@@ -9,10 +9,10 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->ds->clear();
-$this->ds-> {$this->tablePrimaryKey} = $this->id;
+$this->ds-> {$this->primaryKey} = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
 
-	$this->processModel("package-uninstall-cmd", null, false);
+	$this->processModel("package-uninstall-cmd");
 
 	if ($this->isError()) {
 		break;

@@ -39,6 +39,9 @@ class xyo_Cloud extends xyo_Config {
 	protected $defaultComponent_;
 	protected $redirectComponent_;
 	protected $redirectComponentParameters_;
+	protected $isAjaxJs_;
+	protected $isAjax_;
+	protected $isJSON_;
 
 	public function __construct($basePathAbsolute=null, $basePathRelative=null) {
 		parent::__construct($this);
@@ -76,7 +79,11 @@ class xyo_Cloud extends xyo_Config {
 		$this->redirectComponent_=null;
 		$this->redirectComponentParameters_=null;
 
-		$this->set("system_kernel_version", "0.7.5.0");
+		$this->isAjaxJs_=0;
+		$this->isAjax_=0;
+		$this->isJSON_=0;
+
+		$this->set("system_kernel_version", "0.8.0.0");
 
 		$this->set("request_main", "index.php");
 
@@ -597,14 +604,17 @@ class xyo_Cloud extends xyo_Config {
 			if ($module) {
 				if ($this->isModuleAsComponent($module)) {
 					if($this->getRequest("ajax-js",0)*1) {
+						$this->isAjaxJs_=1;
 						$exec_ = false;
 						$this->execModule($module, null);
 					}else
 					if($this->getRequest("ajax",0)*1) {
+						$this->isAjax_=1;
 						$exec_ = false;
 						$this->execModule($module, null);
 					}else
 					if($this->getRequest("json",0)*1) {
+						$this->isJSON_=1;
 						$exec_ = false;
 						$this->execModule($module, null);
 					}
@@ -1060,6 +1070,18 @@ class xyo_Cloud extends xyo_Config {
 
 	public function getStorageFilename($module,$fileName) {
 		return $this->get("path_base") . "repository/module/".$module."/".$fileName;
+	}
+
+	public function isAjaxJs(){
+		return $this->isAjaxJs_;
+	}
+
+	public function isAjax(){
+		return $this->isAjax_;
+	}
+
+	public function isJSON(){
+		return $this->isJSON_;
 	}
 
 }

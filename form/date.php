@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");                    
-$format = $this->getParameter("format","");                   
+$element = $this->getArgument("element");                    
+$format = $this->getArgument("format","");                   
 if(strlen($format)){
 	if($format=="d-m-Y"){
 		$format="dd-mm-yyyy";
@@ -27,7 +27,15 @@ if(strlen($format)){
 	};
 	$format="{format:\"".$format."\"}";
 };
-$this->setHtmlFooterJsSource("\$(function(){\$(\"#date_".($this->getElementId($element))."\").datepicker(".$format.");});");
+
+if($this->isAjax()){
+	$this->ejsBegin();
+	echo "$(\"#date_".($this->getElementId($element))."\").datepicker(".$format.");";
+	$this->ejsEnd();
+}else{
+	$this->setHtmlFooterJsSource("\$(function(){\$(\"#date_".($this->getElementId($element))."\").datepicker(".$format.");});");
+};
+
 
 ?>
 <div class="form-group <?php if($this->isElementError($element)){echo " has-error";}; ?>">

@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->ds->clear();
-$this->ds->{$this->tablePrimaryKey} = $this->id;
+$this->ds->{$this->primaryKey} = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
     if ($this->ds->id == $this->user->info->id) {
         $this->setError("error", "err_logout_this_user");

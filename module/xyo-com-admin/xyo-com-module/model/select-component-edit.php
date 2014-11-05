@@ -13,5 +13,5 @@ $component = array(
 		     "0" => $this->getFromLanguage("select_component_disabled")
 	     );
 
-$this->returnParameter("select_component", $component);
+$this->setParameter("select_component", $component);
 

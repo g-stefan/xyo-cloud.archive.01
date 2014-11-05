@@ -17,7 +17,7 @@ $path = array(
     "language" => "language",
     "datasource" => "datasource",
     "form" => "form",
-    "plugin" => "plugin",
+    "widget" => "widget",
     "log" => "log",
     "temp" => "temp"
 );
@@ -31,4 +31,4 @@ foreach ($path as $key => $value) {
     }
 }
 
-$this->returnParameter("path", $path_);
+$this->setParameter("path", $path_);

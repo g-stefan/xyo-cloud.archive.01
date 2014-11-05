@@ -17,4 +17,3 @@ $this->setElementValue("version",$this->ds->version);
 $this->setElementValue("parent",$this->ds->parent);
 $this->setElementValue("cmd",$this->ds->cmd);
 $this->setElementValue("component",$this->ds->component);
-$this->setElementValue("is_module",$this->ds->is_module);

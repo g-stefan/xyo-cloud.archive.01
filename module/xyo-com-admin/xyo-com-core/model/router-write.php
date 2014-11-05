@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$router=$this->getParameter("router",$this->ds->name);
-$core=$this->getParameter("core",$this->ds->name);
+$router=$this->getArgument("router",$this->ds->name);
+$core=$this->getArgument("core",$this->ds->name);
 $coreDef=str_replace("-","_",$core);
 
 $file = $this->cloud->get("path_base_absolute") . $router . ".php";

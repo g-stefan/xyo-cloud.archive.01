@@ -1,0 +1,100 @@
+/*
+//
+// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xyo-form-file-link-delete-sub{
+	position:relative;
+	top:0;
+	right:0;
+	z-index:3;
+	display:block;
+	color:#fff;
+	padding:6px 18px;
+	font-size:1em;
+	background-color:#e54;
+	border:1px solid #e1e1e8;
+	border-radius:4px 4px 4px 4px;
+	cursor: pointer;	
+}
+
+.xyo-form-file-link-delete-sub:hover{
+	background-color:#d32;	
+}
+
+.xyo-form-file-link-toggle.collapsed .glyphicon-chevron-down {
+	display: none;
+}
+
+.xyo-form-file-link-toggle.collapsed .glyphicon-chevron-left {
+	display: inline-block;
+}
+ 
+.xyo-form-file-link-toggle .glyphicon-chevron-left {
+	display: none;
+}
+
+.xyo-form-file-link-link-on{
+	margin-right: 10px;
+}
+
+.xyo-form-file-link-link-on i{
+	color: #0C0;
+}
+
+.xyo-form-file-link-link-off{
+	margin-right: 10px;
+}
+
+.xyo-form-file-link-link-off i{
+	color: #ccc;
+}
+
+.xyo-form-file-link-wrapper{
+	display:block;
+	margin-bottom: 0.5em;
+}
+
+.xyo-form-file-link-input{
+	width: 24em;
+}
+
+.xyo-form-file-link-delete{
+	padding-left: 1em;
+}
+
+.xyo-form-file-link-input > a{
+	position:relative;
+	top:0;
+	right:0;
+	z-index:3;
+	display:block;
+	color:#000;
+	padding:6px 1em;
+	font-size:1em;
+	background-color:#ada;
+	border:1px solid #e1e1e8;
+	border-radius:4px 4px 4px 4px;
+	cursor: pointer;	
+	text-decoration: none;
+}
+
+.xyo-form-file-link-input > span{
+	position:relative;
+	top:0;
+	right:0;
+	z-index:3;
+	display:block;
+	color:#000;
+	padding:6px 1em;
+	font-size:1em;
+	background-color:#eee;
+	border:1px solid #e1e1e8;
+	border-radius:4px 4px 4px 4px;
+	text-decoration: none;
+}
+

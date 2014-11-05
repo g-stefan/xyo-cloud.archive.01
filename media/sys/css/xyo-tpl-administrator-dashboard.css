@@ -17,6 +17,15 @@ body{
 	padding-top: 56px;
 }
 
+/*
+// Datepicker z-index correction for Bootstrap Dialog
+*/
+
+.datepicker{
+	z-index:1151 !important;
+}
+
+
 .navbar-nav-span{
 	line-height: 20px;
 	padding-top: 18px;
@@ -271,6 +280,7 @@ body{
 	left: -0.2em;
 	list-style-type: none;
 	padding-left: 2.8em;
+	float:left;
 }
 
 .dashboard.sidebar.sidebar-small > ul > li:hover {

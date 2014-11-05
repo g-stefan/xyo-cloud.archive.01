@@ -8,9 +8,9 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
-$fileName = $this->getParameter("filename","");
-$deleteBeforeSave = $this->getParameter("delete_before_save",false);
+$element = $this->getArgument("element");
+$fileName = $this->getArgument("filename","");
+$deleteBeforeSave = $this->getArgument("delete_before_save",false);
 $elementName = $this->getElementName($element);
 if(strlen($fileName)){
 	if($deleteBeforeSave){

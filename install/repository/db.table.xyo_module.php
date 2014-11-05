@@ -70,6 +70,16 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-bootstrap-datepicker", "xyo-info-about", null, null, 0, true);
 	$setup->linkModuleVersion("lib-mod-bootstrap-datepicker");
 
+	$setup->registerModule("lib", null, "lib-mod-moment", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-moment", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-moment", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-moment");
+
+	$setup->registerModule("lib", null, "lib-mod-bootstrap-datetimepicker", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-bootstrap-datetimepicker", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-bootstrap-datetimepicker", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-bootstrap-datetimepicker");
+
 	$setup->registerModule("lib", null, "lib-mod-bootstrap-fileinput", true, false, false, null, null);
 	$setup->registerModuleAcl("lib-mod-bootstrap-fileinput", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-bootstrap-fileinput", "xyo-info-about", null, null, 0, true);
@@ -104,6 +114,26 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-jquery-cookie", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-jquery-cookie", "xyo-info-about", null, null, 0, true);
 	$setup->linkModuleVersion("lib-mod-jquery-cookie");
+
+	$setup->registerModule("lib", null, "lib-mod-jquery-form", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-jquery-form", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-jquery-form", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-jquery-form");
+
+	$setup->registerModule("lib", null, "lib-mod-jquery-form", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-jquery-form", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-jquery-form", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-jquery-form");
+
+	$setup->registerModule("lib", null, "lib-mod-bootstrap-dialog", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-bootstrap-dialog", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-bootstrap-dialog", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-bootstrap-dialog");
+
+	$setup->registerModule("lib", null, "lib-mod-ionicons", true, false, false, null, null);
+	$setup->registerModuleAcl("lib-mod-ionicons", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-ionicons", "xyo-info-about", null, null, 0, true);
+	$setup->linkModuleVersion("lib-mod-ionicons");
 
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource", true, false, false, null, null);

@@ -34,7 +34,7 @@ if ($layer === "sqlite") {
 
 $configFileName = $fileName;
 
-$this->returnParameter("config_file", $configFileName);
+$this->setParameter("config_file", $configFileName);
 
 $fileHandle = null;
 if ($fileName) {

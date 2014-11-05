@@ -10,4 +10,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setApplicationIcon("media/sys/images/preferences-desktop-locale-48.png");
 $this->setApplicationDataSource("db.table.xyo_language");
-$this->requireElement(array("select","text","textarea","group-begin","group-end","group-row-begin","group-row-end"));
+$this->setPrimaryKey("id");
+
+$this->requireElement(array(
+	"select",
+	"text",
+	"textarea",
+	"group-begin",
+	"group-end",
+	"group-row-begin",
+	"group-row-end"
+));

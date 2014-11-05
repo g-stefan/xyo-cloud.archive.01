@@ -10,4 +10,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setApplicationIcon("media/sys/images/utilities-terminal-48.png");
 $this->setApplicationDataSource("db.table.xyo_module_group");
-$this->requireElement(array("select","text","textarea","group-begin","group-end","group-row-begin","group-row-end"));
+$this->setPrimaryKey("id");
+
+$this->requireElement(array(
+	"select",
+	"text",
+	"textarea",
+	"group-begin",
+	"group-end",
+	"group-row-begin",
+	"group-row-end"
+));

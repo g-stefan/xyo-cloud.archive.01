@@ -15,8 +15,8 @@ class xyo_com_UserGroupXUserGroup extends xyo_com_Table {
     protected $id_xyo_user_group_super;
     
     public function __construct(&$object, &$cloud) {
-        parent::__construct($object, $cloud);
-        $this->id_xyo_user_group_super=0;
+	parent::__construct($object, $cloud);
+	$this->id_xyo_user_group_super=0;
     }   
 
 }

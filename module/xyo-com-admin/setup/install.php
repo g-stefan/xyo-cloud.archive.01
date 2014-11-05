@@ -69,3 +69,16 @@ $this->registerModuleAcl("xyo-com-template","xyo-control-panel","administrator",
 $this->registerModule($module, null, "xyo-com-datasource-backup", true, false, true, null, null);
 $this->linkModuleVersion("xyo-com-datasource-backup");
 $this->registerModuleAcl("xyo-com-datasource-backup","xyo-none","administrator","wheel",156,true);
+
+$this->registerModule($module, null, "xyo-com-example", true, false, true, null, null);
+$this->linkModuleVersion("xyo-com-example");
+$this->registerModuleAcl("xyo-com-example","xyo-control-panel","administrator","administrator",200,true);
+
+$this->registerModule($module, null, "xyo-mod-user-form", true, false, false, null, null);
+$this->registerModuleAcl("xyo-mod-user-form", "xyo-status", "administrator", "authenticated", 18000, true);
+$this->linkModuleVersion("xyo-mod-user-form");
+
+$this->registerModule($module, null, "xyo-com-user-form", true, false, true, null, null);
+$this->registerModuleAcl("xyo-com-user-form", "xyo-none", "administrator", "authenticated", 18000, true);
+$this->linkModuleVersion("xyo-com-user-form");
+

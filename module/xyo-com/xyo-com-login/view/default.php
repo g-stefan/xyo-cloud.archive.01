@@ -8,17 +8,23 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$language = $this->getSystemLanguage();
-$languageList = array();
-$languageList["*"] = $this->getFromLanguage("lang_default");
-$dsLanguage = &$this->getDataSource("db.table.xyo_language");
-if ($dsLanguage) {
-    $dsLanguage->enabled = 1;
-    $dsLanguage->setOrder("name", 1);
-    for ($dsLanguage->load(); $dsLanguage->isValid(); $dsLanguage->loadNext()) {
-        $languageList[$dsLanguage->name] = $dsLanguage->description;
-    }
-}
+$languageSelector=!$this->getParameter("no_language_selector",0);
+
+if($languageSelector){
+
+	$language = $this->getSystemLanguage();
+	$languageList = array();
+	$languageList["*"] = $this->getFromLanguage("lang_default");
+	$dsLanguage = &$this->getDataSource("db.table.xyo_language");
+	if ($dsLanguage) {
+	    $dsLanguage->enabled = 1;
+	    $dsLanguage->setOrder("name", 1);
+	    for ($dsLanguage->load(); $dsLanguage->isValid(); $dsLanguage->loadNext()) {
+	        $languageList[$dsLanguage->name] = $dsLanguage->description;
+	    }
+	}
+};
+
 $rnd=$this->getElementValueStr("rnd","");
 if(strlen($rnd)>=strlen(md5("x"))){
 }else{
@@ -90,6 +96,9 @@ if ($this->isError("error")) {
        id="<?php $this->eElementId("password"); ?>" />
     <i class="form-control-feedback glyphicon glyphicon-lock" style="color:#ccc;"></i>
 </div>
+
+<?php if($languageSelector){ ?>
+
 <div class="form-group has-feedback has-feedback-left<?php if($this->isElementError("language")){echo " has-error";}; ?>">
     <label class="control-label" for="<?php $this->eElementId("language"); ?>"><?php $this->eLanguage("label_language"); ?><?php if($this->isElementError("language")){echo " - "; $this->eElementError("language");}; ?></label>
     <br />
@@ -107,7 +116,7 @@ if ($this->isError("error")) {
 ?>
                                         </select>
 </div>
-
+<?php }; ?>
 
 <?php 							
 							if($useCaptcha){

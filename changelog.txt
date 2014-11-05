@@ -1,3 +1,7 @@
+2014.11.05
+* wide system change on form/table actions/models names
+* kernel method change on dealing with parameters/arguments
+
 2014.10.19
 + dashboard style template (xyo-tpl-administrator-dashboard)
 + plugins (like form elements) - common pieces of code for view ui

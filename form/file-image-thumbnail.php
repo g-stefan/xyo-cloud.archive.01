@@ -8,9 +8,9 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$element = $this->getParameter("element");
-$thumbSize = $this->getParameter("thumbnail-size",array(320,240));
-$collapse = $this->getParameter("collapse",false);
+$element = $this->getArgument("element");
+$thumbSize = $this->getArgument("thumbnail-size",array(320,240));
+$collapse = $this->getArgument("collapse",false);
 
 $collapseClass="collapse";
 $collapseClassA="collapsed";
@@ -46,8 +46,8 @@ if(!$collapse){
 ?>
 <div class="form-group<?php if($this->isElementError($element)){echo " has-error";}; ?>">
     <label class="control-label" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
-    <div class="xyo-file-image-thumbnail-delete">
-	<span class="xyo-file-image-thumbnail-delete-sub" onclick="javascript:$('#<?php $this->eElementId($element); ?>_delete').val(1);$('#<?php $this->eElementId($element); ?>_image').html('<?php echo $fileNameNone; ?>');return false;"><i class="glyphicon glyphicon-remove"></i></span>
+    <div class="xyo-form-file-image-thumbnail-delete">
+	<span class="xyo-form-file-image-thumbnail-delete-sub" onclick="javascript:$('#<?php $this->eElementId($element); ?>_delete').val(1);$('#<?php $this->eElementId($element); ?>_image').html('<?php echo $fileNameNone; ?>');return false;"><i class="glyphicon glyphicon-remove"></i></span>
     </div>
     <div class="thumbnail text-center" id="<?php $this->eElementId($element); ?>_image">
 	<?php echo $fileName; ?>
@@ -65,25 +65,25 @@ if(!$collapse){
        value="<?php $this->eElementValue($element); ?>" ></input>
 </div>
 <?php } else { ?>
-	<div class="panel panel-default pull-left" style="width:32em;margin-left:1em;" id="<?php $this->eElementId($element); ?>_collapse_parent">
+	<div class="panel panel-default pull-left" style="width: 32em;" id="<?php $this->eElementId($element); ?>_collapse_parent">
 		<div class="panel-heading">
 			<?php $this->eLanguage("label_" . $element); ?>
-			<a data-toggle="collapse" data-parent="#<?php $this->eElementId($element); ?>_collapse_parent" href="#<?php $this->eElementId($element); ?>_collapse" class="xyo-file-image-thumbnail-toggle <?php echo $collapseClassA; ?> pull-right">
+			<a data-toggle="collapse" data-parent="#<?php $this->eElementId($element); ?>_collapse_parent" href="#<?php $this->eElementId($element); ?>_collapse" class="xyo-form-file-image-thumbnail-toggle <?php echo $collapseClassA; ?> pull-right">
 				<i class="glyphicon glyphicon-chevron-left"></i>
 				<i class="glyphicon glyphicon-chevron-down"></i>
 			</a>
 			<?php if($hasFile){ ?>
-			<a href="<?php echo $this->getElementValue($element); ?>" target="blank_" class="xyo-file-image-thumbnail-link-on pull-right"><i class="glyphicon glyphicon-picture"></i></a>
+			<a href="<?php echo $this->getElementValue($element); ?>" target="blank_" class="xyo-form-file-image-thumbnail-link-on pull-right"><i class="glyphicon glyphicon-picture"></i></a>
 			<?php }else{ ?>
-			<span class="xyo-file-image-thumbnail-link-off pull-right"><i class="glyphicon glyphicon-picture"></i></span>
+			<span class="xyo-form-file-image-thumbnail-link-off pull-right"><i class="glyphicon glyphicon-picture"></i></span>
 			<?php }; ?>
 		</div>
 		<div class="panel-body <?php echo $collapseClass ?>" id="<?php $this->eElementId($element); ?>_collapse">
 
 <div class="form-group<?php if($this->isElementError($element)){echo " has-error";}; ?>">
     <?php if($this->isElementError($element)){echo $this->eElementError($element);}; ?>
-    <div class="xyo-file-image-thumbnail-delete">
-	<span class="xyo-file-image-thumbnail-delete-sub" onclick="javascript:$('#<?php $this->eElementId($element); ?>_delete').val(1);$('#<?php $this->eElementId($element); ?>_image').html('<?php echo $fileNameNone; ?>');return false;"><i class="glyphicon glyphicon-remove"></i></span>
+    <div class="xyo-form-file-image-thumbnail-delete">
+	<span class="xyo-form-file-image-thumbnail-delete-sub" onclick="javascript:$('#<?php $this->eElementId($element); ?>_delete').val(1);$('#<?php $this->eElementId($element); ?>_image').html('<?php echo $fileNameNone; ?>');return false;"><i class="glyphicon glyphicon-remove"></i></span>
     </div>
     <div class="thumbnail text-center" id="<?php $this->eElementId($element); ?>_image">
 	<?php echo $fileName; ?>

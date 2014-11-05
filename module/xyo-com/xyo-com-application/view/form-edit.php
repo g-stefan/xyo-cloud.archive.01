@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-// ... to be implemented by derivate
+$this->generateView("form-view");

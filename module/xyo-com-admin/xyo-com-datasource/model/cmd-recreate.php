@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->ds->clear();
-$this->ds->id = $this->id;
+$this->ds->id = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
 	$ds=&$this->getDataSource($this->ds->name);
 	if($ds){

@@ -14,7 +14,6 @@ class xyo_com_Table extends xyo_com_Application {
 
     protected $tableComPath;
 //---
-    protected $tablePrimaryKey;
     protected $tableHead;
     protected $tableSearch;
     protected $tableSelect;
@@ -34,8 +33,6 @@ class xyo_com_Table extends xyo_com_Application {
 
         $this->tableComPath = $this->getModulePath("xyo-com-table");
 
-        $this->tablePrimaryKey = "id";
-
         $this->tableHead = array();
         $this->tableSearch = array();
         $this->tableSelect = array();        
@@ -50,10 +47,6 @@ class xyo_com_Table extends xyo_com_Application {
 	$this->viewKey=null;
 	$this->viewId=0;
     }
-
-	public function setTablePrimaryKey($name){
-		$this->tablePrimaryKey=$name;
-	}
 
 	public function viewKeepRequest(){
 		$this->transferRequest("page","view_page");

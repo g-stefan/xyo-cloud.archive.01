@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setDefaultAction($this->getRequest("action", "view"));
+$this->setDefaultAction($this->getRequest("action", "table-view"));

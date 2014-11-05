@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("default", null, false);
+$this->processModel("default");
 $this->setView("default");

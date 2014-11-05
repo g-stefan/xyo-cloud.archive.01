@@ -25,5 +25,5 @@ if(!$this->user->isInGroup("wheel")){
     }
 };
 
-$this->returnParameter("select_id_xyo_user_group",$userGroup);
+$this->setParameter("select_id_xyo_user_group",$userGroup);
 

@@ -29,6 +29,7 @@ $this->set("label_username", "Username");
 $this->set("label_password1", "Password");
 $this->set("label_password2", "Retype password");
 $this->set("label_enabled", "Enabled");
+$this->set("label_picture", "Picture");
 $this->set("label_description", "Description");
 $this->set("label_id_xyo_user_group", "Default user group");
 $this->set("label_id_xyo_language", "Default language");
@@ -38,6 +39,7 @@ $this->set("search_username", "Username");
 $this->set("search_name", "Name");
 
 $this->set("form_edit_user", "Edit user");
+$this->set("form_title_user", "User");
 
 $this->set("el_id_empty", "is empty");
 $this->set("el_name_empty", "is empty");
@@ -57,7 +59,6 @@ $this->set("err_id_user_not_found", "User id not found");
 $this->set("err_new_user_x_core_save_error","Unable to save user default core");
 
 $this->set("info_logout_ok", "Logout successfully");
-
 
 $this->set("select_invisible_any", "- invisible -");
 $this->set("select_invisible_enabled", "yes");

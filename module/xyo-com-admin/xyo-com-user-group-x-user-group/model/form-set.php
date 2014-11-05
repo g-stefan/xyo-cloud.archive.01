@@ -12,4 +12,3 @@ $this->setElementValue("id",$this->ds->id);
 $this->setElementValue("id_xyo_user_group_super",$this->ds->id_xyo_user_group_super);
 $this->setElementValue("id_xyo_user_group",$this->ds->id_xyo_user_group);
 $this->setElementValue("enabled",$this->ds->enabled);
-

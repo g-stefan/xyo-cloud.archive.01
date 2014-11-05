@@ -10,3 +10,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setViewTemplate("template");
 $this->setDefaultAction($this->getRequest("action", "default"));
+
+$this->requireElement(array(
+	"form-begin",
+	"form-end"
+));

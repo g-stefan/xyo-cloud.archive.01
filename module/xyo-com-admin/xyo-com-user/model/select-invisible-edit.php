@@ -13,5 +13,5 @@ $invisible = array(
     "0" => $this->getFromLanguage("select_invisible_disabled")
 );
 
-$this->returnParameter("select_invisible", $invisible);
+$this->setParameter("select_invisible", $invisible);
 

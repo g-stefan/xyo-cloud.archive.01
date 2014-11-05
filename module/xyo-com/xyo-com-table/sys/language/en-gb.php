@@ -9,4 +9,3 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->set("label_xyo_com_table_compact_view","Compact view");
-
