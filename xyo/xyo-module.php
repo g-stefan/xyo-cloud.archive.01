@@ -627,6 +627,10 @@ class xyo_Module extends xyo_Config {
 		return array_key_exists($name, $this->parameters_);
 	}
 
+	public function getArgumentParameterRequest($name, $default_=null) {
+		return $this->getArgument($name,$this->cloud->getParameterRequest($name, $this->parameters_, $default_));
+	}
+
 	public function eRequestUri($parameters=null) {
 		echo $this->requestUri($parameters);
 	}
