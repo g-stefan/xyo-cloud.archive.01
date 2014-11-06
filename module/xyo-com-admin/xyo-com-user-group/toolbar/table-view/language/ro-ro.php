@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("user_group","Grup utilizator");
+$this->set("user_group","Grup");
