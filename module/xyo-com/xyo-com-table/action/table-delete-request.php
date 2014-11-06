@@ -8,12 +8,10 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$this->tableIsDelete=true;
 $this->processModel("set-primary-key-value");
-$this->processModel("set-ds");
+$this->processModel("table-view");
+$this->processModel("table-view-process");
+$this->setViewTemplate(null);
+$this->setView("table-delete-request");
 
-if ($this->isError()) {
-    
-}else{
-    $this->processModel("table-order-save");
-}
-$this->doRedirect("table-view");

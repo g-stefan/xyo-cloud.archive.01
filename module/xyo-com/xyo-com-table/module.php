@@ -28,6 +28,9 @@ class xyo_com_Table extends xyo_com_Application {
 	protected $viewKey;
 	protected $viewId;
 
+//---
+	protected $tableIsDelete;
+
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
 
@@ -46,6 +49,7 @@ class xyo_com_Table extends xyo_com_Application {
 	$this->fnCallId_=0;
 	$this->viewKey=null;
 	$this->viewId=0;
+	$this->tableIsDelete=false;
     }
 
 	public function viewKeepRequest(){

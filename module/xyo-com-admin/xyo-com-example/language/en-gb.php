@@ -38,3 +38,4 @@ $this->set("label_element_username","Username");
 $this->set("label_element_datetime","Datetime");
 
 $this->set("other_title","Other title");
+$this->set("label_element_time","Time");

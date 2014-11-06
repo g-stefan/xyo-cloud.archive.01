@@ -13,5 +13,6 @@ $this->setReferenceLink($module, "lib-mod-bootstrap-feedback-left");
 $this->setReferenceLink($module, "lib-mod-bootstrap-select");
 $this->setReferenceLink($module, "lib-mod-fontawesome");
 $this->setReferenceLink($module, "lib-mod-jquery-stickytableheaders");
+$this->setReferenceLink($module, "lib-mod-bootstrap-dialog");
 $this->setVersion($module, "2.0.0");
 

@@ -179,6 +179,10 @@ if ($this->ds) {
 
     $index = 0;
 
+	if($this->tableIsDelete){
+		$this->ds->{$this->primaryKey}=$this->primaryKeyValue;
+	};
+
     for ($this->ds->load((1 * $page - 1) * $x_count, $x_count); $this->ds->isValid(); $this->ds->loadNext()) {
 
         ++$index;

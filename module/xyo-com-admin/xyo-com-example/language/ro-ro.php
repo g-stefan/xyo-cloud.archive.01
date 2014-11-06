@@ -45,3 +45,4 @@ $this->set("label_element_username","Utilizator");
 $this->set("label_element_datetime","Datetime");
 
 $this->set("other_title","Alt titlu");
+$this->set("label_element_time","Timp");

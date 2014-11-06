@@ -36,6 +36,7 @@ $this->addItem("group-end");
 $this->addItem("group-begin",null,null,array("title"=>"other_title"));
 $this->addItem("captcha", "element_captcha");
 $this->addItem("date", "element_date");
+$this->addItem("time", "element_time");
 $this->addItem("datetime", "element_datetime");
 $this->addItem("file", "element_file");
 $this->addItem("file-image-thumbnail","element_file_image_thumbnail");

@@ -638,7 +638,7 @@ foreach($this->tableType as $key_=>$value_){
 
 	$this->generateView("table-view-return");
 	$this->generateView("table-view-call");
-
+	
 	$this->setHtmlFooterJsSource(
 		"$(document).ready(function() {".
 			"if($('#template-navbar-fixed-top').length){".
@@ -646,7 +646,40 @@ foreach($this->tableType as $key_=>$value_){
 			"}else{".
 				"$(\"#com_table\").stickyTableHeaders();".
 			"}".
-		"})"	
+		"});".
+		"\r\n".
+		"function cmdDelete(){".
+        		"var el;".
+        		"var id;".		       
+		        "id=\"\";".
+		        "for(k=1;k<=id_.length; ++k){".
+				"el=document.getElementById(\"cbox_\"+k);".
+				"if(el){".
+					"if(el.checked){".
+			                    "id+=\"\"+id_[k-1];".
+			                    "id+=\",\";".
+					"}".
+				"}".
+		        "};".
+			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-delete-request\", primary_key_value: id, ajax: 1 } )".
+  			".done(function(result){".
+				"window.dialogDelete=BootstrapDialog.show({".
+					"type: BootstrapDialog.TYPE_DANGER,".
+					"title: '".$this->getFromLanguage("title_form_delete")."',".
+					"nl2br: false,".
+					"buttons: [".
+						"{".
+						"label: '".$this->getFromLanguage("label_button_delete")."',".
+						"cssClass: 'btn-primary btn-danger',".
+						"action: function(dialog){".
+							"doCommand('table-delete');".
+						"}}".
+					"],".
+					"message: result".
+        			"});".
+			"});".
+		"};".
+		"\r\n"			
 	);
 
 

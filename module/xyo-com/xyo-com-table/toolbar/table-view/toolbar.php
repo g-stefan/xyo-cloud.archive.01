@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setItem("delete", "item-js", "media/sys/images/edit-delete-32.png", "delete", true, "#", "doCommand('table-delete')");
+$this->setItem("delete", "item-js", "media/sys/images/edit-delete-32.png", "delete", true, "#", "cmdDelete()");
 
 $this->setItem("edit", "item-js", "media/sys/images/edit-32.png", "edit", true, "#", "doCommand('form-edit')");
 

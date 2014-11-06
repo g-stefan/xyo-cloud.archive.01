@@ -44,3 +44,7 @@ $this->set("info_delete_ok", "Sters cu succes");
 $this->set("err_el_empty","este gol");
 $this->set("err_el_already_exists","deja exista");
 $this->set("err_id_not_found","Id-un nu a fost gasit");
+
+$this->set("title_form_delete","Sterge");
+$this->set("label_button_delete","Sterge");
+$this->set("delete_this_and_many_more","... si mai multe");
