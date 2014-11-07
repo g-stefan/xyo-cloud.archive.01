@@ -307,7 +307,7 @@ class xyo_mod_ds_User extends xyo_Module {
 							 
 							// first verify if user/password changed
 							$checkPasword = md5(md5($this->dsUser->username . $password) . $this->dsUser->session_rnd);
-							if($checkPasword!=$this->info->session){
+							if($checkPasword!=$this->dsUser->session){
 								// update new credentials
 								$this->dsUser->session=$this->info->session;
 								$this->dsUser->session_rnd=$this->info->rnd;
