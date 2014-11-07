@@ -26,10 +26,7 @@ $this->tableSelect = array(
 );
 
 $this->tableType = array(
-	"name" => array("action",array(
-        	"action" => "form-edit",
-	        "primary_key_value" => array($this->primaryKey)
-	)),
+	"name" => array("cmd-edit"),
 	"default"=>array("radio",array(
 		"on"=>array(
 			0=>"media/sys/images/favorite-off-16.png",

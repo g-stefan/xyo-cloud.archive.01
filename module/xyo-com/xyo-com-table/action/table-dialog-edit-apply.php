@@ -8,10 +8,13 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->tableIsDelete=true;
-$this->processModel("set-primary-key-value");
-$this->processModel("table-view");
-$this->processModel("table-view-process");
+$this->isDialog=true;
+$this->setFormName($this->getFormName()."_edit");
+$this->doActionBase("form-edit-apply");
+$this->doRedirect(null);
 $this->setViewTemplate(null);
-$this->setView("table-delete-request");
-
+if($this->isError()){
+	$this->setView("table-dialog-edit");
+}else{
+	$this->setView("table-dialog-edit-close");
+};

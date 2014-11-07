@@ -30,6 +30,10 @@ class xyo_com_Table extends xyo_com_Application {
 
 //---
 	protected $tableIsDelete;
+//
+	protected $dialogNew_;
+	protected $dialogEdit_;
+        protected $isDialog;
 
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
@@ -50,6 +54,9 @@ class xyo_com_Table extends xyo_com_Application {
 	$this->viewKey=null;
 	$this->viewId=0;
 	$this->tableIsDelete=false;
+	$this->dialogNew_=false;
+	$this->dialogEdit_=false;
+	$this->isDialog=false;
     }
 
 	public function viewKeepRequest(){
@@ -132,5 +139,12 @@ class xyo_com_Table extends xyo_com_Application {
 		return "fn_call_".$this->fnCallId_;
 	}
 
+	public function setDialogNew($value){
+		$this->dialogNew_=$value;
+	}
+
+	public function setDialogEdit($value){
+		$this->dialogEdit_=$value;
+	}
 
 }

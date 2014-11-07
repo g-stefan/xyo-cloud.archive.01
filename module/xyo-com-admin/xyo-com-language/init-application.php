@@ -12,6 +12,9 @@ $this->setApplicationIcon("media/sys/images/preferences-desktop-locale-48.png");
 $this->setApplicationDataSource("db.table.xyo_language");
 $this->setPrimaryKey("id");
 
+$this->setDialogNew(true);
+$this->setDialogEdit(true);
+
 $this->requireElement(array(
 	"select",
 	"text",

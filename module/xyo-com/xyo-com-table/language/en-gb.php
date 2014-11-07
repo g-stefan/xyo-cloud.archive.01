@@ -46,6 +46,9 @@ $this->set("err_el_empty","is empty");
 $this->set("err_el_already_exists","already exists");
 $this->set("err_id_not_found","Id not found");
 
-$this->set("title_form_delete","Delete");
+$this->set("form_title_delete","Delete");
 $this->set("label_button_delete","Delete");
 $this->set("delete_this_and_many_more","... and many more");
+
+$this->set("label_button_new","Apply");
+$this->set("label_button_edit","Apply");

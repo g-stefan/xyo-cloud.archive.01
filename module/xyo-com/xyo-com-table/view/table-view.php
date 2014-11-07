@@ -495,6 +495,13 @@ function doValueSave(key){
 					echo $value[$key_];
 				};				
 			}else
+			if($this->tableType[$key_][0]=="cmd-edit"){
+				if($value["@write"]){
+		                        echo "<a href=\"#\" onclick=\"javascript:cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $value[$key_] . "</a>";
+				}else{
+					echo $value[$key_];
+				};				
+			}else
 			if($this->tableType[$key_][0]=="custom"){
 					$this->viewKey=$key_;
 					$this->viewId=$key;
@@ -648,9 +655,10 @@ foreach($this->tableType as $key_=>$value_){
 			"}".
 		"});".
 		"\r\n".
-		"function cmdDelete(){".
+		"function cmdDialogDelete(){".
         		"var el;".
-        		"var id;".		       
+        		"var id;".
+			"var found=false;".		       
 		        "id=\"\";".
 		        "for(k=1;k<=id_.length; ++k){".
 				"el=document.getElementById(\"cbox_\"+k);".
@@ -658,14 +666,16 @@ foreach($this->tableType as $key_=>$value_){
 					"if(el.checked){".
 			                    "id+=\"\"+id_[k-1];".
 			                    "id+=\",\";".
+					    "found=true;".
 					"}".
 				"}".
 		        "};".
-			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-delete-request\", primary_key_value: id, ajax: 1 } )".
+			"if(!found){return};".
+			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-delete\", primary_key_value: id, ajax: 1 } )".
   			".done(function(result){".
 				"window.dialogDelete=BootstrapDialog.show({".
 					"type: BootstrapDialog.TYPE_DANGER,".
-					"title: '".$this->getFromLanguage("title_form_delete")."',".
+					"title: '".$this->getFromLanguage("form_title_delete")."',".
 					"nl2br: false,".
 					"buttons: [".
 						"{".
@@ -681,5 +691,87 @@ foreach($this->tableType as $key_=>$value_){
 		"};".
 		"\r\n"			
 	);
+
+	if($this->dialogNew_){
+		$originalFormName=$this->getFormName();			
+		$this->setFormName($originalFormName."_new");
+		$this->setHtmlFooterJsSource(
+		"\r\n".
+		"function cmdDialogNew(){".
+			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-new\", ajax: 1 } )".
+  			".done(function(result){".
+				"window.dialogNew=BootstrapDialog.show({".
+					"title: '".$this->getFromLanguage("form_title_new")."',".
+					"nl2br: false,".
+					"buttons: [".
+						"{".
+						"label: '".$this->getFromLanguage("label_button_new")."',".
+						"cssClass: 'btn-primary',".
+						"action: function(dialog){".
+							"$(\"#".$this->getFormName()."\").ajaxForm({url: \"".$this->cloud->requestUriModule($this->name)."\", type: \"post\", success: function(responseText){".
+								"dialog.setMessage(responseText);".
+							"}});".
+							"$(\"#".$this->getFormName()."\").submit();".
+						"}}".
+					"],".
+					"message: result".
+        			"});".
+			"});".
+		"};".
+		"\r\n"
+		);
+		$this->setFormName($originalFormName);		
+	};
+
+	if($this->dialogEdit_){
+		$originalFormName=$this->getFormName();			
+		$this->setFormName($originalFormName."_edit");
+		$this->setHtmlFooterJsSource(
+		"\r\n".
+		"function cmdDialogEdit(pkv){".			
+        		"var el;".
+        		"var id;".
+        		"var found=false;".
+			"if(typeof pkv != 'undefined'){".
+				"id=pkv;".
+			"}else{".			
+		        "id=\"\";".
+		        "for(k=1;k<=id_.length; ++k){".
+				"el=document.getElementById(\"cbox_\"+k);".
+				"if(el){".
+					"if(el.checked){".
+			                    "id+=\"\"+id_[k-1];".
+			                    "id+=\",\";".
+					    "found=true;".
+					    "break;".
+					"}".
+				"}".
+		        "};".			
+			"if(!found){return};".
+			"};".
+			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-edit\", primary_key_value: id, ajax: 1 } )".
+  			".done(function(result){".
+				"window.dialogEdit=BootstrapDialog.show({".
+					"title: '".$this->getFromLanguage("form_title_edit")."',".
+					"nl2br: false,".
+					"buttons: [".
+						"{".
+						"label: '".$this->getFromLanguage("label_button_edit")."',".
+						"cssClass: 'btn-primary',".
+						"action: function(dialog){".
+							"$(\"#".$this->getFormName()."\").ajaxForm({url: \"".$this->cloud->requestUriModule($this->name)."\", type: \"post\", success: function(responseText){".
+								"dialog.setMessage(responseText);".
+							"}});".
+							"$(\"#".$this->getFormName()."\").submit();".
+						"}}".
+					"],".
+					"message: result".
+        			"});".
+			"});".
+		"};".
+		"\r\n"
+		);
+		$this->setFormName($originalFormName);		
+	};
 
 

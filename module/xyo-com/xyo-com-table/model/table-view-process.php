@@ -232,3 +232,22 @@ $this->setParameter("page", $page);
 $this->setParameter("sort_value", $sort_value);
 $this->setParameter("sort_value_next", $sort_value_next);
 
+
+$this->toolbarParameter=array_merge($this->toolbarParameter,array(
+	"dialog_new"=>$this->dialogNew_,
+	"dialog_edit"=>$this->dialogEdit_
+));
+
+foreach($this->tableType as $key_=>$value_){
+	if($value_[0]=="cmd-edit"){
+		if($this->dialogEdit_){
+			//
+		}else{
+			$this->tableType[$key_]=array("action",array(
+				"action" => "form-edit",
+				"primary_key_value" => array($this->primaryKey)
+			));		
+		};
+	};
+};
+
