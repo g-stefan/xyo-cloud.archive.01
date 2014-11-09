@@ -442,3 +442,68 @@ body{
 
 }
 
+/*
+//  Disable rounded corners on some elements
+*/
+
+.btn {
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+.form-control{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+.thumbnail{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+.dropdown-menu{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+.panel{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+.input-group-addon{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+/*
+// XYO modules
+*/
+
+.xyo-form-file-link-delete-sub{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+  border: 0px solid #F00;
+}
+
+.xyo-form-file-image-thumbnail-delete-sub{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+  border: 0px solid #F00;
+}
+
+#back-to-top-btn{
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+

@@ -8,7 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-?>
-	</div>
-</div>
-<div class="clearfix"></div>
+$this->setHtmlHeadCss("media/sys/css/xyo-form-ajax-panel-wide.css");
