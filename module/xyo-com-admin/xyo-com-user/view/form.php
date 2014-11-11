@@ -20,6 +20,7 @@ $this->generateElement("text", "name");
 $this->generateElement("username", "username");
 $this->generateElement("password", "password1");
 $this->generateElement("password", "password2");
+$this->generateElement("email", "email");
 if($this->isNew){
     $this->generateElement("select", "id_xyo_user_group");
 }

@@ -18,3 +18,4 @@ $this->setElementValue("invisible",0);
 $this->setElementValue("id_xyo_language",0);
 $this->setElementValue("picture","");
 $this->setElementValue("description","");
+$this->setElementValue("email","");

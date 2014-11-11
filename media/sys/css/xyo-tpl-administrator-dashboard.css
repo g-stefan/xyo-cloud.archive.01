@@ -141,6 +141,9 @@ body{
 	color: #000;
 	font-size: 1em;
 	top: 0em;
+	width: 13em;
+	display: block;
+	float: left;
 }
 
 .dashboard.sidebar ul li a > i.icon{

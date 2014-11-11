@@ -15,6 +15,7 @@ $this->set("label_username", "Nume utilizator");
 $this->set("label_password1", "Parola");
 $this->set("label_password2", "Introduce parola din nou");
 $this->set("label_description", "Descriere");
+$this->set("label_email", "E-Mail");
 
 $this->set("form_edit_user", "Modifica utilizator");
 

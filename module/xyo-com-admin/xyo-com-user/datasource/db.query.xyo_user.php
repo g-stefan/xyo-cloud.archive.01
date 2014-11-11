@@ -27,6 +27,7 @@ $this->set("query_item", array(
     "enabled" => array("user"=>"enabled"),
     "picture" => array("user"=>"picture"),
     "description" => array("user"=>"description"),
+    "email" => array("user"=>"email"),
     "name" => array("user"=>"name"),
     "created_on" => array("user"=>"created_on"),
     "logged_on" => array("user"=>"logged_on"),

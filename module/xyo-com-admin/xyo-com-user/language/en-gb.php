@@ -34,6 +34,7 @@ $this->set("label_description", "Description");
 $this->set("label_id_xyo_user_group", "Default user group");
 $this->set("label_id_xyo_language", "Default language");
 $this->set("label_invisible","Invisible");
+$this->set("label_email","E-Mail");
 
 $this->set("search_username", "Username");
 $this->set("search_name", "Name");

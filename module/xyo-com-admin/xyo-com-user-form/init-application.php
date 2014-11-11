@@ -27,7 +27,8 @@ $this->requireElement(array(
 	"file-image-thumbnail",
 	"group-box-begin",
 	"group-box-end",
-	"group-row-separator"
+	"group-row-separator",
+	"email"
 ));
 
                     

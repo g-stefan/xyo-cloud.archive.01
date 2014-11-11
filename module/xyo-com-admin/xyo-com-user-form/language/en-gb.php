@@ -16,6 +16,7 @@ $this->set("label_username", "Username");
 $this->set("label_password1", "Password");
 $this->set("label_password2", "Retype password");
 $this->set("label_description", "Description");
+$this->set("label_email", "E-Mail");
 
 $this->set("form_edit_user", "Edit user");
 

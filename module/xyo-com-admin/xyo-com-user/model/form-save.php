@@ -94,6 +94,7 @@ if ($this->isNew) {
 
 $this->ds->id_xyo_language = $this->getElementValueInt("id_xyo_language", 0, "*");
 $this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
+$this->ds->email = $this->getElementValueStr("email","");
 $this->ds->description = $this->getElementValueStr("description","");
 $this->ds->invisible = $this->getElementValueInt("invisible", 0, "*");
 

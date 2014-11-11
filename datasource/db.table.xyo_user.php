@@ -26,7 +26,8 @@ $this->set("table_item", array(
 		   "action_on" => array("datetime",null), // last time when an authorization was requested
 		   "id_xyo_language" => array("bigint",0,"unsigned"),
 		   "picture" => array("varchar",192,null),
-		   "description" => array("varchar",192,null),
+		   "description" => array("varchar",255,null),
+		   "email" => array("varchar",192,null),
 		   "invisible" => array("int",0,"unsigned")
 	   ));
 

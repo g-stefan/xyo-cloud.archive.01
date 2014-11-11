@@ -66,6 +66,7 @@ if (strlen($password1)) {
 
 $this->ds->id_xyo_language = $this->getElementValueInt("id_xyo_language", 0, "*");
 $this->ds->description = $this->getElementValueStr("description","");
+$this->ds->email = $this->getElementValueStr("email","");
 
 if ($this->ds->save()) {
 

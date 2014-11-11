@@ -16,3 +16,4 @@ $this->setElementValue("password2","");
 $this->setElementValue("id_xyo_language",$this->ds->id_xyo_language);
 $this->setElementValue("picture",$this->ds->picture);
 $this->setElementValue("description",$this->ds->description);
+$this->setElementValue("email",$this->ds->email);

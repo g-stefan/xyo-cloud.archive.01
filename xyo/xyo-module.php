@@ -1085,10 +1085,14 @@ class xyo_Module extends xyo_Config {
 		return $this->hasRequestStack($this->getRequestDirect());
 	}
 
-	public function getElementValueStr($element, $default=null) {
+	public function getElementValueStr($element, $default=null, $size_=0) {
 		$retV=$this->getElementValue($element);
 		if(!is_null($retV)) {
-			return trim($retV);
+			if($size_){
+				return substr(trim($retV),0,$size_);
+			}else{
+				return trim($retV);
+			}
 		}
 		return $default;
 	}
