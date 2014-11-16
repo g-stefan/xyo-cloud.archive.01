@@ -21,6 +21,7 @@ $this->setHtmlFooterJsSource("\$(function(){\$(\"#".($this->getElementId($elemen
 "tinymce({\r\n".
 "    selector: \"textarea\",\r\n".
 "    theme: \"modern\",\r\n".
+"    skin: \"custom\",\r\n".
 "    plugins: [\r\n".
 "        \"advlist autolink lists link image charmap print preview hr anchor pagebreak\",\r\n".
 "        \"searchreplace wordcount visualblocks visualchars code fullscreen\",\r\n".

@@ -10,3 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->doActionBase("form-edit");
 $this->setParameter("toolbar", "toolbar/table-edit");
+
+if ($this->isError()) {
+	$this->doRedirect("table-view");
+};
