@@ -10,7 +10,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $element = $this->getArgument("element");
 
-$this->setHtmlFooterJsSource("\$(function(){\$(\"#".$this->getElementId($element)."\").fileinput({showUpload: false});});");
+if($this->isAjax()){
+	$this->ejsBegin();
+	echo "\$(\"#".$this->getElementId($element)."\").fileinput({showUpload: false});";
+	$this->ejsEnd();
+}else{
+	$this->setHtmlFooterJsSource("\$(function(){\$(\"#".$this->getElementId($element)."\").fileinput({showUpload: false});});");
+};
 
 ?>
 <div class="form-group<?php if($this->isElementError($element)){echo " has-error";}; ?>">

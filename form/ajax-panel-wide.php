@@ -11,6 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $element = $this->getArgument("element");
 $collapse = $this->getArgument("collapse",false);
 $buttons= $this->getArgument("buttons",array());
+$noBody = $this->getArgument("no_body",false);
 
 $collapseClass="collapse";
 $collapseClassA="collapsed";
@@ -45,6 +46,50 @@ $this->setHtmlFooterJsSource(
 	"};".
 	"\r\n"
 );
+
+if(!$collapse){
+
+?>
+
+
+	<div class="panel panel-default xyo-form-ajax-panel-wide">
+		<div class="panel-heading">
+			<?php $this->eLanguage("label_" . $element); ?>
+			<?php
+
+				foreach($buttons as $key=>$value){
+					$img = $value["img"];
+					if ($img) {
+						if(strncmp($img,"#",1)==0){
+							// icon
+					        	$img = substr($img,1);
+							$img = "<i class=\"".$img."\"></i>";
+						}else{
+							$img = "<img src=\"".$img."\"></img>";
+						};
+					} else {
+						$img = "#";
+					};
+					echo "<a href=\"#\" onclick=\"javascript:".$value["js"]."\" class=\"pull-right xyo-form-ajax-panel-wide-icon\">".$img."</a>";
+				};				
+
+			?>
+		</div>
+		<?php
+		if($noBody){
+			$this->generateView($this->getArgument("view"),$parameters);
+		}else{
+			echo "<div class=\"panel-body\">";
+			$this->generateView($this->getArgument("view"),$parameters);
+			echo "</div>";
+		};
+		?>		
+	</div>
+
+
+<?php
+
+}else{
                                                   
 ?>
 	<div class="panel panel-default xyo-form-ajax-panel-wide" id="<?php $this->eElementId($element); ?>_collapse_parent">
@@ -77,3 +122,8 @@ $this->setHtmlFooterJsSource(
 		<?php $this->generateView($this->getArgument("view"),$parameters); ?>
 		</div>
 	</div>
+<?php
+
+}
+
+

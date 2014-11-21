@@ -379,6 +379,13 @@ class xyo_mod_datasource_mysql_Table extends xyo_Config {
 
 				} else {
 
+					if($value_[2]==3) {
+						if(is_array($value_[4])){
+							$where .= "(";		
+						};
+					};
+
+
 					if($value_[2]==1) {
 						if($value_[7]) {
 							$where .= "COALESCE(";
@@ -390,7 +397,9 @@ class xyo_mod_datasource_mysql_Table extends xyo_Config {
 							$where .= ",".$this->getQueryValue($value_[1],$value_[5]).")";
 						};
 					};
+
 					$where .= $value_[3];
+
 					if($value_[2]==0) {
 					} else if($value_[2]==1) {
 						if($value_[6]) {
@@ -413,12 +422,36 @@ class xyo_mod_datasource_mysql_Table extends xyo_Config {
 							$where.= $this->getQueryValue($value_[1],$value_[5]);
 						};
 					} else if($value_[2]==3) {
-						if($value_[6]) {
-							$where.= "`".$value_[4]."`";
-						} else {
-							$where.= "'%" . $this->connection_->safeLikeValue($value_[4]) . "%'";
-						};
+						if(is_array($value_[4])){
+							$idx=0;
+							$cnt=count($value_[4]);
+							foreach($value_[4] as $valueX_){
+								if($value_[6]) {
+									$where.= "`".$valueX_."`";
+								}else{
+									$where.= "'%" . $this->connection_->safeLikeValue($valueX_) . "%'";
+								};
+								++$idx;
+								if($idx<$cnt){
+									$where.= " OR `".$value_[1]."` LIKE ";
+								};
+							};
+						}else{
+							if($value_[6]) {
+								$where.= "`".$value_[4]."`";
+							} else {
+								$where.= "'%" . $this->connection_->safeLikeValue($value_[4]) . "%'";
+							};
+						}
 					}
+
+
+					if($value_[2]==3) {
+						if(is_array($value_[4])){
+							$where .= ")";		
+						};
+					};
+
 				}
 			}
 		}

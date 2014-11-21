@@ -7,6 +7,10 @@
 //
 */
  
+.xyo-form-ajax-panel-wide-toggle{
+	margin-left: 0.5em;
+}
+
 .xyo-form-ajax-panel-wide-toggle.collapsed .glyphicon-chevron-down {
 	display: none;
 }
@@ -20,7 +24,7 @@
 }
 
 a.xyo-form-ajax-panel-wide-icon{
-	margin-right: 10px;
+	margin-left: 0.5em;
 }
 
 a.xyo-form-ajax-panel-wide-icon i{

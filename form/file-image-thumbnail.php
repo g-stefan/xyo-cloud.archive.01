@@ -19,7 +19,13 @@ if($collapse==="in"){
 	$collapseClassA="";
 };
 
-$this->setHtmlFooterJsSource("\$(function(){\$(\"#".$this->getElementId($element)."\").fileinput({showUpload: false});});");
+if($this->isAjax()){
+	$this->ejsBegin();
+	echo "\$(\"#".$this->getElementId($element)."\").fileinput({showUpload: false});";
+	$this->ejsEnd();
+}else{
+	$this->setHtmlFooterJsSource("\$(function(){\$(\"#".$this->getElementId($element)."\").fileinput({showUpload: false});});");
+};
 
 $hasFile=false;
 $fileName=$this->getElementValue($element);

@@ -30,7 +30,7 @@ if(strlen($format)){
 
 if($this->isAjax()){
 	$this->ejsBegin();
-	echo "$(\"#date_".($this->getElementId($element))."\").datepicker(".$format.");";
+	echo "\$(\"#date_".($this->getElementId($element))."\").datepicker(".$format.");";
 	$this->ejsEnd();
 }else{
 	$this->setHtmlFooterJsSource("\$(function(){\$(\"#date_".($this->getElementId($element))."\").datepicker(".$format.");});");
