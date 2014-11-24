@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->ds->clear();
-$this->ds->{$this->primaryKey} = $this->primryKeyValue;
+$this->ds->{$this->primaryKey} = $this->primaryKeyValue;
 
 $this->ds->delete();
 
