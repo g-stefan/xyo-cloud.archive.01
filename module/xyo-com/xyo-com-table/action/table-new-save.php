@@ -22,7 +22,9 @@ if (!$this->isError()) {
 }
 
 if ($this->isError()) {
-	$this->doRedirect("form-new");
+	$this->setParameter("toolbar", "toolbar/table-new");
+	$this->processModel("form-new");
+	$this->setView("form-new");
 	return;
 }
 
