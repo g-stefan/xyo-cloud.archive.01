@@ -6,11 +6,5 @@
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-define("XYO_CLOUD_ADMINISTRATOR",1);
-define("XYO_CLOUD_INSTALL",1);
-require_once("../xyo/xyo-cloud.php");
-$xyoCloud=new xyo_Cloud(realpath(dirname(realpath(__FILE__))."/../")."/","../");
-defined('XYO_CLOUD') or die('Access is denied');
-$xyoCloud->set("request_main","index.php");
-$xyoCloud->set("system_core","install");
-$xyoCloud->main();
+header("HTTP/1.1 301 Moved Permanently"); 
+header("Location: ../index.php"); 
