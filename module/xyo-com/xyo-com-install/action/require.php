@@ -25,7 +25,7 @@ if ($mode === "single") {
 if ($mode === "all") {
     $modSetup = &$this->getModule("xyo-mod-setup");
     if ($modSetup) {
-        $path = $this->cloud->get("path_base") . "package/";
+        $path = "package/";
         $list = $modSetup->getPackageList2($path);
         if (count($list)) {
 

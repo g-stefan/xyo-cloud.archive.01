@@ -28,7 +28,7 @@ class xyo_mod_ds_loader_Ds extends xyo_Module {
             $ds->name = $name;
             $ds->enabled = 1;
             if ($ds->load(0, 1)) {				
-                $dataSource->setDataSourceDescriptor($ds->name, $this->cloud->get("path_base") ."datasource/". $ds->name.".php");
+                $dataSource->setDataSourceDescriptor($ds->name, "datasource/". $ds->name.".php");
                 return true;
             };
         };

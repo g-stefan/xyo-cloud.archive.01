@@ -19,7 +19,7 @@ class xyo_Config extends xyo_Attributes {
 
 	public function includeConfig($name_) {
 		$retV = false;
-		$path_ = $this->cloud->get("path_base") . "config/";
+		$path_ = "config/";
 		$config = $path_ . $name_ . ".php";
 		if ($this->includeFile($config)) {
 			$retV = true;
@@ -36,7 +36,7 @@ class xyo_Config extends xyo_Attributes {
 	}
 
 	public function getConfigPath() {
-		return $this->cloud->get("path_base") . "config/";
+		return "config/";
 	}
 
 }

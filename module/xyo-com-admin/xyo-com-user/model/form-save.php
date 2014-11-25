@@ -108,7 +108,7 @@ if (1 * $this->ds->enabled == 0) {
 if ($this->ds->save()) {
 
 	$this->processElement("file-image-thumbnail","picture",array(
-	"filename"=>$this->cloud->get("path_base")."repository/xyo-user/".$this->ds->id."-".$this->ds->username."-picture-".time(),
+	"filename"=>"repository/xyo-user/".$this->ds->id."-".$this->ds->username."-picture-".time(),
 	"extension"=>true,
 	"delete_before_save"=>true));
 	$this->ds->picture=$this->getElementValueStr("picture");

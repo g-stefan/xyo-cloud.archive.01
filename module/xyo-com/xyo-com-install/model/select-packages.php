@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$path=$this->cloud->get("path_base")."package/";
+$path="package/";
 $list=array();
 $modSetup=&$this->cloud->getModule("xyo-mod-setup");
 if($modSetup){

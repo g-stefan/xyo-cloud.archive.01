@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $layer = $this->getElementValue("layer", "xyo");
 
 $configFileName = null;
-$fileName = $this->cloud->get("path_base") . "config/config.ds.db.php";
+$fileName = "config/config.ds.db.php";
 $moduleName = "";
 if ($layer === "xyo") {    
     $moduleName = "xyo-mod-datasource-xyo";
@@ -50,13 +50,13 @@ if ($fileHandle) {
 
     if ($layer === "xyo") {
         fwrite($fileHandle, "\$this->setConnection" .
-                "(\"db\",\$this->cloud->get(\"path_base_absolute\")." .
+                "(\"db\"," .
                 "\"repository/datasource/db/\");" .
                 "\r\n");
     } else
     if ($layer === "csv") {
         fwrite($fileHandle, "\$this->setConnection" .
-                "(\"db\",\$this->cloud->get(\"path_base_absolute\")." .
+                "(\"db\"," .
                 "\"repository/datasource/db/\");" .
                 "\r\n");
     } else
@@ -103,8 +103,7 @@ if ($fileHandle) {
                 "\"db\",\"log\",false);\r\n");
     } else
     if ($layer === "sqlite") {
-        fwrite($fileHandle, "\$this->setConnection(\"db\"," .
-                "\$this->cloud->get(\"path_base_absolute\")" .
+        fwrite($fileHandle, "\$this->setConnection(\"db\"," .                
                 ".\"repository/datasource/db." . md5(date("l jS \of F Y h:i:s A")) . ".sqlite\",0666);\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(\"db\",\"debug\"," .
                 "true);\r\n");
@@ -119,7 +118,7 @@ if ($fileHandle) {
     return;
 }
 
-$fileName = $this->cloud->get("path_base") . "config/config.ds.php";
+$fileName = "config/config.ds.php";
 $fileHandle = null;
 if (strlen($fileName)) {
     $fileHandle = fopen($fileName, "w");
@@ -131,7 +130,7 @@ if ($fileHandle) {
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// DataSource Config\r\n");
     fwrite($fileHandle, "// \r\n");
-	fwrite($fileHandle, "\$this->setDataSourceDescriptor(\"db.table.xyo_datasource\",\$this->cloud->get(\"path_base\").\"datasource/db.table.xyo_datasource.php\");\r\n");
+	fwrite($fileHandle, "\$this->setDataSourceDescriptor(\"db.table.xyo_datasource\",\"datasource/db.table.xyo_datasource.php\");\r\n");
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"quantum\",\"xyo-mod-datasource-quantum\");\r\n");
     fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"db\",\"".$moduleName."\");\r\n");
@@ -145,7 +144,7 @@ if ($fileHandle) {
 
 
 
-$fileName = $this->cloud->get("path_base") . "config/config.website.php";
+$fileName = "config/config.website.php";
 $fileHandle = null;
 if (strlen($fileName)) {
     $fileHandle = fopen($fileName, "w");

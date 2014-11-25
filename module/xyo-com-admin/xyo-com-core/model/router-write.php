@@ -12,7 +12,7 @@ $router=$this->getArgument("router",$this->ds->name);
 $core=$this->getArgument("core",$this->ds->name);
 $coreDef=str_replace("-","_",$core);
 
-$file = $this->cloud->get("path_base_absolute") . $router . ".php";
+$file = $router . ".php";
 $fs = fopen($file, "w");
 if ($fs) {
     fwrite($fs, "<" . "?" . "php\r\n");
@@ -21,7 +21,7 @@ if ($fs) {
     fwrite($fs, "//\r\n");
     fwrite($fs, "define(\"XYO_CLOUD_" . strtoupper($coreDef) . "\",1);\r\n");
     fwrite($fs, "require_once(\"xyo/xyo-cloud.php\");\r\n");
-    fwrite($fs, "\$xyoCloud=new xyo_Cloud(dirname(realpath(__FILE__)).\"/\");\r\n");
+    fwrite($fs, "\$xyoCloud=new xyo_Cloud();\r\n");
     fwrite($fs, "defined('XYO_CLOUD') or die('Access is denied');\r\n");
     fwrite($fs, "\$xyoCloud->set(\"request_main\",\"" . strtolower($router) . ".php\");\r\n");
     fwrite($fs, "\$xyoCloud->set(\"system_core\",\"" . $core . "\");\r\n");

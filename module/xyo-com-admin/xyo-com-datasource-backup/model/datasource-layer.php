@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $layer = $this->getParameterRequest("layer", null);
-$fileName = $this->cloud->get("path_base") . "config/config.ds.backup.php";
+$fileName = "config/config.ds.backup.php";
 $moduleName = "";
 if ($layer === "xyo") {
     $moduleName = "xyo-mod-datasource-xyo";

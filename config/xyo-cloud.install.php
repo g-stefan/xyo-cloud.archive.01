@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 defined('XYO_CLOUD_INSTALL') or die('Access is denied');
 
-if (file_exists($this->get("path_base") . "install/xyo-cloud.install.php")) {
-    require_once($this->get("path_base") . "install/xyo-cloud.install.php");
+if (file_exists("install/xyo-cloud.install.php")) {
+    require_once("install/xyo-cloud.install.php");
 };
 

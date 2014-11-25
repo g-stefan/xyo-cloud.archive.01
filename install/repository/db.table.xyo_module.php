@@ -200,9 +200,6 @@ if ($setup) {
 	$setup->registerModuleAcl("xyo-mod-setup", "xyo-none", null, null, 0, true);
 	$setup->linkModuleVersion("xyo-mod-setup");
 
-	$setup->registerModule("xyo", null, "-xyo-exec-", true, false, false, "2.0.0", null);
-	$setup->registerModuleAcl("-xyo-exec-", "xyo-none", null, null, 0, true);
-
 	$setup->registerModule("xyo", null, "xyo-mod-jsonx", true, false, false, null, null);
 	$setup->registerModuleAcl("xyo-mod-jsonx", "xyo-none", null, null, 0, true);
 	$setup->linkModuleVersion("xyo-mod-jsonx");

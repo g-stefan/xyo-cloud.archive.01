@@ -96,7 +96,7 @@ class xyo_mod_datasource_postgresql_Connection {
 
 			$retV = pg_query($this->db, $query);
 
-			$fs = fopen($this->cloud->get("path_log") . "postgresql." . $this->name . ".log", "ab");
+			$fs = fopen("log/postgresql." . $this->name . ".log", "ab");
 			if ($fs) {
 				fwrite($fs, date("Y-m-d H:i:s") . "\n");
 				fwrite($fs, $query);

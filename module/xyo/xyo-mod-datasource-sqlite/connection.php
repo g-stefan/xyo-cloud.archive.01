@@ -85,7 +85,7 @@ class xyo_mod_datasource_sqlite_Connection {
 
 			$retV = $this->db->query($query);
 
-			$fs = fopen($this->cloud->get("path_log") . "sqlite." . $this->name . ".log", "ab");
+			$fs = fopen("log/sqlite." . $this->name . ".log", "ab");
 			if ($fs) {
 				fwrite($fs, date("Y-m-d H:i:s") . "\n");
 				fwrite($fs, $query);
@@ -109,7 +109,7 @@ class xyo_mod_datasource_sqlite_Connection {
 
 			$retV = $this->db->querySingle($query);
 
-			$fs = fopen($this->cloud->get("path_log") . "sqlite." . $this->name . ".log", "ab");
+			$fs = fopen("log/sqlite." . $this->name . ".log", "ab");
 			if ($fs) {
 				fwrite($fs, date("Y-m-d H:i:s") . "\n");
 				fwrite($fs, $query);

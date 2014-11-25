@@ -239,7 +239,7 @@ class xyo_mod_Setup extends xyo_Module {
 
 		$file_ = $this->getModulePath($module_) . "datasource/" . $name_ . ".php";
 		if (file_exists($file_)) {
-			if (copy($file_, $this->cloud->get("path_base") . "datasource/" . $name_ . ".php")) {
+			if (copy($file_, "datasource/" . $name_ . ".php")) {
 
 				$ds = &$this->cloud->getModule("xyo-mod-datasource");
 				if ($ds) {
@@ -249,7 +249,7 @@ class xyo_mod_Setup extends xyo_Module {
 						$dsDataSource->tryLoad();
 						$dsDataSource->enabled = 1;
 						$dsDataSource->description = $description_;
-						$dsDataSource->descriptor = $this->getPathRelativeToBase($this->cloud->get("path_base")) . "datasource/" . $name_ . ".php";
+						$dsDataSource->descriptor = "datasource/" . $name_ . ".php";
 						if ($dsDataSource->save()) {
 							$ds = &$ds->getDataSource($name_);
 							if ($ds) {
@@ -393,10 +393,10 @@ class xyo_mod_Setup extends xyo_Module {
 					}
 					$modulePath = $this->getModulePath($moduleName);
 					$moduleContent = $this->getFileList($modulePath);
-					$moduleFile = $this->cloud->get("path_base");
+					$moduleFile = "";
 
 					if (count($moduleContent)) {
-						$packageFile = $this->cloud->get("path_base") . "package/" . $moduleName . $version . ".tar.gz";
+						$packageFile = "package/" . $moduleName . $version . ".tar.gz";
 						$archive = new pear__archive_tar($packageFile, "gz");
 						if ($archive->createModify($moduleContent, $moduleName, $modulePath)) {
 							$archive->_pear__archive_tar();
@@ -429,9 +429,9 @@ class xyo_mod_Setup extends xyo_Module {
 							$pathModule = $this->getModulePath($dsModule->parent) . $module . "/";
 						}
 					} else if (strlen($dsModule->path) > 0) {
-						$pathModule = $this->get("path_base") . "module/" . $dsModule->path . "/";
+						$pathModule = "module/" . $dsModule->path . "/";
 					} else {
-						$pathModule = $this->get("path_base") . "module/" . $module . "/";
+						$pathModule = "module/" . $module . "/";
 					}
 					return $pathModule;
 				};
@@ -567,7 +567,7 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function installModulePackageZip($packageName) {
-		$packageFile = $this->cloud->get("path_base") . "package/" . $packageName;
+		$packageFile = "package/" . $packageName;
 		$archive = new ZipArchive();
 		if ($archive->open($packageFile) === TRUE) {
 
@@ -585,7 +585,7 @@ class xyo_mod_Setup extends xyo_Module {
 			if (count($moduleName_)) {
 				$moduleName = $moduleName_[0];
 
-				$modulePath2 = $this->cloud->get("path_base") . "module/" . $this->getModuleNameFromVer($moduleName);
+				$modulePath2 = "module/" . $this->getModuleNameFromVer($moduleName);
 				$modulePath = $modulePath2 . "-";
 
 				$parent_ = null;
@@ -620,7 +620,7 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function installModulePackageTarGz($packageName) {
-		$packageFile = $this->cloud->get("path_base") . "package/" . $packageName;
+		$packageFile = "package/" . $packageName;
 		$archive = new pear__archive_tar($packageFile, "gz");
 		$content = $archive->listContent();
 		if (count($content)) {
@@ -628,7 +628,7 @@ class xyo_mod_Setup extends xyo_Module {
 			if (count($moduleName_)) {
 				$moduleName = $moduleName_[0];
 
-				$modulePath = $this->cloud->get("path_base") . "module/" . $this->getModuleNameFromVer($moduleName);
+				$modulePath = "module/" . $this->getModuleNameFromVer($moduleName);
 
 				$parent_ = null;
 				$opt_ = $this->getPackageOption($packageName);
@@ -660,7 +660,7 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function getFileFromPackageZip($packageName, $file_) {
-		$packageFile = $this->cloud->get("path_base") . "package/" . $packageName;
+		$packageFile = "package/" . $packageName;
 		$archive = new ZipArchive();
 		if ($archive->open($packageFile) === TRUE) {
 
@@ -702,7 +702,7 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function getFileFromPackageTarGz($packageName, $file_) {
-		$packageFile = $this->cloud->get("path_base") . "package/" . $packageName;
+		$packageFile = "package/" . $packageName;
 		$archive = new pear__archive_tar($packageFile, "gz");
 		$content = $archive->listContent();
 		if (count($content)) {
@@ -729,15 +729,15 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function isPackageDir($packageName) {
-		$packageDir = $this->cloud->get("path_base") . "package/" . $packageName;
+		$packageDir = "package/" . $packageName;
 		return is_dir($packageDir);
 	}
 
 	function getFileFromPackage($packageName, $file_) {
-		$packageDir = $this->cloud->get("path_base") . "package/" . $packageName;
+		$packageDir = "package/" . $packageName;
 		if (is_dir($packageDir)) {
 
-			$packageFile = $this->cloud->get("path_base") . "package/" . $packageName . "/" . $file_;
+			$packageFile = "package/" . $packageName . "/" . $file_;
 			$content = @file_get_contents($packageFile);
 			if ($content === FALSE) {
 
@@ -775,11 +775,11 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function installModulePackage($packageName) {
-		$packageDir = $this->cloud->get("path_base") . "package/" . $packageName;
+		$packageDir ="package/" . $packageName;
 		if (is_dir($packageDir)) {
 
 
-			$modulePath2 = $this->cloud->get("path_base") . "module/" . $this->getModuleNameFromVer($packageName);
+			$modulePath2 = "module/" . $this->getModuleNameFromVer($packageName);
 
 			$parent_ = null;
 			$opt_ = $this->getPackageOption($packageName);
@@ -915,7 +915,7 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function getPathRelativeToBase($path_) {
-		$path2_ = $this->cloud->get("path_base");
+		$path2_ = "";
 
 		$path_separator = "/";
 		$cloud_path = explode($path_separator, $path_);
@@ -1021,7 +1021,7 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function installBaseDirectory($source, $destination) {
-		$this->recursiveCopyDirectory($source, $this->cloud->get("path_base") . $destination);
+		$this->recursiveCopyDirectory($source, $destination);
 	}
 
 	function registerUserGroup($name,$description,$enabled) {
@@ -1078,17 +1078,17 @@ class xyo_mod_Setup extends xyo_Module {
 
 		$file_ = $this->getModulePath($module_) . "/view/form/" . $name_ . "-require.php";
 		if (file_exists($file_)) {
-			copy($file_, $this->cloud->get("path_base") . "form/" . $name_ . "-require.php");
+			copy($file_, "form/" . $name_ . "-require.php");
 		};
 
 		$file_ = $this->getModulePath($module_) . "/view/form/" . $name_ . "-process.php";
 		if (file_exists($file_)) {
-			copy($file_, $this->cloud->get("path_base") . "form/" . $name_ . "-process.php");
+			copy($file_, "form/" . $name_ . "-process.php");
 		};
 
 		$file_ = $this->getModulePath($module_) . "/view/form/" . $name_ . ".php";
 		if (file_exists($file_)) {
-			copy($file_, $this->cloud->get("path_base") . "form/" . $name_ . ".php");				
+			copy($file_, "form/" . $name_ . ".php");				
 		};
 
 		$path_="view/form/language/";
@@ -1098,9 +1098,9 @@ class xyo_mod_Setup extends xyo_Module {
 			$pos2=strrpos($v,"/".$name_ . ".php",$pos1);
 			if($pos2){
 				$lang_=substr($v,$pos1,$pos2-$pos1);
-				@mkdir($this->cloud->get("path_base") . "form/language");
-				@mkdir($this->cloud->get("path_base") . "form/language/" .$lang_);
-				@copy($v,$this->cloud->get("path_base") . "form/language/" .$lang_."/". $name_ . ".php");
+				@mkdir("form/language");
+				@mkdir("form/language/" .$lang_);
+				@copy($v,"form/language/" .$lang_."/". $name_ . ".php");
 			};
 		}; 		
 
@@ -1109,17 +1109,17 @@ class xyo_mod_Setup extends xyo_Module {
 
 	function uninstallFormElement($name_) {
 
-		$file_ = $this->cloud->get("path_base") . "form/" . $name_ . "-require.php";
+		$file_ = "form/" . $name_ . "-require.php";
 		if (file_exists($file_)) {
 			unlink($file_);
 		};
 
-		$file_ = $this->cloud->get("path_base") . "form/" . $name_ . "-process.php";
+		$file_ = "form/" . $name_ . "-process.php";
 		if (file_exists($file_)) {
 			unlink($file_);
 		};
 
-		$file_ = $this->cloud->get("path_base") . "form/" . $name_ . ".php";
+		$file_ = "form/" . $name_ . ".php";
 		if (file_exists($file_)) {
 			unlink($file_);
 		};

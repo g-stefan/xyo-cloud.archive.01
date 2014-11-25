@@ -111,7 +111,7 @@ class xyo_mod_datasource_Quantum extends xyo_Module {
 	}
 
 	function setModuleDataSource($module, $name) {
-		$descriptor = $this->cloud->get("path_base") . "datasource/" . $name . ".php";
+		$descriptor = "datasource/" . $name . ".php";
 		if (file_exists($descriptor)) {
 
 		} else {

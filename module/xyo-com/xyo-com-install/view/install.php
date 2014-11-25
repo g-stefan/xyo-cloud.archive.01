@@ -27,7 +27,7 @@ defined('XYO_CLOUD') or die('Access is denied');
                     $listModuleToCheck = array();
                     $listModuleToCheck2 = array();
                     $orderModule = array();
-                    $packagePath =  $this->cloud->get("path_base") . "package/";
+                    $packagePath =  "package/";
                     $dsModule = &$this->getDataSource("db.table.xyo_module");
                     $modSetup = &$this->cloud->getModule("xyo-mod-setup");
                     if ($modSetup && $dsModule) {

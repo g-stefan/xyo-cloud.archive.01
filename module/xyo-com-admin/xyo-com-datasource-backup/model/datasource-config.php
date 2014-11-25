@@ -16,7 +16,7 @@ $this->setParameter("date", $date);
 $this->setParameter("stamp", $stamp);
 
 $configFileName = null;
-$fileName = $this->cloud->get("path_base") . "config/config.ds.backup.php";
+$fileName = "config/config.ds.backup.php";
 $moduleName = "";
 if ($layer === "xyo") {    
     $moduleName = "xyo-mod-datasource-xyo";
@@ -55,19 +55,19 @@ if ($fileHandle) {
 
     if ($layer === "xyo") {
         fwrite($fileHandle, "\$this->setConnection" .
-                "(\"backup\",\$this->cloud->get(\"path_base_absolute\")." .
+                "(\"backup\"," .
                 "\"repository/datasource-backup/".$connection.".".$date.".".$stamp.".xyo/\");" .
                 "\r\n");
-		@mkdir($this->cloud->get("path_base_absolute")."repository/datasource-backup/".$connection.".".$date.".".$stamp.".xyo");
-		@copy($this->path."index.html",$this->cloud->get("path_base_absolute")."repository/datasource-backup/".$connection.".".$date.".".$stamp.".xyo/index.html");
+		@mkdir("repository/datasource-backup/".$connection.".".$date.".".$stamp.".xyo");
+		@copy($this->path."index.html","repository/datasource-backup/".$connection.".".$date.".".$stamp.".xyo/index.html");
     } else
     if ($layer === "csv") {
         fwrite($fileHandle, "\$this->setConnection" .
-                "(\"backup\",\$this->cloud->get(\"path_base_absolute\")." .
+                "(\"backup\"," .
                 "\"repository/datasource-backup/".$connection.".".$date.".".$stamp.".csv/\");" .
                 "\r\n");
-		@mkdir($this->cloud->get("path_base_absolute")."repository/datasource-backup/".$connection.".".$date.".".$stamp.".csv");
-		@copy($this->path."index.html",$this->cloud->get("path_base_absolute")."repository/datasource-backup/".$connection.".".$date.".".$stamp.".csv/index.html");
+		@mkdir("repository/datasource-backup/".$connection.".".$date.".".$stamp.".csv");
+		@copy($this->path."index.html","repository/datasource-backup/".$connection.".".$date.".".$stamp.".csv/index.html");
     } else
     if ($layer === "mysql") {
         fwrite($fileHandle, "\$this->setConnection(" .
@@ -112,8 +112,7 @@ if ($fileHandle) {
                 "\"backup\",\"log\",false);\r\n");
     } else
     if ($layer === "sqlite") {
-        fwrite($fileHandle, "\$this->setConnection(\"backup\"," .
-                "\$this->cloud->get(\"path_base_absolute\")" .
+        fwrite($fileHandle, "\$this->setConnection(\"backup\"," .                
                 ".\"repository/datasource-backup/".$connection.".".$date."." . $stamp . ".sqlite\",0666);\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(\"backup\",\"debug\"," .
                 "true);\r\n");

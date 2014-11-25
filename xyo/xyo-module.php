@@ -760,7 +760,7 @@ class xyo_Module extends xyo_Config {
 			return true;
 		};
 
-		$this->viewPath=$this->cloud->get("path_base") . $path_."/";
+		$this->viewPath=$path_."/";
 		$file_=$this->viewPath.$name_.$suffix_.".php";
 		if($this->includeFile($file_)) {
 			$this->popArguments();
@@ -1143,5 +1143,8 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->isJSON();
 	}
 
+	public function getReturnValue(){
+		return $this->returnValue;
+	}
 }
 

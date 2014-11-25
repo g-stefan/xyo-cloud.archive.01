@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$file = $this->cloud->get("path_base_absolute") . $this->ds->name . ".php";
+$file = $this->ds->name . ".php";
 @unlink($file);

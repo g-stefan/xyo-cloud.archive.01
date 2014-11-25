@@ -24,7 +24,7 @@ $path = array(
 
 $path_ = array();
 foreach ($path as $key => $value) {
-    if (is_writable($this->cloud->get("path_base") . $value)) {
+    if (is_writable($value)) {
         $path_[$key] = "yes";
     } else {
         $path_[$key] = "no";

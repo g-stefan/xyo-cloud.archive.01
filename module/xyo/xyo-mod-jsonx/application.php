@@ -13,12 +13,16 @@ defined('XYO_CLOUD') or die('Access is denied');
 //
 //  {
 //      "run"=>"module",
-//      "procedure"=>"name",      - optional
-//      "parameters":{            - optional
+//      "model"=>"name",      		- optional, if not set default model called
+//      "parameters":{        		- optional
 //             "name1":"value1",
 //             "name2":"value2", ...
 //      }
 //  }
+//
+
+//
+//  Execute model from module, return value must be set in $this->returnValue
 //
 
 header("Content-Type: application/json");
@@ -68,10 +72,9 @@ if(array_key_exists("model",$request)){
 
 $moduleX->applicationInit();
 
-$retV=$moduleX->callFromThis("model/".$model, $parameters, true, true);
+$moduleX->callFromThis("model/".$model, $parameters);
 
-$result=json_encode($retV);
+$result=json_encode($moduleX->getReturnValue());
 header("Content-Length: ".strlen($result));
 echo $result;
-
                             

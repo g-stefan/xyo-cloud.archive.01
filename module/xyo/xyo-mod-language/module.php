@@ -36,7 +36,7 @@ class xyo_mod_Language extends xyo_Module {
         foreach (array_reverse($this->modulePathBase_, true) as $module => $path) {
             $this->language->setLanguage($language_);
             $this->language->includeFile($path . "language/" . $language . ".php");
-            $this->language->includeFile($this->cloud->get("path_base") . "language/" . $language . "/" . $module . ".php");
+            $this->language->includeFile("language/" . $language . "/" . $module . ".php");
         }
     }
 
@@ -52,7 +52,7 @@ class xyo_mod_Language extends xyo_Module {
         if ($path) {
             $this->language->setLanguage($language_);
             $this->language->includeFile($path . "language/" . $language . ".php");
-            $this->language->includeFile($this->cloud->get("path_base") . "language/" . $language . "/" . $module . ".php");
+            $this->language->includeFile("language/" . $language . "/" . $module . ".php");
         }
     }
 

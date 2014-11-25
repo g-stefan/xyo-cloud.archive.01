@@ -22,7 +22,7 @@ function captchaPtToPx_($pt){
 
 $cpatchaChr="23456789abcdefghijkmnpqrstuvwxyz"; // safe characters no visual colision
 
-$captchaFont=$this->cloud->get("path_base")."media/sys/fonts/genbkbasb.ttf";
+$captchaFont="media/sys/fonts/genbkbasb.ttf";
 $captchaFontSz=32; //32points
 $captchaImgW=200; //px
 $captchaImgH=50;  //px

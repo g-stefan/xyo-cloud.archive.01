@@ -143,7 +143,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 		};
 		if(count($scan)) {
 			foreach($scan as $formElement) {
-				$this->language->includeFile($this->cloud->get("path_base")."form/language/".strtolower($this->getSystemLanguage())."/".$formElement.".php");
+				$this->language->includeFile("form/language/".strtolower($this->getSystemLanguage())."/".$formElement.".php");
 				$this->processViewX($formElement,"-require","form");
 				$this->applicationFormElementCache_[$formElement]=true;
 			};
@@ -183,7 +183,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 		};
 		if(count($scan)) {
 			foreach($scan as $widget_) {
-				$this->language->includeFile($this->cloud->get("path_base")."widget/language/".strtolower($this->getSystemLanguage())."/".$widget_.".php");
+				$this->language->includeFile("widget/language/".strtolower($this->getSystemLanguage())."/".$widget_.".php");
 				$this->processViewX($plugin_,"-require","widget");
 				$this->applicationWidgetCache_[$plugin_]=true;
 			};

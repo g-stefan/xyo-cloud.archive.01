@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$fileName = $this->cloud->get("path_base") . "config/config.website.php";
+$fileName = "config/config.website.php";
 $fileHandle = null;
 if (strlen($fileName)) {
     $fileHandle = fopen($fileName, "w");

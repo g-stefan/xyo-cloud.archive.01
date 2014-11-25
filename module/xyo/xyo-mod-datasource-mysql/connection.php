@@ -108,7 +108,7 @@ class xyo_mod_datasource_mysql_Connection {
 
 			$retV = mysql_query($query, $this->db);
 
-			$fs = fopen($this->cloud->get("path_log") . "mysql." . $this->name . ".log", "ab");
+			$fs = fopen("log/mysql." . $this->name . ".log", "ab");
 			if ($fs) {
 				fwrite($fs, date("Y-m-d H:i:s") . "\n");
 				fwrite($fs, $query);

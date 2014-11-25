@@ -43,18 +43,8 @@ class xyo_Cloud extends xyo_Config {
 	protected $isAjax_;
 	protected $isJSON_;
 
-	public function __construct($basePathAbsolute=null, $basePathRelative=null) {
+	public function __construct() {
 		parent::__construct($this);
-		if ($basePathAbsolute) {
-
-		} else {
-			$basePathAbsolute = "";
-		}
-		if ($basePathRelative) {
-
-		} else {
-			$basePathRelative = "";
-		}
 
 		$this->modules_ = array();
 		$this->request_ = new xyo_Request();
@@ -83,15 +73,8 @@ class xyo_Cloud extends xyo_Config {
 		$this->isAjax_=0;
 		$this->isJSON_=0;
 
-		$this->set("system_kernel_version", "0.8.0.0");
-
-		$this->set("request_main", "index.php");
-
-		$this->set("path_base_kernel", dirname(realpath(__FILE__)) . "/");
-		$this->set("path_base_absolute", $basePathAbsolute);
-		$this->set("path_base", $basePathRelative);
-
-		$this->set("path_log", $basePathRelative . "log/");
+		$this->set("system_kernel_version", "1.0.0.0");
+		$this->set("request_main", "index.php");		
 		$this->set("system_core", "xyo");
 
 		$this->set("system_log_request", false);
@@ -416,8 +399,6 @@ class xyo_Cloud extends xyo_Config {
 			}
 		}
 
-		//echo "MODULE-PARENT:".$module.":".$moduleParent."<br />";
-
 		if (strlen($moduleParent) > 0) {
 			if (array_key_exists($moduleParent, $this->modules_)) {
 
@@ -448,9 +429,9 @@ class xyo_Cloud extends xyo_Config {
 					$pathModule = $this->modules_[$moduleParent]["path"] . $module . "/";
 				}
 			} else if (strlen($path) > 0) {
-				$pathModule = $this->get("path_base") . "module/" . $path . "/";
+				$pathModule = $path . "/";
 			} else {
-				$pathModule = $this->get("path_base") . "module/" . $module . "/";
+				$pathModule = "module/" . $module . "/";
 			}
 		}
 
@@ -568,7 +549,7 @@ class xyo_Cloud extends xyo_Config {
 
 			$ret_v = ob_get_contents();
 			ob_end_clean();
-			$fs = fopen($this->get("path_log") . date("Y-m-d")."-request.log", "ab");
+			$fs = fopen("log/" . date("Y-m-d")."-request.log", "ab");
 			if ($fs) {
 				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getClientIp_()."]\n");
 				fwrite($fs, $ret_v);
@@ -593,7 +574,7 @@ class xyo_Cloud extends xyo_Config {
 				echo $ret_v;
 			}
 
-			$x=array(0=>$this->get("path_base_absolute")."log/",1=>$this->getClientIp_());
+			$x=array(0=>"log/",1=>$this->getClientIp_());
 			register_shutdown_function("_xyo_cloud__log_response__shutdown", $x);
 		};
 
@@ -649,7 +630,7 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function logMessage($type, $message_,$module_=null) {
-		$fs = fopen($this->get("path_log") . date("Y-m-d")."-". $type.".log", "ab");
+		$fs = fopen("log/" . date("Y-m-d")."-". $type.".log", "ab");
 		if ($fs) {
 			if($module_) {
 				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getModuleExecPath_($module_)."] [".$this->getClientIp_()."]: ");
@@ -1065,11 +1046,11 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function getStoragePath($module) {
-		return $this->get("path_base") . "repository/module/".$module;
+		return "repository/module/".$module;
 	}
 
 	public function getStorageFilename($module,$fileName) {
-		return $this->get("path_base") . "repository/module/".$module."/".$fileName;
+		return "repository/module/".$module."/".$fileName;
 	}
 
 	public function isAjaxJs(){

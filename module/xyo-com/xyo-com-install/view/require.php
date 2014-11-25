@@ -35,7 +35,7 @@ defined('XYO_CLOUD') or die('Access is denied');
                     $listModuleToCheck2 = array();
                     $listModule = array();
 
-                    $packagePath =  $this->cloud->get("path_base") . "package/";
+                    $packagePath =  "package/";
                     $modSetup = &$this->cloud->getModule("xyo-mod-setup");
                     if ($modSetup) {
                         if ($mode === "all") {
