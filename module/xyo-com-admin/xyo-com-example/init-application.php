@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setApplicationIcon($this->pathBase."media/sys/images/utilities-terminal-48.png");
+$this->setApplicationIcon("media/sys/images/utilities-terminal-48.png");
 $this->setApplicationDataSource("db.table.xyo_settings");
 $this->setPrimaryKey("id");
 
@@ -47,7 +47,7 @@ $this->addItem("group-row-separator");
 
 $this->addItem("group-wide-begin");
 $this->addItem("html", "element_html");
-$this->addItem("html-file", "element_html_file");
+$this->addItem("file-html", "element_html_file");
 $this->addItem("group-wide-end");
 
 $this->addItem("group-row-separator");

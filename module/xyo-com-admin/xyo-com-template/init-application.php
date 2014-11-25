@@ -12,7 +12,7 @@ $this->setDataSource("db.query.xyo_acl_module");
 $this->setApplicationDataSource("db.query.xyo_acl_module");
 $this->setPrimaryKey("id");
 
-$this->setApplicationIcon($this->pathBase."media/sys/images/preferences-desktop-theme-48.png");
+$this->setApplicationIcon("media/sys/images/preferences-desktop-theme-48.png");
 
 $this->requireElement(array("select","text","textarea","group-begin","group-end","group-row-begin","group-row-end"));
 

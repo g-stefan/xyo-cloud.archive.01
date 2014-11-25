@@ -17,13 +17,13 @@ class lib_mod_BootstrapDateTimePicker extends xyo_Module {
         if ($this->isBase("lib_mod_BootstrapDateTimePicker")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->pathBase."media/sys/css/bootstrap-datetimepicker.min.css");
+                $htmlHead->setCss($this->name,"media/sys/css/bootstrap-datetimepicker.min.css");
             } else {
                 $this->moduleDisable();
             };
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/bootstrap-datetimepicker.min.js");
+                $htmlFooter->setJs($this->name,"media/sys/js/bootstrap-datetimepicker.min.js");
             } else {
                 $this->moduleDisable();
             };

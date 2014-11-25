@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->addItem("item",$this->pathBase."media/sys/images/system-log-out-64.png","application",$module,array("stamp"=>md5(time().rand())));
+$this->addItem("item","media/sys/images/system-log-out-64.png","application",$module,array("stamp"=>md5(time().rand())));

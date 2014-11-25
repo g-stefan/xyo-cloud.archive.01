@@ -19,7 +19,7 @@ $this->setItemBefore("delete","separator",
 
 $this->setItemBefore("separator","router",
         "item-js",
-        $this->pathBase."media/sys/images/preferences-system-session-32.png",
+        "media/sys/images/preferences-system-session-32.png",
         "router",
         true,
         "#",

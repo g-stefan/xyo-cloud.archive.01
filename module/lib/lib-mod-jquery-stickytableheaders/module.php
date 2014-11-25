@@ -17,7 +17,7 @@ class lib_mod_JQueryFixedHeaderTable extends xyo_Module {
         if ($this->isBase("lib_mod_JQueryFixedHeaderTable")) {
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/jquery.stickytableheaders.min.js");
+                $htmlFooter->setJs($this->name,"media/sys/js/jquery.stickytableheaders.min.js");
             } else {
                 $this->moduleDisable();
             };

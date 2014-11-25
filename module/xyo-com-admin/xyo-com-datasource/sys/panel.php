@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->addItem("item", $this->pathBase."media/sys/images/database-64.png", "application", $module, null);
+$this->addItem("item", "media/sys/images/database-64.png", "application", $module, null);

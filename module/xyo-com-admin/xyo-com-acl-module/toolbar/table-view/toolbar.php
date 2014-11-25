@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 if($this->isRequestCall()){
 	$this->setItem("cancel",
         "item-js",
-        $this->pathBase."media/sys/images/denied-32.png",
+        "media/sys/images/denied-32.png",
         "cancel",
         true,
         "#",

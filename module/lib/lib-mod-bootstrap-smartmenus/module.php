@@ -17,14 +17,14 @@ class lib_mod_BootstrapSmartMenus extends xyo_Module {
         if ($this->isBase("lib_mod_BootstrapSmartMenus")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->pathBase."media/sys/css/jquery.smartmenus.bootstrap.css");
+                $htmlHead->setCss($this->name,"media/sys/css/jquery.smartmenus.bootstrap.css");
             } else {
                 $this->moduleDisable();
             };
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/jquery.smartmenus.js");
-                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/jquery.smartmenus.bootstrap.js");
+                $htmlFooter->setJs($this->name,"media/sys/js/jquery.smartmenus.js");
+                $htmlFooter->setJs($this->name,"media/sys/js/jquery.smartmenus.bootstrap.js");
             } else {
                 $this->moduleDisable();
             };

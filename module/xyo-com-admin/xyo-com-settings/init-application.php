@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setApplicationIcon($this->pathBase."media/sys/images/utilities-terminal-48.png");
+$this->setApplicationIcon("media/sys/images/utilities-terminal-48.png");
 $this->setApplicationDataSource("db.table.xyo_settings");
 
 $this->setDefaultAction($this->getRequest("action", "form-edit"));

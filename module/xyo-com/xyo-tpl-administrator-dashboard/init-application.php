@@ -15,6 +15,6 @@ $this->loadGroup("xyo-status");
 
 $this->setHtmlHeadHttpEquiv("Content-Type", "text/html; charset=utf-8");
 $this->setHtmlHeadTitle($this->getSetting("website_title","XYO Cloud"));
-$this->setHtmlHeadLink("shortcut icon",$this->pathBase."media/sys/images/applications-internet.ico","image/x-icon");
-$this->setHtmlHeadCss($this->pathBase."media/sys/css/xyo-tpl-administrator-dashboard.css");
-$this->setHtmlFooterJs($this->pathBase."media/sys/js/xyo-tpl-administrator-dashboard.js");
+$this->setHtmlHeadLink("shortcut icon","media/sys/images/applications-internet.ico","image/x-icon");
+$this->setHtmlHeadCss("media/sys/css/xyo-tpl-administrator-dashboard.css");
+$this->setHtmlFooterJs("media/sys/js/xyo-tpl-administrator-dashboard.js");

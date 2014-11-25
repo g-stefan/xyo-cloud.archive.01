@@ -17,7 +17,7 @@ class lib_mod_Md5 extends xyo_Module {
         if ($this->isBase("lib_mod_Md5")) {
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/md5.js");
+                $htmlFooter->setJs($this->name,"media/sys/js/md5.js");
             } else {
                 $this->moduleDisable();
             };

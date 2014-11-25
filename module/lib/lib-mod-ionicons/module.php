@@ -17,7 +17,7 @@ class lib_mod_IonIcons extends xyo_Module {
         if ($this->isBase("lib_mod_IonIcons")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->pathBase."media/sys/css/ionicons.min.css");
+                $htmlHead->setCss($this->name,"media/sys/css/ionicons.min.css");
             } else {
                 $this->moduleDisable();
             };
