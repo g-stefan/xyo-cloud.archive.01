@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $count=0;
 
 ?>
-<div class="table-responsive" style="margin-left:6px;margin-right:6px;">
+<div class="table-responsive">
     <table class="table table-striped table-bordered table-hover table-condensed" id="com_table">
 	<thead>
                 <?php
@@ -54,6 +54,4 @@ $count=0;
 if($count>10){
 	$this->eLanguage("delete_this_and_many_more");
 };
-
-
 

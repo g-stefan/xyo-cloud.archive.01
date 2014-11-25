@@ -54,7 +54,7 @@ if(!$collapse){
 ?>
 
 
-	<div class="panel panel-default xyo-form-ajax-panel-wide">
+	<div class="panel panel-default xyo-form-ajax-panel">
 		<div class="panel-heading" id="<?php $this->eElementId($element) ?>_head">
 			<?php $this->eLanguage("label_" . $element); ?>
 			<?php
@@ -72,7 +72,7 @@ if(!$collapse){
 					} else {
 						$img = "#";
 					};
-					echo "<a href=\"#\" onclick=\"javascript:".$value["js"]."\" class=\"pull-right xyo-form-ajax-panel-wide-icon\">".$img."</a>";
+					echo "<a href=\"#\" onclick=\"javascript:".$value["js"]."\" class=\"pull-right xyo-form-ajax-panel-icon\">".$img."</a>";
 				};				
 
 			?>
@@ -96,10 +96,10 @@ if(!$collapse){
 }else{
                                                   
 ?>
-	<div class="panel panel-default xyo-form-ajax-panel-wide" id="<?php $this->eElementId($element); ?>_collapse_parent">
+	<div class="panel panel-default xyo-form-ajax-panel" id="<?php $this->eElementId($element); ?>_collapse_parent">
 		<div class="panel-heading" id="<?php $this->eElementId($element) ?>_head">
 			<?php $this->eLanguage("label_" . $element); ?>
-			<a data-toggle="collapse" data-parent="#<?php $this->eElementId($element); ?>_collapse_parent" href="#<?php $this->eElementId($element); ?>_collapse" class="xyo-form-ajax-panel-wide-toggle <?php echo $collapseClassA; ?> pull-right">
+			<a data-toggle="collapse" data-parent="#<?php $this->eElementId($element); ?>_collapse_parent" href="#<?php $this->eElementId($element); ?>_collapse" class="xyo-form-ajax-panel-toggle <?php echo $collapseClassA; ?> pull-right">
 				<i class="glyphicon glyphicon-chevron-left"></i>
 				<i class="glyphicon glyphicon-chevron-down"></i>
 			</a>
@@ -117,7 +117,7 @@ if(!$collapse){
 					} else {
 						$img = "#";
 					};
-					echo "<a href=\"#\" onclick=\"javascript:".$value["js"]."\" class=\"pull-right xyo-form-ajax-panel-wide-icon\">".$img."</a>";
+					echo "<a href=\"#\" onclick=\"javascript:".$value["js"]."\" class=\"pull-right xyo-form-ajax-panel-icon\">".$img."</a>";
 				};				
 
 			?>
