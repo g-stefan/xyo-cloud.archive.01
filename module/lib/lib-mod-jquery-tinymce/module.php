@@ -17,8 +17,8 @@ class lib_mod_JQueryTinyMCE extends xyo_Module {
         if ($this->isBase("lib_mod_JQueryTinyMCE")) {
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,"media/sys/js/tinymce/tinymce.min.js");
-                $htmlFooter->setJs($this->name,"media/sys/js/tinymce/jquery.tinymce.min.js");
+                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/tinymce/tinymce.min.js");
+                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/tinymce/jquery.tinymce.min.js");
             } else {
                 $this->moduleDisable();
             };

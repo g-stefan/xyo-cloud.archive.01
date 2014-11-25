@@ -21,10 +21,10 @@ class xyo_com_Application extends xyo_mod_Application {
         parent::__construct($object, $cloud);
 
         if ($this->isBase("xyo_com_Application")) {
-	        $this->setHtmlHeadCss("media/sys/css/xyo-com-application.css");
+	        $this->setHtmlHeadCss($this->pathBase."media/sys/css/xyo-com-application.css");
 	};
 
-        $this->applicationIcon = "media/sys/images/applications-system-48.png";
+        $this->applicationIcon = $this->pathBase."media/sys/images/applications-system-48.png";
 	$this->applicationTitle = null;
 
 	$this->toolbarParameter = array();

@@ -11,6 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 class xyo_Module extends xyo_Config {
 
 	protected $path;
+	protected $pathBase;
 	protected $name;
 	protected $instance;
 	protected $returnValue;
@@ -46,6 +47,7 @@ class xyo_Module extends xyo_Config {
 		parent::__construct($cloud);
 		$this->isOk = true;
 		$this->path = $object["path"];
+		$this->pathBase = $this->cloud->get("path_base");
 		$this->name = $object["module"];
 		$this->moduleBaseClass_ = $object["base_class"];
 		$this->modulePathBase_ = $object["base_path"];

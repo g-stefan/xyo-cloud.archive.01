@@ -8,9 +8,9 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setItem("apply", "item-js", "media/sys/images/approved-32.png", "apply", true, "#", "doCommand('form-new-apply')");
+$this->setItem("apply", "item-js", $this->pathBase."media/sys/images/approved-32.png", "apply", true, "#", "doCommand('form-new-apply')");
 
-$this->setItem("save", "item-js", "media/sys/images/media-floppy-32.png", "save", true, "#", "doCommand('table-new-save')");
+$this->setItem("save", "item-js", $this->pathBase."media/sys/images/media-floppy-32.png", "save", true, "#", "doCommand('table-new-save')");
 
-$this->setItem("cancel", "item-js", "media/sys/images/denied-32.png", "cancel", true, "#","doCommand('table-view')");
+$this->setItem("cancel", "item-js", $this->pathBase."media/sys/images/denied-32.png", "cancel", true, "#","doCommand('table-view')");
 

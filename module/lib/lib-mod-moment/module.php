@@ -17,7 +17,7 @@ class lib_mod_Moment extends xyo_Module {
         if ($this->isBase("lib_mod_Moment")) {
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,"media/sys/js/moment.min.js");
+                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/moment.min.js");
             } else {
                 $this->moduleDisable();
             };

@@ -17,7 +17,7 @@ class lib_mod_FontAwesome extends xyo_Module {
         if ($this->isBase("lib_mod_FontAwesome")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,"media/sys/css/font-awesome.min.css");
+                $htmlHead->setCss($this->name,$this->pathBase."media/sys/css/font-awesome.min.css");
             } else {
                 $this->moduleDisable();
             };

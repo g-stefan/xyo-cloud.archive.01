@@ -27,8 +27,8 @@ $this->tableSelect = array(
 $this->tableType=array(
 	"active"=>array("toggle",array(
 		"on"=>array(
-			0=>"media/sys/images/favorite-off-16.png",
-			1=>"media/sys/images/favorite-16.png"
+			0=>$this->pathBase."media/sys/images/favorite-off-16.png",
+			1=>$this->pathBase."media/sys/images/favorite-16.png"
 		)
 	))
 );

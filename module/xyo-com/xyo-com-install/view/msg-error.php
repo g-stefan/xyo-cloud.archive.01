@@ -26,7 +26,7 @@ if ($this->isError("error")) {
         <tbody>
             <tr>
                 <td style="border:1px solid #800000;background-color:#FFE0E0;width:auto;margin:8px 8px 8px 8px;padding:8px 8px 8px 8px;">
-                    <img src="media/sys/images/process-stop-32.png"
+                    <img src="<?php echo $this->pathBase; ?>media/sys/images/process-stop-32.png"
                          alt="<?php $this->eLanguage("alt_error"); ?>"
                          style="width:32px;height:32px;float:left;margin-right:8px;"
                          />

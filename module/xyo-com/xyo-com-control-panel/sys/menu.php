@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$popup = &$this->addItem($menu, "item", "media/sys/images/preferences-system-16.png", "application", $module, null);
+$popup = &$this->addItem($menu, "item", $this->pathBase."media/sys/images/preferences-system-16.png", "application", $module, null);
 $this->addGroup($popup, "xyo-control-panel");

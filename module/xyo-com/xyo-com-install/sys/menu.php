@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->addItem($menu,"item","media/sys/images/system-installer-16.png","application",$module,null);
+$this->addItem($menu,"item",$this->pathBase."media/sys/images/system-installer-16.png","application",$module,null);

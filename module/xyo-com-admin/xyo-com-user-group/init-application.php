@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setApplicationIcon("media/sys/images/system-users-48.png");
+$this->setApplicationIcon($this->pathBase."media/sys/images/system-users-48.png");
 $this->setApplicationDataSource("db.table.xyo_user_group");
 $this->setPrimaryKey("id");
 

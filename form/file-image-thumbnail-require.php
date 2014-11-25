@@ -10,4 +10,4 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->requireModule("lib-mod-bootstrap-fileinput");
 $this->requireModule("xyo-mod-thumbnail");
-$this->setHtmlHeadCss("media/sys/css/xyo-form-file-image-thumbnail.css");
+$this->setHtmlHeadCss($this->pathBase."media/sys/css/xyo-form-file-image-thumbnail.css");

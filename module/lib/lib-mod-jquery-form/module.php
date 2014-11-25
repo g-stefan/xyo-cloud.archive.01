@@ -17,7 +17,7 @@ class lib_mod_JQueryForm extends xyo_Module {
         if ($this->isBase("lib_mod_JQueryForm")) {
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,"media/sys/js/jquery.form.js");
+                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/jquery.form.js");
             } else {
                 $this->moduleDisable();
             };

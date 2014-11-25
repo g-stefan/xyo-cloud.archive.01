@@ -17,7 +17,7 @@ class lib_mod_JQuery extends xyo_Module {
         if ($this->isBase("lib_mod_JQuery")) {
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,"media/sys/js/jquery-1.11.1.min.js");
+                $htmlFooter->setJs($this->name,$this->pathBase."media/sys/js/jquery-1.11.1.min.js");
             } else {
                 $this->moduleDisable();
             };

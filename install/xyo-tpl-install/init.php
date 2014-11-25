@@ -10,4 +10,4 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setHtmlHeadHttpEquiv("Content-Type", "text/html; charset=utf-8");
 $this->setHtmlHeadTitle("XYO Cloud - Install");
-$this->setHtmlHeadLink("shortcut icon","media/sys/images/applications-internet.ico","image/x-icon");
+$this->setHtmlHeadLink("shortcut icon",$this->pathBase."media/sys/images/applications-internet.ico","image/x-icon");

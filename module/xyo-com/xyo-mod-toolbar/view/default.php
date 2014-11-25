@@ -24,7 +24,7 @@ if (count($this->toolbar)) {
 		            $img = "<img src=\"".$img."\"></img>";
 			};
 	        } else {
-        	    $img = "<img src=\"media/sys/images/applications-other-32.png\"></img>";
+        	    $img = "<img src=\"".$this->pathBase."media/sys/images/applications-other-32.png\"></img>";
 	        };
 
 		
@@ -50,7 +50,7 @@ if (count($this->toolbar)) {
 		            $img = "<img src=\"".$img."\"></img>";
 			};
 	        } else {
-        	    $img = "<img src=\"media/sys/images/applications-other-32.png\"></img>";
+        	    $img = "<img src=\"".$this->pathBase."media/sys/images/applications-other-32.png\"></img>";
 	        };
 
 		

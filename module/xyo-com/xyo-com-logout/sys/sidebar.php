@@ -9,5 +9,5 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->addItem($menu,"separator-begin",null,null,null,null);
-$this->addItem($menu,"item","media/sys/images/system-log-out-16.png","application",$module,array("stamp"=>md5(time().rand())));
+$this->addItem($menu,"item",$this->pathBase."media/sys/images/system-log-out-16.png","application",$module,array("stamp"=>md5(time().rand())));
 $this->addItem($menu,"separator-end",null,null,null,null);

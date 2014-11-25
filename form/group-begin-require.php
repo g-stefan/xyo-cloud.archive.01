@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setHtmlHeadCss("media/sys/css/xyo-form-group.css");
+$this->setHtmlHeadCss($this->pathBase."media/sys/css/xyo-form-group.css");

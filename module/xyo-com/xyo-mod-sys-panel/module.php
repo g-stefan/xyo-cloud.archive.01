@@ -21,7 +21,7 @@ class xyo_mod_sys_Panel extends xyo_mod_Application {
         parent::__construct($object, $cloud);
         if ($this->isOk) {
             if ($this->isBase("xyo_mod_sys_Panel")) {
-                $this->setHtmlHeadCss("media/sys/css/xyo-mod-sys-panel.css");
+                $this->setHtmlHeadCss($this->pathBase."media/sys/css/xyo-mod-sys-panel.css");
             }            
         }
     }

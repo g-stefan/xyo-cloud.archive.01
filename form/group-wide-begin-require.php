@@ -10,4 +10,4 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $title=$this->getArgument("title");
 
-$this->setHtmlHeadCss("media/sys/css/xyo-form-group-wide.css");
+$this->setHtmlHeadCss($this->pathBase."media/sys/css/xyo-form-group-wide.css");

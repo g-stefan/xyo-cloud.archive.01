@@ -19,7 +19,7 @@ $this->setItemBefore("delete","separator",
 
 $this->setItemBefore("separator","user_group",
         "item-js",
-        "media/sys/images/system-users2-32.png",
+        $this->pathBase."media/sys/images/system-users2-32.png",
         "user_group",
         true,
         "#",
