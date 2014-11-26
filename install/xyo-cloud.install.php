@@ -59,7 +59,7 @@ $this->setModule("xyo", null, "xyo-mod-setup", true,null,false,true,false);
 $this->setModule("xyo-com", null, "xyo-mod-panel2", true,null,false,true,false);
 
 
-$this->setModule(null, "../install", "xyo-app-install", true, null, false,true,false);
+$this->setModule(null, "install", "xyo-app-install", true, null, false,true,false);
 
 $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,false,true,false);
 $this->setModuleGroup("xyo-tpl-install", "xyo-system-exec");

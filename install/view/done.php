@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
-<form name="<?php $this->eFormName(); ?>" method="POST" action="administrator.php?run=xyo-com-install" >
+<form name="<?php $this->eFormName(); ?>" method="POST" action="administrator.php" >
 		<div class="btn-group pull-right">
 			<input type="submit" class="btn btn-default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" disabled="disabled" />
                     	<input type="submit" class="btn btn-default" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" disabled="disabled" />
