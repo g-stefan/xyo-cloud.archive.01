@@ -8,7 +8,7 @@
 
 define("XYO_CLOUD_PUBLIC",1);
 require_once("xyo/xyo-cloud.php");
-$xyoCloud=new xyo_Cloud(dirname(realpath(__FILE__))."/");
+$xyoCloud=new xyo_Cloud();
 defined('XYO_CLOUD') or die('Access is denied');
 $xyoCloud->set("request_main","public.php");
 $xyoCloud->set("system_core","public");
