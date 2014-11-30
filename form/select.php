@@ -11,11 +11,23 @@ defined('XYO_CLOUD') or die('Access is denied');
 $element = $this->getArgument("element");
 $select_list = $this->getParameter("select_" . $element);
 $select_value = $this->getElementValue($element);
+$submit=$this->getArgument("submit",true);
+$onChange=$this->getArgument("on_change",null);
+if($submit){
+	$submit=" onchange=\"javascript:this.form.submit();\"";
+}else{
+	$submit="";
+};
+
+if($onChange){
+	$submit=" onchange=\"javascript:".$onChange."\"";
+};
+
 ?>	
 <div class="form-group<?php if($this->isElementError($element)){echo " has-error";}; ?>">
 	<label class="control-label" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 	<br />
-	<select class="selectpicker" data-width="auto" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>">
+	<select class="selectpicker" data-width="auto" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" <?php echo $submit; ?> >
 <?php
             foreach ($select_list as $key => $value) {
                 $selected = "";
