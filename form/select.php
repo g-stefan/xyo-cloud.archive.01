@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $element = $this->getArgument("element");
 $select_list = $this->getParameter("select_" . $element);
 $select_value = $this->getElementValue($element);
-$submit=$this->getArgument("submit",true);
+$submit=$this->getArgument("submit",false);
 $onChange=$this->getArgument("on_change",null);
 if($submit){
 	$submit=" onchange=\"javascript:this.form.submit();\"";
