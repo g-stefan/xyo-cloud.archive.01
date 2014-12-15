@@ -1051,7 +1051,7 @@ class xyo_mod_datasource_xyo_Table extends xyo_Config {
 
 					$val_=$row[$key_];
 					if($this->fieldType_[$key_]=="date"){
-						$val_=strtotime($val." 12:00:00");
+						$val_=strtotime($val_." 12:00:00");
 						$v1=strtotime($v1." 00:00:00");
 						$v2=strtotime($v2." 23:59:59");
 					};
@@ -1078,7 +1078,7 @@ class xyo_mod_datasource_xyo_Table extends xyo_Config {
 
 					$val_=$row[$key_];
 					if($this->fieldType_[$key_]=="date"){
-						$val_=strtotime($val." 12:00:00");
+						$val_=strtotime($val_." 12:00:00");
 						$v1=strtotime($v1." 00:00:00");
 						$v2=strtotime($v2." 23:59:59");
 					};
