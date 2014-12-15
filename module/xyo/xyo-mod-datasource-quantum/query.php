@@ -1040,7 +1040,18 @@ class xyo_mod_datasource_quantum_Query extends xyo_Config {
 					} else {
 						$v2=$value_[4];
 					};
-					if(($row[$key_] >=$v1)&&($row[$key_] <=$v2)) {
+					$val_=$row[$key_];
+					if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="date"){
+						$val_=strtotime($val." 12:00:00");
+						$v1=strtotime($v1." 00:00:00");
+						$v2=strtotime($v2." 23:59:59");
+					};
+					if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="datetime"){
+						$val_=strtotime($val);
+						$v1=strtotime($v1);
+						$v2=strtotime($v2);
+					};
+					if(($val_ >=$v1)&&($val_ <=$v2)) {
 						$bRet=true;
 					};
 				} else if($value_[2]==2) {
@@ -1054,8 +1065,20 @@ class xyo_mod_datasource_quantum_Query extends xyo_Config {
 					} else {
 						$v2=$value_[4];
 					};
-					if(($row[$key_] >=$v1)&&($row[$key_] <=$v2)) {
-					} else {
+					$val_=$row[$key_];
+					if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="date"){
+						$val_=strtotime($val." 12:00:00");
+						$v1=strtotime($v1." 00:00:00");
+						$v2=strtotime($v2." 23:59:59");
+					};
+					if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="datetime"){
+						$val_=strtotime($val);
+						$v1=strtotime($v1);
+						$v2=strtotime($v2);
+					};
+
+					if(($val_ >=$v1)&&($val_ <=$v2)) {
+					}else{
 						$bRet=true;
 					};
 				} else if($value_[2]==3) {
@@ -1103,6 +1126,16 @@ class xyo_mod_datasource_quantum_Query extends xyo_Config {
 						} else {
 							$v1=$value_[3];
 						};
+
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="date"){
+							$chk=strtotime($chk." 12:00:00");
+							$v1=strtotime($v1." 12:00:00");
+						};
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="datetime"){
+							$chk=strtotime($chk);
+							$v1=strtotime($v1);
+						};
+
 						if($chk<$v1) {
 							$bRet=true;
 						};
@@ -1123,6 +1156,16 @@ class xyo_mod_datasource_quantum_Query extends xyo_Config {
 						} else {
 							$v1=$value_[3];
 						};
+
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="date"){
+							$chk=strtotime($chk." 12:00:00");
+							$v1=strtotime($v1." 12:00:00");
+						};
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="datetime"){
+							$chk=strtotime($chk);
+							$v1=strtotime($v1);
+						};
+
 						if($chk>$v1) {
 							$bRet=true;
 						};
@@ -1143,6 +1186,16 @@ class xyo_mod_datasource_quantum_Query extends xyo_Config {
 						} else {
 							$v1=$value_[3];
 						};
+
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="date"){
+							$chk=strtotime($chk." 12:00:00");
+							$v1=strtotime($v1." 12:00:00");
+						};
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="datetime"){
+							$chk=strtotime($chk);
+							$v1=strtotime($v1);
+						};
+
 						if($chk<=$v1) {
 							$bRet=true;
 						};
@@ -1163,6 +1216,16 @@ class xyo_mod_datasource_quantum_Query extends xyo_Config {
 						} else {
 							$v1=$value_[3];
 						};
+
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="date"){
+							$chk=strtotime($chk." 12:00:00");
+							$v1=strtotime($v1." 12:00:00");
+						};
+                                                if($this->fieldTable_[$this->queryField_[$key_]]->fieldType_[$this->queryKey_[$key_]]=="datetime"){
+							$chk=strtotime($chk);
+							$v1=strtotime($v1);
+						};
+
 						if($chk>=$v1) {
 							$bRet=true;
 						};
