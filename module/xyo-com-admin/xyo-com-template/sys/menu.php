@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->addItem($menu,"item","media/sys/images/preferences-desktop-theme-16.png","application",$module,null);
+$this->addItem($menu,"item",$this->site."media/sys/images/preferences-desktop-theme-16.png","application",$module,null);

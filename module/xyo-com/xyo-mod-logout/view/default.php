@@ -7,5 +7,5 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-
-echo "<a href=\"".$this->requestUriModule("xyo-com-logout", array("stamp"=>md5(time().rand())))."\"><div class=\"pull-left\" style=\"position:relative;width:2em;height:1em;\"><i class=\"fa fa-sign-out\" style=\"color:#ccc;font-size:32px;position:absolute;top:-9px;\"></i></span></a>";
+                 
+echo "<a class=\"widget-logout\" href=\"".$this->requestUriModule("xyo-com-logout", array("stamp"=>md5(time().rand())))."\"><div class=\"pull-left\" style=\"position:relative;width:2em;height:1em;\"><i class=\"fa fa-sign-out\" style=\"font-size:32px;position:absolute;top:-9px;\"></i></div></a>";

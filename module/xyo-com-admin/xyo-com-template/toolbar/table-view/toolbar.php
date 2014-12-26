@@ -13,7 +13,7 @@ $this->clearToolbar();
 
 $this->setItemBefore("separator2","module_parameter",
         "item-js",
-        "media/sys/images/utilities-terminal2-32.png",
+        $this->site."media/sys/images/utilities-terminal2-32.png",
         "module_parameter",
         true,
         "#",
@@ -22,7 +22,7 @@ $this->setItemBefore("separator2","module_parameter",
 
 $this->setItem("module_acl",
         "item-js",
-        "media/sys/images/utilities-terminal2-32.png",
+        $this->site."media/sys/images/utilities-terminal2-32.png",
         "module_acl",
         true,
         "#",

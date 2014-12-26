@@ -12,7 +12,6 @@ $this->tableHead=array(
 			 "#" => "#",
 			 "name"=>"head_name",
 			 "description"=>"head_description",
-			 "version"=>"head_version",
 			 "component"=>"head_component",
 			 "enabled"=>"head_enabled",
 			 "id" => "head_id"
@@ -24,7 +23,6 @@ $this->tableSearch=array(
 
 $this->tableSelect=array(
 			   "component" => true,
-			   "cmd" => true,
 			   "enabled" => true
 		   );
 
@@ -47,12 +45,10 @@ $this->tableSort=array(
 		 );
 
 $this->processModel("select-enabled");
-$this->processModel("select-cmd");
 $this->processModel("select-component");
 
 $this->tableSelectInfo=array(
 			       "enabled" => $this->getParameter("select_enabled",array()),
-			       "cmd" => $this->getParameter("select_cmd",array()),
 			       "component" => $this->getParameter("select_component",array())
 		       );
 

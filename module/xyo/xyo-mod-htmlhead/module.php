@@ -31,7 +31,6 @@ class xyo_mod_HtmlHead extends xyo_Module {
     }
 
     public function moduleMain() {
-
         foreach ($this->head_ as $key1 => $value1) {
             foreach ($value1 as $key2 => $value2) {
                 if ($key2 === "mhe") {

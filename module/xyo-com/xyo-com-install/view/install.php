@@ -78,9 +78,9 @@ defined('XYO_CLOUD') or die('Access is denied');
                                     $doUpdate = true;
                                 };
 
-                                if ($modSetup->registerModule($ret["parent"], null, $ret["module"], true, false,false,null,null)) {
+                                if ($modSetup->registerModule($ret["parent"], null, $ret["module"], true, false,null)) {
                                     $modSetup->setModule($ret["parent"], null, $ret["module"], true,null,false,true);
-									$modSetup->linkModuleVersion($ret["module"]);
+
                                     if ($doUpdate) {
                                         if ($modSetup->execModuleUpdate($ret["module"])) {
 						echo "<li class=\"list-group-item list-group-item-success\">";

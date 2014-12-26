@@ -446,6 +446,35 @@ body{
 }
 
 /*
+// Logout widget
+*/
+
+a.widget-logout > div > i{
+	color: #ccc;
+	text-decoration: none;
+}
+
+a.widget-logout:hover > div > i{
+	color: #888;
+	text-decoration: none;
+}
+
+/*
+// User form widget
+*/
+
+a.widget-user-form > div > i{
+	color: #ccc;
+	text-decoration: none;
+}
+
+a.widget-user-form:hover > div > i{
+	color: #888;
+	text-decoration: none;
+}
+
+
+/*
 //  Disable rounded corners on some elements
 */
 

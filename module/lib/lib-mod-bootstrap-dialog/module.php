@@ -17,13 +17,13 @@ class lib_mod_BootstrapDialog extends xyo_Module {
         if ($this->isBase("lib_mod_BootstrapDialog")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,"media/sys/css/bootstrap-dialog.min.css");
+                $htmlHead->setCss($this->name,$this->site."media/sys/css/bootstrap-dialog.min.css");
             } else {
                 $this->moduleDisable();
             };
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,"media/sys/js/bootstrap-dialog.min.js");
+                $htmlFooter->setJs($this->name,$this->site."media/sys/js/bootstrap-dialog.min.js");
             } else {
                 $this->moduleDisable();
             };

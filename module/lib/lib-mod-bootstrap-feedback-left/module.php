@@ -17,7 +17,7 @@ class lib_mod_BootstrapFeedbackLeft extends xyo_Module {
         if ($this->isBase("lib_mod_BootstrapFeedbackLeft")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,"media/sys/css/bootstrap-feedback-left.css");
+                $htmlHead->setCss($this->name,$this->site."media/sys/css/bootstrap-feedback-left.css");
             } else {
                 $this->moduleDisable();
             };

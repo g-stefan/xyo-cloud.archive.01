@@ -9,7 +9,14 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
-<form name="<?php $this->eFormName(); ?>" method="POST" action="administrator.php" >
+<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php
+
+$main_=$this->cloud->get("request_main");
+$this->cloud->set("request_main","administrator.php");
+echo $this->cloud->requestUriModule("xyo-com-main");
+$this->cloud->set("request_main",$main_);
+
+?>" >
 		<div class="btn-group pull-right">
 			<input type="submit" class="btn btn-default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" disabled="disabled" />
                     	<input type="submit" class="btn btn-default" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" disabled="disabled" />

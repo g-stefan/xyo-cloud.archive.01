@@ -10,7 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setItem("backup",
 	"item-js",
-	"media/sys/images/approved-32.png",
+	$this->site."media/sys/images/approved-32.png",
 	"backup",
 	true,
 	"#",
@@ -20,7 +20,7 @@ $this->setItem("backup",
 if($this->isRequestCall()){
 	$this->setItem("cancel",
         "item-js",
-        "media/sys/images/denied-32.png",
+        $this->site."media/sys/images/denied-32.png",
         "cancel",
         true,
         "#",

@@ -11,13 +11,24 @@ defined('XYO_CLOUD') or die('Access is denied');
 function xyo_mod_sys_sidebar__scan_activated(&$menu){
 	$retV=false;
 	foreach ($menu as $key => $value) {
-		if ($value["type"] === "item-activated") {			
+		if ($value["type"] === "item-activated") {
+			$retV=true;
+		}else
+		if ($value["type"] === "item-hidden-activated") {
 			$retV=true;
 		}else
 		if ($value["type"] ==="item"){
 			if (count($value["popup"])) {
 				if(xyo_mod_sys_sidebar__scan_activated($menu[$key]["popup"])){
 					$menu[$key]["type"]="item-activated";
+					$retV=true;
+				}
+			}
+		}else
+		if ($value["type"] ==="item-hidden"){
+			if (count($value["popup"])) {
+				if(xyo_mod_sys_sidebar__scan_activated($menu[$key]["popup"])){
+					$menu[$key]["type"]="item-hidden-activated";
 					$retV=true;
 				}
 			}
@@ -63,6 +74,7 @@ function xyo_mod_sys_sidebar__generate(&$menu, $level) {
 				echo 	"<div class=\"wrapper\">";				
 	                	echo 		"<a href=\"" . $value["url"] . "\">". $img  . "<span>" . $value["title"] . "</span>" ."</a>";
 				echo 		"<a data-toggle=\"collapse\" data-parent=\"#nav-sidebar-".$level."-".$index."\" href=\"#nav-sidebar-child-".$level."-".$index."\" class=\"nav-sidebar-toggle collapsed pull-right\"><i class=\"glyphicon glyphicon-chevron-left\"></i><i class=\"glyphicon glyphicon-chevron-down\"></i></a>";
+				echo 		"<i class=\"glyphicon glyphicon-chevron-down pull-right\"></i>";
 				echo 		"<div class=\"clearfix\"></div>";
 				echo 	"</div>";
 				echo "<ul class=\"collapse\" id=\"nav-sidebar-child-".$level."-".$index."\">";
@@ -112,6 +124,10 @@ function xyo_mod_sys_sidebar__generate(&$menu, $level) {
 		echo "</li>";	
             }
         } else
+        if ($value["type"] === "item-hidden") {
+        }else
+        if ($value["type"] === "item-hidden-activated") {
+        }else
         if ($value["type"] === "separator") {
             echo "<li class=\"divider\"></li>";
         }else

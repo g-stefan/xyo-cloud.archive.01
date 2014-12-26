@@ -20,7 +20,7 @@ class xyo_mod_Toolbar extends xyo_mod_Application {
         parent::__construct($object, $cloud);
         if ($this->isOk) {
             if ($this->isBase("xyo_mod_Toolbar")) {
-                $this->setHtmlHeadCss("media/sys/css/xyo-mod-toolbar.css");
+                $this->setHtmlHeadCss($this->site."media/sys/css/xyo-mod-toolbar.css");
             }
         }		
     }

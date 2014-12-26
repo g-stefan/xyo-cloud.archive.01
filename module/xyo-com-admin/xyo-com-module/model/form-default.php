@@ -13,9 +13,7 @@ $this->setElementValue("path","");
 $this->setElementValue("name","");
 $this->setElementValue("description","");
 $this->setElementValue("enabled",1);
-$this->setElementValue("version","");
 $this->setElementValue("parent","");
-$this->setElementValue("cmd",0);
 $this->setElementValue("component",0);
 
 if($this->isNew){

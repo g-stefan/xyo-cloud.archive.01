@@ -13,7 +13,5 @@ $this->setElementValue("path",$this->ds->path);
 $this->setElementValue("name",$this->ds->name);
 $this->setElementValue("description",$this->ds->description);
 $this->setElementValue("enabled",$this->ds->enabled);
-$this->setElementValue("version",$this->ds->version);
 $this->setElementValue("parent",$this->ds->parent);
-$this->setElementValue("cmd",$this->ds->cmd);
 $this->setElementValue("component",$this->ds->component);

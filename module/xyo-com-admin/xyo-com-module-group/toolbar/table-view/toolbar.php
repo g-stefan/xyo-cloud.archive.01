@@ -19,7 +19,7 @@ $this->setItemBefore("delete","separator",
 
 $this->setItemBefore("separator","module_acl",
         "item-js",
-        "media/sys/images/utilities-terminal2-32.png",
+        $this->site."media/sys/images/utilities-terminal2-32.png",
         "module_acl",
         true,
         "#",

@@ -25,7 +25,7 @@ if (count($this->panel)) {
 		            $img = "<img src=\"".$img."\"></img>";
 			};
 	        } else {
-        	    $img = "<img src=\"media/sys/images/applications-other-64.png\"></img>";
+        	    $img = "<img src=\"".$this->site."media/sys/images/applications-other-64.png\"></img>";
 	        };
 
 		

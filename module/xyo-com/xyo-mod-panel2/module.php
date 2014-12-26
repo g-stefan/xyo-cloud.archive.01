@@ -18,7 +18,7 @@ class xyo_mod_Panel2 extends xyo_Module {
         if ($this->isBase("xyo_mod_Panel2")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,"media/sys/css/text-in-circle.css");
+                $htmlHead->setCss($this->name,$this->site."media/sys/css/text-in-circle.css");
             } else {
                 $this->disable();
                 return;

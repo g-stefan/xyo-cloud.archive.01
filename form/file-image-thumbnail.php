@@ -35,8 +35,8 @@ if(strlen($fileName)){
 	if($modThumbnail){
 		$fileThumb=$modThumbnail->makeThumbnail(dirname($fileName)."/",$fileName,$thumbSize[0],$thumbSize[1]);
 		if(strlen($fileThumb)){
-			$fileThumb=dirname($fileName)."/".$fileThumb;
-			$fileName="<a href=\"".$fileName."\" target=\"_blank\"><img src=\"".$fileThumb."\"></img></a>";
+			$fileThumb=$this->site.dirname($fileName)."/".$fileThumb;
+			$fileName="<a href=\"".$this->site.$fileName."\" target=\"_blank\"><img src=\"".$fileThumb."\"></img></a>";
 		};
 	};
 };

@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule ^admin/run/?(.*)$ administrator.php?run=$1 [L]
+RewriteRule ^public/run/?(.*)$ administrator.php?run=$1 [L]
+RewriteRule ^run/?(.*)$ index.php?run=$1 [L]

@@ -22,6 +22,9 @@ $this->set("system_version", "3.0.0");
 //$this->set("system_log_language",true);
 $this->set("system_user_action",true);
 $this->set("system_user_captcha",true);
+// ---
+$this->set("system_use_redirect",false);
+
 //
 // some default values just in case
 //
@@ -32,6 +35,54 @@ $this->set("language", "en-GB");
 //
 $this->set("system_configured", false);
 $this->includeConfig("config.website");
+// ---
+$site=$this->get("site","");
+if(strlen($site)==0){
+	$site=$_SERVER['REQUEST_URI'];
+	$x=@strrpos($site,"/",-1);
+	if($x===false){
+	}else
+	if($x>=0){
+		$useRedirect=$this->get("system_use_redirect",false);
+		if($useRedirect){
+			$found=false;
+                        $site=substr($site,0,$x+1);
+			if(!$found){				
+				$x=@strpos($site,"/admin/run/",0);
+				if($x===false){
+				}else
+				if($x>=0){
+					$this->set("site",substr($site,0,$x+1));
+					$found=true;
+				};
+			};
+
+			if(!$found){
+				$x=@strpos($site,"/public/run/",0);
+				if($x===false){
+				}else
+				if($x>=0){				
+					$this->set("site",substr($site,0,$x+1));
+					$found=true;
+				};
+			};
+
+			if(!$found){
+				$x=@strpos($site,"/run/",0);
+				if($x===false){
+				}else
+				if($x>=0){
+					$this->set("site",substr($site,0,$x+1));
+					$found=true;
+				};
+			};
+
+		}else{
+			$this->set("site",substr($site,0,$x+1));
+		};
+	};
+};
+
 if ($this->get("system_configured")) {
     
 } else {
@@ -43,18 +94,18 @@ if ($this->get("system_configured")) {
 $this->set("language", $this->get("system_default_language", "en-GB"));
 //
 //
-$this->setModule(null, null, "xyo", true, null, false, true, false);
+$this->setModule(null, null, "xyo", true, null, true, false);
 //
 // datasource 
 //
-$this->setModule("xyo", null, "xyo-mod-ds-db", true, null, false, true, false);
-$this->setModule("xyo", null, "xyo-mod-datasource", true, null, false, true, false);
+$this->setModule("xyo", null, "xyo-mod-ds-db", true, null, true, false);
+$this->setModule("xyo", null, "xyo-mod-datasource", true, null,  true, false);
 $layer = $this->cloud->get("system_datasource_layer", "xyo-mod-datasource-xyo");
-$this->setModule("xyo", null, $layer, true, null, false, true, false);
+$this->setModule("xyo", null, $layer, true, null, true, false);
 //
 // datasource loader
 //
-$this->setModule("xyo", null, "xyo-mod-ds-loader-ds", true, null, false, true, false);
+$this->setModule("xyo", null, "xyo-mod-ds-loader-ds", true, null, true, false);
 $this->set("system_datasource_loader", "xyo-mod-ds-loader-ds");
 //
 // process settings
@@ -67,8 +118,8 @@ for($dsSettings->load();$dsSettings->isValid();$dsSettings->loadNext()){
 };
 //
 //
-$this->setModule("xyo", null, "xyo-mod-ds-acl", true, null, false, true, false);
-$this->setModule("xyo", null, "xyo-mod-ds-user", true, null, false, true, false);
+$this->setModule("xyo", null, "xyo-mod-ds-acl", true, null, true, false);
+$this->setModule("xyo", null, "xyo-mod-ds-user", true, null, true, false);
 //
 // check for user
 //
@@ -102,7 +153,7 @@ if ($website_language === "*") {
 //
 // set module loader ... (must be after user)
 //
-$this->setModule("xyo", null, "xyo-mod-ds-loader-mod", true, null, false, true, false);
+$this->setModule("xyo", null, "xyo-mod-ds-loader-mod", true, null, true, false);
 $this->setModuleLoader("xyo-mod-ds-loader-mod");
 //
 //

@@ -43,7 +43,7 @@ foreach ($panel as $key => &$value) {
 		<div class="col-lg-4 col-md-4 col-sm-4">
 			<?php $this->execModule("xyo-mod-panel2", $panel); ?>
 
-			<img class="hidden-xs" src="media/sys/images/system-installer-128.png"
+			<img class="hidden-xs" src="<?php echo $this->site; ?>media/sys/images/system-installer-128.png"
 			  style="width:128px;height:128px;display:block;margin-left:auto;margin-right:auto;margin-top:0px;"
 			  alt="<?php $this->eLanguage("alt_install"); ?>" />
 

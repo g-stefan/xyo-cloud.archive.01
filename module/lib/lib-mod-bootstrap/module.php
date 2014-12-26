@@ -17,14 +17,14 @@ class lib_mod_Bootstrap extends xyo_Module {
         if ($this->isBase("lib_mod_Bootstrap")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,"media/sys/css/bootstrap.min.css");
-                $htmlHead->setCss($this->name,"media/sys/css/bootstrap-theme.min.css");
+                $htmlHead->setCss($this->name,$this->site."media/sys/css/bootstrap.min.css");
+                $htmlHead->setCss($this->name,$this->site."media/sys/css/bootstrap-theme.min.css");
             } else {
                 $this->moduleDisable();
             };
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,"media/sys/js/bootstrap.min.js");
+                $htmlFooter->setJs($this->name,$this->site."media/sys/js/bootstrap.min.js");
             } else {
                 $this->moduleDisable();
             };

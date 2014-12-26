@@ -65,6 +65,9 @@ class xyo_mod_sys_Sidebar extends xyo_mod_Application {
 			if($type==="item"){
 				$type="item-activated";
 			};
+			if($type==="item-hidden"){
+				$type="item-hidden-activated";
+			};
 		};
         $item = array();
         $item["type"] = $type;

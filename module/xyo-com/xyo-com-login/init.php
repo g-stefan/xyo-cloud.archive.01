@@ -23,6 +23,6 @@ if ($this->isElement("login")) {
 
 $this->setDefaultAction($action);
 
-$this->setHtmlFooterJs("media/sys/js/xyo-com-login.js");
+$this->setHtmlFooterJs($this->site."media/sys/js/xyo-com-login.js");
 
 $this->requireElement(array("captcha"));

@@ -16,11 +16,9 @@ $this->set("table_item", array(
 		   "name" => array("varchar",64,null),
 		   "description" => array("varchar",92,null),
 		   "enabled" => array("int",0,"unsigned"),
-		   "version" => array("varchar",32,null),
 		   "parent" => array("varchar",64,null),
-		   "cmd" => array("int",0,"unsigned"),
 		   "component" => array("int",0,"unsigned"),
-		   "parameter" => array("int",0,"unsigned"),
+		   "parameter" => array("int",0,"unsigned")
 	   ));
 
 $this->set("table_link",array(

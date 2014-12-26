@@ -31,7 +31,7 @@ echo "<" . "?" . "xml version=\"1.0\" encoding=\"UTF-8\"" . "?" . ">\n";
 		      </button>
 		      <span class="navbar-brand">
 				<span style="height:32px;width:auto;">
-			            <img src="media/sys/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;margin-top: -7px;" alt="XYO" ></img>
+			            <img src="<?php echo $this->site; ?>media/sys/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;margin-top: -7px;" alt="XYO" ></img>
         		    		<span style="font-family:arial;color:#0194FE;font-size:22px;font-weight:bold;margin-top: -1px;">&#160;CLOUD&#160;</span>
 			    	</span>
                       </span>

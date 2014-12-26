@@ -29,8 +29,8 @@ $this->tableType = array(
 	"name" => array("cmd-edit"),
 	"default"=>array("radio",array(
 		"on"=>array(
-			0=>"media/sys/images/favorite-off-16.png",
-			1=>"media/sys/images/favorite-16.png"
+			0=>$this->site."media/sys/images/favorite-off-16.png",
+			1=>$this->site."media/sys/images/favorite-16.png"
 		)
 	)),
 	"enabled"=>array("toggle")

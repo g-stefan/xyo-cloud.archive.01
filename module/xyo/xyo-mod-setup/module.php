@@ -26,11 +26,11 @@ class xyo_mod_Setup extends xyo_Module {
 		$this->options_ = array();
 	}
 
-	function setModule($parent, $path, $module, $enabled, $parameters=null, $cmd=false, $registered=false, $override=false) {
-		$this->cloud->setModule($parent, $path, $module, $enabled, $parameters, $cmd, $registered, $override);
+	function setModule($parent, $path, $module, $enabled, $parameters=null,  $registered=false, $override=false) {
+		$this->cloud->setModule($parent, $path, $module, $enabled, $parameters, $registered, $override);
 	}
 
-	function registerModule($parent, $path, $module, $enabled, $cmd=false, $component=false, $version=null, $description=null) {
+	function registerModule($parent, $path, $module, $enabled, $component=false, $description=null) {
 		$ds = &$this->cloud->getModule("xyo-mod-datasource");
 		if ($ds) {
 			$dsModule = &$ds->getDataSource("db.table.xyo_module");
@@ -39,10 +39,8 @@ class xyo_mod_Setup extends xyo_Module {
 				$dsModule->tryLoad();
 				$dsModule->path = $path;
 				$dsModule->enabled = $enabled;
-				$dsModule->version = $version;
 				$dsModule->parent = $parent;
 				$dsModule->description = $description;
-				$dsModule->cmd = $cmd;
 				$dsModule->component = $component;
 				$dsModule->parameter = 0;
 				return $dsModule->save();
@@ -59,21 +57,6 @@ class xyo_mod_Setup extends xyo_Module {
 				$dsModule->name = $module;
 				if ($dsModule->load(0, 1)) {
 					$dsModule->component = $component;
-					return $dsModule->save();
-				}
-			}
-		}
-		return false;
-	}
-
-	function setModuleVersion($module, $version) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $module;
-				if ($dsModule->load(0, 1)) {
-					$dsModule->version = $version;
 					return $dsModule->save();
 				}
 			}
@@ -1065,13 +1048,6 @@ class xyo_mod_Setup extends xyo_Module {
 			};
 		}
 		return false;
-	}
-
-	function linkModuleVersion($module) {
-		$link_=$this->getModuleReferenceLink($module);
-		if(array_key_exists($module,$link_)) {
-			$this->setModuleVersion($module,$link_[$module]["version"]);
-		};
 	}
 
 	function installFormElement($module_, $name_) {

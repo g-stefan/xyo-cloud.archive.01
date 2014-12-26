@@ -31,3 +31,11 @@ $select_value = $this->getElementValue($element);
 ?>
 	</select>
 </div>
+
+<?php
+
+if($this->isAjax()){
+	$this->ejsBegin();
+	echo "$(\"#".$this->getElementId($element)."\").selectpicker();";
+	$this->ejsEnd();
+};

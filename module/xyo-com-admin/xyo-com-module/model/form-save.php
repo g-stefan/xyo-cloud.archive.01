@@ -59,9 +59,7 @@ $this->ds->name=$name;
 $this->ds->parent=$this->getElementValueStr("parent");
 $this->ds->path=$this->getElementValueStr("path");
 $this->ds->description=$this->getElementValueStr("description");
-$this->ds->version=$this->getElementValueStr("version");
 $this->ds->enabled=$this->getElementValueInt("enabled", 0, "*");
-$this->ds->cmd=$this->getElementValueInt("cmd", 0, "*");
 $this->ds->component=$this->getElementValueInt("component", 0, "*");
 
 if($this->ds->save()) {

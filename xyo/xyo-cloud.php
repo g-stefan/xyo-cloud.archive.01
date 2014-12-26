@@ -76,6 +76,7 @@ class xyo_Cloud extends xyo_Config {
 		$this->set("system_kernel_version", "1.0.0.0");
 		$this->set("request_main", "index.php");		
 		$this->set("system_core", "xyo");
+		$this->set("site", "");
 
 		$this->set("system_log_request", false);
 		$this->set("system_log_response", false);
@@ -148,13 +149,6 @@ class xyo_Cloud extends xyo_Config {
 
 					} else {
 						return null;
-					}
-				}
-				if ($o["cmd"]) {
-					if ($parameters) {
-						$parameters = array_merge($o["parameters"], $parameters);
-					} else {
-						$parameters = $o["parameters"];
 					}
 				}
 				return $o["object"]->moduleMainExec($parameters);
@@ -262,17 +256,6 @@ class xyo_Cloud extends xyo_Config {
 			}
 			if ($module_["loaded"]) {
 				return true;
-			}
-			if ($module_["cmd"]) {
-				$retV = $this->loadModule($module_["parent"]);
-				if ($retV) {
-					$mod_ = &$this->getModuleObject($module_["parent"]);
-					if ($mod_) {
-						$module_["loaded"] = true;
-						$module_["object"] = &$mod_["object"];
-					}
-				}
-				return $retV;
 			}
 
 			$initFile = $module_["path"] . "cloud.php";
@@ -389,7 +372,7 @@ class xyo_Cloud extends xyo_Config {
 		}
 	}
 
-	public function setModule($moduleParent, $path, $module, $enabled, $parameters=null, $cmd=false, $registered=false, $override=false) {
+	public function setModule($moduleParent, $path, $module, $enabled, $parameters=null, $registered=false, $override=false) {
 		if ($override) {
 
 		} else {
@@ -410,30 +393,22 @@ class xyo_Cloud extends xyo_Config {
 					return false;
 				}
 			}
-		} else {
-			if ($cmd) {
-				return false;
-			}
 		}
 
 		$pathModule = null;
 
-		if ($cmd) {
-
-		} else {
-
-			if (strlen($moduleParent) > 0) {
-				if (strlen($path) > 0) {
-					$pathModule = $this->modules_[$moduleParent]["path"] . $path . "/";
-				} else {
-					$pathModule = $this->modules_[$moduleParent]["path"] . $module . "/";
-				}
-			} else if (strlen($path) > 0) {
-				$pathModule = $path . "/";
+		if (strlen($moduleParent) > 0) {
+			if (strlen($path) > 0) {
+				$pathModule = $this->modules_[$moduleParent]["path"] . $path . "/";
 			} else {
-				$pathModule = "module/" . $module . "/";
+				$pathModule = $this->modules_[$moduleParent]["path"] . $module . "/";
 			}
+		} else if (strlen($path) > 0) {
+			$pathModule = $path . "/";
+		} else {
+			$pathModule = "module/" . $module . "/";
 		}
+		
 
 		if ($parameters) {
 
@@ -449,8 +424,6 @@ class xyo_Cloud extends xyo_Config {
 		$this->modules_[$module]["path"] = $pathModule;
 		$this->modules_[$module]["loaded"] = false;
 		$this->modules_[$module]["check"] = false;
-		$this->modules_[$module]["version"] = null;
-		$this->modules_[$module]["cmd"] = $cmd;
 		$this->modules_[$module]["parameters"] = $parameters;
 		$this->modules_[$module]["component"] = null;
 		$this->modules_[$module]["base_class"] = null;
@@ -523,9 +496,6 @@ class xyo_Cloud extends xyo_Config {
 		if ($o) {
 			if ($o["component"]) {
 				return true;
-			}
-			if ($o["cmd"]) {
-				return $this->isModuleComponent($o["parent"]);
 			}
 		}
 		return false;
@@ -771,13 +741,44 @@ class xyo_Cloud extends xyo_Config {
 	public function requestUri($parameters=null) {
 		if ($this->requestBuilder_) {
 			return $this->requestBuilder_->systemRequestUri($parameters);
-		}
-		$retV = $this->get("request_main");
+		};	
+		if($this->get("system_use_redirect",false)){
+			$retV = $this->get("request_main");		
+			if ($parameters) {
+				$first = false;
+				if (array_key_exists("run", $parameters)) {
+					if($retV=="administrator.php"){
+						$retV=$this->get("site")."admin/run/".rawurlencode($parameters["run"]);
+					};
+					if($retV=="public.php"){
+						$retV=$this->get("site")."public/run/".rawurlencode($parameters["run"]);
+					};
+					if($retV=="index.php"){
+						$retV=$this->get("site")."run/".rawurlencode($parameters["run"]);
+					};
+				};
+				foreach ($parameters as $key => $value) {
+					if ($key === "run") {
+						continue;
+					};
+					if ($first) {
+						$retV.="&";
+					} else {
+						$retV.="?";
+						$first = true;
+					}
+					$retV.=rawurlencode($key) . "=" . rawurlencode($value);
+				}
+			};
+			return $retV;
+		};
+
+		$retV = $this->get("request_main");		
 		if ($parameters) {
 			$first = false;
 			if (array_key_exists("run", $parameters)) {
 				$retV.="?run=" . rawurlencode($parameters["run"]);
-				$first = true;
+				$first = true;				
 			}
 			foreach ($parameters as $key => $value) {
 				if ($key === "run") {

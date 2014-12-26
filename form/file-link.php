@@ -41,7 +41,7 @@ if(!$collapse){
 	<tr>
 	<td class="xyo-form-file-link-input" id="<?php $this->eElementId($element); ?>_info">
 		<?php if($hasFile) { ?>
-		<a href="<?php $this->eElementValue($element); ?>" target="blank_"><?php echo $this->getFromLanguage("file_link_open"); ?></a>
+		<a href="<?php $this->site.$this->eElementValue($element); ?>" target="blank_"><?php echo $this->getFromLanguage("file_link_open"); ?></a>
 		<?php }else{ ?>
 		<span><?php echo $this->getFromLanguage("file_link_no_file"); ?></span>
 		<?php }; ?>
@@ -85,7 +85,7 @@ if(!$collapse){
 	<tr>
 	<td class="xyo-form-file-link-input" id="<?php $this->eElementId($element); ?>_info">
 		<?php if($hasFile) { ?>
-		<a href="<?php $this->eElementValue($element); ?>" target="blank_"><?php echo $this->getFromLanguage("file_link_open"); ?></a>
+		<a href="<?php $this->site.$this->eElementValue($element); ?>" target="blank_"><?php echo $this->getFromLanguage("file_link_open"); ?></a>
 		<?php }else{ ?>
 		<span><?php echo $this->getFromLanguage("file_link_no_file"); ?></span>
 		<?php }; ?>

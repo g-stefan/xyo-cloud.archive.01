@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setApplicationIcon("media/sys/images/preferences-desktop-locale-48.png");
+$this->setApplicationIcon($this->site."media/sys/images/preferences-desktop-locale-48.png");
 $this->setApplicationDataSource("db.table.xyo_language");
 $this->setPrimaryKey("id");
 

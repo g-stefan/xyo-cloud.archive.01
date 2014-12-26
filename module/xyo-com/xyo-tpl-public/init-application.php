@@ -10,8 +10,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setHtmlHeadHttpEquiv("Content-Type", "text/html; charset=utf-8");
 $this->setHtmlHeadTitle($this->getSetting("website_title","XYO Cloud"));
-$this->setHtmlHeadLink("shortcut icon","media/sys/images/applications-internet.ico","image/x-icon");
-$this->setHtmlHeadCss("media/sys/css/xyo-tpl-public.css");
+$this->setHtmlHeadLink("shortcut icon",$this->site."media/sys/images/applications-internet.ico","image/x-icon");
+$this->setHtmlHeadCss($this->site."media/sys/css/xyo-tpl-public.css");
 $this->loadModule("xyo-mod-sys-menu");
 $this->loadGroup("xyo-desktop");
 $this->loadGroup("xyo-status");

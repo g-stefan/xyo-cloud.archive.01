@@ -17,13 +17,13 @@ class lib_mod_BootstrapBackToTop extends xyo_Module {
         if ($this->isBase("lib_mod_BootstrapBackToTop")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,"media/sys/css/bootstrap-back-to-top.css");
+                $htmlHead->setCss($this->name,$this->site."media/sys/css/bootstrap-back-to-top.css");
             } else {
                 $this->moduleDisable();
             };
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,"media/sys/js/bootstrap-back-to-top.js");
+                $htmlFooter->setJs($this->name,$this->site."media/sys/js/bootstrap-back-to-top.js");
             } else {
                 $this->moduleDisable();
             };

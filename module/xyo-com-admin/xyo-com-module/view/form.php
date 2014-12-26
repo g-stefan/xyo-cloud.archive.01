@@ -16,8 +16,6 @@ $this->generateElement("text", "parent");
 $this->generateElement("text", "path");
 $this->generateElement("textarea", "description");
 $this->generateElement("select", "component");
-$this->generateElement("select", "cmd");
-$this->generateElement("text", "version");
 $this->generateElement("select", "enabled");
 $this->generateElement("group-end");
 

@@ -45,6 +45,7 @@ class xyo_Module extends xyo_Config {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($cloud);
 		$this->isOk = true;
+		$this->site = $cloud->get("site");
 		$this->path = $object["path"];
 		$this->name = $object["module"];
 		$this->moduleBaseClass_ = $object["base_class"];

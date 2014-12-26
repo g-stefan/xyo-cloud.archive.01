@@ -10,7 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setDataSource("db.query.xyo_user");
 
-$this->setApplicationIcon("media/sys/images/system-users-48.png");
+$this->setApplicationIcon($this->site."media/sys/images/system-users-48.png");
 $this->setApplicationDataSource("db.query.xyo_user");
 $this->setPrimaryKey("id");
 

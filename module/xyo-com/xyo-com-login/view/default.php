@@ -72,7 +72,7 @@ if ($this->isError("error")) {
 	<div class="panel <?php if ($this->isError("error")) { echo "panel-danger"; }else{ echo "panel-default"; }; ?>">
 
 		<div class="panel-heading">
-	            <img src="media/sys/images/computer-login-48.png" style="width:48px;height:48px;border: 0px;vertical-align: middle;"></img>
+	            <img src="<?php echo $this->site; ?>media/sys/images/computer-login-48.png" style="width:48px;height:48px;border: 0px;vertical-align: middle;"></img>
         	    <span style="font-size:22px;font-weight:bold;vertical-align: middle;"><?php $this->eLanguage("txt_login"); ?><?php if($this->isError("error")){echo " - "; $this->eLanguage($msg_lang); }; ?></span>
 		</div>
 		<div class="panel-body">

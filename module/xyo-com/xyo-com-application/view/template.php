@@ -19,7 +19,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 		            $img = "<img src=\"".$img."\" class=\"application-img\"></img>";
 			};
 	        } else {
-        	    $img = "<img src=\"media/sys/images/applications-system-48.png\" class=\"application-img\"></img>";
+        	    $img = "<img src=\"".$this->site."media/sys/images/applications-system-48.png\" class=\"application-img\"></img>";
 	        };
 
 ?>

@@ -14,7 +14,6 @@ $this->set("head_name","Name");
 $this->set("head_description","Description");
 $this->set("head_component","Component");
 $this->set("head_element","Element");
-$this->set("head_version","Version");
 $this->set("head_id","Id");
 
 $this->set("search_name","Name");
@@ -23,18 +22,13 @@ $this->set("label_name","Name");
 $this->set("label_parent","Parent");
 $this->set("label_path","Path");
 $this->set("label_component","Component");
-$this->set("label_cmd","Command");
 $this->set("label_element","Element");
-$this->set("label_version","Version");
 $this->set("label_description","Description");
 
 $this->set("select_component_any","- component -");
 $this->set("select_component_enabled","yes");
 $this->set("select_component_disabled","no");
 
-$this->set("select_cmd_any","- command -");
-$this->set("select_cmd_enabled","yes");
-$this->set("select_cmd_disabled","no");
 
 $this->set("info_package_uninstall_ok","Package uninstalled");
 $this->set("info_package_created_ok","Package created");
