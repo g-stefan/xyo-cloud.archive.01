@@ -382,6 +382,10 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->requestUriModule($module, $parameters);
 	}
 
+	public function requestUriRouteModule($requestMain,$module, $parameters=null){
+		return $this->cloud->requestUriRouteModule($requestMain,$module, $parameters);
+	}
+
 	public function requestThisDirect($parameters=null) {
 		return $this->cloud->requestModuleDirect($this->name, $this->xyo_array_merge_ex_($this->keepRequest_, $parameters));
 	}
@@ -639,6 +643,19 @@ class xyo_Module extends xyo_Config {
 	public function eFormAction($parameters=null) {
 		echo $this->cloud->requestUriModule($this->name, $parameters);
 	}
+
+	public function eFormActionModule($module,$parameters=null) {
+		echo $this->cloud->requestUriModule($module, $parameters);
+	}
+
+	public function eFormActionRoute($requestMain,$parameters=null) {
+		echo $this->cloud->requestUriRouteModule($requestMain,$this->name, $parameters);
+	}
+
+	public function eFormActionRouteModule($requestMain,$module,$parameters=null) {
+		echo $this->cloud->requestUriRouteModule($requestMain,$module, $parameters);
+	}
+
 
 	public function clearParameters() {
 		$this->parameters_ = array();

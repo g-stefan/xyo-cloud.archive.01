@@ -13,13 +13,13 @@ $core = &$dataSource;
 $core->clear();
 $core->name = "administrator";
 $core->tryLoad();
-$core->default = 0;
+$core->default = 1;
 $core->enabled = 1;
 $core->save();
 
 $core->clear();
 $core->name = "public";
 $core->tryLoad();
-$core->default = 1;
+$core->default = 0;
 $core->enabled = 1;
 $core->save();

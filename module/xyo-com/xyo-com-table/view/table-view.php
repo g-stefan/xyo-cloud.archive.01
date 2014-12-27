@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $compactView="";
-if(1*$this->getParameter("xyo_com_table_compact_view")){
+if(1*$this->getParameterBase("xyo_com_table_compact_view")){
 	$compactView="table-condensed";
 };
 

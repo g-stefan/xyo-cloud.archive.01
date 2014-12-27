@@ -668,7 +668,7 @@ class xyo_Cloud extends xyo_Config {
 		} else {
 			$parameters = array();
 		}
-		if($module) {
+		if($module) {			
 			$module_ = $this->getModuleExecPath_($module);
 			$parameters["run"] = $module_;
 		}
@@ -676,7 +676,7 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function getModuleExecPath_($module) {
-		$m = "";
+		$m = $module;
 		$x = &$this->getModuleObject($module);
 		if ($x) {
 			$m = $x["module"];
@@ -738,22 +738,25 @@ class xyo_Cloud extends xyo_Config {
 		return null;
 	}
 
-	public function requestUri($parameters=null) {
+	public function requestUriRoute($requestMain=null,$parameters=null) {		
 		if ($this->requestBuilder_) {
-			return $this->requestBuilder_->systemRequestUri($parameters);
+			return $this->requestBuilder_->systemRequestUriCore($core,$parameters);
 		};	
+		if(strlen($requestMain)==0){
+			$requestMain="index.php";
+		};
 		if($this->get("system_use_redirect",false)){
-			$retV = $this->get("request_main");		
+			$retV = $requestMain;
 			if ($parameters) {
 				$first = false;
 				if (array_key_exists("run", $parameters)) {
-					if($retV=="administrator.php"){
+					if($core=="administrator.php"){
 						$retV=$this->get("site")."admin/run/".rawurlencode($parameters["run"]);
 					};
-					if($retV=="public.php"){
+					if($core=="public.php"){
 						$retV=$this->get("site")."public/run/".rawurlencode($parameters["run"]);
 					};
-					if($retV=="index.php"){
+					if($core=="index.php"){
 						$retV=$this->get("site")."run/".rawurlencode($parameters["run"]);
 					};
 				};
@@ -773,7 +776,7 @@ class xyo_Cloud extends xyo_Config {
 			return $retV;
 		};
 
-		$retV = $this->get("request_main");		
+		$retV = $requestMain;
 		if ($parameters) {
 			$first = false;
 			if (array_key_exists("run", $parameters)) {
@@ -796,8 +799,16 @@ class xyo_Cloud extends xyo_Config {
 		return $retV;
 	}
 
+	public function requestUri($parameters=null) {
+		return $this->requestUriRoute($this->get("request_main"),$parameters);
+	}
+
 	public function requestUriModule($module, $parameters=null) {
 		return $this->requestUri($this->requestModuleDirect($module, $parameters));
+	}
+
+	public function requestUriRouteModule($requestMain,$module, $parameters=null) {
+		return $this->requestUriRoute($requestMain,$this->requestModuleDirect($module, $parameters));
 	}
 
 	public function clearRequest() {
