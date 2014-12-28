@@ -811,6 +811,36 @@ class xyo_Module extends xyo_Config {
 		return false;
 	}
 
+	public function processModelX($name_,$arguments=null) {
+		$retV=$this->processModel($name_,$arguments);
+		if($retV){
+			return $retV;
+		};
+
+		$this->pushArguments();
+		$this->arguments_=$arguments;
+		if($this->arguments_){
+		}else{
+			$this->arguments_=array();
+		};
+		
+		$file_ = $this->cloud->getTemplatePath()."sys/model/".$name_.".php";
+		if($this->includeFile($file_)) {
+			$this->popArguments();
+			return true;
+		};
+
+		$file_ = "model/".$name_.".php";
+		if($this->includeFile($file_)) {
+			$this->popArguments();
+			return true;
+		};
+
+		$this->popArguments();
+		return false;
+	}
+
+
 	public function callFromThis($name=null, $arguments=null) {
 		return $this->callFromModule($this->name, $name, $arguments);
 	}

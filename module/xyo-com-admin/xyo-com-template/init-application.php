@@ -8,7 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setDataSource("db.query.xyo_acl_module");
 $this->setApplicationDataSource("db.query.xyo_acl_module");
 $this->setPrimaryKey("id");
 

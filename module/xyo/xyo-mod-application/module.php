@@ -191,10 +191,6 @@ class xyo_mod_Application extends xyo_mod_Language {
 	}
 
 	public function generateWidget($widget,$parameters=null) {
-		if($parameters) {
-		} else {
-			$parameters=array();
-		};
 		if(array_key_exists($widget,$this->applicationWidgetCache_)) {
 			if($this->processViewX($widget,"","widget",$parameters)) {
 				return true;

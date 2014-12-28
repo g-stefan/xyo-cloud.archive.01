@@ -21,3 +21,6 @@ $this->registerDataSource(null, "db.table.xyo_user_group");
 $this->registerDataSource(null, "db.table.xyo_user_group_x_user_group");
 $this->registerDataSource(null, "db.table.xyo_user_x_user_group");
 $this->registerDataSource(null, "db.table.xyo_user_x_core");
+
+$this->registerDataSource(null, "db.query.xyo_acl_module");
+$this->registerDataSource(null, "db.query.xyo_user");

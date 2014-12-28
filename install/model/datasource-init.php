@@ -55,32 +55,12 @@ $setup->execModuleInstall("xyo-mod-ds-db");
 
 //---
 $order = array();
-include($this->path . "repository/_order.php");
-
-$k_ = 1;
-$listDataSourceOrder_ = array();
-foreach ($order as $value_) {
-    $listDataSourceOrder_[$value_] = $k_;
-    ++$k_;
-};
-$lastIndex = $k_ + 1;
-
-
-
-$dsListAs = $this->dataSourceProvider->getDataSourceAsList();
-foreach ($dsListAs as $key_ => $value_) {
-    if (array_key_exists($key_, $listDataSourceOrder_)) {
-        
-    } else {
-        $listDataSourceOrder_[$key_] = 0;
-    };
-};
-asort($listDataSourceOrder_, SORT_NUMERIC);
-
 $listDatasource=array();
 
+include($this->path . "repository/_order.php");
+
         $allOk = true;
-        foreach ($listDataSourceOrder_ as $source_ => $level_) {
+        foreach ($order as $level_ => $source_) {
             $value = "yes";
             $dataSource = &$this->getDataSource($source_);
             if ($dataSource) {

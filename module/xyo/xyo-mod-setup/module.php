@@ -267,16 +267,22 @@ class xyo_mod_Setup extends xyo_Module {
 					$dsDataSource->descriptor = "datasource/" . $name_ . ".php";
 				};
 				if ($dsDataSource->save()) {
-					$ds = &$ds->getDataSource($name_);
-					if ($ds) {
+					$matches = array();
+					if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name_, $matches)) {
+						if (count($matches) > 3) {
+							if (strcmp($matches[2], "table") == 0) {							        
+								$ds = &$ds->getDataSource($name_);
+								if ($ds) {
+									if ($ds->getType() == "table") {
 
-						if ($ds->getType() == "table") {
-
-							// has effect only once on succesive call
-							$ds->createStorage();
+										// has effect only once on succesive call
+										$ds->createStorage();
+									}									
+								}
+							}
 						}
-						return true;
-					}
+					};
+					return true;
 				}
 			}
 		}
