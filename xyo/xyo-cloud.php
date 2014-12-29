@@ -750,13 +750,13 @@ class xyo_Cloud extends xyo_Config {
 			if ($parameters) {
 				$first = false;
 				if (array_key_exists("run", $parameters)) {
-					if($core=="administrator.php"){
+					if($requestMain=="administrator.php"){
 						$retV=$this->get("site")."admin/run/".rawurlencode($parameters["run"]);
 					};
-					if($core=="public.php"){
+					if($requestMain=="public.php"){
 						$retV=$this->get("site")."public/run/".rawurlencode($parameters["run"]);
 					};
-					if($core=="index.php"){
+					if($requestMain=="index.php"){
 						$retV=$this->get("site")."run/".rawurlencode($parameters["run"]);
 					};
 				};
