@@ -381,11 +381,9 @@ class xyo_mod_datasource_xyo_Query extends xyo_Config {
 					if($this->fieldOperator_[$idx-1][0]==3&&$opList2[$mode]==4) {
 						unset($this->fieldOperator_[$idx-1]);
 						return true;
-					} else {
-						$idx=$idx-1;
-					}
-				}
-			}
+					};
+				};
+			};
 			$this->fieldOperator_[$idx]=array(0=>$opList2[$mode]);
 			return true;
 		}

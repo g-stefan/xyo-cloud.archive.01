@@ -355,11 +355,9 @@ class xyo_mod_datasource_sqlite_Query extends xyo_Config {
 					if($this->fieldOperator_[$idx-1][1]=="("&&$opList2[$mode]==")") {
 						unset($this->fieldOperator_[$idx-1]);
 						return true;
-					} else {
-						$idx=$idx-1;
-					}
-				}
-			}
+					};
+				};
+			};
 			$this->fieldOperator_[$idx]=array(0=>1,1=>$opList2[$mode]);
 			return true;
 		}
