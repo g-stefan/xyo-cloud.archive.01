@@ -8,6 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-?>
-<div class="clearfix"></div>
-
+$this->setHtmlHeadCss($this->site."media/sys/css/xyo-form-box-wide.css");

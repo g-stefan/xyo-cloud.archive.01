@@ -13,7 +13,7 @@ $this->setApplicationIcon($this->site."media/sys/images/utilities-terminal-48.pn
 $this->setApplicationDataSource("db.query.xyo_acl_module");
 $this->setPrimaryKey("id");
 
-$this->requireElement(array("select","order","group-begin","group-end","group-row-begin","group-row-end"));
+$this->requireElement(array("select","order","panel-begin","panel-end","row-begin","row-end"));
 
 $id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);
 if($id_xyo_acl_module){

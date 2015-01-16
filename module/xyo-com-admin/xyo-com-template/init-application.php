@@ -13,5 +13,5 @@ $this->setPrimaryKey("id");
 
 $this->setApplicationIcon($this->site."media/sys/images/preferences-desktop-theme-48.png");
 
-$this->requireElement(array("select","text","textarea","group-begin","group-end","group-row-begin","group-row-end"));
+$this->requireElement(array("select","text","textarea","panel-begin","panel-end","row-begin","row-end"));
 

@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->addItem("group-row-begin");
-$this->addItem("group-begin");
+$this->addItem("row-begin");
+$this->addItem("panel-begin");
 $this->addItem("enable", "xyo_com_table_compact_view",0);
-$this->addItem("group-end");
-$this->addItem("group-row-end");
+$this->addItem("panel-end");
+$this->addItem("row-end");

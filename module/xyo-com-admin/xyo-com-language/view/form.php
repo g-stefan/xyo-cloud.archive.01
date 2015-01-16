@@ -9,8 +9,8 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 if(!$this->isDialog){
-	$this->generateElement("group-row-begin");
-	$this->generateElement("group-begin");
+	$this->generateElement("row-begin");
+	$this->generateElement("panel-begin");
 };
 
 $this->generateElement("text", "name");
@@ -19,6 +19,6 @@ $this->generateElement("select", "default");
 $this->generateElement("select", "enabled");
 
 if(!$this->isDialog){
-	$this->generateElement("group-end");
-	$this->generateElement("group-row-end");
+	$this->generateElement("panel-end");
+	$this->generateElement("row-end");
 };

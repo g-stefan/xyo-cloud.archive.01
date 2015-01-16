@@ -1,13 +1,12 @@
-/*
+<?php
 //
 // Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
-*/
 
-.xyo-form-group{
-	width: 32em;
-	margin-left: 1em;
-}
+defined('XYO_CLOUD') or die('Access is denied');
+
+?>
+<div class="clearfix"></div>

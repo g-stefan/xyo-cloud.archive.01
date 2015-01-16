@@ -8,5 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-?>
-	<div class="pull-left xyo-form-group-box">
+$this->setHtmlHeadCss($this->site."media/sys/css/xyo-form-panel.css");

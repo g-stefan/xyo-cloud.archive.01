@@ -7,20 +7,7 @@
 //
 */
 
-.xyo-form-group-wide{
-	width: 65em;
+.xyo-form-box{
+	width: 32em;
 	margin-left: 1em;
-}
-
-/*
-// Screen small
-*/
-
-@media (max-width: 768px) {
-
-	.xyo-form-group-wide{
-		width: 32em;
-		margin-left: 1em;
-	}
-
 }

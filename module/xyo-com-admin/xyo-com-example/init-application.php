@@ -14,9 +14,9 @@ $this->setPrimaryKey("id");
 
 $this->setDefaultAction($this->getRequest("action", "form-edit"));
                     
-$this->addItem("group-row-begin");
+$this->addItem("row-begin");
 
-$this->addItem("group-begin");
+$this->addItem("panel-begin");
 $this->addItem("text", "element_text","");
 $this->addItem("integer", "element_integer",100);
 $this->addItem("enable", "element_enable",1);
@@ -31,9 +31,9 @@ $this->addItem("select", "element_select",2,array(
 ));
 
 $this->addItem("textarea", "element_textarea");
-$this->addItem("group-end");
+$this->addItem("panel-end");
 
-$this->addItem("group-begin",null,null,array("title"=>"other_title"));
+$this->addItem("panel-begin",null,null,array("title"=>"other_title"));
 $this->addItem("captcha", "element_captcha");
 $this->addItem("date", "element_date");
 $this->addItem("time", "element_time");
@@ -41,26 +41,26 @@ $this->addItem("datetime", "element_datetime");
 $this->addItem("file", "element_file");
 $this->addItem("file-image-thumbnail","element_file_image_thumbnail");
 $this->addItem("text-typeahead", "element_text_typeahead");
-$this->addItem("group-end");
+$this->addItem("panel-end");
 
-$this->addItem("group-row-separator");
+$this->addItem("row-separator");
 
-$this->addItem("group-wide-begin");
+$this->addItem("panel-wide-begin");
 $this->addItem("html", "element_html");
 $this->addItem("file-html", "element_html_file");
-$this->addItem("group-wide-end");
+$this->addItem("panel-wide-end");
 
-$this->addItem("group-row-separator");
+$this->addItem("row-separator");
 
-$this->addItem("group-box-begin");
+$this->addItem("box-begin");
 $this->addItem("file-image-thumbnail","element_file_image_thumbnail2",null,array("thumbnail-size"=>array(320,240),"collapse"=>"in"));
 $this->addItem("file-image-thumbnail", "element_file_image_thumbnail3",null,array("thumbnail-size"=>array(320,240),"collapse"=>true));
 $this->addItem("file-link", "element_file_link2",null, array("collapse"=>true));
 $this->addItem("file-link", "element_file_link3",null, array("collapse"=>"in"));
-$this->addItem("group-box-end");
+$this->addItem("box-end");
 
-$this->addItem("group-begin");
+$this->addItem("panel-begin");
 $this->addItem("file-link", "element_file_link1");
-$this->addItem("group-end");
+$this->addItem("panel-end");
 
-$this->addItem("group-row-end");
+$this->addItem("row-end");

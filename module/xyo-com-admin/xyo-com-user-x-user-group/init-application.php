@@ -16,10 +16,10 @@ $this->setPrimaryKey("id");
 
 $this->requireElement(array(
 	"select",
-	"group-begin",
-	"group-end",
-	"group-row-begin",
-	"group-row-end"
+	"panel-begin",
+	"panel-end",
+	"row-begin",
+	"row-end"
 ));
 
 $this->id_xyo_user = 1 * $this->getParameterRequest("id_xyo_user", 0);

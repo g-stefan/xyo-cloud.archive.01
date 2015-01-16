@@ -17,8 +17,8 @@ $this->requireElement(array(
 	"text",
 	"textarea",
 	"order",
-	"group-begin",
-	"group-end",
-	"group-row-begin",
-	"group-row-end"
+	"panel-begin",
+	"panel-end",
+	"row-begin",
+	"row-end"
 ));

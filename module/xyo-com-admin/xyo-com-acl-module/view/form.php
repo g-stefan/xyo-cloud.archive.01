@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->generateElement("group-row-begin");
-$this->generateElement("group-begin");
+$this->generateElement("row-begin");
+$this->generateElement("panel-begin");
 
 if ($this->id_xyo_module) {
     
@@ -28,6 +28,6 @@ $this->generateElement("order", "order");
 $this->generateElement("select", "id_xyo_user_group");
 $this->generateElement("select", "id_xyo_core");
 $this->generateElement("select", "enabled");
-$this->generateElement("group-end");
-$this->generateElement("group-row-end");
+$this->generateElement("panel-end");
+$this->generateElement("row-end");
 

@@ -20,14 +20,14 @@ $this->requireElement(array(
 	"textarea",
 	"username",
 	"password",
-	"group-begin",
-	"group-end",
-	"group-row-begin",
-	"group-row-end",
+	"panel-begin",
+	"panel-end",
+	"row-begin",
+	"row-end",
 	"file-image-thumbnail",
-	"group-box-begin",
-	"group-box-end",
-	"group-row-separator",
+	"box-begin",
+	"box-end",
+	"row-separator",
 	"email"
 ));
 
