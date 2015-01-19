@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setReferenceBase($module, "xyo-com-table");
-$this->setVersion($module, "2.0.0");
+$this->setReferenceBase($module,"xyo-com-application");
+$this->setVersion($module,"1.0.0.0");

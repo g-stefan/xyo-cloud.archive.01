@@ -55,11 +55,27 @@ class xyo_mod_DataSource extends xyo_Module {
 
 	function getDataSourceAsList() {
 		$list_ = $this->dataSourceAs_;
-		$ds_loader = $this->cloud->get("system_datasource_loader");
-		if ($ds_loader) {
-			$ds_loader_mod = &$this->cloud->getModule($ds_loader);
-			if ($ds_loader_mod) {
-				$list_ = array_merge($list_, $ds_loader_mod->systemDataSourceAsList($this));
+
+		$list = array();
+		$path="datasource";
+		if (!$dh = @opendir($path)){
+		}else{
+			while (false !== ($obj = readdir($dh))) {
+				if ($obj == '.' || $obj == '..') {
+					continue;
+				};
+				if (is_dir($path . $obj)) {
+				} else {
+					array_push($list, $obj);
+				};
+			};
+			closedir($dh);
+		};
+
+		foreach($list as $value){	
+			if(strncmp($value,$connectionX,strlen($connectionX))==0){
+				$valueX=str_replace(".php","",$value);
+				$list_[$valueX]=$valueX;
 			};
 		};
 
@@ -81,19 +97,14 @@ class xyo_mod_DataSource extends xyo_Module {
 		if ($as_) {
 
 		} else {
-			$ds_loader = $this->cloud->get("system_datasource_loader");
-			if ($ds_loader) {
-				$ds_loader_mod = &$this->cloud->getModule($ds_loader);
-				if ($ds_loader_mod) {
-					if ($ds_loader_mod->systemDataSource($this, $name)) {
-						if (array_key_exists($name, $this->dataSourceAs_)) {
-							$v_ = &$this->getDataSource($this->dataSourceAs_[$name], $name);
-							if ($v_) {
-								$this->dataSourceCache_[$name] = &$v_->copyThis();
-							};
-							return $v_;
-						};
+			if (file_exists("datasource/".$name.".php")) {
+				$this->setDataSourceDescriptor($name, "datasource/". $name.".php");
+				if (array_key_exists($name, $this->dataSourceAs_)) {
+					$v_ = &$this->getDataSource($this->dataSourceAs_[$name], $name);
+					if ($v_) {
+						$this->dataSourceCache_[$name] = &$v_->copyThis();
 					};
+					return $v_;
 				};
 			};
 		};

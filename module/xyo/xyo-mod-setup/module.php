@@ -226,25 +226,13 @@ class xyo_mod_Setup extends xyo_Module {
 
 				$ds = &$this->cloud->getModule("xyo-mod-datasource");
 				if ($ds) {
-					$dsDataSource = &$ds->getDataSource("db.table.xyo_datasource");
-					if ($dsDataSource) {
-						$dsDataSource->name = $name_;
-						$dsDataSource->tryLoad();
-						$dsDataSource->enabled = 1;
-						$dsDataSource->description = $description_;
-						$dsDataSource->descriptor = "datasource/" . $name_ . ".php";
-						if ($dsDataSource->save()) {
-							$ds = &$ds->getDataSource($name_);
-							if ($ds) {
-
-								if ($ds->getType() == "table") {
-
-									// has effect only once on succesive call
-									$ds->createStorage();
-								}
-								return true;
-							}
+					$ds = &$ds->getDataSource($name_);
+					if ($ds) {
+						if ($ds->getType() == "table") {
+							// has effect only once on succesive call
+							$ds->createStorage();
 						}
+						return true;													
 					}
 				}
 			};
@@ -252,39 +240,24 @@ class xyo_mod_Setup extends xyo_Module {
 		return false;
 	}
 
-	function registerDataSource($module_, $name_, $description_=null) {
+	function registerDataSource($name_) {
 		$ds = &$this->cloud->getModule("xyo-mod-datasource");
 		if ($ds) {
-			$dsDataSource = &$ds->getDataSource("db.table.xyo_datasource");
-			if ($dsDataSource) {
-				$dsDataSource->name = $name_;
-				$dsDataSource->tryLoad();
-				$dsDataSource->enabled = 1;
-				$dsDataSource->description = $description_;
-				if($module_){
-					$dsDataSource->descriptor = $this->getPathRelativeToBase($this->getModulePath($module_)) . "datasource/" . $name_ . ".php";
-				}else{
-					$dsDataSource->descriptor = "datasource/" . $name_ . ".php";
-				};
-				if ($dsDataSource->save()) {
-					$matches = array();
-					if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name_, $matches)) {
-						if (count($matches) > 3) {
-							if (strcmp($matches[2], "table") == 0) {							        
-								$ds = &$ds->getDataSource($name_);
-								if ($ds) {
-									if ($ds->getType() == "table") {
-
-										// has effect only once on succesive call
-										$ds->createStorage();
-									}									
-								}
-							}
+			$matches = array();
+			if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name_, $matches)) {
+				if (count($matches) > 3) {
+					if (strcmp($matches[2], "table") == 0) {
+						$ds = &$ds->getDataSource($name_);
+						if ($ds) {
+							if ($ds->getType() == "table") {
+								// has effect only once on succesive call
+								$ds->createStorage();
+							}									
 						}
-					};
-					return true;
+					}
 				}
-			}
+			};
+			return true;
 		}
 		return false;
 	}

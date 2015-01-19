@@ -9,13 +9,9 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setApplicationIcon($this->site."media/sys/images/database-48.png");
-$this->setApplicationDataSource("db.table.xyo_datasource");
-$this->setPrimaryKey("id");
 
 $this->requireElement(array(
 	"select",
-	"text",
-	"textarea",
 	"panel-begin",
 	"panel-end",
 	"row-begin",

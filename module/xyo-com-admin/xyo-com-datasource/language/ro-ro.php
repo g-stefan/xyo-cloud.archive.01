@@ -10,16 +10,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->set("application_title", "Sursa de date");
 
-$this->set("head_name", "Nume");
-$this->set("head_description", "Descriere");
-$this->set("head_enabled", "Activat");
-$this->set("head_id", "Id");
-
-$this->set("search_name","Nume");
-
-$this->set("label_name", "Nume");
-$this->set("label_description", "Descriere");
-$this->set("label_enabled", "Activat");
+$this->set("label_connection", "Conexiune");
+$this->set("label_datasource", "Sursa de date");
 $this->set("label_option", "Optiune");
 
 $this->set("select_option_none", "- nimic -");
@@ -27,11 +19,9 @@ $this->set("select_option_create", "creeaza");
 $this->set("select_option_recreate", "recreeaza");
 $this->set("select_option_destroy", "distruge");
 
-$this->set("el_id_empty", "este gol");
-$this->set("el_name_empty", "este gol");
-$this->set("el_name_already_exists", "exista deja");
+$this->set("select_connection_none", "- nimic -");
+$this->set("select_datasource_none", "- nimic -");
 
-$this->set("err_id_not_found", "Id-ul nu exista");
-$this->set("err_save_error", "Eroare salvare");
-
-$this->set("info_clear_ok", "Sters");
+$this->set("datasource_create","Stocarea sursei de date a fost creata");
+$this->set("datasource_recreate","Stocarea sursei de date a fost recreata");
+$this->set("datasource_destroy","Stocarea sursei de date a fost distrusa");

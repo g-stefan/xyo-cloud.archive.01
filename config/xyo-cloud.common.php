@@ -103,11 +103,6 @@ $this->setModule("xyo", null, "xyo-mod-datasource", true, null,  true, false);
 $layer = $this->cloud->get("system_datasource_layer", "xyo-mod-datasource-xyo");
 $this->setModule("xyo", null, $layer, true, null, true, false);
 //
-// datasource loader
-//
-$this->setModule("xyo", null, "xyo-mod-ds-loader-ds", true, null, true, false);
-$this->set("system_datasource_loader", "xyo-mod-ds-loader-ds");
-//
 // process settings
 //
 $dataSourceProvider = &$this->getModule("xyo-mod-datasource");

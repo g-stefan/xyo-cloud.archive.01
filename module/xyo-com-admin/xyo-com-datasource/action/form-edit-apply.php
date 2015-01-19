@@ -8,7 +8,11 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setElementValue("id", $this->ds->id);
-$this->setElementValue("name", $this->ds->name);
-$this->setElementValue("description", $this->ds->description);
-$this->setElementValue("enabled", $this->ds->enabled);
+$this->isNew = false;
+
+$this->clearElementError();
+$this->processModel("form-edit-save");
+
+$this->setParameter("toolbar", "toolbar/form-edit");
+$this->processModel("form-edit");
+$this->setView("form-edit");

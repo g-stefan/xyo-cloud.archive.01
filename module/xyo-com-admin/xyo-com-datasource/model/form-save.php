@@ -8,45 +8,33 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$name = $this->getElementValueStr("name");
-if (strlen($name) == 0) {
-    $this->setElementError("name", $this->getFromLanguage("el_name_empty"));
-}
+$connection=$this->getElementValueStr("connection","*");
+$datasource=$this->getElementValueStr("datasource","*");
+$option=$this->getElementValueStr("option","*");
 
-if ($this->isElementError()) {
-    return;
+if(strlen($datasource)>0){
+	if($datasource!="*"){
+		if(strlen($option)>0){		
+			if($option!="*"){
+				$ds=&$this->getDataSource($datasource);
+
+				if ($ds) {
+					if ($option == "create") {
+						$ds->createStorage();
+						$this->setMessage("info","datasource_create");
+					} else
+					if ($option == "recreate") {
+						$ds->recreateStorage();
+						$this->setMessage("info","datasource_recreate");
+					} else
+					if ($option == "destroy") {
+						$ds->destroyStorage();
+						$this->setMessage("info","datasource_destroy");
+					};
+				};
+			};
+		};
+	};
 };
 
-$this->ds->clear();
-$this->ds->name = $name;
-if ($this->ds->tryLoad(0, 1)) {
-    if ($this->ds->id != $this->primaryKeyValue) {
-        $this->setElementError("name", $this->getFromLanguage("el_name_already_exists"));
-        return;
-    }
-}
-
-if($this->isNew){
-    
-}else{
-	$this->ds->clear();
-    $this->ds->id = $this->primaryKeyValue;
-    if ($this->ds->load(0, 1)) {
-        
-    } else {
-        $this->setError("error", array("err_id_not_found" => $this->primaryKeyValue));
-        return;
-    }
-}
-
-$this->ds->name = $name;
-$this->ds->description = $this->getElementValueStr("description");
-$this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
-
-if ($this->ds->save()) {
-    $this->processModel("option-process");
-} else {
-    $this->setError("error", "err_save_error");
-    return;
-}
-
+$this->setElementValue("option","*");

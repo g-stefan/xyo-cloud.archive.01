@@ -27,6 +27,8 @@ class xyo_mod_Application extends xyo_mod_Language {
 	protected $primaryKey;
 	protected $primaryKeyValue;
 
+	protected $fnCallId_;
+
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isOk) {
@@ -54,6 +56,8 @@ class xyo_mod_Application extends xyo_mod_Language {
 
 			$this->applicationFormElementCache_=array();
 			$this->applicationWidgetCache_=array();
+
+			$this->fnCallId_=0;
 		}
 	}
 
@@ -238,5 +242,27 @@ class xyo_mod_Application extends xyo_mod_Language {
 		}
 		return false;
 	}
+
+	public function eGenerateCallRequestJs($requestThis,$module,$request,$functionJs,$processJs){
+		++$this->fnCallId_;
+		$request_=$this->callRequest(
+				$this->requestThisDirect($requestThis),
+				$this->requestModuleDirect($module,$request)
+		);
+		$action_=$this->requestUri($this->moduleFromRequestDirect($request_));
+		echo "<form name=\"fn_call_".$this->fnCallId_."\" method=\"POST\" action=\"".$action_."\">";
+			$this->eFormBuildRequest($request_);
+		echo "</form>";		
+		$this->ejsBegin();
+		echo "function ".$functionJs."(){";
+		echo " if(".$processJs."(document.forms.fn_call_".$this->fnCallId_.")){";
+		echo "	document.forms.fn_call_".$this->fnCallId_.".submit();";
+		echo " };";
+		echo " return false;";
+		echo "};";
+		$this->ejsEnd();
+		return "fn_call_".$this->fnCallId_;
+	}
+
 }
 

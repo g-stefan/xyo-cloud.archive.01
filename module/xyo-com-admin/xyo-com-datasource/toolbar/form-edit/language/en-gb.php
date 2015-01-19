@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("recreate","Recreeaza");
-$this->set("backup","Backup");
+$this->set("apply","Apply");
+

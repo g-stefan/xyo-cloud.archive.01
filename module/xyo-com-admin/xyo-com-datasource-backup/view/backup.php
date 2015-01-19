@@ -57,10 +57,8 @@ $layer = $this->getElementValue("layer", null);
 $date=$this->getParameter("date",null);
 $stamp=$this->getParameter("stamp",null);
 
-$ds=&$this->getDataSource("db.table.xyo_datasource");
-$ds->clear();
-$ds->setOrder("id",1);
-if($ds->load(0,1)&&$layer&&$connection){
+
+if($layer&&$connection){
 	$js="$.ajax({type: \"POST\",url: \"";
 	$js.=$this->requestUriThis(array(
 		"action"=>"backup-step",

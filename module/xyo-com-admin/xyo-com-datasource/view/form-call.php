@@ -7,6 +7,11 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-//
-//
-$this->setModuleDataSource("xyo-mod-ds-db", "db.table.xyo_datasource", "xyo_datasource");
+
+$this->eGenerateCallRequestJs(
+	array("action"=>"default"),
+	"xyo-com-datasource-backup",
+	null,
+	"callDatasourceBackup",
+	"function(e){return true;}"
+);

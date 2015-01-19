@@ -8,11 +8,11 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$option = array(
+$select = array(
     "*" => $this->getFromLanguage("select_option_none"),
     "create" => $this->getFromLanguage("select_option_create"),
     "recreate" => $this->getFromLanguage("select_option_recreate"),
     "destroy" => $this->getFromLanguage("select_option_destroy")        
 );
 
-$this->setParameter("select_option", $option);
+$this->setParameter("select_option", $select);

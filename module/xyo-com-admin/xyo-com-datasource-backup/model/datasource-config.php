@@ -113,7 +113,7 @@ if ($fileHandle) {
     } else
     if ($layer === "sqlite") {
         fwrite($fileHandle, "\$this->setConnection(\"backup\"," .                
-                ".\"repository/datasource-backup/".$connection.".".$date."." . $stamp . ".sqlite\",0666);\r\n");
+                "\"repository/datasource-backup/".$connection.".".$date."." . $stamp . ".sqlite\",0666);\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(\"backup\",\"debug\"," .
                 "true);\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(\"backup\",\"log\"," .

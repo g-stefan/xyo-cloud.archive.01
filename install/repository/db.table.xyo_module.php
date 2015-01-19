@@ -132,9 +132,6 @@ if ($setup) {
 	$setup->registerModule("xyo", null, "xyo-mod-ds-db", true, false, null);
 	$setup->registerModuleAcl("xyo-mod-ds-db", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo", null, "xyo-mod-ds-loader-ds", true, false, null);
-	$setup->registerModuleAcl("xyo-mod-ds-loader-ds", "xyo-none", null, null, 0, true);
-
 	$setup->registerModule("xyo", null, "xyo-mod-ds-loader-mod", true, false, null);
 	$setup->registerModuleAcl("xyo-mod-ds-loader-mod", "xyo-none", null, null, 0, true);
 

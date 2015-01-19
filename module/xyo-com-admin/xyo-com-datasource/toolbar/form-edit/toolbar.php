@@ -8,7 +8,9 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setItemBefore("delete","separator",
+$this->setItem("apply", "item-js", $this->site."media/sys/images/approved-32.png", "apply", true, "#", "doCommand('form-edit-apply')");
+
+$this->setItemBefore("apply","separator",
         "separator",
         null,
         null,
@@ -24,22 +26,4 @@ $this->setItemBefore("separator","backup",
         true,
         "#",
         "callDatasourceBackup();"
-);
-
-$this->setItemBefore("backup","separator2",
-        "separator",
-        null,
-        null,
-        true,
-        null,
-        null
-);
-
-$this->setItemBefore("separator2","recreate",
-        "item-js",
-        $this->site."media/sys/images/view-refresh-32.png",
-        "recreate",
-        true,
-        "#",
-        "doCommand('cmd-recreate');"
 );

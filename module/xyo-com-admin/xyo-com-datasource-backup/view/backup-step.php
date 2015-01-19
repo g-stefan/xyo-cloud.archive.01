@@ -40,29 +40,54 @@ $index2=1*$this->getParameterRequest("index2",0);
 $step2=1*$this->getParameterRequest("step2",100);
 if($step2){}else{$step2=64;};
 
-$dsList=&$this->getDataSource("db.table.xyo_datasource");
-$dsList->clear();
-$dsList->setOrder("id",1);
-$count1=$dsList->count();
+$dsList = array();
+$dsListIndex=0;
+$list = array();
+$path="datasource";
+if (!$dh = @opendir($path)){
+}else{
+	while (false !== ($obj = readdir($dh))) {
+		if ($obj == '.' || $obj == '..') {
+			continue;
+		};
+		if (is_dir($path . $obj)) {
+		} else {
+			array_push($list, $obj);
+		};
+	};
+	closedir($dh);
+};
+
+$connectionX=$connection.".table.";
+
+foreach($list as $value){
+	if(strncmp($value,$connectionX,strlen($connectionX))==0){
+		$valueX=str_replace(".php","",$value);
+		$dsList[$dsListIndex]=$valueX;
+		$dsListIndex++;
+	};
+};
+
+$count1=$dsListIndex;
 $next_index1=$index1;
 $next_index2=($index2+$step2);
 $count2=0;
 
-if($dsList->load($index1,1)){
+if($index1<$dsListIndex){
 
     $ok=false;
 	$skip_=true;
 	$matches = array();
-    if(preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/",$dsList->name, $matches)){
+    if(preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/",$dsList[$index1], $matches)){
     	if(count($matches) > 3) {
 			if($matches[1]==$connection){
 			$skip_=false;
 
-	$dsProcess=&$this->getDataSource($dsList->name);
+	$dsProcess=&$this->getDataSource($dsList[$index1]);
 	if($dsProcess){
 		if($dsProcess->getType()==="table"){
-			$descriptor=$this->dataSourceProvider->getDataSourceDescriptor($dsList->name);
-			$oldSource=explode(".",$dsList->name);
+			$descriptor=$this->dataSourceProvider->getDataSourceDescriptor($dsList[$index1]);
+			$oldSource=explode(".",$dsList[$index1]);
 			$newDatasource="backup.".$oldSource[1].".".$oldSource[2];
 			$this->dataSourceProvider->setDataSourceDescriptor($newDatasource,$descriptor);
 			$moduleDatasourceLayer->setDataSourceDescriptor($newDatasource,$descriptor);
@@ -114,10 +139,10 @@ if($dsList->load($index1,1)){
 	if($next_index2){}else{
 		if($skip_){
 		}else{
-			echo "statusInfo(\"".$dsList->name."\");";
+			echo "statusInfo(\"".$dsList[$index1]."\");";
 		};
-		$dsList->clear();
-		if($dsList->load($next_index1,1)){
+	
+		if($next_index1<$dsListIndex){
 				echo "progressBarSetProcent1(".floor(($next_index1*100)/$count1).");";
 				echo "progressBarSetProcent2(0);";
 		};

@@ -10,9 +10,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->generateElement("row-begin");
 $this->generateElement("panel-begin");
-$this->generateElement("text", "name");
-$this->generateElement("textarea", "description");
-$this->generateElement("select", "enabled");
+$this->generateElement("select", "connection",array("submit"=>true));
+$this->generateElement("select", "datasource");
 $this->generateElement("select", "option");
 $this->generateElement("panel-end");
 $this->generateElement("row-end");

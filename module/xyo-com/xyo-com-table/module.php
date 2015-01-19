@@ -23,7 +23,6 @@ class xyo_com_Table extends xyo_com_Application {
     protected $tableType;    
 //---
     protected $viewData;
-	protected $fnCallId_;
 //---
 	protected $viewKey;
 	protected $viewId;
@@ -50,7 +49,6 @@ class xyo_com_Table extends xyo_com_Application {
         $this->tableType = array();
 
         $this->viewData = null;
-	$this->fnCallId_=0;
 	$this->viewKey=null;
 	$this->viewId=0;
 	$this->tableIsDelete=false;
@@ -116,27 +114,6 @@ class xyo_com_Table extends xyo_com_Application {
 			 "}";
 
 		return $this->eGenerateCallRequestJs($requestThis,$module,$request,$functionJs,$pJs);
-	}
-
-	public function eGenerateCallRequestJs($requestThis,$module,$request,$functionJs,$processJs){
-		++$this->fnCallId_;
-		$request_=$this->callRequest(
-				$this->requestThisDirect($requestThis),
-				$this->requestModuleDirect($module,$request)
-		);
-		$action_=$this->requestUri($this->moduleFromRequestDirect($request_));
-		echo "<form name=\"fn_call_".$this->fnCallId_."\" method=\"POST\" action=\"".$action_."\">";
-			$this->eFormBuildRequest($request_);
-		echo "</form>";		
-		$this->ejsBegin();
-		echo "function ".$functionJs."(){";
-		echo " if(".$processJs."(document.forms.fn_call_".$this->fnCallId_.")){";
-		echo "	document.forms.fn_call_".$this->fnCallId_.".submit();";
-		echo " };";
-		echo " return false;";
-		echo "};";
-		$this->ejsEnd();
-		return "fn_call_".$this->fnCallId_;
 	}
 
 	public function setDialogNew($value){

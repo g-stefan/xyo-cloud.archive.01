@@ -130,8 +130,6 @@ if ($fileHandle) {
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// DataSource Config\r\n");
     fwrite($fileHandle, "// \r\n");
-	fwrite($fileHandle, "\$this->setDataSourceDescriptor(\"db.table.xyo_datasource\",\"datasource/db.table.xyo_datasource.php\");\r\n");
-    fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"quantum\",\"xyo-mod-datasource-quantum\");\r\n");
     fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"db\",\"".$moduleName."\");\r\n");
     fwrite($fileHandle, "\r\n\r\n");

@@ -8,11 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->processModel("set-primary-key-value");
-$this->processModel("set-ds");
-if ($this->isError()) {
-    
-}else{
-    $this->processModel("cmd-recreate");
-}
-$this->doRedirect("table-view");
+//
+// to be implemented by derivate ...
+//

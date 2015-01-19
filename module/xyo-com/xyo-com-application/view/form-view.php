@@ -30,3 +30,4 @@ $this->generateElement("form-end",null,array(
 		$this->getElementName("primary_key_value") => $this->getElementValue("primary_key_value", "")
 	)
 ));
+$this->generateView("form-call");

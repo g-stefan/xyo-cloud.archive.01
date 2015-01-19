@@ -8,6 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setReferenceLink($module, "xyo-mod-datasource");
-$this->setVersion($module, "2.0.0");
-
+$this->isNew=false;
+$this->setParameter("toolbar", "toolbar/form-edit");
+$this->processModel("form-edit");
+$this->setView("form-edit");
