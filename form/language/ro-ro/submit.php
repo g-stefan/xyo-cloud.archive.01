@@ -8,7 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$label=$this->getArgument("label",$this->getParameter("form_submit_label"));
-
-?>
-<button type="submit" class="btn btn-success"><?php echo $label; ?></button>
+$this->set("form_submit_label", "Trimite");
