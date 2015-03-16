@@ -322,6 +322,7 @@ function doValueSave(key){
 	</thead>
         <tbody>
             <?php
+	    $recordId=0;
             foreach ($this->viewData as $key => $value) {
 
                 echo "<tr>";
@@ -329,8 +330,9 @@ function doValueSave(key){
 
                     echo "<td style=\"vertical-align:middle;\">";
                     if ($key_ === "#") {
+				++$recordId;
 				if($value["@write"]){
-	                        	echo "<input type=\"checkbox\" id=\"cbox_" . $value["#"] . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" />";
+	                        	echo "<input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" />";
 				}else{
 					echo "&#160;";
 				};

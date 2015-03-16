@@ -123,6 +123,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				$username = $this->cloud->getRequest("user_username");
 				$password = $this->cloud->getRequest("user_password");
 				$rnd = $this->cloud->getRequest("user_rnd");
+
 				if($this->useCaptcha) {
 					$captcha = $this->cloud->getRequest("user_captcha");
 				} else {
@@ -241,7 +242,21 @@ class xyo_mod_ds_User extends xyo_Module {
 						if($captchaKey===$_SESSION["user_captcha_key"]) {
 							$captchaOk=true;
 						}
-					}
+					};
+
+					//
+					// Check service key
+					//
+					if(!$captchaOk){
+						$serviceKey=md5($this->info->rnd.md5($this->cloud->get("system_service_key","")));
+						$captcha = $this->cloud->getRequest("user_captcha");
+						if(strlen($captcha)>0){
+							if(strcmp($captcha,$serviceKey)==0){
+								$captchaOk=true;
+							};
+						};
+					};
+
 				} else {
 					$captchaOk=true;
 				}
