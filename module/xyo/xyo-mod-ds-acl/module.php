@@ -42,8 +42,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 	public function &getDefaultAcl() {
 		$retV = new xyo_mod_ds_acl_Info;
-		$retV->aclUserGroupLevel1 = 0;
-		$retV->aclUserGroupLevel2 = 0;
+		$retV->aclUserGroup = 0;
 		$retV->aclCore = 0;
 		$retV->aclUser = 0;
 		$retV->aclUser1 = 0;

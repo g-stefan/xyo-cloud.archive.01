@@ -212,14 +212,16 @@ div.nav-sidebar-button-small:hover{
 
 .dashboard.sidebar ul li a > i.icon{
 	color: #777;
-	font-size:1.3em;	
-	margin-right:6px;
+	font-size:18px;	
+	margin-top:1px;
+	margin-right:4px;
 	display:relative;
 	float:left;
 }
 
 .dashboard.sidebar ul li a > img.icon{
 	margin-top:2px;
+	width: 16px;
 	margin-right:6px;
 	display:relative;
 	float:left;	

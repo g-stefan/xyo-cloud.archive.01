@@ -148,17 +148,19 @@ body{
 
 .dashboard.sidebar ul li a > i.icon{
 	color: #777;
-	font-size:1.3em;	
-	margin-right:0.45em;
+	font-size:18px;	
+	margin-top:1px;
+	margin-right:4px;
 	display:relative;
 	float:left;
 }
 
 .dashboard.sidebar ul li a > img.icon{
-	margin-top:0.1em;
-	margin-right:0.45em;
+	margin-top:2px;
+	margin-right:6px;
+	width: 16px;	
 	display:relative;
-	float:left;	
+	float:left;
 }
 
 .dashboard.sidebar ul li div a.nav-sidebar-toggle {

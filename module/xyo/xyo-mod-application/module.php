@@ -133,6 +133,16 @@ class xyo_mod_Application extends xyo_mod_Language {
 		$this->htmlFooter->jsSource($this->name, $source);
 	}
 
+	public function setHtmlFooterJsSourceOrAjax($source) {
+		if($this->isAjax()){
+			$this->ejsBegin();
+			echo $source;
+			$this->ejsEnd();
+		}else{
+			$this->htmlFooter->jsSource($this->name, $source);
+		};
+	}
+
 	public function setApplicationDataSource($name) {
 		$this->applicationDataSource=$name;
 	}

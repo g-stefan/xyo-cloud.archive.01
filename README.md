@@ -10,3 +10,5 @@ MVC Framework for PHP
 - Module management and auhorization
 - Quantum database connector (Active Record Pattern based query with fields in separate tables/databases/backends or another quantum query)
 + jQuery, Bootstrap
+
+
