@@ -17,6 +17,7 @@ if ($this->id_xyo_user) {
 }
 
 $this->generateElement("select", "id_xyo_user_group");
+$this->generateElement("select", "principal");
 $this->generateElement("select", "enabled");
 $this->generateElement("panel-end");
 $this->generateElement("row-end");

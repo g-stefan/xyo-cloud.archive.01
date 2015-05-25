@@ -14,3 +14,4 @@ if($this->id_xyo_user){
 }
 $this->processModel("select-xyo-user-group-edit");
 $this->processModel("select-enabled-edit");
+$this->copyParameter("select_principal","select_enabled");

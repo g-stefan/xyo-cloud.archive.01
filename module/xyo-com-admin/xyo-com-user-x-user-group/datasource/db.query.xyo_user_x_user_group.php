@@ -18,6 +18,7 @@ $this->set("query_item", array(
     "id" => array("user_x_user_group" => "id"),
     "id_xyo_user" => array("user_x_user_group" => "id_xyo_user"),
     "id_xyo_user_group" => array("user_x_user_group" => "id_xyo_user_group"),
+    "principal" => array("user_x_user_group" => "principal"),
     "enabled" => array("user_x_user_group" => "enabled"),
     "user_group" => array("user_group" => "name"),
     "name" => array("user" => "name"),

@@ -12,6 +12,7 @@ $this->set("application_title", "User groups");
 
 $this->set("head_name", "User");
 $this->set("head_user_group", "Group");
+$this->set("head_principal", "Principal");
 $this->set("head_enabled", "Enabled");
 $this->set("head_id", "Id");
 
@@ -23,5 +24,6 @@ $this->set("select_xyo_user_group_any", "- user group -");
 
 $this->set("label_id_xyo_user", "User");
 $this->set("label_id_xyo_user_group", "User group");
+$this->set("label_principal", "Principal");
 
 $this->set("select_xyo_user_group_none","- none -");

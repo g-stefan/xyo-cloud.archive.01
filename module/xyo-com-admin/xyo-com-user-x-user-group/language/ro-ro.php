@@ -12,9 +12,9 @@ $this->set("application_title", "Grupuri utilizator");
 
 $this->set("head_name", "Utilizator");
 $this->set("head_user_group", "Grup");
-$this->set("head_allow", "Permis");
+$this->set("head_principal", "Principal");
+$this->set("head_enabled", "Activat");
 $this->set("head_id", "Id");
-$this->set("head_core_name","Baza sistem");
 
 $this->set("search_name", "Utilizator");
 $this->set("search_user_group","Grup");
@@ -24,6 +24,7 @@ $this->set("select_xyo_user_group_any", "- grup utilizator -");
 
 $this->set("label_id_xyo_user", "Utilizator");
 $this->set("label_id_xyo_user_group", "Grup utilizator");
+$this->set("label_principal", "Principal");
 
 $this->set("select_xyo_user_group_none","- nici unul -");
 

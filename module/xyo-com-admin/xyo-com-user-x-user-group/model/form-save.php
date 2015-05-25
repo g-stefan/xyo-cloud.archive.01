@@ -31,6 +31,7 @@ if ($this->isNew) {
     $this->ds->tryLoad();
 }
 
+$this->ds->principal = $this->getElementValueInt("principal", 0, "*");
 $this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
 
 if ($this->ds->save()) {

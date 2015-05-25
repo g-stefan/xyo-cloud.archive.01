@@ -12,6 +12,7 @@ $this->tableHead = array(
     "#" => "#",
     "name" => "head_name",
     "user_group" => "head_user_group",
+    "principal" => "head_principal",
     "enabled" => "head_enabled",
     "id" => "head_id"
 );
@@ -31,6 +32,12 @@ $this->tableType=array(
 	array(
 		"action" => "form-edit",
 		"primary_key_value" => array($this->primaryKey)
+	)),
+	"principal"=>array("toggle",array(
+		"on"=>array(
+			0=>$this->site."media/sys/images/favorite-off-16.png",
+			1=>$this->site."media/sys/images/favorite-16.png"
+		)
 	)),
 	"enabled"=>array("toggle")		
 );

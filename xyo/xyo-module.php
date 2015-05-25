@@ -676,6 +676,12 @@ class xyo_Module extends xyo_Config {
 		return $default;
 	}
 
+	public function copyParameter($name, $otherName) {
+		if(array_key_exists($otherName,$this->parameters_)){
+			$this->parameters_[$name] = $this->parameters_[$otherName];
+		};
+	}
+
 	public function getParameterBase($name, $default=null) {
 		if (array_key_exists($name, $this->parameters_)) {
 			return $this->parameters_[$name];

@@ -15,6 +15,22 @@ if (strlen($toggle)) {
     return;
 }
 
+if ($toggle=="principal") {
+	$this->ds->clear();
+	$this->ds->{$this->primaryKey} = $this->primaryKeyValue;	
+	if($this->ds->load(0,1)){
+		$dsx=&$this->ds->copyThis();
+		$dsx->clear();
+		$dsx->id_xyo_user=$this->ds->id_xyo_user;
+		$dsx->update(array("principal"=>0));
+		for (;$this->ds->isValid(); $this->ds->loadNext()) {
+			$this->ds->principal=1;
+			$this->ds->save();
+		};
+	};
+	return;
+};
+
 $this->ds->clear();
 $this->ds->{$this->primaryKey} = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
