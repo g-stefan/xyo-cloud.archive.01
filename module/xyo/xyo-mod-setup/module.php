@@ -30,7 +30,7 @@ class xyo_mod_Setup extends xyo_Module {
 		$this->cloud->setModule($parent, $path, $module, $enabled, $parameters, $registered, $override);
 	}
 
-	function registerModule($parent, $path, $module, $enabled, $description=null) {
+	function registerModule($parent, $path, $module, $enabled=true, $description=null) {
 		$ds = &$this->cloud->getModule("xyo-mod-datasource");
 		if ($ds) {
 			$dsModule = &$ds->getDataSource("db.table.xyo_module");
