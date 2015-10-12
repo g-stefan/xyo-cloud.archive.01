@@ -8,6 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$this->setModuleAsComponent($module,true);
 $this->setReferenceLink($module, "xyo-mod-toolbar");
 $this->setReferenceBase($module, "xyo-mod-application");
 $this->setVersion($module, "2.0.0");
+

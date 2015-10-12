@@ -60,7 +60,6 @@ $this->ds->parent=$this->getElementValueStr("parent");
 $this->ds->path=$this->getElementValueStr("path");
 $this->ds->description=$this->getElementValueStr("description");
 $this->ds->enabled=$this->getElementValueInt("enabled", 0, "*");
-$this->ds->component=$this->getElementValueInt("component", 0, "*");
 
 if($this->ds->save()) {
 

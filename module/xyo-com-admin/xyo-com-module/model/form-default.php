@@ -14,7 +14,6 @@ $this->setElementValue("name","");
 $this->setElementValue("description","");
 $this->setElementValue("enabled",1);
 $this->setElementValue("parent","");
-$this->setElementValue("component",0);
 
 if($this->isNew){
 	$this->setElementValue("id_xyo_module_group",0);

@@ -8,5 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$this->setModuleAsComponent($module,true);
 $this->setReferenceBase($module,"xyo-com-table");
 $this->setVersion($module,"1.0.0.0");

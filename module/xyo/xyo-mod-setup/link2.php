@@ -45,6 +45,10 @@ class xyo_mod_setup_Link2 {
 
 	}
 
+	function setModuleAsComponent($module,$enabled){
+
+	}
+
 	function setModule($moduleParent, $path, $module, $enabled, $parameters=null, $registered=false, $override=false) {
 
 	}

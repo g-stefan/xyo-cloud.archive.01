@@ -32,6 +32,7 @@ $this->set("system_use_redirect",false);
 $this->set("system_datasource_layer", "xyo-mod-datasource-xyo");
 //
 $this->set("language", "en-GB");
+$this->set("locale", "en-GB");
 //
 //
 $this->set("system_configured", false);
