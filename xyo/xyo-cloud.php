@@ -513,7 +513,7 @@ class xyo_Cloud extends xyo_Config {
 		return null;
 	}
 
-	public function setModuleAsComponent($module, $enabled) {
+	public function setModuleAsComponent($module, $enabled=true) {
 		$o = &$this->getModuleObject($module);
 		if ($o) {
 			$o["component"] = $enabled;

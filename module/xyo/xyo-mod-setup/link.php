@@ -60,7 +60,7 @@ class xyo_mod_setup_Link {
 
 	}
 
-	function setModuleAsComponent($module,$enabled){
+	function setModuleAsComponent($module,$enabled=true){
 
 	}
 

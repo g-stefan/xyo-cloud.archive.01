@@ -59,7 +59,7 @@ class xyo_mod_setup_Version {
 
 	}
 
-	function setModuleAsComponent($module,$enabled){
+	function setModuleAsComponent($module,$enabled=true){
 
 	}
 
