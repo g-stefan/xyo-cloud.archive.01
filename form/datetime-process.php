@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $element = $this->getArgument("element");
-$format = $this->getArgument("format","");
+$format = $this->getArgument("format",$this->cloud->get("locale_date_format",""));
 if(strlen($format)){
 	if($format=="d-m-Y"){
 		$value=$this->getElementValueStr($element);
