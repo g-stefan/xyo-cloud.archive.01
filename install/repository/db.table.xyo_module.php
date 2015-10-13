@@ -110,6 +110,10 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-ionicons", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-ionicons", "xyo-info-about", null, null, 0, true);
 
+	$setup->registerModule("lib", null, "lib-mod-d3");
+	$setup->registerModuleAcl("lib-mod-d3", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-d3", "xyo-info-about", null, null, 0, true);
+
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource");
 	$setup->registerModuleAcl("xyo-mod-datasource", "xyo-none", null, null, 0, true);
