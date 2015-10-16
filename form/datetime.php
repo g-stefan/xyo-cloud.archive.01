@@ -25,6 +25,20 @@ if(strlen($format)){
 			$this->setElementValue($element,substr($value,8,2)."-".substr($value,5,2)."-".substr($value,0,4).substr($value,10,strlen($value)));
 		};
 	};
+	if($format=="Y-m-d"){
+		$format="YYYY-DD-MM HH:mm";
+		$value=$this->getElementValueStr($element);
+		if(strlen($value)){
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
+		};
+	};
+	if($format=="Y/m/d"){
+		$format="YYYY/MM/DD HH:mm";
+		$value=$this->getElementValueStr($element);
+		if(strlen($value)){
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
+		};
+	};
 	$format="data-date-format=\"".$format."\"";
 }else{	
 	$format="YYYY/MM/DD HH:mm";
