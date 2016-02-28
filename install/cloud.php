@@ -8,7 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setModuleAsComponent($module);
 $this->setReferenceLink($module, "xyo-mod-setup");
 $this->setReferenceLink($module, "xyo-mod-panel2");
 $this->setReferenceLink($module, "lib-mod-bootstrap-feedback-left");

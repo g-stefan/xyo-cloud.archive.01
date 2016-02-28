@@ -1,1 +1,24 @@
+2014.11.05
+* wide system change on form/table actions/models names
+* kernel method change on dealing with parameters/arguments
+
+2014.10.19
++ dashboard style template (xyo-tpl-administrator-dashboard)
++ plugins (like form elements) - common pieces of code for view ui
++ bigint type for database
+
+2014.09.28
++ form elements additions
+* several bugs
+
+2014.08.03
++ version 2.0.0
++ jQuery and Bootstrap based 
+
+2014.07.16
++ added varchar and float datasource field types
+
+2014.07.02
++ added xyo-mod-jsonx, require config system_user_captcha=false to allow remote authorization 
+
 --=*=--

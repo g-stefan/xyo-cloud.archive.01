@@ -14,7 +14,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 </p>
 <div style="overflow:hidden;display:block;height:4px;"></div>
 <pre style="font-size:10px;">
-Bootstrap v3.3.5 (http://getbootstrap.com)
+Bootstrap v3.3.4 (http://getbootstrap.com)
 Copyright 2011-2015 Twitter, Inc.
 Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 </pre>

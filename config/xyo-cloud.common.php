@@ -32,10 +32,6 @@ $this->set("system_use_redirect",false);
 $this->set("system_datasource_layer", "xyo-mod-datasource-xyo");
 //
 $this->set("language", "en-GB");
-$this->set("locale", "en-GB");
-$this->set("locale_date_format","Y-m-d");
-$this->set("locale_datetime_format","Y-m-d H:i:s");
-$this->set("locale_time_format","H:i:s");
 //
 //
 $this->set("system_configured", false);

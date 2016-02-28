@@ -30,7 +30,7 @@ class xyo_mod_Setup extends xyo_Module {
 		$this->cloud->setModule($parent, $path, $module, $enabled, $parameters, $registered, $override);
 	}
 
-	function registerModule($parent, $path, $module, $enabled=true, $description=null) {
+	function registerModule($parent, $path, $module, $enabled, $component=false, $description=null) {
 		$ds = &$this->cloud->getModule("xyo-mod-datasource");
 		if ($ds) {
 			$dsModule = &$ds->getDataSource("db.table.xyo_module");
@@ -41,8 +41,24 @@ class xyo_mod_Setup extends xyo_Module {
 				$dsModule->enabled = $enabled;
 				$dsModule->parent = $parent;
 				$dsModule->description = $description;
+				$dsModule->component = $component;
 				$dsModule->parameter = 0;
 				return $dsModule->save();
+			}
+		}
+		return false;
+	}
+
+	function setModuleAsComponent($module, $component) {
+		$ds = &$this->cloud->getModule("xyo-mod-datasource");
+		if ($ds) {
+			$dsModule = &$ds->getDataSource("db.table.xyo_module");
+			if ($dsModule) {
+				$dsModule->name = $module;
+				if ($dsModule->load(0, 1)) {
+					$dsModule->component = $component;
+					return $dsModule->save();
+				}
 			}
 		}
 		return false;

@@ -73,7 +73,7 @@ class xyo_Cloud extends xyo_Config {
 		$this->isAjax_=0;
 		$this->isJSON_=0;
 
-		$this->set("system_kernel_version", "1.2.0.0");
+		$this->set("system_kernel_version", "1.0.0.0");
 		$this->set("request_main", "index.php");		
 		$this->set("system_core", "xyo");
 		$this->set("site", "");
@@ -246,30 +246,6 @@ class xyo_Cloud extends xyo_Config {
 		return null;
 	}
 
-	public function initModule($module) {
-		$module_ = &$this->getModuleObject($module);
-		if ($module_) {
-
-			if ($module_["loaded"]) {
-				return true;
-			}
-
-			if ($module_["init"]) {
-				return true;
-			}
-
-			$initFile = $module_["path"] . "cloud.php";
-			if (file_exists($initFile)) {
-				require_once($initFile);
-			}
-			
-			$module_["init"] = true;
-			return true;
-
-		}
-		return false;
-	}
-
 	public function loadModule($module) {
 		$module_ = &$this->getModuleObject($module);
 		if ($module_) {
@@ -282,16 +258,10 @@ class xyo_Cloud extends xyo_Config {
 				return true;
 			}
 
-			if ($module_["init"]) {
-			}else{
-
-				$initFile = $module_["path"] . "cloud.php";
-				if (file_exists($initFile)) {
-					require_once($initFile);
-				}
-
-				$module_["init"] = true;
-			};
+			$initFile = $module_["path"] . "cloud.php";
+			if (file_exists($initFile)) {
+				require_once($initFile);
+			}
 
 			if (!$this->loadReferenceLinks($module)) {
 				return false;
@@ -452,7 +422,6 @@ class xyo_Cloud extends xyo_Config {
 		$this->modules_[$module]["class"] = null;
 		$this->modules_[$module]["enabled"] = $enabled;
 		$this->modules_[$module]["path"] = $pathModule;
-		$this->modules_[$module]["init"] = false;
 		$this->modules_[$module]["loaded"] = false;
 		$this->modules_[$module]["check"] = false;
 		$this->modules_[$module]["parameters"] = $parameters;
@@ -513,7 +482,7 @@ class xyo_Cloud extends xyo_Config {
 		return null;
 	}
 
-	public function setModuleAsComponent($module, $enabled=true) {
+	public function setModuleAsComponent($module, $enabled) {
 		$o = &$this->getModuleObject($module);
 		if ($o) {
 			$o["component"] = $enabled;
@@ -584,7 +553,6 @@ class xyo_Cloud extends xyo_Config {
 			$exec_ = true;
 			$module = $this->loadModuleExecPath_($this->getRequest("run",$this->component_));
 			if ($module) {
-				$this->initModule($module);
 				if ($this->isModuleAsComponent($module)) {
 					if($this->getRequest("ajax-js",0)*1) {
 						$this->isAjaxJs_=1;

@@ -12,6 +12,7 @@ $this->tableHead=array(
 			 "#" => "#",
 			 "name"=>"head_name",
 			 "description"=>"head_description",
+			 "component"=>"head_component",
 			 "enabled"=>"head_enabled",
 			 "id" => "head_id"
 		 );
@@ -21,6 +22,7 @@ $this->tableSearch=array(
 		   );
 
 $this->tableSelect=array(
+			   "component" => true,
 			   "enabled" => true
 		   );
 
@@ -29,6 +31,7 @@ $this->tableType=array(
 		"action" => "form-edit",
 		"primary_key_value" => array($this->primaryKey)
 	)),
+	"component" => array("toggle"),
 	"enabled" => array("toggle")			
 );
 
@@ -36,13 +39,16 @@ $this->tableSort=array(
 			 "name" => "ascendent",
 			 "description" => "none",
 			 "version"=>"none",
+			 "component" => "none",
 			 "enabled"=>"none",
 			 "id"=>"none"
 		 );
 
 $this->processModel("select-enabled");
+$this->processModel("select-component");
 
 $this->tableSelectInfo=array(
-			       "enabled" => $this->getParameter("select_enabled",array())
+			       "enabled" => $this->getParameter("select_enabled",array()),
+			       "component" => $this->getParameter("select_component",array())
 		       );
 

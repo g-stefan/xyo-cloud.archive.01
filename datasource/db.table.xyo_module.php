@@ -16,7 +16,8 @@ $this->set("table_item", array(
 		   "name" => array("varchar",64,null),
 		   "description" => array("varchar",92,null),
 		   "enabled" => array("int",0,"unsigned"),
-		   "parent" => array("varchar",64,null),		   
+		   "parent" => array("varchar",64,null),
+		   "component" => array("int",0,"unsigned"),
 		   "parameter" => array("int",0,"unsigned")
 	   ));
 

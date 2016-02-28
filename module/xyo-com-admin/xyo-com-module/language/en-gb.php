@@ -12,6 +12,7 @@ $this->set("application_title","Module");
 
 $this->set("head_name","Name");
 $this->set("head_description","Description");
+$this->set("head_component","Component");
 $this->set("head_element","Element");
 $this->set("head_id","Id");
 
@@ -20,8 +21,14 @@ $this->set("search_name","Name");
 $this->set("label_name","Name");
 $this->set("label_parent","Parent");
 $this->set("label_path","Path");
+$this->set("label_component","Component");
 $this->set("label_element","Element");
 $this->set("label_description","Description");
+
+$this->set("select_component_any","- component -");
+$this->set("select_component_enabled","yes");
+$this->set("select_component_disabled","no");
+
 
 $this->set("info_package_uninstall_ok","Package uninstalled");
 $this->set("info_package_created_ok","Package created");

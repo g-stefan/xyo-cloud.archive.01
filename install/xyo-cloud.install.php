@@ -63,6 +63,6 @@ $this->setModule(null, "install", "xyo-app-install", true, null, true,false);
 
 $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,true,false);
 $this->setModuleGroup("xyo-tpl-install", "xyo-system-exec");
-$this->setModuleAsComponent("xyo-app-install");
+$this->setModuleAsComponent("xyo-app-install",true);
 $this->setComponent("xyo-app-install");
 
