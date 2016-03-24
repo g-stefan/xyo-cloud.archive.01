@@ -1197,6 +1197,10 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->isJSON();
 	}
 
+	public function setReturnValue($value){
+		$this->returnValue=$value;
+	}
+
 	public function getReturnValue(){
 		return $this->returnValue;
 	}

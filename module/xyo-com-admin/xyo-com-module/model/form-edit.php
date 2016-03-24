@@ -9,7 +9,6 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->processModel("select-enabled-edit");
-$this->processModel("select-component-edit");
 
 if($this->isNew) {
 	$this->processModel("select-acl-enabled-edit");

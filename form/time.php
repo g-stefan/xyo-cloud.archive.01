@@ -9,8 +9,14 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $element = $this->getArgument("element");                    
-$format = $this->getArgument("format","HH:mm");
+$format = $this->getArgument("format",$this->cloud->get("locale_time_format",""));
 if(strlen($format)){
+	if($format=="H:i:s"){
+		$format="HH:mm";
+	};
+	$format="data-date-format=\"".$format."\"";
+}else{
+	$format="HH:mm";
 	$format="data-date-format=\"".$format."\"";
 };
 

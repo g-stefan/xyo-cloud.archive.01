@@ -59,6 +59,10 @@ class xyo_mod_setup_Version {
 
 	}
 
+	function setModuleAsComponent($module,$enabled=true){
+
+	}
+
 	function setModule($moduleParent, $path, $module, $enabled, $parameters=null, $registered=false, $override=false) {
 
 	}

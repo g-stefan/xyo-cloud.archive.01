@@ -15,7 +15,6 @@ $this->generateElement("text", "name");
 $this->generateElement("text", "parent");
 $this->generateElement("text", "path");
 $this->generateElement("textarea", "description");
-$this->generateElement("select", "component");
 $this->generateElement("select", "enabled");
 $this->generateElement("panel-end");
 

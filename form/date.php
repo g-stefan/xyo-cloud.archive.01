@@ -9,8 +9,22 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $element = $this->getArgument("element");                    
-$format = $this->getArgument("format","");                   
+$format = $this->getArgument("format",$this->cloud->get("locale_date_format",""));
 if(strlen($format)){
+	if($format=="Y-m-d"){
+		$format="yyyy-mm-dd";
+		$value=$this->getElementValueStr($element);
+		if(strlen($value)){
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2));
+		};
+	};
+	if($format=="Y/m/d"){
+		$format="yyyy/mm/dd";
+		$value=$this->getElementValueStr($element);
+		if(strlen($value)){
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2));
+		};
+	};
 	if($format=="d-m-Y"){
 		$format="dd-mm-yyyy";
 		$value=$this->getElementValueStr($element);

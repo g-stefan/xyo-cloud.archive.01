@@ -461,7 +461,17 @@ function doValueSave(key){
         	                echo " />";
 			}else
 			if($this->tableType[$key_][0]=="date"){
-				$format=$this->tableType[$key_][1];
+				if(count($this->tableType[$key_])>0){
+					$format=$this->tableType[$key_][1];
+				}else{
+					$format=$this->cloud->$this->cloud->get("locale_date_format","");
+				};
+				if($format=="Y-m-d"){
+					echo substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2); 
+				}else
+				if($format=="Y/m/d"){
+					echo substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2); 
+				}else
 				if($format=="d-m-Y"){
 					echo substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4); 
 				}else

@@ -347,27 +347,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		return false;
 	}
 
-	function doLogin() {
-		$this->tryAuthorize();
-		$this->updateSysAcl();
-	}
-
-	function doLogout() {
-
-		if($this->authorized) {
-			if($this->info->id) {
-				$this->dsUser->clear();
-				$this->dsUser->id = $this->info->id;
-				if ($this->dsUser->load(0, 1)) {
-					$this->dsUser->session="";
-					$this->dsUser->action_on = "NOW";
-					$this->dsUser->action = 0;
-					$this->dsUser->logged_in = 0;
-					$this->dsUser->save();
-				}
-			}
-		}		                        
-
+	function doReset(){
 		$this->info->id = 0;
 		$this->info->name = "Guest";
 		$this->info->username = "guest";
@@ -406,6 +386,31 @@ class xyo_mod_ds_User extends xyo_Module {
 		};
 
 		$this->updateSysAcl();
+	}
+
+	function doLogin() {
+		$this->tryAuthorize();
+		$this->updateSysAcl();
+	}
+
+	function doLogout() {
+
+		if($this->authorized) {
+			if($this->info->id) {
+				$this->dsUser->clear();
+				$this->dsUser->id = $this->info->id;
+				if ($this->dsUser->load(0, 1)) {
+					$this->dsUser->session="";
+					$this->dsUser->action_on = "NOW";
+					$this->dsUser->action = 0;
+					$this->dsUser->logged_in = 0;
+					$this->dsUser->save();
+				}
+			}
+		}		                        
+
+		$this->doReset();
+
 	}
 
 	function getAuthorizationRequestDirect($user=null) {

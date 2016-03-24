@@ -8,10 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$component = array(
-		     "1" => $this->getFromLanguage("select_component_enabled"),
-		     "0" => $this->getFromLanguage("select_component_disabled")
-	     );
-
-$this->setParameter("select_component", $component);
-
+$this->setReferenceLink($module, "xyo-mod-htmlfooter");
+$this->setVersion($module, "2.0.0");

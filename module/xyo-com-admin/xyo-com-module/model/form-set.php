@@ -14,4 +14,3 @@ $this->setElementValue("name",$this->ds->name);
 $this->setElementValue("description",$this->ds->description);
 $this->setElementValue("enabled",$this->ds->enabled);
 $this->setElementValue("parent",$this->ds->parent);
-$this->setElementValue("component",$this->ds->component);

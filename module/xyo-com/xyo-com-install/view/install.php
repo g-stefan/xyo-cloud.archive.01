@@ -78,7 +78,7 @@ defined('XYO_CLOUD') or die('Access is denied');
                                     $doUpdate = true;
                                 };
 
-                                if ($modSetup->registerModule($ret["parent"], null, $ret["module"], true, false,null)) {
+                                if ($modSetup->registerModule($ret["parent"], null, $ret["module"])) {
                                     $modSetup->setModule($ret["parent"], null, $ret["module"], true,null,false,true);
 
                                     if ($doUpdate) {
