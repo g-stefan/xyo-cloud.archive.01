@@ -28,6 +28,15 @@
 //      ... module code ...
 //
 
+//
+// Options
+//
+//	$xyoCloudServiceCore
+//	$xyoCloudServiceRequestMain
+//	$xyoCloudServiceSite
+//	$xyoCloudServiceModuleName
+//
+
 if (defined('XYO_CLOUD')) {
 	return;
 };
@@ -47,13 +56,23 @@ if (!isset($xyoCloudServiceCore)) {
 
 $xyoCloud->set("system_core", $xyoCloudServiceCore);
 
+if(isset($xyoCloudServiceSite)){
+	$xyoCloud->set("site",$xyoCloudServiceSite);
+};
+if(isset($xyoCloudServiceRequestMain)){
+	$xyoCloud->set("request_main",$xyoCloudServiceRequestMain);
+};
+
 if (!isset($xyoCloudServiceModuleName)) {
 	$xyoCloudServiceModuleName = "-xyo-mod-service-";
 };
 
-$xyoCloud->setModule(null, $currentDirectory, $xyoCloudServiceModuleName, true, null, false, true);
-$xyoCloud->setModuleCheck($xyoCloudServiceModuleName, false);
-$xyoCloud->setRequest("run", $xyoCloudServiceModuleName);
+$run=$xyoCloud->getRequest("run", $xyoCloudServiceModuleName);
+if($run==$xyoCloudServiceModuleName){
+	$xyoCloud->setModule(null, $currentDirectory, $xyoCloudServiceModuleName, true, null, false, true);
+	$xyoCloud->setModuleCheck($xyoCloudServiceModuleName, false);
+	$xyoCloud->setRequest("run", $xyoCloudServiceModuleName);
+};
 $xyoCloud->main();
 
 @chdir($currentDirectory);

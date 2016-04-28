@@ -483,11 +483,12 @@ function doValueSave(key){
 			}else
 			if($this->tableType[$key_][0]=="action"){
 				if($value["@write"]){
+					$parameters = array();
 					$p = "{";
 					$first=false;
 		                        foreach ($this->tableType[$key_][1] as $k => $v) {
 						if($first){
-							$p.=",";
+							$p.=",";							
 						}else{
 							$first=true;
 						}
@@ -495,21 +496,23 @@ function doValueSave(key){
 								$p.="'".addcslashes(rawurlencode($k), "\\\'\"&\n\r<>")."'";
 								$p.=":";
 								$p.="'".addcslashes(rawurlencode($value[$v[0]]), "\\\'\"&\n\r<>")."'";
+								$parameters[$k]=$value[$v[0]];
 			                            }else{
 								$p.="'".addcslashes(rawurlencode($k), "\\\'\"&\n\r<>")."'";
 								$p.=":";
 								$p.="'".addcslashes(rawurlencode($v), "\\\'\"&\n\r<>")."'";									
+								$parameters[$k]=$v;
 							}
                         		}
 					$p .= "}";
-		                        echo "<a href=\"#\" onclick=\"javascript:callActionLink_".$key_."(".$p.");return false;\">" . $value[$key_] . "</a>";
+		                        echo "<a href=\"".$this->requestUriThis($parameters)."\" onclick=\"javascript:callActionLink_".$key_."(".$p.");return false;\">" . $value[$key_] . "</a>";
 				}else{
 					echo $value[$key_];
 				};				
 			}else
 			if($this->tableType[$key_][0]=="cmd-edit"){
 				if($value["@write"]){
-		                        echo "<a href=\"#\" onclick=\"javascript:cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $value[$key_] . "</a>";
+		                        echo "<a href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"javascript:cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $value[$key_] . "</a>";
 				}else{
 					echo $value[$key_];
 				};				
