@@ -140,7 +140,7 @@ class xyo_mod_datasource_mysql_Connection {
 			};
 			$this->db_use = true;
 		};
-		$query = "USE " . $this->database . ";";
+		$query = "USE `" . $this->database . "`;";
 		$result = $this->mysqlQuery_($query);
 		if (!$result) {
 			$this->debug2($query);
