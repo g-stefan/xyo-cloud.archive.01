@@ -10,12 +10,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
 <p  style="margin-top:4px;margin-bottom:8px;">
-    <span style="padding-left:8px;padding-right:8px;border-bottom:1px solid #D3D3D3;font-weight:bold;">lib-mod-bootstrap - version 1.0.0.0</span>
+    <span style="padding-left:8px;padding-right:8px;border-bottom:1px solid #D3D3D3;font-weight:bold;">lib-mod-material-icons - version 1.0.0.0</span>
 </p>
 <div style="overflow:hidden;display:block;height:4px;"></div>
 <pre style="font-size:10px;">
-Bootstrap v3.3.7 (http://getbootstrap.com)
-Copyright 2011-2015 Twitter, Inc.
-Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+material-icons - Material Design icons by Google
+Version 3.0.1
+License Apache-2.0
+Link: https://github.com/google/material-design-icons
 </pre>
 <br />

@@ -1204,5 +1204,6 @@ class xyo_Module extends xyo_Config {
 	public function getReturnValue(){
 		return $this->returnValue;
 	}
+
 }
 

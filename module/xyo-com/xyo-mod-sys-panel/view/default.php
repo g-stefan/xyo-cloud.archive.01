@@ -11,6 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 echo "<div class=\"xyo-mod-sys-panel\">";
 
 if (count($this->panel)) {
+
     foreach ($this->panel as $item) {
 
 	if($item["type"]=="item"){

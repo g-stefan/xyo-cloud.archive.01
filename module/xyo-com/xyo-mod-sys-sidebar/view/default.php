@@ -41,6 +41,7 @@ function xyo_mod_sys_sidebar__generate(&$menu, $level) {
     $len = count($menu) - 1;
     $index = 0;
     $last ="*";
+
     foreach ($menu as $key => $value) {
 
         $img = $value["img"];
