@@ -122,6 +122,10 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-material", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-material", "xyo-info-about", null, null, 0, true);
 
+	$setup->registerModule("lib", null, "lib-mod-nvd3");
+	$setup->registerModuleAcl("lib-mod-nvd3", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-nvd3", "xyo-info-about", null, null, 0, true);
+
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource");
 	$setup->registerModuleAcl("xyo-mod-datasource", "xyo-none", null, null, 0, true);
@@ -173,6 +177,7 @@ if ($setup) {
 
 	$setup->registerModule("xyo", null, "xyo-mod-thumbnail");
 	$setup->registerModuleAcl("xyo-mod-thumbnail", "xyo-none", null, null, 0, true);
+
 
 	// xyo-com
 	$setup->registerModule("xyo-com", null, "xyo-mod-panel2");

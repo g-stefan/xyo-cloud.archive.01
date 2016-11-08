@@ -10,17 +10,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
 <p  style="margin-top:4px;margin-bottom:8px;">
-    <span style="padding-left:8px;padding-right:8px;border-bottom:1px solid #D3D3D3;font-weight:bold;">lib-mod-d3 - version 1.0.0.0</span>
+    <span style="padding-left:8px;padding-right:8px;border-bottom:1px solid #D3D3D3;font-weight:bold;">lib-mod-nv3d - version 1.0.0.0</span>
 </p>
 <div style="overflow:hidden;display:block;height:4px;"></div>
-d3.min.js
-<div style="overflow:hidden;display:block;height:4px;"></div>
 <pre style="font-size:10px;">
-http://d3js.org/
-
-Version 3.5.17
-
-Library released under BSD license. Copyright (c) 2010-2016, Michael Bostock
-http://opensource.org/licenses/BSD-3-Clause
+NVD3 - A reusable D3 charting library
+Version v1.8.4
+License Apache-2.0
+Copyright (c) 2011-2014 Novus Partners, Inc.
+Link: https://github.com/novus/nvd3
 </pre>
 <br />

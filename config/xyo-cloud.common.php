@@ -14,7 +14,7 @@ ini_set("session.use_trans_sid", 0);
 session_start();
 //
 
-$this->set("system_version", "3.0.0");
+$this->set("system_version", "3.0.2");
 
 //$this->set("system_log_module",true);
 //$this->set("system_log_request",true);
