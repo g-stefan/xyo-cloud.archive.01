@@ -1103,8 +1103,8 @@ class xyo_Module extends xyo_Config {
 		};
 	}
 
-	public function setRequestDirect($value) {
-		$this->cloud->setRequestDirect($value);
+	public function setRequestAttributes($value) {
+		$this->cloud->setRequestAttributes($value);
 	}
 
 	public function moduleFromRequest($request) {

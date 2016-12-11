@@ -126,8 +126,8 @@ class xyo_Cloud extends xyo_Config {
 		$this->request_->merge($value_);
 	}
 
-	public function setRequestDirect($value_) {
-		$this->request_->setDirect($value_);
+	public function setRequestAttributes($value_) {
+		$this->request_->setAttributes($value_);
 	}
 
 	public function isRequest($name) {
@@ -135,7 +135,7 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function unsetRequest($name) {
-		$this->request_->unset_($name);
+		$this->request_->unsetAttribute($name);
 	}
 
 	public function execModule($module, $parameters=null) {
@@ -475,7 +475,7 @@ class xyo_Cloud extends xyo_Config {
 
 	public function removeModule($module) {
 		if (array_key_exists($module, $this->modules_)) {
-			unset($this->module_[$module]);
+			unset($this->modules_[$module]);
 		};
 	}
 
@@ -783,7 +783,7 @@ class xyo_Cloud extends xyo_Config {
 				$first = false;
 				if (array_key_exists("run", $parameters)) {
 					if($requestMain=="administrator.php"){
-						$retV=$this->get("site")."admin/run/".rawurlencode($parameters["run"]);
+						$retV=$this->get("site")."administrator/run/".rawurlencode($parameters["run"]);
 					};
 					if($requestMain=="public.php"){
 						$retV=$this->get("site")."public/run/".rawurlencode($parameters["run"]);
@@ -829,6 +829,58 @@ class xyo_Cloud extends xyo_Config {
 			}
 		};
 		return $retV;
+	}
+
+	public function setSiteFromServerRequest() {
+		if ($this->requestBuilder_) {
+			return $this->requestBuilder_->systemSetSiteFromServerRequest();
+		};
+		$site=$this->get("site","");
+		if(strlen($site)==0){
+			$site=$_SERVER['REQUEST_URI'];
+			$x=@strrpos($site,"/",-1);
+			if($x===false){
+			}else
+			if($x>=0){
+				$useRedirect=$this->get("system_use_redirect",false);
+				if($useRedirect){
+					$found=false;
+                       			$site=substr($site,0,$x+1);
+					if(!$found){				
+						$x=@strpos($site,"/administrator/run/",0);
+						if($x===false){
+						}else
+						if($x>=0){
+							$this->set("site",substr($site,0,$x+1));
+							$found=true;
+						};
+					};
+
+					if(!$found){
+						$x=@strpos($site,"/public/run/",0);
+						if($x===false){
+						}else
+						if($x>=0){				
+							$this->set("site",substr($site,0,$x+1));
+							$found=true;
+						};
+					};
+
+					if(!$found){
+						$x=@strpos($site,"/run/",0);
+						if($x===false){
+						}else
+						if($x>=0){
+							$this->set("site",substr($site,0,$x+1));
+							$found=true;
+						};
+					};
+                        
+				}else{
+					$this->set("site",substr($site,0,$x+1));
+				};
+			};
+		};		
 	}
 
 	public function requestUri($parameters=null) {

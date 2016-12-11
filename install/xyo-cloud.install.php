@@ -58,7 +58,6 @@ $this->setModule("lib", null, "lib-mod-pear-archive-tar", true,null,true,false);
 $this->setModule("xyo", null, "xyo-mod-setup", true,null,true,false);
 $this->setModule("xyo-com", null, "xyo-mod-panel2", true,null,true,false);
 
-
 $this->setModule(null, "install", "xyo-app-install", true, null, true,false);
 
 $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,true,false);

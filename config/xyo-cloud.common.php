@@ -14,7 +14,7 @@ ini_set("session.use_trans_sid", 0);
 session_start();
 //
 
-$this->set("system_version", "3.0.2");
+$this->set("system_version", "3.0.4");
 
 //$this->set("system_log_module",true);
 //$this->set("system_log_request",true);
@@ -41,53 +41,9 @@ $this->set("locale_time_format","H:i:s");
 $this->set("system_configured", false);
 $this->includeConfig("config.website");
 // ---
-$site=$this->get("site","");
-if(strlen($site)==0){
-	$site=$_SERVER['REQUEST_URI'];
-	$x=@strrpos($site,"/",-1);
-	if($x===false){
-	}else
-	if($x>=0){
-		$useRedirect=$this->get("system_use_redirect",false);
-		if($useRedirect){
-			$found=false;
-                        $site=substr($site,0,$x+1);
-			if(!$found){				
-				$x=@strpos($site,"/admin/run/",0);
-				if($x===false){
-				}else
-				if($x>=0){
-					$this->set("site",substr($site,0,$x+1));
-					$found=true;
-				};
-			};
-
-			if(!$found){
-				$x=@strpos($site,"/public/run/",0);
-				if($x===false){
-				}else
-				if($x>=0){				
-					$this->set("site",substr($site,0,$x+1));
-					$found=true;
-				};
-			};
-
-			if(!$found){
-				$x=@strpos($site,"/run/",0);
-				if($x===false){
-				}else
-				if($x>=0){
-					$this->set("site",substr($site,0,$x+1));
-					$found=true;
-				};
-			};
-
-		}else{
-			$this->set("site",substr($site,0,$x+1));
-		};
-	};
-};
-
+// Recover site value from server request
+$this->setSiteFromServerRequest();
+// ---
 if ($this->get("system_configured")) {
     
 } else {

@@ -34,22 +34,18 @@ class xyo_Attributes {
 		return $default_;
 	}
 
-	public function merge($value) {
-		$this->attributes_=array_merge($this->attributes_,$value);
-	}
-
-	public function unset_($name) {
+	public function unsetAttribute($name) {
 		if(array_key_exists($name,$this->attributes_)) {
 			unset($this->attributes_[$name]);
 		}
 	}
 
-	public function clear() {
-		$this->attributes_=array();
+	public function merge($value) {
+		$this->attributes_=array_merge($this->attributes_,$value);
 	}
 
-	public function setDirect($value) {
-		$this->attributes_=$value;
+	public function clear() {
+		$this->attributes_=array();
 	}
 
 	public function is($name) {
@@ -59,6 +55,10 @@ class xyo_Attributes {
 			}
 		};
 		return false;
+	}
+
+	public function setAttributes($value) {
+		$this->attributes_=$value;
 	}
 
 	public function getAttributes() {

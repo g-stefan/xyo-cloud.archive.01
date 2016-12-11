@@ -20,7 +20,7 @@ if($this->user->isAuthorized()){
 		if($module=="xyo-com-login"
 			||$module=="xyo-com-logout"){
 		}else{
-			$this->setRequestDirect($this->callRequest($this->requestModuleDirect($module),$request));
+			$this->setRequestAttributes($this->callRequest($this->requestModuleDirect($module),$request));
 		};
 		$this->setComponent("xyo-com-login");
 		$this->setViewTemplate("login");
