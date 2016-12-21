@@ -20,11 +20,11 @@ $this->set("system_version", "3.0.4");
 //$this->set("system_log_request",true);
 //$this->set("system_log_response",true);
 //$this->set("system_log_language",true);
+//$this->set("system_use_redirect",true);
 $this->set("system_user_action",true);
 $this->set("system_user_captcha",true);
 $this->set("system_service_key","-put-here-service-key-");
 // ---
-$this->set("system_use_redirect",false);
 
 //
 // some default values just in case

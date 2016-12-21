@@ -17,6 +17,7 @@
 
 define("XYO_CLOUD", 1);
 $xyoPath = dirname(realpath(__FILE__)) . "/";
+require_once($xyoPath . "xyo-object.php");
 require_once($xyoPath . "xyo-attributes.php");
 require_once($xyoPath . "xyo-request.1.php");
 require_once($xyoPath . "xyo-config.php");
@@ -42,6 +43,7 @@ class xyo_Cloud extends xyo_Config {
 	protected $isAjaxJs_;
 	protected $isAjax_;
 	protected $isJSON_;
+	protected $isRunAsModule_;
 
 	public function __construct() {
 		parent::__construct($this);
@@ -72,8 +74,9 @@ class xyo_Cloud extends xyo_Config {
 		$this->isAjaxJs_=0;
 		$this->isAjax_=0;
 		$this->isJSON_=0;
+		$this->isRunAsModule_=0;
 
-		$this->set("system_kernel_version", "1.2.0.0");
+		$this->set("system_kernel_version", "1.3.0.0");
 		$this->set("request_main", "index.php");		
 		$this->set("system_core", "xyo");
 		$this->set("site", "");
@@ -81,6 +84,8 @@ class xyo_Cloud extends xyo_Config {
 		$this->set("system_log_request", false);
 		$this->set("system_log_response", false);
 		$this->set("system_log_module", false);
+
+		$this->set("system_use_redirect",false);
 	}
 
 	public function setModuleLoader($name) {
@@ -552,7 +557,7 @@ class xyo_Cloud extends xyo_Config {
 			ob_end_clean();
 			$fs = fopen("log/" . date("Y-m-d")."-request.log", "ab");
 			if ($fs) {
-				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getClientIp_()."]\n");
+				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getClientIP()."]\n");
 				fwrite($fs, $ret_v);
 				fwrite($fs, "\n\n");
 				fclose($fs);
@@ -575,14 +580,14 @@ class xyo_Cloud extends xyo_Config {
 				echo $ret_v;
 			}
 
-			$x=array(0=>"log/",1=>$this->getClientIp_());
+			$x=array(0=>"log/",1=>$this->getClientIP());
 			register_shutdown_function("_xyo_cloud__log_response__shutdown", $x);
 		};
 
 		$this->execGroup("xyo-system-init", null);
 		if ($this->isInitOk_) {
 			$exec_ = true;
-			$module = $this->loadModuleExecPath_($this->getRequest("run",$this->component_));
+			$module = $this->loadModuleExecPath($this->getRequest("run",$this->component_));
 			if ($module) {
 				$this->initModule($module);
 				if ($this->isModuleAsComponent($module)) {
@@ -598,6 +603,11 @@ class xyo_Cloud extends xyo_Config {
 					}else
 					if($this->getRequest("json",0)*1) {
 						$this->isJSON_=1;
+						$exec_ = false;
+						$this->execModule($module, null);
+					}else
+					if($this->getRequest("run-as-module",0)*1) {
+						$this->isRunAsModule_=1;
 						$exec_ = false;
 						$this->execModule($module, null);
 					}
@@ -635,7 +645,7 @@ class xyo_Cloud extends xyo_Config {
 		$fs = fopen("log/" . date("Y-m-d")."-". $type.".log", "ab");
 		if ($fs) {
 			if($module_) {
-				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getModuleExecPath_($module_)."] [".$this->getClientIp_()."]: ");
+				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getModuleExecPath($module_)."] [".$this->getClientIP()."]: ");
 			} else {
 				fwrite($fs, date("Y-m-d H:i:s") . ": ");
 			}
@@ -701,13 +711,13 @@ class xyo_Cloud extends xyo_Config {
 			$parameters = array();
 		}
 		if($module) {			
-			$module_ = $this->getModuleExecPath_($module);
+			$module_ = $this->getModuleExecPath($module);
 			$parameters["run"] = $module_;
 		}
 		return $parameters;
 	}
 
-	public function getModuleExecPath_($module) {
+	public function getModuleExecPath($module) {
 		$m = $module;
 		$x = &$this->getModuleObject($module);
 		if ($x) {
@@ -770,7 +780,7 @@ class xyo_Cloud extends xyo_Config {
 		return null;
 	}
 
-	public function requestUriRoute($requestMain=null,$parameters=null) {		
+	public function requestUriRoute($requestMain=null,$parameters=null) {
 		if ($this->requestBuilder_) {
 			return $this->requestBuilder_->systemRequestUriCore($core,$parameters);
 		};	
@@ -783,7 +793,7 @@ class xyo_Cloud extends xyo_Config {
 				$first = false;
 				if (array_key_exists("run", $parameters)) {
 					if($requestMain=="administrator.php"){
-						$retV=$this->get("site")."administrator/run/".rawurlencode($parameters["run"]);
+						$retV=$this->get("site")."admin/run/".rawurlencode($parameters["run"]);
 					};
 					if($requestMain=="public.php"){
 						$retV=$this->get("site")."public/run/".rawurlencode($parameters["run"]);
@@ -847,7 +857,7 @@ class xyo_Cloud extends xyo_Config {
 					$found=false;
                        			$site=substr($site,0,$x+1);
 					if(!$found){				
-						$x=@strpos($site,"/administrator/run/",0);
+						$x=@strpos($site,"/admin/run/",0);
 						if($x===false){
 						}else
 						if($x>=0){
@@ -936,7 +946,7 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 
-	public function loadModuleExecPath_($module) {
+	public function loadModuleExecPath($module) {
 
 		if (strlen($module) == 0) {
 			return null;
@@ -963,7 +973,7 @@ class xyo_Cloud extends xyo_Config {
 		return $module;
 	}
 
-	public function moduleFromExecPath_($module) {
+	public function moduleFromExecPath($module) {
 		if (strlen($module) == 0) {
 			return null;
 		};
@@ -1112,14 +1122,14 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function runRequest($request) {
-		$module=$this->loadModuleExecPath_($this->getRequest("run"));
+		$module=$this->loadModuleExecPath($this->getRequest("run"));
 		if($module) {
 			return $this->execModule($module,$request);
 		};
 		return null;
 	}
 
-	public function getClientIp_() {
+	public function getClientIP() {
 		if(array_key_exists("HTTP_CLIENT_IP",$_SERVER)) {
 			return $_SERVER["HTTP_CLIENT_IP"];
 		};
@@ -1159,6 +1169,10 @@ class xyo_Cloud extends xyo_Config {
 
 	public function isJSON(){
 		return $this->isJSON_;
+	}
+
+	public function isRunAsModule(){
+		return $this->isRunAsModule_;
 	}
 
 }

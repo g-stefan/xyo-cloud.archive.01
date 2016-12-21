@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-class xyo_Attributes {
+class xyo_Attributes extends xyo_Object{
 
 	protected $attributes_;
 
