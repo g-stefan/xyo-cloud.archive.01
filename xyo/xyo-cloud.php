@@ -701,6 +701,10 @@ class xyo_Cloud extends xyo_Config {
 		$this->request->setAttributes($value);
 	}
 
+	public function clearRequest(){
+		$this->request->clear();
+	}
+
 	public function mergeRequest($value) {
 		$this->request->merge($value);
 	}

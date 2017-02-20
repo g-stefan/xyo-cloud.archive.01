@@ -126,6 +126,10 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-roboto-regular", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-roboto-regular", "xyo-info-about", null, null, 0, true);
 
+	$setup->registerModule("lib", null, "lib-mod-material-components-web");
+	$setup->registerModuleAcl("lib-mod-material-components-web", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-material-components-web", "xyo-info-about", null, null, 0, true);
+
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource");
 	$setup->registerModuleAcl("xyo-mod-datasource", "xyo-none", null, null, 0, true);
