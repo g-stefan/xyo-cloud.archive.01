@@ -18,7 +18,7 @@ class xyo_mod_language_Language extends xyo_Attributes {
     public function __construct(&$cloud) {
         parent::__construct();
         $this->cloud = &$cloud;
-        $this->log = $this->cloud->get("system_log_language");
+        $this->log = $this->cloud->get("log_language");
         $this->type = "ltr";
         $this->name = "#";
     }

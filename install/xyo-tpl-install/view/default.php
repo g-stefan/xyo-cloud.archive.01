@@ -29,7 +29,7 @@ echo "<" . "?" . "xml version=\"1.0\" encoding=\"UTF-8\"" . "?" . ">\n";
 	            <img src="<?php echo $this->site; ?>media/sys/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;" alt="XYO" ></img>
         	    <span style="font-family:arial;color:#0194FE;font-size:22px;font-weight:bold;vertical-align: middle;">&#160;CLOUD&#160;</span>
 	            <span class="pull-right" style="font-family:arial;color:#0194FE;font-size:11px;margin-top:18px;">
-        	        <?php echo $this->cloud->get("system_version"); ?>
+        	        <?php echo $this->cloud->get("version"); ?>
 	            </span>
 		</div>
 		<div class="panel-body">

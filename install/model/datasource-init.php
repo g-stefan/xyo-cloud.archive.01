@@ -17,7 +17,7 @@ if ($configFileName) {
 }
 
 $moduleDatasourceLayer = null;
-$layerModule = $this->cloud->get("system_datasource_layer");
+$layerModule = $this->cloud->get("datasource_layer");
 $moduleDatasourceLayer = &$this->cloud->getModule($layerModule);
 if ($moduleDatasourceLayer) {
     
@@ -26,7 +26,7 @@ if ($moduleDatasourceLayer) {
     return;
 };
 
-$this->cloud->set("system_datasource_loader", "xyo-mod-ds-loader-ds");
+$this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
 $moduleDatasourceLayer->includeFile($configFileName);
 
 $conDb = &$moduleDatasourceLayer->getConnection("db");

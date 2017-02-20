@@ -50,8 +50,8 @@ class xyo_mod_ds_User extends xyo_Module {
 
 		$this->info = new xyo_mod_ds_user_Info();
 
-		$this->useAction = 1*$this->cloud->get("system_user_action", false);
-		$this->useCaptcha= 1*$this->cloud->get("system_user_captcha", false);
+		$this->useAction = 1*$this->cloud->get("user_action", false);
+		$this->useCaptcha= 1*$this->cloud->get("user_captcha", false);
 
 		$this->mode = false;
 		$this->doCheck = false;
@@ -198,7 +198,7 @@ class xyo_mod_ds_User extends xyo_Module {
 			// check if user allowed on this core
 			$coreAuthFail=true;
 			$this->dsCore->clear();
-			$this->dsCore->name = $this->cloud->get("system_core");
+			$this->dsCore->name = $this->cloud->get("core");
 			$this->dsCore->enabled = 1;
 			if ($this->dsCore->load(0, 1)) {
 				$this->dsUserXCore->clear();				
@@ -248,7 +248,7 @@ class xyo_mod_ds_User extends xyo_Module {
 					// Check service key
 					//
 					if(!$captchaOk){
-						$serviceKey=md5($this->info->rnd.md5($this->cloud->get("system_service_key","")));
+						$serviceKey=md5($this->info->rnd.md5($this->cloud->get("service_key","")));
 						$captcha = $this->cloud->getRequest("user_captcha");
 						if(strlen($captcha)>0){
 							if(strcmp($captcha,$serviceKey)==0){

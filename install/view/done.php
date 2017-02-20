@@ -31,7 +31,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 <?php
 
     // set datasource loader
-    $this->cloud->set("system_datasource_loader", "xyo-mod-ds-loader-ds");
+    $this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
 
     $administrator = $this->getRequest("administrator_username");
     if ($administrator) {

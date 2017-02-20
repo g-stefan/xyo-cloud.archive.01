@@ -14,22 +14,22 @@ ini_set("session.use_trans_sid", 0);
 session_start();
 //
 
-$this->set("system_version", "3.0.4");
+$this->set("version", "4.0.0.0");
 
-//$this->set("system_log_module",true);
-//$this->set("system_log_request",true);
-//$this->set("system_log_response",true);
-//$this->set("system_log_language",true);
-//$this->set("system_use_redirect",true);
-$this->set("system_user_action",true);
-$this->set("system_user_captcha",true);
-$this->set("system_service_key","-put-here-service-key-");
+//$this->set("log_module",true);
+//$this->set("log_request",true);
+//$this->set("log_response",true);
+//$this->set("log_language",true);
+//$this->set("use_redirect",true);
+$this->set("user_action",true);
+$this->set("user_captcha",true);
+$this->set("service_key","-put-here-service-key-");
 // ---
 
 //
 // some default values just in case
 //
-$this->set("system_datasource_layer", "xyo-mod-datasource-xyo");
+$this->set("datasource_layer", "xyo-mod-datasource-xyo");
 //
 $this->set("language", "en-GB");
 $this->set("locale", "en-GB");
@@ -38,21 +38,21 @@ $this->set("locale_datetime_format","Y-m-d H:i:s");
 $this->set("locale_time_format","H:i:s");
 //
 //
-$this->set("system_configured", false);
+$this->set("configured", false);
 $this->includeConfig("config.website");
 // ---
 // Recover site value from server request
 $this->setSiteFromServerRequest();
 // ---
-if ($this->get("system_configured")) {
+if ($this->get("configured")) {
     
 } else {
     define("XYO_CLOUD_INSTALL", 1);
-    $this->set("system_core", "install");
+    $this->set("core", "install");
     $this->includeConfig("xyo-cloud.install");
     return;
 }
-$this->set("language", $this->get("system_default_language", "en-GB"));
+$this->set("language", $this->get("default_language", "en-GB"));
 //
 //
 $this->setModule(null, null, "xyo", true, null, true, false);
@@ -61,7 +61,7 @@ $this->setModule(null, null, "xyo", true, null, true, false);
 //
 $this->setModule("xyo", null, "xyo-mod-ds-db", true, null, true, false);
 $this->setModule("xyo", null, "xyo-mod-datasource", true, null,  true, false);
-$layer = $this->cloud->get("system_datasource_layer", "xyo-mod-datasource-xyo");
+$layer = $this->cloud->get("datasource_layer", "xyo-mod-datasource-xyo");
 $this->setModule("xyo", null, $layer, true, null, true, false);
 //
 // process settings
@@ -111,5 +111,6 @@ if ($website_language === "*") {
 //
 $this->setModule("xyo", null, "xyo-mod-ds-loader-mod", true, null, true, false);
 $this->setModuleLoader("xyo-mod-ds-loader-mod");
+$this->setGroupLoader("xyo-mod-ds-loader-mod");
 //
 //

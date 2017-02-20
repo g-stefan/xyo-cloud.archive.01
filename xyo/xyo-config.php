@@ -17,17 +17,17 @@ class xyo_Config extends xyo_Attributes {
 		$this->cloud = &$cloud;
 	}
 
-	public function includeConfig($name_) {
+	public function includeConfig($name) {
 		$retV = false;
-		$path_ = "config/";
-		$config = $path_ . $name_ . ".php";
+		$path = $this->getConfigPath();
+		$config = $path . $name . ".php";
 		if ($this->includeFile($config)) {
 			$retV = true;
 		};
-		$core = $this->cloud->get("system_core");
+		$core = $this->cloud->get("core","public");
 		if (strlen($core) > 0) {
 			$core = "." . $core;
-			$config = $path_ . $name_ . $core . ".php";
+			$config = $path . $name . $core . ".php";
 			if ($this->includeFile($config)) {
 				$retV = true;
 			};

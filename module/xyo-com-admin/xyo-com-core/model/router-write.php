@@ -24,7 +24,7 @@ if ($fs) {
     fwrite($fs, "\$xyoCloud=new xyo_Cloud();\r\n");
     fwrite($fs, "defined('XYO_CLOUD') or die('Access is denied');\r\n");
     fwrite($fs, "\$xyoCloud->set(\"request_main\",\"" . strtolower($router) . ".php\");\r\n");
-    fwrite($fs, "\$xyoCloud->set(\"system_core\",\"" . $core . "\");\r\n");
+    fwrite($fs, "\$xyoCloud->set(\"core\",\"" . $core . "\");\r\n");
     fwrite($fs, "\$xyoCloud->main();\r\n");
     fclose($fs);
 } else {

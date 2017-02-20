@@ -25,13 +25,13 @@ class xyo_com_Login extends xyo_mod_Application {
 	}
 
 	function eFormAction($request=null){
-		$this->eRequestUri($this->xyo_array_merge_ex_(
+		$this->eRequestUri($this->arrayMerge(
 				$this->moduleFromRequestDirect($this->popRequest($this->getRequestDirect()))
-				,$request));		
+				,$request));
 	}
 
 	function eFormRequest($request=null){
-		$this->eFormBuildRequest($this->xyo_array_merge_ex_(
+		$this->eFormBuildRequest($this->arrayMerge(
 				$this->moduleFromRequestDirect($this->popRequest($this->getRequestDirect()))
 				,$request));
 	}

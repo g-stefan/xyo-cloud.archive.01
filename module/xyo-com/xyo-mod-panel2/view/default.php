@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$items = $this->parameters_;
+$items = $this->parameters;
 
 echo "\r\n";
 echo "<ul class=\"list-group\">\r\n";

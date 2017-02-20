@@ -17,8 +17,8 @@ $this->set("select_enabled_disabled", "nu");
 
 $this->set("label_website_title","Titlu site");
 $this->set("label_user_logoff_after_idle_time","Utilizatorul este delogat dupa perioada de inactivitate");
-$this->set("label_system_user_action","Actiune utilizator");
-$this->set("label_system_user_captcha","Captcha utilizator");
+$this->set("label_user_action","Actiune utilizator");
+$this->set("label_user_captcha","Captcha utilizator");
 
 
 $this->set("label_element_text","Text");

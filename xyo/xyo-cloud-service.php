@@ -54,7 +54,7 @@ if (!isset($xyoCloudServiceCore)) {
 	$xyoCloudServiceCore = "public";
 };
 
-$xyoCloud->set("system_core", $xyoCloudServiceCore);
+$xyoCloud->set("core", $xyoCloudServiceCore);
 
 if(isset($xyoCloudServiceSite)){
 	$xyoCloud->set("site",$xyoCloudServiceSite);

@@ -13,7 +13,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 <div style="position: relative; float: right; right: -50%;">
 
 	<div class="panel panel-default" style="width:48em;">
-		<div class="panel-heading">XYO Cloud - version <?php echo $this->cloud->get("system_version"); ?></div>
+		<div class="panel-heading">XYO Cloud - version <?php echo $this->cloud->get("version"); ?></div>
 		<div class="panel-body">
 
     Copyright (c) 2014 Grigore Stefan, &lt;<a href="mailto:g_stefan@yahoo.com" target="_blank">g_stefan@yahoo.com</a>&gt;<br/>

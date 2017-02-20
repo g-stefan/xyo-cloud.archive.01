@@ -34,7 +34,7 @@ if(strlen($rnd)>=strlen(md5("x"))){
 
 $parameters=array("user_authorization"=>"true");
 
-$sysCaptcha=$this->cloud->get("system_user_captcha", false);
+$sysCaptcha=$this->cloud->get("user_captcha", false);
 
 $useCaptcha=false;
 if($sysCaptcha){

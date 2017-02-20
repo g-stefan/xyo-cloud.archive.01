@@ -9,9 +9,9 @@
 defined('XYO_CLOUD') or die('Access is denied');
 defined('XYO_CLOUD_INSTALL') or die('Access is denied');
 //
-//$this->set("system_log_module",true);
-//$this->set("system_log_request",true);
-//$this->set("system_log_response",true);
+//$this->set("log_module",true);
+//$this->set("log_request",true);
+//$this->set("log_response",true);
 //
 $this->set("language", "en-GB");
 if ($this->isRequest("website_language")) {
@@ -19,7 +19,7 @@ if ($this->isRequest("website_language")) {
         $this->set("language", $this->getRequest("website_language"));
     };
 };
-$this->set("system_datasource_layer", "xyo-mod-datasource-xyo");
+$this->set("datasource_layer", "xyo-mod-datasource-xyo");
 $this->includeConfig("config.website");
 //
 $this->setModule(null, null, "xyo", true,null,true,false);

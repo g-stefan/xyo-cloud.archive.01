@@ -33,7 +33,7 @@ class xyo_mod_Language extends xyo_Module {
 
     function loadLanguageDirect($language_) {
         $language = strtolower($language_);
-        foreach (array_reverse($this->modulePathBase_, true) as $module => $path) {
+        foreach (array_reverse($this->modulePathBase, true) as $module => $path) {
             $this->language->setLanguage($language_);
             $this->language->includeFile($path . "language/" . $language . ".php");
             $this->language->includeFile("language/" . $language . "/" . $module . ".php");

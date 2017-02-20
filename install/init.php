@@ -12,7 +12,7 @@ $this->setFormName("install");
 $this->setElementPrefix("x");
 $this->setViewTemplate("template");
 
-if ($this->cloud->get("system_configured")) {
+if ($this->cloud->get("configured")) {
     $this->setDefaultAction("configured");    
 	return;
 }

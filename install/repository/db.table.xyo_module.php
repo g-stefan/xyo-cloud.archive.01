@@ -118,13 +118,13 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-material-icons", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-material-icons", "xyo-info-about", null, null, 0, true);
 
-	$setup->registerModule("lib", null, "lib-mod-material");
-	$setup->registerModuleAcl("lib-mod-material", "xyo-none", null, null, 0, true);
-	$setup->registerModuleAcl("lib-mod-material", "xyo-info-about", null, null, 0, true);
-
 	$setup->registerModule("lib", null, "lib-mod-nvd3");
 	$setup->registerModuleAcl("lib-mod-nvd3", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-nvd3", "xyo-info-about", null, null, 0, true);
+
+	$setup->registerModule("lib", null, "lib-mod-roboto-regular");
+	$setup->registerModuleAcl("lib-mod-roboto-regular", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-roboto-regular", "xyo-info-about", null, null, 0, true);
 
 	// xyo
 	$setup->registerModule("xyo", null, "xyo-mod-datasource");

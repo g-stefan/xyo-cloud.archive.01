@@ -154,21 +154,21 @@ if ($fileHandle) {
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// Website Config\r\n");
     fwrite($fileHandle, "// \r\n");
-    fwrite($fileHandle, "\$this->set(\"system_configured\",false);\r\n");
-    fwrite($fileHandle, "\$this->set(\"system_datasource_layer\",\"" .
+    fwrite($fileHandle, "\$this->set(\"configured\",false);\r\n");
+    fwrite($fileHandle, "\$this->set(\"datasource_layer\",\"" .
             $moduleName .
             "\");\r\n");
     fwrite($fileHandle, "\r\n\r\n");
     fclose($fileHandle);
 
-    $this->cloud->set("system_datasource_layer", $moduleName);
+    $this->cloud->set("datasource_layer", $moduleName);
 } else {
     $this->setError("error", array("config_not_writable" => $fileName));
     return;
 }
 
 $moduleDatasourceLayer = null;
-$layerModule = $this->cloud->get("system_datasource_layer");
+$layerModule = $this->cloud->get("datasource_layer");
 $moduleDatasourceLayer = &$this->cloud->getModule($layerModule);
 if ($moduleDatasourceLayer) {
     
@@ -181,7 +181,7 @@ $modDs=&$this->cloud->getModule("xyo-mod-datasource");
 $modDs->includeConfig("config.ds");
 
 
-$this->cloud->set("system_datasource_loader", "xyo-mod-ds-loader-ds");
+$this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
 $moduleDatasourceLayer->includeFile($configFileName);
 
 if ($this->isError()) {

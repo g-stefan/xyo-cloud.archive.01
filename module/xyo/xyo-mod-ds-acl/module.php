@@ -71,7 +71,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 		$dsCore = &$this->dsCore->copyThis();
 		$dsCore->clear();
-		$dsCore->name = $this->cloud->get("system_core");
+		$dsCore->name = $this->cloud->get("core");
 		$dsCore->enabled = 1;
 		if ($dsCore->load(0, 1)) {
 			$this->aclCore = array(1=>array(0, $dsCore->id));

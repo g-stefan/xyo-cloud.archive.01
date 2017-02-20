@@ -20,11 +20,11 @@ if ($fileHandle) {
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// Website Config\r\n");
     fwrite($fileHandle, "// \r\n");
-    fwrite($fileHandle, "\$this->set(\"system_configured\",true);\r\n");
-    fwrite($fileHandle, "\$this->set(\"system_datasource_layer\",\"" .
-            $this->cloud->get("system_datasource_layer", "xyo-mod-datasource-xyo") .
+    fwrite($fileHandle, "\$this->set(\"configured\",true);\r\n");
+    fwrite($fileHandle, "\$this->set(\"datasource_layer\",\"" .
+            $this->cloud->get("datasource_layer", "xyo-mod-datasource-xyo") .
             "\");\r\n");
-    fwrite($fileHandle, "\$this->set(\"system_default_language\",\"" . $this->getSystemLanguage() . "\");\r\n");
+    fwrite($fileHandle, "\$this->set(\"default_language\",\"" . $this->getSystemLanguage() . "\");\r\n");
     fwrite($fileHandle, "\$this->set(\"locale_date_format\",\"Y-m-d\");\r\n");
     fwrite($fileHandle, "\$this->set(\"locale_datetime_format\",\"Y-m-d H:i:s\");\r\n");
     fwrite($fileHandle, "\$this->set(\"locale_time_format\",\"H:i:s\");\r\n");

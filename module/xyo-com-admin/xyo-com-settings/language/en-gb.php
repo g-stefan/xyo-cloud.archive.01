@@ -17,12 +17,12 @@ $this->set("select_enabled_disabled", "no");
 
 $this->set("label_website_title","Website title");
 $this->set("label_user_logoff_after_idle_time","User logoff after idle time");
-$this->set("label_system_user_action","User action");
-$this->set("label_system_user_captcha","User captcha");
+$this->set("label_user_action","User action");
+$this->set("label_user_captcha","User captcha");
 
-$this->set("label_system_log_module","Log module load failure");
-$this->set("label_system_log_request","Log request");
-$this->set("label_system_log_response","Log response");
-$this->set("label_system_log_language","Log not found language index");
+$this->set("label_log_module","Log module load failure");
+$this->set("label_log_request","Log request");
+$this->set("label_log_response","Log response");
+$this->set("label_log_language","Log not found language index");
 
 $this->set("title_log","Log");
