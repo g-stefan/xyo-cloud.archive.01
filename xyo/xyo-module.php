@@ -892,6 +892,18 @@ class xyo_Module extends xyo_Config {
 		return $this->returnValue;
 	}
 
+	public function setSession($key,$value){
+		$_SESSION["xyo_module_".$this->name."_".$this->instance."_".$key]=$value;
+	}
+
+	public function getSession($key,$default=null){
+		$key_="xyo_module_".$this->name."_".$this->instance."_".$key;
+		if(array_key_exists($key_,$_SESSION)){
+			return $_SESSION[$key_];
+		};
+		return $default;
+	}
+
 	//
 	// Model View Controller
 	//

@@ -19,6 +19,9 @@ if ($layer === "xyo") {
 if ($layer === "csv") {
     $moduleName = "xyo-mod-datasource-csv";
 } else
+if ($layer === "mysqli") {
+    $moduleName = "xyo-mod-datasource-mysqli";
+} else
 if ($layer === "mysql") {
     $moduleName = "xyo-mod-datasource-mysql";
 } else
@@ -59,6 +62,28 @@ if ($fileHandle) {
                 "(\"db\"," .
                 "\"repository/datasource/db/\");" .
                 "\r\n");
+    } else
+    if ($layer === "mysqli") {
+        fwrite($fileHandle, "\$this->setConnection(" .
+                "\"db\",\"" .
+                addslashes($this->getElementValueStr("username")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("password")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("server")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("port")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("database")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("prefix")) .
+                "\");\r\n");
+        fwrite($fileHandle, "\$this->setConnectionOption(" .
+                "\"db\",\"debug\",true);\r\n");
+        fwrite($fileHandle, "\$this->setConnectionOption(" .
+                "\"db\",\"log\",false);\r\n");
+        fwrite($fileHandle, "\$this->setConnectionOption(" .
+                "\"db\",\"force_use\",false);\r\n");
     } else
     if ($layer === "mysql") {
         fwrite($fileHandle, "\$this->setConnection(" .

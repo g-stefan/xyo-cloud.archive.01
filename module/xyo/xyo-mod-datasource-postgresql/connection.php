@@ -295,5 +295,3 @@ class xyo_mod_datasource_postgresql_Connection {
 
 }
 
-;
-

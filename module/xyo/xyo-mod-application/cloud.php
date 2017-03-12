@@ -14,4 +14,4 @@ $this->setReferenceLink($module,"xyo-mod-ds-user");
 $this->setReferenceLink($module,"xyo-mod-htmlhead");
 $this->setReferenceLink($module,"xyo-mod-htmlfooter");
 $this->setReferenceBase($module,"xyo-mod-language");
-$this->setVersion($module, "2.0.0");
+$this->setVersion($module, "3.0.0");

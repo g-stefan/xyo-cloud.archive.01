@@ -137,6 +137,9 @@ if ($setup) {
 	$setup->registerModule("xyo", null, "xyo-mod-datasource-csv");
 	$setup->registerModuleAcl("xyo-mod-datasource-csv", "xyo-none", null, null, 0,  true);
 
+	$setup->registerModule("xyo", null, "xyo-mod-datasource-mysqli");
+	$setup->registerModuleAcl("xyo-mod-datasource-mysqli", "xyo-none", null, null, 0, true);
+
 	$setup->registerModule("xyo", null, "xyo-mod-datasource-mysql");
 	$setup->registerModuleAcl("xyo-mod-datasource-mysql", "xyo-none", null, null, 0, true);
 

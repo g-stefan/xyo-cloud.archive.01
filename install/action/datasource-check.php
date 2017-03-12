@@ -12,7 +12,7 @@ $allOk = true;
 $this->setView("datasource");
 $this->clearElementError();
 $layer = $this->getElementValue("layer");
-if ($layer === "mysql" || $layer === "postgresql" ) {
+if ($layer === "mysqli" || $layer === "mysql" || $layer === "postgresql" ) {
     $server = $this->getElementValueStr("server");
     if (strlen($server) == 0) {
         $this->setElementError("server", $this->getFromLanguage("server_empty"));
@@ -24,6 +24,9 @@ if ($layer === "mysql" || $layer === "postgresql" ) {
     }
 	if(1*$port){}else{
 		if($layer === "mysql"){
+			$port="3306";
+		};
+		if($layer === "mysqli"){
 			$port="3306";
 		};
 		if($layer === "postgresql"){

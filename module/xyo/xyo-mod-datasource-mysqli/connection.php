@@ -8,27 +8,39 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-class xyo_mod_datasource_sqlite_Connection {
+
+class xyo_mod_datasource_mysqli_Connection {
 
 	var $db;
 	var $debug;
+	var $forceUse;
 	var $log;
 	var $cloud;
 	var $module;
 	var $name;
+	var $server;
+	var $port;
+	var $user;
+	var $password;
 	var $database;
-	var $mode;
+	var $prefix;
 
-	function __construct(&$cloud, &$module, $name, $database, $mode) {
+	function __construct(&$cloud, &$module, $name, $user, $password, $server,$port, $database, $prefix) {
 		$this->cloud = &$cloud;
 		$this->module = &$module;
 		$this->name = $name;
+		$this->user = $user;
+		$this->password = $password;
+		$this->server = $server;
+		$this->port = $port;
 		$this->database = $database;
-		$this->mode = $mode;
+		$this->prefix = $prefix;
 
 		$this->db = null;
 		$this->debug = false;
+		$this->forceUse = false;
 		$this->log = false;
+		$this->db_use = false;
 	}
 
 	function setLog($log) {
@@ -39,24 +51,36 @@ class xyo_mod_datasource_sqlite_Connection {
 		$this->debug = $debug;
 	}
 
+	function setForceUse($forceUse) {
+		$this->forceUse = $forceUse;
+	}
+
 	function getDateNow() {
 		return date("Y-m-d H:i:s");
 	}
 
+	function getPrefix() {
+		return $this->prefix;
+	}
+
 	function debug() {
 		if ($this->debug) {
-			if ($this->db->lastErrorCode() != 0) {
-				echo $this->db->lastErrorCode() . ": " . $this->db->lastErrorMsg() . "\n";
+			if ($this->db) {
+				if ($this->db->errno != 0) {
+					echo $this->db->errno . ": " . $this->db->error . "\n";
+				};
 			};
 		};
 	}
 
 	function debug2($query) {
 		if ($this->debug) {
-			if ($this->db->lastErrorCode() != 0) {
-				echo "on:" . $query . "\n";
-				echo $this->db->lastErrorCode() . ": " . $this->db->lastErrorMsg() . "\n";
-			};
+			if ($this->db) {
+				if ($this->db->errno != 0) {
+					echo "on:" . $query . "\n";
+					echo $this->db->errno . ": " . $this->db->error . "\n";
+				};
+			}
 		};
 	}
 
@@ -64,9 +88,8 @@ class xyo_mod_datasource_sqlite_Connection {
 		if ($this->db) {
 			return true;
 		}
-		try {
-			$this->db = new SQLite3($this->database);
-		} catch(Exception $e) {
+		$this->db = new mysqli($this->server.":".$this->port, $this->user, $this->password, $this->database);
+		if (!$this->db) {
 			$this->db = null;
 			return false;
 		};
@@ -80,12 +103,12 @@ class xyo_mod_datasource_sqlite_Connection {
 		}
 	}
 
-	function sqliteQuery_($query) {
+	function mysqlQuery_($query) {
 		if ($this->log) {
 
 			$retV = $this->db->query($query);
 
-			$fs = fopen("log/sqlite." . $this->name . ".log", "ab");
+			$fs = fopen("log/mysqli." . $this->name . ".log", "ab");
 			if ($fs) {
 				fwrite($fs, date("Y-m-d H:i:s") . "\n");
 				fwrite($fs, $query);
@@ -103,60 +126,45 @@ class xyo_mod_datasource_sqlite_Connection {
 		};
 		return $this->db->query($query);
 	}
-
-	function sqliteQuerySingle_($query) {
-		if ($this->log) {
-
-			$retV = $this->db->querySingle($query);
-
-			$fs = fopen("log/sqlite." . $this->name . ".log", "ab");
-			if ($fs) {
-				fwrite($fs, date("Y-m-d H:i:s") . "\n");
-				fwrite($fs, $query);
-				fwrite($fs, "\n");
-				if ($retV) {
-					fwrite($fs, "Ok\n");
-				} else {
-					fwrite($fs, "Fail\n");
-				};
-				fwrite($fs, "\n");
-				fclose($fs);
-			};
-
-			return $retV;
-		};
-		return $this->db->querySingle($query);
-	}
-
-	function queryDirect($query) {
-		$result = $this->sqliteQuery_($query);
-		if (!$result) {
-			$this->debug2($query);
-			$result = null;
-		};
-		return $result;
-	}
-
-	function queryDirectSingle($query) {
-		$result = $this->sqliteQuerySingle_($query);
-		if (!$result) {
-			$this->debug2($query);
-			$result = null;
-		};
-		return $result;
-	}
-
 
 	function queryDirect2($query) {
 		return $this->db->query($query);
 	}
 
-	function queryDirect2Single($query) {
-		return $this->db->querySingle($query);
+	function useDb() {
+		if ($this->forceUse) {
+
+		} else {
+			if ($this->db_use) {
+				return true;
+			};
+			$this->db_use = true;
+		};
+		$query = "USE `" . $this->database . "`;";
+		$result = $this->mysqlQuery_($query);
+		if (!$result) {
+			$this->debug2($query);
+			$result = null;
+		};
+		return $result;
 	}
 
+	function queryDirect($query) {
+		if ($this->forceUse) {
+			$this->useDb();
+		}
+		$result = $this->mysqlQuery_($query);
+		if (!$result) {
+			$this->debug2($query);
+			$result = null;
+		};
+		return $result;
+	}
 
 	function query($query) {
+		if ($this->forceUse) {
+			$this->useDb();
+		}
 		$query = $this->parseQuery($query);
 		if ($query) {
 			return $this->queryDirect($query);
@@ -164,29 +172,20 @@ class xyo_mod_datasource_sqlite_Connection {
 		return null;
 	}
 
-	function querySingle($query) {
-		$query = $this->parseQuery($query);
-		if ($query) {
-			return $this->queryDirectSingle($query);
-		};
-		return null;
-	}
-
-
 	function safeTypeValue($type_, $value_) {
 		if ($type_ == "int") {
 			if (strcmp($value_, "DEFAULT") == 0) {
-				return "NULL";
+				return "DEFAULT";
 			}
 			return $this->safeValue(1 * $value_);
 		} else if ($type_ == "bigint") {
 			if (strcmp($value_, "DEFAULT") == 0) {
-				return "NULL";
+				return "DEFAULT";
 			}
 			return $this->safeValue(1 * $value_);
 		} else if ($type_ == "float") {
 			if (strcmp($value_, "DEFAULT") == 0) {
-				return "NULL";
+				return "DEFAULT";
 			}
 			return $this->safeValue(1 * $value_);
 		} else if ($type_ == "text") {
@@ -194,7 +193,7 @@ class xyo_mod_datasource_sqlite_Connection {
 				return "NULL";
 			};
 			return "'" . $this->safeValue($value_) . "'";
-		} else if ($type_ == "varchar") {
+		} else if ($type_=="varchar") {
 			if (is_null($value_)) {
 				return "NULL";
 			};
@@ -204,7 +203,7 @@ class xyo_mod_datasource_sqlite_Connection {
 				return "NULL";
 			};
 			if ($value_ == "NOW") {
-				return "TIME('NOW','localtime')";
+				return "CURDATE()";
 			};
 			return "'" . $this->safeValue($value_) . "'";
 		} else if ($type_ == "time") {
@@ -212,7 +211,7 @@ class xyo_mod_datasource_sqlite_Connection {
 				return "NULL";
 			};
 			if ($value_ == "NOW") {
-				return "DATE('NOW','localtime')";
+				return "CURTIME()";
 			};
 			return "'" . $this->safeValue($value_) . "'";
 		} else if ($type_ == "datetime") {
@@ -220,57 +219,15 @@ class xyo_mod_datasource_sqlite_Connection {
 				return "NULL";
 			};
 			if ($value_ == "NOW") {
-				return "DATETIME('NOW','localtime')";
+				return "NOW()";
 			};
 			return "'" . $this->safeValue($value_) . "'";
 		};
 		return null;
 	}
 
-	function safeTypeValueSourceCode($type_, $value_) {
-		if ($type_ == "int") {
-			if (strcmp($value_, "DEFAULT") == 0) {
-				return "\"DEFAULT\"";
-			}
-			return 1 * $value_;
-		} else if ($type_ == "bigint") {
-			if (strcmp($value_, "DEFAULT") == 0) {
-				return "\"DEFAULT\"";
-			}
-			return 1 * $value_;
-		} else if ($type_ == "float") {
-			if (strcmp($value_, "DEFAULT") == 0) {
-				return "\"DEFAULT\"";
-			}
-			return 1 * $value_;
-		} else if ($type_ == "text") {
-			if (is_null($value_)) {
-				return "null";
-			};
-			return "\"" . addslashes($value_) . "\"";
-		} else if ($type_ == "date") {
-			if (is_null($value_)) {
-				return "null";
-			};
-			if ($value_ == "NOW") {
-				return "\"NOW\"";
-			};
-			return "\"" . addslashes($value_) . "\"";
-		} else if ($type_ == "datetime") {
-			if (is_null($value_)) {
-				return "null";
-			};
-			if ($value_ == "NOW") {
-				return "\"NOW\"";
-			};
-			return "\"" . addslashes($value_) . "\"";
-		};
-		return null;
-	}
-
 	function safeDefaultEmptyValue($type_) {
-		if (($this->fieldType_[$type_] == "int")||
-			($this->fieldType_[$type_] == "bigint")) {
+		if (($this->fieldType_[$type_] == "int")||($this->fieldType_[$type_] == "bigint")) {
 			return 0;
 		} else {
 			return null;
@@ -278,26 +235,36 @@ class xyo_mod_datasource_sqlite_Connection {
 	}
 
 	function queryValue($query, $default_=null) {
-		$result = $this->querySingle($query);
+		$result = $this->query($query);
 		if ($result) {
-			return $result;
+			$data = $result->fetch_row();
+			if ($data) {
+				return $data[0];
+			};
 		};
 		return $default_;
 	}
 
 	function queryValueDefaultDirect($query, $default_) {
-		$result = $this->sqliteQuerySingle_($query);
+		if ($this->forceUse) {
+			$this->useDb();
+		}
+		$result = $this->mysqlQuery_($query);
 		if (!$result) {
 			$this->debug2($query);
 			return $default_;
 		};
-		return $result;
+		$data = $result->fetch_row();
+		if ($data) {
+			return $data[0];
+		};
+		return $default_;
 	}
 
 	function queryAssoc($query) {
 		$result = $this->query($query);
 		if ($result) {
-			$data = $result->fetchArray(SQLITE3_ASSOC);
+			$data = $result->fetch_assoc();
 			if ($data) {
 				return $data;
 			};
@@ -316,7 +283,7 @@ class xyo_mod_datasource_sqlite_Connection {
 				$table = $this->module->getDataSourceParameter($this->name . ".table." . $match);
 				if ($table) {
 					$replaceSource[] = "#(`" . $match . "`)";
-					$replaceDestination[] = $table;
+					$replaceDestination[] = "`" . $table . "`";
 				} else {
 					$allOk = false;
 					break;
@@ -358,11 +325,11 @@ class xyo_mod_datasource_sqlite_Connection {
 	}
 
 	function safeValue($value) {
-		return SQLite3::escapeString($value);
+		return $this->db->real_escape_string($value);
 	}
 
 	function safeLikeValue($value) {
-		return SQLite3::escapeString($value);
+		return addcslashes($this->db->real_escape_string ($value), "%_");
 	}
 
 }

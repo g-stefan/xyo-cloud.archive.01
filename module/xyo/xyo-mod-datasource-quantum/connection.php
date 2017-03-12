@@ -26,4 +26,6 @@ class xyo_mod_datasource_quantum_Connection {
 
 	}
 
-};
+}
+
+

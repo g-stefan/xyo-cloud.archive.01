@@ -648,10 +648,12 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function processComponent($name,$parameters=null) {
-		$this->redirectComponent=$name;
-		$this->redirectComponentParameters=$parameters;
+		if(is_null($this->redirectComponent)){
+			$this->redirectComponent=$name;		
+			$this->redirectComponentParameters=$parameters;
+		};
 		while($this->redirectComponent) {
-			$this->component_=$this->redirectComponent;
+			$this->component=$this->redirectComponent;
 			$parameters_=$this->redirectComponentParameters;
 			$this->redirectComponent=null;
 			$this->redirectComponentParameters=null;

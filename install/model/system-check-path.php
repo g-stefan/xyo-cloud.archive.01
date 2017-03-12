@@ -16,8 +16,7 @@ $path = array(
     "module" => "module",
     "language" => "language",
     "datasource" => "datasource",
-    "form" => "form",
-    "widget" => "widget",
+    "element" => "element",    
     "log" => "log",
     "temp" => "temp"
 );

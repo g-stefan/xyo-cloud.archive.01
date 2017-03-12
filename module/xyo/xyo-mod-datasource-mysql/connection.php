@@ -334,5 +334,3 @@ class xyo_mod_datasource_mysql_Connection {
 
 }
 
-;
-

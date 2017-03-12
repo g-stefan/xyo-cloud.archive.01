@@ -72,7 +72,7 @@ class xyo_mod_Language extends xyo_Module {
     }
 
     public function isLanguageType($type) {
-        return $this->language->isLanguageType();
+        return $this->language->isLanguageType($type);
     }
 
 }

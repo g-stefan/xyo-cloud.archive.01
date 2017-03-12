@@ -19,8 +19,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 	protected $accessControlList;
 
 	protected $applicationDataSource;
-	protected $applicationFormElementCache_;
-	protected $applicationWidgetCache_;
+	protected $applicationElementCache_;
 
 	protected $ds;
 	protected $isNew;
@@ -54,8 +53,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 			$this->primaryKey = "_unknown_";
 			$this->applicationDataSource=null;
 
-			$this->applicationFormElementCache_=array();
-			$this->applicationWidgetCache_=array();
+			$this->applicationElementCache_=array();
 
 			$this->fnCallId_=0;
 		}
@@ -150,16 +148,16 @@ class xyo_mod_Application extends xyo_mod_Language {
 	public function requireElement($element) {
 		$scan=array();
 		foreach($element as $value) {
-			if(array_key_exists($value,$this->applicationFormElementCache_)) {
+			if(array_key_exists($value,$this->applicationElementCache_)) {
 			} else {
 				$scan[]=$value;
 			};
 		};
 		if(count($scan)) {
 			foreach($scan as $formElement) {
-				$this->language->includeFile("form/language/".strtolower($this->getSystemLanguage())."/".$formElement.".php");
-				$this->processViewX($formElement,"-require","form");
-				$this->applicationFormElementCache_[$formElement]=true;
+				$this->language->includeFile("element/language/".strtolower($this->getSystemLanguage())."/".$formElement.".php");
+				$this->processViewX($formElement,".require","element");
+				$this->applicationElementCache_[$formElement]=true;
 			};
 		};
 	}
@@ -169,8 +167,8 @@ class xyo_mod_Application extends xyo_mod_Language {
 		} else {
 			$arguments=array();
 		};
-		if(array_key_exists($elType,$this->applicationFormElementCache_)) {
-			$this->processViewX($elType,"-process","form",array_merge($arguments,array("element" => $elName)));
+		if(array_key_exists($elType,$this->applicationElementCache_)) {
+			$this->processViewX($elType,".process","element",array_merge($arguments,array("element" => $elName)));
 		};
 	}
 
@@ -179,34 +177,8 @@ class xyo_mod_Application extends xyo_mod_Language {
 		} else {
 			$arguments=array();
 		};
-		if(array_key_exists($elType,$this->applicationFormElementCache_)) {
-			if($this->processViewX($elType,"","form",array_merge($arguments,array("element" => $elName)))) {
-				return true;
-			};
-		};
-		return false;
-	}
-
-	public function requireWidget($widget) {
-		$scan=array();
-		foreach($widget as $value) {
-			if(array_key_exists($value,$this->applicationWidgetCache_)) {
-			} else {
-				$scan[]=$value;
-			};
-		};
-		if(count($scan)) {
-			foreach($scan as $widget_) {
-				$this->language->includeFile("widget/language/".strtolower($this->getSystemLanguage())."/".$widget_.".php");
-				$this->processViewX($plugin_,"-require","widget");
-				$this->applicationWidgetCache_[$plugin_]=true;
-			};
-		};
-	}
-
-	public function generateWidget($widget,$parameters=null) {
-		if(array_key_exists($widget,$this->applicationWidgetCache_)) {
-			if($this->processViewX($widget,"","widget",$parameters)) {
+		if(array_key_exists($elType,$this->applicationElementCache_)) {
+			if($this->processViewX($elType,"","element",array_merge($arguments,array("element" => $elName)))) {
 				return true;
 			};
 		};
