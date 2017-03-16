@@ -19,8 +19,12 @@ $select_info = $this->tableSelectInfo;
 $search_value = array();
 foreach ($this->tableSearch as $key => $value) {
     if ($value) {
-		$search_value[$key] = trim($this->getRequest("search_" . $key, null));
-        $search_reset = 1*$this->getRequest("search_reset_" . $key , null);
+	$search_value[$key] = trim($this->getRequest("search_" . $key,null));
+	$search_reset_=$this->getRequest("search_reset_" . $key , 0);
+	if(strlen("".$search_reset_)==0){
+		$search_reset_=0;
+	};
+	$search_reset = 1*$search_reset_;
         if ($search_reset == 1) {
             $search_value[$key] = "";
         }
