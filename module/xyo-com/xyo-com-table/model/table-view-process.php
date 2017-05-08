@@ -247,10 +247,11 @@ foreach($this->tableType as $key_=>$value_){
 		if($this->dialogEdit_){
 			//
 		}else{
-			$this->tableType[$key_]=array("action",array(
+			$this->tableType[$key_]=array_merge(array("action",array(
 				"action" => "form-edit",
 				"primary_key_value" => array($this->primaryKey)
-			));		
+			)),array_slice($this->tableType[$key_],1));
+
 		};
 	};
 };

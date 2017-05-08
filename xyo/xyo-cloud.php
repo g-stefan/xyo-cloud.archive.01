@@ -722,6 +722,34 @@ class xyo_Cloud extends xyo_Config {
 	public function initRequest(){
 		$this->isAjax=1*$this->request->get("ajax",0);
 		$this->isJSON=1*$this->request->get("json",0);
+
+		$redirect=$this->request->get("__","");
+		if(strlen($redirect)>0){
+			$redirectList=explode("/",$redirect);
+			if(count($redirectList)>0){
+				//  /run/[module-name]
+				if($redirectList[0]=="run"){
+					if(count($redirectList)>1){
+						$this->request->set("run",$redirectList[1]);
+					};
+				};
+				// /core/run/[module-name]
+				foreach($this->get("core_list",array()) as $key=>$value){
+					if($key==$redirectList[0]){
+						$this->set("core",$key);
+						if(count($redirectList)>1){
+							if($redirectList[1]=="run"){
+								if(count($redirectList)>2){
+									$this->request->set("run",$redirectList[2]);
+								};								
+							};
+						};
+						break;
+					};
+				};
+			};
+		};
+
 	}
 
 	public function pushRequest($request) {
@@ -848,7 +876,7 @@ class xyo_Cloud extends xyo_Config {
 		$this->requestBuilder=$requestBuilder;
 	}
 
-	public function requestUriRoute($requestMain=null,$parameters=null) {
+	public function requestUriRoute($requestMain=null,$parameters=null) {		
 
 		if ($this->requestBuilder) {
 			return $this->requestBuilder->systemRequestUriRoute($requestMain,$parameters);
@@ -866,7 +894,8 @@ class xyo_Cloud extends xyo_Config {
 			};
 		};
 
-		if($this->get("use_redirect",false)){
+		$redirect=$this->getRequest("__","");
+		if((strlen($redirect)>0)||$this->get("use_redirect",false)){
 			if(strlen($core)>0){
 				if ($parameters) {
 					$retV=$this->cloud->get("site","");
@@ -921,13 +950,14 @@ class xyo_Cloud extends xyo_Config {
 		};
 		$site=$this->get("site","");
 		if(strlen($site)==0){
-			$site=$_SERVER['REQUEST_URI'];
+			$site=$_SERVER["REQUEST_URI"];
 			$x=@strrpos($site,"/",-1);
 			if($x===false){
 			}else
 			if($x>=0){
-				$useRedirect=$this->get("use_redirect",false);
-				if($useRedirect){
+				$redirect=$this->getRequest("__","");
+				if((strlen($redirect)>0)||$this->get("use_redirect",false)){
+
 					$found=false;
                        			$site=substr($site,0,$x+1);
 					foreach($this->get("core_list",array()) as $key=>$value){
@@ -1168,6 +1198,11 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function main() {
+		
+		$coreList=array_flip($this->get("core_list",array()));
+		$coreList[$this->get("request_main","index.php")]=$this->get("core","public");
+		$this->set("core_list",array_flip($coreList));
+
 		$this->initRequest();
 		$this->includeConfig("xyo-cloud");
 

@@ -26,6 +26,7 @@ class xyo_com_Table extends xyo_com_Application {
 //---
 	protected $viewKey;
 	protected $viewId;
+	protected $viewValue;
 
 //---
 	protected $tableIsDelete;

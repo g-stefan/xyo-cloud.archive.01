@@ -335,9 +335,10 @@ function doValueSave(key){
 	                        	echo "<input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" />";
 				}else{
 					echo "&#160;";
-				};
+				};				
                     } else
                     if (array_key_exists($key_, $this->tableType)) {
+
 			if($this->tableType[$key_][0]=="toggle"){
 
                        		$img = 0;
@@ -481,7 +482,55 @@ function doValueSave(key){
 					echo $value[$key_];
 				};				
 			}else
+			if($this->tableType[$key_][0]=="datetime"){
+				if(count($this->tableType[$key_])>0){
+					$format=$this->tableType[$key_][1];
+				}else{
+					$format=$this->cloud->$this->cloud->get("locale_date_format","");
+				};
+				if($format=="Y-m-d"){
+					echo substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+				}else
+				if($format=="Y/m/d"){
+					echo substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+				}else
+				if($format=="d-m-Y"){
+					echo substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+				}else
+				if($format=="d/m/Y"){
+					echo substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+				}else{
+					echo $value[$key_];
+				};				
+			}else
 			if($this->tableType[$key_][0]=="action"){
+                                $valueX=$value[$key_];
+
+				if(count($this->tableType[$key_])>=3){
+					if($this->tableType[$key_][2]=="datetime"){
+						if(count($this->tableType[$key_])>=4){
+							$format=$this->tableType[$key_][3];
+						}else{
+							$format=$this->cloud->$this->cloud->get("locale_date_format","");
+						};
+						if($format=="Y-m-d"){
+							$valueX=substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+						}else
+						if($format=="Y/m/d"){
+							$valueX=substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+						}else
+						if($format=="d-m-Y"){
+							$valueX=substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+						}else
+						if($format=="d/m/Y"){
+							$valueX=substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+						}else{
+							//
+						};				
+					};
+				};
+
+
 				if($value["@write"]){
 					$parameters = array();
 					$p = "{";
@@ -505,21 +554,47 @@ function doValueSave(key){
 							}
                         		}
 					$p .= "}";
-		                        echo "<a href=\"".$this->requestUriThis($parameters)."\" onclick=\"javascript:callActionLink_".$key_."(".$p.");return false;\">" . $value[$key_] . "</a>";
+		                        echo "<a href=\"".$this->requestUriThis($parameters)."\" onclick=\"javascript:callActionLink_".$key_."(".$p.");return false;\">" . $valueX . "</a>";
 				}else{
-					echo $value[$key_];
+					echo $valueX;
 				};				
 			}else
 			if($this->tableType[$key_][0]=="cmd-edit"){
+			        $valueX=$value[$key_];
+				if(count($this->tableType[$key_])>=2){
+					if($this->tableType[$key_][1]=="datetime"){
+						if(count($this->tableType[$key_])>=3){
+							$format=$this->tableType[$key_][2];
+						}else{
+							$format=$this->cloud->$this->cloud->get("locale_date_format","");
+						};
+						if($format=="Y-m-d"){
+							$valueX=substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+						}else
+						if($format=="Y/m/d"){
+							$valueX=substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+						}else
+						if($format=="d-m-Y"){
+							$valueX=substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+						}else
+						if($format=="d/m/Y"){
+							$valueX=substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+						}else{
+							//
+						};				
+					};
+				};
+
 				if($value["@write"]){
-		                        echo "<a href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"javascript:cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $value[$key_] . "</a>";
+		                        echo "<a href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"javascript:cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $valueX . "</a>";
 				}else{
-					echo $value[$key_];
-				};				
+					echo $valueX;
+				};
 			}else
 			if($this->tableType[$key_][0]=="custom"){
 					$this->viewKey=$key_;
 					$this->viewId=$key;
+					$this->viewValue=$value[$key_];
 					if(is_array($this->tableType[$key_][1])){
 						call_user_func_array($this->tableType[$key_][1][0],$this->tableType[$key_][1][1]);
 					}else{
