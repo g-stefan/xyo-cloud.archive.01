@@ -15,7 +15,7 @@ $this->tableHead = array(
     "logged_in" => "head_logged_in",
     "logged_on" => "head_logged_on",
     "created_on" => "head_created_on",
-	"invisible" => "head_invisible",
+    "invisible" => "head_invisible",
     "enabled" => "head_enabled",
     "id" => "head_id"
 );

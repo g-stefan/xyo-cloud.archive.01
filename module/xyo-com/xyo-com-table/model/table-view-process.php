@@ -16,22 +16,32 @@ $select_info = $this->tableSelectInfo;
 //
 // Action
 //
-$search_value = array();
+
+$has_search=false;
 foreach ($this->tableSearch as $key => $value) {
     if ($value) {
-	$search_value[$key] = trim($this->getRequest("search_" . $key,null));
-	$search_reset_=$this->getRequest("search_reset_" . $key , 0);
+	$has_search=true;
+    };
+};
+
+$search_value = "";
+if($has_search){
+	$search_value = trim($this->getRequest("search",""));
+	$search_reset_= $this->getRequest("search_reset",0);
 	if(strlen("".$search_reset_)==0){
 		$search_reset_=0;
 	};
 	$search_reset = 1*$search_reset_;
         if ($search_reset == 1) {
-            $search_value[$key] = "";
+            $search_value = "";
+	    $has_search = false;
         }
-    }else{
-		$search_value[$key]=null;
-	}
 };
+$search_value=trim($search_value);
+if(strlen($search_value)==0){
+	$has_search = false;
+};
+
 $select_value = array();
 foreach ($this->tableSelect as $key => $value) {
 	if ($value) {
@@ -118,13 +128,24 @@ $select_value["count"] = $count;
 $this->ds = &$this->getDataSource($this->applicationDataSource);
 if ($this->ds) {
     $this->ds->clear();
-    foreach ($this->tableSearch as $key => $value) {
-        if ($value) {
-            if (strlen($search_value[$key])) {
-				$this->ds->pushOperator("and");
-                $this->ds->setOperator($key, "like",$search_value[$key]);
-            }
+    if($has_search){
+    	$this->ds->pushOperator("and");
+	if(count($this->tableSearch)>1){
+    		$this->ds->pushOperator("(");
+	};
+	$orOp=false;
+	foreach ($this->tableSearch as $key => $value) {
+        	if ($value) {
+			if($orOp){
+			    	$this->ds->pushOperator("or");
+			};
+			$this->ds->setOperator($key, "like",$search_value);
+			$orOp=true;
+            	}
         }
+	if(count($this->tableSearch)>1){
+    		$this->ds->pushOperator(")");
+	};
     }
     foreach ($this->tableSelect as $key => $value) {
         if ($value) {

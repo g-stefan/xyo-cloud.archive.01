@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->language->includeFile("model/language/".strtolower($this->getSystemLanguage())."/select-enabled-edit.php");
+$this->loadLanguageModelX("select-enabled-edit");
 
 $select = array(
     "1" => $this->getFromLanguage("select_enabled_enabled"),

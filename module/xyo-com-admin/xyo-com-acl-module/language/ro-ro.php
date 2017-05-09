@@ -21,8 +21,6 @@ $this->set("select_xyo_core_any","- baza sistem -");
 $this->set("select_xyo_user_group_any","- grup utilizator -");
 $this->set("select_xyo_module_group_any","- grup modul -");
 
-$this->set("search_module_name","Modul");
-
 $this->set("label_id_xyo_module","Modul");
 $this->set("select_xyo_module_any","- modul -");
 $this->set("label_id_xyo_module_group","Grup modul");

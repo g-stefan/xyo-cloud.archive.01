@@ -49,6 +49,7 @@ $this->set("form_title_delete","Sterge");
 $this->set("label_button_delete","Sterge");
 $this->set("delete_this_and_many_more","... si mai multe");
 
-$this->set("label_button_new","Apply");
-$this->set("label_button_edit","Apply");
+$this->set("label_button_new","Aplica");
+$this->set("label_button_edit","Aplica");
 
+$this->set("search", "Cauta");

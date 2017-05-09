@@ -15,8 +15,6 @@ $this->set("head_description", "Descriere");
 $this->set("head_enabled", "Activat");
 $this->set("head_id", "Id");
 
-$this->set("search_name", "Nume");
-
 $this->set("label_name", "Nume");
 $this->set("label_description", "Descriere");
 $this->set("label_enabled", "Activat");

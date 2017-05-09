@@ -17,8 +17,6 @@ $this->set("head_default", "Default");
 $this->set("head_enabled", "Enabled");
 $this->set("head_id", "Id");
 
-$this->set("search_name", "Name");
-
 $this->set("label_name", "Name");
 $this->set("label_description", "Description");
 $this->set("label_default", "Default");

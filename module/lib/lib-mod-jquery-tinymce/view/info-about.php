@@ -14,7 +14,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 </p>
 <div style="overflow:hidden;display:block;height:4px;"></div>
 <pre>
-tinymce 4.1.3 jquery
+tinymce 4.6.0 jquery
 
 http://www.tinymce.com/
 

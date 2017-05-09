@@ -23,8 +23,6 @@ $this->set("select_xyo_core_any","- core -");
 $this->set("select_xyo_user_group_any","- user group -");
 $this->set("select_xyo_module_group_any","- module group -");
 
-$this->set("search_module_name","Module");
-
 $this->set("label_id_xyo_module","Module");
 $this->set("select_xyo_module_any","- module -");
 $this->set("label_id_xyo_module_group","Module group");

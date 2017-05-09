@@ -14,7 +14,6 @@ $path = array(
     "repository" => "repository",
     "package" => "package",
     "module" => "module",
-    "language" => "language",
     "datasource" => "datasource",
     "element" => "element",    
     "log" => "log",

@@ -16,9 +16,6 @@ $this->set("head_principal", "Principal");
 $this->set("head_enabled", "Activat");
 $this->set("head_id", "Id");
 
-$this->set("search_name", "Utilizator");
-$this->set("search_user_group","Grup");
-
 $this->set("select_xyo_user_any", "- utilizator -");
 $this->set("select_xyo_user_group_any", "- grup utilizator -");
 

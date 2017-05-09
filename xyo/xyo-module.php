@@ -1189,10 +1189,6 @@ class xyo_Module extends xyo_Config {
 	}
 
 	public function processModelX($name,$arguments=null) {
-		$retV=$this->processModel($name,$arguments);
-		if($retV){
-			return $retV;
-		};
 
 		$this->pushArguments();
 		$this->arguments=$arguments;
@@ -1206,14 +1202,9 @@ class xyo_Module extends xyo_Config {
 			return true;
 		};
 
-		$file = "model/".$name.".php";
-		if($this->includeFile($file)) {
-			$this->popArguments();
-			return true;
-		};
-
 		$this->popArguments();
-		return false;
+
+		return $this->processModel($name,$arguments);
 	}
 
 	public function callFromThis($name=null, $arguments=null) {

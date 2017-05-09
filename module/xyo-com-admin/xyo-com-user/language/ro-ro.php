@@ -36,9 +36,6 @@ $this->set("label_id_xyo_language", "Limba implicita");
 $this->set("label_invisible","Invizibil");
 $this->set("label_email","E-Mail");
 
-$this->set("search_username", "Utilizator");
-$this->set("search_name", "Nume");
-
 $this->set("form_edit_user", "Modifica utilizator");
 $this->set("form_title_user", "Utilizator");
 

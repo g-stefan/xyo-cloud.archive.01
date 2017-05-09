@@ -12,7 +12,7 @@ $this->setModuleAsComponent($module);
 $this->setReferenceBase($module, "xyo-com-application");
 $this->setReferenceLink($module, "lib-mod-bootstrap-feedback-left");
 $this->setReferenceLink($module, "lib-mod-bootstrap-select");
-$this->setReferenceLink($module, "lib-mod-fontawesome");
+$this->setReferenceLink($module, "lib-mod-font-awesome");
 $this->setReferenceLink($module, "lib-mod-jquery-stickytableheaders");
 $this->setReferenceLink($module, "lib-mod-bootstrap-dialog");
 $this->setReferenceLink($module, "lib-mod-jquery-form");

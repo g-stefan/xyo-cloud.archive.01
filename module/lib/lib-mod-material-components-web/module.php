@@ -17,13 +17,13 @@ class lib_mod_MaterialComponentsWeb extends xyo_Module {
         if ($this->isBase("lib_mod_MaterialComponentsWeb")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/lib/material-components-web/material-components-web.min.css");
+                $htmlHead->setCss($this->name,$this->site."media/lib/material-components-web/css/material-components-web.min.css");
             } else {
                 $this->moduleDisable();
             };
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/lib/material-components-web/material-components-web.min.js");
+                $htmlFooter->setJs($this->name,$this->site."media/lib/material-components-web/js/material-components-web.min.js");
 		$htmlFooter->jsSource($this->name,"mdc.autoInit();");
             } else {
                 $this->moduleDisable();

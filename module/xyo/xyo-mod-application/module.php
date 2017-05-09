@@ -246,5 +246,9 @@ class xyo_mod_Application extends xyo_mod_Language {
 		return "fn_call_".$this->fnCallId_;
 	}
 
+	public function loadLanguageModelX($name){
+		$this->language->includeFile("model/language/".strtolower($this->getSystemLanguage())."/".$name.".php");
+	}
+
 }
 

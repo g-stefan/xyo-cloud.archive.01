@@ -13,8 +13,15 @@ if(1*$this->getParameterBase("xyo_com_table_compact_view")){
 	$compactView="table-condensed";
 };
 
+$has_search=false;
+foreach ($this->tableSearch as $key => $value) {
+	if ($value) {
+		$has_search=true;
+	};
+};
+
 $select_info = $this->getParameter("select_info", array());
-$search_value = $this->getParameter("search_value", array());
+$search_value = $this->getParameter("search_value", "");
 $select_value = $this->getParameter("select_value", array());
 $nr_items = $this->getParameter("nr_items", 0);
 $count = $this->getParameter("count", 10);
@@ -175,23 +182,21 @@ function doValueSave(key){
 	echo "<div class=\"row-fluid\" style=\"margin-bottom:6px;\">";
 	echo "<div class=\"span6\">";
 	
-        foreach ($this->tableSearch as $key => $value) {
-            if ($value) {
+	if($has_search){
                 ?>
 		    <div class="input-group pull-left" style="width:240px;margin-left:6px;">
                     <input type="text"
-                           value="<?php echo $search_value[$key]; ?>"
-                           name="search_<?php echo $key; ?>"
+                           value="<?php echo $search_value; ?>"
+                           name="search"
                            class="form-control"
                            size="32"
-			   placeholder="<?php $this->eLanguage("search_" . $key); ?>"></input>
+			   placeholder="<?php $this->eLanguage("search"); ?>"></input>
 			<span class="input-group-btn">
-			<button class="btn btn-default" type="submit" name="submit_search_<?php echo $key; ?>" onclick="javascript:$('#submit_search_<?php echo $key; ?>').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="fa fa-search"></i></button>
-			<button class="btn btn-default" type="button" name="search_reset__<?php echo $key; ?>" onclick="javascript:clearSearch(this,'search_<?php echo $key; ?>');"><i class="fa fa-times"></i></button>
+			<button class="btn btn-default" type="submit" name="submit_search" onclick="javascript:$('#submit_search').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="fa fa-search"></i></button>
+			<button class="btn btn-default" type="button" name="search_reset" onclick="javascript:clearSearch(this,'search');"><i class="fa fa-times"></i></button>
 			</span>
-		    </div>		
+		    </div>
                 <?php
-            }
         }
           
 
@@ -684,15 +689,12 @@ function doValueSave(key){
 	};
 
 
-        foreach ($this->tableSearch as $key => $value) {
-            if ($value) {
+	if($has_search){
                 ?>
-                    <input type="hidden" name="submit_search_<?php echo $key; ?>" value="" id="submit_search_<?php echo $key; ?>" />
-                    <input type="hidden" name="search_reset_<?php echo $key; ?>" value="" id="search_reset_<?php echo $key; ?>" />
+                    <input type="hidden" name="submit_search" value="" id="submit_search" />
+                    <input type="hidden" name="search_reset" value="" id="search_reset" />
                 <?php
-            }
-        }
-
+	};
 ?>
 
     <?php

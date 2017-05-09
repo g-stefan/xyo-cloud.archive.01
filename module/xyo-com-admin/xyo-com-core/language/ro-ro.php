@@ -15,7 +15,6 @@ $this->set("head_description","Descriere");
 $this->set("head_default","Implicit");
 $this->set("head_id", "Id");
 
-$this->set("search_name","Nume");
 
 $this->set("el_id_empty", "este gol");
 $this->set("el_name_empty", "este gol");

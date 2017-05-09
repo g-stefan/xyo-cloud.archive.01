@@ -52,3 +52,5 @@ $this->set("delete_this_and_many_more","... and many more");
 
 $this->set("label_button_new","Apply");
 $this->set("label_button_edit","Apply");
+
+$this->set("search", "Search");

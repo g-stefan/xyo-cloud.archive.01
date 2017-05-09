@@ -15,8 +15,6 @@ $this->set("head_description","Description");
 $this->set("head_default","Default");
 $this->set("head_id", "Id");
 
-$this->set("search_name","Name");
-
 $this->set("el_id_empty", "is empty");
 $this->set("el_name_empty", "is empty");
 $this->set("el_name_already_exists","already exists");

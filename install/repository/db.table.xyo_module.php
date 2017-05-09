@@ -50,9 +50,9 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-bootstrap-smartmenus", "xyo-none", null, null, 0, true);
 	$setup->registerModuleAcl("lib-mod-bootstrap-smartmenus", "xyo-info-about", null, null, 0, true);
 
-	$setup->registerModule("lib", null, "lib-mod-fontawesome");
-	$setup->registerModuleAcl("lib-mod-fontawesome", "xyo-none", null, null, 0, true);
-	$setup->registerModuleAcl("lib-mod-fontawesome", "xyo-info-about", null, null, 0, true);
+	$setup->registerModule("lib", null, "lib-mod-font-awesome");
+	$setup->registerModuleAcl("lib-mod-font-awesome", "xyo-none", null, null, 0, true);
+	$setup->registerModuleAcl("lib-mod-font-awesome", "xyo-info-about", null, null, 0, true);
 
 	$setup->registerModule("lib", null, "lib-mod-bootstrap-datepicker");
 	$setup->registerModuleAcl("lib-mod-bootstrap-datepicker", "xyo-none", null, null, 0, true);

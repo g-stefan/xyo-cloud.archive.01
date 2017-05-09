@@ -79,17 +79,17 @@ class xyo_com_Table extends xyo_com_Application {
 			if(strncmp($key,"view_x_sort_v_",14)==0){
 				$this->transferRequest("sort_v_".substr($key,14),"view_x_sort_v_".substr($key,14));
 			}
-			if(strncmp($key,"search_",7)==0){
-				$this->setKeepRequest("view_x_search_".substr($key,7),$value);
+			if(strncmp($key,"search",6)==0){
+				$this->setKeepRequest("view_x_search",$value);
 	        }
-			if(strncmp($key,"view_x_search_",14)==0){
-				$this->transferRequest("search_".substr($key,14),"view_x_search_".substr($key,14));
+			if(strncmp($key,"view_x_search",13)==0){
+				$this->transferRequest("search","view_x_search");
 			}                
-			if(strncmp($key,"search_reset_",13)==0){
-				$this->setKeepRequest("view_x_search_reset_".substr($key,13),$value);
+			if(strncmp($key,"search_reset",12)==0){
+				$this->setKeepRequest("view_x_search_reset",$value);
 	        }
-			if(strncmp($key,"view_x_search_reset_",20)==0){
-				$this->transferRequest("search_reset_".substr($key,20),"view_x_search_reset_".substr($key,20));
+			if(strncmp($key,"view_x_search_reset",19)==0){
+				$this->transferRequest("search_reset","view_x_search_reset");
 			}
 			
 		}

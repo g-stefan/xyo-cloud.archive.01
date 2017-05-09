@@ -15,8 +15,6 @@ $this->set("head_description","Description");
 $this->set("head_element","Element");
 $this->set("head_id","Id");
 
-$this->set("search_name","Name");
-
 $this->set("label_name","Name");
 $this->set("label_parent","Parent");
 $this->set("label_path","Path");

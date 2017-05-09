@@ -20,7 +20,4 @@ $this->set("label_id_xyo_user_group","Grup");
 $this->set("select_xyo_user_group_super_any","- super grup -");
 $this->set("select_xyo_user_group_any","- grup -");
 
-$this->set("search_user_group_super","Super grup");
-$this->set("search_user_group","Grup");
-
 $this->set("select_xyo_user_group_any_edit","- nici unul -");
