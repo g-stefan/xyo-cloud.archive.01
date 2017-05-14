@@ -17,13 +17,13 @@ class lib_mod_Slimbox2 extends xyo_Module {
         if ($this->isBase("lib_mod_Slimbox2")) {
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/sys/css/slimbox2.css");
+                $htmlHead->setCss($this->name,$this->site."media/lib/slimbox2/css/slimbox2.css");
             } else {
                 $this->moduleDisable();
             };
             $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
             if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/sys/js/slimbox2.js");
+                $htmlFooter->setJs($this->name,$this->site."media/lib/slimbox2/js/slimbox2.js");
             } else {
                 $this->moduleDisable();
             };
