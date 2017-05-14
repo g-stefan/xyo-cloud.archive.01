@@ -241,7 +241,7 @@ class xyo_Module extends xyo_Config {
 	}
 
 	public function getElementId($name, $postfix=null) {
-		return $this->formNameV . $name . ($postfix ? "_" . $postfix : "");
+		return $this->formNameV . $this->elementPrefixV . $name . ($postfix ? "_" . $postfix : "");
 	}
 
 	public function eElementId($name, $postfix=null) {
