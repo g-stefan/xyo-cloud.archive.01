@@ -1,18 +1,11 @@
-/*
+<?php
 //
 // Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
-*/
 
-.xyo-form-box{
-	width: 32em;
-	margin-left: 1em;
-}
+defined('XYO_CLOUD') or die('Access is denied');
 
-.xyo-form-box-panel{
-	width: 30em;
-	margin-left: 1em;
-}
+$this->setHtmlHeadCss($this->site."media/sys/css/xyo-form-box.css");
