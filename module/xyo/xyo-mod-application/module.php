@@ -155,8 +155,16 @@ class xyo_mod_Application extends xyo_mod_Language {
 		};
 		if(count($scan)) {
 			foreach($scan as $formElement) {
+				$elementCategory=explode(".",$formElement);
+				if(count($elementCategory)>1){
+					$this->language->includeFile("element/".$elementCategory[0]."/language/".strtolower($this->getSystemLanguage())."/".$elementCategory[1].".php");
+					$this->processElementX($elementCategory[0]."/",".require");
+					$this->processElementX(str_replace(".","/",$formElement),".require");
+					$this->applicationElementCache_[$formElement]=true;					
+					return;
+				};
 				$this->language->includeFile("element/language/".strtolower($this->getSystemLanguage())."/".$formElement.".php");
-				$this->processViewX($formElement,".require","element");
+				$this->processElementX($formElement,".require");
 				$this->applicationElementCache_[$formElement]=true;
 			};
 		};
@@ -168,7 +176,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 			$arguments=array();
 		};
 		if(array_key_exists($elType,$this->applicationElementCache_)) {
-			$this->processViewX($elType,".process","element",array_merge($arguments,array("element" => $elName)));
+			$this->processElementX(str_replace(".","/",$elType),".process",array_merge($arguments,array("element" => $elName)));
 		};
 	}
 
@@ -178,7 +186,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 			$arguments=array();
 		};
 		if(array_key_exists($elType,$this->applicationElementCache_)) {
-			if($this->processViewX($elType,"","element",array_merge($arguments,array("element" => $elName)))) {
+			if($this->processElementX(str_replace(".","/",$elType),"",array_merge($arguments,array("element" => $elName)))) {
 				return true;
 			};
 		};
@@ -246,9 +254,35 @@ class xyo_mod_Application extends xyo_mod_Language {
 		return "fn_call_".$this->fnCallId_;
 	}
 
-	public function loadLanguageModelX($name){
-		$this->language->includeFile("model/language/".strtolower($this->getSystemLanguage())."/".$name.".php");
+	public function processElementX($name,$suffix,$arguments=null) {
+		$this->moduleCallList[]=$this->name;
+		$this->pushArguments();
+		$this->arguments=$arguments;
+		if(is_null($this->arguments)){
+			$this->arguments=array();
+		};
+
+		$this->viewPath=$this->cloud->getTemplatePath() . "sys/element/";
+		$file=$this->viewPath.$name.$suffix.".php";
+		if($this->includeFile($file)) {
+			$this->popArguments();
+			array_pop($this->moduleCallList);
+			return true;
+		};
+
+		$this->viewPath="element/";
+		$file=$this->viewPath.$name.$suffix.".php";
+		if($this->includeFile($file)) {
+			$this->popArguments();
+			array_pop($this->moduleCallList);
+			return true;
+		};
+
+		$this->popArguments();
+		array_pop($this->moduleCallList);
+		return false;
 	}
+
 
 }
 

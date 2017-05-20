@@ -1139,55 +1139,6 @@ class xyo_Module extends xyo_Config {
 		return false;
 	}
 
-	public function processViewX($name,$suffix,$path,$arguments=null) {
-		$this->moduleCallList[]=$this->name;
-		$this->pushArguments();
-		$this->arguments=$arguments;
-		if(is_null($this->arguments)){
-			$this->arguments=array();
-		};
-
-		$this->viewPath=$this->cloud->getTemplatePath() . "view/".$path."/";
-		$file=$this->viewPath.$name.$suffix.".php";
-		if($this->includeFile($file)) {
-			$this->popArguments();
-			array_pop($this->moduleCallList);
-			return true;
-		};
-
-		$this->viewPath=$path."/";
-		$file=$this->viewPath.$name.$suffix.".php";
-		if($this->includeFile($file)) {
-			$this->popArguments();
-			array_pop($this->moduleCallList);
-			return true;
-		};
-
-		$this->viewPath=$this->cloud->getTemplatePath() . "sys/view/".$this->name."/".$path."/";
-		$file=$this->viewPath.$name.$suffix.".php";
-		if($this->includeFile($file)) {
-			$this->popArguments();
-			array_pop($this->moduleCallList_);
-			return true;
-		};
-
-		foreach ($this->modulePathBase as $path) {
-
-			$this->viewPath=$path . "view/".$path."/";
-			$file=$this->viewPath.$name.$suffix.".php";
-			if($this->includeFile($file)) {
-				$this->popArguments();
-				array_pop($this->moduleCallList);
-				return true;
-			};
-
-		};
-
-		$this->popArguments();
-		array_pop($this->moduleCallList);
-		return false;
-	}
-
 	public function processModelX($name,$arguments=null) {
 
 		$this->pushArguments();
@@ -1258,6 +1209,23 @@ class xyo_Module extends xyo_Config {
 		};
 		return $this->callFromModule($module, "action/".$name, $arguments);
 	}
+
+	//
+	// HTML
+	//
+
+	public function setHTMLClass($class){
+		$this->cloud->setHTMLClass($class);
+	}
+
+	public function removeHTMLClass($class){
+		$this->cloud->removeHTMLClass($class);
+	}
+
+	public function getHTMLClass(){
+		return $this->cloud->getHTMLClass();
+	}
+
 
 	//
 	// Constructor

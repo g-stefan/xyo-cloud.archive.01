@@ -63,4 +63,13 @@ $this->addItem("panel-begin");
 $this->addItem("file-link", "element_file_link1");
 $this->addItem("panel-end");
 
+$this->addItem("row-separator");
+
+$this->addItem("panel-begin",null,null,array("title"=>"material_title"));
+$this->addItem("material.text", "material_text", "", array("required"=>true));
+$this->addItem("panel-end");
+
 $this->addItem("row-end");
+
+
+

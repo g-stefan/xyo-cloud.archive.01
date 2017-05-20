@@ -46,3 +46,7 @@ $this->set("label_element_datetime","Datetime");
 
 $this->set("other_title","Alt titlu");
 $this->set("label_element_time","Timp");
+
+$this->set("material_title","Material");
+$this->set("label_material_text","Text");
+$this->set("required_material_text","Introduceti un text");

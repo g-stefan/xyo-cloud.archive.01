@@ -1083,6 +1083,37 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	//
+	// HTML
+	//
+	
+	protected $htmlClassList;
+
+	public function initHTML(){
+		$this->htmlClassList=array();
+	}
+	
+	public function setHTMLClass($class){
+		$this->htmlClassList[$class]=$class;
+	}
+
+	public function removeHTMLClass($class){
+		if(array_key_exists($class,$this->htmlClassList)){
+			unset($this->htmlClassList[$class]);
+		};
+	}
+
+	public function getHTMLClass(){
+		$retV="";
+		foreach($this->htmlClassList as $class){
+			if(strlen($retV)){
+				$retV.=" ";
+			};
+			$retV.=$class;
+		};
+		return $retV;
+	}
+
+	//
 	// Main
 	//
 
@@ -1109,6 +1140,7 @@ class xyo_Cloud extends xyo_Config {
 		$this->initComponentManager();
 		$this->initRequestManager();		
 		$this->initTemplateManager();
+		$this->initHTML();
 	}
 
 	public function getClientIP() {

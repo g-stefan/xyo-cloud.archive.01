@@ -8,6 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("select_enabled_any", "- activat -");
-$this->set("select_enabled_enabled", "da");
-$this->set("select_enabled_disabled", "nu");
+$this->requireModule("lib-mod-material-components-web");
