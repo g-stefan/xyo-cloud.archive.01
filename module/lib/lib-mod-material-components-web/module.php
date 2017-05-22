@@ -15,7 +15,12 @@ class lib_mod_MaterialComponentsWeb extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_MaterialComponentsWeb")) {
-            $this->setHTMLClass("mdc-typography");
+	    $html = &$cloud->getModule("xyo-mod-html");
+            if ($html) {
+	            $html->setHTMLClass("mdc-typography");
+            } else {
+                $this->moduleDisable();
+            };
             $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
             if ($htmlHead) {
                 $htmlHead->setCss($this->name,$this->site."media/lib/material-components-web/css/material-components-web.min.css");

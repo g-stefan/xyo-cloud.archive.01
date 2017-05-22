@@ -164,6 +164,9 @@ if ($setup) {
 	$setup->registerModule("xyo", null, "xyo-mod-ds-user");
 	$setup->registerModuleAcl("xyo-mod-ds-user", "xyo-none", null, null, 0, true);
 
+	$setup->registerModule("xyo", null, "xyo-mod-html");
+	$setup->registerModuleAcl("xyo-mod-html", "xyo-none", null, null, 0, true);
+
 	$setup->registerModule("xyo", null, "xyo-mod-htmlhead");
 	$setup->registerModuleAcl("xyo-mod-htmlhead", "xyo-none", null, null, 0, true);
 

@@ -1211,23 +1211,6 @@ class xyo_Module extends xyo_Config {
 	}
 
 	//
-	// HTML
-	//
-
-	public function setHTMLClass($class){
-		$this->cloud->setHTMLClass($class);
-	}
-
-	public function removeHTMLClass($class){
-		$this->cloud->removeHTMLClass($class);
-	}
-
-	public function getHTMLClass(){
-		return $this->cloud->getHTMLClass();
-	}
-
-
-	//
 	// Constructor
 	//
 

@@ -14,6 +14,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 
 	protected $user;
 	protected $dataSourceProvider;
+	protected $html;
 	protected $htmlHead;
 	protected $htmlFooter;
 	protected $accessControlList;
@@ -34,6 +35,7 @@ class xyo_mod_Application extends xyo_mod_Language {
 			$this->accessControlList = &$this->cloud->getModule("xyo-mod-ds-acl");
 			$this->user = &$this->cloud->getModule("xyo-mod-ds-user");
 			$this->dataSourceProvider = &$this->cloud->getModule("xyo-mod-datasource");
+			$this->html = &$this->cloud->getModule("xyo-mod-html");
 			$this->htmlHead = &$this->cloud->getModule("xyo-mod-htmlhead");
 			$this->htmlFooter = &$this->cloud->getModule("xyo-mod-htmlfooter");
 
@@ -81,6 +83,18 @@ class xyo_mod_Application extends xyo_mod_Language {
 
 	public function eLanguage($name, $default_=null) {
 		echo $this->language->get($name, $default_);
+	}
+
+	public function setHTMLClass($class){
+		$this->html->setHTMLClass($class);
+	}
+
+	public function removeHTMLClass($class){
+		$this->html->removeHTMLClass($class);
+	}
+
+	public function getHTMLClass(){
+		return $this->html->getHTMLClass();
 	}
 
 	public function setHtmlHeadCss($file) {
