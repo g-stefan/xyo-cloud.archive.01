@@ -738,11 +738,11 @@ class xyo_Module extends xyo_Config {
 	}
 
 	public function ejsBegin() {
-		echo "<script type=\"text/javascript\">//<![CDATA[\n";
+		echo "<script>";
 	}
 
 	public function ejsEnd() {
-		echo "\n//]]></script>";
+		echo "</script>";
 	}
 
 	//

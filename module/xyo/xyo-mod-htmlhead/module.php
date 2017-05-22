@@ -151,7 +151,7 @@ class xyo_mod_HtmlHead extends xyo_Module {
     }
 
     public function emitJs($js) {
-        echo "<script type=\"text/javascript\" src=\"" . $js . "\" ></script>\n";
+        echo "<script src=\"" . $js . "\"></script>\n";
     }
 
     public function emitCss($css) {
@@ -160,7 +160,7 @@ class xyo_mod_HtmlHead extends xyo_Module {
 
     public function emitJsIf($js, $if_) {
         echo "<!--[if " . $x_if . " ]>\n";
-        echo "<script type=\"text/javascript\" src=\"" . $js . "\" ></script>\n";
+        echo "<script src=\"" . $js . "\"></script>\n";
         echo "<![endif]-->\n";
     }
 
