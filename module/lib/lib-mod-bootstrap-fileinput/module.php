@@ -15,18 +15,8 @@ class lib_mod_BootstrapFileInput extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_BootstrapFileInput")) {
-            $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
-            if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/sys/css/fileinput.min.css");
-            } else {
-                $this->moduleDisable();
-            };
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/sys/js/fileinput.min.js");
-            } else {
-                $this->moduleDisable();
-            };
+		$this->setHtmlCss($this->site."media/sys/css/fileinput.min.css");
+		$this->setHtmlJs($this->site."media/sys/js/fileinput.min.js");
         }
     }
 

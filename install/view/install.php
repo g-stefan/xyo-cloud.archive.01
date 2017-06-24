@@ -34,7 +34,7 @@ foreach ($selectDatasource as $key => $value) {
 <?php if($allOk){ ?>
 	<?php $this->generateViewLanguage("msg-install-ok"); ?>
 <?php }else{
-		if ($this->isError("error")) {
+		if ($this->isError()) {
              		$this->generateView("msg-error");
                 }
 

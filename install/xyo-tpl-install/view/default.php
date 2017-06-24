@@ -8,15 +8,16 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-echo "<" . "?" . "xml version=\"1.0\" encoding=\"UTF-8\"" . "?" . ">\n";
-
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <?php $this->generateHtmlHead(); ?>
-    </head>
+?><!DOCTYPE html>
+<html<?php $this->eHtmlLanguage(); $this->eHtmlClass();?>>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<?php $this->eHtmlTitle(); ?>
+		<?php $this->eHtmlDescription(); ?>
+		<?php $this->eHtmlCss(); ?>
+	</head>
     <body>
 	<div style="margin-top: 9px;">
 		<div class="container">
@@ -33,7 +34,7 @@ echo "<" . "?" . "xml version=\"1.0\" encoding=\"UTF-8\"" . "?" . ">\n";
 	            </span>
 		</div>
 		<div class="panel-body">
-        		<?php $this->generateComponentView(); ?>
+        		<?php $this->generateApplicationView(); ?>
 		</div>
 		<div class="panel-footer">
         	    <span class="pull-right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2014&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
@@ -46,6 +47,6 @@ echo "<" . "?" . "xml version=\"1.0\" encoding=\"UTF-8\"" . "?" . ">\n";
 			</div>	
 		</div>
 	</div>
-        <?php $this->generateHtmlFooter(); ?>
+        <?php $this->eHtmlScript(); ?>
     </body>
 </html>

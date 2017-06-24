@@ -15,19 +15,9 @@ class lib_mod_BootstrapSmartMenus extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_BootstrapSmartMenus")) {
-            $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
-            if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/sys/css/jquery.smartmenus.bootstrap.css");
-            } else {
-                $this->moduleDisable();
-            };
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/sys/js/jquery.smartmenus.js");
-                $htmlFooter->setJs($this->name,$this->site."media/sys/js/jquery.smartmenus.bootstrap.js");
-            } else {
-                $this->moduleDisable();
-            };
+		$this->setHtmlCss($this->site."media/sys/css/jquery.smartmenus.bootstrap.css");
+		$this->setHtmlJs($this->site."media/sys/js/jquery.smartmenus.js");
+		$this->setHtmlJs($this->site."media/sys/js/jquery.smartmenus.bootstrap.js");
         }
     }
 }

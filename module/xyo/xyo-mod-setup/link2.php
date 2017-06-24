@@ -45,7 +45,7 @@ class xyo_mod_setup_Link2 {
 
 	}
 
-	function setModuleAsComponent($module,$enabled=true){
+	function setModuleAsApplication($module,$enabled=true){
 
 	}
 
@@ -89,7 +89,7 @@ class xyo_mod_setup_Link2 {
 
 	}
 
-	function setDefaultComponent($name) {
+	function setDefaultApplication($name) {
 
 	}
 

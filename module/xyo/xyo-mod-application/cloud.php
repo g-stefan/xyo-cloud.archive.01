@@ -8,10 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setReferenceLink($module,"xyo-mod-datasource");
 $this->setReferenceLink($module,"xyo-mod-ds-acl");
 $this->setReferenceLink($module,"xyo-mod-ds-user");
-$this->setReferenceLink($module,"xyo-mod-htmlhead");
-$this->setReferenceLink($module,"xyo-mod-htmlfooter");
-$this->setReferenceBase($module,"xyo-mod-language");
 $this->setVersion($module, "3.0.0");

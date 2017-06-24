@@ -8,6 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setReferenceLink($module, "xyo-mod-htmlhead");
 $this->setReferenceLink($module, "lib-mod-jquery");
 $this->setVersion($module, "2.0.0");

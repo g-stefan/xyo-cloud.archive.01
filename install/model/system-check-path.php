@@ -15,7 +15,7 @@ $path = array(
     "package" => "package",
     "module" => "module",
     "datasource" => "datasource",
-    "element" => "element",    
+    "component" => "component",
     "log" => "log",
     "temp" => "temp"
 );

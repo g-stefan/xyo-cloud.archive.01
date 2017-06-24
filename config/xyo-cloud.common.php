@@ -8,12 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-// start up session - cookie only
-ini_set("session.use_cookies", 1);
-ini_set("session.use_trans_sid", 0);
-session_start();
-//
-
 $this->set("version", "4.0.0.0");
 
 //$this->set("log_module",true);
@@ -29,7 +23,7 @@ $this->set("service_key","-put-here-service-key-");
 //
 // some default values just in case
 //
-$this->set("datasource_layer", "xyo-mod-datasource-xyo");
+$this->set("datasource_layer", "xyo-datasource-xyo");
 //
 $this->set("language", "en-GB");
 $this->set("locale", "en-GB");
@@ -59,15 +53,12 @@ $this->setModule(null, null, "xyo", true, null, true, false);
 //
 // datasource 
 //
-$this->setModule("xyo", null, "xyo-mod-ds-db", true, null, true, false);
-$this->setModule("xyo", null, "xyo-mod-datasource", true, null,  true, false);
-$layer = $this->cloud->get("datasource_layer", "xyo-mod-datasource-xyo");
+$layer = $this->cloud->get("datasource_layer", "xyo-datasource-xyo");
 $this->setModule("xyo", null, $layer, true, null, true, false);
 //
 // process settings
 //
-$dataSourceProvider = &$this->getModule("xyo-mod-datasource");
-$dsSettings=&$dataSourceProvider->getDataSource("db.table.xyo_settings");
+$dsSettings=&$this->dataSource->getDataSource("db.table.xyo_settings");
 $dsSettings->clear();
 for($dsSettings->load();$dsSettings->isValid();$dsSettings->loadNext()){
 	$this->set($dsSettings->name,$dsSettings->value);		

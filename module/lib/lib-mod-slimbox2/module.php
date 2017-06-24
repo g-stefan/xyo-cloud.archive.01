@@ -15,18 +15,8 @@ class lib_mod_Slimbox2 extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_Slimbox2")) {
-            $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
-            if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/lib/slimbox2/css/slimbox2.css");
-            } else {
-                $this->moduleDisable();
-            };
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/lib/slimbox2/js/slimbox2.js");
-            } else {
-                $this->moduleDisable();
-            };
+		$this->setHtmlCss($this->site."media/lib/slimbox2/css/slimbox2.css");
+		$this->setHtmlJs($this->site."media/lib/slimbox2/js/slimbox2.js");
         }
     }
 

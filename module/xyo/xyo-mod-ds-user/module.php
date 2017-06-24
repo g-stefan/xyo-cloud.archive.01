@@ -77,14 +77,11 @@ class xyo_mod_ds_User extends xyo_Module {
 	}
 
 	function reloadDataSource() {
-		$modDs = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($modDs) {
-			$this->dsUser = &$modDs->getDataSource("db.table.xyo_user");
-			$this->dsCore = &$modDs->getDataSource("db.table.xyo_core");
-			$this->dsUserXCore = &$modDs->getDataSource("db.table.xyo_user_x_core");
-			$this->dsLanguage = &$modDs->getDataSource("db.table.xyo_language");
-			$this->dsUserGroup = &$modDs->getDataSource("db.table.xyo_user_group");
-		}
+		$this->dsUser = &$this->getDataSource("db.table.xyo_user");
+		$this->dsCore = &$this->getDataSource("db.table.xyo_core");
+		$this->dsUserXCore = &$this->getDataSource("db.table.xyo_user_x_core");
+		$this->dsLanguage = &$this->getDataSource("db.table.xyo_language");
+		$this->dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");	
 	}
 
 	function updateSysAcl() {

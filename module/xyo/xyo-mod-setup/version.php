@@ -59,7 +59,7 @@ class xyo_mod_setup_Version {
 
 	}
 
-	function setModuleAsComponent($module,$enabled=true){
+	function setModuleAsApplication($module,$enabled=true){
 
 	}
 
@@ -103,7 +103,7 @@ class xyo_mod_setup_Version {
 
 	}
 
-	function setDefaultComponent($name) {
+	function setDefaultApplication($name) {
 
 	}
 

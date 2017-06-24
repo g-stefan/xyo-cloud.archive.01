@@ -12,7 +12,7 @@ $configFileName = $this->getParameter("config_file");
 if ($configFileName) {
     
 } else {
-    $this->setError("error", "config_file_invalid");
+    $this->setError("config_file_invalid");
     return;
 }
 
@@ -22,7 +22,7 @@ $moduleDatasourceLayer = &$this->cloud->getModule($layerModule);
 if ($moduleDatasourceLayer) {
     
 } else {
-    $this->setError("error", array("unknown_layer" => $layer));
+    $this->setError(array("unknown_layer" => $layer));
     return;
 };
 
@@ -34,11 +34,11 @@ if ($conDb) {
     if ($conDb->open()) {
         $conDb->close();
     } else {
-        $this->setError("error", array("connection_error" => "db"));
+        $this->setError(array("connection_error" => "db"));
         return;
     }
 } else {
-    $this->setError("error", array("connection_unknown" => "db"));
+    $this->setError(array("connection_unknown" => "db"));
     return;
 }
 
@@ -47,11 +47,22 @@ $setup = &$this->cloud->getModule("xyo-mod-setup");
 if ($setup) {
     
 } else {
-    $this->setError("error", "unable_to_instantiate_setup");
+    $this->setError("unable_to_instantiate_setup");
     return;
 };
 
-$setup->execModuleInstall("xyo-mod-ds-db");
+$setup->registerDataSource("db.table.xyo_settings");
+$setup->registerDataSource("db.table.xyo_core");
+$setup->registerDataSource("db.table.xyo_language");
+$setup->registerDataSource("db.table.xyo_module");
+$setup->registerDataSource("db.table.xyo_module_group");
+$setup->registerDataSource("db.table.xyo_module_parameter");
+$setup->registerDataSource("db.table.xyo_acl_module");
+$setup->registerDataSource("db.table.xyo_user");
+$setup->registerDataSource("db.table.xyo_user_group");
+$setup->registerDataSource("db.table.xyo_user_group_x_user_group");
+$setup->registerDataSource("db.table.xyo_user_x_user_group");
+$setup->registerDataSource("db.table.xyo_user_x_core");
 
 //---
 $order = array();
@@ -77,7 +88,7 @@ include($this->path . "repository/_order.php");
         };
 
 if (!$allOk) {
-    $this->setError("error", "datasource_init");
+    $this->setError("datasource_init");
 };
 
 $this->setParameter("select_datasource", $listDatasource);

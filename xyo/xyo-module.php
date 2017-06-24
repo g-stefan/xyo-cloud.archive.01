@@ -9,7 +9,7 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 class xyo_Module extends xyo_Config {
-	
+
 	//
 	// Parameters Manager
 	//
@@ -17,9 +17,9 @@ class xyo_Module extends xyo_Config {
 	protected $parameters;
 	protected $parametersStack;
 
-	private function initParametersManager(&$moduleObject){
+	private function initParametersManager(&$moduleObject) {
 		$this->parameters=$moduleObject->parameters;
-		if(is_null($this->parameters)){
+		if(is_null($this->parameters)) {
 			$this->parameters=array();
 		};
 		$parametersStack=array();
@@ -60,7 +60,7 @@ class xyo_Module extends xyo_Config {
 	}
 
 	public function copyParameter($name, $otherName) {
-		if(array_key_exists($otherName,$this->parameters)){
+		if(array_key_exists($otherName,$this->parameters)) {
 			$this->parameters[$name] = $this->parameters[$otherName];
 		};
 	}
@@ -71,9 +71,9 @@ class xyo_Module extends xyo_Config {
 		}
 		foreach ($this->modulePathBase as $moduleName => $path) {
 			$module=&$this->getModule($moduleName);
-			if($module->isParameter($name)){
+			if($module->isParameter($name)) {
 				return $module->getParameter($name,$default);
-			};			
+			};
 		};
 		return $default;
 	}
@@ -85,11 +85,11 @@ class xyo_Module extends xyo_Config {
 	//
 	// Arguments Manager
 	//
-	
+
 	protected $arguments;
 	protected $argumentsStack;
 
-	private function initArgumentsManager(){
+	private function initArgumentsManager() {
 		$this->arguments=array();
 		$this->argumentsStack=array();
 	}
@@ -126,38 +126,43 @@ class xyo_Module extends xyo_Config {
 	}
 
 	//
-	// Message
+	// Alert Manager
 	//
 
-	protected $message;
+	protected $alert;
+	protected $alertType;
 
-	private function initMessageManager() {
-		$this->message=array();
+	private function initAlertManager() {
+		$this->alert=null;
+		$this->alertType=null;
 	}
 
-	public function clearMessage() {
-		$this->message = array();
+	public function clearAlert() {
+		$this->alert=null;
+		$this->alertType=null;
 	}
 
-	public function isMessage($name=null) {
-		if ($name) {
-			if (array_key_exists($name, $this->message)) {
-				return true;
-			}
-			return false;
+	public function isAlert() {
+		return !is_null($this->alert);
+	}
+
+	public function getAlert($default=null) {
+		if (!is_null($this->alert)) {
+			return $this->alert;
 		};
-		return (count($this->message) > 0);
-	}
-
-	public function getMessage($name, $default=null) {
-		if (array_key_exists($name, $this->message)) {
-			return $this->message[$name];
-		}
 		return $default;
 	}
 
-	public function setMessage($name, $value) {
-		$this->message[$name] = $value;
+	public function getAlertType($default=null) {
+		if (!is_null($this->alertType)) {
+			return $this->alertType;
+		};
+		return $default;
+	}
+
+	public function setAlert($value,$type=null) {
+		$this->alert=$value;
+		$this->alertType=$type;
 	}
 
 	//
@@ -167,32 +172,96 @@ class xyo_Module extends xyo_Config {
 	protected $error;
 
 	private function initErrorManager() {
-		$this->error=array();
+		$this->error=null;
 	}
 
 	public function clearError() {
-		$this->error = array();
+		$this->error=null;
 	}
 
-	public function isError($name=null) {
-		if ($name) {
-			if (array_key_exists($name, $this->error)) {
-				return true;
-			}
-			return false;
+	public function isError() {
+		return !is_null($this->error);
+	}
+
+	public function getError($default=null) {
+		if (!is_null($this->error)) {
+			return $this->error;
 		};
-		return (count($this->error) > 0);
-	}
-
-	public function getError($name, $default=null) {
-		if (array_key_exists($name, $this->error)) {
-			return $this->error[$name];
-		}
 		return $default;
 	}
 
-	public function setError($name, $value) {
-		$this->error[$name] = $value;
+	public function setError($value) {
+		$this->error=$value;
+	}
+
+	//
+	// Language Manager
+	// ISO Language Codes
+	//
+
+	protected $language;
+
+	private function initLanguageManager() {
+		$this->language=new xyo_Language($this->cloud);
+	}
+
+	function loadLanguage() {
+		$this->loadLanguageDirect($this->cloud->get("language"));
+	}
+
+	function loadLanguageDirect($language_) {
+		$this->language->setLanguage($language_);
+		$language = strtolower($language_);
+		foreach (array_reverse($this->modulePathBase, true) as $module => $path) {
+			$this->language->includeFile($path . "language/" . $language . ".php");
+		}
+	}
+
+	function loadLanguageFromPathDirect($path, $language_) {
+		$language = strtolower($language_);
+		$this->language->setLanguage($language_);
+		$this->language->includeFile($path . $language . ".php");
+	}
+
+	function loadLanguageFromModuleDirect($module, $language_) {
+		$language = strtolower($language_);
+		$path = $this->cloud->getModulePath($module);
+		if ($path) {
+			$this->language->setLanguage($language_);
+			$this->language->includeFile($path . "language/" . $language . ".php");
+		}
+	}
+
+	public function generateViewLanguage($name=null, $parameters=null) {
+		if ($this->generateView(strtolower($this->cloud->get("language")) . "/" . $name, $parameters)) {
+			return true;
+		}
+		return $this->generateView($name, $parameters);
+	}
+
+	public function isLanguage($name) {
+		return $this->language->isLanguage($name);
+	}
+
+	public function getSystemLanguage() {
+		return $this->cloud->get("language");
+	}
+
+	public function getLanguageType() {
+		return $this->language->getLanguageType();
+	}
+
+	public function isLanguageType($type) {
+		return $this->language->isLanguageType($type);
+	}
+
+
+	public function getFromLanguage($name, $default_=null) {
+		return $this->language->get($name, $default_);
+	}
+
+	public function eLanguage($name, $default_=null) {
+		echo $this->language->get($name, $default_);
 	}
 
 	//
@@ -205,9 +274,15 @@ class xyo_Module extends xyo_Config {
 	protected $elementPrefix;
 	protected $elementPrefixV;
 
-	private function initFormManager(){
+	protected $elementAlert;
+	protected $elementAlertType;
+	protected $elementError;
+
+	private function initFormManager() {
 		$this->setFormName("fn");
 		$this->setElementPrefix("e");
+		$this->clearElementAlert();
+		$this->clearElementError();
 	}
 
 	public function setFormName($name) {
@@ -276,107 +351,101 @@ class xyo_Module extends xyo_Config {
 		}
 	}
 
-	public function setElementError($name, $value) {
-		if (array_key_exists($this->elementPrefix, $this->error)) {
-
-		} else {
-			$this->error[$this->elementPrefix] = array();
-		}
-		$this->error[$this->elementPrefix][$name] = $value;
+	public function clearElementAlert($name=null) {
+		if(is_null($name)){
+			$this->elementAlert=array();
+			$this->elementAlertType=array();
+			return;
+		};
+		$this->elementAlert[$this->elementPrefixV . $name]=null;
+		$this->elementAlertType[$this->elementPrefixV . $name]=null;
 	}
 
-	public function getElementError($name, $default=null) {
-		if (array_key_exists($this->elementPrefix, $this->error)) {
-			if (array_key_exists($name, $this->error[$this->elementPrefix])) {
-				return $this->error[$this->elementPrefix][$name];
-			}
-		}
+	public function isElementAlert($name=null) {
+		if(is_null($name)){
+			return count($this->elementAlert)>0;
+		};
+		if(array_key_exists($this->elementPrefixV . $name,$this->elementAlert)){
+			return !is_null($this->elementAlert[$this->elementPrefixV . $name]);
+		};
+		return false;
+	}
+
+	public function setElementAlert($name, $value, $type=null) {
+		$this->elementAlert[$this->elementPrefixV . $name]=$value;
+		$this->elementAlertType[$this->elementPrefixV . $name]=$type;
+	}
+
+	public function getElementAlert($name,$default=null) {
+		if(array_key_exists($this->elementPrefixV . $name,$this->elementAlert)){
+			if(!is_null($this->elementAlert[$this->elementPrefixV . $name])){
+				return $this->elementAlert[$this->elementPrefixV . $name];
+			};
+		};
 		return $default;
 	}
 
-	public function eElementError($name, $default=null) {		
-		echo $this->getElementError($name, $default);
+	public function getElementAlertType($name,$default=null) {
+		if(array_key_exists($this->elementPrefixV . $name,$this->elementAlertType)){
+			if(!is_null($this->elementAlertType[$this->elementPrefixV . $name])){
+				return $this->elementAlertType[$this->elementPrefixV . $name];
+			};
+		};
+		return $default;
+	}
+
+	public function eElementAlert($name, $default=null) {
+		echo $this->getElementAlert($name, $default);
 	}
 
 	public function clearElementError($name=null) {
-		if (array_key_exists($this->elementPrefix, $this->error)) {
-			if ($name) {
-				if (array_key_exists($name, $this->error[$this->elementPrefix])) {
-					unset($this->error[$this->elementPrefix][$name]);
-				}
-			} else {
-				$this->error[$this->elementPrefix] = array();
-			}
-		}
+		if(is_null($name)){
+			$this->elementError=array();
+			if($this->isError()){
+				if($this->getError()==="element"){
+					$this->clearError();
+				};
+			};
+			return;
+		};
+		$this->elementError[$this->elementPrefixV . $name]=null;
 	}
 
 	public function isElementError($name=null) {
-		if (array_key_exists($this->elementPrefix, $this->error)) {
-			if ($name) {
-				if (array_key_exists($name, $this->error[$this->elementPrefix])) {
-					return true;
-				}
-			} else {
-				return (count($this->error[$this->elementPrefix]) > 0);
-			}
-		}
+		if(is_null($name)){
+			return count($this->elementError)>0;
+		};
+		if(array_key_exists($this->elementPrefixV . $name,$this->elementError)){
+			return !is_null($this->elementError[$this->elementPrefixV . $name]);
+		};
 		return false;
 	}
 
-	public function setElementMessage($name, $value) {
-		if (array_key_exists($this->elementPrefix, $this->message)) {
-
-		} else {
-			$this->message[$this->elementPrefix] = array();
-		}
-		$this->message[$this->elementPrefix][$name] = $value;
+	public function setElementError($name, $value) {
+		$this->elementError[$this->elementPrefixV . $name]=$value;
+		$this->setError("element");
 	}
 
-	public function getElementMessage($name, $default=null) {
-		if (array_key_exists($this->elementPrefix, $this->message)) {
-			if (array_key_exists($name, $this->message[$this->elementPrefix])) {
-				return $this->message[$this->elementPrefix][$name];
-			}
-		}
+	public function getElementError($name,$default=null) {
+		if(array_key_exists($this->elementPrefixV . $name,$this->elementError)){
+			if(!is_null($this->elementError[$this->elementPrefixV . $name])){
+				return $this->elementError[$this->elementPrefixV . $name];
+			};
+		};
 		return $default;
 	}
 
-	public function eElementMessage($name, $default=null) {
-		echo $this->getElementMessage($name, $default);
-	}
-
-	public function clearElementMessage($name=null) {
-		if (array_key_exists($this->elementPrefix, $this->message)) {
-			if ($name) {
-				if (array_key_exists($name, $this->message[$this->elementPrefix])) {
-					unset($this->message_[$this->elementPrefix][$name]);
-				}
-			} else {
-				$this->message_[$this->elementPrefix] = array();
-			}
-		}
-	}
-
-	public function isElementMessage($name=null) {
-		if (array_key_exists($this->elementPrefix, $this->message)) {
-			if ($name) {
-				if (array_key_exists($name, $this->message[$this->elementPrefix])) {
-					return true;
-				}
-			} else {
-				return (count($this->message[$this->elementPrefix]) > 0);
-			}
-		}
-		return false;
+	public function eElementError($name, $default=null) {
+		echo $this->getElementError($name, $default);
 	}
 
 	public function getElementValueStr($element, $default=null, $size=0) {
 		$retV=$this->getElementValue($element,$default);
 		if(!is_null($retV)) {
-			if($size){
+			if($size) {
 				return substr(trim($retV),0,$size);
 			};
-			return trim($retV);			
+			return trim($retV);
 		}
 		return null;
 	}
@@ -390,7 +459,9 @@ class xyo_Module extends xyo_Config {
 					return 1*$default;
 				}
 			}
-			return 1*$retV;
+			if(is_numeric($retV)) {
+				return 1*$retV;
+			}
 		}
 		return 1*$default;
 	}
@@ -413,7 +484,7 @@ class xyo_Module extends xyo_Config {
 
 	public function eFormBuildRequest($requestDirect) {
 		foreach ($requestDirect as $key => $value) {
-			echo "<input type=\"hidden\" name=\"" . htmlspecialchars($key) . "\" value=\"" . htmlspecialchars($value) . "\" />";
+			echo "<input type=\"hidden\" name=\"" . htmlspecialchars($key) . "\" value=\"" . htmlspecialchars($value) . "\">";
 		}
 	}
 
@@ -423,6 +494,206 @@ class xyo_Module extends xyo_Config {
 
 	public function eFormRequestModule($module, $parameters=null) {
 		$this->eFormBuildRequest($this->cloud->requestModuleDirect($module, $parameters));
+	}
+
+	//
+	// Component Manager
+	//
+
+	protected $componentCache;
+
+	public function initComponentManager() {
+		$this->componentCache=array();
+	}
+
+	public function requireComponent($component) {
+		$scan=array();
+		if(!is_array ($component)) {
+			$component=array($component);
+		};
+		foreach($component as $value) {
+			if(!array_key_exists($value,$this->componentCache)) {
+				$scan[]=$value;
+			};
+		};
+		if(count($scan)) {
+			foreach($scan as $appComponent) {
+				$componentFileName=str_replace(".","/",$appComponent);
+				$index=strrpos($componentFileName,"/");
+				if($index!==false) {
+					$componentName=substr($componentFileName,$index+1);
+					$componentPath=substr($componentFileName,0,$index);
+					$this->language->includeFile("component/".$componentPath."/language/".strtolower($this->getSystemLanguage())."/".$componentName.".php");
+					$this->processComponentX($componentPath."/",".require");
+					$this->processComponentX($componentFileName,".require");
+					$this->componentCache[$appComponent]=true;
+					if(file_exists("component/".$componentFileName.".php")) {
+						continue;
+					};
+					die("FATAL: Required component ".$appComponent." not found.");
+				};
+				$this->language->includeFile("component/language/".strtolower($this->getSystemLanguage())."/".$appComponent.".php");
+				$this->processComponentX($appComponent,".require");
+				$this->componentCache[$appComponent]=true;
+				if(file_exists("component/".$appComponent.".php")) {
+					continue;
+				};
+				die("FATAL: Required component ".$appComponent." not found.");
+			};
+		};
+	}
+
+	public function processComponent($comType,$elName=null,$arguments=null) {
+		if($arguments) {
+		} else {
+			$arguments=array();
+		};
+		if(array_key_exists($comType,$this->componentCache)) {
+			$this->processComponentX(str_replace(".","/",$comType),".process",array_merge($arguments,array("element" => $elName)));
+			return;
+		};
+		die("FATAL: Component ".$comType." not loaded.");
+	}
+
+	public function generateComponent($comType,$elName=null,$arguments=null) {
+		if($arguments) {
+		} else {
+			$arguments=array();
+		};
+		if(array_key_exists($comType,$this->componentCache)) {
+			$this->processComponentX(str_replace(".","/",$comType),"",array_merge($arguments,array("element" => $elName)));
+			return;
+		};
+		die("FATAL: Component ".$comType." not loaded.");
+	}
+
+	public function processComponentX($name,$suffix,$arguments=null) {
+		$this->moduleCallList[]=$this->name;
+		$this->pushArguments();
+		$this->arguments=$arguments;
+		if(is_null($this->arguments)) {
+			$this->arguments=array();
+		};
+
+		$this->viewPath=$this->cloud->getTemplatePath() . "sys/component/";
+		$file=$this->viewPath.$name.$suffix.".php";
+		if($this->includeFile($file)) {
+			$this->popArguments();
+			array_pop($this->moduleCallList);
+			return true;
+		};
+
+		$this->viewPath="component/";
+		$file=$this->viewPath.$name.$suffix.".php";
+		if($this->includeFile($file)) {
+			$this->popArguments();
+			array_pop($this->moduleCallList);
+			return true;
+		};
+
+		$this->popArguments();
+		array_pop($this->moduleCallList);
+		return false;
+	}
+
+	//
+	// HTML Manager
+	//
+
+	public function setHtmlClass($class) {
+		$this->cloud->setHtmlClass($class);
+	}
+
+	public function removeHtmlClass($class) {
+		$this->cloud->removeHtmlClass($class);
+	}
+
+	public function getHtmlClass() {
+		$this->cloud->getHtmlClass();
+	}
+
+	public function eHtmlClass() {
+		$this->cloud->eHtmlClass();
+	}
+
+	public function eHtmlLanguage() {
+		$this->cloud->eHtmlLanguage();
+	}
+
+	public function setHtmlJs($url,$opt="defer") {
+		$this->cloud->setHtmlJs($this->name,$url,$opt);
+	}
+
+	public function removeHtmlJs($url) {
+		$this->cloud->removeHtmlJs($this->name,$url);
+	}
+
+	public function removeHtmlJsAll() {
+		$this->cloud->removeHtmlJsAll($this->name);
+	}
+
+	public function eHtmlJs() {
+		$this->cloud->eHtmlJs();
+	}
+
+	public function setHtmlJsSource($code,$opt="defer") {
+		$this->cloud->setHtmlJsSource($this->name,$code,$opt);
+	}
+
+	public function removeHtmlJsSourceAll() {
+		$this->cloud->removeHtmlJsSourceAll($this->name);
+	}
+
+	public function eHtmlJsSource() {
+		$this->cloud->eHtmlJsSource();
+	}
+
+	public function setHtmlCss($url) {
+		$this->cloud->setHtmlCss($this->name,$url);
+	}
+
+	public function removeHtmlCss($url) {
+		$this->cloud->removeHtmlCss($this->name,$url);
+	}
+
+	public function removeHtmlCssAll() {
+		$this->cloud->removeHtmlCssAll($this->name);
+	}
+
+	public function eHtmlCss() {
+		$this->cloud->eHtmlCss();
+	}
+
+	public function setHtmlTitle($title) {
+		$this->cloud->setHtmlTitle($title);
+	}
+
+	public function eHtmlTitle() {
+		$this->cloud->eHtmlTitle();
+	}
+
+	public function setHtmlDescription($description) {
+		$this->cloud->setHtmlDescription($description);
+	}
+
+	public function eHtmlDescription() {
+		$this->cloud->eHtmlDescription();
+	}
+
+	public function setHtmlIcon($uri) {
+		$this->cloud->setHtmlIcon($uri);
+	}
+
+	public function eHtmlIcon() {
+		$this->cloud->eHtmlIcon();
+	}
+
+	public function setHtmlJsSourceOrAjax($source,$opt="defer") {
+		$this->cloud->setHtmlJsSourceOrAjax($this->name,$source,$opt);
+	}
+
+	public function eHtmlScript() {
+		$this->cloud->eHtmlScript();
 	}
 
 	//
@@ -453,6 +724,7 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->getModulePathBase($module);
 	}
 
+
 	//
 	// Group Manager
 	//
@@ -470,39 +742,39 @@ class xyo_Module extends xyo_Config {
 	}
 
 	//
-	// Component Manager
+	// Application Manager
 	//
 
-	public function redirectComponent($name,$parameters=null) {
-		$this->cloud->redirectComponent($name,$parameters);
+	public function redirectApplication($name,$parameters=null) {
+		$this->cloud->redirectApplication($name,$parameters);
 	}
 
-	public function processComponent($name,$parameters=null) {
-		$this->cloud->processComponent($name,$parameters);
+	public function processApplication($name,$parameters=null) {
+		$this->cloud->processApplication($name,$parameters);
 	}
 
-	public function setDefaultComponent($name) {
-		$this->cloud->setDefaultComponent($name);
+	public function setDefaultApplication($name) {
+		$this->cloud->setDefaultApplication($name);
 	}
 
-	public function getDefaultComponent($name) {
-		return $this->cloud->getDefaultComponent($name);
+	public function getDefaultApplication($name) {
+		return $this->cloud->getDefaultApplication($name);
 	}
 
-	public function setComponent($module) {
-		return $this->cloud->setComponent($module);
+	public function setApplication($module) {
+		return $this->cloud->setApplication($module);
 	}
 
-	public function isComponent($name) {
-		return $this->cloud->isComponent($name);
+	public function isApplication($name) {
+		return $this->cloud->isApplication($name);
 	}
 
-	public function getComponent() {
-		return $this->cloud->getComponent();
+	public function getApplication() {
+		return $this->cloud->getApplication();
 	}
 
-	public function generateComponentView($parameters=null) {
-		return $this->cloud->generateComponentView($parameters);
+	public function generateApplicationView($parameters=null) {
+		return $this->cloud->generateApplicationView($parameters);
 	}
 
 	//
@@ -510,9 +782,11 @@ class xyo_Module extends xyo_Config {
 	//
 
 	protected $keepRequest;
+	protected $fnCallId;
 
-	private function initRequestManager(){
+	private function initRequestManager() {
 		$this->keepRequest=array();
+		$this->fnCallId=0;
 	}
 
 	public function requestUri($parameters=null) {
@@ -527,7 +801,7 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->requestUriModule($module, $parameters);
 	}
 
-	public function requestUriRouteModule($requestMain,$module, $parameters=null){
+	public function requestUriRouteModule($requestMain,$module, $parameters=null) {
 		return $this->cloud->requestUriRouteModule($requestMain,$module, $parameters);
 	}
 
@@ -686,6 +960,27 @@ class xyo_Module extends xyo_Config {
 		echo $this->requestUri($parameters);
 	}
 
+	public function eGenerateCallRequestJs($requestThis,$module,$request,$functionJs,$processJs) {
+		++$this->fnCallId;
+		$request_=$this->callRequest(
+				  $this->requestThisDirect($requestThis),
+				  $this->requestModuleDirect($module,$request)
+			  );
+		$action_=$this->requestUri($this->moduleFromRequestDirect($request_));
+		echo "<form name=\"fn_call_".$this->fnCallId."\" method=\"POST\" action=\"".$action_."\">";
+		$this->eFormBuildRequest($request_);
+		echo "</form>";
+		$this->ejsBegin();
+		echo "function ".$functionJs."(){";
+		echo " if(".$processJs."(document.forms.fn_call_".$this->fnCallId.")){";
+		echo "	document.forms.fn_call_".$this->fnCallId.".submit();";
+		echo " };";
+		echo " return false;";
+		echo "};";
+		$this->ejsEnd();
+		return "fn_call_".$this->fnCallId;
+	}
+
 	//
 	// Storage Manager
 	//
@@ -702,23 +997,27 @@ class xyo_Module extends xyo_Config {
 	// Cloud
 	//
 
-	public function isAjax(){
+	public function isAjax() {
 		return $this->cloud->isAjax;
 	}
 
-	public function isJSON(){
-		return $this->cloud->isJSON;
+	public function isAjaxJs() {
+		return $this->cloud->isAjaxJs;
+	}
+
+	public function isJson() {
+		return $this->cloud->isJson;
 	}
 
 	public function logMessage($type, $message) {
 		$this->cloud->logMessage($type, $message, $this->name);
 	}
 
-	public function setSetting($name,$value){
+	public function setSetting($name,$value) {
 		return $this->cloud->set($name,$value);
 	}
 
-	public function getSetting($name,$default=null){
+	public function getSetting($name,$default=null) {
 		return $this->cloud->get($name,$default);
 	}
 
@@ -732,7 +1031,7 @@ class xyo_Module extends xyo_Config {
 		};
 		return $a;
 	}
-	
+
 	public function jsEscape($x) {
 		return str_replace(array("'", "\""), array("&#39;", "&#34;"), $x);
 	}
@@ -757,14 +1056,14 @@ class xyo_Module extends xyo_Config {
 	protected $site;
 	protected $moduleBaseClass;
 	protected $modulePathBase;
-	
-	private function initModuleCore(&$moduleObject){
+
+	private function initModuleCore(&$moduleObject) {
 		$this->path=$moduleObject->path;
 		$this->name=$moduleObject->module;
 		$this->instance=0;
 		$this->returnValue=null;
 		$this->isOk=true;
-		$this->site=$this->cloud->get("site","");	
+		$this->site=$this->cloud->get("site","");
 		$this->moduleBaseClass = $moduleObject->baseClass;
 		$this->modulePathBase = $moduleObject->pathBase;
 	}
@@ -884,21 +1183,21 @@ class xyo_Module extends xyo_Config {
 		return $this->modulePathBase;
 	}
 
-	public function setReturnValue($value){
+	public function setReturnValue($value) {
 		$this->returnValue=$value;
 	}
 
-	public function getReturnValue(){
+	public function getReturnValue() {
 		return $this->returnValue;
 	}
 
-	public function setSession($key,$value){
+	public function setSession($key,$value) {
 		$_SESSION["xyo_module_".$this->name."_".$this->instance."_".$key]=$value;
 	}
 
-	public function getSession($key,$default=null){
+	public function getSession($key,$default=null) {
 		$key_="xyo_module_".$this->name."_".$this->instance."_".$key;
-		if(array_key_exists($key_,$_SESSION)){
+		if(array_key_exists($key_,$_SESSION)) {
 			return $_SESSION[$key_];
 		};
 		return $default;
@@ -917,7 +1216,7 @@ class xyo_Module extends xyo_Config {
 	protected $moduleCallList;
 	protected $viewPath;
 
-	private function initModelViewControllerManager(){
+	private function initModelViewControllerManager() {
 		$this->nameView=null;
 		$this->nameRedirect=null;
 		$this->cancelAction=null;
@@ -925,7 +1224,7 @@ class xyo_Module extends xyo_Config {
 		$this->defaultAction=null;
 		$this->viewTemplate=null;
 		$this->moduleCallList=array();
-		$this->viewPath=null;					
+		$this->viewPath=null;
 	}
 
 	public function applicationInit() {
@@ -1088,7 +1387,7 @@ class xyo_Module extends xyo_Config {
 		$this->pushArguments();
 		$this->arguments=$arguments;
 
-		if(is_null($this->arguments)){
+		if(is_null($this->arguments)) {
 			$this->arguments=array();
 		};
 
@@ -1143,10 +1442,10 @@ class xyo_Module extends xyo_Config {
 
 		$this->pushArguments();
 		$this->arguments=$arguments;
-		if(is_null($this->arguments)){
+		if(is_null($this->arguments)) {
 			$this->arguments=array();
 		};
-		
+
 		$file = $this->cloud->getTemplatePath()."sys/model/".$name.".php";
 		if($this->includeFile($file)) {
 			$this->popArguments();
@@ -1166,7 +1465,7 @@ class xyo_Module extends xyo_Config {
 		$this->moduleCallList[]=$module;
 		$this->pushArguments();
 		$this->arguments=$arguments;
-		if(is_null($this->arguments)){
+		if(is_null($this->arguments)) {
 			$this->arguments=array();
 		};
 		if (is_null($name)) {
@@ -1211,6 +1510,18 @@ class xyo_Module extends xyo_Config {
 	}
 
 	//
+	// DataSource Manager
+	//
+
+	public function &getDataSource($ds) {
+		return $this->cloud->dataSource->getDataSource($ds);
+	}
+
+	public function setDataSource($name) {
+		return $this->cloud->dataSource->setModuleDataSource($this->name, $name);
+	}
+
+	//
 	// Constructor
 	//
 
@@ -1218,9 +1529,11 @@ class xyo_Module extends xyo_Config {
 		parent::__construct($cloud);
 		$this->initParametersManager($moduleObject);
 		$this->initArgumentsManager();
-		$this->initMessageManager();
+		$this->initAlertManager();
 		$this->initErrorManager();
+		$this->initLanguageManager();
 		$this->initFormManager();
+		$this->initComponentManager();
 		$this->initRequestManager();
 		$this->initModuleCore($moduleObject);
 		$this->initModelViewControllerManager();

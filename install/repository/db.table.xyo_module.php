@@ -18,8 +18,8 @@ if ($setup) {
 	$setup->registerModule(null, null, "lib");
 	$setup->registerModuleAcl("lib", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule(null, null, "xyo-com");
-	$setup->registerModuleAcl("xyo-com", "xyo-none", null, null, 0, true);
+	$setup->registerModule(null, null, "xyo-app");
+	$setup->registerModuleAcl("xyo-app", "xyo-none", null, null, 0, true);
 
 	// lib
 	$setup->registerModule("lib", null, "lib-mod-md5");
@@ -131,30 +131,6 @@ if ($setup) {
 	$setup->registerModuleAcl("lib-mod-material-components-web", "xyo-info-about", null, null, 0, true);
 
 	// xyo
-	$setup->registerModule("xyo", null, "xyo-mod-datasource");
-	$setup->registerModuleAcl("xyo-mod-datasource", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-datasource-csv");
-	$setup->registerModuleAcl("xyo-mod-datasource-csv", "xyo-none", null, null, 0,  true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-datasource-mysqli");
-	$setup->registerModuleAcl("xyo-mod-datasource-mysqli", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-datasource-mysql");
-	$setup->registerModuleAcl("xyo-mod-datasource-mysql", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-datasource-sqlite");
-	$setup->registerModuleAcl("xyo-mod-datasource-sqlite", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-datasource-xyo");
-	$setup->registerModuleAcl("xyo-mod-datasource-xyo", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-datasource-quantum");
-	$setup->registerModuleAcl("xyo-mod-datasource-quantum", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-ds-db");
-	$setup->registerModuleAcl("xyo-mod-ds-db", "xyo-none", null, null, 0, true);
-
 	$setup->registerModule("xyo", null, "xyo-mod-ds-loader-mod");
 	$setup->registerModuleAcl("xyo-mod-ds-loader-mod", "xyo-none", null, null, 0, true);
 
@@ -163,18 +139,6 @@ if ($setup) {
 
 	$setup->registerModule("xyo", null, "xyo-mod-ds-user");
 	$setup->registerModuleAcl("xyo-mod-ds-user", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-html");
-	$setup->registerModuleAcl("xyo-mod-html", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-htmlhead");
-	$setup->registerModuleAcl("xyo-mod-htmlhead", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-htmlfooter");
-	$setup->registerModuleAcl("xyo-mod-htmlfooter", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo", null, "xyo-mod-language");
-	$setup->registerModuleAcl("xyo-mod-language", "xyo-none", null, null, 0, true);
 
 	$setup->registerModule("xyo", null, "xyo-mod-application");
 	$setup->registerModuleAcl("xyo-mod-application", "xyo-none", null, null, 0, true);
@@ -189,71 +153,71 @@ if ($setup) {
 	$setup->registerModuleAcl("xyo-mod-thumbnail", "xyo-none", null, null, 0, true);
 
 
-	// xyo-com
-	$setup->registerModule("xyo-com", null, "xyo-mod-panel2");
+	// xyo-app
+	$setup->registerModule("xyo-app", null, "xyo-mod-panel2");
 	$setup->registerModuleAcl("xyo-mod-panel2", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-tpl-administrator");
+	$setup->registerModule("xyo-app", null, "xyo-tpl-administrator");
 	$setup->registerModuleAcl("xyo-tpl-administrator", "xyo-template", "administrator", null, 0, true);
 	//$setup->selectMouleAclAsTemplate("xyo-tpl-administrator","administrator", null);
 
-	$setup->registerModule("xyo-com", null, "xyo-tpl-administrator-dashboard");
+	$setup->registerModule("xyo-app", null, "xyo-tpl-administrator-dashboard");
 	$setup->registerModuleAcl("xyo-tpl-administrator-dashboard", "xyo-template", "administrator", null, 0, true);
 	//$setup->selectMouleAclAsTemplate("xyo-tpl-administrator-dashboard","administrator", null);
 
-	$setup->registerModule("xyo-com", null, "xyo-tpl-administrator-dashboard2");
+	$setup->registerModule("xyo-app", null, "xyo-tpl-administrator-dashboard2");
 	$setup->registerModuleAcl("xyo-tpl-administrator-dashboard2", "xyo-template", "administrator", null, 0, true);
 	$setup->selectMouleAclAsTemplate("xyo-tpl-administrator-dashboard2","administrator", null);
 
-	$setup->registerModule("xyo-com", null, "xyo-tpl-public");
+	$setup->registerModule("xyo-app", null, "xyo-tpl-public");
 	$setup->registerModuleAcl("xyo-tpl-public", "xyo-template", "public", null, 0, true);
 	$setup->selectMouleAclAsTemplate("xyo-tpl-public","public", null);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-login");
-	$setup->registerModuleAcl("xyo-com-login", "xyo-desktop", "administrator", "public", 0, true);
+	$setup->registerModule("xyo-app", null, "xyo-app-login");
+	$setup->registerModuleAcl("xyo-app-login", "xyo-desktop", "administrator", "public", 0, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-mod-sys-menu");
+	$setup->registerModule("xyo-app", null, "xyo-mod-sys-menu");
 	$setup->registerModuleAcl("xyo-mod-sys-menu", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-mod-sys-panel");
+	$setup->registerModule("xyo-app", null, "xyo-mod-sys-panel");
 	$setup->registerModuleAcl("xyo-mod-sys-panel", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-mod-sys-sidebar");
+	$setup->registerModule("xyo-app", null, "xyo-mod-sys-sidebar");
 	$setup->registerModuleAcl("xyo-mod-sys-sidebar", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-main");
-	$setup->registerModuleAcl("xyo-com-main", "xyo-desktop", null, "authenticated", 0, true);
+	$setup->registerModule("xyo-app", null, "xyo-app-main");
+	$setup->registerModuleAcl("xyo-app-main", "xyo-desktop", null, "authenticated", 0, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-control-panel");
-	$setup->registerModuleAcl("xyo-com-control-panel", "xyo-application", "administrator", "authenticated", 2, true);
+	$setup->registerModule("xyo-app", null, "xyo-app-control-panel");
+	$setup->registerModuleAcl("xyo-app-control-panel", "xyo-application", "administrator", "authenticated", 2, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-logout");
-	$setup->registerModuleAcl("xyo-com-logout", "xyo-application", "administrator", "authenticated", 20000, true);
+	$setup->registerModule("xyo-app", null, "xyo-app-logout");
+	$setup->registerModuleAcl("xyo-app-logout", "xyo-application", "administrator", "authenticated", 20000, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-mod-logout");
+	$setup->registerModule("xyo-app", null, "xyo-mod-logout");
 	$setup->registerModuleAcl("xyo-mod-logout", "xyo-status", "administrator", "authenticated", 20000, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-install");
-	$setup->registerModuleAcl("xyo-com-install", "xyo-control-panel", "administrator", "wheel", 1, true);
+	$setup->registerModule("xyo-app", null, "xyo-app-install");
+	$setup->registerModuleAcl("xyo-app-install", "xyo-control-panel", "administrator", "wheel", 1, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-info-about");
-	$setup->registerModuleAcl("xyo-com-info-about", "xyo-control-panel", "administrator", "authenticated", 10000, true);
+	$setup->registerModule("xyo-app", null, "xyo-app-info-about");
+	$setup->registerModuleAcl("xyo-app-info-about", "xyo-control-panel", "administrator", "authenticated", 10000, true);
 
-	$setup->registerModule("xyo-com", null, "xyo-mod-toolbar");
+	$setup->registerModule("xyo-app", null, "xyo-mod-toolbar");
 	$setup->registerModuleAcl("xyo-mod-toolbar","xyo-none",null,null,0,true);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-application");
-	$setup->registerModuleAcl("xyo-com-application","xyo-none",null,null,0,true);
+	$setup->registerModule("xyo-app", null, "xyo-app-application");
+	$setup->registerModuleAcl("xyo-app-application","xyo-none",null,null,0,true);
 
-	$setup->registerModule("xyo-com", null, "xyo-com-table");
-	$setup->registerModuleAcl("xyo-com-table","xyo-none",null,null,0,true);
+	$setup->registerModule("xyo-app", null, "xyo-app-table");
+	$setup->registerModuleAcl("xyo-app-table","xyo-none",null,null,0,true);
 
-	//xyo-com-admin
-	$setup->registerModule(null, null, "xyo-com-admin");
-	$setup->registerModuleAcl("xyo-com-admin","xyo-none", null, null, 0, true);
-	$setup->execModuleInstall("xyo-com-admin");
+	//xyo-app-admin
+	$setup->registerModule(null, null, "xyo-app-admin");
+	$setup->registerModuleAcl("xyo-app-admin","xyo-none", null, null, 0, true);
+	$setup->execModuleInstall("xyo-app-admin");
 
-	$setup->registerModule("xyo-com", null, "xyo-mod-form-captcha");
+	$setup->registerModule("xyo-app", null, "xyo-mod-form-captcha");
 	$setup->registerModuleAcl("xyo-mod-form-captcha","xyo-none",null,null,0,true);
 	$setup->execModuleInstall("xyo-mod-form-captcha");
 
@@ -264,8 +228,8 @@ if ($setup) {
 	$setup->registerModule("xyo-cms", null, "xyo-mod-cms-page");
 	$setup->registerModuleAcl("xyo-mod-cms-page", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo-cms", null, "xyo-com-cms-page");
-	$setup->registerModuleAcl("xyo-com-cms-page", "xyo-desktop", "administrator", "authenticated", 100, true);
+	$setup->registerModule("xyo-cms", null, "xyo-app-cms-page");
+	$setup->registerModuleAcl("xyo-app-cms-page", "xyo-desktop", "administrator", "authenticated", 100, true);
 
 	$setup->registerModule("xyo-cms", null, "xyo-tpl-cms");
 	$setup->registerModuleAcl("xyo-tpl-cms", "xyo-template", "public", null, 0, true);

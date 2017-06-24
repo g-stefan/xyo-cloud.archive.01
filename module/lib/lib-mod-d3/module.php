@@ -15,12 +15,7 @@ class lib_mod_D3 extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_D3")) {
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/sys/js/d3.min.js");
-            } else {
-                $this->moduleDisable();
-            };
+		$this->setHtmlJs($this->site."media/sys/js/d3.min.js");
         }
     }
 

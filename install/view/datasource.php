@@ -29,7 +29,7 @@ $layerList = array(
 <br />
 
 <?php
-                    if ($this->isError("error")) {
+                    if ($this->isError()) {
                         $this->generateView("msg-error");
                     }
 ?>

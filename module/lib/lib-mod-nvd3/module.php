@@ -15,18 +15,8 @@ class lib_mod_NvD3 extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_NvD3")) {
-            $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
-            if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/sys/css/nv.d3.min.css");
-            } else {
-                $this->moduleDisable();
-            };
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/sys/js/nv.d3.min.js");
-            } else {
-                $this->moduleDisable();
-            };
+		$this->setHtmlCss($this->site."media/sys/css/nv.d3.min.css");
+		$this->setHtmlJs($this->site."media/sys/js/nv.d3.min.js");
         }
     }
 

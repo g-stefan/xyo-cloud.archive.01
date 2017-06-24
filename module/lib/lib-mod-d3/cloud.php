@@ -8,5 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setReferenceLink($module, "xyo-mod-htmlfooter");
 $this->setVersion($module, "2.0.0");

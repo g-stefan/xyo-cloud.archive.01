@@ -20,7 +20,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php
 
-                    if ($this->isError("error")) {
+                    if ($this->isError()) {
                         $this->generateView("msg-error");
                     }
 

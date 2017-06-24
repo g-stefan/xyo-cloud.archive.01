@@ -15,14 +15,9 @@ class lib_mod_JQueryTinyMCE extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_JQueryTinyMCE")) {
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/lib/tinymce/tinymce.min.js");
-                $htmlFooter->setJs($this->name,$this->site."media/lib/tinymce/jquery.tinymce.min.js");
-            } else {
-                $this->moduleDisable();
-            };
-        }
+		$this->setHtmlJs($this->site."media/lib/tinymce/js/tinymce.min.js");
+		$this->setHtmlJs($this->site."media/lib/tinymce/js/jquery.tinymce.min.js");
+	}
     }
 
 }

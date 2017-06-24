@@ -14,24 +14,24 @@ $configFileName = null;
 $fileName = "config/config.ds.db.php";
 $moduleName = "";
 if ($layer === "xyo") {    
-    $moduleName = "xyo-mod-datasource-xyo";
+    $moduleName = "xyo-datasource-xyo";
 } else
 if ($layer === "csv") {
-    $moduleName = "xyo-mod-datasource-csv";
+    $moduleName = "xyo-datasource-csv";
 } else
 if ($layer === "mysqli") {
-    $moduleName = "xyo-mod-datasource-mysqli";
+    $moduleName = "xyo-datasource-mysqli";
 } else
 if ($layer === "mysql") {
-    $moduleName = "xyo-mod-datasource-mysql";
+    $moduleName = "xyo-datasource-mysql";
 } else
 if ($layer === "postgresql") {
-    $moduleName = "xyo-mod-datasource-postgresql";
+    $moduleName = "xyo-datasource-postgresql";
 } else
 if ($layer === "sqlite") {
-    $moduleName = "xyo-mod-datasource-sqlite";
+    $moduleName = "xyo-datasource-sqlite";
 } else {
-    $this->setError("error", array("unknown_layer" => $layer));
+    $this->setError(array("unknown_layer" => $layer));
     return;
 }
 
@@ -139,7 +139,7 @@ if ($fileHandle) {
     fwrite($fileHandle, "\r\n\r\n");
     fclose($fileHandle);
 } else {
-    $this->setError("error", array("config_not_writable" => $fileName));
+    $this->setError(array("config_not_writable" => $fileName));
     return;
 }
 
@@ -155,12 +155,12 @@ if ($fileHandle) {
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// DataSource Config\r\n");
     fwrite($fileHandle, "// \r\n");
-    fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"quantum\",\"xyo-mod-datasource-quantum\");\r\n");
+    fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"quantum\",\"xyo-datasource-quantum\");\r\n");
     fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"db\",\"".$moduleName."\");\r\n");
     fwrite($fileHandle, "\r\n\r\n");
     fclose($fileHandle);
 } else {
-    $this->setError("error", array("config_not_writable" => $fileName));
+    $this->setError(array("config_not_writable" => $fileName));
     return;
 }
 
@@ -188,7 +188,7 @@ if ($fileHandle) {
 
     $this->cloud->set("datasource_layer", $moduleName);
 } else {
-    $this->setError("error", array("config_not_writable" => $fileName));
+    $this->setError(array("config_not_writable" => $fileName));
     return;
 }
 
@@ -198,32 +198,27 @@ $moduleDatasourceLayer = &$this->cloud->getModule($layerModule);
 if ($moduleDatasourceLayer) {
     
 } else {
-    $this->setError("error", array("unknown_layer" => $layer));
+    $this->setError(array("unknown_layer" => $layer));
     return;
 };
 
-$modDs=&$this->cloud->getModule("xyo-mod-datasource");
-$modDs->includeConfig("config.ds");
-
+$this->cloud->dataSource->includeConfig("config.ds");
 
 $this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
 $moduleDatasourceLayer->includeFile($configFileName);
 
-if ($this->isError()) {
-    
-} else {
-
+if (!$this->isError()) {
 
     $conDb = &$moduleDatasourceLayer->getConnection("db");
     if ($conDb) {
         if ($conDb->open()) {
             $conDb->close();
         } else {
-            $this->setError("error", array("connection_error" => "db"));
+            $this->setError(array("connection_error" => "db"));
             return;
         }
     } else {
-        $this->setError("error", array("connection_unknown" => "db"));
+        $this->setError(array("connection_unknown" => "db"));
         return;
     }
 }

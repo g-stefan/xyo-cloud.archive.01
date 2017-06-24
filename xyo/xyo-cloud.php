@@ -20,23 +20,25 @@ $xyo_Path = dirname(realpath(__FILE__)) . "/";
 require_once($xyo_Path . "xyo-attributes.php");
 require_once($xyo_Path . "xyo-config.php");
 require_once($xyo_Path . "xyo-request.1.php");
+require_once($xyo_Path . "xyo-language.php");
 require_once($xyo_Path . "xyo-module.php");
+require_once($xyo_Path . "xyo-datasource.php");
 
 class xyo_ModuleObject {
-	public 	$parent;
-	public 	$module;
-	public 	$className;
-	public 	$enabled;
-	public 	$path;
-	public 	$init;
-	public 	$loaded;
-	public 	$check;
-	public 	$parameters;
-	public 	$component;
-	public 	$baseClass;
-	public 	$pathBase;
-	public 	$registered;
-	public 	$object;
+	public  $parent;
+	public  $module;
+	public  $className;
+	public  $enabled;
+	public  $path;
+	public  $init;
+	public  $loaded;
+	public  $check;
+	public  $parameters;
+	public  $application;
+	public  $baseClass;
+	public  $pathBase;
+	public  $registered;
+	public  $object;
 }
 
 class xyo_Cloud extends xyo_Config {
@@ -48,7 +50,7 @@ class xyo_Cloud extends xyo_Config {
 	protected $moduleList;
 	protected $moduleLoader;
 	protected $referenceBase;
-	protected $referenceLinks;	
+	protected $referenceLinks;
 
 	protected function initModuleManager() {
 		$this->moduleLoader = null;
@@ -156,7 +158,7 @@ class xyo_Cloud extends xyo_Config {
 	public function getModulePath($module) {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
-			return $moduleObject->path;		
+			return $moduleObject->path;
 		};
 		return null;
 	}
@@ -185,7 +187,7 @@ class xyo_Cloud extends xyo_Config {
 			if (file_exists($initFile)) {
 				require_once($initFile);
 			}
-			
+
 			$moduleObject->init = true;
 			return true;
 
@@ -213,7 +215,7 @@ class xyo_Cloud extends xyo_Config {
 				}
 
 			}
-			
+
 			$moduleObject->init = true;
 
 			if (!$this->loadReferenceLinks($module)) {
@@ -222,7 +224,7 @@ class xyo_Cloud extends xyo_Config {
 
 			$moduleFile = $moduleObject->path . "module.php";
 			$className = "xyo_Module";
-			$module = $moduleObject->module;			
+			$module = $moduleObject->module;
 			if (file_exists($moduleFile)) {
 				require_once($moduleFile);
 			}
@@ -266,9 +268,7 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function requireModule($module) {
-		if($this->loadModule($module)){
-			
-		}else{
+		if(!$this->loadModule($module)) {
 			die("FATAL: Required module ".$module." not found.");
 		};
 	}
@@ -287,10 +287,8 @@ class xyo_Cloud extends xyo_Config {
 		}
 	}
 
-	public function setModule($moduleParent, $path, $module, $enabled, $parameters=null, $registered=false, $override=false) {
-		if ($override) {
-
-		} else {
+	public function setModule($moduleParent=null, $path=null, $module, $enabled=true, $parameters=null, $registered=true, $override=false) {
+		if (!$override) {
 			if (array_key_exists($module, $this->moduleList)) {
 				$this->moduleList[$module]->enabled = $enabled;
 				return true;
@@ -302,9 +300,7 @@ class xyo_Cloud extends xyo_Config {
 
 			} else {
 				$check = &$this->getModuleObject($moduleParent);
-				if ($check) {
-
-				} else {
+				if (!$check) {
 					return false;
 				}
 			}
@@ -322,11 +318,9 @@ class xyo_Cloud extends xyo_Config {
 			$pathModule = $path . "/";
 		} else {
 			$pathModule = "module/" . $module . "/";
-		}		
+		}
 
-		if ($parameters) {
-
-		} else {
+		if (!$parameters) {
 			$parameters = array();
 		}
 
@@ -340,7 +334,7 @@ class xyo_Cloud extends xyo_Config {
 		$this->moduleList[$module]->loaded = false;
 		$this->moduleList[$module]->check = false;
 		$this->moduleList[$module]->parameters = $parameters;
-		$this->moduleList[$module]->component = null;
+		$this->moduleList[$module]->application = null;
 		$this->moduleList[$module]->baseClass = null;
 		$this->moduleList[$module]->pathBase = null;
 		$this->moduleList[$module]->registered = $registered;
@@ -489,19 +483,19 @@ class xyo_Cloud extends xyo_Config {
 		return false;
 	}
 
-	public function setModuleAsComponent($module, $enabled=true) {
+	public function setModuleAsApplication($module, $enabled=true) {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
-			$moduleObject->component = $enabled;
+			$moduleObject->application = $enabled;
 			return true;
 		}
 		return false;
 	}
 
-	public function isModuleAsComponent($module) {
+	public function isModuleAnApplication($module) {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
-			if ($moduleObject->component) {
+			if ($moduleObject->application) {
 				return true;
 			}
 		}
@@ -519,7 +513,7 @@ class xyo_Cloud extends xyo_Config {
 
 	protected function initGroupManager() {
 
-		$this->groupLoader = null;	
+		$this->groupLoader = null;
 		$this->groupList = [];
 		$this->groupLoadedOk = [];
 
@@ -589,81 +583,81 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	//
-	// Component Manager
+	// Application Manager
 	//
 
-	protected $component;
-	protected $defaultComponent;
-	protected $redirectComponent=null;
-	protected $redirectComponentParameters=null;
+	protected $application;
+	protected $defaultApplication;
+	protected $redirectApplication=null;
+	protected $redirectApplicationParameters=null;
 
-	private function initComponentManager() {
-		$this->component=null;
-		$this->defaultComponent=null;
-		$this->redirectComponent=null;
-		$this->redirectComponentParameters=null;
+	private function initApplicationManager() {
+		$this->application=null;
+		$this->defaultApplication=null;
+		$this->redirectApplication=null;
+		$this->redirectApplicationParameters=null;
 	}
 
-	public function setComponent($module) {
-		$this->component = $module;
+	public function setApplication($module) {
+		$this->application = $module;
 	}
 
-	public function isComponent($name) {
-		return ($this->component === $name);
+	public function isApplication($name) {
+		return ($this->application === $name);
 	}
 
-	public function getComponent() {
-		return $this->component;
+	public function getApplication() {
+		return $this->application;
 	}
 
-	public function hasComponent() {
-		return strlen($this->component)>0;
+	public function hasApplication() {
+		return strlen($this->application)>0;
 	}
 
-	public function generateComponentView($parameters=null) {
-		if ($this->component) {
-			$componentModule=&$this->getModule($this->component);
-			if($componentModule) {
-				return $componentModule->applicationView($parameters);
-			}
-		}
+	public function generateApplicationView($parameters=null) {
+		if ($this->application) {
+			$applicationModule=&$this->getModule($this->application);
+			if($applicationModule) {
+				return $applicationModule->applicationView($parameters);
+			};
+		};
 		return null;
 	}
 
-	public function setDefaultComponent($name) {
-		$this->defaultComponent=$name;
-		if ($this->component) {
+	public function setDefaultApplication($name) {
+		$this->defaultApplication=$name;
+		if ($this->application) {
 		} else {
-			$this->setComponent($name);
+			$this->setApplication($name);
 		}
 	}
 
-	public function getDefaultComponent() {
-		return $this->defaultComponent;
+	public function getDefaultApplication() {
+		return $this->defaultApplication;
 	}
 
-	public function redirectComponent($name,$parameters=null) {
-		$this->redirectComponent=$name;
-		$this->redirectComponentParameters=$parameters;
+	public function redirectApplication($name,$parameters=null) {
+		$this->redirectApplication=$name;
+		$this->redirectApplicationParameters=$parameters;
 	}
 
-	public function processComponent($name,$parameters=null) {
-		if(is_null($this->redirectComponent)){
-			$this->redirectComponent=$name;		
-			$this->redirectComponentParameters=$parameters;
+	public function processApplication($name,$parameters=null) {
+		if(is_null($this->redirectApplication)) {
+			$this->redirectApplication=$name;
+			$this->redirectApplicationParameters=$parameters;
 		};
-		while($this->redirectComponent) {
-			$this->component=$this->redirectComponent;
-			$parameters_=$this->redirectComponentParameters;
-			$this->redirectComponent=null;
-			$this->redirectComponentParameters=null;
+		while($this->redirectApplication) {
+			$this->application=$this->redirectApplication;
+			$parameters_=$this->redirectApplicationParameters;
+			$this->redirectApplication=null;
+			$this->redirectApplicationParameters=null;
 
-			$componentModule=&$this->getModule($this->component);
-			if($componentModule) {
-				$componentModule->mergeParameters($parameters_);
-				$componentModule->applicationPrepare();
-				$componentModule->applicationInit();
-				$componentModule->applicationAction();
+			$applicationModule=&$this->getModule($this->application);
+			if($applicationModule) {
+				$applicationModule->mergeParameters($parameters_);
+				$applicationModule->applicationPrepare();
+				$applicationModule->applicationInit();
+				$applicationModule->applicationAction();
 			}
 		}
 	}
@@ -676,15 +670,17 @@ class xyo_Cloud extends xyo_Config {
 	protected $request;
 	protected $requestBuilder;
 	public $isAjax;
-	public $isJSON;
+	public $isAjaxJs;
+	public $isJson;
 
 	private function initRequestManager() {
 
 		$this->request=new xyo_Attributes(array_merge(xyo_Cloud_Request__stripSlashesDeep($_COOKIE),xyo_Cloud_Request__stripSlashesDeep($_GET),xyo_Cloud_Request__stripSlashesDeep($_POST)));
-		$this->requestBuilder=null;		
+		$this->requestBuilder=null;
 		$this->isAjax=false;
-		$this->isJSON=false;
-	
+		$this->isAjaxJs=false;
+		$this->isJson=false;
+
 	}
 
 	public function getRequest($name, $default=null) {
@@ -703,7 +699,7 @@ class xyo_Cloud extends xyo_Config {
 		$this->request->setAttributes($value);
 	}
 
-	public function clearRequest(){
+	public function clearRequest() {
 		$this->request->clear();
 	}
 
@@ -719,29 +715,30 @@ class xyo_Cloud extends xyo_Config {
 		$this->request->unsetAttribute($name);
 	}
 
-	public function initRequest(){
+	public function initRequest() {
 		$this->isAjax=1*$this->request->get("ajax",0);
-		$this->isJSON=1*$this->request->get("json",0);
+		$this->isAjaxJs=1*$this->request->get("ajax-js",0);
+		$this->isJson=1*$this->request->get("json",0);
 
 		$redirect=$this->request->get("__","");
-		if(strlen($redirect)>0){
+		if(strlen($redirect)>0) {
 			$redirectList=explode("/",$redirect);
-			if(count($redirectList)>0){
+			if(count($redirectList)>0) {
 				//  /run/[module-name]
-				if($redirectList[0]=="run"){
-					if(count($redirectList)>1){
+				if($redirectList[0]=="run") {
+					if(count($redirectList)>1) {
 						$this->request->set("run",$redirectList[1]);
 					};
 				};
 				// /core/run/[module-name]
-				foreach($this->get("core_list",array()) as $key=>$value){
-					if($key==$redirectList[0]){
+				foreach($this->get("core_list",array()) as $key=>$value) {
+					if($key==$redirectList[0]) {
 						$this->set("core",$key);
-						if(count($redirectList)>1){
-							if($redirectList[1]=="run"){
-								if(count($redirectList)>2){
+						if(count($redirectList)>1) {
+							if($redirectList[1]=="run") {
+								if(count($redirectList)>2) {
 									$this->request->set("run",$redirectList[2]);
-								};								
+								};
 							};
 						};
 						break;
@@ -876,27 +873,27 @@ class xyo_Cloud extends xyo_Config {
 		$this->requestBuilder=$requestBuilder;
 	}
 
-	public function requestUriRoute($requestMain=null,$parameters=null) {		
+	public function requestUriRoute($requestMain=null,$parameters=null) {
 
 		if ($this->requestBuilder) {
 			return $this->requestBuilder->systemRequestUriRoute($requestMain,$parameters);
 		};
 
-		if(strlen($requestMain)==0){
+		if(strlen($requestMain)==0) {
 			$requestMain="index.php";
 		};
 
 		$core="";
-		foreach($this->get("core_list",array()) as $key=>$value){
-			if($value==$requestMain){
+		foreach($this->get("core_list",array()) as $key=>$value) {
+			if($value==$requestMain) {
 				$core=$key;
 				break;
 			};
 		};
 
 		$redirect=$this->getRequest("__","");
-		if((strlen($redirect)>0)||$this->get("use_redirect",false)){
-			if(strlen($core)>0){
+		if((strlen($redirect)>0)||$this->get("use_redirect",false)) {
+			if(strlen($core)>0) {
 				if ($parameters) {
 					$retV=$this->cloud->get("site","");
 					if (array_key_exists("run", $parameters)) {
@@ -926,7 +923,7 @@ class xyo_Cloud extends xyo_Config {
 			$first = false;
 			if (array_key_exists("run", $parameters)) {
 				$retV.="?run=" . rawurlencode($parameters["run"]);
-				$first = true;				
+				$first = true;
 			};
 			foreach ($parameters as $key => $value) {
 				if ($key === "run") {
@@ -949,42 +946,41 @@ class xyo_Cloud extends xyo_Config {
 			return $this->requestBuilder->systemSetSiteFromServerRequest();
 		};
 		$site=$this->get("site","");
-		if(strlen($site)==0){
-			$site=$_SERVER["REQUEST_URI"];
-			$x=@strrpos($site,"/",-1);
-			if($x===false){
-			}else
-			if($x>=0){
-				$redirect=$this->getRequest("__","");
-				if((strlen($redirect)>0)||$this->get("use_redirect",false)){
+		if(strlen($site)==0) {
+			if(array_key_exists("REQUEST_URI",$_SERVER)) {
+				$site=$_SERVER["REQUEST_URI"];
+				$x=@strrpos($site,"/",-1);
+				if($x===false) {
+				} else if($x>=0) {
+					$redirect=$this->getRequest("__","");
+					if((strlen($redirect)>0)||$this->get("use_redirect",false)) {
 
-					$found=false;
-                       			$site=substr($site,0,$x+1);
-					foreach($this->get("core_list",array()) as $key=>$value){
-						if(!$found){
-							$x=@strpos($site,"/".$key."/run/",0);
-							if($x===false){
-							}else
-							if($x>=0){
-								$this->set("site",substr($site,0,$x+1));
-								$found=true;
-								break;
+						$found=false;
+						$site=substr($site,0,$x+1);
+						foreach($this->get("core_list",array()) as $key=>$value) {
+							if(!$found) {
+								$x=@strpos($site,"/".$key."/run/",0);
+								if($x===false) {
+								} else if($x>=0) {
+									$this->set("site",substr($site,0,$x+1));
+									$found=true;
+									break;
+								};
 							};
 						};
-					};
 
-					if(!$found){
-						$x=@strpos($site,"/run/",0);
-						if($x===false){
-						}else
-						if($x>=0){
-							$this->set("site",substr($site,0,$x+1));
-							$found=true;
+						if(!$found) {
+							$x=@strpos($site,"/run/",0);
+							if($x===false) {
+							} else if($x>=0) {
+								$this->set("site",substr($site,0,$x+1));
+								$found=true;
+							};
 						};
+
+					} else {
+						$this->set("site",substr($site,0,$x+1));
 					};
-                        
-				}else{
-					$this->set("site",substr($site,0,$x+1));
 				};
 			};
 		};
@@ -1014,9 +1010,9 @@ class xyo_Cloud extends xyo_Config {
 	public function requestUriRouteModule($requestMain,$module, $parameters=null) {
 		return $this->requestUriRoute($requestMain,$this->requestModuleDirect($module, $parameters));
 	}
-	
+
 	public function getModuleNameFromRequest() {
-		$module=$this->getRequest("run",$this->component);
+		$module=$this->getRequest("run",$this->application);
 		if($module) {
 			$m = explode(".", $module);
 			if (is_array($m)) {
@@ -1058,13 +1054,253 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	//
+	// HTML Manager
+	//
+
+	protected $htmlClassList;
+	protected $htmlCssList;
+	protected $htmlJsList;
+	protected $htmlJsSourceList;
+	protected $htmlTitle;
+	protected $htmlDescription;
+	protected $htmlIcon;
+
+	private function initHtmlManager() {
+		$this->htmlClassList=array();
+		$this->htmlCssList=array();
+		$this->htmlJsList=array();
+		$this->htmlJsSourceList=array();
+		$this->htmlTitle="XYO Cloud";
+		$this->htmlDescription="";
+		$this->htmlIcon="favicon.ico";
+	}
+
+	public function setHtmlClass($class) {
+		$this->htmlClassList[$class]=$class;
+	}
+
+	public function removeHtmlClass($class) {
+		if(array_key_exists($class,$this->htmlClassList)) {
+			unset($this->htmlClassList[$class]);
+		};
+	}
+
+	public function getHtmlClass() {
+		$retV="";
+		foreach($this->htmlClassList as $class) {
+			if(strlen($retV)) {
+				$retV.=" ";
+			};
+			$retV.=$class;
+		};
+		return $retV;
+	}
+
+	public function eHtmlClass() {
+		$value=$this->getHtmlClass();
+		if($value) {
+			echo " class=\"".$value."\"";
+		};
+	}
+
+	public function eHtmlLanguage() {
+		echo " lang=\"".$this->get("language","en")."\"";
+	}
+
+	public function setHtmlJs($module,$url,$opt="") {
+		if(!array_key_exists($module,$this->htmlJsList)) {
+			$this->htmlJsList[$module]=array();
+		};
+		$this->htmlJsList[$module][$url]=array(0 => $url, 1 => $opt);
+	}
+
+	public function removeHtmlJs($module,$url) {
+		if(!array_key_exists($module,$this->htmlJsList)) {
+			return;
+		};
+		unset($this->htmlJsList[$module][$url]);
+	}
+
+	public function removeHtmlJsAll($module) {
+		if(!array_key_exists($module,$this->htmlJsList)) {
+			return;
+		};
+		unset($this->htmlJsList[$module]);
+	}
+
+	public function eHtmlJs() {
+		foreach($this->htmlJsList as $key=>$js) {
+			foreach($js as $info) {
+				$extra="";
+				if(strlen($info[1])>0) {
+					$extra=" ".$info[1];
+				};
+				echo "<script src=\"" . $info[0] . "\"".$extra."></script>\n";
+			};
+		};
+	}
+
+	public function setHtmlJsSource($module,$code,$opt="defer") {
+		if(!array_key_exists($module,$this->htmlJsSourceList)) {
+			$this->htmlJsSourceList[$module]=array();
+		};
+		$this->htmlJsSourceList[$module][]=array(0=>$code,1=>$opt);
+	}
+
+	public function removeHtmlJsSourceAll($module) {
+		if(!array_key_exists($module,$this->htmlJsSourceList)) {
+			return;
+		};
+		unset($this->htmlJsSourceList[$module]);
+	}
+
+	public function eHtmlJsSource() {
+		if(count($this->htmlJsSourceList)>0) {
+			$simple=array();
+			$defer=array();
+			$async=array();
+			$load=array();
+
+			foreach($this->htmlJsSourceList as $key=>$js) {
+				foreach($js as $code) {
+					if($code[1]==="async") {
+						$async[]=$code[0];
+						continue;
+					};
+					if($code[1]==="defer") {
+						$defer[]=$code[0];
+						continue;
+					};
+					if($code[1]==="load") {
+						$load[]=$code[0];
+						continue;
+					};
+					$simple[]=$code[0];
+				};
+			};
+
+
+			if(count($simple)) {
+				echo "<script>";
+				foreach($simple as $code) {
+					echo $code;
+				};
+				echo "</script>\n";
+			};
+			if(count($async)) {
+				echo "<script async>";
+				foreach($async as $code) {
+					echo $code;
+				};
+				echo "</script>\n";
+			};
+			if(count($defer)||count($load)) {
+				echo "<script defer>";
+				if(count($defer)){
+					foreach($defer as $code) {
+						echo $code;
+					};
+				};
+				if(count($load)) {
+					echo "var __load__=function(){";
+					echo "window.removeEventListener(\"load\", __load__);\n";
+					foreach($load as $code) {
+						echo $code;
+					};
+					echo "__load__=null;};\n";
+					echo "window.addEventListener(\"load\",__load__);\n";
+				};
+				echo "</script>\n";
+			};
+		};
+	}
+
+	public function setHtmlCss($module,$url) {
+		if(!array_key_exists($module,$this->htmlCssList)) {
+			$this->htmlCssList[$module]=array();
+		};
+		$this->htmlCssList[$module][$url]=$url;
+	}
+
+	public function removeHtmlCss($module,$url) {
+		if(!array_key_exists($module,$this->htmlCssList)) {
+			return;
+		};
+		unset($this->htmlCssList[$module][$url]);
+	}
+
+	public function removeHtmlCssAll($module) {
+		if(!array_key_exists($module,$this->htmlCssList)) {
+			return;
+		};
+		unset($this->htmlCssList[$module]);
+	}
+
+	public function eHtmlCss() {
+		foreach($this->htmlCssList as $key=>$css) {
+			foreach($css as $url) {
+				echo "<link rel=\"stylesheet\" href=\"" . $url . "\">\n";
+			};
+		};
+	}
+
+	public function setHtmlTitle($title) {
+		$this->htmlTitle=$title;
+	}
+
+	public function eHtmlTitle() {
+		if(strlen($this->htmlTitle)>0) {
+			echo "<title>".$this->htmlTitle."</title>\n";
+		};
+	}
+
+	public function setHtmlDescription($description) {
+		$this->htmlDescription=$description;
+	}
+
+	public function eHtmlDescription() {
+		if(strlen($this->htmlDescription)>0) {
+			echo "<meta name=\"description\" content=\"".$this->htmlDescription."\">\n";
+		};
+	}
+
+	public function setHtmlIcon($uri) {
+		$this->htmlIcon=$uri;
+	}
+
+	public function eHtmlIcon() {
+		if(strlen($this->htmlIcon)>0) {
+			echo "<link rel=\"icon\" href=\"".$this->htmlIcon."\">\n";
+		};
+	}
+
+	public function setHtmlJsSourceOrAjax($module,$source,$opt="defer") {
+		if($this->isAjaxJs) {
+			echo $source;
+			return;
+		};
+		if($this->isAjax) {
+			echo "<script>";
+			echo $source;
+			echo "</script>";
+			return;
+		};
+		$this->setHtmlJsSource($module,$source,$opt);
+	}
+
+	public function eHtmlScript() {
+		$this->eHtmlJs();
+		$this->eHtmlJsSource();
+	}
+
+	//
 	// Template Manager
 	//
 
 	protected $template;
 	protected $templatePath;
 
-	private function initTemplateManager(){
+	private function initTemplateManager() {
 		$this->template=null;
 		$this->templatePath=null;
 	}
@@ -1083,15 +1319,35 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	//
+	// DataSource Manager
+	//
+
+	public $dataSource;
+
+	private function initDataSourceManager() {
+		$this->dataSource=new xyo_DataSource($this);
+		//
+		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-csv", "xyo-datasource-csv");
+		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-mysql", "xyo-datasource-mysql");
+		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-mysqli", "xyo-datasource-mysqli");
+		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-postgresql", "xyo-datasource-postgresql");
+		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-sqlite", "xyo-datasource-sqlite");
+		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-xyo", "xyo-datasource-xyo");
+		//
+		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-quantum", "xyo-datasource-quantum");
+	}
+
+	//
 	// Main
 	//
 
 	protected $isInitOk;
+	protected $site;
 
 	public function __construct() {
 		parent::__construct($this);
 
-		$this->set("kernel_version","2.0.0.0");
+		$this->set("kernel_version","3.0.0.0");
 
 		$this->set("core","public");
 		$this->set("core_list",array("public"=>"index.php"));
@@ -1102,13 +1358,15 @@ class xyo_Cloud extends xyo_Config {
 		$this->set("log_response",false);
 		$this->set("request_main","index.php");
 
-		$this->isInitOk=true;		
+		$this->isInitOk=true;
 
 		$this->initModuleManager();
 		$this->initGroupManager();
-		$this->initComponentManager();
-		$this->initRequestManager();		
+		$this->initApplicationManager();
+		$this->initRequestManager();
+		$this->initHtmlManager();
 		$this->initTemplateManager();
+		$this->initDataSourceManager();
 	}
 
 	public function getClientIP() {
@@ -1198,13 +1456,37 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function main() {
-		
+
+		// start up session - cookie only
+		ini_set("session.use_cookies", 1);
+		ini_set("session.use_trans_sid", 0);
+		session_start();
+		session_register_shutdown();
+		//
+		$this->set("version", "5.0.0.0");
+		//
+		$this->set("log_module",false);
+		$this->set("log_request",false);
+		$this->set("log_response",false);
+		$this->set("log_language",false);
+		$this->set("use_redirect",false);
+		//
+		$this->set("language", "en");
+		$this->set("locale", "en");
+		$this->set("locale_date_format","Y-m-d");
+		$this->set("locale_datetime_format","Y-m-d H:i:s");
+		$this->set("locale_time_format","H:i:s");
+		//
 		$coreList=array_flip($this->get("core_list",array()));
 		$coreList[$this->get("request_main","index.php")]=$this->get("core","public");
 		$this->set("core_list",array_flip($coreList));
-
+		//
 		$this->initRequest();
+		$this->dataSource->loadConfig();
 		$this->includeConfig("xyo-cloud");
+		//
+		$this->setSiteFromServerRequest();
+		//
 
 		if ($this->get("log_request",false)) {
 			ob_start();
@@ -1231,11 +1513,11 @@ class xyo_Cloud extends xyo_Config {
 		$this->execGroup("xyo-system-init", null);
 		if ($this->isInitOk) {
 			$exec_ = true;
-			$module = $this->loadModuleExecPath($this->request->get("run",$this->getComponent()));
+			$module = $this->loadModuleExecPath($this->request->get("run",$this->getApplication()));
 			if ($module) {
 				$this->initModule($module);
-				if ($this->isModuleAsComponent($module)) {
-					if($this->isAjax || $this->isJSON) {
+				if ($this->isModuleAnApplication($module)) {
+					if($this->isAjax || $this->isJson || $this->isAjaxJs) {
 						$exec_ = false;
 						$this->execModule($module, null);
 					};
@@ -1245,11 +1527,11 @@ class xyo_Cloud extends xyo_Config {
 				};
 			};
 			if ($exec_) {
-				$this->setComponent($module);
+				$this->setApplication($module);
 				$this->loadGroup("xyo-system-load");
 
-				if($this->hasComponent()) {
-					$this->processComponent($this->getComponent(),null);
+				if($this->hasApplication()) {
+					$this->processApplication($this->getApplication(),null);
 				};
 
 				$this->execGroup("xyo-system-exec", null);

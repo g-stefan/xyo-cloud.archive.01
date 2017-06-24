@@ -15,18 +15,8 @@ class lib_mod_BootstrapDatePicker extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_BootstrapDatePicker")) {
-            $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
-            if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/sys/css/datepicker3.css");
-            } else {
-                $this->moduleDisable();
-            };
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/sys/js/bootstrap-datepicker.js");
-            } else {
-                $this->moduleDisable();
-            };
+		$this->setHtmlCss($this->site."media/sys/css/datepicker3.css");
+		$this->setHtmlJs($this->site."media/sys/js/bootstrap-datepicker.js");
         }
     }
 

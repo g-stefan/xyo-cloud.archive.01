@@ -31,173 +31,132 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function registerModule($parent, $path, $module, $enabled=true, $description=null) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $module;
-				$dsModule->tryLoad();
-				$dsModule->path = $path;
-				$dsModule->enabled = $enabled;
-				$dsModule->parent = $parent;
-				$dsModule->description = $description;
-				$dsModule->parameter = 0;
-				return $dsModule->save();
-			}
-		}
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		if ($dsModule) {
+			$dsModule->name = $module;
+			$dsModule->tryLoad();
+			$dsModule->path = $path;
+			$dsModule->enabled = $enabled;
+			$dsModule->parent = $parent;
+			$dsModule->description = $description;
+			$dsModule->parameter = 0;
+			return $dsModule->save();
+		}	
 		return false;
 	}
 
 	function setModuleDescription($module, $description) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $module;
-				if ($dsModule->load(0, 1)) {
-					$dsModule->description = $description;
-					return $dsModule->save();
-				}
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		if ($dsModule) {
+			$dsModule->name = $module;
+			if ($dsModule->load(0, 1)) {
+				$dsModule->description = $description;
+				return $dsModule->save();
 			}
-		}
+		}		
 		return false;
 	}
 
 	function registerModuleAcl($module, $moduleGroup, $core, $userGroup, $order, $enabled) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			$dsModuleGroup = &$ds->getDataSource("db.table.xyo_module_group");
-			$dsCore = &$ds->getDataSource("db.table.xyo_core");
-			$dsUserGroup = &$ds->getDataSource("db.table.xyo_user_group");
-			$dsAclModule = &$ds->getDataSource("db.table.xyo_acl_module");
-			if ($dsModule &&
-			    $dsModuleGroup &&
-			    $dsCore &&
-			    $dsUserGroup &&
-			    $dsAclModule) {
-				$dsModule->name = $module;
-				if ($dsModule->load(0, 1)) {
-					$dsAclModule->id_xyo_module = $dsModule->id;
-					if ($moduleGroup) {
-						$dsModuleGroup->name = $moduleGroup;
-						if ($dsModuleGroup->load(0, 1)) {
-							$dsAclModule->id_xyo_module_group = $dsModuleGroup->id;
-						} else {
-							return false;
-						}
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		$dsModuleGroup = &$this->getDataSource("db.table.xyo_module_group");
+		$dsCore = &$this->getDataSource("db.table.xyo_core");
+		$dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
+		$dsAclModule = &$this->getDataSource("db.table.xyo_acl_module");
+		if ($dsModule &&
+		    $dsModuleGroup &&
+		    $dsCore &&
+		    $dsUserGroup &&
+		    $dsAclModule) {
+			$dsModule->name = $module;
+			if ($dsModule->load(0, 1)) {
+				$dsAclModule->id_xyo_module = $dsModule->id;
+				if ($moduleGroup) {
+					$dsModuleGroup->name = $moduleGroup;
+					if ($dsModuleGroup->load(0, 1)) {
+						$dsAclModule->id_xyo_module_group = $dsModuleGroup->id;
 					} else {
-						$dsAclModule->id_xyo_module_group = 0;
+						return false;
 					}
-					if ($core) {
-						$dsCore->name = $core;
-						if ($dsCore->load(0, 1)) {
-							$dsAclModule->id_xyo_core = $dsCore->id;
-						} else {
-							return false;
-						}
-					} else {
-						$dsAclModule->id_xyo_core = 0;
-					}
-					if ($userGroup) {
-						$dsUserGroup->name = $userGroup;
-						if ($dsUserGroup->load(0, 1)) {
-							$dsAclModule->id_xyo_user_group = $dsUserGroup->id;
-						} else {
-							return false;
-						}
-					} else {
-						$dsAclModule->id_xyo_user_group = 0;
-					}
-					$dsAclModule->tryLoad();
-					$dsAclModule->module = $module;
-					$dsAclModule->enabled = $enabled;
-					$dsAclModule->order = $order;
-					return $dsAclModule->save();
+				} else {
+					$dsAclModule->id_xyo_module_group = 0;
 				}
+				if ($core) {
+					$dsCore->name = $core;
+					if ($dsCore->load(0, 1)) {
+						$dsAclModule->id_xyo_core = $dsCore->id;
+					} else {
+						return false;
+					}
+				} else {
+					$dsAclModule->id_xyo_core = 0;
+				}
+				if ($userGroup) {
+					$dsUserGroup->name = $userGroup;
+					if ($dsUserGroup->load(0, 1)) {
+						$dsAclModule->id_xyo_user_group = $dsUserGroup->id;
+					} else {
+						return false;
+					}
+				} else {
+					$dsAclModule->id_xyo_user_group = 0;
+				}
+				$dsAclModule->tryLoad();
+				$dsAclModule->module = $module;
+				$dsAclModule->enabled = $enabled;
+				$dsAclModule->order = $order;
+				return $dsAclModule->save();
 			}
-		}
+		}	
 		return false;
 	}
 
 	function removeModuleAcl($module, $moduleGroup, $core, $userGroup) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			$dsModuleGroup = &$ds->getDataSource("db.table.xyo_module_group");
-			$dsCore = &$ds->getDataSource("db.table.xyo_core");
-			$dsUserGroup = &$ds->getDataSource("db.table.xyo_user_group");
-			$dsAclModule = &$ds->getDataSource("db.table.xyo_acl_module");
-			if ($dsModule &&
-			    $dsModuleGroup &&
-			    $dsCore &&
-			    $dsUserGroup &&
-			    $dsAclModule) {
-				$dsModule->name = $module;
-				if ($dsModule->load(0, 1)) {
-					$dsAclModule->id_xyo_module = $dsModule->id;
-					if ($moduleGroup) {
-						$dsModuleGroup->name = $moduleGroup;
-						if ($dsModuleGroup->load(0, 1)) {
-							$dsAclModule->id_xyo_module_group = $dsModuleGroup->id;
-						} else {
-							return false;
-						}
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		$dsModuleGroup = &$this->getDataSource("db.table.xyo_module_group");
+		$dsCore = &$this->getDataSource("db.table.xyo_core");
+		$dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
+		$dsAclModule = &$this->getDataSource("db.table.xyo_acl_module");
+		if ($dsModule &&
+		    $dsModuleGroup &&
+		    $dsCore &&
+		    $dsUserGroup &&
+		    $dsAclModule) {
+			$dsModule->name = $module;
+			if ($dsModule->load(0, 1)) {
+				$dsAclModule->id_xyo_module = $dsModule->id;
+				if ($moduleGroup) {
+					$dsModuleGroup->name = $moduleGroup;
+					if ($dsModuleGroup->load(0, 1)) {
+						$dsAclModule->id_xyo_module_group = $dsModuleGroup->id;
 					} else {
-						$dsAclModule->id_xyo_module_group = 0;
+						return false;
 					}
-					if ($core) {
-						$dsCore->name = $core;
-						if ($dsCore->load(0, 1)) {
-							$dsAclModule->id_xyo_core = $dsCore->id;
-						} else {
-							return false;
-						}
-					} else {
-						$dsAclModule->id_xyo_core = 0;
-					}
-					if ($userGroup) {
-						$dsUserGroup->name = $userGroup;
-						if ($dsUserGroup->load(0, 1)) {
-							$dsAclModule->id_xyo_user_group = $dsUserGroup->id;
-						} else {
-							return false;
-						}
-					} else {
-						$dsAclModule->id_xyo_user_group = 0;
-					}
-					return $dsAclModule->delete();
+				} else {
+					$dsAclModule->id_xyo_module_group = 0;
 				}
+				if ($core) {
+					$dsCore->name = $core;
+					if ($dsCore->load(0, 1)) {
+						$dsAclModule->id_xyo_core = $dsCore->id;
+					} else {
+						return false;
+					}
+				} else {
+					$dsAclModule->id_xyo_core = 0;
+				}
+				if ($userGroup) {
+					$dsUserGroup->name = $userGroup;
+					if ($dsUserGroup->load(0, 1)) {
+						$dsAclModule->id_xyo_user_group = $dsUserGroup->id;
+					} else {
+						return false;
+					}
+				} else {
+					$dsAclModule->id_xyo_user_group = 0;
+				}
+				return $dsAclModule->delete();
 			}
-		}
-		return false;
-	}
-
-	function &getDataSource($name) {
-		$retV = null;
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			return $ds->getDataSource($name);
-		}
-		return $retV;
-	}
-
-	function setDataSource($module_, $name_) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			if($module_){
-				$ds->setDataSourceDescriptor($name_, $this->getModulePath($module_) . "datasource/" . $name_ . ".php");
-			}else{
-				$ds->setDataSourceDescriptor($name_, "datasource/" . $name_ . ".php");
-			};
-			$ds_ = &$ds->getDataSource($name_);
-			if ($ds_) {
-				if ($ds_->getType() == "table") {
-					// has effect only once on succesive call
-					$ds_->createStorage();
-				}
-				return true;
-			};
 		}
 		return false;
 	}
@@ -208,42 +167,36 @@ class xyo_mod_Setup extends xyo_Module {
 		if (file_exists($file_)) {
 			if (copy($file_, "datasource/" . $name_ . ".php")) {
 
-				$ds = &$this->cloud->getModule("xyo-mod-datasource");
+				$ds = &$this->getDataSource($name_);
 				if ($ds) {
-					$ds = &$ds->getDataSource($name_);
-					if ($ds) {
-						if ($ds->getType() == "table") {
-							// has effect only once on succesive call
-							$ds->createStorage();
-						}
-						return true;													
+					if ($ds->getType() == "table") {
+						// has effect only once on succesive call
+						$ds->createStorage();
 					}
+					return true;													
 				}
+
 			};
 		};
 		return false;
 	}
 
 	function registerDataSource($name_) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$matches = array();
-			if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name_, $matches)) {
-				if (count($matches) > 3) {
-					if (strcmp($matches[2], "table") == 0) {
-						$ds = &$ds->getDataSource($name_);
-						if ($ds) {
-							if ($ds->getType() == "table") {
-								// has effect only once on succesive call
-								$ds->createStorage();
-							}									
+		$matches = array();
+		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name_, $matches)) {
+			if (count($matches) > 3) {
+				if (strcmp($matches[2], "table") == 0) {
+					$ds = &$this->getDataSource($name_);
+					if ($ds) {
+						if ($ds->getType() == "table") {
+							// has effect only once on succesive call
+							$ds->createStorage();
 						}
 					}
 				}
-			};
-			return true;
-		}
-		return false;
+			}
+		};
+		return true;
 	}
 
 	function registerModuleGroup($name) {
@@ -266,27 +219,24 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function unregisterModule($module_) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $module_;
-				if ($dsModule->load(0, 1)) {
-					$dsX = &$ds->getDataSource("db.table.xyo_form_element");
-					if ($dsX) {
-						$dsX->id_xyo_module = $dsModule->id;
-						$dsX->delete();
-					};
-					$dsX = &$ds->getDataSource("db.table.xyo_acl_module");
-					if ($dsX) {
-						$dsX->id_xyo_module = $dsModule->id;
-						$dsX->delete();
-					};
-					$dsModule->delete();
-					return true;
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		if ($dsModule) {
+			$dsModule->name = $module_;
+			if ($dsModule->load(0, 1)) {
+				$dsX = &$this->getDataSource("db.table.xyo_form_element");
+				if ($dsX) {
+					$dsX->id_xyo_module = $dsModule->id;
+					$dsX->delete();
 				};
+				$dsX = &$this->getDataSource("db.table.xyo_acl_module");
+				if ($dsX) {
+					$dsX->id_xyo_module = $dsModule->id;
+					$dsX->delete();
+				};
+				$dsModule->delete();
+				return true;
 			};
-		};
+		};		
 		return false;
 	}
 
@@ -304,54 +254,48 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function enableModule($module_, $enable_) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $module_;
-				if ($dsModule->load(0, 1)) {
-					$dsModule->enabled = $enable_;
-					if ($dsModule->save()) {
-						return true;
-					};
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		if ($dsModule) {
+			$dsModule->name = $module_;
+			if ($dsModule->load(0, 1)) {
+				$dsModule->enabled = $enable_;
+				if ($dsModule->save()) {
+					return true;
 				};
 			};
-		};
+		};		
 		return false;
 	}
 
 	function createModulePackage($moduleName) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $moduleName;
-				if ($dsModule->load(0, 1)) {
-					if ($dsModule->cmd) {
-						return array("module" => $moduleName, "file" => null);
-					}
-					$version_ = new xyo_mod_setup_Version($this);
-					$version = $version_->getModuleVersion($moduleName);
-					if (strlen($version)) {
-						$version = "-" . $version;
-					} else {
-						$version = "";
-					}
-					$modulePath = $this->getModulePath($moduleName);
-					$moduleContent = $this->getFileList($modulePath);
-					$moduleFile = "";
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		if ($dsModule) {
+			$dsModule->name = $moduleName;
+			if ($dsModule->load(0, 1)) {
+				if ($dsModule->cmd) {
+					return array("module" => $moduleName, "file" => null);
+				}
+				$version_ = new xyo_mod_setup_Version($this);
+				$version = $version_->getModuleVersion($moduleName);
+				if (strlen($version)) {
+					$version = "-" . $version;
+				} else {
+					$version = "";
+				}
+				$modulePath = $this->getModulePath($moduleName);
+				$moduleContent = $this->getFileList($modulePath);
+				$moduleFile = "";
 
-					if (count($moduleContent)) {
-						$packageFile = "package/" . $moduleName . $version . ".tar.gz";
-						$archive = new pear__archive_tar($packageFile, "gz");
-						if ($archive->createModify($moduleContent, $moduleName, $modulePath)) {
-							$archive->_pear__archive_tar();
-							return array("module" => $moduleName, "file" => $moduleName . $version . ".tar.gz");
-						}
-					}
+				if (count($moduleContent)) {
+					$packageFile = "package/" . $moduleName . $version . ".tar.gz";
+					$archive = new pear__archive_tar($packageFile, "gz");
+					if ($archive->createModify($moduleContent, $moduleName, $modulePath)) {
+						$archive->_pear__archive_tar();
+						return array("module" => $moduleName, "file" => $moduleName . $version . ".tar.gz");
+				}
 				}
 			}
-		}
+		}		
 		return array("module" => $moduleName, "file" => null);
 	}
 
@@ -360,27 +304,25 @@ class xyo_mod_Setup extends xyo_Module {
 		if ($path_) {
 			return $path_;
 		};
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModule = &$ds->getDataSource("db.table.xyo_module");
-			if ($dsModule) {
-				$dsModule->name = $module;
-				if ($dsModule->load(0, 1)) {
+		$dsModule = &$this->getDataSource("db.table.xyo_module");
+		if ($dsModule) {
+			$dsModule->name = $module;
+			if ($dsModule->load(0, 1)) {
 
-					$pathModule = null;
-					if (strlen($dsModule->parent) > 0) {
-						if (strlen($dsModule->path) > 0) {
-							$pathModule = $this->getModulePath($dsModule->parent) . $dsModule->path . "/";
-						} else {
-							$pathModule = $this->getModulePath($dsModule->parent) . $module . "/";
-						}
-					} else if (strlen($dsModule->path) > 0) {
-						$pathModule = "module/" . $dsModule->path . "/";
+				$pathModule = null;
+				if (strlen($dsModule->parent) > 0) {
+					if (strlen($dsModule->path) > 0) {
+						$pathModule = $this->getModulePath($dsModule->parent) . $dsModule->path . "/";
 					} else {
-						$pathModule = "module/" . $module . "/";
+						$pathModule = $this->getModulePath($dsModule->parent) . $module . "/";
 					}
-					return $pathModule;
-				};
+				} else if (strlen($dsModule->path) > 0) {
+					$pathModule = "module/" . $dsModule->path . "/";
+				} else {
+					$pathModule = "module/" . $module . "/";
+				}
+				return $pathModule;
+
 			};
 		};
 		return null;
@@ -971,217 +913,156 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function registerUserGroup($name,$description,$enabled) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsUserGroup=&$ds->getDataSource("db.table.xyo_user_group");
-			if($dsUserGroup) {
-				$dsUserGroup->name=$name;
-				$dsUserGroup->tryLoad();
-				$dsUserGroup->description=$description;
-				$dsUserGroup->enabled=$enabled;
-				return $dsUserGroup->save();
-			};
+		$dsUserGroup=&$this->getDataSource("db.table.xyo_user_group");
+		if($dsUserGroup) {
+			$dsUserGroup->name=$name;
+			$dsUserGroup->tryLoad();
+			$dsUserGroup->description=$description;
+			$dsUserGroup->enabled=$enabled;
+			return $dsUserGroup->save();
+		};
 
-		}
 		return false;
 	}
 
 	function registerUserGroupXUserGroup($nameSuper,$name,$enabled) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsUserGroupSuper=&$ds->getDataSource("db.table.xyo_user_group");
-			if($dsUserGroupSuper) {
-				$dsUserGroupSuper->name=$nameSuper;
-				if($dsUserGroupSuper->load(0,1)) {
-					$dsUserGroup=&$ds->getDataSource("db.table.xyo_user_group");
-					if($dsUserGroup) {
-						$dsUserGroup->name=$name;
-						if($dsUserGroup->load(0,1)) {
-							$dsUserGroupXUserGroup=&$ds->getDataSource("db.table.xyo_user_group_x_user_group");
-							if($dsUserGroupXUserGroup) {
-								$dsUserGroupXUserGroup->id_xyo_user_group_super=$dsUserGroupSuper->id;
-								$dsUserGroupXUserGroup->id_xyo_user_group=$dsUserGroup->id;
-								$dsUserGroupXUserGroup->tryLoad();
-								$dsUserGroupXUserGroup->enabled=$enabled;
-								return $dsUserGroupXUserGroup->save();
-							}
-						};
+		$dsUserGroupSuper=&$this->getDataSource("db.table.xyo_user_group");
+		if($dsUserGroupSuper) {
+			$dsUserGroupSuper->name=$nameSuper;
+			if($dsUserGroupSuper->load(0,1)) {
+				$dsUserGroup=&$ds->getDataSource("db.table.xyo_user_group");
+				if($dsUserGroup) {
+					$dsUserGroup->name=$name;
+					if($dsUserGroup->load(0,1)) {
+						$dsUserGroupXUserGroup=&$ds->getDataSource("db.table.xyo_user_group_x_user_group");
+						if($dsUserGroupXUserGroup) {
+							$dsUserGroupXUserGroup->id_xyo_user_group_super=$dsUserGroupSuper->id;
+							$dsUserGroupXUserGroup->id_xyo_user_group=$dsUserGroup->id;
+							$dsUserGroupXUserGroup->tryLoad();
+							$dsUserGroupXUserGroup->enabled=$enabled;
+							return $dsUserGroupXUserGroup->save();
+						}
 					};
-				}
-			};
-		}
+				};
+			}
+		}	
 		return false;
 	}
 
-	function installFormElement($module_, $name_) {
-
-		$file_ = $this->getModulePath($module_) . "/view/form/" . $name_ . "-require.php";
-		if (file_exists($file_)) {
-			copy($file_, "form/" . $name_ . "-require.php");
-		};
-
-		$file_ = $this->getModulePath($module_) . "/view/form/" . $name_ . "-process.php";
-		if (file_exists($file_)) {
-			copy($file_, "form/" . $name_ . "-process.php");
-		};
-
-		$file_ = $this->getModulePath($module_) . "/view/form/" . $name_ . ".php";
-		if (file_exists($file_)) {
-			copy($file_, "form/" . $name_ . ".php");				
-		};
-
-		$path_="view/form/language/";
-		$fileList_ = $this->getFileList($this->getModulePath($module_) . $path_);
-		foreach($fileList_ as $k=>$v){
-			$pos1=strrpos($v,$path_)+strlen($path_);
-			$pos2=strrpos($v,"/".$name_ . ".php",$pos1);
-			if($pos2){
-				$lang_=substr($v,$pos1,$pos2-$pos1);
-				@mkdir("form/language");
-				@mkdir("form/language/" .$lang_);
-				@copy($v,"form/language/" .$lang_."/". $name_ . ".php");
-			};
-		}; 		
-
-		return true;
-	}
-
-	function uninstallFormElement($name_) {
-
-		$file_ = "form/" . $name_ . "-require.php";
-		if (file_exists($file_)) {
-			unlink($file_);
-		};
-
-		$file_ = "form/" . $name_ . "-process.php";
-		if (file_exists($file_)) {
-			unlink($file_);
-		};
-
-		$file_ = "form/" . $name_ . ".php";
-		if (file_exists($file_)) {
-			unlink($file_);
-		};
-
-	}
-
 	function selectMouleAclAsTemplate($module,$core,$userGroup) {
-		$ds = &$this->cloud->getModule("xyo-mod-datasource");
-		if ($ds) {
-			$dsModuleGroup=&$ds->getDataSource("db.table.xyo_module_group");
-			$dsUserGroup=&$ds->getDataSource("db.table.xyo_user_group");
-			$dsCore=&$ds->getDataSource("db.table.xyo_core");
-			$dsAclModule=&$ds->getDataSource("db.table.xyo_acl_module");
-			$dsModule=&$ds->getDataSource("db.table.xyo_module");
-			if($dsModuleGroup&&
-			   $dsUserGroup&&
-			   $dsCore&&
-			   $dsAclModule&&
-			   $dsModule) {
-				$idUserGroup=0;
-				if($userGroup) {
-					$dsUserGroup->clear();
-					$dsUserGroup->name=$userGroup;
-					$dsUserGroup->enabled=1;
-					if($dsUserGroup->load(0,1)) {
-						$idUserGroup=$dsUserGroup->id;
-					} else {
-						return false;
-					};
+		$dsModuleGroup=&$this->getDataSource("db.table.xyo_module_group");
+		$dsUserGroup=&$this->getDataSource("db.table.xyo_user_group");
+		$dsCore=&$this->getDataSource("db.table.xyo_core");
+		$dsAclModule=&$this->getDataSource("db.table.xyo_acl_module");
+		$dsModule=&$this->getDataSource("db.table.xyo_module");
+		if($dsModuleGroup&&
+		   $dsUserGroup&&
+		   $dsCore&&
+		   $dsAclModule&&
+		   $dsModule) {
+			$idUserGroup=0;
+			if($userGroup) {
+				$dsUserGroup->clear();
+				$dsUserGroup->name=$userGroup;
+				$dsUserGroup->enabled=1;
+				if($dsUserGroup->load(0,1)) {
+					$idUserGroup=$dsUserGroup->id;
+				} else {
+					return false;
 				};
+			};
 
-				$idCore=0;
-				if($core) {
-					$dsCore->clear();
-					$dsCore->name=$core;
-					$dsCore->enabled=1;
-					if($dsCore->load(0,1)) {
-						$idCore=$dsCore->id;
-					} else {
-						return false;
-					};
+			$idCore=0;
+			if($core) {
+				$dsCore->clear();
+				$dsCore->name=$core;
+				$dsCore->enabled=1;
+				if($dsCore->load(0,1)) {
+					$idCore=$dsCore->id;
+				} else {
+					return false;
 				};
+			};
 
 
-				$idModuleGroupTemplate=0;
-				$idModuleGroupLoad=0;
-				$idModuleGroupExec=0;
+			$idModuleGroupTemplate=0;
+			$idModuleGroupLoad=0;
+			$idModuleGroupExec=0;
 
-				$dsModuleGroup->clear();
-				$dsModuleGroup->name="xyo-template";
-				$dsModuleGroup->enabled=1;
-				if($dsModuleGroup->load(0,1)) {
-					$idModuleGroupTemplate=$dsModuleGroup->id;
-				}
+			$dsModuleGroup->clear();
+			$dsModuleGroup->name="xyo-template";
+			$dsModuleGroup->enabled=1;
+			if($dsModuleGroup->load(0,1)) {
+				$idModuleGroupTemplate=$dsModuleGroup->id;
+			}
 
-				$dsModuleGroup->clear();
-				$dsModuleGroup->name="xyo-system-load";
-				$dsModuleGroup->enabled=1;
-				if($dsModuleGroup->load(0,1)) {
-					$idModuleGroupLoad=$dsModuleGroup->id;
-				}
+			$dsModuleGroup->clear();
+			$dsModuleGroup->name="xyo-system-load";
+			$dsModuleGroup->enabled=1;
+			if($dsModuleGroup->load(0,1)) {
+				$idModuleGroupLoad=$dsModuleGroup->id;
+			}
 
-				$dsModuleGroup->clear();
-				$dsModuleGroup->name="xyo-system-exec";
-				$dsModuleGroup->enabled=1;
-				if($dsModuleGroup->load(0,1)) {
-					$idModuleGroupExec=$dsModuleGroup->id;
-				}
+			$dsModuleGroup->clear();
+			$dsModuleGroup->name="xyo-system-exec";
+			$dsModuleGroup->enabled=1;
+			if($dsModuleGroup->load(0,1)) {
+				$idModuleGroupExec=$dsModuleGroup->id;
+			}
 
-				if($idModuleGroupTemplate&&
-				   $idModuleGroupLoad&&
-				   $idModuleGroupExec) {
-					$dsModule->clear();
-					$dsModule->name=$module;
-					$dsModule->enabled=1;
-					if($dsModule->load(0,1)) {
-						$dsAclModule->clear();
-						$dsAclModule->id_xyo_user_group=$idUserGroup;
-						$dsAclModule->id_xyo_core=$idCore;
-						$dsAclModule->id_xyo_module_group=$idModuleGroupTemplate;
-						$moduleList=array();
-						for($dsAclModule->load(); $dsAclModule->isValid(); $dsAclModule->loadNext()) {
-							if($dsAclModule->id_xyo_module==$dsModule->id) {} else {
-								$moduleList[]=$dsAclModule->id_xyo_module;
-							};
+			if($idModuleGroupTemplate&&
+			   $idModuleGroupLoad&&
+			   $idModuleGroupExec) {
+				$dsModule->clear();
+				$dsModule->name=$module;
+				$dsModule->enabled=1;
+				if($dsModule->load(0,1)) {
+					$dsAclModule->clear();
+					$dsAclModule->id_xyo_user_group=$idUserGroup;
+					$dsAclModule->id_xyo_core=$idCore;
+					$dsAclModule->id_xyo_module_group=$idModuleGroupTemplate;
+					$moduleList=array();
+					for($dsAclModule->load(); $dsAclModule->isValid(); $dsAclModule->loadNext()) {
+						if($dsAclModule->id_xyo_module==$dsModule->id) {} else {
+							$moduleList[]=$dsAclModule->id_xyo_module;
 						};
+					};
 
-						if(count($moduleList)) {
-
-							$dsAclModule->clear();
-							$dsAclModule->id_xyo_module_group=array($idModuleGroupLoad,$idModuleGroupExec);
-							$dsAclModule->id_xyo_user_group=$idUserGroup;
-							$dsAclModule->id_xyo_core=$idCore;
-							$dsAclModule->id_xyo_module=$moduleList;
-							$dsAclModule->update(array("enabled"=>0));
-
-						};
+					if(count($moduleList)) {
 
 						$dsAclModule->clear();
-						$dsAclModule->id_xyo_module_group=$idModuleGroupLoad;
+						$dsAclModule->id_xyo_module_group=array($idModuleGroupLoad,$idModuleGroupExec);
 						$dsAclModule->id_xyo_user_group=$idUserGroup;
 						$dsAclModule->id_xyo_core=$idCore;
-						$dsAclModule->id_xyo_module=$dsModule->id;
-						$dsAclModule->tryLoad(0,1);
-						$dsAclModule->module=$dsModule->name;
-						$dsAclModule->enabled=1;
-						$dsAclModule->save();
+						$dsAclModule->id_xyo_module=$moduleList;
+						$dsAclModule->update(array("enabled"=>0));
+                        
+					};
 
-						$dsAclModule->clear();
-						$dsAclModule->id_xyo_module_group=$idModuleGroupExec;
-						$dsAclModule->id_xyo_user_group=$idUserGroup;
-						$dsAclModule->id_xyo_core=$idCore;
-						$dsAclModule->id_xyo_module=$dsModule->id;
-						$dsAclModule->tryLoad(0,1);
-						$dsAclModule->module=$dsModule->name;
-						$dsAclModule->enabled=1;
-						$dsAclModule->save();
+					$dsAclModule->clear();
+					$dsAclModule->id_xyo_module_group=$idModuleGroupLoad;
+					$dsAclModule->id_xyo_user_group=$idUserGroup;
+					$dsAclModule->id_xyo_core=$idCore;
+					$dsAclModule->id_xyo_module=$dsModule->id;
+					$dsAclModule->tryLoad(0,1);
+					$dsAclModule->module=$dsModule->name;
+					$dsAclModule->enabled=1;
+					$dsAclModule->save();
 
-						return true;
-					}
+					$dsAclModule->clear();
+					$dsAclModule->id_xyo_module_group=$idModuleGroupExec;
+					$dsAclModule->id_xyo_user_group=$idUserGroup;
+					$dsAclModule->id_xyo_core=$idCore;
+					$dsAclModule->id_xyo_module=$dsModule->id;
+					$dsAclModule->tryLoad(0,1);
+					$dsAclModule->module=$dsModule->name;
+					$dsAclModule->enabled=1;
+					$dsAclModule->save();
+
+					return true;
 				}
 			}
-		}
+		}		
 		return false;
 	}
 }

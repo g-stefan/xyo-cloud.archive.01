@@ -22,7 +22,7 @@ if ($fileHandle) {
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "\$this->set(\"configured\",true);\r\n");
     fwrite($fileHandle, "\$this->set(\"datasource_layer\",\"" .
-            $this->cloud->get("datasource_layer", "xyo-mod-datasource-xyo") .
+            $this->cloud->get("datasource_layer", "xyo-datasource-xyo") .
             "\");\r\n");
     fwrite($fileHandle, "\$this->set(\"default_language\",\"" . $this->getSystemLanguage() . "\");\r\n");
     fwrite($fileHandle, "\$this->set(\"locale_date_format\",\"Y-m-d\");\r\n");
@@ -31,6 +31,6 @@ if ($fileHandle) {
     fwrite($fileHandle, "\r\n\r\n");
     fclose($fileHandle);
 } else {
-    $this->setError("error", array("config_file_not_writable" => $fileName));
+    $this->setError(array("config_file_not_writable" => $fileName));
 }
 

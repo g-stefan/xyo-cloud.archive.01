@@ -46,7 +46,7 @@ if ($this->isElementError()) {
     if ($dsUser) {
         
     } else {
-        $this->setError("error", array("datasource_not_found" => "db.table.xyo_user"));
+        $this->setError(array("datasource_not_found" => "db.table.xyo_user"));
         return;
     }
 
@@ -54,7 +54,7 @@ if ($this->isElementError()) {
     if ($dsLanguage) {
         
     } else {
-        $this->setError("error", array("datasource_not_found" => "db.table.xyo_language"));
+        $this->setError(array("datasource_not_found" => "db.table.xyo_language"));
         return;
     }
 
@@ -62,7 +62,7 @@ if ($this->isElementError()) {
     if ($dsUserXUserGroup) {
         
     } else {
-        $this->setError("error", array("datasource_not_found" => "db.table.xyo_user_x_user_group"));
+        $this->setError(array("datasource_not_found" => "db.table.xyo_user_x_user_group"));
         return;
     }
 
@@ -70,7 +70,7 @@ if ($this->isElementError()) {
     if ($dsUserXCore) {
         
     } else {
-        $this->setError("error", array("datasource_not_found" => "db.table.xyo_user_x_core"));
+        $this->setError(array("datasource_not_found" => "db.table.xyo_user_x_core"));
         return;
     }
 
@@ -79,7 +79,7 @@ if ($this->isElementError()) {
     if ($dsUserGroup) {
         
     } else {
-        $this->setError("error", array("datasource_not_found" => "db.table.xyo_user_group"));
+        $this->setError(array("datasource_not_found" => "db.table.xyo_user_group"));
         return;
     }
 
@@ -87,7 +87,7 @@ if ($this->isElementError()) {
     if ($dsSettings) {
         
     } else {
-        $this->setError("error", array("datasource_not_found" => "db.table.xyo_settings"));
+        $this->setError(array("datasource_not_found" => "db.table.xyo_settings"));
         return;
     }
 

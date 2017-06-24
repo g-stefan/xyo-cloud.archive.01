@@ -51,16 +51,11 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 	public function reloadDataSource() {
 
-		$modDs = &$this->getModule("xyo-mod-datasource");
-		if ($modDs) {
-
-			$this->dsCore = &$modDs->getDataSource("db.table.xyo_core");
-			$this->dsUser = &$modDs->getDataSource("db.table.xyo_user");
-			$this->dsUserGroup = &$modDs->getDataSource("db.table.xyo_user_group");
-			$this->dsUserGroupXUserGroup = &$modDs->getDataSource("db.table.xyo_user_group_x_user_group");
-			$this->dsUserXUserGroup = &$modDs->getDataSource("db.table.xyo_user_x_user_group");
-
-		}
+		$this->dsCore = &$this->getDataSource("db.table.xyo_core");
+		$this->dsUser = &$this->getDataSource("db.table.xyo_user");
+		$this->dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
+		$this->dsUserGroupXUserGroup = &$this->getDataSource("db.table.xyo_user_group_x_user_group");
+		$this->dsUserXUserGroup = &$this->getDataSource("db.table.xyo_user_x_user_group");
 
 	}
 

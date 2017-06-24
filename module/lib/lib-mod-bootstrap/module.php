@@ -12,23 +12,13 @@ $className = "lib_mod_Bootstrap";
 
 class lib_mod_Bootstrap extends xyo_Module {
 
-    public function __construct(&$object, &$cloud) {
-        parent::__construct($object, $cloud);
-        if ($this->isBase("lib_mod_Bootstrap")) {
-            $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
-            if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/lib/bootstrap/css/bootstrap.min.css");
-                $htmlHead->setCss($this->name,$this->site."media/lib/bootstrap/css/bootstrap-theme.min.css");
-            } else {
-                $this->moduleDisable();
-            };
-            $htmlFooter = &$cloud->getModule("xyo-mod-htmlfooter");
-            if ($htmlFooter) {
-                $htmlFooter->setJs($this->name,$this->site."media/lib/bootstrap/js/bootstrap.min.js");
-            } else {
-                $this->moduleDisable();
-            };
-        }
-    }
+	public function __construct(&$object, &$cloud) {
+		parent::__construct($object, $cloud);
+		if ($this->isBase("lib_mod_Bootstrap")) {
+			$this->setHtmlCss($this->site."media/lib/bootstrap/css/bootstrap.min.css");
+			$this->setHtmlCss($this->site."media/lib/bootstrap/css/bootstrap-theme.min.css");
+			$this->setHtmlJs($this->site."media/lib/bootstrap/js/bootstrap.min.js");
+		}
+	}
 
 }

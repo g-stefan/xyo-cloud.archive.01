@@ -15,12 +15,7 @@ class lib_mod_RobotoRegular extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_mod_RobotoRegular")) {
-            $htmlHead = &$cloud->getModule("xyo-mod-htmlhead");
-            if ($htmlHead) {
-                $htmlHead->setCss($this->name,$this->site."media/lib/roboto-regular/css/roboto-regular.css");
-            } else {
-                $this->moduleDisable();
-            };
+		$this->setHtmlCss($this->site."media/lib/roboto-regular/css/roboto-regular.css");
         }
     }
 

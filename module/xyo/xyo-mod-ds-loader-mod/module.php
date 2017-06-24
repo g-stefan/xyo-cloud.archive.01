@@ -23,16 +23,14 @@ class xyo_mod_ds_Loader extends xyo_Module {
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 
-		$this->modDs = &$this->cloud->getModule("xyo-mod-datasource");
 		$this->modAcl = &$this->cloud->getModule("xyo-mod-ds-acl");
 
-		if ($this->modDs &&
-		    $this->modAcl) {
+		if ($this->modAcl) {
 
-			$this->dsModule = &$this->modDs->getDataSource("db.table.xyo_module");
-			$this->dsModuleGroup = &$this->modDs->getDataSource("db.table.xyo_module_group");
-			$this->dsAclModule = &$this->modDs->getDataSource("db.table.xyo_acl_module");
-			$this->dsModuleParameter = &$this->modDs->getDataSource("db.table.xyo_module_parameter");
+			$this->dsModule = &$this->getDataSource("db.table.xyo_module");
+			$this->dsModuleGroup = &$this->getDataSource("db.table.xyo_module_group");
+			$this->dsAclModule = &$this->getDataSource("db.table.xyo_acl_module");
+			$this->dsModuleParameter = &$this->getDataSource("db.table.xyo_module_parameter");
 
 			if ($this->dsModule &&
 			    $this->dsModuleGroup &&

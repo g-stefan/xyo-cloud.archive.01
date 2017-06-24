@@ -34,20 +34,18 @@ if(strlen($htmlClass)>0){
 	$htmlClass=" class=\"".$htmlClass."\"";
 };
 
-?><!doctype html>
-<html lang="en"<?php echo $htmlClass; ?>>
+?><!DOCTYPE html>
+<html<?php $this->eHtmlLanguage(); $this->eHtmlClass();?>>
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title><?php echo $title; ?></title>
-		<meta name="description" content="<?php echo $description; ?>">
-		<meta name="robots" content="index, follow">
-		<link rel="icon" href="favicon.ico">
-		<?php $this->generateHtmlHead(); ?>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<?php $this->eHtmlTitle(); ?>
+		<?php $this->eHtmlDescription(); ?>
+		<?php $this->eHtmlCss(); ?>
 	</head>
 	<body>
 		<?php $modPage->viewPage($modPage->page); ?>
-		<?php $this->generateHtmlFooter(); ?>
+		<?php $this->eHtmlScript(); ?>
 	</body>
 </html>

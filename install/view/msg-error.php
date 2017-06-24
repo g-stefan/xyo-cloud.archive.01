@@ -8,10 +8,10 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-if ($this->isError("error")) {
+if ($this->isError()) {
     $msgLang = "error_unknown";
     $msgTxt = "";
-    $err = $this->getError("error");
+    $err = $this->getError();
     if ($err) {
         if (is_array($err)) {
             reset($err);
@@ -21,6 +21,9 @@ if ($this->isError("error")) {
             $msgLang = $err;
         }
     }
+    if($msgLang === "element"){
+	return;
+    };
 ?>
 	<div class="alert alert-danger" role="alert">
 		<b><?php $this->eLanguage($msgLang); ?></b> <?php echo $msgTxt; ?> 	

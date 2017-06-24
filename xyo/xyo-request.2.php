@@ -8,6 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-function xyo_Cloud_Request__stripSlashesDeep($value){
+function xyo_Cloud_Request__stripSlashesDeep($value) {
 	return is_array($value) ? array_map("xyo_Cloud_Request__stripSlashesDeep", $value) : stripslashes($value);
 }
