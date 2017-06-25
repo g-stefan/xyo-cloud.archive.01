@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->requireModule("lib-mod-material-components-web");
+$this->requireModule("lib-material-components-web");

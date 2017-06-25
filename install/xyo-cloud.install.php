@@ -29,16 +29,16 @@ $this->setModule(null, null, "xyo-app", true,null,true,false);
 $this->setModule("xyo", null, "xyo-mod-ds-acl", true,null,true,false);
 $this->setModule("xyo", null, "xyo-mod-ds-user", true,null,true,false);
 //
-$this->setModule("lib", null, "lib-mod-jquery", true,null,true,false);
-$this->setModule("lib", null, "lib-mod-bootstrap", true,null,true,false);
-$this->setModule("lib", null, "lib-mod-bootstrap-feedback-left", true,null,true,false);
-$this->setModule("lib", null, "lib-mod-bootstrap-select", true,null,true,false);
+$this->setModule("lib", null, "lib-jquery", true,null,true,false);
+$this->setModule("lib", null, "lib-bootstrap", true,null,true,false);
+$this->setModule("lib", null, "lib-bootstrap-feedback-left", true,null,true,false);
+$this->setModule("lib", null, "lib-bootstrap-select", true,null,true,false);
 //
 $this->setModule("xyo", null, "xyo-mod-application", true,null,true,false);
 //
 $this->setModule("xyo", null, "xyo-mod-ds-loader-ds", true,null,true,false);
 //
-$this->setModule("lib", null, "lib-mod-pear-archive-tar", true,null,true,false);
+$this->setModule("lib", null, "lib-pear-archive-tar", true,null,true,false);
 $this->setModule("xyo", null, "xyo-mod-setup", true,null,true,false);
 $this->setModule("xyo-app", null, "xyo-mod-panel2", true,null,true,false);
 

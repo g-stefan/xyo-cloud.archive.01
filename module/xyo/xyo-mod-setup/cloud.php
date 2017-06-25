@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setReferenceLink($module, "lib-mod-pear-archive-tar");
+$this->setReferenceLink($module, "lib-pear-archive-tar");
 $this->setVersion($module, "2.0.0");

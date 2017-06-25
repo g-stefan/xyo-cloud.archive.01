@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->requireModule("lib-mod-bootstrap-feedback-left");
-$this->requireModule("lib-mod-font-awesome");
+$this->requireModule("lib-bootstrap-feedback-left");
+$this->requireModule("lib-font-awesome");

@@ -45,7 +45,7 @@ if(1*$this->getParameterRequest("sidebar-small",0)){
             <div style="font-family:arial;color:#0194FE;font-size:10px;float:right;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2014&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a>&#160;&#160;</div>
             <div class="clearfix"></div>
         </div>
-	<?php $this->execModule("lib-mod-bootstrap-back-to-top"); ?>
+	<?php $this->execModule("lib-bootstrap-back-to-top"); ?>
         <?php $this->generateHtmlFooter(); ?>
     </body>
 </html>

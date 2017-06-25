@@ -9,8 +9,8 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setModuleAsApplication($module);
-$this->setReferenceLink($module, "lib-mod-pear-archive-tar");
-$this->setReferenceLink($module, "lib-mod-bootstrap-feedback-left");
-$this->setReferenceLink($module, "lib-mod-bootstrap-select");
+$this->setReferenceLink($module, "lib-pear-archive-tar");
+$this->setReferenceLink($module, "lib-bootstrap-feedback-left");
+$this->setReferenceLink($module, "lib-bootstrap-select");
 $this->setReferenceBase($module, "xyo-app-application");
 $this->setVersion($module, "2.0.0");

@@ -9,5 +9,5 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setReferenceBase($module,"xyo-mod-application");
-$this->setReferenceLink($module,"lib-mod-font-awesome");
+$this->setReferenceLink($module,"lib-font-awesome");
 $this->setVersion($module, "2.0.0");

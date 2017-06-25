@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->loadModule("xyo-mod-sys-menu");
-$this->loadModule("lib-mod-bootstrap-back-to-top");
+$this->loadModule("lib-bootstrap-back-to-top");
 $this->loadGroup("xyo-desktop");
 $this->loadGroup("xyo-status");
 

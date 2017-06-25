@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setReferenceLink($module, "lib-mod-jquery-cookie");
-$this->setReferenceLink($module, "lib-mod-font-awesome");
+$this->setReferenceLink($module, "lib-jquery-cookie");
+$this->setReferenceLink($module, "lib-font-awesome");
 $this->setReferenceBase($module, "xyo-mod-application");
 $this->setVersion($module, "2.0.0");
 

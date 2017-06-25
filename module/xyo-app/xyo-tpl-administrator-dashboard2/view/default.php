@@ -67,7 +67,7 @@ if(1*$this->getParameterRequest("sidebar-small",0)){
 			</div>
 		</div>
 	</div>
-	<?php $this->execModule("lib-mod-bootstrap-back-to-top"); ?>
+	<?php $this->execModule("lib-bootstrap-back-to-top"); ?>
         <?php $this->eHtmlScript(); ?>
 	</body>
 </html>

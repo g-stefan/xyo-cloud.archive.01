@@ -8,5 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->requireModule("lib-mod-bootstrap-datetimepicker");
+$this->requireModule("lib-bootstrap-datetimepicker");
 
