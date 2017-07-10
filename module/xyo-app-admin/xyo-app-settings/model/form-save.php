@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -19,3 +19,6 @@ foreach($this->items as $item) {
 	};
 };
 
+//
+$this->cloud->set("xui_dashboard_user_background",$this->getElementValueStr("xui_dashboard_user_background"));
+//

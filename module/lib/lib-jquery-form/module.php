@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -15,7 +15,7 @@ class lib_JQueryForm extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_JQueryForm")) {
-		$this->setHtmlJs($this->site."lib/jquery-form/js/jquery.form.js");
+		$this->setHtmlJs($this->site."lib/jquery-form/js/jquery.form.min.js");
 	}
     }
 

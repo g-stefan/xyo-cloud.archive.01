@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -20,5 +20,7 @@ $this->merge(array(
 	"err_datasource_not_found"=>"Datasource not found",
 	"err_unknown"=>"Unknown error",
 
-	"info_unknown"=>"Unknown message"
+	"info_unknown"=>"Unknown message",
+	
+	"error_form_load"=> "No data selected"
 ));

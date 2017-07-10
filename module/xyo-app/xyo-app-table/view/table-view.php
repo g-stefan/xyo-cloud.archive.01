@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $compactView="";
-if(1*$this->getParameterBase("xyo_app_table_compact_view")){
+if(1*$this->getParameterBase("xyo_app_table_compact_view",1)){
 	$compactView="table-condensed";
 };
 
@@ -50,32 +50,6 @@ $toggle_off_img = array(
     0 => "<i class=\"fa fa-times\" style=\"color:#888;\"></i>",
     1 => "<i class=\"fa fa-check\" style=\"color:#888;\"></i>"
 );
-
-function xyo_app_table_processImage_($image,$defaultColor){
-	$img="";
-
-	if(is_array($image)){
-		if(strncmp($image[0],"#",1)==0){
-			$image[0] = substr($image[0],1);
-		};
-		$img = "<i class=\"".$image[0]."\" style=\"color:".$image[1]."\"></i>";
-	}else{
-	        $img = $image;
-        	if ($img) {
-			if(strncmp($img,"#",1)==0){
-				// icon
-			        $img = substr($img,1);
-				$img = "<i class=\"".$img."\" style=\"color:".$defaultColor."\"></i>";
-			}else{
-		            $img = "<img src=\"".$img."\" style=\"width:16px;height:16px;border:0px;\"></img>";
-			};
-	        } else {
-        	    $img = "";
-        	};
-	};	
-	return $img;
-};
-
 
 ?>
 <?php $this->ejsBegin(); ?>
@@ -175,11 +149,13 @@ function doValueSave(key){
 
 <?php $this->ejsEnd(); ?>
 
-<form id="<?php $this->eFormName(); ?>" name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>">
+
+<form id="<?php $this->eFormName(); ?>" name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" style="width:100%;height:100%;position:relative;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;overflow:hidden;">
 
 <?php
-
-	echo "<div class=\"row-fluid\" style=\"margin-bottom:6px;\">";
+		
+	echo "<div class=\"xui table\">";
+	echo "<div class=\"xui toolbar top\">";
 	echo "<div class=\"span6\">";
 	
 	if($has_search){
@@ -202,8 +178,7 @@ function doValueSave(key){
 
         echo "</div>";
  	echo "<div class=\"span6\">";
- 	 
-                        
+ 	                        
         foreach (array_reverse($this->tableSelect,true) as $key => $value) {
             if ($value) {
                 ?>
@@ -226,25 +201,25 @@ function doValueSave(key){
         }
        
         echo "</div>";
-	echo "<div class=\"clearfix\"></div>";
+
         echo "</div>";
+?>
+<div class="xui content" id="table-content">
 
-
-
-
-        ?>
-        <div class="clearfix" ></div>
-   
 <div class="table-responsive" style="margin-left:6px;margin-right:6px;">
     <table class="table table-striped table-bordered table-hover <?php echo $compactView; ?>" id="com_table">
 	<thead>
                 <?php
                 foreach ($this->tableHead as $key => $value) {
 
+	                if ($key === "#") {
+	                    echo "<th style=\"vertical-align:middle;\" style=\"width:32px;\">";
+			}else{
 	                    echo "<th style=\"vertical-align:middle;\">";
+			}
 
 
-                    if ($key === "#") {						
+                    if ($key === "#") {
                         echo "<input type=\"checkbox\" name=\"id_0\" value=\"0\" onchange=\"setCheckboxState(this);\" onclick=\"setCheckboxState(this);\" />";
                     } else
 		   if (array_key_exists($key, $this->tableType)) {
@@ -333,7 +308,11 @@ function doValueSave(key){
                 echo "<tr>";
                 foreach ($this->tableHead as $key_ => $value_) {
 
-                    echo "<td style=\"vertical-align:middle;\">";
+			if ($key_ === "#") {
+				echo "<td style=\"vertical-align:middle;width:32px;\">";
+			}else{
+				echo "<td style=\"vertical-align:middle;\">";
+			};
                     if ($key_ === "#") {
 				++$recordId;
 				if($value["@write"]){
@@ -356,14 +335,14 @@ function doValueSave(key){
 				if(array_key_exists(1,$this->tableType[$key_])){
 					if(array_key_exists("on",$this->tableType[$key_][1])){
 						$toggle_img_=array(
-							0=>xyo_app_table_processImage_($this->tableType[$key_][1]["on"][0],"#A33"),
-							1=>xyo_app_table_processImage_($this->tableType[$key_][1]["on"][1],"#3A3")                 
+							0=>$this->tableType[$key_][1]["on"][0],
+							1=>$this->tableType[$key_][1]["on"][1]
 						);									
 					};
 					if(array_key_exists("off",$this->tableType[$key_][1])){
 						$toggle_off_img_=array(
-							0=>xyo_app_table_processImage_($this->tableType[$key_][1]["off"][0],"#888"),
-							1=>xyo_app_table_processImage_($this->tableType[$key_][1]["off"][1],"#888")
+							0=>$this->tableType[$key_][1]["off"][0],
+							1=>$this->tableType[$key_][1]["off"][1]
 						);
 					};
 				};
@@ -390,14 +369,14 @@ function doValueSave(key){
 				if(array_key_exists(1,$this->tableType[$key_])){
 					if(array_key_exists("on",$this->tableType[$key_][1][$key_])){
 						$toggle_img_=array(
-							0=>xyo_app_table_processImage_($this->tableType[$key_][1]["on"][0],"#A33"),
-							1=>xyo_app_table_processImage_($this->tableType[$key_][1]["on"][1],"#3A3")                 
+							0=>$this->tableType[$key_][1]["on"][0],
+							1=>$this->tableType[$key_][1]["on"][1]                 
 						);									
 					};
 					if(array_key_exists("off",$this->tableType[$key_][1])){
 						$toggle_off_img_=array(
-							0=>xyo_app_table_processImage_($this->tableType[$key_][1]["off"][0],"#888"),
-							1=>xyo_app_table_processImage_($this->tableType[$key_][1]["off"][1],"#888")
+							0=>$this->tableType[$key_][1]["off"][0],
+							1=>$this->tableType[$key_][1]["off"][1]
 						);
 					};
 				};
@@ -421,14 +400,14 @@ function doValueSave(key){
 				if(array_key_exists(1,$this->tableType[$key_])){
 					if(array_key_exists("on",$this->tableType[$key_][1])){
 						$toggle_img_=array(
-							0=>xyo_app_table_processImage_($this->tableType[$key_][1]["on"][0],"#A33"),
-							1=>xyo_app_table_processImage_($this->tableType[$key_][1]["on"][1],"#3A3")                 
+							0=>$this->tableType[$key_][1]["on"][0],
+							1=>$this->tableType[$key_][1]["on"][1]                 
 						);									
 					};
 					if(array_key_exists("off",$this->tableType[$key_][1])){
 						$toggle_off_img_=array(
-							0=>xyo_app_table_processImage_($this->tableType[$key_][1]["off"][0],"#888"),
-							1=>xyo_app_table_processImage_($this->tableType[$key_][1]["off"][1],"#888")
+							0=>$this->tableType[$key_][1]["off"][0],
+							1=>$this->tableType[$key_][1]["off"][1]
 						);
 					};
 				};
@@ -617,8 +596,11 @@ function doValueSave(key){
             }
             ?>
         </tbody>
-    </table>
+    </table> 
 </div>
+
+</div>
+<div class="xui toolbar bottom">
         <div style="margin-left:6px;margin-right:6px">
 	<div class="row-fluid">
 	<div class="span12">
@@ -642,7 +624,6 @@ function doValueSave(key){
 	</div>
 
 	<div class="pull-left" style="margin-left:6px;">
-
         <select name="count"
                 size="1"
                 onChange="this.form.submit();"
@@ -662,13 +643,14 @@ function doValueSave(key){
 	<span style="position:relative;">
 	items <span style="color: #999;"> - </span> <?php echo $page_count; ?> pages <span style="color: #999;"> - </span> <?php echo $nr_items; ?> total
 	</span>
-
 	</div>
+
         </div>
 	</div>
 	</div>
-        <div class="clearfix"></div>
-    
+</div> 
+</div>       
+
     <input type="hidden" name="action" value="table-view" />
     <input type="hidden" name="primary_key_value" value="0;" />
     <input type="hidden" name="toggle" value="" />
@@ -707,6 +689,7 @@ function doValueSave(key){
 
     ?>
 </form>
+
 <?php
 
 
@@ -737,14 +720,12 @@ foreach($this->tableType as $key_=>$value_){
 
 	$this->generateView("table-view-return");
 	$this->generateView("table-view-call");
-	
+
 	$this->setHtmlJsSource(
-		"if($('#template-navbar-fixed-top').length){".
-			"$(\"#com_table\").stickyTableHeaders({fixedOffset: $('#template-navbar-fixed-top').height()});".
-		"}else{".
-			"$(\"#com_table\").stickyTableHeaders();".
-		"}"
+		"$(\"#com_table\").stickyTableHeaders({scrollableArea:$(\"#table-content\")});"
 	,"load");
+
+	
 	$this->setHtmlJsSource(
 		"function cmdDialogDelete(){".
         		"var el;".

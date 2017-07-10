@@ -1,0 +1,517 @@
+/*
+//
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+.xui.dashboard.size-x64 .xui.app-bar .xui.brand .brand-content{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 287px;
+	height: 64px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	padding-top: 16px;
+	padding-left: 20px;
+}
+
+.xui.dashboard.size-x64 .xui.app-bar .xui.brand .brand-logo{
+	background-image: url("images/xui-brand-logo.png");
+	float: left;
+	width: 32px;
+	height: 32px;
+}
+
+.xui.dashboard.size-x64 .xui.app-bar .xui.brand .brand-text{
+	padding-left: 48px;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: bold;
+	color: #1A237E;
+	overflow: hidden;
+	width: auto;
+	opacity: 1;
+	transition: opacity 0.5s ease;	
+}
+
+.xui.dashboard.size-x64 .xui.app-bar .xui.brand.closed .brand-text{
+	opacity: 0;
+}
+
+.xui.dashboard.size-x64 .xui.app-bar .xui.brand .brand-text-second{
+	position: relative;
+	top: -19px;
+	left: 3px;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: bold;
+	height: 16px;
+	color: #304FFE;
+}
+
+.xui.dashboard.size-x64 .xui.user .user-content{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 287px;
+	height: 144px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 287px auto;
+}
+
+.xui.dashboard.size-x64 .xui.user .user-content .user-content-background{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 287px;
+	height: 144px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.xui.dashboard.size-x64 .xui.navigation-drawer.normal.closed .xui.user .user-content .user-content-background{
+	opacity: 1;
+}
+
+.xui.dashboard.size-x64 .xui.user .user-image{
+	position: absolute;
+	top: 4px;
+	left: 92px; 
+	border-radius: 50%;
+	border: 1px solid #424242;
+	background-color: #FFFFFF;
+	width: 104px;
+	height: 104px;
+	background-image: url("images/xui-user-info-image.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: auto 100%;
+	transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
+	box-sizing: border-box;
+}
+
+.xui.dashboard.size-x64 .xui.navigation-drawer.normal.closed .xui.user .user-image{
+	position: absolute;
+	top: 0px;
+	left: 12px; 
+	width: 48px;
+	height: 48px;
+	transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
+	box-sizing: border-box;
+}
+
+.xui.dashboard.size-x64 .xui.user .user-info{
+	position: absolute;
+	left: 0px;
+	top: 112px;
+	width: 287px;
+	height: 32px;
+	overflow: hidden;
+	background-image: url("images/xui-user-info-background.png");
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 287px auto;
+	color: #FFFFFF;
+	font-size: 20px;
+	line-height: 20px;
+	padding-top: 6px;
+	text-align: center;
+	font-weight: normal;
+}
+
+/*
+//
+//
+//
+*/
+
+.xui.dashboard.size-x48 .xui.app-bar .xui.brand .brand-content{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 287px;
+	height: 48px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	padding-top: 8px;
+	padding-left: 20px;
+}
+
+.xui.dashboard.size-x48 .xui.app-bar .xui.brand .brand-logo{
+	background-image: url("images/xui-brand-logo.png");
+	float: left;
+	width: 32px;
+	height: 32px;
+}
+
+.xui.dashboard.size-x48 .xui.app-bar .xui.brand .brand-text{
+	padding-left: 48px;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: bold;
+	color: #1A237E;
+	overflow: hidden;
+	width: auto;
+	opacity: 1;
+	transition: opacity 0.5s ease;	
+}
+
+.xui.dashboard.size-x48 .xui.app-bar .xui.brand.closed .brand-text{
+	opacity: 0;
+}
+
+.xui.dashboard.size-x48 .xui.app-bar .xui.brand .brand-text-second{
+	position: relative;
+	top: -19px;
+	left: 3px;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: bold;
+	height: 16px;
+	color: #304FFE;
+}
+
+.xui.dashboard.size-x48 .xui.user .user-content{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 287px;
+	height: 144px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 287px auto;
+}
+
+.xui.dashboard.size-x48 .xui.user .user-content .user-content-background{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 287px;
+	height: 144px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.xui.dashboard.size-x48 .xui.navigation-drawer.normal.closed .xui.user .user-content .user-content-background{
+	opacity: 1;
+}
+
+.xui.dashboard.size-x48 .xui.user .user-image{
+	position: absolute;
+	top: 4px;
+	left: 92px; 
+	border-radius: 50%;
+	border: 1px solid #424242;
+	background-color: #FFFFFF;
+	width: 104px;
+	height: 104px;
+	background-image: url("images/xui-user-info-image.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: auto 100%;
+	transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
+	box-sizing: border-box;
+}
+
+.xui.dashboard.size-x48 .xui.navigation-drawer.normal.closed .xui.user .user-image{
+	position: absolute;
+	top: 0px;
+	left: 12px; 
+	width: 48px;
+	height: 48px;
+	transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
+	box-sizing: border-box;
+}
+
+.xui.dashboard.size-x48 .xui.user .user-info{
+	position: absolute;
+	left: 0px;
+	top: 112px;
+	width: 287px;
+	height: 32px;
+	overflow: hidden;
+	background-image: url("images/xui-user-info-background.png");
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 287px auto;
+	color: #FFFFFF;
+	font-size: 20px;
+	line-height: 20px;
+	padding-top: 6px;
+	text-align: center;
+	font-weight: normal;
+}
+
+/*
+//
+//
+//
+*/
+
+.xui.application{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.xui.application .xui.toolbar {
+	position: relative;
+	width: 100%;
+	height: 48px;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	overflow: hidden;
+	border-bottom: 1px solid #EEEEEE;
+	box-shadow: none;
+	z-index: 3;	
+}
+
+.xui.application .xui.toolbar.item{
+	position: relative;
+	width: auto;
+	height: 40px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	border-radius: 2px;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	border: 0px solid #EEEEEE;
+	box-shadow: none;
+	z-index: 3;
+}
+
+.xui.application a.xui.toolbar.item:visited{
+	text-decoration: none;
+}
+
+.xui.application a.xui.toolbar.item:hover{
+	text-decoration: none;
+	background-color: #90CAF9;
+	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.xui.application .xui.toolbar.item .xui.effect-ripple-element{
+	background-color: #42A5F5;
+}
+
+.xui.application .xui.toolbar.item .xui.icon{
+	width: 40px;
+	height: 40px;
+	padding-left: 8px;
+	padding-top: 8px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	font-size: 24px;
+	line-height: 24px;
+	color: #0D47A1;
+}
+
+.xui.application .xui.toolbar.item .xui.text{
+	height: 40px;
+	padding-left: 0px;
+	padding-top: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	font-size: 16px;
+	line-height: 16px;	
+	color: #000000;
+}
+
+.xui.application .xui.toolbar.item.warning .xui.icon{
+	color: #F57F17;
+}
+
+.xui.application .xui.toolbar.item.warning:hover{
+	background-color: #FFF59D;
+	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.xui.application .xui.toolbar.item.warning .xui.effect-ripple-element{
+	background-color: #FFEE58;
+}
+
+.xui.application .xui.toolbar.item.success .xui.icon{
+	color: #1B5E20;
+}
+
+.xui.application .xui.toolbar.item.success:hover{
+	background-color: #A5D6A7;
+	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.xui.application .xui.toolbar.item.success .xui.effect-ripple-element{
+	background-color: #66BB6A;
+}
+
+.xui.application .xui.toolbar.item.danger .xui.icon{
+	color: #BF360C;
+}
+
+.xui.application .xui.toolbar.item.danger:hover{
+	background-color: #EF9A9A;
+	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.xui.application .xui.toolbar.item.danger .xui.effect-ripple-element{
+	background-color: #EF5350;
+}
+
+.xui.application .xui.content{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	overflow: auto;	
+}
+
+.xui.application .xui.content.has-toolbar{
+	position: relative;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 8px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	overflow: auto;		
+	height: calc(100% - 48px);
+}
+
+.xui.application .xui.table{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+.xui.application .xui.table .xui.toolbar.top{
+	position: relative;
+	height: 40px;
+	width: 100%;
+	overflow: visible;
+	border-bottom: 1px solid #EEEEEE;
+	box-shadow: none;
+}
+
+.xui.application .xui.table .xui.toolbar.bottom{
+	position: relative;
+	height: 48px;
+	width: 100%;
+	overflow: visible;
+	padding-top: 8px;
+	border-top: 1px solid #EEEEEE;
+	border-bottom: 0px solid #EEEEEE;
+	box-shadow: none;
+}
+
+.xui.application .xui.table .xui.content{
+	position: relative;
+	width: 100%;
+	height: calc(100% - 88px);
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 8px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	overflow: auto;	
+}
+
+.xui.application .xui.message.alert{
+	position:relative;
+	width: 100%;
+	height: 48px;
+	overflow: hidden;
+
+	text-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+
+	padding-top: 16px;
+	padding-left: 12px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+
+	font-size: 15px;
+	line-height: 15px;
+
+	background-color: #A5D6A7;
+	color: #1B5E20;
+	border: 1px solid #66BB6A;
+	border-radius: 2px;
+}
+
+.xui.application .xui.message.error{
+	position:relative;
+	width: 100%;
+	height: 48px;
+	overflow: hidden;
+
+	text-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+
+	padding-top: 16px;
+	padding-left: 12px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+
+	font-size: 15px;
+	line-height: 15px;
+
+	background-color: #EF9A9A;
+	color: #B71C1C;
+	border: 1px solid #EF5350;
+	border-radius: 2px;
+}
+
+.xui.application .xui.content.has-toolbar.has-alert{
+	height: calc(100% - 96px);
+}
+
+.xui.application .xui.content.has-toolbar.has-error{
+	height: calc(100% - 96px);
+}
+
+.xui.application .xui.content.has-toolbar.has-alert.has-error{
+	height: calc(100% - 144px);
+}
+

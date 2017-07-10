@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -14,6 +14,6 @@ $this->ds->{$this->primaryKey} = $this->primaryKeyValue;
 if ($this->ds->load(0, 1)) {
     $this->processModel("form-set");	
 } else {
-    $this->setError("form-load");
+    $this->setError("error_form_load");
     return;
 }

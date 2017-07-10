@@ -1,36 +1,15 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-
-
-	        $img = $this->applicationIcon;
-        	if ($img) {
-			if(strncmp($img,"#",1)==0){
-				// icon
-			        $img = substr($img,1);
-				$img = "<i class=\"".$img." application-icon\"></i>";
-			}else{
-		            $img = "<img src=\"".$img."\" class=\"application-img\"></img>";
-			};
-	        } else {
-        	    $img = "<img src=\"".$this->site."media/sys/images/applications-system-48.png\" class=\"application-img\"></img>";
-	        };
-
 ?>
-<div class="application">
-	<div class="row-fluid">
-	<div class="span12">
-		<?php echo $img; ?>
-		<span class="application-title">		
-		<?php echo $this->applicationTitle; ?>
-		</span>
-		<span class="pull-right">
+<div class="xui application">
+	<div class="xui toolbar"><div class="xui right">
 <?php
            $this->execModule("xyo-mod-toolbar", array_merge(array(
                         "module" => $this->name,
@@ -38,11 +17,9 @@ defined('XYO_CLOUD') or die('Access is denied');
                             ), $this->toolbarParameter)
             );
 
-?>		
-		</span>
-	</div>
-	</div>
-	<div class="clearfix"></div>
+?>	
+	</div></div>
+
 <?php
 	if ($this->isAlert()) {
     		$this->generateView("message/alert");
@@ -50,10 +27,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 	if ($this->isError()) {
 		$this->generateView("message/error");
 	}
-	echo "<div class=\"clearfix\"></div>";
-	$this->generateCurrentView();
 
 ?>
-<div class="clearfix"></div>
+	<div class="xui content has-toolbar <?php if($this->isAlert()){echo "has-alert";}; ?> <?php if ($this->isError()){echo "has-error";}; ?>">
+	<?php $this->generateCurrentView(); ?>
+	</div>
 </div>
-<div class="clearfix"></div>

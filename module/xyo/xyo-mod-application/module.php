@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -21,6 +21,9 @@ class xyo_mod_Application extends xyo_Module {
 	protected $isNew;
 	protected $primaryKey;
 	protected $primaryKeyValue;
+
+	protected $applicationTitle;
+	protected $applicationIcon;
 
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
@@ -44,6 +47,8 @@ class xyo_mod_Application extends xyo_Module {
 			$this->primaryKey = "_unknown_";
 			$this->applicationDataSource=null;
 
+		        $this->applicationIcon = "<i class=\"material-icons\">extension</i>";
+			$this->applicationTitle = null;			
 		}
 	}
 
@@ -90,6 +95,23 @@ class xyo_mod_Application extends xyo_Module {
 		}
 		return false;
 	}
+
+	public function setApplicationIcon($icon) {
+		$this->applicationIcon = $icon;
+	}
+
+	public function getApplicationIcon() {
+		return $this->applicationIcon;
+	}
+
+	public function setApplicationTitle($title) {
+		$this->applicationTitle = $title;
+	}
+
+	public function getApplicationTitle() {
+		return $this->applicationTitle;
+	}
+
 
 }
 

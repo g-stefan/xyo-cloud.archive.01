@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -8,12 +8,19 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setApplicationIcon($this->site."media/sys/images/utilities-terminal-48.png");
+$this->setApplicationIcon("<i class=\"material-icons\">lock</i>");
 
 $this->setApplicationDataSource("db.query.xyo_acl_module");
 $this->setPrimaryKey("id");
 
-$this->requireComponent(array("select","order","panel-begin","panel-end","row-begin","row-end"));
+$this->requireComponent(array(
+	"bootstrap.select",
+	"bootstrap.order",
+	"bootstrap.panel-begin",
+	"bootstrap.panel-end",
+	"bootstrap.row-begin",
+	"bootstrap.row-end"
+));
 
 $id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);
 if($id_xyo_acl_module){

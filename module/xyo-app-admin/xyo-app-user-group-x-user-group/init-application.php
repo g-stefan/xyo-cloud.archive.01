@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -10,11 +10,17 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setDataSource("db.query.xyo_user_group_x_user_group");
 
-$this->setApplicationIcon($this->site."media/sys/images/system-users2-48.png");
+$this->setApplicationIcon("<i class=\"material-icons\">people</i>");
 $this->setApplicationDataSource("db.query.xyo_user_group_x_user_group");
 $this->setPrimaryKey("id");
 
-$this->requireComponent(array("select","panel-begin","panel-end","row-begin","row-end"));
+$this->requireComponent(array(
+	"bootstrap.select",
+	"bootstrap.panel-begin",
+	"bootstrap.panel-end",
+	"bootstrap.row-begin",
+	"bootstrap.row-end"
+));
 
 $this->id_xyo_user_group_super = 1 * $this->getParameterRequest("id_xyo_user_group_super", 0);
 if ($this->id_xyo_user_group_super) {

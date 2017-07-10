@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -13,7 +13,7 @@ $connection=$this->getElementValueStr("connection","db");
 ?>
             <select class="selectpicker" data-width="auto" name="<?php $this->eElementName("connection"); ?>" id="<?php $this->eElementId("connection"); ?>" >
             <?php
-					$selectConnection=$this->getParameter("select_connection",array());
+		$selectConnection=$this->getParameter("select_connection",array());
                     foreach ($selectConnection as $value) {
                         $selected = "";
                         if ($value === $connection) {

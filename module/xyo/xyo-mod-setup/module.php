@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -272,9 +272,6 @@ class xyo_mod_Setup extends xyo_Module {
 		if ($dsModule) {
 			$dsModule->name = $moduleName;
 			if ($dsModule->load(0, 1)) {
-				if ($dsModule->cmd) {
-					return array("module" => $moduleName, "file" => null);
-				}
 				$version_ = new xyo_mod_setup_Version($this);
 				$version = $version_->getModuleVersion($moduleName);
 				if (strlen($version)) {

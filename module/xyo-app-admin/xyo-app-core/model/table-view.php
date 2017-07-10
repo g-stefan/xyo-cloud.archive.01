@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -34,8 +34,8 @@ $this->tableType = array(
 	"enabled"=>array("toggle"),
 	"default"=>array("toggle",array(
 		"on"=>array(
-			0=>$this->site."media/sys/images/favorite-off-16.png",
-			1=>$this->site."media/sys/images/favorite-16.png"
+			0=>"<img src=\"".$this->site."media/sys/images/favorite-off-16.png\"></img>",
+			1=>"<img src=\"".$this->site."media/sys/images/favorite-16.png\"></img>"
 		)
 	))	
 );

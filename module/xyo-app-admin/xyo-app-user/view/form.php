@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -8,27 +8,27 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->generateComponent("row-begin");
+$this->generateComponent("bootstrap.row-begin");
 
-$this->generateComponent("panel-begin",null,array("title"=>"form_title_user"));
-$this->generateComponent("file-image-thumbnail", "picture",array("thumbnail-size"=>array(320,240),"collapse"=>false));
-$this->generateComponent("textarea", "description");
-$this->generateComponent("panel-end");
+$this->generateComponent("bootstrap.panel-begin",null,array("title"=>"form_title_user"));
+$this->generateComponent("bootstrap.file-image-thumbnail", "picture",array("thumbnail-size"=>array(320,240),"collapse"=>false));
+$this->generateComponent("bootstrap.textarea", "description");
+$this->generateComponent("bootstrap.panel-end");
 
-$this->generateComponent("panel-begin");
-$this->generateComponent("text", "name");
-$this->generateComponent("username", "username");
-$this->generateComponent("password", "password1");
-$this->generateComponent("password", "password2");
-$this->generateComponent("email", "email");
+$this->generateComponent("bootstrap.panel-begin");
+$this->generateComponent("bootstrap.text", "name");
+$this->generateComponent("bootstrap.username", "username");
+$this->generateComponent("bootstrap.password", "password1");
+$this->generateComponent("bootstrap.password", "password2");
+$this->generateComponent("bootstrap.email", "email");
 if($this->isNew){
-    $this->generateComponent("select", "id_xyo_user_group");
+    $this->generateComponent("bootstrap.select", "id_xyo_user_group");
 }
-$this->generateComponent("select", "id_xyo_language");
-$this->generateComponent("select", "invisible");
-$this->generateComponent("select", "enabled");
-$this->generateComponent("panel-end");
+$this->generateComponent("bootstrap.select", "id_xyo_language");
+$this->generateComponent("bootstrap.select", "invisible");
+$this->generateComponent("bootstrap.select", "enabled");
+$this->generateComponent("bootstrap.panel-end");
 
-$this->generateComponent("row-end");
+$this->generateComponent("bootstrap.row-end");
 
 

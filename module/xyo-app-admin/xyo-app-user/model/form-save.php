@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -107,7 +107,7 @@ if (1 * $this->ds->enabled == 0) {
 
 if ($this->ds->save()) {
 
-	$this->processComponent("file-image-thumbnail","picture",array(
+	$this->processComponent("bootstrap.file-image-thumbnail","picture",array(
 	"filename"=>"repository/xyo-user/".$this->ds->id."-".$this->ds->username."-picture-".time(),
 	"extension"=>true,
 	"delete_before_save"=>true));

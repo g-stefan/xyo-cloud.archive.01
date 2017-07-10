@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -36,6 +36,12 @@ $module_group->save();
 
 $module_group->clear();
 $module_group->name = "xyo-desktop";
+$module_group->tryLoad();
+$module_group->enabled = 1;
+$module_group->save();
+
+$module_group->clear();
+$module_group->name = "xyo-dashboard";
 $module_group->tryLoad();
 $module_group->enabled = 1;
 $module_group->save();

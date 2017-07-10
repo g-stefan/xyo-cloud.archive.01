@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -26,3 +26,5 @@ $this->set("label_log_response","Log response");
 $this->set("label_log_language","Log not found language index");
 
 $this->set("title_log","Log");
+
+$this->set("label_xui_dashboard_user_background","Dashboard user background");

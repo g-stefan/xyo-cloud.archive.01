@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -8,47 +8,38 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setItemBefore("delete","separator",
-        "separator",
-        null,
-        null,
-        true,
-        null,
-        null
-);
-
-$this->setItemBefore("separator","logout",
+$this->setItemBefore("delete","logout",
         "item-js",
-        $this->site."media/sys/images/system-log-out-32.png",
+        "<i class=\"material-icons\">lock</i>",
         "logout",
-        true,
+        "warning",
         "#",
         "doCommand('logout');"
 );
 
 $this->setItemAfter("logout","user_group",
         "item-js",
-        $this->site."media/sys/images/system-users2-32.png",
+        "<i class=\"material-icons\">people</i>",
         "user_group",
-        true,
+       	"primary",
         "#",
         "callUserXUserGroup();"
 );
 
 $this->setItemAfter("user_group","core",
         "item-js",
-        $this->site."media/sys/images/utilities-terminal2-32.png",
+        "<i class=\"material-icons\">device_hub</i>",
         "core",
-        true,
+        "primary",
         "#",
         "callUserXCore();"
 );
 
 $this->setItem("new",
         "item-js",
-        $this->site."media/sys/images/contact-new-32.png",
+        "<i class=\"material-icons\">add</i>",
         "new",
-        true,
+        "primary",
         "#",
         "doCommand('form-new');"
 );

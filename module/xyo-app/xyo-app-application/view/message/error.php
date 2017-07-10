@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -25,7 +25,7 @@ if ($this->isError()) {
 	return;
     };
     ?>
-<div class="alert alert-danger" role="alert" style="margin-left:6px;margin-right:6px;">
+<div class="xui message error">
         <?php if (strlen($msgTxt)) { ?>
 		<strong><?php $this->eLanguage($msgLang); ?></strong>
 		<?php echo $msgTxt; ?>

@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -11,10 +11,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 if($this->isRequestCall()){
 	$this->setItem("cancel",
         "item-js",
-        $this->site."media/sys/images/denied-32.png",
+        "<i class=\"material-icons\">cancel</i>",
         "cancel",
-        true,
+        "danger",
         "#",
-		"doReturn();"
+	"doReturn();"
 	);
 };

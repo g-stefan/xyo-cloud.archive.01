@@ -1,11 +1,16 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-                 
-echo "<a class=\"widget-logout\" href=\"".$this->requestUriModule("xyo-app-logout", array("stamp"=>md5(time().rand())))."\"><div class=\"pull-left\" style=\"position:relative;width:2em;height:1em;\"><i class=\"fa fa-sign-out\" style=\"font-size:32px;position:absolute;top:-9px;\"></i></div></a>";
+?>                 
+<a class="xui effect-ripple button size-40x40 left" href="<?php echo $this->requestUriModule("xyo-app-logout", array("stamp"=>md5(time().rand()))); ?>" style="text-align:center;">
+	<i class="fa fa-sign-out"></i>
+</a>
+
+
+

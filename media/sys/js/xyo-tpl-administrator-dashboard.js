@@ -5,14 +5,14 @@ $(function() {
 		var sidebar=$(".dashboard.sidebar");
 		var content=$(".dashboard.content");
 		
-		if(1*$.cookie("sidebar-small")){
+		if(1*Cookies.get("sidebar-small")){
 			sidebar.removeClass("sidebar-small");
 			content.removeClass("sidebar-small");
-			$.cookie("sidebar-small",0);
+			Cookies.set("sidebar-small",0);
 		}else{
 			sidebar.addClass("sidebar-small");
 			content.addClass("sidebar-small");
-			$.cookie("sidebar-small",1);			
+			Cookies.set("sidebar-small",1);			
 		};
 		$(window).trigger('resize');
 	});

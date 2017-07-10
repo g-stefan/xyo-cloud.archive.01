@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -15,27 +15,19 @@ if ($setup) {
 	$setup->registerModule(null, null, "xyo-app");
 	$setup->registerModuleAcl("xyo-app", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo-app", null, "xyo-mod-panel2");
-	$setup->registerModuleAcl("xyo-mod-panel2", "xyo-none", null, null, 0, true);
+	$setup->registerModule("xyo-app", null, "xyo-app-dashboard");
+	$setup->registerModuleAcl("xyo-app-dashboard", "xyo-desktop", null, "authenticated", 0, true);
 
-	$setup->registerModule("xyo-app", null, "xyo-tpl-administrator");
-	$setup->registerModuleAcl("xyo-tpl-administrator", "xyo-template", "administrator", null, 0, true);
-	//$setup->selectMouleAclAsTemplate("xyo-tpl-administrator","administrator", null);
-
-	$setup->registerModule("xyo-app", null, "xyo-tpl-administrator-dashboard");
-	$setup->registerModuleAcl("xyo-tpl-administrator-dashboard", "xyo-template", "administrator", null, 0, true);
-	//$setup->selectMouleAclAsTemplate("xyo-tpl-administrator-dashboard","administrator", null);
-
-	$setup->registerModule("xyo-app", null, "xyo-tpl-administrator-dashboard2");
-	$setup->registerModuleAcl("xyo-tpl-administrator-dashboard2", "xyo-template", "administrator", null, 0, true);
-	$setup->selectMouleAclAsTemplate("xyo-tpl-administrator-dashboard2","administrator", null);
+	$setup->registerModule("xyo-app", null, "xyo-tpl-administrator-dashboard-xui");
+	$setup->registerModuleAcl("xyo-tpl-administrator-dashboard-xui", "xyo-template", "administrator", null, 0, true);
+	$setup->selectMouleAclAsTemplate("xyo-tpl-administrator-dashboard-xui","administrator", null);
 
 	$setup->registerModule("xyo-app", null, "xyo-tpl-public");
 	$setup->registerModuleAcl("xyo-tpl-public", "xyo-template", "public", null, 0, true);
 	$setup->selectMouleAclAsTemplate("xyo-tpl-public","public", null);
 
 	$setup->registerModule("xyo-app", null, "xyo-app-login");
-	$setup->registerModuleAcl("xyo-app-login", "xyo-desktop", "administrator", "public", 0, true);
+	$setup->registerModuleAcl("xyo-app-login", "xyo-none", "administrator", "public", 0, true);
 
 	$setup->registerModule("xyo-app", null, "xyo-mod-sys-menu");
 	$setup->registerModuleAcl("xyo-mod-sys-menu", "xyo-none", null, null, 0, true);
@@ -46,14 +38,11 @@ if ($setup) {
 	$setup->registerModule("xyo-app", null, "xyo-mod-sys-sidebar");
 	$setup->registerModuleAcl("xyo-mod-sys-sidebar", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xyo-app", null, "xyo-app-main");
-	$setup->registerModuleAcl("xyo-app-main", "xyo-desktop", null, "authenticated", 0, true);
-
 	$setup->registerModule("xyo-app", null, "xyo-app-control-panel");
-	$setup->registerModuleAcl("xyo-app-control-panel", "xyo-application", "administrator", "authenticated", 2, true);
+	$setup->registerModuleAcl("xyo-app-control-panel", "xyo-desktop", "administrator", "authenticated", 2, true);
 
 	$setup->registerModule("xyo-app", null, "xyo-app-logout");
-	$setup->registerModuleAcl("xyo-app-logout", "xyo-application", "administrator", "authenticated", 20000, true);
+	$setup->registerModuleAcl("xyo-app-logout", "xyo-control-panel", "administrator", "authenticated", 20000, true);
 
 	$setup->registerModule("xyo-app", null, "xyo-mod-logout");
 	$setup->registerModuleAcl("xyo-mod-logout", "xyo-status", "administrator", "authenticated", 20000, true);
@@ -96,7 +85,5 @@ if ($setup) {
 	$setup->registerModuleAcl("xyo-tpl-cms", "xyo-template", "public", null, 0, true);
 
 };
-
-
 
 

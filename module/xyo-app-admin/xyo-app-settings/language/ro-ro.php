@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -26,3 +26,5 @@ $this->set("label_log_response","Inregistreaza raspunsul");
 $this->set("label_log_language","Inregistreaza index care nu e gasit in limbaj");
 
 $this->set("title_log","Log");
+
+$this->set("label_xui_dashboard_user_background","Fundalul pentru utilizator in panoul principal");

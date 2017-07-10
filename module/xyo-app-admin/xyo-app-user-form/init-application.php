@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -8,27 +8,27 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setApplicationIcon($this->site."media/sys/images/utilities-terminal-48.png");
+$this->setApplicationIcon("<i class=\"material-icons\">person</i>");
 $this->setApplicationDataSource("db.table.xyo_user");
 $this->setPrimaryKey("id");
 
 $this->setDefaultAction($this->getRequest("action", "form-edit"));
 
 $this->requireComponent(array(
-	"select",
-	"text",
-	"textarea",
-	"username",
-	"password",
-	"panel-begin",
-	"panel-end",
-	"row-begin",
-	"row-end",
-	"file-image-thumbnail",
-	"box-begin",
-	"box-end",
-	"row-separator",
-	"email"
+	"bootstrap.select",
+	"bootstrap.text",
+	"bootstrap.textarea",
+	"bootstrap.username",
+	"bootstrap.password",
+	"bootstrap.panel-begin",
+	"bootstrap.panel-end",
+	"bootstrap.row-begin",
+	"bootstrap.row-end",
+	"bootstrap.file-image-thumbnail",
+	"bootstrap.box-begin",
+	"bootstrap.box-end",
+	"bootstrap.row-separator",
+	"bootstrap.email"
 ));
 
                     

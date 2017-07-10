@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -12,6 +12,6 @@ $this->setViewTemplate("template");
 $this->setDefaultAction($this->getRequest("action", "default"));
 
 $this->requireComponent(array(
-	"form-begin",
-	"form-end"
+	"bootstrap.form-begin",
+	"bootstrap.form-end"
 ));

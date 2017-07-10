@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -16,22 +16,8 @@ if (count($this->panel)) {
 
 	if($item["type"]=="item"){
 
-	        $img = $item["img"];
-        	if ($img) {
-			if(strncmp($img,"#",1)==0){
-				// icon
-			        $img = substr($img,1);
-				$img = "<i class=\"".$img." icon\"></i>";
-			}else{
-		            $img = "<img src=\"".$img."\"></img>";
-			};
-	        } else {
-        	    $img = "<img src=\"".$this->site."media/sys/images/applications-other-64.png\"></img>";
-	        };
-
-		
 		echo "<a class=\"thumbnail\" href=\"" . $item["url"] . "\">";
-			echo $img;
+			echo $item["img"];
 			echo "<p class=\"caption\">";
 			echo $item["title"];
 			echo "</p>";

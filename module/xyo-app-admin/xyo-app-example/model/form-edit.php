@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -17,10 +17,10 @@ $enabled = array(
 	   );
 
 $this->setParameter("select_enabled", $enabled);
-                               
+
 foreach($this->items as $item) {
 	if(!is_null($item["name"])){
-		if($item["type"]=="select"){
+		if($item["type"]=="bootstrap.select"){
 			$this->setParameter("select_".$item["name"],$item["parameters"]);
 		};
 	};

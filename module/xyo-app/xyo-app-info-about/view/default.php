@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -16,7 +16,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 		<div class="panel-heading">XYO Cloud - version <?php echo $this->cloud->get("version"); ?></div>
 		<div class="panel-body">
 
-    Copyright (c) 2014 Grigore Stefan, &lt;<a href="mailto:g_stefan@yahoo.com" target="_blank">g_stefan@yahoo.com</a>&gt;<br/>
+    Copyright (c) 2017 Grigore Stefan, &lt;<a href="mailto:g_stefan@yahoo.com" target="_blank">g_stefan@yahoo.com</a>&gt;<br/>
     Created by Grigore Stefan &lt;<a href="mailto:g_stefan@yahoo.com" target="_blank">g_stefan@yahoo.com</a>&gt;<br/>
     The MIT License (MIT) &lt;<a href="http://opensource.org/licenses/MIT" target="_blank">http://opensource.org/licenses/MIT</a>&gt;<br/>
     <br/>

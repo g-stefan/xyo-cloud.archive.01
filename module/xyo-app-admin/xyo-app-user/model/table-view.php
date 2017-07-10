@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -39,8 +39,8 @@ $this->tableType=array(
 	"enabled"=>array("toggle"),	
 	"invisible"=>array("toggle",array(
 		"on"=>array(
-			0=>array("#glyphicon glyphicon-ok-circle","#ccd"),
-			1=>"#glyphicon glyphicon-ok-circle"
+			0=>"<i class=\"glyphicon glyphicon-ok-circle\" style=\"color:#ccd\"></i>",
+			1=>"<i class=\"glyphicon glyphicon-ok-circle\"></i>"
 		)
 	)),	
 	"logged_in"=>array("toggle")

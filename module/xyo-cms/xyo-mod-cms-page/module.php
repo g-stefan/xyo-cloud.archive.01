@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -190,14 +190,14 @@ class xyo_mod_cms_Page extends xyo_mod_Application {
 		$prefix=$this->getElementPrefix();
 		$this->setElementPrefix(str_replace("-","_",$contentName));
 		$this->language->includeFile($this->dataPath.$this->contents[$contentName]["source"].".edit.language.".strtolower($this->selectedLanguage).".php");
-		$this->generateComponent("row-begin");
-		$this->generateComponent("panel-wide-begin",null,array("title"=>$this->contents[$contentName]["title"]));
+		$this->generateComponent("bootstrap.row-begin");
+		$this->generateComponent("bootstrap.panel-wide-begin",null,array("title"=>$this->contents[$contentName]["title"]));
 		$fileName=$this->dataPath.$this->contents[$contentName]["source"].".edit.php";
 		if (file_exists($fileName)) {
 			include($fileName);
 		};		
-		$this->generateComponent("panel-wide-end");
-		$this->generateComponent("row-end");
+		$this->generateComponent("bootstrap.panel-wide-end");
+		$this->generateComponent("bootstrap.row-end");
 		$this->setElementPrefix($prefix);
 	}
 

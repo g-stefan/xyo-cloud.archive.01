@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -16,8 +16,9 @@ class lib_BootstrapSmartMenus extends xyo_Module {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_BootstrapSmartMenus")) {
 		$this->setHtmlCss($this->site."lib/bootstrap-smartmenus/css/jquery.smartmenus.bootstrap.css");
-		$this->setHtmlJs($this->site."lib/bootstrap-smartmenus/js/jquery.smartmenus.js");
-		$this->setHtmlJs($this->site."lib/bootstrap-smartmenus/js/jquery.smartmenus.bootstrap.js");
+		$this->setHtmlJs($this->site."lib/bootstrap-smartmenus/js/jquery.smartmenus.min.js");
+		$this->setHtmlJs($this->site."lib/bootstrap-smartmenus/js/jquery.smartmenus.bootstrap.min.js");
+		$this->setHtmlJs($this->site."lib/bootstrap-smartmenus/js/jquery.smartmenus.keyboard.min.js");
         }
     }
 }

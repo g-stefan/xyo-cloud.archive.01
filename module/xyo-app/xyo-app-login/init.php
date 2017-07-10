@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -25,4 +25,4 @@ $this->setDefaultAction($action);
 
 $this->setHtmlJs($this->site."media/sys/js/xyo-app-login.js");
 
-$this->requireComponent(array("captcha"));
+$this->requireComponent(array("bootstrap.captcha"));

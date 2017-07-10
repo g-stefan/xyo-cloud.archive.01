@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -15,7 +15,7 @@ class lib_JQueryTypeAhead extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_JQueryTypeAhead")) {
-		$this->setHtmlCss($this->site."lib/jquery-typeahead/css/typeahead.css");
+		$this->setHtmlCss($this->site."lib/jquery-typeahead/css/typeaheadjs.css");
 		$this->setHtmlJs($this->site."lib/jquery-typeahead/js/typeahead.bundle.min.js");
         }
     }

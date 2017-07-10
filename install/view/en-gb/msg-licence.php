@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2014 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -13,7 +13,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 The MIT License (MIT)
 </p>
 <p>
-Copyright (c) 2014 Grigore Stefan, &lt;g_stefan@yahoo.com&gt;
+Copyright (c) 2017 Grigore Stefan, &lt;g_stefan@yahoo.com&gt;
 </p>
 <p class="text-justify">
 Permission is hereby granted, free of charge, to any person obtaining a copy of
