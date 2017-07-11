@@ -29,7 +29,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	}
 
 ?>
-	<div class="xui content has-toolbar <?php if($this->isAlert()){echo "has-message-alert";}; ?> <?php if ($this->isError()){echo "has-message-error";}; ?>">
+	<div class="xui content has-toolbar <?php if($this->hasAlert__){echo "has-message-alert";}; ?> <?php if ($this->hasError__){echo "has-message-error";}; ?>">
 	<?php $this->generateCurrentView(); ?>
 	</div>
 </div>

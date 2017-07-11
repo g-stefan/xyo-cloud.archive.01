@@ -9,10 +9,9 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->isNew = true;
-$this->processModel("set-primary-key-value-one");
 $this->processModel("set-ds");
 
-if (!$this->isError()) {    
+if (!$this->isError()) {
     $this->processModel("form-select");
 }
 

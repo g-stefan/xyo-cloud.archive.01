@@ -21,9 +21,12 @@ if ($this->isError()) {
             $msgLang = $msg;
         }
     }
-    if($msgLang === "element"){
+    if($msgLang === "element"){	
 	return;
     };
+
+	$this->hasError__=true;
+
     ?>
 <div class="xui message error">
         <?php if (strlen($msgTxt)) { ?>
@@ -35,4 +38,3 @@ if ($this->isError()) {
 </div>
 <?php
 };
-

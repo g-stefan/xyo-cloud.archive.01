@@ -14,12 +14,16 @@ class xyo_app_Application extends xyo_mod_Application {
 
 	//
 	protected $toolbarParameter;
+	protected $hasAlert__;
+	protected $hasError__;
 	//
 
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 
 		$this->toolbarParameter = array();
+		$this->hasAlert__=false;
+		$this->hasError__=false;
 	}
 
 }
