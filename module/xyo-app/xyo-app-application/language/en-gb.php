@@ -8,19 +8,19 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->merge(array(
-	"application_title"=>"Application",
+$this->set("application_title","Application");
 
-	"alt_info"=>"Information",
-	"alt_error"=>"Error",
+$this->set("alt_info","Information");
+$this->set("alt_error","Error");
 
-	"form_title_new"=>"New",
-	"form_title_edit"=>"Edit",
+$this->set("form_title_new","New");
+$this->set("form_title_edit","Edit");
 
-	"err_datasource_not_found"=>"Datasource not found",
-	"err_unknown"=>"Unknown error",
+$this->set("err_datasource_not_found","Datasource not found");
+$this->set("err_unknown","Unknown error");
 
-	"info_unknown"=>"Unknown message",
+$this->set("info_unknown","Unknown message");
 	
-	"error_form_load"=> "No data selected"
-));
+$this->set("error_form_load","No data selected");
+$this->set("set_primary_key_value","No data selected");
+$this->set("set_primary_key_value_one","No data selected");

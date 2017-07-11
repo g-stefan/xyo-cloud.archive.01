@@ -11,5 +11,5 @@ defined('XYO_CLOUD') or die('Access is denied');
 if($this->setPrimaryKeyValue($this->getElementValueStr("primary_key_value", $this->getRequest("primary_key_value")))){
 	$this->setElementValue("primary_key_value",$this->primaryKeyValue);
 }else{
-	$this->setError("set-primary-key-value");
+	$this->setError("set_primary_key_value");
 };

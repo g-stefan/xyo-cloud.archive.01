@@ -286,55 +286,60 @@
 	position: relative;
 	width: auto;
 	height: 40px;
-	margin-top:0px;
-	margin-bottom:0px;
-	margin-left: 8px;
-	margin-right: 8px;
+
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 4px;
+	margin-right: 4px;
+
 	padding-left: 0px;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	padding-right: 0px;
+
 	overflow: hidden;
 	background-color: #FFFFFF;
 	border-radius: 2px;
-	transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	border: 0px solid #EEEEEE;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+	border: 1px solid rgba(0,0,0,0);
 	box-shadow: none;
 	z-index: 3;
 }
 
 .xui.application a.xui.toolbar.item:visited{
-	text-decoration: none;
+	text-decoration: none;	
 }
 
 .xui.application a.xui.toolbar.item:hover{
 	text-decoration: none;
-	background-color: #90CAF9;
-	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+	background-color: #FAFAFA;
+	border: 1px solid #757575;
+	box-shadow: -1px -1px 1px rgba(33,33,33,0.1), 0px 1px 1px rgba(33,33,33,0.2), 2px 2px 2px 0px rgba(33,33,33,0.1);
 }
 
 .xui.application .xui.toolbar.item .xui.effect-ripple-element{
-	background-color: #42A5F5;
+	background-color: #F5F5F5;
 }
 
 .xui.application .xui.toolbar.item .xui.icon{
-	width: 40px;
-	height: 40px;
-	padding-left: 8px;
-	padding-top: 8px;
-	padding-right: 8px;
-	padding-bottom: 8px;
+	width: 38px;
+	height: 38px;
+	margin-right: 1px;
+	padding-left: 6px;
+	padding-top: 6px;
+	padding-right: 6px;
+	padding-bottom: 6px;
 	font-size: 24px;
 	line-height: 24px;
-	color: #0D47A1;
+	color: #212121;
 }
 
 .xui.application .xui.toolbar.item .xui.text{
-	height: 40px;
+	height: 38px;
 	padding-left: 0px;
-	padding-top: 12px;
-	padding-right: 12px;
-	padding-bottom: 12px;
+	padding-top: 11px;
+	padding-right: 11px;
+	padding-bottom: 11px;
 	font-size: 16px;
 	line-height: 16px;	
 	color: #000000;
@@ -345,12 +350,14 @@
 }
 
 .xui.application .xui.toolbar.item.warning:hover{
-	background-color: #FFF59D;
-	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+	background-color: #FFFDE7;
+	border: 1px solid #FDD835;
+	box-shadow: -1px -1px 1px rgba(245,127,23,0.1), 0px 1px 1px rgba(245,127,23,0.2), 2px 2px 2px 0px rgba(245,127,23,0.1);
 }
 
+
 .xui.application .xui.toolbar.item.warning .xui.effect-ripple-element{
-	background-color: #FFEE58;
+	background-color: #FFF9C4;
 }
 
 .xui.application .xui.toolbar.item.success .xui.icon{
@@ -358,12 +365,13 @@
 }
 
 .xui.application .xui.toolbar.item.success:hover{
-	background-color: #A5D6A7;
-	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+	background-color: #E8F5E9;
+	border: 1px solid #43A047;
+	box-shadow: -1px -1px 1px rgba(27,94,32,0.1), 0px 1px 1px rgba(27,94,32,0.2), 2px 2px 2px 0px rgba(27,94,32,0.1);
 }
 
 .xui.application .xui.toolbar.item.success .xui.effect-ripple-element{
-	background-color: #66BB6A;
+	background-color: #C8E6C9;
 }
 
 .xui.application .xui.toolbar.item.danger .xui.icon{
@@ -371,13 +379,57 @@
 }
 
 .xui.application .xui.toolbar.item.danger:hover{
-	background-color: #EF9A9A;
-	box-shadow: -1px -1px 1px rgba(0,0,0,0.1), 0px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px 0px rgba(0,0,0,0.1);
+	background-color: #FFEBEE;
+	border: 1px solid #E53935;
+	box-shadow: -1px -1px 1px rgba(183,28,28,0.1), 0px 1px 1px rgba(183,28,28,0.2), 2px 2px 2px 0px rgba(183,28,28,0.1);
 }
 
 .xui.application .xui.toolbar.item.danger .xui.effect-ripple-element{
-	background-color: #EF5350;
+	background-color: #FFCDD2;
 }
+
+.xui.application .xui.toolbar.item.primary .xui.icon{
+	color: #0D47A1;
+}
+
+.xui.application .xui.toolbar.item.primary:hover{
+	background-color: #E3F2FD;
+	border: 1px solid #1E88E5;
+	box-shadow: -1px -1px 1px rgba(13,71,161,0.1), 0px 1px 1px rgba(13,71,161,0.2), 2px 2px 2px 0px rgba(13,71,161,0.1);
+}
+
+.xui.application .xui.toolbar.item.primary .xui.effect-ripple-element{
+	background-color: #BBDEFB;
+}
+
+.xui.application .xui.toolbar.item.default .xui.icon{
+	color: #212121;
+}
+
+.xui.application .xui.toolbar.item.default:hover{
+	background-color: #FAFAFA;
+	border: 1px solid #757575;
+	box-shadow: -1px -1px 1px rgba(33,33,33,0.1), 0px 1px 1px rgba(33,33,33,0.2), 2px 2px 2px 0px rgba(33,33,33,0.1);
+}
+
+.xui.application .xui.toolbar.item.default .xui.effect-ripple-element{
+	background-color: #F5F5F5;
+}
+
+.xui.application .xui.toolbar.item.info .xui.icon{
+	color: #006064;
+}
+
+.xui.application .xui.toolbar.item.info:hover{
+	background-color: #E0F7FA;
+	border: 1px solid #00ACC1;
+	box-shadow: -1px -1px 1px rgba(0,96,100,0.1), 0px 1px 1px rgba(0,96,100,0.2), 2px 2px 2px 0px rgba(0,96,100,0.1);
+}
+
+.xui.application .xui.toolbar.item.info .xui.effect-ripple-element{
+	background-color: #B2EBF2;
+}
+
 
 .xui.application .xui.content{
 	position: relative;
@@ -468,9 +520,9 @@
 	font-size: 15px;
 	line-height: 15px;
 
-	background-color: #A5D6A7;
+	background-color: #C8E6C9;
 	color: #1B5E20;
-	border: 1px solid #66BB6A;
+	border: 1px solid #43A047;
 	border-radius: 2px;
 }
 
@@ -497,21 +549,21 @@
 	font-size: 15px;
 	line-height: 15px;
 
-	background-color: #EF9A9A;
+	background-color: #FFCDD2;
 	color: #B71C1C;
-	border: 1px solid #EF5350;
+	border: 1px solid #E53935;
 	border-radius: 2px;
 }
 
-.xui.application .xui.content.has-toolbar.has-alert{
+.xui.application .xui.content.has-toolbar.has-message-alert{
 	height: calc(100% - 96px);
 }
 
-.xui.application .xui.content.has-toolbar.has-error{
+.xui.application .xui.content.has-toolbar.has-message-error{
 	height: calc(100% - 96px);
 }
 
-.xui.application .xui.content.has-toolbar.has-alert.has-error{
+.xui.application .xui.content.has-toolbar.has-message-alert.has-message-error{
 	height: calc(100% - 144px);
 }
 

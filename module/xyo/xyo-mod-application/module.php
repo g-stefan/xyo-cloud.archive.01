@@ -69,6 +69,12 @@ class xyo_mod_Application extends xyo_Module {
 	}
 
 	public function setPrimaryKeyValue($value_) {
+		if(is_null($value_)){
+			return false;
+		};
+		if(strlen($value_)==0){
+			return false;
+		};
 		$primaryKeyValue_ = explode(",", $value_);
 		$c=count($primaryKeyValue_);
 		if ($c) {
@@ -87,6 +93,12 @@ class xyo_mod_Application extends xyo_Module {
 	}
 
 	public function setPrimaryKeyValueOne($value_) {
+		if(is_null($value_)){
+			return false;
+		};
+		if(strlen($value_)==0){
+			return false;
+		};
 		$primaryKeyValue_ = explode(",", $value_);
 		$c=count($primaryKeyValue_);
 		if ($c) {

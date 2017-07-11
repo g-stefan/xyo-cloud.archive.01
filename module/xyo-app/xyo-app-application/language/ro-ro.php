@@ -8,20 +8,21 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->merge(array(
-	"application_title"=>"Aplicatie",
+$this->set("application_title","Aplicatie");
 
-	"alt_info"=>"Informatie",
-	"alt_error"=>"Eroare",
+$this->set("alt_info","Informatie");
+$this->set("alt_error","Eroare");
 
 	
-	"form_title_new"=>"Nou",
-	"form_title_edit"=>"Editare",
+$this->set("form_title_new","Nou");
+$this->set("form_title_edit","Editare");
 
-	"err_datasource_not_found"=>"Sursa de date nu a fost gasita",
-	"err_unknown"=>"Eroare necunoscuta",
+$this->set("err_datasource_not_found","Sursa de date nu a fost gasita");
+$this->set("err_unknown","Eroare necunoscuta");
 
-	"info_unknown"=>"Mesaj necunoscut"
+$this->set("info_unknown","Mesaj necunoscut");
 
-	"error_form_load"=> "Nimic selectat"
-));
+$this->set("error_form_load","Nimic selectat");
+$this->set("set_primary_key_value","Nimic selectat");
+$this->set("set_primary_key_value_one","Nimic selectat");
+

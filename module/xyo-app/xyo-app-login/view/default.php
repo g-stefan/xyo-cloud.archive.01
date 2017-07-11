@@ -82,7 +82,7 @@ if ($this->isError()) {
 
 <div class="form-group has-feedback has-feedback-left<?php if($this->isElementError("username")){echo " has-error";}; ?>">
     <label class="control-label" for="<?php $this->eElementId("username"); ?>"><?php $this->eLanguage("label_username"); ?><?php if($this->isElementError("username")){echo " - "; $this->eElementError("username");}; ?></label>
-    <input type="text" class="form-control" placeholder="Username"
+    <input type="text" class="form-control" placeholder=""
        name="<?php $this->eElementName("username"); ?>"
        value="<?php $this->eElementValue("username", ""); ?>"
        id="<?php $this->eElementId("username"); ?>" />
@@ -90,7 +90,7 @@ if ($this->isError()) {
 </div>
 <div class="form-group has-feedback has-feedback-left<?php if($this->isElementError("password")){echo " has-error";}; ?>">
     <label class="control-label" for="<?php $this->eElementId("password"); ?>"><?php $this->eLanguage("label_password"); ?><?php if($this->isElementError("password")){echo " - "; $this->eElementError("password");}; ?></label>
-    <input type="password" class="form-control" placeholder="Password"
+    <input type="password" class="form-control" placeholder=""
        name="<?php $this->eElementName("password"); ?>"
        value="<?php $this->eElementValue("password", ""); ?>"
        id="<?php $this->eElementId("password"); ?>" />
