@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("application_title", "Exemplu elemente forma");
+$this->set("application_title", "Exemple de componente");
 
 $this->set("select_enabled_all", "- activat -");
 $this->set("select_enabled_default_disabled", "- nu -");

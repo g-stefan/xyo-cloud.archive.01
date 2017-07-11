@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("application_title", "Form elements example");
+$this->set("application_title", "Components example");
 
 $this->set("select_enabled_all", "- enabled -");
 $this->set("select_enabled_default_disabled", "- no -");
