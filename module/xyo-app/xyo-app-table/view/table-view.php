@@ -42,13 +42,13 @@ $sort_img = array(
 );
 
 $toggle_img = array(
-    0 => "<i class=\"fa fa-times\" style=\"color:#A33;\"></i>",
-    1 => "<i class=\"fa fa-check\" style=\"color:#3A3;\"></i>"
+    0 => "<i class=\"fa fa-times\" style=\"display:block;color:#B71C1C;font-size:16px;\"></i>",
+    1 => "<i class=\"fa fa-check\" style=\"display:block;color:#1B5E20;font-size:16px;\"></i>"
 );
 
 $toggle_off_img = array(
-    0 => "<i class=\"fa fa-times\" style=\"color:#888;\"></i>",
-    1 => "<i class=\"fa fa-check\" style=\"color:#888;\"></i>"
+    0 => "<i class=\"fa fa-times\" style=\"display:block;color:#888;font-size:16px;\"></i>",
+    1 => "<i class=\"fa fa-check\" style=\"display:block;color:#888;font-size:16px;\"></i>"
 );
 
 ?>

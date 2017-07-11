@@ -34,8 +34,8 @@ $this->tableType = array(
 	"enabled"=>array("toggle"),
 	"default"=>array("toggle",array(
 		"on"=>array(
-			0=>"<img src=\"".$this->site."media/sys/images/favorite-off-16.png\"></img>",
-			1=>"<img src=\"".$this->site."media/sys/images/favorite-16.png\"></img>"
+			0=>"<i class=\"fa fa-star-o\" style=\"display:block;color:#888;font-size:16px;\"></i>",
+			1=>"<i class=\"fa fa-star\" style=\"display:block;color:#FB8C00;font-size:16px;\"></i>"
 		)
 	))	
 );

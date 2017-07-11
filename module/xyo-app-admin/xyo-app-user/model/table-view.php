@@ -39,8 +39,8 @@ $this->tableType=array(
 	"enabled"=>array("toggle"),	
 	"invisible"=>array("toggle",array(
 		"on"=>array(
-			0=>"<i class=\"glyphicon glyphicon-ok-circle\" style=\"color:#ccd\"></i>",
-			1=>"<i class=\"glyphicon glyphicon-ok-circle\"></i>"
+			0=>"<i class=\"fa fa-circle-o\" style=\"display:block;color:#888;font-size:16px;\"></i>",
+			1=>"<i class=\"fa fa-circle\" style=\"display:block;color:#FB8C00;font-size:16px;\"></i>"
 		)
 	)),	
 	"logged_in"=>array("toggle")
