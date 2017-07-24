@@ -190,14 +190,14 @@ class xyo_mod_cms_Page extends xyo_mod_Application {
 		$prefix=$this->getElementPrefix();
 		$this->setElementPrefix(str_replace("-","_",$contentName));
 		$this->language->includeFile($this->dataPath.$this->contents[$contentName]["source"].".edit.language.".strtolower($this->selectedLanguage).".php");
-		$this->generateComponent("bootstrap.row-begin");
-		$this->generateComponent("bootstrap.panel-wide-begin",null,array("title"=>$this->contents[$contentName]["title"]));
+		$this->generateComponent("xui.box-2x1-begin");
+		$this->generateComponent("xui.panel-begin",null,array("title"=>$this->contents[$contentName]["title"]));
 		$fileName=$this->dataPath.$this->contents[$contentName]["source"].".edit.php";
 		if (file_exists($fileName)) {
 			include($fileName);
 		};		
-		$this->generateComponent("bootstrap.panel-wide-end");
-		$this->generateComponent("bootstrap.row-end");
+		$this->generateComponent("xui.panel-end");
+		$this->generateComponent("xui.box-2x1-end");
 		$this->setElementPrefix($prefix);
 	}
 

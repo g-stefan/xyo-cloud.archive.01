@@ -9,6 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
+<br>
 <div style="position: relative; float: right; right: 50%;">
 <div style="position: relative; float: right; right: -50%;">
 

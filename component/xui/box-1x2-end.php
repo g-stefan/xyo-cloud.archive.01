@@ -8,4 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-//$this->setHtmlCss($this->site."media/sys/css/xyo-form-panel.css");
+?>
+	</div>
+	<div class="xui separator"></div>
+</div>

@@ -22,19 +22,20 @@ $this->page->requireComponent(array(
 	"bootstrap.textarea",
 	"bootstrap.username",
 	"bootstrap.password",
-	"bootstrap.panel-begin",
-	"bootstrap.panel-end",
-	"bootstrap.row-begin",
-	"bootstrap.row-end",
 	"bootstrap.file-image-thumbnail",
-	"bootstrap.box-begin",
-	"bootstrap.box-end",
-	"bootstrap.row-separator",
 	"bootstrap.email",
-	"bootstrap.panel-wide-begin",
-	"bootstrap.panel-wide-end",
-	"bootstrap.panel-wide3-begin",
-	"bootstrap.panel-wide3-end"
+
+	"xui.panel-begin",
+	"xui.panel-end",
+	"xui.box-1x1-begin",
+	"xui.box-1x1-end",
+
+	"xui.box-1x2-begin",
+	"xui.box-1x2-separator",
+	"xui.box-1x2-end",
+
+	"xui.box-2x1-begin",
+	"xui.box-2x1-end"
 ));
 
 $this->page->selectedLanguage="en-GB";

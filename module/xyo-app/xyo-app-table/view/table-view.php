@@ -206,7 +206,7 @@ function doValueSave(key){
 ?>
 <div class="xui content" id="table-content">
 
-<div class="table-responsive" style="margin-left:6px;margin-right:6px;">
+<div class="table-responsive">
     <table class="table table-striped table-bordered table-hover <?php echo $compactView; ?>" id="com_table">
 	<thead>
                 <?php

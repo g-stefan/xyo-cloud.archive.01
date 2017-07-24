@@ -71,7 +71,7 @@ if(!$collapse){
        value="<?php $this->eElementValue($element); ?>" ></input>
 </div>
 <?php } else { ?>
-	<div class="panel panel-default pull-left" style="width: 32em;" id="<?php $this->eElementId($element); ?>_collapse_parent">
+	<div class="panel panel-default" id="<?php $this->eElementId($element); ?>_collapse_parent">
 		<div class="panel-heading">
 			<?php $this->eLanguage("label_" . $element); ?>
 			<a data-toggle="collapse" data-parent="#<?php $this->eElementId($element); ?>_collapse_parent" href="#<?php $this->eElementId($element); ?>_collapse" class="xyo-form-file-image-thumbnail-toggle <?php echo $collapseClassA; ?> pull-right">
@@ -111,3 +111,4 @@ if(!$collapse){
 	</div>
 <?php } ?>
 
+<div class="xui separator"></div>

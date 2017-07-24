@@ -7,5 +7,9 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
+
+$title=$this->getArgument("title",$this->getParameter("form_title"));
+
 ?>
-<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" enctype="multipart/form-data">
+<div class="xui box-row">
+	<div class="xui box-1x2">

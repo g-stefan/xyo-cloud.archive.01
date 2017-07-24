@@ -54,7 +54,7 @@ if($sysCaptcha){
 };
 
 if ($this->isError()) {
-    $msg_lang = $this->getError("error_unknown");
+    $msg_lang = $this->getFromLanguage("error_unknown");
 };
 
 ?>

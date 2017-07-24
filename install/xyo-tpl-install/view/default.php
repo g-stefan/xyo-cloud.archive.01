@@ -37,7 +37,7 @@ defined('XYO_CLOUD') or die('Access is denied');
         		<?php $this->generateApplicationView(); ?>
 		</div>
 		<div class="panel-footer">
-        	    <span class="pull-right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2014&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
+        	    <span class="pull-right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2017&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
 		    <div class="clearfix" />
 	        </div>
 	</div>

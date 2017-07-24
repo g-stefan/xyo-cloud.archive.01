@@ -20,15 +20,14 @@ $this->requireComponent(array(
 	"bootstrap.textarea",
 	"bootstrap.username",
 	"bootstrap.password",
-	"bootstrap.panel-begin",
-	"bootstrap.panel-end",
-	"bootstrap.row-begin",
-	"bootstrap.row-end",
 	"bootstrap.file-image-thumbnail",
-	"bootstrap.box-begin",
-	"bootstrap.box-end",
-	"bootstrap.row-separator",
-	"bootstrap.email"
+	"bootstrap.email",
+
+	"xui.panel-begin",
+	"xui.panel-end",
+	"xui.box-1x2-begin",
+	"xui.box-1x2-separator",
+	"xui.box-1x2-end"
 ));
 
                     

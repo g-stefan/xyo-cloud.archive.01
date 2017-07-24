@@ -9,8 +9,8 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 if(!$this->isDialog){
-	$this->generateComponent("bootstrap.row-begin");
-	$this->generateComponent("bootstrap.panel-begin");
+	$this->generateComponent("xui.box-1x1-begin");
+	$this->generateComponent("xui.panel-begin");
 };
 
 $this->generateComponent("bootstrap.text", "name");
@@ -19,6 +19,6 @@ $this->generateComponent("bootstrap.select", "default");
 $this->generateComponent("bootstrap.select", "enabled");
 
 if(!$this->isDialog){
-	$this->generateComponent("bootstrap.panel-end");
-	$this->generateComponent("bootstrap.row-end");
+	$this->generateComponent("xui.panel-end");
+	$this->generateComponent("xui.box-1x1-end");
 };

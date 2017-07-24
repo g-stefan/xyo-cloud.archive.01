@@ -16,10 +16,11 @@ $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
 	"bootstrap.select",
-	"bootstrap.panel-begin",
-	"bootstrap.panel-end",
-	"bootstrap.row-begin",
-	"bootstrap.row-end"
+
+	"xui.panel-begin",
+	"xui.panel-end",
+	"xui.box-1x1-begin",
+	"xui.box-1x1-end"
 ));
 
 $this->id_xyo_user_group_super = 1 * $this->getParameterRequest("id_xyo_user_group_super", 0);

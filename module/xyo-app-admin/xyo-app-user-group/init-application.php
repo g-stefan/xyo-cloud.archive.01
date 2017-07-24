@@ -17,8 +17,9 @@ $this->requireComponent(array(
 	"bootstrap.text",
 	"bootstrap.textarea",
 	"bootstrap.order",
-	"bootstrap.panel-begin",
-	"bootstrap.panel-end",
-	"bootstrap.row-begin",
-	"bootstrap.row-end"
+
+	"xui.panel-begin",
+	"xui.panel-end",
+	"xui.box-1x1-begin",
+	"xui.box-1x1-end"
 ));

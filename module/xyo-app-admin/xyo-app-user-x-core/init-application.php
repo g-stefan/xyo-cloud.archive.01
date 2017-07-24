@@ -13,7 +13,14 @@ $this->setDataSource("db.query.xyo_user_x_core");
 $this->setApplicationIcon("<i class=\"material-icons\">device_hub</i>");
 $this->setApplicationDataSource("db.query.xyo_user_x_core");
 $this->setPrimaryKey("id");
-$this->requireComponent(array("bootstrap.select","bootstrap.panel-begin","bootstrap.panel-end","bootstrap.row-begin","bootstrap.row-end"));
+$this->requireComponent(array(
+	"bootstrap.select",
+
+	"xui.panel-begin",
+	"xui.panel-end",
+	"xui.box-1x1-begin",
+	"xui.box-1x1-end"
+));
 
 $this->id_xyo_user = 1 * $this->getParameterRequest("id_xyo_user", 0);
 if ($this->id_xyo_user) {

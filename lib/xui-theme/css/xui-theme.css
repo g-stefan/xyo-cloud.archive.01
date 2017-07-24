@@ -83,6 +83,10 @@
 	opacity: 1;
 }
 
+.xui.dashboard.size-x64 .xui.navigation-drawer.mini.closed .xui.user .user-content .user-content-background{
+	opacity: 1;
+}
+
 .xui.dashboard.size-x64 .xui.user .user-image{
 	position: absolute;
 	top: 4px;
@@ -101,6 +105,16 @@
 }
 
 .xui.dashboard.size-x64 .xui.navigation-drawer.normal.closed .xui.user .user-image{
+	position: absolute;
+	top: 0px;
+	left: 12px; 
+	width: 48px;
+	height: 48px;
+	transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
+	box-sizing: border-box;
+}
+
+.xui.dashboard.size-x64 .xui.navigation-drawer.mini.closed .xui.user .user-image{
 	position: absolute;
 	top: 0px;
 	left: 12px; 
@@ -209,6 +223,10 @@
 	opacity: 1;
 }
 
+.xui.dashboard.size-x48 .xui.navigation-drawer.mini.closed .xui.user .user-content .user-content-background{
+	opacity: 1;
+}
+
 .xui.dashboard.size-x48 .xui.user .user-image{
 	position: absolute;
 	top: 4px;
@@ -227,6 +245,16 @@
 }
 
 .xui.dashboard.size-x48 .xui.navigation-drawer.normal.closed .xui.user .user-image{
+	position: absolute;
+	top: 0px;
+	left: 12px; 
+	width: 48px;
+	height: 48px;
+	transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
+	box-sizing: border-box;
+}
+
+.xui.dashboard.size-x48 .xui.navigation-drawer.mini.closed .xui.user .user-image{
 	position: absolute;
 	top: 0px;
 	left: 12px; 
@@ -265,7 +293,7 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .xui.application .xui.toolbar {
@@ -324,25 +352,33 @@
 .xui.application .xui.toolbar.item .xui.icon{
 	width: 38px;
 	height: 38px;
-	margin-right: 1px;
-	padding-left: 6px;
-	padding-top: 6px;
-	padding-right: 6px;
-	padding-bottom: 6px;
+	padding-left: 7px;
+	padding-top: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
 	font-size: 24px;
 	line-height: 24px;
 	color: #212121;
 }
 
 .xui.application .xui.toolbar.item .xui.text{
-	height: 38px;
-	padding-left: 0px;
-	padding-top: 11px;
-	padding-right: 11px;
-	padding-bottom: 11px;
-	font-size: 16px;
-	line-height: 16px;	
-	color: #000000;
+	display: none;
+}
+
+@media only screen and (min-width: 960px){
+
+	.xui.application .xui.toolbar.item .xui.text{
+		display: block;
+		height: 38px;
+		padding-left: 0px;
+		padding-top: 11px;
+		padding-right: 11px;
+		padding-bottom: 11px;
+		font-size: 16px;
+		line-height: 16px;	
+		color: #000000;
+	}
+
 }
 
 .xui.application .xui.toolbar.item.warning .xui.icon{
@@ -556,7 +592,7 @@
 }
 
 .xui.application .xui.content.has-toolbar.has-message-alert{
-	height: calc(100% - 96px);
+	height: calc(100% - 96px );
 }
 
 .xui.application .xui.content.has-toolbar.has-message-error{
@@ -565,5 +601,370 @@
 
 .xui.application .xui.content.has-toolbar.has-message-alert.has-message-error{
 	height: calc(100% - 144px);
+}
+
+.xui.application.form{
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-top: 0px;
+	height: auto;
+}
+
+@media only screen and (min-width: 600px){
+
+	.xui.application.form{
+		padding-top: 16px;
+	}
+
+}
+
+/*
+//
+*/
+
+.xui.dashboard.size-x48 .xui.content{
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+
+.xui.application .xui.toolbar{
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 0px;
+	padding-left: 8px;
+}
+
+.xui.dashboard.size-x48 .xui.application .xui.content{
+	padding-top: 0px;
+}
+
+/*
+//
+*/
+
+.xui.box-row{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.xui.box-1x1{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.xui.box-1x2{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.xui.box-2x1{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.xui.separator{
+	position: relative;
+	clear:both;
+	height: 0px;
+	overflow: hidden;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+@media only screen and (min-width: 600px){
+
+	.xui.box-row{
+		min-width: 480px;
+		max-width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.xui.box-1x1 {
+		min-width: 480px;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.xui.box-1x2:nth-child(1) {
+		min-width: 480px;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;		
+	}
+
+	.xui.box-1x2:nth-child(2) {
+		min-width: 480px;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;		
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.xui.box-2x1{
+		min-width: 480px;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;		
+	}
+
+}
+
+
+
+@media only screen and (min-width: 1280px){
+
+	.xui.box-row{
+		min-width: 960px;
+		max-width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.xui.box-1x1 {
+		width: 640;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.xui.box-1x2:nth-child(1) {
+		float: left;
+		width: 50%;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 8px;
+	}
+
+	.xui.box-1x2:nth-child(2) {
+		float: right;
+		width: 50%;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 8px;
+		padding-right: 16px;
+	}
+
+	.xui.box-2x1{
+		min-width: 960px;
+		max-width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+}
+
+
+
+@media only screen and (min-width: 1600px){
+
+	.xui.box-row{
+		width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.xui.box-1x1 {
+		width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.xui.box-1x2:nth-child(1) {
+		float: left;
+		width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 0px;
+		padding-right: 8px;
+	}
+
+	.xui.box-1x2:nth-child(2) {
+		float: right;
+		width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 8px;
+		padding-right: 0px;
+	}
+
+	.xui.box-2x1{
+		width: 1280px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+}
+
+/*
+//
+*/
+
+.xui.panel{
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	box-sizing: border-box;
+	border: 0px solid #000000;
+}
+
+.xui.panel-title{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	border-top: 0px solid #000000;
+	border-right: 0px solid #000000;
+	border-bottom: 1px solid #E0E0E0;
+	border-left: 0px solid #000000;
+	color: #000000;
+	background-color: #EEEEEE;	
+	
+	height: 40px;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.xui.panel-content{
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	box-sizing: border-box;
+	border-top: 0px solid #000000;
+	border-right: 0px solid #000000;
+	border-bottom: 0px solid #000000;
+	border-left: 0px solid #000000;
+}
+
+.xui.application .xui.panel{
+	border-top: 1px solid #E0E0E0;
+}
+
+@media only screen and (min-width: 600px){
+
+	.xui.panel{
+		border: 1px solid #E0E0E0;
+	}
+
+	.xui.application .xui.panel{
+		margin-bottom: 16px;
+	}
+
+}
+
+/*
+//
+*/
+
+.xui.application .xui.table .xui.toolbar.top {
+	padding-top: 3px;
+	border-bottom: 0px solid #000000;
+}
+
+.xui.application .xui.table .table-responsive table{
+	border-left: 0px solid #000000;
+	border-right: 0px solid #000000;
+}
+
+.xui.application .xui.table .table-responsive table tr th:first-child{
+	border-left: 0px solid #000000 !important;
+}
+
+.xui.application .xui.table .table-responsive table tr th:last-child{
+	border-right: 0px solid #000000 !important;
+}
+
+.xui.application .xui.table .table-responsive table tr td:first-child{
+	border-left: 0px solid #000000  !important;
+}
+
+.xui.application .xui.table .table-responsive table tr td:last-child{
+	border-right: 0px solid #000000  !important;
 }
 

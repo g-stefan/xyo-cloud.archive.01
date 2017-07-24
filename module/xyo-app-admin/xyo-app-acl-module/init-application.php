@@ -16,10 +16,10 @@ $this->setPrimaryKey("id");
 $this->requireComponent(array(
 	"bootstrap.select",
 	"bootstrap.order",
-	"bootstrap.panel-begin",
-	"bootstrap.panel-end",
-	"bootstrap.row-begin",
-	"bootstrap.row-end"
+	"xui.panel-begin",
+	"xui.panel-end",
+	"xui.box-1x1-begin",
+	"xui.box-1x1-end"
 ));
 
 $id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);
