@@ -127,8 +127,8 @@ class xyo_mod_cms_Page extends xyo_mod_Application {
 		return $this->getElementValue($name,$default);
 	}
 
-	function processPageElement($elType,$name,$arguments=null){
-		$this->processComponent($elType,$name,$arguments);
+	function processPageElement($elType,$arguments=null){
+		$this->processComponent($elType,$arguments);
 	}
 
 	function getPageElementFileName($name,$extension){
@@ -191,7 +191,7 @@ class xyo_mod_cms_Page extends xyo_mod_Application {
 		$this->setElementPrefix(str_replace("-","_",$contentName));
 		$this->language->includeFile($this->dataPath.$this->contents[$contentName]["source"].".edit.language.".strtolower($this->selectedLanguage).".php");
 		$this->generateComponent("xui.box-2x1-begin");
-		$this->generateComponent("xui.panel-begin",null,array("title"=>$this->contents[$contentName]["title"]));
+		$this->generateComponent("xui.panel-begin",array("title"=>$this->contents[$contentName]["title"]));
 		$fileName=$this->dataPath.$this->contents[$contentName]["source"].".edit.php";
 		if (file_exists($fileName)) {
 			include($fileName);
@@ -220,10 +220,10 @@ class xyo_mod_cms_Page extends xyo_mod_Application {
 		$this->setElementPrefix($prefix);		
 	}
 
-	function processContentElement($elType,$name,$arguments=null){
+	function processContentElement($elType,$arguments=null){
 		$prefix=$this->getElementPrefix();
 		$this->setElementPrefix(str_replace("-","_",$this->content));
-		$this->processComponent($elType,$name,$arguments);
+		$this->processComponent($elType,$arguments);
 		$this->setElementPrefix($prefix);
 	}
 

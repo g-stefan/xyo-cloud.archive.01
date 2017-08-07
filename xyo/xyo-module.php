@@ -543,25 +543,25 @@ class xyo_Module extends xyo_Config {
 		};
 	}
 
-	public function processComponent($comType,$elName=null,$arguments=null) {
+	public function processComponent($comType,$arguments=null) {
 		if($arguments) {
 		} else {
 			$arguments=array();
 		};
 		if(array_key_exists($comType,$this->componentCache)) {
-			$this->processComponentX(str_replace(".","/",$comType),".process",array_merge($arguments,array("element" => $elName)));
+			$this->processComponentX(str_replace(".","/",$comType),".process",$arguments);
 			return;
 		};
 		die("FATAL: Component ".$comType." not loaded.");
 	}
 
-	public function generateComponent($comType,$elName=null,$arguments=null) {
+	public function generateComponent($comType,$arguments=null) {
 		if($arguments) {
 		} else {
 			$arguments=array();
 		};
 		if(array_key_exists($comType,$this->componentCache)) {
-			$this->processComponentX(str_replace(".","/",$comType),"",array_merge($arguments,array("element" => $elName)));
+			$this->processComponentX(str_replace(".","/",$comType),"",$arguments);
 			return;
 		};
 		die("FATAL: Component ".$comType." not loaded.");

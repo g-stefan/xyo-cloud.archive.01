@@ -39,7 +39,7 @@ $title="";
 if($app){
 	$title=$app->getApplicationTitle();
 };
-$this->generateComponent("xui.dashboard.app-bar-app-title",null,array("title"=>$title));
+$this->generateComponent("xui.dashboard.app-bar-app-title",array("title"=>$title));
 // ---
 echo "<div class=\"xui right\">";
 $this->execGroup("xyo-status");
@@ -77,7 +77,7 @@ echo "</div>";
 $this->generateComponent("xui.dashboard.user-end");
 $sidebar=&$this->getModule("xyo-mod-xui-sidebar");
 $sidebar->initGroup("xyo-desktop");
-$this->generateComponent("xui.dashboard.navigation-drawer-menu",null,array("menu"=>$sidebar->getMenu()));
+$this->generateComponent("xui.dashboard.navigation-drawer-menu",array("menu"=>$sidebar->getMenu()));
 $this->generateComponent("xui.dashboard.navigation-drawer-end");
 $this->generateComponent("xui.dashboard.content-begin");
 $this->generateApplicationView();

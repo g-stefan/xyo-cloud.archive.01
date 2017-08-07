@@ -14,20 +14,20 @@ $this->generateComponent("xui.panel-begin");
 if ($this->id_xyo_module) {
     
 } else {
-	$this->generateComponent("bootstrap.select", "id_xyo_module");
+	$this->generateComponent("bootstrap.select", array("element" => "id_xyo_module"));
 }
 
 
 if ($this->id_xyo_module_group) {
     
 } else {
-	$this->generateComponent("bootstrap.select", "id_xyo_module_group");
+	$this->generateComponent("bootstrap.select", array("element" => "id_xyo_module_group"));
 }
 
-$this->generateComponent("bootstrap.order", "order");
-$this->generateComponent("bootstrap.select", "id_xyo_user_group");
-$this->generateComponent("bootstrap.select", "id_xyo_core");
-$this->generateComponent("bootstrap.select", "enabled");
+$this->generateComponent("bootstrap.order", array("element" => "order"));
+$this->generateComponent("bootstrap.select", array("element" => "id_xyo_user_group"));
+$this->generateComponent("bootstrap.select", array("element" => "id_xyo_core"));
+$this->generateComponent("bootstrap.select", array("element" => "enabled"));
 $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x1-end");
 

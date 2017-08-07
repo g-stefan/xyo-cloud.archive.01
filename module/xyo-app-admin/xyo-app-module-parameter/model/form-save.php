@@ -12,7 +12,7 @@ if($this->id_xyo_module>0) {
 
 	foreach($this->items as $item) {
 		if(!is_null($item["name"])){
-			$this->processComponent($item["type"],$item["name"],$item["parameters"]);
+			$this->processComponent($item["type"],array_merge(array("element" =>$item["name"]),$item["parameters"]));
 			$this->ds->clear();
 			$this->ds->id_xyo_module=$this->id_xyo_module;
 			$this->ds->name=$item["name"];

@@ -1463,7 +1463,7 @@ class xyo_Cloud extends xyo_Config {
 		session_start();
 		session_register_shutdown();
 		//
-		$this->set("version", "5.0.0.0");
+		$this->set("version", "5.2.0.0");
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);

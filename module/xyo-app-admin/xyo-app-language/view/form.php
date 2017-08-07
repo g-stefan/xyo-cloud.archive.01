@@ -13,10 +13,10 @@ if(!$this->isDialog){
 	$this->generateComponent("xui.panel-begin");
 };
 
-$this->generateComponent("bootstrap.text", "name");
-$this->generateComponent("bootstrap.textarea", "description");
-$this->generateComponent("bootstrap.select", "default");
-$this->generateComponent("bootstrap.select", "enabled");
+$this->generateComponent("bootstrap.text", array("element" => "name"));
+$this->generateComponent("bootstrap.textarea", array("element" => "description"));
+$this->generateComponent("bootstrap.select", array("element" => "default"));
+$this->generateComponent("bootstrap.select", array("element" => "enabled"));
 
 if(!$this->isDialog){
 	$this->generateComponent("xui.panel-end");

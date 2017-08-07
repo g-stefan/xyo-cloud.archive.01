@@ -24,7 +24,7 @@ if($this->isNew){
 
 $this->generateComponent("xui.form-begin");
 $this->generateView("form");
-$this->generateComponent("xui.form-end",null,array(
+$this->generateComponent("xui.form-end",array(
 	"parameters"=>array(
 		"action"=>"default",
 		$this->getElementName("primary_key_value") => $this->getElementValue("primary_key_value", "")

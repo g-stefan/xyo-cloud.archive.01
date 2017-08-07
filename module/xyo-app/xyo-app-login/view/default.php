@@ -120,7 +120,7 @@ if ($this->isError()) {
 
 <?php 							
 							if($useCaptcha){
-								$this->generateComponent("bootstrap.captcha","captcha",array("prefix"=>"user","rnd"=>$rnd));
+								$this->generateComponent("bootstrap.captcha",array("element"=>"captcha", "prefix"=>"user", "rnd"=>$rnd));
 							};
 
 ?>

@@ -10,7 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 foreach($this->items as $item) {
 	if(!is_null($item["name"])){
-		$this->processComponent($item["type"],$item["name"],$item["parameters"]);
+		$this->processComponent($item["type"],array_merge(array("element" =>$item["name"]),$item["parameters"]));
 		$this->ds->clear();
 		$this->ds->name=$item["name"];
 		$this->ds->tryLoad(0,1);		

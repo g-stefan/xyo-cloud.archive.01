@@ -70,7 +70,8 @@ $this->ds->email = $this->getElementValueStr("email","");
 
 if ($this->ds->save()) {
 
-	$this->processComponent("bootstrap.file-image-thumbnail","picture",array(
+	$this->processComponent("bootstrap.file-image-thumbnail",array(
+	"element" => "picture",
 	"filename"=>"repository/xyo-user/".$this->ds->id."-".$this->ds->username."-picture-".time(),
 	"extension"=>true,
 	"delete_before_save"=>true));
