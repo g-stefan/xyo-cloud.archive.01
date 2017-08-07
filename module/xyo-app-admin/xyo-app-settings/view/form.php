@@ -11,9 +11,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 foreach($this->items as $item) {
 	if($item["type"]=="select"){
-		$this->generateComponent($item["type"],$item["name"]);
+		$this->generateComponent($item["type"],array("element" => $item["name"]));
 	}else{
-		$this->generateComponent($item["type"],$item["name"],$item["parameters"]);
+		$this->generateComponent($item["type"],array_merge(array("element" => $item["name"]),$item["parameters"]));
 	};
 };
 
