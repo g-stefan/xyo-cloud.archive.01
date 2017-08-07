@@ -27,6 +27,9 @@ class xyo_app_Settings extends xyo_app_Application {
         $item["type"] = $type;
         $item["name"] = $name;
         $item["default_value"] = $defaultValue;
+	if(is_null($parameters)){
+		$parameters=array();
+	};
 	$item["parameters"]=$parameters;
         $this->items[] = &$item;
 	$this->elements[$type]=$type;
