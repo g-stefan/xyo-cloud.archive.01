@@ -1,1 +1,1 @@
-<div class="xui user">
+<div class="xui-user">

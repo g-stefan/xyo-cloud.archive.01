@@ -25,10 +25,10 @@ $this->generateComponent("xui.dashboard.main-begin");
 $this->generateComponent("xui.dashboard.app-bar-begin");
 $this->generateComponent("xui.dashboard.brand-begin");
 // ---
-echo "<div class=\"brand-content\">";
-echo "<div class=\"brand-logo\" style=\"background-image:url('".$this->site."media/sys/images/xyo-32.png');\"></div>";
-echo "<span class=\"brand-text\">Cloud</span>";
-echo "<span class=\"brand-text-second\"></span>";
+echo "<div class=\"xui-brand__content\">";
+echo "<div class=\"xui-brand__logo\" style=\"background-image:url('".$this->site."media/sys/images/xyo-32.png');\"></div>";
+echo "<span class=\"xui-brand__text\">Cloud</span>";
+echo "<span class=\"xui-brand__text-second\"></span>";
 echo "</div>";
 // ---
 $this->generateComponent("xui.dashboard.brand-end");
@@ -37,11 +37,13 @@ $this->generateComponent("xui.dashboard.app-bar-navigation-drawer-toggle");
 $app=&$this->getModule($this->getApplication());
 $title="";
 if($app){
-	$title=$app->getApplicationTitle();
+	if ($app instanceof xyo_mod_Application) {
+		$title=$app->getApplicationTitle();
+	};
 };
 $this->generateComponent("xui.dashboard.app-bar-app-title",array("title"=>$title));
 // ---
-echo "<div class=\"xui right\">";
+echo "<div class=\"xui--right\">";
 $this->execGroup("xyo-status");
 echo "</div>";
 // ---
@@ -64,14 +66,14 @@ if($dsUser->load(0,1)){
 //
 $img=$this->cloud->get("xui_dashboard_user_background","media/sys/images/mountains-1985027_640.jpg");
 //
-echo "<div class=\"user-content\" style=\"background-image:url('".$this->site.$img."');\">";
-echo "<div class=\"user-content-background\"></div>";
+echo "<div class=\"xui-user__content\" style=\"background-image:url('".$this->site.$img."');\">";
+echo "<div class=\"xui-user__background\"></div>";
 if(strlen($userImage)>0){
-	echo "<div class=\"user-image\" style=\"background-image:url('".$this->site.$userImage."');\"></div>";
+	echo "<div class=\"xui-user__image xui-elevation--2\" style=\"background-image:url('".$this->site.$userImage."');\"></div>";
 }else{
-	echo "<div class=\"user-image\"></div>";
+	echo "<div class=\"xui-user__image xui-elevation--2\"></div>";
 };
-echo "<div class=\"user-info\">".$userName."</div>";
+echo "<div class=\"xui-user__info\">".$userName."</div>";
 echo "</div>";
 // ---
 $this->generateComponent("xui.dashboard.user-end");

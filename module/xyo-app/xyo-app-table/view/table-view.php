@@ -150,12 +150,12 @@ function doValueSave(key){
 <?php $this->ejsEnd(); ?>
 
 
-<form id="<?php $this->eFormName(); ?>" name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" style="width:100%;height:100%;position:relative;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;overflow:hidden;">
+<form id="<?php $this->eFormName(); ?>" name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" style="width:100%;height:100%;position:relative;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;overflow:hidden;" class="xui-form">
 
 <?php
 		
-	echo "<div class=\"xui table\">";
-	echo "<div class=\"xui toolbar top\">";
+	echo "<div class=\"xui-table\">";
+	echo "<div class=\"xui-toolbar-top\">";
 	echo "<div class=\"span6\">";
 	
 	if($has_search){
@@ -204,7 +204,7 @@ function doValueSave(key){
 
         echo "</div>";
 ?>
-<div class="xui content" id="table-content">
+<div class="xui-content" id="table-content">
 
 <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover <?php echo $compactView; ?>" id="com_table">
@@ -213,14 +213,14 @@ function doValueSave(key){
                 foreach ($this->tableHead as $key => $value) {
 
 	                if ($key === "#") {
-	                    echo "<th style=\"vertical-align:middle;\" style=\"width:32px;\">";
+	                    echo "<th style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;\">";
 			}else{
 	                    echo "<th style=\"vertical-align:middle;\">";
 			}
 
 
                     if ($key === "#") {
-                        echo "<input type=\"checkbox\" name=\"id_0\" value=\"0\" onchange=\"setCheckboxState(this);\" onclick=\"setCheckboxState(this);\" />";
+                        echo "<div class=\"xui-form__checkbox\"><input type=\"checkbox\" name=\"id_0\" id=\"id_0\" value=\"0\" onchange=\"setCheckboxState(this);\" onclick=\"setCheckboxState(this);\"></input><label for=\"id_0\" style=\"margin-bottom: 0px;\"></label></div>";
                     } else
 		   if (array_key_exists($key, $this->tableType)) {
                     
@@ -309,14 +309,14 @@ function doValueSave(key){
                 foreach ($this->tableHead as $key_ => $value_) {
 
 			if ($key_ === "#") {
-				echo "<td style=\"vertical-align:middle;width:32px;\">";
+				echo "<td style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;\">";
 			}else{
 				echo "<td style=\"vertical-align:middle;\">";
 			};
                     if ($key_ === "#") {
 				++$recordId;
 				if($value["@write"]){
-	                        	echo "<input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" />";
+	                        	echo "<div class=\"xui-form__checkbox\"><input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" ></input><label for=\"cbox_" . $recordId . "\" style=\"margin-bottom: 0px;\"></label></div>";
 				}else{
 					echo "&#160;";
 				};				
@@ -600,7 +600,7 @@ function doValueSave(key){
 </div>
 
 </div>
-<div class="xui toolbar bottom">
+<div class="xui-toolbar-bottom">
         <div style="margin-left:6px;margin-right:6px">
 	<div class="row-fluid">
 	<div class="span12">

@@ -13,11 +13,11 @@ if (count($this->toolbar)) {
     foreach ($this->toolbar as $item) {
 	
 	if($item["type"]=="item"){
-		echo "<a class=\"xui toolbar item left effect-ripple ".$item["mode"]."\" href=\"".$item["url"]."\">";
-			echo "<div class=\"xui icon\">";
+		echo "<a class=\"xui-toolbar__item xui--left xui-toolbar__item--".$item["mode"]." xui-effect-ripple\" href=\"".$item["url"]."\">";
+			echo "<div class=\"xui-toolbar__icon\">";
 			echo $item["img"];
-			echo "</div>";
-			echo "<div class=\"xui text\">";
+			echo "</div>";                      
+			echo "<div class=\"xui-toolbar__text\">";
 			echo $item["title"];
 			echo "</div>";
 		echo "</a>";
@@ -25,11 +25,11 @@ if (count($this->toolbar)) {
 	};
 
 	if($item["type"]=="item-js"){
-		echo "<a class=\"xui toolbar item left effect-ripple ".$item["mode"]."\" href=\"#\" onclick=\"".$item["parameters"]."\">";
-			echo "<div class=\"xui icon left\">";
+		echo "<a class=\"xui-toolbar__item xui--left xui-toolbar__item--".$item["mode"]." xui-effect-ripple\" href=\"#\" onclick=\"".$item["parameters"]."\">";
+			echo "<div class=\"xui-toolbar__icon\">";
 			echo $item["img"];
 			echo "</div>";
-			echo "<div class=\"xui text left\">";
+			echo "<div class=\"xui-toolbar__text\">";
 			echo $item["title"];
 			echo "</div>";
 		echo "</a>";
@@ -39,3 +39,4 @@ if (count($this->toolbar)) {
     }
 
 }
+

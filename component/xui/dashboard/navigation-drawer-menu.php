@@ -1,4 +1,4 @@
 <?php
 
-$module=&$this->getModule("lib-xui");
+$module=&$this->getModule("xui-dashboard");
 $module->generateNavigationDrawerMenu($this->getArgument("menu",array()));

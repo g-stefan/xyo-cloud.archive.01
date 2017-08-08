@@ -34,4 +34,3 @@ $this->requireComponent("xui.dashboard.user-end");
 $this->requireComponent("xui.dashboard.content-begin");
 $this->requireComponent("xui.dashboard.content-end");
 
-$this->requireModule("lib-xui-theme");

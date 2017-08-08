@@ -1,0 +1,56 @@
+/*
+//
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+.xui{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+html.xui {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	height: 100%;	
+}
+
+html.xui body{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	height: 100%;
+}
+
+.xui--left{
+	float:left;
+}
+
+.xui--right{
+	float:right;
+}
+
+.xui-separator{
+	position: relative;
+	clear:both;
+	height: 0px;
+	overflow: hidden;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+

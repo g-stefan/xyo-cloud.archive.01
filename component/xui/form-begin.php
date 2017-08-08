@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 ?>
-<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" enctype="multipart/form-data" class="xui application form">
+<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" enctype="multipart/form-data" class="xui-form xui-application-form">

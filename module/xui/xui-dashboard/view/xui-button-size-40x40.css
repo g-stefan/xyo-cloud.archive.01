@@ -1,0 +1,34 @@
+/*
+//
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xui-button--size-40x40{
+	position: relative;
+	border-radius: 2px;
+	width: 40px;
+	height: 40px;	
+	padding-left: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-right: 8px;
+	overflow: hidden;
+	cursor: pointer;
+	font-size:24px;
+	line-height: 24px;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+     	-khtml-user-select: none;
+       	-moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+

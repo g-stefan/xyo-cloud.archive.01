@@ -1,2 +1,2 @@
 </div>
-<div class="xui content-cover"></div>
+<div class="xui-dashboard__content-cover"></div>

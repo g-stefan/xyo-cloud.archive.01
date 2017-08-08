@@ -8,4 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->requireModule("lib-xui");
+$this->requireModule("xui-box");
+$this->requireModule("xui-panel");
+$this->requireModule("xui-form");

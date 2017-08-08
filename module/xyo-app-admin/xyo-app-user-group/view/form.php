@@ -11,9 +11,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->generateComponent("xui.box-1x1-begin");
 $this->generateComponent("xui.panel-begin");
 
-$this->generateComponent("bootstrap.text", array("element" => "name"));
-$this->generateComponent("bootstrap.textarea", array("element" => "description"));
-$this->generateComponent("bootstrap.select", array("element" => "enabled"));
+$this->generateComponent("xui.text", array("element" => "name"));
+$this->generateComponent("xui.textarea", array("element" => "description"));
+$this->generateComponent("xui.select", array("element" => "enabled"));
 
 $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x1-begin");

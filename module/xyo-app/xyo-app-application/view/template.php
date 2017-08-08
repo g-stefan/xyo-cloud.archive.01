@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 ?>
-<div class="xui application">
-	<div class="xui toolbar"><div class="xui right">
+<div class="xui-application">
+	<div class="xui-toolbar"><div class="xui--right">
 <?php
            $this->execModule("xyo-mod-toolbar", array_merge(array(
                         "module" => $this->name,
@@ -29,7 +29,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	}
 
 ?>
-	<div class="xui content has-toolbar <?php if($this->hasAlert__){echo "has-message-alert";}; ?> <?php if ($this->hasError__){echo "has-message-error";}; ?>">
+	<div class="xui-content xui-content--has-toolbar <?php if($this->hasAlert__){echo "xui-content--has-message-alert";}; ?> <?php if ($this->hasError__){echo "xui-content--has-message-error";}; ?>">
 	<?php $this->generateCurrentView(); ?>
 	</div>
 </div>

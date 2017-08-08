@@ -13,10 +13,9 @@ $this->setApplicationDataSource("db.table.xyo_user_group");
 $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
-	"bootstrap.select",
-	"bootstrap.text",
-	"bootstrap.textarea",
-	"bootstrap.order",
+	"xui.select",
+	"xui.text",
+	"xui.textarea",
 
 	"xui.panel-begin",
 	"xui.panel-end",
