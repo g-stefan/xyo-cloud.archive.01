@@ -60,7 +60,7 @@
 	overflow: visible;
 }
 
-.xui-application .xui-table .xui-toolbar-top{
+.xui-application .xui-table .xui-table-toolbar-top{
 	position: relative;
 	height: 40px;
 	width: 100%;
@@ -69,12 +69,12 @@
 	box-shadow: none;
 }
 
-.xui-application .xui-table .xui-toolbar-bottom{
+.xui-application .xui-table .xui-table-toolbar-bottom{
 	position: relative;
-	height: 48px;
+	height: 40px;
 	width: 100%;
 	overflow: visible;
-	padding-top: 8px;
+	padding-top: 3px;
 	border-top: 1px solid #EEEEEE;
 	border-bottom: 0px solid #EEEEEE;
 	box-shadow: none;
@@ -83,7 +83,7 @@
 .xui-application .xui-table .xui-content{
 	position: relative;
 	width: 100%;
-	height: calc(100% - 88px);
+	height: calc(100% - 80px);
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
@@ -201,8 +201,8 @@
 
 }
 
-.xui-application .xui-table .xui-toolbar-top {
-	padding-top: 3px;
+.xui-application .xui-table .xui-table-toolbar-top {
+	padding-top: 4px;
 	border-bottom: 0px solid #000000;
 }
 
@@ -227,11 +227,11 @@
 	border-right: 0px solid #000000  !important;
 }
 
-.xui-application .xui-application-form .xui-form__text{
+.xui-application .xui-application-form .xui-form-text{
 	width: 100%;
 }
 
-.xui-application .xui-application-form .xui-form__textarea{
+.xui-application .xui-application-form .xui-form-textarea{
 	width: 100%;
 }
 

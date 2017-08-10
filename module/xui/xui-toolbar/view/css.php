@@ -53,7 +53,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 
-.xui-toolbar__item .xui-effect-ripple__element{
+.xui-toolbar__item .xui--effect-ripple__element{
 	background-color: #C0C0C0;
 }
 
@@ -116,7 +116,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
-.xui-toolbar__item.xui-toolbar__item--<?php echo $key; ?> .xui-effect-ripple__element{
+.xui-toolbar__item.xui-toolbar__item--<?php echo $key; ?> .xui--effect-ripple__element{
 	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($colorIcon,0,0,25); ?>;
 }
 
@@ -135,7 +135,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 	color: #E6E9ED;
 }
 
-.xui-toolbar__item.xui-toolbar__item--disabled .xui-effect-ripple__element{
+.xui-toolbar__item.xui-toolbar__item--disabled .xui--effect-ripple__element{
 	background-color: transparent;
 }
 

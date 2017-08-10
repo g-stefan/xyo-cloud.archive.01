@@ -12,7 +12,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__checkbox{
+.xui-form-checkbox{
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
@@ -32,34 +32,42 @@ defined('XYO_CLOUD') or die('Access is denied');
 	margin-right: 0px;
 
 	box-sizing: border-box;
+
+	font-family: "Roboto", sans-serif;
 }
 
 /* --- */
 
-.xui-form__checkbox input[type="checkbox"]{
+.xui-form-checkbox input[type="checkbox"]{
 	display: none;
 }
 
-.xui-form__checkbox label {
+.xui-form-checkbox label {
 	display: inline-block;
         vertical-align: middle;
 
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: normal;
 
-	box-sizing: border-box;
 	padding-top: 4px;
-	padding-left: 26px;
-	padding-bottom: 4px;
 	padding-right: 0px;
+	padding-bottom: 4px;
+	padding-left: 26px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 
 	cursor: pointer;
+	box-sizing: border-box;
 
 	<?php echo $xuiPalette->colorTypeLabel["default"]; ?>
 }
 
-.xui-form__checkbox label::before {
+.xui-form-checkbox label::before {
 	display: block;	
 	cursor: pointer;
 	position: absolute;
@@ -88,15 +96,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border: 2px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 }
 
-.xui-form__checkbox input[type="checkbox"]:active + label::before {
+.xui-form-checkbox input[type="checkbox"]:active + label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form__checkbox input[type="checkbox"]:focus + label::before {
+.xui-form-checkbox input[type="checkbox"]:focus + label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form__checkbox input[type="checkbox"] + label::after {
+.xui-form-checkbox input[type="checkbox"] + label::after {
 	display: block;	
 	cursor: pointer;
 	position: absolute;
@@ -124,7 +132,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	background: transparent;
 }
 
-.xui-form__checkbox input[type="checkbox"]:checked + label::after {
+.xui-form-checkbox input[type="checkbox"]:checked + label::after {
 	background-size: 16px 16px;
 	background-repeat: no-repeat;
 
@@ -147,15 +155,15 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form__checkbox--<?php echo $key; ?> label {
+.xui-form-checkbox--<?php echo $key; ?> label {
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form__checkbox--<?php echo $key; ?> label::before {
+.xui-form-checkbox--<?php echo $key; ?> label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInput[$key]; ?>;
 }
 
-.xui-form__checkbox--<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
+.xui-form-checkbox--<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
 	background-image: <?php
 
 $color=$xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput[$key],0,5,-20);

@@ -23,9 +23,9 @@ if(array_key_exists("popup",$item)){
 		};
 
 		if($active){
-			echo "<div class=\"xui-action xui-action--active xui-effect-ripple xui-toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup--on, xui-popup--off\">";
+			echo "<div class=\"xui-action xui-action--active xui--effect-ripple xui--toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup--on, xui-popup--off\">";
 		}else{
-			echo "<div class=\"xui-action xui-effect-ripple xui-toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup--on, xui-popup--off\">";
+			echo "<div class=\"xui-action xui--effect-ripple xui--toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup--on, xui-popup--off\">";
 		};
 
 		echo "<div class=\"xui-icon-left\">";
@@ -66,9 +66,9 @@ if(array_key_exists("separator",$item)){
 if(array_key_exists("url",$item)){
 
 	if($active){
-		echo "<a class=\"xui-action xui-action--active xui-effect-ripple\" href=\"".$item["url"]."\">";
+		echo "<a class=\"xui-action xui-action--active xui--effect-ripple\" href=\"".$item["url"]."\">";
 	}else{
-		echo "<a class=\"xui-action xui-effect-ripple\" href=\"".$item["url"]."\">";
+		echo "<a class=\"xui-action xui--effect-ripple\" href=\"".$item["url"]."\">";
 	};
 	echo "<div class=\"xui-icon-left\">";
 	if(array_key_exists("icon",$item)){
@@ -85,9 +85,9 @@ if(array_key_exists("url",$item)){
 };
 
 if($active){
-	echo "<div class=\"xui-action xui-action--active xui-effect-ripple\">";
+	echo "<div class=\"xui-action xui-action--active xui--effect-ripple\">";
 }else{
-	echo "<div class=\"xui-action xui-effect-ripple\">";
+	echo "<div class=\"xui-action xui--effect-ripple\">";
 };
 echo "<div class=\"xui-icon-left\">";
 if(array_key_exists("icon",$item)){

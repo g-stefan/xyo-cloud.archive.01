@@ -25,7 +25,7 @@
 	background-color: <?php echo $this->appBarBackgroundColorHover; ?>;
 }
 
-.xui-dashboard .xui-app-bar .xui-button .xui-effect-ripple__element{
+.xui-dashboard .xui-app-bar .xui-button .xui--effect-ripple__element{
 	background-color: <?php echo $this->appBarBackgroundColorRipple; ?>;
 }
 

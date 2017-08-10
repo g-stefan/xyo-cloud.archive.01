@@ -12,22 +12,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__textarea{
+.xui-form-textarea{
 
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
-	line-height: 16px;
+	line-height: 20px;
 	font-weight: normal;
-	border-radius: 0px;
 
-	padding-top: 6px;
-	padding-left: 8px;
-	padding-bottom: 6px;
-	padding-right: 8px;
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
 
 	margin-top: 0px;
-	margin-left: 0px;
-	margin-bottom: 0px;
 	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 
 	box-sizing: border-box;
 
@@ -43,7 +43,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form__textarea--<?php echo $key; ?>{
+.xui-form-textarea--<?php echo $key; ?>{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid <?php echo $value; ?>; 
@@ -56,7 +56,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__textarea:focus{
+.xui-form-textarea:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -64,11 +64,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;	
 }
 
-.xui-form__textarea--disabled{
+.xui-form-textarea--disabled{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form__textarea--disabled:focus{
+.xui-form-textarea--disabled:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;

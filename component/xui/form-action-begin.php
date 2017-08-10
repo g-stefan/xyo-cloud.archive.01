@@ -7,11 +7,5 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-
-$this->set("table_primary_key", "id");
-
-$this->set("table_item", array(
-		   "id" => array("bigint","DEFAULT","unsigned","auto_increment"),
-		   "name" => array("varchar",64,null),
-		   "value" => array("varchar",192,null)
-	   ));
+?>
+<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" enctype="multipart/form-data" class="xui-application-form">

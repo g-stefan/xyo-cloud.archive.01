@@ -40,11 +40,11 @@ XUI.Form={};
 			};
 		};
 		if(scan!=null){			
-			if(!scan.classList.contains("xui-form__text-material--has-value")){
-				scan.classList.add("xui-form__text-material--has-value");
+			if(!scan.classList.contains("xui-form-text-material--has-value")){
+				scan.classList.add("xui-form-text-material--has-value");
 			};
-			if(!scan.classList.contains("xui-form__text-material--focus")){
-				scan.classList.add("xui-form__text-material--focus");
+			if(!scan.classList.contains("xui-form-text-material--focus")){
+				scan.classList.add("xui-form-text-material--focus");
 			};
 		};
 	};
@@ -64,12 +64,12 @@ XUI.Form={};
 		};
 		if(scan!=null){
 			if((""+this.value).length==0){
-				if(scan.classList.contains("xui-form__text-material--has-value")){
-					scan.classList.remove("xui-form__text-material--has-value");
+				if(scan.classList.contains("xui-form-text-material--has-value")){
+					scan.classList.remove("xui-form-text-material--has-value");
 				};
 			};
-			if(scan.classList.contains("xui-form__text-material--focus")){
-				scan.classList.remove("xui-form__text-material--focus");
+			if(scan.classList.contains("xui-form-text-material--focus")){
+				scan.classList.remove("xui-form-text-material--focus");
 			};
 		};
 	};
@@ -88,20 +88,20 @@ XUI.Form={};
 			};
 		};
 		if(scan!=null){
-			if(!scan.classList.contains("xui-form__text-material--active")){
-				scan.classList.add("xui-form__text-material--active");
+			if(!scan.classList.contains("xui-form-text-material--active")){
+				scan.classList.add("xui-form-text-material--active");
 			};
 		};
 
 		var el = document.createElement("div");
 		el.innerHTML = "";
-		el.className = "xui-form__text-material__border";
+		el.className = "xui-form-text-material__border";
 		el.style.pointerEvents = "none";
 		element.parentElement.appendChild(el);
 	};
 
 	this.textMaterial.init=function(){
-		var elList=XUI.getByClassName(document,"xui-form__text-material");
+		var elList=XUI.getByClassName(document,"xui-form-text-material");
 		for(var elIndex=0;elIndex < elList.length;++elIndex){
 			var elListInput=elList[elIndex].getElementsByTagName("input");
 			for(var elIndexInput=0;elIndexInput < elListInput.length;++elIndexInput){
@@ -121,8 +121,9 @@ XUI.Form={};
 	/* --- */
 
 	this.init=function(){
-		$(".xui-form__select").select2({
-			minimumResultsForSearch: Infinity
+		$(".xui-form-select").select2({
+			minimumResultsForSearch: Infinity,
+			dropdownAutoWidth: true
 		});
 
 		this.textMaterial.init();

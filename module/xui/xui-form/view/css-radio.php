@@ -12,14 +12,16 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__radio{
+.xui-form-radio{
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
 	position: relative;
 
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	line-height: 24px;
+	font-weight: normal;
 
 	padding-top: 0px;
 	padding-left: 0px;
@@ -36,30 +38,36 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__radio input[type="radio"]{
+.xui-form-radio input[type="radio"]{
 	display: none;
 }
 
-.xui-form__radio label {
+.xui-form-radio label {
 	display: inline-block;
         vertical-align: middle;
 
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: normal;
 
-	box-sizing: border-box;
 	padding-top: 4px;
-	padding-left: 26px;
-	padding-bottom: 4px;
 	padding-right: 0px;
+	padding-bottom: 4px;
+	padding-left: 26px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 
 	cursor: pointer;
+	box-sizing: border-box;
 
 	<?php echo $xuiPalette->colorTypeLabel["default"]; ?>
 }
 
-.xui-form__radio label::before {
+.xui-form-radio label::before {
 	display: block;	
 	cursor: pointer;
 	position: absolute;
@@ -87,15 +95,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border: 2px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 }
 
-.xui-form__radio input[type="radio"]:active + label::before {
+.xui-form-radio input[type="radio"]:active + label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form__radio input[type="radio"]:focus + label::before {
+.xui-form-radio input[type="radio"]:focus + label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form__radio input[type="radio"] + label::after {
+.xui-form-radio input[type="radio"] + label::after {
 	display: block;
 	cursor: pointer;
 	position: absolute;
@@ -123,22 +131,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 	background: transparent;
 }
 
-.xui-form__radio input[type="radio"]:checked + label::after {
+.xui-form-radio input[type="radio"]:checked + label::after {
 	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput["default"],0,5,-20); ?>;
 }
 
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form__radio--<?php echo $key; ?> label {
+.xui-form-radio--<?php echo $key; ?> label {
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form__radio--<?php echo $key; ?> label::before {
+.xui-form-radio--<?php echo $key; ?> label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInput[$key]; ?>;
 }
 
-.xui-form__radio--<?php echo $key; ?> input[type="radio"]:checked + label::after {
+.xui-form-radio--<?php echo $key; ?> input[type="radio"]:checked + label::after {
 	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput[$key],0,5,-20); ?>;
 }
 	

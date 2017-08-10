@@ -13,9 +13,9 @@ $this->setApplicationDataSource("db.table.xyo_user_group");
 $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
-	"xui.select",
-	"xui.text",
-	"xui.textarea",
+	"xui.form-select",
+	"xui.form-text",
+	"xui.form-textarea",
 
 	"xui.panel-begin",
 	"xui.panel-end",

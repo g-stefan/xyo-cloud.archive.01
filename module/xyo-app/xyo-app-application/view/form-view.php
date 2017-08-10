@@ -22,9 +22,9 @@ if($this->isNew){
     }
 <?php $this->ejsEnd(); 
 
-$this->generateComponent("xui.form-begin");
+$this->generateComponent("xui.form-action-begin");
 $this->generateView("form");
-$this->generateComponent("xui.form-end",array(
+$this->generateComponent("xui.form-action-end",array(
 	"parameters"=>array(
 		"action"=>"default",
 		$this->getElementName("primary_key_value") => $this->getElementValue("primary_key_value", "")

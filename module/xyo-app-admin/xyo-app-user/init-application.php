@@ -21,8 +21,8 @@ $this->requireComponent(array(
 	"bootstrap.file-image-thumbnail",
 	"bootstrap.email",
 
-	"xui.form-begin",
-	"xui.form-end",
+	"xui.form-action-begin",
+	"xui.form-action-end",
 	"xui.panel-begin",
 	"xui.panel-end",
 

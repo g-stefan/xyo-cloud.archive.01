@@ -51,7 +51,7 @@
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer--over .xui-action .xui-effect-ripple__element {
+.xui-dashboard .xui-navigation-drawer--over .xui-action .xui--effect-ripple__element {
 	background-color: <?php echo $this->navigationDrawerBackgroundColorRipple; ?>;
 }
 

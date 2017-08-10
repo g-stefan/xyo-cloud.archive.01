@@ -150,28 +150,28 @@ function doValueSave(key){
 <?php $this->ejsEnd(); ?>
 
 
-<form id="<?php $this->eFormName(); ?>" name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" style="width:100%;height:100%;position:relative;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;overflow:hidden;" class="xui-form">
+<form id="<?php $this->eFormName(); ?>" name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" style="width:100%;height:100%;position:relative;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;overflow:hidden;">
 
 <?php
 		
 	echo "<div class=\"xui-table\">";
-	echo "<div class=\"xui-toolbar-top\">";
+	echo "<div class=\"xui-table-toolbar-top\">";
 	echo "<div class=\"span6\">";
 	
 	if($has_search){
                 ?>
-		    <div class="input-group pull-left" style="width:240px;margin-left:6px;">
+		    <div class="xui xui--left" style="margin-left:4px;height:32px;">
                     <input type="text"
                            value="<?php echo $search_value; ?>"
                            name="search"
-                           class="form-control"
+                           class="xui-form-text"
+                           style="width:196px;display:inline-block;position:relative;float:left;"
                            size="32"
 			   placeholder="<?php $this->eLanguage("search"); ?>"></input>
-			<span class="input-group-btn">
-			<button class="btn btn-default" type="submit" name="submit_search" onclick="$('#submit_search').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="fa fa-search"></i></button>
-			<button class="btn btn-default" type="button" name="search_reset" onclick="clearSearch(this,'search');"><i class="fa fa-times"></i></button>
+			<span class="xui-form-text-button-group xui-form-text-button-group--right"><button class="xui-form-text-button-icon" type="submit" name="submit_search" onclick="$('#submit_search').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">search</i></button>
+			<button class="xui-form-text-button-icon" type="button" name="search_reset" onclick="clearSearch(this,'search');"><i class="material-icons">close</i></button>
 			</span>
-		    </div>
+ 		    </div>
                 <?php
         }
           
@@ -186,7 +186,7 @@ function doValueSave(key){
                     <select name="view_select_<?php echo $key; ?>"
                             size="1"
                             onChange="this.form.submit();"
-                            class="selectpicker" data-width="auto"><?php
+                            class="xui-form-select"><?php
         foreach ($select_info[$key] as $key_ => $value_) {
             $selected = "";
             if (strcmp($key_, $select_value[$key]) == 0) {
@@ -220,7 +220,7 @@ function doValueSave(key){
 
 
                     if ($key === "#") {
-                        echo "<div class=\"xui-form__checkbox\"><input type=\"checkbox\" name=\"id_0\" id=\"id_0\" value=\"0\" onchange=\"setCheckboxState(this);\" onclick=\"setCheckboxState(this);\"></input><label for=\"id_0\" style=\"margin-bottom: 0px;\"></label></div>";
+                        echo "<div class=\"xui-form-checkbox\"><input type=\"checkbox\" name=\"id_0\" id=\"id_0\" value=\"0\" onchange=\"setCheckboxState(this);\" onclick=\"setCheckboxState(this);\"></input><label for=\"id_0\" style=\"margin-bottom: 0px;\"></label></div>";
                     } else
 		   if (array_key_exists($key, $this->tableType)) {
                     
@@ -316,7 +316,7 @@ function doValueSave(key){
                     if ($key_ === "#") {
 				++$recordId;
 				if($value["@write"]){
-	                        	echo "<div class=\"xui-form__checkbox\"><input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" ></input><label for=\"cbox_" . $recordId . "\" style=\"margin-bottom: 0px;\"></label></div>";
+	                        	echo "<div class=\"xui-form-checkbox\"><input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" ></input><label for=\"cbox_" . $recordId . "\" style=\"margin-bottom: 0px;\"></label></div>";
 				}else{
 					echo "&#160;";
 				};				
@@ -600,34 +600,35 @@ function doValueSave(key){
 </div>
 
 </div>
-<div class="xui-toolbar-bottom">
-        <div style="margin-left:6px;margin-right:6px">
+<div class="xui-table-toolbar-bottom">
+        <div style="margin-left:4px;margin-right:4px">
 	<div class="row-fluid">
 	<div class="span12">
 
-	<div class="pull-left" style="width:210px;">
-	<div class="input-group">
-		<span class="input-group-btn">
-			<button type="button" class="btn btn-default" onclick="$('#go_first').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="fa fa-step-backward"></i></button>
-		<button type="button" class="btn btn-default" onclick="$('#go_previous').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="fa fa-chevron-left"></i></button>
+	<div class="xui xui--left">
+
+		<span class="xui-form-text-button-group xui-form-text-button-group--left">
+		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_first').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">first_page</i></button>
+		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_previous').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">chevron_left</i></button>
 		</span>
         	<input type="text"
 	               value="<?php echo $page; ?>"
         	       name="page"
 	               size="4"
-        	       class="form-control"></input>
-		<span class="input-group-btn">
-		<button type="button" class="btn btn-default" onclick="$('#go_next').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="fa fa-chevron-right"></i></button>
-		<button type="button" class="btn btn-default" onclick="$('#go_last').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="fa fa-step-forward"></i></button>
+        	       class="xui-form-text"
+                       style="width:64px;display:inline-block;position:relative;float:left;" ></input>
+		<span class="xui-form-text-button-group xui-form-text-button-group--right">
+		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_next').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">chevron_right</i></button>
+		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_last').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">last_page</i></button>
 		</span>
-	</div>
+
 	</div>
 
 	<div class="pull-left" style="margin-left:6px;">
         <select name="count"
                 size="1"
                 onChange="this.form.submit();"
-                class="selectpicker" data-width="auto">
+                class="xui-form-select" data-width="auto">
 
             <?php
             $key = "count";
@@ -640,8 +641,8 @@ function doValueSave(key){
             }
             ?>
         </select>
-	<span style="position:relative;">
-	items <span style="color: #999;"> - </span> <?php echo $page_count; ?> pages <span style="color: #999;"> - </span> <?php echo $nr_items; ?> total
+	<span style="position:relative;font-family:'Roboto', sans-serif;font-size: 16px;line-height: 20px;font-weight: normal;">
+	items <span style="color: #999;"> - </span> <?php echo $page_count; ?> pages <span style="color: #999;"> - </span> <?php echo $nr_items; ?> total items
 	</span>
 	</div>
 

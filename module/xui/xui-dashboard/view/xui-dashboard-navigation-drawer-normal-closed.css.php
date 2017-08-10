@@ -72,7 +72,7 @@
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action .xui-effect-ripple__element {
+.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action .xui--effect-ripple__element {
 	background-color: <?php echo $this->navigationDrawerBackgroundColorRipple; ?>;
 }
 

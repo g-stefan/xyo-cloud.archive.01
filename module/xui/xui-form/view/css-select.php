@@ -12,27 +12,29 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__select{
+.xui-form-select{
 
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
-	line-height: 16px;
+	line-height: 20px;
 	font-weight: normal;
-	border-radius: 0px;
 
-	padding-top: 6px;
-	padding-left: 8px;
-	padding-bottom: 6px;
-	padding-right: 8px;
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
 
 	margin-top: 0px;
-	margin-left: 0px;
-	margin-bottom: 0px;
 	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 
 	box-sizing: border-box;
 
 	color: #000000;
 	background-color: #FFFFFF;
+
+	border-radius: 0px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
@@ -43,7 +45,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form__select--<?php echo $key; ?>{
+.xui-form-select--<?php echo $key; ?>{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid <?php echo $value; ?>; 
@@ -56,7 +58,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__select:focus{
+.xui-form-select:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -64,7 +66,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;	
 }
 
-.xui-form__select:active{
+.xui-form-select:active{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -73,11 +75,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 
-.xui-form__select--disabled{
+.xui-form-select--disabled{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form__select--disabled:focus{
+.xui-form-select--disabled:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -85,7 +87,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;	
 }
 
-.xui-form__select--disabled:active{
+.xui-form-select--disabled:active{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -96,7 +98,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- select2 --- */
 
-.xui-form__select + .select2-container--default .select2-selection--single {
+.xui-form-select + .select2-container--default .select2-selection--single {
 	border-radius: 0px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
@@ -104,15 +106,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 }
 
-.xui-form__select + .select2-container--default .select2-selection--single .select2-selection__arrow b{
+.xui-form-select + .select2-container--default .select2-selection--single .select2-selection__arrow b{
 	border-color: <?php echo $xuiPalette->colorTypeInput["default"]; ?> transparent transparent transparent;
 }
 
-.xui-form__select + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+.xui-form-select + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
 	border-color: transparent transparent <?php echo $xuiPalette->colorTypeInput["default"]; ?> transparent;
 }
 
-.xui-form__select + .select2-container--default .select2-selection--single:focus {
+.xui-form-select + .select2-container--default .select2-selection--single:focus {
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -124,7 +126,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form__select--<?php echo $key; ?> + .select2-container--default .select2-selection--single {
+.xui-form-select--<?php echo $key; ?> + .select2-container--default .select2-selection--single {
 	border-radius: 0px;
 	border-top: 1px solid <?php echo $value; ?>; 
 	border-right: 1px solid <?php echo $value; ?>;
@@ -132,15 +134,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $value; ?>;
 }
 
-.xui-form__select--<?php echo $key; ?> + .select2-container--default .select2-selection--single .select2-selection__arrow b{
+.xui-form-select--<?php echo $key; ?> + .select2-container--default .select2-selection--single .select2-selection__arrow b{
 	border-color: <?php echo $value; ?> transparent transparent transparent;
 }
 
-.xui-form__select--<?php echo $key; ?> + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+.xui-form-select--<?php echo $key; ?> + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
 	border-color: transparent transparent <?php echo $value; ?> transparent;
 }
 
-.xui-form__select--<?php echo $key; ?> + .select2-container--default .select2-selection--single:focus {
+.xui-form-select--<?php echo $key; ?> + .select2-container--default .select2-selection--single:focus {
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -153,7 +155,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__select--disabled + .select2-container--default .select2-selection--single {
+.xui-form-select--disabled + .select2-container--default .select2-selection--single {
 	border-radius: 0px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -161,15 +163,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
 }
 
-.xui-form__select--disabled + .select2-container--default .select2-selection--single .select2-selection__arrow b{
+.xui-form-select--disabled + .select2-container--default .select2-selection--single .select2-selection__arrow b{
 	border-color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?> transparent transparent transparent;
 }
 
-.xui-form__select--disabled + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+.xui-form-select--disabled + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
 	border-color: transparent transparent <?php echo $xuiPalette->colorTypeInput["disabled"]; ?> transparent;
 }
 
-.xui-form__select--disabled + .select2-container--default .select2-selection--single:focus {
+.xui-form-select--disabled + .select2-container--default .select2-selection--single:focus {
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -180,22 +182,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 /* --- */
 
 .select2-results__option{
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
-	line-height: 16px;
+	line-height: 20px;
+	font-weight: normal;
 
-	padding-top: 8px;
-	padding-left: 10px;
-	padding-bottom: 8px;
-	padding-right: 10px;
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
 
 	margin-top: 0px;
-	margin-left: 0px;
-	margin-bottom: 0px;
 	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 
 	box-sizing: border-box;
-
-	font-family: Roboto;	
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
@@ -212,16 +214,29 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .select2-container .select2-selection--single{
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
-	line-height: 16px;
+	line-height: 20px;
+	font-weight: normal;
 
-	height: 32px;
-	padding-left: 2px;
-	padding-top: 2px;
+	padding-top: 5px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	padding-left: 6px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 
 	box-sizing: border-box;
 
-	font-family: Roboto;	
+	height: 32px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+	line-height: 20px;
+	padding-left: 0px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow b{
@@ -230,5 +245,28 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
 	margin-top: 0px;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.select2-container--open .select2-dropdown--above{
+	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
+	margin-top: 1px;
+}
+
+.select2-container--open .select2-dropdown--below{
+	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
+	margin-top: -1px;
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"]{
+	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInputActive,0,0,20); ?>;
+}
+
+.select2-container--default .select2-results__option.select2-results__option--highlighted[aria-selected="true"]{
+	background-color: <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 

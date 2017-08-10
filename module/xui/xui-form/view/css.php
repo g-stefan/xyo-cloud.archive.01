@@ -13,20 +13,8 @@ header("Content-type: text/css");
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
 
-?>
-/*
-//
-//
-//
-*/
-
-.xui-form {
-	font-family: "Roboto", sans-serif;
-}
-
-<?php
-
 include("css-button.php");
+include("css-button-group.php");
 include("css-label.php");
 include("css-text.php");
 include("css-textarea.php");
@@ -35,3 +23,4 @@ include("css-checkbox.php");
 include("css-select.php");
 include("css-datepicker.php");
 include("css-text-material.php");
+include("css-text-button-group.php");

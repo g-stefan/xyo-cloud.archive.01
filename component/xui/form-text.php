@@ -19,9 +19,9 @@ if($maxlength==0){
 
 ?>
 
-<label class="xui-form__label<?php if($this->isElementError($element)){echo " xui-form__label--danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label--danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
-<input type="text"<?php echo $maxlength; ?> class="xui-form__text<?php if($this->isElementError($element)){echo " xui-form__text--danger";}; ?>" placeholder=""
+<input type="text"<?php echo $maxlength; ?> class="xui-form-text<?php if($this->isElementError($element)){echo " xui-form-text--danger";}; ?>" placeholder=""
 	name="<?php $this->eElementName($element); ?>"
 	value="<?php $this->eElementValue($element, ""); ?>"
 	id="<?php $this->eElementId($element); ?>" ></input>

@@ -8,13 +8,13 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$itemTextHeight=56;
-$itemTextLabelSize=16;
-$itemTextLabelMarginTop=4;
-$itemTextLabelMarginBottom=8;
-$itemTextInputSize=16;
+$itemTextHeight=52;
+$itemTextLabelSize=20;
+$itemTextLabelMarginTop=6;
+$itemTextLabelMarginBottom=0;
+$itemTextInputSize=20;
 $itemTextMarginBottom=6;
-$itemTextInputLineHeightBottom=6;
+
 
 $itemTextMarginTopX=$itemTextLabelMarginTop+$itemTextLabelSize+$itemTextLabelMarginBottom;
 
@@ -30,63 +30,66 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 
 /* --- */
 
-.xui-form__text-material{
+.xui-form-text-material{
 	position: relative;
 	display: inline-block;
 	height: <?php echo $itemTextHeight; ?>px;
 	width: auto;
+
+	font-family: "Roboto", sans-serif;
+	overflow: hidden;
 }
 
-.xui-form__text-material label{
+.xui-form-text-material label{
 	position: absolute;
 	left: 0px;
 	top: 0px;
 	display: inline-block;
 	z-index: 1;
-	font-size: <?php echo $itemTextInputSize; ?>px;
-	margin-top: <?php echo $itemTextLabelMarginTop+$itemTextLabelSize+$itemTextLabelMarginBottom; ?>px;
+
+	margin-top: <?php echo $itemTextMarginTopX; ?>px;
 	margin-bottom: <?php echo $itemTextLabelMarginBottom; ?>px;
 	width: 100%;
 	transition: margin-top 0.2s ease, font-size 0.2s ease;
 	cursor: text;
 	color: <?php echo $itemTextColorLabel; ?>;
 
-	line-height: <?php echo $itemTextInputSize; ?>px;
-	font-weight: normal;
-
 	font-family: "Roboto", sans-serif;
+	font-size: <?php echo $itemTextInputSize-4; //16 ?>px;
+	line-height: <?php echo $itemTextInputSize; //20 ?>px;
+	font-weight: normal;
 }
 
-.xui-form__text-material label.xui-form__text-material--has-value{
+.xui-form-text-material label.xui-form-text-material--has-value{
 	margin-top: <?php echo $itemTextLabelMarginTop; ?>px;
-	font-size: <?php echo $itemTextLabelSize; ?>px;
+	margin-bottom: <?php echo $itemTextLabelMarginBottom; ?>px;
 	cursor: initial;
 }
 
-.xui-form__text-material label.xui-form__text-material--focus{
+.xui-form-text-material label.xui-form-text-material--focus{
 	color: <?php echo $itemTextColorLabelFocus; ?>;
 }
 
-.xui-form__text-material input[type=text]{
+.xui-form-text-material input[type=text]{
 	position: relative;
 	padding-top: <?php echo $itemTextMarginTopX; ?>px;
 	border: none;
 	display: inline-block;
-	font-size: <?php echo $itemTextInputSize; ?>px;
-	padding-bottom: <?php echo $itemTextMarginBottom; ?>px;
+	padding-bottom: <?php echo $itemTextMarginBottom-2; ?>px;
 	color: <?php echo $itemTextColorInput; ?>;
 	border-bottom: 1px solid <?php echo $itemTextColorBorder; ?>;
 	width: 100%;
 	transition: border-bottom 0.2s ease;
 
-	font-size: <?php echo $itemTextInputSize; ?>px;
-	line-height: <?php echo $itemTextInputSize; ?>px;
+	font-family: "Roboto", sans-serif;
+	font-size: <?php echo $itemTextInputSize-4; //16 ?>px;
+	line-height: <?php echo $itemTextInputSize; //20 ?>px;
 	font-weight: normal;
 
-	font-family: "Roboto", sans-serif;
+	background: transparent;
 }
 
-.xui-form__text-material input[type=text] + .xui-form__text-material__border{
+.xui-form-text-material input[type=text] + .xui-form-text-material__border{
 	position: relative;
 	display: block;
 	overflow: hidden;
@@ -98,12 +101,12 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	transition: width 0.2s ease, background-color 0.2s ease;
 }
 
-.xui-form__text-material input[type=text]:focus + .xui-form__text-material__border{
+.xui-form-text-material input[type=text]:focus + .xui-form-text-material__border{
 	width: 100%;
 	background-color: <?php echo $itemTextColorBorderFocus; ?>;
 }
 
-.xui-form__text-material input[type=text]:focus {
+.xui-form-text-material input[type=text]:focus {
 	outline-color: transparent;
 	outline-style: none;
 	border-bottom: 1px solid <?php echo $itemTextColorBorderFocus; ?>;
@@ -112,19 +115,19 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form__text-material--<?php echo $key; ?> label{
+.xui-form-text-material--<?php echo $key; ?> label{
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form__text-material--<?php echo $key; ?> input[type=text]{
+.xui-form-text-material--<?php echo $key; ?> input[type=text]{
 	border-bottom: 1px solid <?php echo $value; ?>;
 }
 
-.xui-form__text-material input[type=text] + .xui-form__text-material__border{
+.xui-form-text-material input[type=text] + .xui-form-text-material__border{
 	background-color: <?php echo $value; ?>;
 }
 
-.xui-form__text-material--<?php echo $key; ?> label.xui-form__text-material--focus{
+.xui-form-text-material--<?php echo $key; ?> label.xui-form-text-material--focus{
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 

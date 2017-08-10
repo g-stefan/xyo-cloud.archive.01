@@ -12,6 +12,6 @@ $this->setViewTemplate("template");
 $this->setDefaultAction($this->getRequest("action", "default"));
 
 $this->requireComponent(array(
-	"xui.form-begin",
-	"xui.form-end"
+	"xui.form-action-begin",
+	"xui.form-action-end"
 ));

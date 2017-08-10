@@ -12,38 +12,42 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__text{
+.xui-form-text{
 
+	font-family: "Roboto", sans-serif;
 	font-size: 16px;
-	line-height: 16px;
+	line-height: 20px;
 	font-weight: normal;
-	border-radius: 0px;
 
-	padding-top: 6px;
-	padding-left: 8px;
-	padding-bottom: 6px;
-	padding-right: 8px;
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
 
 	margin-top: 0px;
-	margin-left: 0px;
-	margin-bottom: 0px;
 	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 
 	box-sizing: border-box;
 
 	color: #000000;
 	background-color: #FFFFFF;
+
+	border-radius: 0px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
+
+	height: 32px;
 }
 
 /* --- */
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form__text--<?php echo $key; ?>{
+.xui-form-text--<?php echo $key; ?>{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid <?php echo $value; ?>; 
@@ -56,7 +60,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form__text:focus{
+.xui-form-text:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -64,11 +68,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;	
 }
 
-.xui-form__text--disabled{
+.xui-form-text--disabled{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form__text--disabled:focus{
+.xui-form-text--disabled:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
