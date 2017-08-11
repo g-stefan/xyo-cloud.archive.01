@@ -71,19 +71,6 @@ if ($setup) {
 	$setup->registerModuleAcl("xyo-mod-form-captcha","xyo-none",null,null,0,true);
 	$setup->execModuleInstall("xyo-mod-form-captcha");
 
-	//xyo-cms
-	$setup->registerModule(null, null, "xyo-cms");
-	$setup->registerModuleAcl("xyo-cms","xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo-cms", null, "xyo-mod-cms-page");
-	$setup->registerModuleAcl("xyo-mod-cms-page", "xyo-none", null, null, 0, true);
-
-	$setup->registerModule("xyo-cms", null, "xyo-app-cms-page");
-	$setup->registerModuleAcl("xyo-app-cms-page", "xyo-desktop", "administrator", "authenticated", 100, true);
-
-	$setup->registerModule("xyo-cms", null, "xyo-tpl-cms");
-	$setup->registerModuleAcl("xyo-tpl-cms", "xyo-template", "public", null, 0, true);
-
 };
 
 
