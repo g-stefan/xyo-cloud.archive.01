@@ -15,11 +15,11 @@ if($this->isNew){
 };
 
 $this->generateComponent("xui.panel-begin");
-$this->generateComponent("bootstrap.text", array("element" => "name"));
-$this->generateComponent("bootstrap.text", array("element" => "parent"));
-$this->generateComponent("bootstrap.text", array("element" => "path"));
-$this->generateComponent("bootstrap.textarea", array("element" => "description"));
-$this->generateComponent("bootstrap.select", array("element" => "enabled"));
+$this->generateComponent("xui.form-text", array("element" => "name"));
+$this->generateComponent("xui.form-text", array("element" => "parent"));
+$this->generateComponent("xui.form-text", array("element" => "path"));
+$this->generateComponent("xui.form-textarea", array("element" => "description"));
+$this->generateComponent("xui.form-select", array("element" => "enabled"));
 $this->generateComponent("xui.panel-end");
 
 
@@ -27,11 +27,11 @@ if($this->isNew){
 	$this->generateComponent("xui.box-1x2-separator");
 
 	$this->generateComponent("xui.panel-begin", array("title"=>"title_default_acl"));
-	$this->generateComponent("bootstrap.select", array("element" =>"id_xyo_module_group"));
-	$this->generateComponent("bootstrap.order", array("element" =>"order"));
-	$this->generateComponent("bootstrap.select", array("element" =>"id_xyo_user_group"));
-	$this->generateComponent("bootstrap.select", array("element" =>"id_xyo_core"));
-	$this->generateComponent("bootstrap.select", array("element" =>"acl_enabled"));
+	$this->generateComponent("xui.form-select", array("element" =>"id_xyo_module_group"));
+	$this->generateComponent("xui.form-order", array("element" =>"order"));
+	$this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group"));
+	$this->generateComponent("xui.form-select", array("element" =>"id_xyo_core"));
+	$this->generateComponent("xui.form-select", array("element" =>"acl_enabled"));
 	$this->generateComponent("xui.panel-end");
 
 	$this->generateComponent("xui.box-1x2-end");

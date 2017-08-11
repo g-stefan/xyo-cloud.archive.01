@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setApplicationIcon("<i class=\"material-icons\">storage</i>");
 
 $this->requireComponent(array(
-	"bootstrap.select",
+	"xui.form-select",
 
 	"xui.panel-begin",
 	"xui.panel-end",

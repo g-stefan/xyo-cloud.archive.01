@@ -14,8 +14,8 @@ $this->setApplicationDataSource("db.query.xyo_acl_module");
 $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
-	"bootstrap.select",
-	"bootstrap.order",
+	"xui.form-select",
+	"xui.form-order",
 	"xui.panel-begin",
 	"xui.panel-end",
 	"xui.box-1x1-begin",

@@ -14,8 +14,8 @@ $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
 	"xui.form-select",
-	"xui.form-text-material",
-	"xui.form-textarea-material",
+	"xui.form-text",
+	"xui.form-textarea",
 
 	"xui.panel-begin",
 	"xui.panel-end",

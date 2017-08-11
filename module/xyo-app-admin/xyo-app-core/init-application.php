@@ -13,9 +13,9 @@ $this->setApplicationDataSource("db.table.xyo_core");
 $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
-	"bootstrap.select",
-	"bootstrap.text",
-	"bootstrap.textarea",
+	"xui.form-select",
+	"xui.form-text",
+	"xui.form-textarea",
 	"xui.panel-begin",
 	"xui.panel-end",
 	"xui.box-1x1-begin",

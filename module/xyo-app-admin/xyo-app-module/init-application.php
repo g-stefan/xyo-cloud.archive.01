@@ -13,10 +13,10 @@ $this->setApplicationDataSource("db.table.xyo_module");
 $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
-	"bootstrap.select",
-	"bootstrap.text",
-	"bootstrap.textarea",
-	"bootstrap.order",
+	"xui.form-select",
+	"xui.form-text",
+	"xui.form-textarea",
+	"xui.form-order",
 
 	"xui.panel-begin",
 	"xui.panel-end",
