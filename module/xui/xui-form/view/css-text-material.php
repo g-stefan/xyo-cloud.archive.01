@@ -18,11 +18,11 @@ $itemTextMarginBottom=6;
 
 $itemTextMarginTopX=$itemTextLabelMarginTop+$itemTextLabelSize+$itemTextLabelMarginBottom;
 
-$itemTextColorLabel=$xuiPalette->colorTypeLabel["default"];
+$itemTextColorLabel=$xuiPalette->colorPalette["xui-dark-gray-v1"];
 $itemTextColorInput="#000000";
-$itemTextColorBorder=$xuiPalette->colorTypeInput["default"];
+$itemTextColorBorder=$xuiPalette->colorPalette["xui-dark-gray-v1"];
 
-$itemTextColorLabelFocus=$xuiPalette->colorTypeLabel["default"];
+$itemTextColorLabelFocus=$xuiPalette->colorTypeInputActive;
 $itemTextColorInputFocus="#000000";
 $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 
@@ -44,7 +44,7 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	display: inline-block;
+	display: block;
 	z-index: 1;
 
 	margin-top: <?php echo $itemTextMarginTopX; ?>px;
@@ -64,17 +64,19 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	margin-top: <?php echo $itemTextLabelMarginTop; ?>px;
 	margin-bottom: <?php echo $itemTextLabelMarginBottom; ?>px;
 	cursor: initial;
+	font-size: <?php echo $itemTextInputSize-6; //16->14 ?>px;
 }
 
 .xui-form-text-material label.xui-form-text-material--focus{
 	color: <?php echo $itemTextColorLabelFocus; ?>;
+	font-size: <?php echo $itemTextInputSize-6; //16->14 ?>px;
 }
 
 .xui-form-text-material input[type=text]{
 	position: relative;
 	padding-top: <?php echo $itemTextMarginTopX; ?>px;
 	border: none;
-	display: inline-block;
+	display: block;
 	padding-bottom: <?php echo $itemTextMarginBottom-2; ?>px;
 	color: <?php echo $itemTextColorInput; ?>;
 	border-bottom: 1px solid <?php echo $itemTextColorBorder; ?>;

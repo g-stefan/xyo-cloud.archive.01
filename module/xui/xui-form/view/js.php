@@ -24,7 +24,10 @@ XUI.Form={};
 	var this_=this;
 
 	/* --- */
+
 	this.textMaterial={};
+
+	/* --- */
 
 	this.textMaterial.onFocus=function(event){
 		var scan=this;	
@@ -34,7 +37,7 @@ XUI.Form={};
 			if(nodeName==="label"){
 				break;
 			};
-			if((nodeName==="input")||(nodeName==="textarea")){
+			if(nodeName==="textarea"){
 				scan=null;
 				break;
 			};
@@ -57,7 +60,7 @@ XUI.Form={};
 			if(nodeName==="label"){
 				break;
 			};
-			if((nodeName==="input")||(nodeName==="textarea")){
+			if(nodeName==="input"){
 				scan=null;
 				break;
 			};
@@ -82,7 +85,7 @@ XUI.Form={};
 			if(nodeName==="label"){
 				break;
 			};
-			if((nodeName==="input")||(nodeName==="textarea")){
+			if(nodeName==="input"){
 				scan=null;
 				break;
 			};
@@ -109,14 +112,102 @@ XUI.Form={};
 				elListInput[elIndexInput].addEventListener("blur",this_.textMaterial.onBlur);
 				this.initElement(elListInput[elIndexInput]);
 			};
+		};
+	};
+
+
+	/* --- */
+
+	this.textareaMaterial={};
+
+	/* --- */
+
+	this.textareaMaterial.onFocus=function(event){
+		var scan=this;	
+		var nodeName;
+		for(scan=scan.previousElementSibling;scan;scan=scan.previousElementSibling){
+			nodeName=scan.nodeName.toLowerCase();
+			if(nodeName==="label"){
+				break;
+			};
+			if(nodeName==="textarea"){
+				scan=null;
+				break;
+			};
+		};
+		if(scan!=null){
+			if(!scan.classList.contains("xui-form-textarea-material--has-value")){
+				scan.classList.add("xui-form-textarea-material--has-value");
+			};
+			if(!scan.classList.contains("xui-form-textarea-material--focus")){
+				scan.classList.add("xui-form-textarea-material--focus");
+			};
+		};
+	};
+
+	this.textareaMaterial.onBlur=function(event){
+		var scan=this;	
+		var nodeName;
+		for(scan=scan.previousElementSibling;scan;scan=scan.previousElementSibling){
+			nodeName=scan.nodeName.toLowerCase();
+			if(nodeName==="label"){
+				break;
+			};
+			if(nodeName==="textarea"){
+				scan=null;
+				break;
+			};
+		};
+		if(scan!=null){
+			if((""+this.value).length==0){
+				if(scan.classList.contains("xui-form-textarea-material--has-value")){
+					scan.classList.remove("xui-form-textarea-material--has-value");
+				};
+			};
+			if(scan.classList.contains("xui-form-textarea-material--focus")){
+				scan.classList.remove("xui-form-textarea-material--focus");
+			};
+		};
+	};
+
+	this.textareaMaterial.initElement=function(element){
+		var scan=element;	
+		var nodeName;
+		for(scan=scan.previousElementSibling;scan;scan=scan.previousElementSibling){
+			nodeName=scan.nodeName.toLowerCase();
+			if(nodeName==="label"){
+				break;
+			};
+			if(nodeName==="textarea"){
+				scan=null;
+				break;
+			};
+		};
+		if(scan!=null){
+			if(!scan.classList.contains("xui-form-textarea-material--active")){
+				scan.classList.add("xui-form-textarea-material--active");
+			};
+		};
+
+		var el = document.createElement("div");
+		el.innerHTML = "";
+		el.className = "xui-form-textarea-material__border";
+		el.style.pointerEvents = "none";
+		element.parentElement.appendChild(el);
+	};
+
+	this.textareaMaterial.init=function(){
+		var elList=XUI.getByClassName(document,"xui-form-textarea-material");
+		for(var elIndex=0;elIndex < elList.length;++elIndex){
 			var elListTextArea=elList[elIndex].getElementsByTagName("textarea");
 			for(var elIndexTextArea=0;elIndexTextArea < elListTextArea.length;++elIndexTextArea){
-				elListTextArea[elIndexTextArea].addEventListener("focus",this_.textMaterial.onFocus);
-				elListTextArea[elIndexTextArea].addEventListener("blur",this_.textMaterial.onBlur);
+				elListTextArea[elIndexTextArea].addEventListener("focus",this_.textareaMaterial.onFocus);
+				elListTextArea[elIndexTextArea].addEventListener("blur",this_.textareaMaterial.onBlur);
 				this.initElement(elListTextArea[elIndexTextArea]);
 			};
 		};
 	};
+
 
 	/* --- */
 
@@ -127,6 +218,7 @@ XUI.Form={};
 		});
 
 		this.textMaterial.init();
+		this.textareaMaterial.init();
 	};
 
 	this.load=function(event){

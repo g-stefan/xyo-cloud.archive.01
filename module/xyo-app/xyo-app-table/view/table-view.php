@@ -168,7 +168,8 @@ function doValueSave(key){
                            style="width:196px;display:inline-block;position:relative;float:left;"
                            size="32"
 			   placeholder="<?php $this->eLanguage("search"); ?>"></input>
-			<span class="xui-form-text-button-group xui-form-text-button-group--right"><button class="xui-form-text-button-icon" type="submit" name="submit_search" onclick="$('#submit_search').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">search</i></button>
+			<span class="xui-form-text-button-group xui-form-text-button-group--right">
+			<button class="xui-form-text-button-icon" type="submit" name="submit_search" onclick="$('#submit_search').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">search</i></button>
 			<button class="xui-form-text-button-icon" type="button" name="search_reset" onclick="clearSearch(this,'search');"><i class="material-icons">close</i></button>
 			</span>
  		    </div>
@@ -424,18 +425,18 @@ function doValueSave(key){
 			}else
 			if($this->tableType[$key_][0]=="order"){
 
-				echo "<div class=\"input-group\" style=\"width:12em;\">";
+				echo "<div class=\"xui xui--left\">";
 		        		echo "<input type=\"text\"";
 			                       echo " name=\"order_" . $value[$this->primaryKey] . "\"";
 			                       echo " value=\"" . $value[$key_] . "\"";
 			                       echo " size=\"4\"";
-		        		       echo "class=\"form-control\"></input>";
-					echo "<span class=\"input-group-btn\">";
-						echo "<button type=\"button\" class=\"btn btn-default\" onclick=\"doOrderUp('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"fa fa-chevron-up\"></i></button>";
-						echo "<button type=\"button\" class=\"btn btn-default\" onclick=\"doOrderDown('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"fa fa-chevron-down\"></i></button>";
+		        		       echo "class=\"xui-form-text\" style=\"float:left;\"></input>";
+					echo "<span class=\"xui-form-text-button-group xui-form-text-button-group--right\">";
+						echo "<button type=\"button\" class=\"xui-form-text-button-icon\" onclick=\"doOrderUp('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"material-icons\">expand_less</i></button>";
+						echo "<button type=\"button\" class=\"xui-form-text-button-icon\" onclick=\"doOrderDown('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"material-icons\">expand_more</i></button>";
 					echo "</span>";
 				echo "</div>";
-				
+
 			}else			
 			if($this->tableType[$key_][0]=="value"){
 	                        echo "<input type=\"text\"";

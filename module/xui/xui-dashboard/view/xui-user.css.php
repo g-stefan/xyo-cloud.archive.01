@@ -35,7 +35,7 @@
 	opacity: 1;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-user .xui-user__background{
+.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-user .xui-user__background{
 	opacity: 1;
 }
 

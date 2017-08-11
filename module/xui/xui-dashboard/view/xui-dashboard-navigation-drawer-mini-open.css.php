@@ -134,7 +134,7 @@
 	margin-left: <?php echo $this->navigationDrawerMiniWidth; ?>px;
 }
 
-.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--open ~ .xui-dashboar__content-cover{
+.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--open ~ .xui-dashboard__content-cover{
 	height: 100%;
 	opacity: 0.4;
 }

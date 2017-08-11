@@ -82,6 +82,7 @@ $sidebar->initGroup("xyo-desktop");
 $this->generateComponent("xui.dashboard.navigation-drawer-menu",array("menu"=>$sidebar->getMenu()));
 $this->generateComponent("xui.dashboard.navigation-drawer-end");
 $this->generateComponent("xui.dashboard.content-begin");
+
 $this->generateApplicationView();
 
 $this->generateComponent("xui.dashboard.content-end");
@@ -89,8 +90,7 @@ $this->generateComponent("xui.dashboard.main-end");
 
 
 ?>
-
-		<?php $this->execModule("lib-bootstrap-back-to-top"); ?>
+		
 		<?php $this->eHtmlScript(); ?>
 	</body>
 </html>

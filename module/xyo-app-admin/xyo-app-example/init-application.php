@@ -13,7 +13,8 @@ $this->setApplicationDataSource("db.table.xyo_settings");
 $this->setPrimaryKey("id");
 
 $this->setDefaultAction($this->getRequest("action","form-edit"));
-                    
+
+
 $this->addItem("xui.box-1x2-begin");
 $this->addItem("xui.panel-begin");
 
@@ -35,6 +36,7 @@ $this->addItem("bootstrap.textarea","element_textarea");
 $this->addItem("xui.panel-end");
 $this->addItem("xui.box-1x2-separator");
 $this->addItem("xui.panel-begin",null,null,array("title"=>"other_title"));
+
 
 $this->addItem("bootstrap.captcha","element_captcha");
 $this->addItem("bootstrap.date","element_date");
@@ -58,6 +60,7 @@ $this->addItem("xui.box-2x1-end");
 
 $this->addItem("xui.box-1x2-begin");
 $this->addItem("xui.panel-begin");
+
 
 $this->addItem("bootstrap.file-image-thumbnail","element_file_image_thumbnail2",null,array("thumbnail-size"=>array(320,240),"collapse"=>"in"));
 $this->addItem("bootstrap.file-image-thumbnail", "element_file_image_thumbnail3",null,array("thumbnail-size"=>array(320,240),"collapse"=>true));
