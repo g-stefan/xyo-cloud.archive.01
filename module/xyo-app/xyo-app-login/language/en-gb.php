@@ -22,3 +22,5 @@ $this->set("alt_error","Error");
 $this->set("error_unknown","Unknown error");
 
 $this->set("label_captcha","Captcha");
+
+$this->set("title_login","Login");

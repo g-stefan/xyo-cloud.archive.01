@@ -20,10 +20,14 @@
 	margin-bottom: 0px;
 	margin-left: 0px;
 	box-sizing: border-box;
-	border: 0px solid #000000;
+	border-left: 0px solid #000000;
+	border-right: 0px solid #000000;
+	border-bottom: 0px solid #000000;
 	background-color: #FFFFFF;
 
-	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);	
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-top: 2px solid #4A89DC;
 }
 
 .xui-panel__title{
@@ -31,7 +35,8 @@
 	display: block;
 	width: 100%;
 	box-sizing: border-box;
-	border-top: 0px solid #000000;
+
+	border-top: 0px solid #E0E0E0;
 	border-right: 0px solid #000000;
 	border-bottom: 1px solid #E0E0E0;
 	border-left: 0px solid #000000;
@@ -65,5 +70,18 @@
 	border-right: 0px solid #000000;
 	border-bottom: 0px solid #000000;
 	border-left: 0px solid #000000;
+}
+
+
+@media only screen and (min-width: 600px){
+
+	.xui-panel{
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+		border-top: 4px solid #4A89DC;
+
+		box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);	
+	}
+
 }
 

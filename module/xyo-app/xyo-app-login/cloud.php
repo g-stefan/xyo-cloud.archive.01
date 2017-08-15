@@ -13,5 +13,6 @@ $this->setReferenceLink($module, "lib-md5");
 $this->setReferenceLink($module, "lib-bootstrap-feedback-left");
 $this->setReferenceLink($module, "lib-bootstrap-select");
 $this->setReferenceBase($module, "xyo-mod-application");
+$this->setReferenceLink($module, "xui-form-button");
 $this->setVersion($module, "2.0.0");
 

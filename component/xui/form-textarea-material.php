@@ -25,5 +25,6 @@ if($maxlength==0){
 	rows="4"
 	name="<?php $this->eElementName($element); ?>"
 	id="<?php $this->eElementId($element); ?>"><?php $this->eElementValue($element); ?></textarea>
+<div class="xui-form-textarea-material__border"></div>
 </div>
 <div class="xui-separator"></div>

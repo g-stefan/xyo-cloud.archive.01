@@ -131,8 +131,7 @@ class xyo_mod_ds_User extends xyo_Module {
 					if (strncmp($password, "md5:", 4) == 0) {
 						$password = substr($password, 4);
 					}
-				}
-
+				}		
 
 				if ($username && $password && $rnd && $captcha) {
 
@@ -191,7 +190,6 @@ class xyo_mod_ds_User extends xyo_Module {
 		$this->dsUser->id_xyo_core=$this->modAcl->getAclSysCore();
 
 		if ($this->dsUser->load(0, 1)) {
-
 			// check if user allowed on this core
 			$coreAuthFail=true;
 			$this->dsCore->clear();
@@ -259,7 +257,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				}
 				$chk = "password";
 			};
-		
+
 			if (($this->info->$chk === $checkPasword)&&($captchaOk)) {
 
 				$this->info->id = $this->dsUser->id;

@@ -13,18 +13,17 @@ $this->setApplicationDataSource("db.query.xyo_user");
 $this->setPrimaryKey("id");
 
 $this->requireComponent(array(
-	"bootstrap.select",
-	"bootstrap.text",
-	"bootstrap.textarea",
-	"bootstrap.username",
-	"bootstrap.password",
-	"bootstrap.file-image-thumbnail",
-	"bootstrap.email",
-
 	"xui.form-action-begin",
 	"xui.form-action-end",
 	"xui.panel-begin",
 	"xui.panel-end",
+	"xui.form-email",
+	"xui.form-password",
+	"xui.form-username",
+	"xui.form-text",
+	"xui.form-textarea",
+	"xui.form-select",
+	"xui.form-file-image-thumbnail",
 
 	"xui.box-1x2-begin",
 	"xui.box-1x2-separator",

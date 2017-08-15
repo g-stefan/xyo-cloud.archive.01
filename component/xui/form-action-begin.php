@@ -7,5 +7,10 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
+$onSubmit=$this->getArgument("onsubmit","");
+if(strlen($onSubmit)){
+	$onSubmit=" onsubmit=\"".$onSubmit."\"";
+};
+
 ?>
-<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" enctype="multipart/form-data" class="xui-application-form">
+<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" enctype="multipart/form-data" class="xui-application-form" <?php echo $onSubmit; ?>>

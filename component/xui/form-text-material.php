@@ -25,5 +25,6 @@ if($maxlength==0){
 	name="<?php $this->eElementName($element); ?>"
 	value="<?php $this->eElementValue($element, ""); ?>"
 	id="<?php $this->eElementId($element); ?>" ></input>
+<div class="xui-form-text-material__border"></div>
 </div>
 <div class="xui-separator"></div>

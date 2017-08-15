@@ -15,13 +15,13 @@ $this->setPrimaryKey("id");
 $this->setDefaultAction($this->getRequest("action", "form-edit"));
 
 $this->requireComponent(array(
-	"bootstrap.select",
-	"bootstrap.text",
-	"bootstrap.textarea",
-	"bootstrap.username",
-	"bootstrap.password",
-	"bootstrap.file-image-thumbnail",
-	"bootstrap.email",
+	"xui.form-select",
+	"xui.form-text",
+	"xui.form-textarea",
+	"xui.form-username",
+	"xui.form-password",
+	"xui.form-file-image-thumbnail",
+	"xui.form-email",
 
 	"xui.panel-begin",
 	"xui.panel-end",

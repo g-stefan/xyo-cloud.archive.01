@@ -24,3 +24,5 @@ $this->set("alt_error","Eroare");
 $this->set("error_unknown","Eroare necunoscuta");
 
 $this->set("label_captcha","Captcha");
+
+$this->set("title_login","Intrare");

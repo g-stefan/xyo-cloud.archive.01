@@ -33,9 +33,9 @@ $xuiPalette=&$this->getModule("xui-palette");
 	padding-right: 10px;
 
 	margin-top: 0px;
-	margin-left: 4px;
-	margin-bottom: 2px;
-	margin-right: 4px;
+	margin-left: 0px;
+	margin-bottom: 4px;
+	margin-right: 0px;
 
 	box-sizing: border-box;
 
@@ -48,6 +48,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 	border-left: 1px solid transparent;
 
 	transition: border 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
+
 	border-radius: 0px;
 
 	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -150,6 +151,11 @@ a.xui-toolbar__item:hover{
 
 
 @media only screen and (min-width: 960px){
+
+	.xui-toolbar__item{
+		margin-left: 4px;
+		margin-right: 4px;
+	}
 
 	.xui-toolbar__icon{
 		margin-right: 10px;

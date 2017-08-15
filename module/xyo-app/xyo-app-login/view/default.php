@@ -23,6 +23,8 @@ if($languageSelector){
 	        $languageList[$dsLanguage->name] = $dsLanguage->description;
 	    }
 	}
+
+	$this->setParameter("select_language",$languageList);
 };
 
 $rnd=$this->getElementValueStr("rnd","");
@@ -57,92 +59,34 @@ if ($this->isError()) {
     $msg_lang = $this->getFromLanguage("error_unknown");
 };
 
+$this->generateComponent("xui.form-action-begin",array("onsubmit"=>"return (xyoFormLoginAction(this));"));
+$this->generateComponent("xui.box-1x1-begin");
+$this->generateComponent("xui.panel-begin",array("title"=>"title_login"));
+
+$this->generateComponent("xui.form-username", array("element" => "username"));
+$this->generateComponent("xui.form-password", array("element" => "password"));
+
+if($languageSelector){
+	$this->generateComponent("xui.form-select", array("element" => "language","on_change"=>"if(xyoFormLoginAction(this.form)){this.form.submit();};"));
+};
+
+if($useCaptcha){
+	$this->generateComponent("xui.form-captcha",array("element"=>"captcha", "prefix"=>"user", "rnd"=>$rnd));	
+};
+
+$this->generateComponent("xui.separator");
+
 ?>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-3 col-sm-2"></div>
-					<div class="col-lg-6 col-md-6 col-sm-8">
+<input type="submit" class="xui-form-button xui-form-button--primary xui--right" name="<?php $this->eElementName("login"); ?>" value="<?php $this->eLanguage("cmd_login"); ?>" ></input>
 
-                <form name="<?php $this->eFormName(); ?>"
-                      method="POST"
-                      action="<?php $this->eFormAction(); ?>"
-                      OnSubmit="return (xyoFormLoginAction(this));" >
-	
-	<div class="panel <?php if ($this->isError()) { echo "panel-danger"; }else{ echo "panel-default"; }; ?>">
-
-		<div class="panel-heading">
-	            <img src="<?php echo $this->site; ?>media/sys/images/computer-login-48.png" style="width:48px;height:48px;border: 0px;vertical-align: middle;"></img>
-        	    <span style="font-size:22px;font-weight:bold;vertical-align: middle;"><?php $this->eLanguage("txt_login"); ?><?php if($this->isError()){echo " - "; $this->eLanguage($msg_lang); }; ?></span>
-		</div>
-		<div class="panel-body">
-
-
-
-
-<div class="form-group has-feedback has-feedback-left<?php if($this->isElementError("username")){echo " has-error";}; ?>">
-    <label class="control-label" for="<?php $this->eElementId("username"); ?>"><?php $this->eLanguage("label_username"); ?><?php if($this->isElementError("username")){echo " - "; $this->eElementError("username");}; ?></label>
-    <input type="text" class="form-control" placeholder=""
-       name="<?php $this->eElementName("username"); ?>"
-       value="<?php $this->eElementValue("username", ""); ?>"
-       id="<?php $this->eElementId("username"); ?>" />
-    <i class="form-control-feedback glyphicon glyphicon-user" style="color:#ccc;"></i>
-</div>
-<div class="form-group has-feedback has-feedback-left<?php if($this->isElementError("password")){echo " has-error";}; ?>">
-    <label class="control-label" for="<?php $this->eElementId("password"); ?>"><?php $this->eLanguage("label_password"); ?><?php if($this->isElementError("password")){echo " - "; $this->eElementError("password");}; ?></label>
-    <input type="password" class="form-control" placeholder=""
-       name="<?php $this->eElementName("password"); ?>"
-       value="<?php $this->eElementValue("password", ""); ?>"
-       id="<?php $this->eElementId("password"); ?>" />
-    <i class="form-control-feedback glyphicon glyphicon-lock" style="color:#ccc;"></i>
-</div>
-
-<?php if($languageSelector){ ?>
-
-<div class="form-group has-feedback has-feedback-left<?php if($this->isElementError("language")){echo " has-error";}; ?>">
-    <label class="control-label" for="<?php $this->eElementId("language"); ?>"><?php $this->eLanguage("label_language"); ?><?php if($this->isElementError("language")){echo " - "; $this->eElementError("language");}; ?></label>
-    <br />
-                                        <select class="selectpicker" data-width="auto" name="<?php $this->eElementName("language"); ?>"
-                                                id="<?php $this->eElementId("language"); ?>"
-                                                onChange="if(xyoFormLoginAction(this.form)){this.form.submit();};">
 <?php
-                                                    foreach ($languageList as $key => $value) {
-                                                        $selected = "";
-                                                        if ($key === $language) {
-                                                            $selected = "selected=\"selected\" ";
-                                                        }
-                                                        echo "<option value=\"" . $key . "\" " . $selected . ">" . $value . "</option>";
-                                                    }
-?>
-                                        </select>
-</div>
-<?php }; ?>
 
-<?php 							
-							if($useCaptcha){
-								$this->generateComponent("bootstrap.captcha",array("element"=>"captcha", "prefix"=>"user", "rnd"=>$rnd));
-							};
+$this->generateComponent("xui.separator");
+$this->generateComponent("xui.panel-end");
+$this->generateComponent("xui.box-1x1-end");
 
-?>
 
-		</div>
-		<div class="panel-footer">
-                    <input type="submit" class="btn btn-primary pull-right" name="<?php $this->eElementName("login"); ?>" value="<?php $this->eLanguage("cmd_login"); ?>" />	
-		    <div class="clearfix" />
-	        </div>
+$this->generateComponent("xui.form-hidden",array("element"=>"rnd"));
+$this->generateComponent("xui.form-action-end",array("parameters"=>$parameters));
 
-	</div>
-
-                   	<input type="hidden"
-                               name="<?php $this->eElementName("rnd"); ?>"
-                               value="<?php $this->eElementValue("rnd"); ?>" />
-<?php
-                      $this->eFormRequest($parameters);
-
-?>                                     
-                </form>
-
-        				</div>
-				<div class="col-lg-3 col-md-3 col-sm-2"></div>
-			</div>	
-		</div>
