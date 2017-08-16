@@ -78,7 +78,7 @@ $this->generateComponent("xui.separator");
 
 ?>
 
-<input type="submit" class="xui-form-button xui-form-button--primary xui--right" name="<?php $this->eElementName("login"); ?>" value="<?php $this->eLanguage("cmd_login"); ?>" ></input>
+<input type="submit" class="xui-form-button xui-form-button--primary" name="<?php $this->eElementName("login"); ?>" value="<?php $this->eLanguage("cmd_login"); ?>" ></input>
 
 <?php
 

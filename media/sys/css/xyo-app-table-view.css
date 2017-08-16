@@ -11,5 +11,22 @@
 	vertical-align:middle;
 	background-color:#fff;
 	border:1px solid #DDDDDD;
+
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	font-family: "Roboto", sans-serif;
 }
 
+
+#com_table tr td{
+	font-size: 16px;
+	line-height: 20px;
+
+	font-family: "Roboto", sans-serif;
+}
+
+#com_table tr:hover{
+	background-color: #F0EAFF;
+}

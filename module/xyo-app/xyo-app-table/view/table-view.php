@@ -36,19 +36,19 @@ if ($count > 0) {
 }
 
 $sort_img = array(
-    "ascendent" => "<i class=\"fa fa-sort-asc pull-right\" style=\"color:#999;\"></i>",
-    "descendent" => "<i class=\"fa fa-sort-desc pull-right\" style=\"color:#999;\"></i>",
-    "none" => "<i class=\"fa fa-sort pull-right\" style=\"color:#999;\"></i>"
+	"ascendent" => "<i class=\"fa fa-sort-asc pull-right\" style=\"color:#999;\"></i>",
+	"descendent" => "<i class=\"fa fa-sort-desc pull-right\" style=\"color:#999;\"></i>",
+	"none" => "<i class=\"fa fa-sort pull-right\" style=\"color:#999;\"></i>"
 );
 
 $toggle_img = array(
-    0 => "<i class=\"fa fa-times\" style=\"display:block;color:#B71C1C;font-size:16px;\"></i>",
-    1 => "<i class=\"fa fa-check\" style=\"display:block;color:#1B5E20;font-size:16px;\"></i>"
+	0 => "<i class=\"fa fa-times\" style=\"display:block;color:#DA4453;font-size:16px;\"></i>",
+	1 => "<i class=\"fa fa-check\" style=\"display:block;color:#37BC9B;font-size:16px;\"></i>"
 );
 
 $toggle_off_img = array(
-    0 => "<i class=\"fa fa-times\" style=\"display:block;color:#888;font-size:16px;\"></i>",
-    1 => "<i class=\"fa fa-check\" style=\"display:block;color:#888;font-size:16px;\"></i>"
+	0 => "<i class=\"fa fa-times\" style=\"display:block;color:#888;font-size:16px;\"></i>",
+	1 => "<i class=\"fa fa-check\" style=\"display:block;color:#888;font-size:16px;\"></i>"
 );
 
 ?>
