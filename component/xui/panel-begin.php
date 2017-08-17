@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$title=$this->getArgument("title-text",$this->getLanguage($this->getArgument("title",$this->getParameter("form_title"))));
+$title=$this->getArgument("title-text",$this->getFromLanguage($this->getArgument("title",$this->getParameter("form_title"))));
 
 ?>
 <div class="xui-panel">
