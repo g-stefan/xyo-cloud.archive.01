@@ -466,6 +466,22 @@ class xyo_Module extends xyo_Config {
 		return 1*$default;
 	}
 
+	public function getFormAction($parameters=null) {
+		return $this->cloud->requestUriModule($this->name, $parameters);
+	}
+
+	public function getFormActionModule($module,$parameters=null) {
+		return $this->cloud->requestUriModule($module, $parameters);
+	}
+
+	public function getFormActionRoute($requestMain,$parameters=null) {
+		return $this->cloud->requestUriRouteModule($requestMain,$this->name, $parameters);
+	}
+
+	public function getFormActionRouteModule($requestMain,$module,$parameters=null) {
+		return $this->cloud->requestUriRouteModule($requestMain,$module, $parameters);
+	}
+
 	public function eFormAction($parameters=null) {
 		echo $this->cloud->requestUriModule($this->name, $parameters);
 	}

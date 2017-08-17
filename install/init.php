@@ -34,3 +34,10 @@ if ($this->isElement("next")) {
 $this->setDefaultAction($action);
 $this->keepRequest("administrator_username");
 
+$this->requireComponent(array(
+	"xui.form-action-begin",
+	"xui.form-action-end",
+	"xui.form-select",
+	"xui.form-text",
+	"xui.form-text-icon-left"
+));

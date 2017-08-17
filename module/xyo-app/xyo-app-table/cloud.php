@@ -14,7 +14,7 @@ $this->setReferenceLink($module, "lib-bootstrap-feedback-left");
 $this->setReferenceLink($module, "lib-bootstrap-select");
 $this->setReferenceLink($module, "lib-font-awesome");
 $this->setReferenceLink($module, "lib-jquery-stickytableheaders");
-$this->setReferenceLink($module, "lib-bootstrap-dialog");
 $this->setReferenceLink($module, "lib-jquery-form");
+$this->setReferenceLink($module, "lib-izimodal");
 $this->setVersion($module, "2.0.0");
 

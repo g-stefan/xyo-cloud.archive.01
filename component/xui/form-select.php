@@ -40,3 +40,11 @@ if($onChange){
 ?>
 </select>
 <br>
+
+<?php
+
+if($this->isAjax()){
+	$this->ejsBegin();
+	echo "XUI.FormSelect.initById(\"".$this->getElementId($element)."\");";
+	$this->ejsEnd();
+};

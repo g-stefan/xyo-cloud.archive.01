@@ -30,3 +30,50 @@
 #com_table tr:hover{
 	background-color: #F0EAFF;
 }
+
+/* --- */
+
+#xyo-app-table-modal-new__form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-new__action{
+	border-top: 1px solid #E6E9ED;
+	padding-top: 16px;
+}
+
+#xyo-app-table-modal-new__form .xui-application-form {
+	padding-top: 0px;
+}
+
+/* --- */
+
+#xyo-app-table-modal-edit__form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-edit__action{
+	border-top: 1px solid #E6E9ED;
+	padding-top: 16px;
+}
+
+#xyo-app-table-modal-edit__form .xui-application-form {
+	padding-top: 0px;
+}
+
+/* --- */
+
+#xyo-app-table-modal-delete__form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-delete__action{
+	border-top: 1px solid #E6E9ED;
+	padding-top: 16px;
+}
+
+#xyo-app-table-modal-delete__form .xui-application-form {
+	padding-top: 0px;
+}
+
+

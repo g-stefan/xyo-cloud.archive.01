@@ -692,6 +692,32 @@ function doValueSave(key){
     ?>
 </form>
 
+
+<?php if($this->dialogNew_){ ?>
+<div id="xyo-app-table-modal-new" data-izimodal-title="<?php $this->eLanguage("form_title_new"); ?>">
+	<div id="xyo-app-table-modal-new__form"></div>
+	<div id="xyo-app-table-modal-new__action" style="text-align: right;">
+		<button type="button" class="xui-form-button xui-form-button--primary" id="xyo-app-table-modal-new__button"><?php $this->eLanguage("label_button_new"); ?></button>
+	</div>
+</div>
+<?php }; ?>
+
+<?php if($this->dialogEdit_){ ?>
+<div id="xyo-app-table-modal-edit" data-izimodal-title="<?php $this->eLanguage("form_title_edit"); ?>">
+	<div id="xyo-app-table-modal-edit__form"></div>
+	<div id="xyo-app-table-modal-edit__action" style="text-align: right;">
+		<button type="button" class="xui-form-button xui-form-button--primary" id="xyo-app-table-modal-edit__button"><?php $this->eLanguage("label_button_edit"); ?></button>
+	</div>
+</div>
+<?php }; ?>
+
+<div id="xyo-app-table-modal-delete" data-izimodal-title="<?php $this->eLanguage("form_title_delete"); ?>">
+	<div id="xyo-app-table-modal-delete__form"></div>
+	<div id="xyo-app-table-modal-delete__action" style="text-align: right;">
+		<button type="button" class="xui-form-button xui-form-button--danger" id="xyo-app-table-modal-delete__button"><?php $this->eLanguage("label_button_delete"); ?></button>
+	</div>
+</div>
+
 <?php
 
 
@@ -727,44 +753,21 @@ foreach($this->tableType as $key_=>$value_){
 		"$(\"#com_table\").stickyTableHeaders({scrollableArea:$(\"#table-content\")});"
 	,"load");
 
-	
+	if($this->dialogNew_){
+		$this->setHtmlJsSource(
+			"$(\"#xyo-app-table-modal-new\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"#4A89DC\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:true,closeButton:true});"
+		,"load");
+	};
+
+	if($this->dialogEdit_){
+		$this->setHtmlJsSource(
+			"$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"#4A89DC\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:true,closeButton:true});"
+		,"load");
+	};
+
 	$this->setHtmlJsSource(
-		"function cmdDialogDelete(){".
-        		"var el;".
-        		"var id;".
-			"var found=false;".		       
-		        "id=\"\";".
-		        "for(k=1;k<=id_.length; ++k){".
-				"el=document.getElementById(\"cbox_\"+k);".
-				"if(el){".
-					"if(el.checked){".
-			                    "id+=\"\"+id_[k-1];".
-			                    "id+=\",\";".
-					    "found=true;".
-					"}".
-				"}".
-		        "};".
-			"if(!found){return};".
-			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-delete\", primary_key_value: id, ajax: 1 } )".
-  			".done(function(result){".
-				"window.dialogDelete=BootstrapDialog.show({".
-					"type: BootstrapDialog.TYPE_DANGER,".
-					"title: '".$this->getFromLanguage("form_title_delete")."',".
-					"nl2br: false,".
-					"buttons: [".
-						"{".
-						"label: '".$this->getFromLanguage("label_button_delete")."',".
-						"cssClass: 'btn-primary btn-danger',".
-						"action: function(dialog){".
-							"doCommand('table-delete');".
-						"}}".
-					"],".
-					"message: result".
-        			"});".
-			"});".
-		"};".
-		"\r\n"
-	);
+		"$(\"#xyo-app-table-modal-delete\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"#DA4453\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:true,closeButton:true});"
+	,"load");
 
 	if($this->dialogNew_){
 		$originalFormName=$this->getFormName();			
@@ -772,24 +775,20 @@ foreach($this->tableType as $key_=>$value_){
 		$this->setHtmlJsSource(
 		"\r\n".
 		"function cmdDialogNew(){".
+			"\$(\"#xyo-app-table-modal-new\").iziModal(\"startLoading\");".
 			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-new\", ajax: 1 } )".
   			".done(function(result){".
-				"window.dialogNew=BootstrapDialog.show({".
-					"title: '".$this->getFromLanguage("form_title_new")."',".
-					"nl2br: false,".
-					"buttons: [".
-						"{".
-						"label: '".$this->getFromLanguage("label_button_new")."',".
-						"cssClass: 'btn-primary',".
-						"action: function(dialog){".
-							"$(\"#".$this->getFormName()."\").ajaxForm({url: \"".$this->cloud->requestUriModule($this->name)."\", type: \"post\", success: function(responseText){".
-								"dialog.setMessage(responseText);".
-							"}});".
-							"$(\"#".$this->getFormName()."\").submit();".
-						"}}".
-					"],".
-					"message: result".
-        			"});".
+				"\$(\"#xyo-app-table-modal-new__button\").off(\"click\").on(\"click\",function(){".
+					"\$(\"#xyo-app-table-modal-new\").iziModal(\"startLoading\");".
+					"\$(\"#".$this->getFormName()."\").ajaxForm({url: \"".$this->cloud->requestUriModule($this->name)."\", type: \"post\", success: function(responseText){".
+						"\$(\"#xyo-app-table-modal-new\").iziModal(\"stopLoading\");".
+						"\$(\"#xyo-app-table-modal-new__form\").html(responseText);".
+					"}});".
+					"\$(\"#".$this->getFormName()."\").submit();".
+				"});".
+				"\$(\"#xyo-app-table-modal-new__form\").html(result);".
+				"\$(\"#xyo-app-table-modal-new\").iziModal(\"open\");".
+				"\$(\"#xyo-app-table-modal-new\").iziModal(\"stopLoading\");".
 			"});".
 		"};".
 		"\r\n"
@@ -823,24 +822,20 @@ foreach($this->tableType as $key_=>$value_){
 		        "};".			
 			"if(!found){return};".
 			"};".
-			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-edit\", primary_key_value: id, ajax: 1 } )".
+			"\$(\"#xyo-app-table-modal-edit\").iziModal(\"startLoading\");".
+			"\$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-edit\", primary_key_value: id, ajax: 1 } )".
   			".done(function(result){".
-				"window.dialogEdit=BootstrapDialog.show({".
-					"title: '".$this->getFromLanguage("form_title_edit")."',".
-					"nl2br: false,".
-					"buttons: [".
-						"{".
-						"label: '".$this->getFromLanguage("label_button_edit")."',".
-						"cssClass: 'btn-primary',".
-						"action: function(dialog){".
-							"$(\"#".$this->getFormName()."\").ajaxForm({url: \"".$this->cloud->requestUriModule($this->name)."\", type: \"post\", success: function(responseText){".
-								"dialog.setMessage(responseText);".
-							"}});".
-							"$(\"#".$this->getFormName()."\").submit();".
-						"}}".
-					"],".
-					"message: result".
-        			"});".
+				"\$(\"#xyo-app-table-modal-edit__button\").off(\"click\").on(\"click\",function(){".
+					"\$(\"#xyo-app-table-modal-edit\").iziModal(\"startLoading\");".
+					"\$(\"#".$this->getFormName()."\").ajaxForm({url: \"".$this->cloud->requestUriModule($this->name)."\", type: \"post\", success: function(responseText){".
+						"\$(\"#xyo-app-table-modal-edit\").iziModal(\"stopLoading\");".
+						"\$(\"#xyo-app-table-modal-edit__form\").html(responseText);".
+					"}});".
+					"\$(\"#".$this->getFormName()."\").submit();".
+				"});".
+				"\$(\"#xyo-app-table-modal-edit__form\").html(result);".
+				"\$(\"#xyo-app-table-modal-edit\").iziModal(\"open\");".
+				"\$(\"#xyo-app-table-modal-edit\").iziModal(\"stopLoading\");".
 			"});".
 		"};".
 		"\r\n"
@@ -848,4 +843,34 @@ foreach($this->tableType as $key_=>$value_){
 		$this->setFormName($originalFormName);		
 	};
 
+	$this->setHtmlJsSource(
+		"function cmdDialogDelete(){".
+        		"var el;".
+        		"var id;".
+			"var found=false;".		       
+		        "id=\"\";".
+		        "for(k=1;k<=id_.length; ++k){".
+				"el=document.getElementById(\"cbox_\"+k);".
+				"if(el){".
+					"if(el.checked){".
+			                    "id+=\"\"+id_[k-1];".
+			                    "id+=\",\";".
+					    "found=true;".
+					"}".
+				"}".
+		        "};".
+			"if(!found){return};".
+			"\$(\"#xyo-app-table-modal-delete\").iziModal(\"startLoading\");".
+			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-delete\", primary_key_value: id, ajax: 1 } )".
+  			".done(function(result){".
+				"\$(\"#xyo-app-table-modal-delete__button\").off(\"click\").on(\"click\",function(){".
+					"doCommand('table-delete');".
+				"});".
+				"\$(\"#xyo-app-table-modal-delete__form\").html(result);".
+				"\$(\"#xyo-app-table-modal-delete\").iziModal(\"open\");".
+				"\$(\"#xyo-app-table-modal-delete\").iziModal(\"stopLoading\");".
+			"});".
+		"};".
+		"\r\n"
+	);
 

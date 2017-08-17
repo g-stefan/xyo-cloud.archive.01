@@ -21,29 +21,10 @@ if ($this->isRequest("website_language")) {
 };
 $this->set("datasource_layer", "xyo-datasource-xyo");
 $this->includeConfig("config.website");
-//
-$this->setModule(null, null, "xyo", true,null,true,false);
-$this->setModule(null, null, "lib", true,null,true,false);
-$this->setModule(null, null, "xyo-app", true,null,true,false);
-//
-$this->setModule("xyo", null, "xyo-mod-ds-acl", true,null,true,false);
-$this->setModule("xyo", null, "xyo-mod-ds-user", true,null,true,false);
-//
-$this->setModule("lib", null, "lib-jquery", true,null,true,false);
-$this->setModule("lib", null, "lib-bootstrap", true,null,true,false);
-$this->setModule("lib", null, "lib-bootstrap-feedback-left", true,null,true,false);
-$this->setModule("lib", null, "lib-bootstrap-select", true,null,true,false);
-//
-$this->setModule("xyo", null, "xyo-mod-application", true,null,true,false);
-//
-$this->setModule("xyo", null, "xyo-mod-ds-loader-ds", true,null,true,false);
-//
-$this->setModule("lib", null, "lib-pear-archive-tar", true,null,true,false);
-$this->setModule("xyo", null, "xyo-mod-setup", true,null,true,false);
-$this->setModule("xyo-app", null, "xyo-mod-panel2", true,null,true,false);
-
+/* --- */
+$this->includeConfig("xyo-cloud.common.module");
+/* --- */
 $this->setModule(null, "install", "xyo-app-install", true, null, true,false);
-
 $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,true,false);
 $this->setModuleGroup("xyo-tpl-install", "xyo-system-exec");
 $this->setModuleAsApplication("xyo-app-install");

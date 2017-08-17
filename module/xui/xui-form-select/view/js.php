@@ -25,7 +25,15 @@ XUI.FormSelect={};
 
 	/* --- */
 
-	this.init=function(){
+	this.initById=function(id){
+		$("#"+id).select2({
+			minimumResultsForSearch: Infinity,
+			dropdownAutoWidth: true
+		});
+	};
+
+
+	this.init=function(id){
 		$(".xui-form-select").select2({
 			minimumResultsForSearch: Infinity,
 			dropdownAutoWidth: true

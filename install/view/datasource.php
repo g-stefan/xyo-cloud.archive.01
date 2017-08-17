@@ -18,14 +18,17 @@ $layerList = array(
 	"postgresql"
 );
 
+$this->generateComponent("xui.form-action-begin");
+
 ?>
-<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" >
-		<div class="btn-group pull-right">
-			<input type="submit" class="btn btn-default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" />
-                    	<input type="submit" class="btn btn-default" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" disabled="disabled" />
-                    	<input type="submit" class="btn btn-primary" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" />
+
+		 <div class="xui-form-button-group xui--right">
+                    	<input type="submit" class="xui-form-button xui-form-button--default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" ></input><!--
+                    	--><input type="submit" class="xui-form-button xui-form-button--disabled" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" disabled="disabled"></input><!--
+                    	--><input type="submit" class="xui-form-button xui-form-button--primary" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" ></input>
 		</div>
-<div class="clearfix"></div>
+		<div class="xui-separator"></div>
+
 <br />
 
 <?php
@@ -60,5 +63,4 @@ $layerList = array(
                         "select" => "datasource"
                     ));
 
-?>
-</form>
+$this->generateComponent("xui.form-action-end");

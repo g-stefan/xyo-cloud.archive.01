@@ -9,6 +9,6 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->ejsBegin();
-echo "window.dialogNew.close();";
+echo "\$(\"#xyo-app-table-modal-new\").iziModal(\"close\");";
 echo "doCommand(\"table-view\");";
 $this->ejsEnd();

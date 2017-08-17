@@ -20,15 +20,16 @@ foreach ($selectDatasource as $key => $value) {
 	break;
 };			
 
+$this->generateComponent("xui.form-action-begin");
 
 ?>
-<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" >
-		    <div class="btn-group pull-right">
-                    	<input type="submit" class="btn btn-default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" />
-                    	<input type="submit" class="btn btn-default" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" <?php if($allOk){echo "disabled=\"disabled\" ";}; ?> />
-                    	<input type="submit" class="btn btn-primary" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" <?php if(!$allOk){echo "disabled=\"disabled\" ";}; ?>/>
-		   </div>
-<div class="clearfix"></div>
+		<div class="xui-form-button-group xui--right">
+                    	<input type="submit" class="xui-form-button xui-form-button--default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" ></input><!--
+                    	--><input type="submit" class="xui-form-button xui-form-button--<?php if($allOk){echo "disabled";}else{echo "default";}; ?>" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" <?php if($allOk){echo "disabled=\"disabled\" ";}; ?>></input><!--
+                    	--><input type="submit" class="xui-form-button xui-form-button--<?php if($allOk){echo "primary";}else{echo "disabled";}; ?>" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" <?php if(!$allOk){echo "disabled=\"disabled\" ";}; ?>></input>
+		</div>
+		<div class="xui-separator"></div>
+
 <br />
 
 <?php if($allOk){ ?>
@@ -63,5 +64,5 @@ foreach ($selectDatasource as $key => $value) {
                         "next" => "settings",
                         "website_language" => $this->getSystemLanguage()
                     ));
-?>
-</form>
+
+$this->generateComponent("xui.form-action-end");

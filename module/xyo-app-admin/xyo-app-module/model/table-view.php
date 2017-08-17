@@ -25,10 +25,7 @@ $this->tableSelect=array(
 		   );
 
 $this->tableType=array(
-	"name" => array("action",array(
-		"action" => "form-edit",
-		"primary_key_value" => array($this->primaryKey)
-	)),
+	"name" => array("cmd-edit"),
 	"enabled" => array("toggle")			
 );
 

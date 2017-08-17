@@ -12,6 +12,9 @@ $this->setApplicationIcon("<i class=\"material-icons\">device_hub</i>");
 $this->setApplicationDataSource("db.table.xyo_core");
 $this->setPrimaryKey("id");
 
+$this->setDialogNew(true);
+$this->setDialogEdit(true);
+
 $this->requireComponent(array(
 	"xui.form-select",
 	"xui.form-text",

@@ -8,5 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("application","Example");
-
+?>
+	</div>
+</div>

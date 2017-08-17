@@ -67,6 +67,21 @@
 	margin-left: 0px;
 }
 
+.xui-box-x-900{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
 @media only screen and (min-width: 600px){
 
 	.xui-box-row{
@@ -112,6 +127,15 @@
 		padding-right: 16px;		
 	}
 
+	.xui-box-x-900{
+		min-width: 480px;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;		
+	}
+
 }
 
 
@@ -126,7 +150,7 @@
 	}
 
 	.xui-box-1x1 {
-		width: 640;
+		width: 640px;
 		margin-left: auto;
 		margin-right: auto;
 		padding-left: 16px;
@@ -162,6 +186,16 @@
 		padding-right: 16px;
 	}
 
+
+	.xui-box-x-900{
+		max-width: 900px;
+		width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
 }
 
 
@@ -169,12 +203,14 @@
 @media only screen and (min-width: 1600px){
 
 	.xui-box-row{
+		max-width: 1280px;
 		width: 1280px;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
 	.xui-box-1x1 {
+		max-width: 640px;
 		width: 640px;
 		margin-left: auto;
 		margin-right: auto;
@@ -184,6 +220,7 @@
 
 	.xui-box-1x2:nth-child(1) {
 		float: left;
+		max-width: 640px;
 		width: 640px;
 		margin-left: auto;
 		margin-right: auto;
@@ -193,6 +230,7 @@
 
 	.xui-box-1x2:nth-child(2) {
 		float: right;
+		max-width: 640px;
 		width: 640px;
 		margin-left: auto;
 		margin-right: auto;
@@ -201,11 +239,20 @@
 	}
 
 	.xui-box-2x1{
+		max-width: 1280px;
 		width: 1280px;
 		padding-left: 0px;
 		padding-right: 0px;
 	}
 
+	.xui-box-x-900{
+		max-width: 900px;
+		width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
 }
 
 

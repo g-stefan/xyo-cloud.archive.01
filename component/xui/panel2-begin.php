@@ -7,12 +7,6 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-
-
-foreach($this->items as $item) {
-	if(!is_null($item["name"])){
-		$value=$item["default_value"];
-		$this->setElementValue($item["name"],$value);
-	};
-};
-
+?>
+<div class="xui-panel">
+	<div class="xui-panel__title">

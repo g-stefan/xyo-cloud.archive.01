@@ -8,6 +8,9 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setModuleAsApplication($module);
-$this->setReferenceBase($module,"xyo-app-application");
-$this->setVersion($module,"1.0.0.0");
+$title=$this->getArgument("title",$this->getParameter("form_title"));
+
+?>
+	</div>
+	<div class="xui-separator"></div>
+	<div class="xui-panel__footer">

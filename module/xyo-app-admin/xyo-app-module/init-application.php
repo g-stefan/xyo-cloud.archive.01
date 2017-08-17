@@ -12,6 +12,8 @@ $this->setApplicationIcon("<i class=\"material-icons\">developer_board</i>");
 $this->setApplicationDataSource("db.table.xyo_module");
 $this->setPrimaryKey("id");
 
+$this->setDialogEdit(true);
+
 $this->requireComponent(array(
 	"xui.form-select",
 	"xui.form-text",

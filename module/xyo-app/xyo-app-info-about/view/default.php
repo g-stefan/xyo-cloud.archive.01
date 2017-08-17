@@ -8,15 +8,17 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+
 ?>
+
 <br>
-<div style="position: relative; float: right; right: 50%;">
-<div style="position: relative; float: right; right: -50%;">
+<br>
 
-	<div class="panel panel-default" style="width:48em;">
-		<div class="panel-heading">XYO Cloud - version <?php echo $this->cloud->get("version"); ?></div>
-		<div class="panel-body">
+<?php
+$this->generateComponent("xui.box-1x1-begin");
+$this->generateComponent("xui.panel-begin",array("title-text"=>"XYO Cloud - version ".$this->cloud->get("version")));
 
+?>
     Copyright (c) 2017 Grigore Stefan, &lt;<a href="mailto:g_stefan@yahoo.com" target="_blank">g_stefan@yahoo.com</a>&gt;<br/>
     Created by Grigore Stefan &lt;<a href="mailto:g_stefan@yahoo.com" target="_blank">g_stefan@yahoo.com</a>&gt;<br/>
     The MIT License (MIT) &lt;<a href="http://opensource.org/licenses/MIT" target="_blank">http://opensource.org/licenses/MIT</a>&gt;<br/>
@@ -46,11 +48,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
 
-		</div>
-	</div>
+<?php
 
-
-	</div>
-</div>
-<div class="clearfix"></div>
+$this->generateComponent("xui.panel-end");
+$this->generateComponent("xui.box-1x1-end");
     

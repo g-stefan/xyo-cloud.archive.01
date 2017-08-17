@@ -8,4 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("application","Example");
+$title=$this->getArgument("title",$this->getParameter("form_title"));
+
+?>
+<div class="xui-box-row">
+	<div class="xui-box-x-900">

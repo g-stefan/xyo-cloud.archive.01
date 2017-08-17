@@ -12,6 +12,9 @@ $this->setApplicationIcon("<i class=\"material-icons\">widgets</i>");
 $this->setApplicationDataSource("db.table.xyo_module_group");
 $this->setPrimaryKey("id");
 
+$this->setDialogNew(true);
+$this->setDialogEdit(true);
+
 $this->requireComponent(array(
 	"xui.form-select",
 	"xui.form-text",

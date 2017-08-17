@@ -8,10 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-
-foreach($this->items as $item) {
-	if(!is_null($item["name"])){
-		$this->setElementValue($item["name"],$item["default_value"]);
-	};
-};
-
+?>
+	</div>
+	<div class="xui-separator"></div>
+</div>

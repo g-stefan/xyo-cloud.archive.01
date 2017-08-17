@@ -55,9 +55,6 @@ $this->registerModuleAcl("xyo-app-template","xyo-control-panel","administrator",
 $this->registerModule($module, null, "xyo-app-datasource-backup");
 $this->registerModuleAcl("xyo-app-datasource-backup","xyo-none","administrator","wheel",156,true);
 
-$this->registerModule($module, null, "xyo-app-example");
-$this->registerModuleAcl("xyo-app-example","xyo-control-panel","administrator","administrator",200,true);
-
 $this->registerModule($module, null, "xyo-mod-user-form");
 $this->registerModuleAcl("xyo-mod-user-form", "xyo-status", "administrator", "authenticated", 18000, true);
 

@@ -8,3 +8,10 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$this->requireComponent(array(
+	"xui.box-1x1-begin",
+	"xui.box-1x1-end",
+	"xui.separator",
+	"xui.panel-begin",
+	"xui.panel-end"
+));

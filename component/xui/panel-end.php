@@ -9,5 +9,5 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
-		</div>
 	</div>
+</div>

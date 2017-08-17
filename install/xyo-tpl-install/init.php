@@ -9,3 +9,12 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setHtmlTitle("XYO Cloud - Install");
+
+$this->requireComponent(array(
+	"xui.box-x-900-begin",
+	"xui.box-x-900-end",
+	"xui.panel2-begin",
+	"xui.panel2-content",
+	"xui.panel2-footer",
+	"xui.panel2-end"
+));

@@ -33,10 +33,7 @@ $this->tableSelect = array(
 $this->tableType=array(
 	"enabled"=>array("toggle"),
 	"order"=>array("order"),
-	"module_name"=>array("action",array(
-	        "action" => "form-edit",
-        	"primary_key_value" => array($this->primaryKey)
-	))
+	"module_name"=>array("cmd-edit")
 );
 
 $this->tableSort = array(
@@ -72,12 +69,7 @@ if ($this->id_xyo_module) {
     unset($this->tableSort["module_name"]);
     unset($this->tableType["module_name"]);
 	
-    $this->tableType["module_group_name"]=array(
-        "action",array(
-            "action" => "form-edit",
-            "primary_key_value" => array($this->primaryKey)
-        )
-    );
+    $this->tableType["module_group_name"]=array("cmd-edit");
 
 };
 

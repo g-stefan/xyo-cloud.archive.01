@@ -13,6 +13,9 @@ $this->setApplicationIcon("<i class=\"material-icons\">lock</i>");
 $this->setApplicationDataSource("db.query.xyo_acl_module");
 $this->setPrimaryKey("id");
 
+$this->setDialogNew(true);
+$this->setDialogEdit(true);
+
 $this->requireComponent(array(
 	"xui.form-select",
 	"xui.form-order",
