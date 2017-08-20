@@ -14,7 +14,7 @@ $this->setApplicationIcon("<i class=\"material-icons\">device_hub</i>");
 $this->setApplicationDataSource("db.query.xyo_user_x_core");
 $this->setPrimaryKey("id");
 $this->requireComponent(array(
-	"bootstrap.select",
+	"xui.form-select",
 
 	"xui.panel-begin",
 	"xui.panel-end",

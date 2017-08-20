@@ -25,7 +25,7 @@ if ($this->isError()) {
 	return;
     };
 ?>
-	<div class="alert alert-danger" role="alert">
+	<div>
 		<b><?php $this->eLanguage($msgLang); ?></b> <?php echo $msgTxt; ?> 	
 	</div>
 <?php

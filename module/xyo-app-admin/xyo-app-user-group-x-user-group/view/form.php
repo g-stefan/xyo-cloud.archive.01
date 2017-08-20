@@ -13,11 +13,11 @@ $this->generateComponent("xui.panel-begin");
 
 if($this->id_xyo_user_group_super){
 }else{
-    $this->generateComponent("bootstrap.select", array("element" =>"id_xyo_user_group_super"));
+    $this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group_super"));
 }
 
-$this->generateComponent("bootstrap.select", array("element" =>"id_xyo_user_group"));
-$this->generateComponent("bootstrap.select", array("element" =>"enabled"));
+$this->generateComponent("xui.form-elect", array("element" =>"id_xyo_user_group"));
+$this->generateComponent("xui.form-select", array("element" =>"enabled"));
 
 $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x1-end");

@@ -343,6 +343,10 @@ class xyo_Module extends xyo_Config {
 		echo htmlspecialchars($this->getElementValue($name, $default));
 	}
 
+	public function setElementDefaultValue($name, $default) {
+		$this->setElementValue($name,$this->getElementValue($name,$default));
+	}
+
 	public function setElementValueIfNotExists($name, $value) {
 		if (array_key_exists($name, $this->elementValue)) {
 

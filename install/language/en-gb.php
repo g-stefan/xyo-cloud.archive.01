@@ -61,3 +61,18 @@ $this->set("alt_install", "Install");
 
 $this->set("txt_website", "Website");
 $this->set("txt_administrator", "Administrator");
+
+//---
+
+$this->set("label_server","Server");
+$this->set("label_port","Port");
+$this->set("label_username","Username");
+$this->set("label_password","Pasword");
+$this->set("label_database","Database");
+$this->set("label_prefix","Prefix");
+$this->set("label_retype_password","Retype pasword");
+$this->set("label_website_title","Website title");
+
+//---
+
+

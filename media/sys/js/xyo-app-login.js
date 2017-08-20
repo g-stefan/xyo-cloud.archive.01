@@ -11,7 +11,7 @@ function xyoFormLoginAction(fn) {
 	var rnd=fn.elements.user_rnd.value;
 	if(password.match("^md5:")=="md5:") {} else {
 		if(password=="") {} else {
-			fn.elements.user_password.value="md5:"+hex_md5(hex_md5(username+hex_md5(password))+rnd);
+			fn.elements.user_password.value="md5:"+hex_md5(hex_md5((""+username).toLowerCase()+hex_md5(password))+rnd);
 		}
 	}
 	return true;

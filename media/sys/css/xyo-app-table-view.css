@@ -7,27 +7,66 @@
 //
 */
 
-#com_table thead th{
+#xyo-app-table__table{
+	position: relative;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0px;
+
+	border: 1px solid #DDDDDD;
+
+	border-left: 0px solid #DDDDDD;
+
+	box-sizing: border-box;
+}
+
+#xyo-app-table__table th{
+	border: 1px solid #DDDDDD;
+	border-left: 0px solid #DDDDDD;
+
+	padding-left: 4px;
+	padding-right: 4px;
+
+	box-sizing: border-box;
+}
+
+#xyo-app-table__table td{
+	border: 1px solid #DDDDDD;
+	border-left: 0px solid #DDDDDD;
+
+	padding-left: 4px;
+
+	box-sizing: border-box;
+}
+
+#xyo-app-table__table tr:nth-child(even){
+	background-color: #EEEEEE;
+}
+
+#xyo-app-table__table thead th{
 	vertical-align:middle;
 	background-color:#fff;
 	border:1px solid #DDDDDD;
+	border-left: 0px solid #DDDDDD;
 
 	font-size: 16px;
 	line-height: 20px;
 	font-weight: normal;
 
 	font-family: "Roboto", sans-serif;
+
+	box-sizing: border-box;
 }
 
 
-#com_table tr td{
+#xyo-app-table__table tr td{
 	font-size: 16px;
 	line-height: 20px;
 
 	font-family: "Roboto", sans-serif;
 }
 
-#com_table tr:hover{
+#xyo-app-table__table tr:hover{
 	background-color: #F0EAFF;
 }
 
@@ -76,4 +115,14 @@
 	padding-top: 0px;
 }
 
+.xyo-app-table__responsive{
+	position: relative;
+	display: block;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.iziModal-content{
+	box-sizing: border-box;
+}
 

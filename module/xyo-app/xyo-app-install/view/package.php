@@ -8,15 +8,15 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$this->generateComponent("xui.form-action-begin");
 ?>
+		 <div class="xui-form-button-group xui--right">
+                    	<input type="submit" class="xui-form-button xui-form-button--default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>"></input><!--
+                    	--><input type="submit" class="xui-form-button xui-form-button--default" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>"></input><!--
+                    	--><input type="submit" class="xui-form-button xui-form-button--primary" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>"></input>
+		</div>
+		<div class="xui-separator"></div>
 
-<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" >
-		    <div class="btn-group pull-right">
-                    	<input type="submit" class="btn btn-default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" />
-                    	<input type="submit" class="btn btn-default" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" />
-                    	<input type="submit" class="btn btn-primary" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" />
-		   </div>
-<div class="clearfix"></div>
 <br />
 
                     <?php $this->eLanguage("title_package"); ?>
@@ -39,8 +39,8 @@ defined('XYO_CLOUD') or die('Access is denied');
                     );
     ?>
                     
-                        <label for="mode"><?php $this->eLanguage("label_mode"); ?></label><br/>
-                        <select class="selectpicker" data-width="auto" name="mode" onChange="this.form.submit();">
+                        <label class="xui-form-label" for="mode"><?php $this->eLanguage("label_mode"); ?></label><br/>
+                        <select class="xui-form-select" name="mode" onChange="this.form.submit();">
             <?php
                     foreach ($modeList as $key => $value) {
                         $selected = "";
@@ -56,8 +56,8 @@ defined('XYO_CLOUD') or die('Access is denied');
         <?php
                     if ($mode === "single") {
         ?>
-                        <label for="package"><?php $this->eLanguage("label_package"); ?></label><br/>
-                        <select name="package" class="selectpicker" data-width="auto">
+                        <label class="xui-form-label" for="package"><?php $this->eLanguage("label_package"); ?></label><br/>
+                        <select name="package" class="xui-form-select">
             <?php
                         $this->processModel("select-packages");
                         $packagesList = $this->getParameter("select_packages", array("*" => $this->getFromLanguage("package_none")));
@@ -87,6 +87,6 @@ defined('XYO_CLOUD') or die('Access is denied');
                             }
                         }
                     }
-        ?>
-</form>
+
+$this->generateComponent("xui.form-action-end");
 

@@ -8,11 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$compactView="";
-if(1*$this->getParameterBase("xyo_app_table_compact_view",1)){
-	$compactView="table-condensed";
-};
-
 $has_search=false;
 foreach ($this->tableSearch as $key => $value) {
 	if ($value) {
@@ -156,7 +151,7 @@ function doValueSave(key){
 		
 	echo "<div class=\"xui-table\">";
 	echo "<div class=\"xui-table-toolbar-top\">";
-	echo "<div class=\"span6\">";
+	echo "<div style=\"display:inline-block;width:50%;box-sizing: border-box;\">";
 	
 	if($has_search){
                 ?>
@@ -178,7 +173,7 @@ function doValueSave(key){
           
 
         echo "</div>";
- 	echo "<div class=\"span6\">";
+ 	echo "<div style=\"display:inline-block;width:50%;box-sizing: border-box;\">";
  	                        
         foreach (array_reverse($this->tableSelect,true) as $key => $value) {
             if ($value) {
@@ -207,8 +202,8 @@ function doValueSave(key){
 ?>
 <div class="xui-content" id="table-content">
 
-<div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover <?php echo $compactView; ?>" id="com_table">
+<div class="xyo-app-table__responsive">
+    <table id="xyo-app-table__table">
 	<thead>
                 <?php
                 foreach ($this->tableHead as $key => $value) {

@@ -26,11 +26,11 @@ $this->generateComponent("xui.form-action-begin");
 		<div class="xui-separator"></div>
 
 <br />
-			<label for="website_language">
+			<label for="website_language" class="xui-form-label">
 			<?php $this->generateViewLanguage("msg-language"); ?>
 			</label>
 			<br />
-                    <select class="selectpicker" data-width="auto" name="website_language" onChange="this.form.submit();">
+                    <select class="xui-form-select" name="website_language" onChange="this.form.submit();">
 <?php
                     foreach ($languageList as $key => $value) {
                         $selected = "";

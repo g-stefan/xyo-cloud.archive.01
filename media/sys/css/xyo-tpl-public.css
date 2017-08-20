@@ -6,32 +6,3 @@
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 */
-
-/*
-//
-// Bootstrap addons
-//
-*/
-
-.navbar-nav-span{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 20px;
-}
-
-@media (min-width: 768px) {
-  .navbar-nav-span {
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-}
-
-/*
-// z-index issue on navbar menu
-*/
-.navbar {
-  position: static;
-}
-.navbar .nav > li {
-  z-index: 1001;
-}

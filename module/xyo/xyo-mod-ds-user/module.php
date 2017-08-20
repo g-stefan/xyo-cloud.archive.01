@@ -216,14 +216,14 @@ class xyo_mod_ds_User extends xyo_Module {
 			if ($pwd[0] === "md5") {
 				$password = $pwd[1];
 			} else if ($pwd[0] === "reco") {
-				$password = md5($this->recoDecode($pwd[1], pack("H*", md5($this->dsUser->username))));
+				$password = md5($this->recoDecode($pwd[1], pack("H*", md5(strtolower($this->dsUser->username)))));
 			} else if ($pwd[0] === "plain") {
 				$password = md5($pwd[1]);
 			} else {
 				return false;
 			};
 			                        
-			$checkPasword = md5(md5($this->dsUser->username . $password) . $this->info->rnd);
+			$checkPasword = md5(md5(strtolower($this->dsUser->username) . $password) . $this->info->rnd);
 			$chk = "";
 
 			$captchaOk=false;
@@ -316,7 +316,7 @@ class xyo_mod_ds_User extends xyo_Module {
 							//
 							 
 							// first verify if user/password changed
-							$checkPasword = md5(md5($this->dsUser->username . $password) . $this->dsUser->session_rnd);
+							$checkPasword = md5(md5(strtolower($this->dsUser->username) . $password) . $this->dsUser->session_rnd);
 							if($checkPasword!=$this->dsUser->session){
 								// update new credentials
 								$this->dsUser->session=$this->info->session;
@@ -436,7 +436,7 @@ class xyo_mod_ds_User extends xyo_Module {
 			if ($pwd[0] === "md5") {
 				$password = $pwd[1];
 			} else if ($pwd[0] === "reco") {
-				$password = md5($this->recoDecodeMd5($pwd[1], $this->dsUser->username));
+				$password = md5($this->recoDecodeMd5($pwd[1], strtolower($this->dsUser->username)));
 			} else if ($pwd[0] === "plain") {
 				$password = md5($pwd[1]);
 			} else {
@@ -450,7 +450,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				$_SESSION["user_captcha_key"]=md5($rnd.md5($capctha));
 				return array(
 					       "user_username" => $this->dsUser->username,
-					       "user_password" => "md5:".md5(md5($this->dsUser->username . $password) . $rnd),
+					       "user_password" => "md5:".md5(md5(strtolower($this->dsUser->username) . $password) . $rnd),
 					       "user_rnd" => $rnd,
 					       "user_authorization" => "true",
 					       "user_captcha"=>$capctha
@@ -458,7 +458,7 @@ class xyo_mod_ds_User extends xyo_Module {
 			};
 			return array(
 				       "user_username" => $this->dsUser->username,
-				       "user_password" => "md5:".md5(md5($this->dsUser->username . $password) . $rnd),
+				       "user_password" => "md5:".md5(md5(strtolower($this->dsUser->username) . $password) . $rnd),
 				       "user_rnd" => $rnd,
 				       "user_authorization" => "true"
 			       );

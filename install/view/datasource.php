@@ -37,7 +37,7 @@ $this->generateComponent("xui.form-action-begin");
                     }
 ?>
 
-	<select class="selectpicker" data-width="auto" name="<?php $this->eElementName("layer"); ?>" onChange="this.form.submit();">
+	<select class="xui-form-select" name="<?php $this->eElementName("layer"); ?>" onChange="this.form.submit();">
 <?php
                     foreach ($layerList as $value) {
                         $selected = "";

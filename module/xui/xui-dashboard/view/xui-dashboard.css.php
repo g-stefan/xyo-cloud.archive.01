@@ -22,6 +22,7 @@
 
 .xui-dashboard .xui-content{
 	position: relative;
+	display: block;
 	height: calc(100% - 48px);
 	overflow:auto;
 	margin: 0px 0px 0px 0px;

@@ -11,6 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setFormName("install");
 $this->setElementPrefix("x");
 $this->setViewTemplate("template");
+$this->setHtmlCss($this->site."media/sys/css/xyo-app-install.css");
 
 if ($this->cloud->get("configured")) {
     $this->setDefaultAction("configured");    
@@ -39,5 +40,8 @@ $this->requireComponent(array(
 	"xui.form-action-end",
 	"xui.form-select",
 	"xui.form-text",
-	"xui.form-text-icon-left"
+	"xui.form-text-icon-left",
+	"xui.form-username",
+	"xui.form-password",
+	"xui.list-group"
 ));

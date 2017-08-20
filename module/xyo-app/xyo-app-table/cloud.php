@@ -10,8 +10,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->setModuleAsApplication($module);
 $this->setReferenceBase($module, "xyo-app-application");
-$this->setReferenceLink($module, "lib-bootstrap-feedback-left");
-$this->setReferenceLink($module, "lib-bootstrap-select");
 $this->setReferenceLink($module, "lib-font-awesome");
 $this->setReferenceLink($module, "lib-jquery-stickytableheaders");
 $this->setReferenceLink($module, "lib-jquery-form");

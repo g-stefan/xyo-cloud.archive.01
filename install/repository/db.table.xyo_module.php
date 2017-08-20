@@ -67,10 +67,6 @@ if ($setup) {
 	$setup->registerModuleAcl("xyo-app-admin","xyo-none", null, null, 0, true);
 	$setup->execModuleInstall("xyo-app-admin");
 
-	$setup->registerModule("xyo-app", null, "xyo-mod-form-captcha");
-	$setup->registerModuleAcl("xyo-mod-form-captcha","xyo-none",null,null,0,true);
-	$setup->execModuleInstall("xyo-mod-form-captcha");
-
 };
 
 

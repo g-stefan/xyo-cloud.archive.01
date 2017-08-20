@@ -9,6 +9,4 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
-<div class="alert alert-success" role="alert">
 Totul este bine!
-</div>

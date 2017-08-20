@@ -11,8 +11,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 $count=0;
 
 ?>
-<div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover table-condensed" id="com_table">
+<div class="xyo-app-table__responsive">
+    <table id="xyo-app-table__table">
 	<thead>
                 <?php
                 foreach ($this->tableHead as $key => $value) {

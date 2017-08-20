@@ -21,7 +21,7 @@ debug your applications.
 You can change location from
 config/config.ds.db.php .
 </p>
-<div class="alert alert-warning" role="alert">
+<div>
 Warning: If you store sesitive information is
 advised to change the location outside of website.
 </div>

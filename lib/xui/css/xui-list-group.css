@@ -1,0 +1,108 @@
+/*
+//
+// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xui-list-group{
+	position: relative;
+	display: block;
+	width: 100%;
+
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+
+	border-top: 1px solid #E6E9ED;
+	border-left: 1px solid #E6E9ED;
+	border-right: 1px solid #E6E9ED;
+	border-bottom: 1px solid #E6E9ED;
+	border-radius: 4px;
+
+	background-color: #FFFFFF;
+
+	overflow: hidden;
+}
+
+.xui-list-group__item{
+	position: relative;
+	display: block;
+
+	box-sizing: border-box;
+	border-top: 0px solid #E6E9ED;
+	border-right: 0px solid #E6E9ED;
+	border-bottom: 1px solid #E6E9ED;	
+	border-left: 0px solid #E6E9ED;
+
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 20px;
+
+	text-align: left;
+
+	padding-top: 4px;
+	padding-right: 6px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+
+	height: 32px;
+}
+
+.xui-list-group__item:last-child{
+	position: relative;
+	display: block;
+
+	border-top: 0px solid #E6E9ED;
+	border-right: 0px solid #E6E9ED;
+	border-bottom: 0px solid #E6E9ED;	
+	border-left: 0px solid #E6E9ED;
+
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.xui-list-group__item--active{
+	background-color: #4A89DC;
+	color: #FFFFFF;
+}
+
+.xui-list-group__item__id{
+	float: left;
+
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+
+	margin-right: 8px;
+}
+
+.xui-list-group__item__text{
+	display: inline-block;
+
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+}
+
+.xui-list-group__item__icon-left{
+	float: right;
+	font-size: 24px;
+	line-height: 24px;
+}
+
