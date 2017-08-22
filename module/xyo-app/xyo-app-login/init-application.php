@@ -24,8 +24,8 @@ if ($this->isElement("login")) {
 
 $this->setDefaultAction($action);
 
-$this->setHtmlCss($this->site."media/sys/css/xyo-app-login.css");
-$this->setHtmlJs($this->site."media/sys/js/xyo-app-login.js");
+$this->setHtmlCss($this->site."lib/xyo/css/xyo-app-login.css");
+$this->setHtmlJs($this->site."lib/xyo/js/xyo-app-login.js");
 
 $this->requireComponent("xui.form-text");
 $this->requireComponent("xui.form-text-icon-left");

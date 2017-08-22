@@ -135,10 +135,23 @@ $colorBorder=$xuiColor->rgbHexHSLAdjust($value,0,0,-20);
 }
 
 .xui-form-button--disabled:hover, .xui-form-button--disabled:focus{
-
+	cursor: default;
+	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
+	background-color: <?php echo $color; ?>;
+	border-top: 0px solid <?php echo $colorBorder; ?>; 
+	border-right: 0px solid <?php echo $colorBorder; ?>;
+	border-bottom: 4px solid <?php echo $colorBorder; ?>;
+	border-left: 0px solid <?php echo $colorBorder; ?>;
 }
 
 .xui-form-button--disabled:active{
+	cursor: default;
+	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
+	background-color: <?php echo $color; ?>;
+	border-top: 0px solid <?php echo $colorBorder; ?>; 
+	border-right: 0px solid <?php echo $colorBorder; ?>;
+	border-bottom: 4px solid <?php echo $colorBorder; ?>;
+	border-left: 0px solid <?php echo $colorBorder; ?>;
 }
 
 /* --- */

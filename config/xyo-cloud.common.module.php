@@ -11,8 +11,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 //
 $this->setModule(null,null,"lib");
 //
-$this->setModule("lib",null,"lib-material-icons");
 $this->setModule("lib",null,"lib-roboto-regular");
+$this->setModule("lib",null,"lib-material-icons");
 $this->setModule("lib",null,"lib-font-awesome");
 $this->setModule("lib",null,"lib-ionicons");
 $this->setModule("lib",null,"lib-jquery");
@@ -60,11 +60,8 @@ $this->setModule("xui",null,"xui-list-group");
 $this->setModule("lib",null,"lib-js-cookie");
 $this->setModule("lib",null,"lib-jquery-form");
 $this->setModule("lib",null,"lib-jquery-stickytableheaders");
-$this->setModule("lib",null,"lib-material-components-web");
-$this->setModule("lib",null,"lib-material-icons");
 $this->setModule("lib",null,"lib-md5");
 $this->setModule("lib",null,"lib-pear-archive-tar");
-$this->setModule("lib",null,"lib-roboto-regular");
 $this->setModule("lib",null,"lib-izimodal");
 //
 $this->setModule(null,null,"xyo");

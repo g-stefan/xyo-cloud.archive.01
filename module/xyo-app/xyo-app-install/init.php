@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setFormName("install");
 $this->setElementPrefix("x");
 $this->setViewTemplate("template");
-$this->setHtmlCss($this->site."media/sys/css/xyo-app-install.css");
+$this->setHtmlCss($this->site."lib/xyo/css/xyo-app-install.css");
 
 $action_ = "welcome";
 $action = $action_;

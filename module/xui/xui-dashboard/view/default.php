@@ -13,7 +13,6 @@ $this->generateComponent("xui.dashboard.app-bar-begin");
 $this->generateComponent("xui.dashboard.brand-begin");
 // ---
 echo "<div class=\"xui-brand__content\">";
-//echo "<div class=\"xui-brand__logo\" style=\"background-image:url('".$this->site."media/sys/images/xyo-32.png');\"></div>";
 echo "<div class=\"xui-brand__logo\"></div>";
 echo "<span class=\"xui-brand__text\">Brand</span>";
 echo "<span class=\"xui-brand__text-second\">TM</span>";
@@ -36,21 +35,10 @@ $this->generateComponent("xui.dashboard.user-begin");
 $userName="Jon Doe";
 $userImage="";
 //
-//$modUser=&$this->getModule("xyo-mod-ds-user");
-//$userName=$modUser->info->name;
-//$dsUser=&$this->getDataSource("db.table.xyo_user");
-//$dsUser->clear();
-//$dsUser->id=$modUser->info->id;
-//if($dsUser->load(0,1)){
-//	$userImage=$dsUser->picture;
-//};
-//
-//$img=$this->cloud->get("xui_dashboard_user_background","media/sys/images/mountains-1985027_640.jpg");
 //
 $img="";
 $userImage="";
 
-//echo "<div class=\"xui-user__content\" style=\"background-image:url('".$this->site.$img."');\">";
 echo "<div class=\"xui-user__content\">";
 echo "<div class=\"xui-user__background\"></div>";
 if(strlen($userImage)>0){

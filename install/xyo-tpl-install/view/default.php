@@ -28,7 +28,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	$this->generateComponent("xui.panel2-begin");
 	?>
 	
-	            <img src="<?php echo $this->site; ?>media/sys/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;" alt="XYO" ></img>
+	            <img src="<?php echo $this->site; ?>lib/xyo/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;" alt="XYO" ></img>
         	    <span style="font-family:arial;color:#0194FE;font-size:22px;font-weight:bold;vertical-align: middle;">&#160;CLOUD&#160;</span>
 	            <span class="xui--right" style="font-family:arial;color:#0194FE;font-size:11px;margin-top:18px;">
         	        <?php echo $this->cloud->get("version"); ?>

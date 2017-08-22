@@ -32,7 +32,7 @@ foreach ($listGroup as $key => &$value) {
 <div class="xyo-install__application">
 	<div class="xyo-install__panel">
 		<?php $this->generateComponent("xui.list-group", array("items"=>$listGroup)); ?>
-		<img class="hidden-xs" src="<?php echo $this->site; ?>media/sys/images/system-installer-2-128.png"
+		<img class="hidden-xs" src="<?php echo $this->site; ?>lib/xyo/images/system-installer-2-128.png"
 			style="width:128px;height:128px;display:block;margin-left:auto;margin-right:auto;margin-top:0px;"
 			alt="<?php $this->eLanguage("alt_install"); ?>" ></img>
 	</div>

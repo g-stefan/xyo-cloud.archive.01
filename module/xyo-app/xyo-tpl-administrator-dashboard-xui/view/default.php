@@ -26,7 +26,7 @@ $this->generateComponent("xui.dashboard.app-bar-begin");
 $this->generateComponent("xui.dashboard.brand-begin");
 // ---
 echo "<div class=\"xui-brand__content\">";
-echo "<div class=\"xui-brand__logo\" style=\"background-image:url('".$this->site."media/sys/images/xyo-32.png');\"></div>";
+echo "<div class=\"xui-brand__logo\" style=\"background-image:url('".$this->site."lib/xyo/images/xyo-32.png');\"></div>";
 echo "<span class=\"xui-brand__text\">Cloud</span>";
 echo "<span class=\"xui-brand__text-second\"></span>";
 echo "</div>";
@@ -64,7 +64,7 @@ if($dsUser->load(0,1)){
 	$userImage=$dsUser->picture;
 };
 //
-$img=$this->cloud->get("xui_dashboard_user_background","media/sys/images/mountains-1985027_640.jpg");
+$img=$this->cloud->get("xui_dashboard_user_background","lib/xyo/images/mountains-1985027_640.jpg");
 //
 echo "<div class=\"xui-user__content\" style=\"background-image:url('".$this->site.$img."');\">";
 echo "<div class=\"xui-user__background\"></div>";

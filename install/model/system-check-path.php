@@ -10,7 +10,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $path = array(
     "lib" => "lib",
-    "media" => "media",
     "config" => "config",
     "repository" => "repository",
     "package" => "package",

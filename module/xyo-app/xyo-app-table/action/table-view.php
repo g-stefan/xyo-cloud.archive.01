@@ -13,5 +13,5 @@ $this->processModel("table-view");
 $this->processModel("table-view-process");
 $this->setView("table-view");
 
-$this->setHtmlCss($this->site."media/sys/css/xyo-app-table-view.css");
-$this->setHtmlJs($this->site."media/sys/js/xyo-app-table-view.js");
+$this->setHtmlCss($this->site."lib/xyo/css/xyo-app-table-view.css");
+$this->setHtmlJs($this->site."lib/xyo/js/xyo-app-table-view.js");
