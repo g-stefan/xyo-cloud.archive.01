@@ -99,64 +99,6 @@
 	overflow: auto;	
 }
 
-.xui-application .xui-message-alert{
-	position:relative;
-	width: 100%;
-	height: 48px;
-	overflow: hidden;
-
-	text-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-
-	margin-top: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-
-	padding-top: 16px;
-	padding-left: 12px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-
-	font-size: 15px;
-	line-height: 15px;
-
-	background-color: #C8E6C9;
-	color: #1B5E20;
-	border: 1px solid #43A047;
-	border-radius: 2px;
-}
-
-.xui-application .xui-message-error{
-	position:relative;
-	width: 100%;
-	height: 48px;
-	overflow: hidden;
-
-	text-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-
-	margin-top: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-
-	padding-top: 16px;
-	padding-left: 12px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-
-	font-size: 15px;
-	line-height: 15px;
-
-	background-color: #FFCDD2;
-	color: #B71C1C;
-	border: 1px solid #E53935;
-	border-radius: 2px;
-}
-
 .xui-application .xui-content--has-toolbar.xui-content--has-message-alert{
 	height: calc(100% - 96px );
 }

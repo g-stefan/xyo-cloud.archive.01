@@ -16,7 +16,7 @@ Baza de date SQLite stocata in repository.
 Poti schimba locatia editand fisierul
 config/config.sqlite.db.php .
 </p>
-<div>
+<div class="xui-alert xui-alert--warning">
 Avertisment: Daca salvezi informatii cu caracter
 confidential sugestia este ca locatia sa fie in
 afara website-ului.

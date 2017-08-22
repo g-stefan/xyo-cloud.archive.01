@@ -9,5 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
+<div class="xui-alert xui-alert--success">
 All is ok!
+</div>
 

@@ -25,7 +25,7 @@ if ($this->isError()) {
 	return;
     };
 ?>
-	<div>
+	<div class="xui-alert xui-alert--danger">
 		<b><?php $this->eLanguage($msgLang); ?></b> <?php echo $msgTxt; ?> 	
 	</div>
 <?php

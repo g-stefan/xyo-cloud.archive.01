@@ -55,6 +55,7 @@ $this->setModule("xui",null,"xui-application");
 $this->setModule("xui",null,"xui-image-captcha");
 $this->setModule("xui",null,"xui-form-captcha");
 $this->setModule("xui",null,"xui-list-group");
+$this->setModule("xui",null,"xui-alert");
 //
 //
 $this->setModule("lib",null,"lib-js-cookie");

@@ -19,6 +19,6 @@ $this->generateComponent("xui.form-text-icon-left",array("element"=>"prefix","ic
 
 ?>
                                                         
-<div>
+<div class="xui-alert xui-alert--info">
 Notice: Database must already exists on your server before installation.
 </div>

@@ -9,6 +9,6 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 ?>
-<div class="alert alert-success" role="alert">
+<div class="xui-alert xui-alert--success">
 Sursa de date instalata cu succes!
 </div>
