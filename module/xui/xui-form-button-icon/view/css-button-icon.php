@@ -38,9 +38,9 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	border-radius: 4px;
 
 	padding-top: 6px;
-	padding-right: 10px;
+	padding-right: 12px;
 	padding-bottom: 6px;
-	padding-left: 10px;
+	padding-left: 12px;
 
 	margin-top: 0px;
 	margin-right: 0px;

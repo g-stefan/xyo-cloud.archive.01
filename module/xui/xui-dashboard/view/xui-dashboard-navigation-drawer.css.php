@@ -83,10 +83,12 @@
 
 .xui-dashboard .xui-navigation-drawer .xui-action--active .xui-text{
 	color: <?php echo $this->navigationDrawerColorActive; ?>;
+	font-weight: bold;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-popup--active > .xui-action .xui-text{
 	color: <?php echo $this->navigationDrawerColor; ?>;
+	font-weight: normal;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action .xui-icon-right{
