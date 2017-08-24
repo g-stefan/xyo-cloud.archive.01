@@ -126,3 +126,22 @@
 	box-sizing: border-box;
 }
 
+
+#xyo-app-table__table td a{
+	text-decoration: none;
+	color: #1853A0;
+}
+
+#xyo-app-table__table td a:hover{
+	color: #1853A0;
+	font-weight: bold;
+}
+
+#xyo-app-table__table td a:visited{
+	color: #1853A0;
+}
+
+
+
+
+
