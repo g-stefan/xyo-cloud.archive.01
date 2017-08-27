@@ -425,7 +425,7 @@ function doValueSave(key){
 			                       echo " name=\"order_" . $value[$this->primaryKey] . "\"";
 			                       echo " value=\"" . $value[$key_] . "\"";
 			                       echo " size=\"4\"";
-		        		       echo "class=\"xui-form-text\" style=\"float:left;\"></input>";
+		        		       echo "class=\"xui-form-text xui-form-text--group-right\" style=\"float:left;\"></input>";
 					echo "<span class=\"xui-form-text-button-group xui-form-text-button-group--right\">";
 						echo "<button type=\"button\" class=\"xui-form-text-button-icon\" onclick=\"doOrderUp('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"material-icons\">expand_less</i></button>";
 						echo "<button type=\"button\" class=\"xui-form-text-button-icon\" onclick=\"doOrderDown('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"material-icons\">expand_more</i></button>";
