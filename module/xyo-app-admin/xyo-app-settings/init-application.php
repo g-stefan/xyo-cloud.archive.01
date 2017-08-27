@@ -43,7 +43,8 @@ $this->addItem("xui.form-file-image-thumbnail","xui_dashboard_user_background","
 	"collapse"=>false,
 	"filename"=>"repository/xyo-user/xui-dashboard-user-background-picture-".time(),
 	"extension"=>true,
-	"delete_before_save"=>true
+	"delete_before_save"=>true,
+	"readonly"=>array("lib/xyo/images/mountains-1985027_640.jpg")
 ));
 
 $this->addItem("xui.panel-end");

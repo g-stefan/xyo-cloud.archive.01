@@ -25,12 +25,22 @@ if(strlen($fileName)){
 			if($extension){
 				$fileName.=".".strtolower(pathinfo($_FILES[$elementName]["name"], PATHINFO_EXTENSION));
 			};
-			if (move_uploaded_file($_FILES[$elementName]["tmp_name"], $fileName)) {				
+			if (move_uploaded_file($_FILES[$elementName]["tmp_name"], $fileName)) {
 				if($deleteBeforeSave){
 					$fileDelete=$this->getElementValue($element."_file","");
 					if(strlen($fileDelete)){
-						if(file_exists($fileDelete)){
-							@unlink($fileDelete);
+						$readonly=$this->getArgument("readonly",array());
+						$toDel=true;
+						foreach($readonly as $key=>$value){
+							if($value===$fileDelete){
+								$toDel=false;
+								break;
+							};
+						};
+						if($toDel){
+							if(file_exists($fileDelete)){
+								@unlink($fileDelete);
+							};
 						};
 					};
 				};
@@ -48,8 +58,18 @@ $fileName=$this->getElementValue($element."_file","");
 $elementDelete = $this->getElementValue($element."_delete");
 if(strlen($elementDelete)){
 	if(1*$elementDelete==1){
-		if(file_exists($fileName)){
-			@unlink($fileName);
+		$readonly=$this->getArgument("readonly",array());
+		$toDel=true;
+		foreach($readonly as $key=>$value){
+			if($value===$fileDelete){
+				$toDel=false;
+				break;
+			};
+		};
+		if($toDel){
+			if(file_exists($fileName)){
+				@unlink($fileName);
+			};
 		};
 		$this->setElementValue($element,"");		
 		$isOk=true;
