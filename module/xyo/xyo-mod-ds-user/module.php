@@ -651,7 +651,7 @@ class xyo_mod_ds_User extends xyo_Module {
 						};
 						header("Location: http://".$_SERVER["SERVER_NAME"].$path_.$this->requestUri(array("stamp"=>md5(time().rand()))));
 					};
-					$this->cloud->setIsInitOk(false);
+					$this->cloud->setInitOk(false);
 				};
 
 				$dsUser->logged_in=0;
@@ -690,7 +690,7 @@ class xyo_mod_ds_User extends xyo_Module {
 						};
 						header("Location: http://".$_SERVER["SERVER_NAME"].$path_.$this->requestUri(array("stamp"=>md5(time().rand()))));
 					};
-					$this->cloud->setIsInitOk(false);
+					$this->cloud->setInitOk(false);
 				};
 			};
 		};

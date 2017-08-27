@@ -76,7 +76,7 @@ $itemTextareaColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	position: relative;	
 	padding-top: <?php echo $itemTextareaMarginTopX; ?>px;
 	padding-right: 0px;
-	padding-bottom: <?php echo $itemTextMarginBottom-2; ?>px;
+	padding-bottom: <?php echo $itemTextareaMarginBottom-2; ?>px;
 	padding-left: 0px;
 	border: none;
 	display: block;
