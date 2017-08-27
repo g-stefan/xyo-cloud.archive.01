@@ -19,3 +19,7 @@ acces neautorizat.
 Se potriveste pentru siteuri/aplicatii mici sau pentru
 a rezlova defectele in aplicatii.
 </p>
+<p>
+Poti schimba locatia editand fisierul
+config/config.ds.db.php .
+</p>

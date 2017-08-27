@@ -27,6 +27,9 @@ if ($layer === "csv") {
 if ($layer === "mysql") {
     $moduleName = "xyo-datasource-mysql";
 } else
+if ($layer === "mysqli") {
+    $moduleName = "xyo-datasource-mysqli";
+} else
 if ($layer === "postgresql") {
     $moduleName = "xyo-datasource-postgresql";
 } else
@@ -70,6 +73,28 @@ if ($fileHandle) {
 		@copy($this->path."index.html","repository/datasource-backup/".$connection.".".$date.".".$stamp.".csv/index.html");
     } else
     if ($layer === "mysql") {
+        fwrite($fileHandle, "\$this->setConnection(" .
+                "\"backup\",\"" .
+                addslashes($this->getElementValueStr("username")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("password")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("server")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("port")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("database")) .
+                "\",\"" .
+                addslashes($this->getElementValueStr("prefix")) .
+                "\");\r\n");
+        fwrite($fileHandle, "\$this->setConnectionOption(" .
+                "\"backup\",\"debug\",true);\r\n");
+        fwrite($fileHandle, "\$this->setConnectionOption(" .
+                "\"backup\",\"log\",false);\r\n");
+        fwrite($fileHandle, "\$this->setConnectionOption(" .
+                "\"backup\",\"force_use\",false);\r\n");
+    } else
+    if ($layer === "mysqli") {
         fwrite($fileHandle, "\$this->setConnection(" .
                 "\"backup\",\"" .
                 addslashes($this->getElementValueStr("username")) .

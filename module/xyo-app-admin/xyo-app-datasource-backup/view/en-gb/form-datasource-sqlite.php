@@ -12,7 +12,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 <p>
 SQLite Data Source Layer, stored in repository.
 </p>
-<div class="alert alert-warning" role="alert">
+<p>
+You can change location from
+config/config.sqlite.db.php .
+</p>
+<div class="xui-alert xui-alert--warning">
 Warning: If you store sesitive information is
 advised to change the location outside of website.
 </div>

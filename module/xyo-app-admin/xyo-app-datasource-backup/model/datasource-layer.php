@@ -20,6 +20,9 @@ if ($layer === "csv") {
 if ($layer === "mysql") {
     $moduleName = "xyo-datasource-mysql";
 } else
+if ($layer === "mysqli") {
+    $moduleName = "xyo-datasource-mysqli";
+} else
 if ($layer === "postgresql") {
     $moduleName = "xyo-datasource-postgresql";
 } else

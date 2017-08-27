@@ -24,20 +24,20 @@ $layer=$this->getElementValueStr("layer","xyo");
     }
 </script>
 
-<div style="width:32em;margin-left: auto;margin-right:auto;">
-	<div class="panel panel-default">
-		<div class="panel-heading"><?php $this->eLanguage($formTitle); ?></div>
-		<div class="panel-body">
+<?php
+$this->generateComponent("xui.box-1x1-begin");
+$this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLanguage($formTitle)));
 
+?>
                 <form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" >
 
 			
-						<label class="control-label" for="<?php $this->eElementId("connection"); ?>">
+						<label class="xui-form-label" for="<?php $this->eElementId("connection"); ?>">
 							<?php $this->eLanguage("select_connection"); ?>
 					    	</label><br />
 						<?php $this->generateView("form-select-connection"); ?>
 						<br />
-						<label class="control-label" for="<?php $this->eElementId("layer"); ?>">
+						<label class="xui-form-label" for="<?php $this->eElementId("layer"); ?>">
 							<?php $this->eLanguage("backup_to"); ?>
 						</label><br />
 						<?php $this->generateView("form-select-layer"); ?>
@@ -49,8 +49,9 @@ $layer=$this->getElementValueStr("layer","xyo");
 					<?php $this->eFormRequest(); ?>
                 </form>
 
-		</div>
-	</div>
-</div>
+<?php 
 
-<?php $this->generateView("view-return"); ?>
+$this->generateComponent("xui.panel-end");
+$this->generateComponent("xui.box-1x1-end");
+
+$this->generateView("view-return");

@@ -13,6 +13,7 @@ $list_layer = array(
 	"csv"=>"csv",
 	"sqlite"=>"sqlite",
 	"mysql"=>"mysql",
+	"mysqli"=>"mysqli",
 	"postgresql"=>"postgresql"
 );
 

@@ -28,3 +28,16 @@ $this->set("datasource_not_found", "Nu gasesc sursa de informatii:");
 
 $this->set("select_connection", "Conexiune:");
 $this->set("backup_to","Salveaza in:");
+
+//---
+
+$this->set("label_server","Server");
+$this->set("label_port","Port");
+$this->set("label_username","Nume utilizator");
+$this->set("label_password","Parola");
+$this->set("label_database","Baza de date");
+$this->set("label_prefix","Prefix");
+$this->set("label_retype_password","Introduce parola din nou");
+$this->set("label_website_title","Titlu site");
+
+//---

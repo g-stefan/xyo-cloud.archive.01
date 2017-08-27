@@ -7,12 +7,11 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-?>
-<div style="width:32em;margin-left: auto;margin-right:auto;">
-	<div class="panel panel-default">
-		<div class="panel-heading"><?php $this->eLanguage("backup_title"); ?></div>
-		<div class="panel-body">
 
+$this->generateComponent("xui.box-1x1-begin");
+$this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLanguage("backup_title")));
+
+?>
 
 <div id="progress_bar1" class="progress">
 	<div id="progress_bar1_slider" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
@@ -24,16 +23,16 @@ defined('XYO_CLOUD') or die('Access is denied');
 		<span id="progress_bar2_text">0%</span>
 	</div>
 </div>
-<div class="panel panel-default">
-  <div class="panel-body">
-	<div id="status_info"></div>
-</div>
-</div>
 
-		</div>
-	</div>
-</div>
-<?php $this->ejsBegin(); ?>
+<div id="status_info"></div>
+
+
+<?php 
+
+$this->generateComponent("xui.panel-end");
+$this->generateComponent("xui.box-1x1-end");
+
+$this->ejsBegin(); ?>
 
 function progressBarSetProcent1(procent){
 	$("#progress_bar1_slider").css("width",procent+"%").attr("aria-valuenow", procent);

@@ -18,3 +18,7 @@ unauthorized access.
 Suitable for small sites/applications or
 debug your applications.
 </p>
+<p>
+You can change location from
+config/config.ds.db.php .
+</p>

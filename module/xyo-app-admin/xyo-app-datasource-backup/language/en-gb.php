@@ -28,3 +28,17 @@ $this->set("datasource_not_found", "Datasource not found:");
 
 $this->set("select_connection", "Connection:");
 $this->set("backup_to","Backup to:");
+
+//---
+
+$this->set("label_server","Server");
+$this->set("label_port","Port");
+$this->set("label_username","Username");
+$this->set("label_password","Pasword");
+$this->set("label_database","Database");
+$this->set("label_prefix","Prefix");
+$this->set("label_retype_password","Retype pasword");
+$this->set("label_website_title","Website title");
+
+//---
+

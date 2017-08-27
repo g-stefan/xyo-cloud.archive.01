@@ -17,7 +17,11 @@ stored in repository.
 Suitable for small sites/applications or
 debug your applications.
 </p>
-<div class="alert alert-warning" role="alert">
+<p>
+You can change location from
+config/config.ds.db.php .
+</p>
+<div class="xui-alert xui-alert--warning">
 Warning: If you store sesitive information is
 advised to change the location outside of website.
 </div>
