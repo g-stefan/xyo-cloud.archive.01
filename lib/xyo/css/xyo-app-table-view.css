@@ -130,27 +130,27 @@
 	position: relative;
 }
 
-#xyo-app-table__table td a{
+#xyo-app-table__table td a.xyo-app-table__table--action{
 	position: relative;
 	display: inline-block;
 	text-decoration: none;
 	color: #1853A0;
 }
 
-#xyo-app-table__table td a:hover{
+#xyo-app-table__table td a.xyo-app-table__table--action:hover{
 	color: #000000;
 	font-weight: normal;
 }
 
-#xyo-app-table__table td a:visited{
+#xyo-app-table__table td a.xyo-app-table__table--action:visited{
 	color: #1853A0;
 }
 
-#xyo-app-table__table td a:visited:hover{
+#xyo-app-table__table td a.xyo-app-table__table--action:visited:hover{
 	color: #000000;
 }
 
-#xyo-app-table__table td a::before{
+#xyo-app-table__table td a.xyo-app-table__table--action::before{
 	content: "";
 	transition:0.3s all ease;
 	left: 50%;
@@ -163,7 +163,7 @@
 	backface-visibility: hidden;
 }
 
-#xyo-app-table__table td a:hover::before{
+#xyo-app-table__table td a.xyo-app-table__table--action:hover::before{
 	width:100%;
 }
 

@@ -534,7 +534,7 @@ function doValueSave(key){
 							}
                         		}
 					$p .= "}";
-		                        echo "<a href=\"".$this->requestUriThis($parameters)."\" onclick=\"callActionLink_".$key_."(".$p.");return false;\">" . $valueX . "</a>";
+		                        echo "<a class=\"xyo-app-table__table--action\" href=\"".$this->requestUriThis($parameters)."\" onclick=\"callActionLink_".$key_."(".$p.");return false;\">" . $valueX . "</a>";
 				}else{
 					echo $valueX;
 				};				
@@ -566,7 +566,7 @@ function doValueSave(key){
 				};
 
 				if($value["@write"]){
-		                        echo "<a href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $valueX . "</a>";
+		                        echo "<a class=\"xyo-app-table__table--action\" href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $valueX . "</a>";
 				}else{
 					echo $valueX;
 				};
