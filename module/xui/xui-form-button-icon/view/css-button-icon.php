@@ -35,7 +35,7 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	line-height: 24px;
 	font-weight: normal;
 
-	border-radius: 4px;
+	border-radius: 3px;
 
 	padding-top: 6px;
 	padding-right: 12px;

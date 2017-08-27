@@ -34,7 +34,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	color: #000000;
 	background-color: #FFFFFF;
 
-	border-radius: 0px;
+	border-radius: 3px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
@@ -79,4 +79,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;	
 }
+
+.xui-form-text--in-group{
+	border-radius: 0px;
+}
+
+.xui-form-text--group-left{
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.xui-form-text--group-right{
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}                     
 

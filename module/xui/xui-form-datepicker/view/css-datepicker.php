@@ -13,7 +13,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 /* --- */
 
 .datepicker {
-	border-radius: 0px;
+	border-radius: 3px;
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 }

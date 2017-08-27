@@ -40,7 +40,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	color: #000000;
 	background-color: #FFFFFF;
 
-	border-radius: 0px;
+	border-radius: 3px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;

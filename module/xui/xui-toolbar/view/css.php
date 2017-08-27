@@ -49,7 +49,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 
 	transition: border 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
 
-	border-radius: 0px;
+	border-radius: 3px;
 
 	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }

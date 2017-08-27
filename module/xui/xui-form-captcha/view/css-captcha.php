@@ -43,8 +43,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-bottom: 0px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
 
 	overflow: hidden;
 
@@ -72,7 +72,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 	left: 0px;
 	right: 32px;
 
-	border-bottom-left-radius: 4px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 3px;
 }
 
 .xui-form-captcha__input button[type="button"]{
@@ -82,6 +85,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 
-	border-bottom-right-radius: 4px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 0px;
 }
 

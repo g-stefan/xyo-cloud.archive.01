@@ -54,9 +54,9 @@ class xyo_Cloud extends xyo_Config {
 
 	protected function initModuleManager() {
 		$this->moduleLoader = null;
-		$this->moduleList = [];
-		$this->referenceBase = [];
-		$this->referenceLinks = [];
+		$this->moduleList = array();
+		$this->referenceBase = array();
+		$this->referenceLinks = array();
 	}
 
 	public function setModuleLoader($name) {
@@ -514,8 +514,8 @@ class xyo_Cloud extends xyo_Config {
 	protected function initGroupManager() {
 
 		$this->groupLoader = null;
-		$this->groupList = [];
-		$this->groupLoadedOk = [];
+		$this->groupList = array();
+		$this->groupLoadedOk = array();
 
 	}
 
@@ -1461,7 +1461,13 @@ class xyo_Cloud extends xyo_Config {
 		ini_set("session.use_cookies", 1);
 		ini_set("session.use_trans_sid", 0);
 		session_start();
-		session_register_shutdown();
+		
+		if(version_compare(PHP_VERSION, "5.4.0")>=0){
+			session_register_shutdown();
+		}else{
+			register_shutdown_function("session_write_close");
+		};
+		
 		//
 		$this->set("version", "5.2.0.0");
 		//

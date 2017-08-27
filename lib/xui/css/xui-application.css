@@ -181,3 +181,9 @@
 	width: 100%;
 }
 
+.xui-application .xui-alert{
+	border-radius: 0px;
+	border-left: 0px;
+	border-right: 0px;
+}
+

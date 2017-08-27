@@ -46,9 +46,9 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	line-height: 20px;
 	font-weight: normal;
 
-	border-top-left-radius: 4px;
+	border-top-left-radius: 3px;
 	border-top-right-radius: 0px;
-	border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 0px;
 
 	padding-top: 8px;
@@ -95,9 +95,9 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	vertical-align: top;
 
 	border-top-left-radius: 0px;
-	border-top-right-radius: 4px;
+	border-top-right-radius: 3px;
 	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 4px;
+	border-bottom-right-radius: 3px;
 }
 
 .xui-form-file__file:hover + label, .xui-form-file__file:focus + label, .xui-form-file__file + label:hover, .xui-form-file__file.xui-form-file__file--focus + label{

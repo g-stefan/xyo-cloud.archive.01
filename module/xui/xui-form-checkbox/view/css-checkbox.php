@@ -94,6 +94,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	box-sizing: border-box;
 
 	border: 2px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
+	border-radius: 3px;
 }
 
 .xui-form-checkbox input[type="checkbox"]:active + label::before {

@@ -24,14 +24,14 @@ $colorText=$xuiColor->rgbHexHSLAdjust($color,0,0,-30);
 .xui-alert{
 	display: block;
 	position: relative;
-	width: 100%;
+	width: auto;
 
 	font-size: 16px;
 	line-height: 20px;
 	font-weight: normal;
 	font-family: "Roboto", sans-serif;
 
-	border-radius: 0px;
+	border-radius: 3px;
 
 	padding-top: 13px;
 	padding-left: 16px;

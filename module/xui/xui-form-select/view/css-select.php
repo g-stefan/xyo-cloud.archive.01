@@ -34,7 +34,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	color: #000000;
 	background-color: #FFFFFF;
 
-	border-radius: 0px;
+	border-radius: 3px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
@@ -99,7 +99,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 /* --- select2 --- */
 
 .xui-form-select + .select2-container--default .select2-selection--single {
-	border-radius: 0px;
+	border-radius: 3px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
@@ -127,7 +127,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
 .xui-form-select--<?php echo $key; ?> + .select2-container--default .select2-selection--single {
-	border-radius: 0px;
 	border-top: 1px solid <?php echo $value; ?>; 
 	border-right: 1px solid <?php echo $value; ?>;
 	border-bottom: 1px solid <?php echo $value; ?>;
@@ -156,7 +155,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 /* --- */
 
 .xui-form-select--disabled + .select2-container--default .select2-selection--single {
-	border-radius: 0px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -206,7 +204,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .select2-dropdown {
-	border-radius: 0px;
+	overflow: hidden;
+	border-radius: 3px;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -269,4 +268,5 @@ defined('XYO_CLOUD') or die('Access is denied');
 .select2-container--default .select2-results__option.select2-results__option--highlighted[aria-selected="true"]{
 	background-color: <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
+
 

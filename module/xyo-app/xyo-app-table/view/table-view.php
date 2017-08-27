@@ -159,7 +159,7 @@ function doValueSave(key){
                     <input type="text"
                            value="<?php echo $search_value; ?>"
                            name="search"
-                           class="xui-form-text"
+                           class="xui-form-text xui-form-text--group-right"
                            style="width:196px;display:inline-block;position:relative;float:left;"
                            size="32"
 			   placeholder="<?php $this->eLanguage("search"); ?>"></input>
@@ -438,7 +438,7 @@ function doValueSave(key){
         	                echo " name=\"value_" . $value[$this->primaryKey] . "\"";
                 	        echo " value=\"" . $value[$key_] . "\"";
                         	echo " size=\"8\"";
-	                        echo " class=\"form-control\"";
+	                        echo " class=\"xui-form-text\"";
         	                echo " />";
 			}else
 			if($this->tableType[$key_][0]=="date"){
@@ -611,7 +611,7 @@ function doValueSave(key){
 	               value="<?php echo $page; ?>"
         	       name="page"
 	               size="4"
-        	       class="xui-form-text"
+        	       class="xui-form-text xui-form-text--in-group"
                        style="width:64px;display:inline-block;position:relative;float:left;" ></input>
 		<span class="xui-form-text-button-group xui-form-text-button-group--right">
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_next').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">chevron_right</i></button>
@@ -745,7 +745,7 @@ foreach($this->tableType as $key_=>$value_){
 	$this->generateView("table-view-call");
 
 	$this->setHtmlJsSource(
-		"$(\"#com_table\").stickyTableHeaders({scrollableArea:$(\"#table-content\")});"
+		"$(\"#xyo-app-table__table\").stickyTableHeaders({scrollableArea:$(\"#table-content\")});"
 	,"load");
 
 	if($this->dialogNew_){

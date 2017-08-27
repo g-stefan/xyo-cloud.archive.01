@@ -57,8 +57,8 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 
 	box-sizing: border-box;
 
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
 
 	overflow: hidden;
 }
@@ -75,8 +75,8 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	width: 100%;
 	height: 40px;
 
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
 .xui-form-file-image-thumbnail .xui-form-file label{
