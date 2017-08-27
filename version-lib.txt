@@ -13,4 +13,5 @@ md5,2.2,http://pajhome.org.uk/crypt/md5/md5.html
 normalize,7.0.0,http://github.com/necolas/normalize.css
 roboto-regular,2017,https://fonts.google.com/specimen/Roboto
 select2,4.0.3,https://github.com/select2/select2
+tinymce,4.6.4,https://www.tinymce.com/
 

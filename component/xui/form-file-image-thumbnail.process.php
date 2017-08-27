@@ -37,6 +37,9 @@ if(strlen($fileName)){
 								break;
 							};
 						};
+						if($fileName===$fileDelete){
+							$toDel=false;
+						};
 						if($toDel){
 							if(file_exists($fileDelete)){
 								@unlink($fileDelete);

@@ -19,6 +19,7 @@ $this->setModule("lib",null,"lib-jquery");
 $this->setModule("lib",null,"lib-normalize");
 $this->setModule("lib",null,"lib-select2");
 $this->setModule("lib",null,"lib-air-datepicker");
+$this->setModule("lib",null,"lib-tinymce");
 //
 $this->setModule(null,null,"xui");
 $this->setModule("xui",null,"xui-core");
