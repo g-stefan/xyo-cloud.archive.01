@@ -61,6 +61,18 @@
 	box-sizing: border-box;
 }
 
+.xui-dashboard .xui-navigation-drawer .xui-action--active{
+	background-color: <?php echo $this->navigationDrawerBackgroundColorActive; ?> !important;
+	border-left: 4px solid <?php echo $this->navigationDrawerBarColorActive; ?>;
+	padding-left: 8px !important;
+}
+
+.xui-dashboard .xui-navigation-drawer .xui-popup--active > .xui-action--active{
+	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?> !important;
+	border-left: 0px solid <?php echo $this->navigationDrawerBarColorActive; ?>;
+	padding-left: 12px !important;
+}
+
 .xui-dashboard .xui-navigation-drawer .xui-action--active .xui-icon-left{
 	color: <?php echo $this->navigationDrawerColorActive; ?>;
 }

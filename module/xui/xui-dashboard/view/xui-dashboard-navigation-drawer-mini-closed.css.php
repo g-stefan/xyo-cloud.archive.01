@@ -49,7 +49,7 @@
 
 .xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-action{
 	position: relative;
-	width: <?php echo $this->navigationDrawerMiniWidth-9; ?>px;
+	width: <?php echo $this->navigationDrawerMiniWidth-1; ?>px;
 	height: 40px;
 	overflow: hidden;
 	padding-left: 12px;
@@ -298,6 +298,14 @@
 .xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-popup .xui-next .xui-separator:last-child{
 	border-top: none;
 	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
+}
+
+.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-popup--active .xui-next > .xui-action--active{
+	padding-left: 0px !important;
+}
+
+.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-popup--active .xui-next > .xui-action--active .xui-text{
+	margin-left: 4px;
 }
 
 

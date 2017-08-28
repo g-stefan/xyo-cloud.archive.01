@@ -11,13 +11,6 @@
 
 .xui-dashboard .xui-navigation-drawer--over.xui-navigation-drawer--closed{
 	width: 0px;
-}
-
-.xui-dashboard .xui-navigation-drawer--over.xui-navigation-drawer--closed .xui-popup{
-	width: 0px;
-}
-
-.xui-dashboard .xui-navigation-drawer--over.xui-navigation-drawer--closed .xui-action{
-	width: 0px;
+	overflow: hidden;
 }
 

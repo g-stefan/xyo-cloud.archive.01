@@ -31,6 +31,8 @@ class xui_Dasboard extends xyo_Module {
 	public $navigationDrawerColorActive;
 	public $navigationDrawerColorPopupActive;
 	public $navigationDrawerColorIconLeftHover;
+	public $navigationDrawerBackgroundColorActive;
+	public $navigationDrawerBarColorActive;
 
 	public $navigationDrawerUserBackgroundColor;
 
@@ -70,6 +72,8 @@ class xui_Dasboard extends xyo_Module {
 		$this->navigationDrawerColorActive=$xuiColor->rgbHexHSLAdjust($xuiPalette->colorPalette["xui-blue-jeans"],0,0,-25);
 		$this->navigationDrawerColorPopupActive=$xuiColor->rgbHexHSLAdjust($xuiPalette->colorPalette["xui-blue-jeans"],0,0,-25);
 		$this->navigationDrawerColorIconLeftHover=$xuiPalette->colorPalette["material-grey-p900"];
+		$this->navigationDrawerBackgroundColorActive=$xuiPalette->colorPalette["xui-light-gray"];
+		$this->navigationDrawerBarColorActive=$xuiPalette->colorPalette["xui-blue-jeans"];
 
 	}
 
