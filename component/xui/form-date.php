@@ -49,7 +49,7 @@ if(strlen($format)){
 	};
 };
 
-$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker();","load");
+$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker({autoClose:true});","load");
 
 ?>
 <label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label--danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
