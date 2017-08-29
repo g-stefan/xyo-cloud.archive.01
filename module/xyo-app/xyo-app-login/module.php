@@ -24,8 +24,8 @@ class xyo_app_Login extends xyo_mod_Application {
                 };
 	}
 
-	function eFormAction($request=null){
-		$this->eRequestUri($this->arrayMerge(
+	function getFormAction($request=null){
+		return $this->requestUri($this->arrayMerge(
 				$this->moduleFromRequestDirect($this->popRequest($this->getRequestDirect()))
 				,$request));
 	}
