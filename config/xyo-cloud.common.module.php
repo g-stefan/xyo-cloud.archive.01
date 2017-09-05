@@ -65,6 +65,7 @@ $this->setModule("lib",null,"lib-jquery-stickytableheaders");
 $this->setModule("lib",null,"lib-md5");
 $this->setModule("lib",null,"lib-pear-archive-tar");
 $this->setModule("lib",null,"lib-izimodal");
+$this->setModule("lib",null,"lib-cropit");
 //
 $this->setModule(null,null,"xyo");
 //
