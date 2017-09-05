@@ -59,6 +59,9 @@ $this->setHtmlJsSource($src,"load");
 <div class="xui-form-file-image-thumbnail__image" id="<?php $this->eElementId($element); ?>_image" style="width:100%;height:<?php echo $thumbSize[1]+6; ?>px">
 	<?php echo $fileName; ?>
 </div>
+<?php  if(strlen($hasFile)){ ?>
+<a href="<?php echo $this->getElementValue($element); ?>" target="_blank" class="xui-form-file-image-thumbnail__link xui-form-button-icon xui-form-button-icon--success xui--elevation-2"><i class="material-icons">photo</i></a>
+<?php  }; ?>
 <button type="button" class="xui-form-file-image-thumbnail__delete xui-form-button-icon xui-form-button-icon--danger xui--elevation-2" onclick="$('#<?php $this->eElementId($element); ?>_delete').val(1);$('#<?php $this->eElementId($element); ?>_image').html('<?php echo $fileNameNone; ?>');return false;"><i class="material-icons">close</i></button>
 <div class="xui-form-file xui--elevation-2">
 <input type="file" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" class="xui-form-file__file" accept="image/*"></input>

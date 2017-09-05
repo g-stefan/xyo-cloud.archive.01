@@ -35,7 +35,7 @@ $this->addItem("xui.form-enable", "log_language",0);
 $this->addItem("xui.panel-end");
 $this->addItem("xui.box-1x2-end");
 
-$this->addItem("xui.box-1x1-begin");
+$this->addItem("xui.box-1x2-begin");
 $this->addItem("xui.panel-begin");
 
 $this->addItem("xui.form-file-image-thumbnail","xui_dashboard_user_background","lib/xyo/images/mountains-1985027_640.jpg",array(
@@ -48,4 +48,10 @@ $this->addItem("xui.form-file-image-thumbnail","xui_dashboard_user_background","
 ));
 
 $this->addItem("xui.panel-end");
-$this->addItem("xui.box-1x1-end");
+$this->addItem("xui.box-1x2-separator");
+$this->addItem("xui.panel-begin");
+
+$this->addItem("xui.form-enable", "login_has_select_language",0);
+
+$this->addItem("xui.panel-end");
+$this->addItem("xui.box-1x2-end");

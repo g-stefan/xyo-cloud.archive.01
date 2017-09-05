@@ -100,3 +100,11 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	border-top-right-radius: 0px;
 }
 
+.xui-form-file-image-thumbnail__link{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border-top-right-radius: 0px;
+	text-decoration: none;
+}
+

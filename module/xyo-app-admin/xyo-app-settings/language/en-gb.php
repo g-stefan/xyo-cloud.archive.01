@@ -28,3 +28,4 @@ $this->set("label_log_language","Log not found language index");
 $this->set("title_log","Log");
 
 $this->set("label_xui_dashboard_user_background","Dashboard user background");
+$this->set("label_login_has_select_language","Login has select language");
