@@ -47,7 +47,6 @@ if(strlen($fileName)){
 						};
 					};
 				};
-				$this->setElementValue($element,$fileName);
 				$this->setElementValue($element."_delete",0);
 				$isOk=true;
 			} else {
@@ -57,10 +56,10 @@ if(strlen($fileName)){
 	};
 };
 
-$fileName=$this->getElementValue($element."_file","");
 $elementDelete = $this->getElementValue($element."_delete");
-if(strlen($elementDelete)){
+if(strlen($elementDelete)){	
 	if(1*$elementDelete==1){
+		$fileDelete=$this->getElementValue($element."_file","");
 		$readonly=$this->getArgument("readonly",array());
 		$toDel=true;
 		foreach($readonly as $key=>$value){
@@ -70,15 +69,37 @@ if(strlen($elementDelete)){
 			};
 		};
 		if($toDel){
-			if(file_exists($fileName)){
-				@unlink($fileName);
+			if(file_exists($fileDelete)){
+				@unlink($fileDelete);
 			};
 		};
-		$this->setElementValue($element,"");		
+		$this->setElementValue($element,"");
 		$isOk=true;
 	};
 };
 
 if(!$isOk){
-	$this->setElementValue($element,$this->getElementValue($element."_file",""));	
+	$value=$this->getElementValue($element."_value","");
+	$this->setElementValue($element,$value);
+	$list=str_getcsv($value,",","\"","\\");
+	$fileName=$list[0];
 };
+
+$this->setElementValue($element."_offset_x",number_format(1*$this->getElementValue($element."_offset_x",0),0,".",""));
+$this->setElementValue($element."_offset_y",number_format(1*$this->getElementValue($element."_offset_y",0),0,".",""));
+$this->setElementValue($element."_zoom",number_format($this->getElementValue($element."_zoom",1),4,".",""));
+$this->setElementValue($element."_width",number_format(1*$this->getElementValue($element."_width",320),0,".",""));
+$this->setElementValue($element."_height",number_format(1*$this->getElementValue($element."_height",240),0,".",""));
+$this->setElementValue($element."_view_x",number_format(1*$this->getElementValue($element."_view_x",320),0,".",""));
+$this->setElementValue($element."_view_y",number_format(1*$this->getElementValue($element."_view_y",240),0,".",""));
+
+$value="\"".$fileName."\",";
+$value.=$this->getElementValue($element."_offset_x").",";
+$value.=$this->getElementValue($element."_offset_y").",";
+$value.=$this->getElementValue($element."_zoom").",";
+$value.=$this->getElementValue($element."_width").",";
+$value.=$this->getElementValue($element."_height").",";
+$value.=$this->getElementValue($element."_view_x").",";
+$value.=$this->getElementValue($element."_view_y");
+$this->setElementValue($element,$value);	
+

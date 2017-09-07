@@ -65,11 +65,29 @@ if($dsUser->load(0,1)){
 };
 //
 $img=$this->cloud->get("xui_dashboard_user_background","lib/xyo/images/mountains-1985027_640.jpg");
+
+$modImage=&$this->getModule("xui-form-file-image");
+echo "<style>";
+echo ".xui-user__content__background__img{";
+$modImage->eImageCss($img);
+echo "}";
+echo ".xui-user__image__img__src{";
+$modImage->eImageCss($userImage);
+echo "}";
+echo ".xui-user__image__img{";
+echo "display: block;";
+echo "position: relative;";
+echo "width: 133.4%;";
+echo "height: 100%;";
+echo "left: -16.67%;";
+echo "}";
+echo "</style>";
 //
-echo "<div class=\"xui-user__content\" style=\"background-image:url('".$this->site.$img."');\">";
+echo "<div class=\"xui-user__content\" style=\"background-image:none;\">";
+echo "<div class=\"xui-user__content__background__img\"></div>";
 echo "<div class=\"xui-user__background\"></div>";
 if(strlen($userImage)>0){
-	echo "<div class=\"xui-user__image xui--elevation-2\" style=\"background-image:url('".$this->site.$userImage."');\"></div>";
+	echo "<div class=\"xui-user__image xui--elevation-2\" style=\"background-image:none;overflow: hidden;\"><div class=\"xui-user__image__img\"><div class=\"xui-user__image__img__src\"></div></div></div>";
 }else{
 	echo "<div class=\"xui-user__image xui--elevation-2\"></div>";
 };

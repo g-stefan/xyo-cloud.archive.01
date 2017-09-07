@@ -46,7 +46,6 @@ $this->setModule("xui",null,"xui-form-text-button-group");
 $this->setModule("xui",null,"xui-form-textarea");
 $this->setModule("xui",null,"xui-form-textarea-material");
 $this->setModule("xui",null,"xui-form-file");                             
-$this->setModule("xui",null,"xui-form-file-image-thumbnail");
 $this->setModule("xui",null,"xui-toggle");
 $this->setModule("xui",null,"xui-dashboard");
 $this->setModule("xui",null,"xui-box");
@@ -66,6 +65,10 @@ $this->setModule("lib",null,"lib-md5");
 $this->setModule("lib",null,"lib-pear-archive-tar");
 $this->setModule("lib",null,"lib-izimodal");
 $this->setModule("lib",null,"lib-cropit");
+//
+//
+$this->setModule("xui",null,"xui-form-file-image");
+//
 //
 $this->setModule(null,null,"xyo");
 //

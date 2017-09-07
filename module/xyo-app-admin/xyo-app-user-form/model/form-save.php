@@ -70,7 +70,7 @@ $this->ds->email = $this->getElementValueStr("email","");
 
 if ($this->ds->save()) {
 
-	$this->processComponent("xui.form-file-image-thumbnail",array(
+	$this->processComponent("xui.form-file-image",array(
 	"element" => "picture",
 	"filename"=>"repository/xyo-user/".$this->ds->id."-".$this->ds->username."-picture-".time(),
 	"extension"=>true,

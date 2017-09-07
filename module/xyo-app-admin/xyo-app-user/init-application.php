@@ -23,7 +23,7 @@ $this->requireComponent(array(
 	"xui.form-text",
 	"xui.form-textarea",
 	"xui.form-select",
-	"xui.form-file-image-thumbnail",
+	"xui.form-file-image",
 
 	"xui.box-1x2-begin",
 	"xui.box-1x2-separator",

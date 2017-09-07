@@ -20,7 +20,7 @@ $this->requireComponent(array(
 	"xui.form-textarea",
 	"xui.form-username",
 	"xui.form-password",
-	"xui.form-file-image-thumbnail",
+	"xui.form-file-image",
 	"xui.form-email",
 
 	"xui.panel-begin",

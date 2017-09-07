@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->generateComponent("xui.box-1x2-begin");
 $this->generateComponent("xui.panel-begin",array("title"=> "form_title_user"));
 
-$this->generateComponent("xui.form-file-image-thumbnail", array("element" => "picture","thumbnail-size"=>array(320,240)));
+$this->generateComponent("xui.form-file-image", array("element" => "picture", "view_x"=>320, "view_y"=>240));
 $this->generateComponent("xui.form-textarea", array("element" => "description"));
 
 $this->generateComponent("xui.panel-end");

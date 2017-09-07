@@ -38,8 +38,8 @@ $this->addItem("xui.box-1x2-end");
 $this->addItem("xui.box-1x2-begin");
 $this->addItem("xui.panel-begin");
 
-$this->addItem("xui.form-file-image-thumbnail","xui_dashboard_user_background","lib/xyo/images/mountains-1985027_640.jpg",array(
-	"thumbnail-size"=>array(320,240),
+$this->addItem("xui.form-file-image","xui_dashboard_user_background","lib/xyo/images/mountains-1985027_640.jpg",array(
+	"view_x"=>320,"view_y"=>240,
 	"collapse"=>false,
 	"filename"=>"repository/xyo-user/xui-dashboard-user-background-picture-".time(),
 	"extension"=>true,

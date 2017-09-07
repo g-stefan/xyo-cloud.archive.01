@@ -24,6 +24,6 @@ $this->requireModule("xui-form-textarea-material");
 $this->requireModule("xui-form-text-icon-left");
 $this->requireModule("xui-form-text-icon-right");
 $this->requireModule("xui-form-file");
-$this->requireModule("xui-form-file-image-thumbnail");
+$this->requireModule("xui-form-file-image");
 $this->requireModule("xui-form-captcha");
 $this->requireModule("xui-list-group");
