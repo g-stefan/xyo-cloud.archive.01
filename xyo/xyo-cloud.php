@@ -1469,7 +1469,7 @@ class xyo_Cloud extends xyo_Config {
 		};
 		
 		//
-		$this->set("version", "5.2.0.0");
+		$this->set("version", "5.2.1.0");
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);

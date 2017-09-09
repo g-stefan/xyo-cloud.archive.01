@@ -20,6 +20,7 @@ $this->setModule("lib",null,"lib-normalize");
 $this->setModule("lib",null,"lib-select2");
 $this->setModule("lib",null,"lib-air-datepicker");
 $this->setModule("lib",null,"lib-tinymce");
+$this->setModule("lib",null,"lib-cropit");
 //
 $this->setModule(null,null,"xui");
 $this->setModule("xui",null,"xui-core");
@@ -56,6 +57,7 @@ $this->setModule("xui",null,"xui-image-captcha");
 $this->setModule("xui",null,"xui-form-captcha");
 $this->setModule("xui",null,"xui-list-group");
 $this->setModule("xui",null,"xui-alert");
+$this->setModule("xui",null,"xui-form-file-image");
 //
 //
 $this->setModule("lib",null,"lib-js-cookie");
@@ -64,10 +66,6 @@ $this->setModule("lib",null,"lib-jquery-stickytableheaders");
 $this->setModule("lib",null,"lib-md5");
 $this->setModule("lib",null,"lib-pear-archive-tar");
 $this->setModule("lib",null,"lib-izimodal");
-$this->setModule("lib",null,"lib-cropit");
-//
-//
-$this->setModule("xui",null,"xui-form-file-image");
 //
 //
 $this->setModule(null,null,"xyo");

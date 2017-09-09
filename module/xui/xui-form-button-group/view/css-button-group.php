@@ -12,6 +12,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
+.xui-form-button-group {
+	border-radius: 4px;	
+}
+
 .xui-form-button-group .xui-form-button {
 	border-radius: 0px;	
 }

@@ -299,12 +299,21 @@ class xyo_Module extends xyo_Config {
 	}
 
 	public function setElementPrefix($name) {
-		$this->elementPrefix = $name;
+		$this->elementPrefix = $name;		
 		$this->elementPrefixV = $name . "_";
 	}
 
 	public function getElementPrefix() {
 		return $this->elementPrefix;
+	}
+
+	public function clearElementPrefix() {
+		$this->elementPrefix = "";
+		$this->elementPrefixV = "";
+	}
+
+	public function resetElementPrefix() {
+		$this->setElementPrefix("e");
 	}
 
 	public function getElementName($name) {
