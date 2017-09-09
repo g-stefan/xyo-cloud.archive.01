@@ -21,22 +21,22 @@ foreach ($path as $key => $value) {
 
 $this->generateComponent("xui.form-action-begin");
 
-?>
-		 <div class="xui-form-button-group xui--right">
-                    	<input type="submit" class="xui-form-button xui-form-button--default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" ></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--default" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" ></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--<?php if($allOk){echo "primary";}else{echo "disabled";}; ?>" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" <?php if(!$allOk){echo "disabled=\"disabled\" ";}; ?> ></input>
-		</div>
-		<div class="xui-separator"></div>
+echo "<div class=\"xui--right\">";
+$this->generateComponent("xui.form-submit-button-group",array("group"=>array(
+	"back"=>"default",
+	"try"=>"default",
+	"next"=>$allOk?"primary":"disabled"
+)));
+echo "</div>";
+echo "<div class=\"xui-separator\"></div>";
+echo "<br />";
 
-<br />
 
-<?php if($allOk){ ?>
-	<?php $this->generateViewLanguage("msg-check-ok"); ?>
-<?php }else{ ?>
-	<?php $this->generateViewLanguage("msg-check-error"); ?>
-	<ul class="list-group">
-<?php
+if($allOk){
+	$this->generateViewLanguage("msg-check-ok");
+}else{
+	$this->generateViewLanguage("msg-check-error");
+	echo "<ul class=\"list-group\">";
 
 		foreach ($path as $key => $value) {
 			if ($value == "yes") {
@@ -48,16 +48,15 @@ $this->generateComponent("xui.form-action-begin");
                         echo "</li>";
 		};
 
-?>
-	</ul>
-<?php }; ?>
+	echo "</ul>";
+};
 
-<?php
-                    $this->eFormRequest(array(
-                        "back" => "licence",
-                        "this" => "check",
-                        "next" => "datasource",
-                        "website_language" => $this->getSystemLanguage()
-                    ));
+
+$this->eFormRequest(array(
+	"back" => "licence",
+	"this" => "check",
+	"next" => "datasource",
+	"website_language" => $this->getSystemLanguage()
+));
 
 $this->generateComponent("xui.form-action-end");

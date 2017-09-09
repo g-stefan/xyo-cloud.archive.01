@@ -22,22 +22,22 @@ foreach ($selectDatasource as $key => $value) {
 
 $this->generateComponent("xui.form-action-begin");
 
-?>
-		<div class="xui-form-button-group xui--right">
-                    	<input type="submit" class="xui-form-button xui-form-button--default" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" ></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--<?php if($allOk){echo "disabled";}else{echo "default";}; ?>" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" <?php if($allOk){echo "disabled=\"disabled\" ";}; ?>></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--<?php if($allOk){echo "primary";}else{echo "disabled";}; ?>" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" <?php if(!$allOk){echo "disabled=\"disabled\" ";}; ?>></input>
-		</div>
-		<div class="xui-separator"></div>
+echo "<div class=\"xui--right\">";
+$this->generateComponent("xui.form-submit-button-group",array("group"=>array(
+	"back"=>"default",
+	"try"=>$allOk?"disabled":"default",
+	"next"=>$allOk?"primary":"disabled"
+)));
+echo "</div>";
+echo "<div class=\"xui-separator\"></div>";
+echo "<br />";
 
-<br />
-
-<?php if($allOk){ ?>
-	<?php $this->generateViewLanguage("msg-install-ok"); ?>
-<?php }else{
-		if ($this->isError()) {
-             		$this->generateView("msg-error");
-                }
+if($allOk){
+	$this->generateViewLanguage("msg-install-ok");
+}else{
+	if ($this->isError()) {
+		$this->generateView("msg-error");
+	}
 
 ?>
 	<ul class="list-group">

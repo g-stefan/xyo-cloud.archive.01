@@ -11,41 +11,33 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->generateComponent("xui.form-action-begin",array("action"=>$this->getFormActionRouteModule("administrator.php","xyo-app-dashboard")));
 
-?>
+echo "<div class=\"xui--right\">";
+$this->generateComponent("xui.form-submit-button-group",array("group"=>array(
+	"back"=>"disabled",
+	"try"=>"disabled",
+	"next"=>"success"
+)));
+echo "</div>";
+echo "<div class=\"xui-separator\"></div>";
+echo "<br />";
 
-		<div class="xui-form-button-group xui--right">
-                    	<input type="submit" class="xui-form-button xui-form-button--disabled" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" disabled="disabled"></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--disabled" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" disabled="disabled"></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--success" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>" ></input>
-		</div>
-		<div class="xui-separator"></div>
+$this->generateViewLanguage("msg-done");
 
-<br />
+if ($this->isError()) {
+	$this->generateView("msg-error");
+};
 
-<?php $this->generateViewLanguage("msg-done"); ?>
+// set datasource loader
+$this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
 
-<?php
-
-        if ($this->isError()) {
-            $this->generateView("msg-error");
-        };
-
-?>
-    
-<?php
-
-    // set datasource loader
-    $this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
-
-    $administrator = $this->getRequest("administrator_username");
-    if ($administrator) {
-        $this->accessControlList->reloadDataSource();
-        $this->user->reloadDataSource();
-        $authorization = $this->user->getAuthorizationRequestDirect($administrator);
-        if ($authorization) {
-            $this->eFormBuildRequest($authorization);
-        };
-    };
+$administrator = $this->getRequest("administrator_username");
+if ($administrator) {
+	$this->accessControlList->reloadDataSource();
+	$this->user->reloadDataSource();
+	$authorization = $this->user->getAuthorizationRequestDirect($administrator);
+	if ($authorization) {
+		$this->eFormBuildRequest($authorization);
+	};
+};
 
 $this->generateComponent("xui.form-action-end");
-

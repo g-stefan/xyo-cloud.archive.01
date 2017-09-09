@@ -16,16 +16,17 @@ $languageList = array(
 
 $this->generateComponent("xui.form-action-begin");
 
+echo "<div class=\"xui--right\">";
+$this->generateComponent("xui.form-submit-button-group",array("group"=>array(
+	"back"=>"disabled",
+	"try"=>"disabled",
+	"next"=>"primary"
+)));
+echo "</div>";
+echo "<div class=\"xui-separator\"></div>";
+echo "<br />";
+
 ?>
-
-		 <div class="xui-form-button-group xui--right">
-                    	<input type="submit" class="xui-form-button xui-form-button--disabled" name="<?php $this->eElementName("back"); ?>" value="<?php $this->eLanguage("cmd_back"); ?>" disabled="disabled"></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--disabled" name="<?php $this->eElementName("try"); ?>" value="<?php $this->eLanguage("cmd_try"); ?>" disabled="disabled"></input><!--
-                    	--><input type="submit" class="xui-form-button xui-form-button--primary" name="<?php $this->eElementName("next"); ?>" value="<?php $this->eLanguage("cmd_next"); ?>"></input>
-		</div>
-		<div class="xui-separator"></div>
-
-<br />
 			<label for="website_language" class="xui-form-label">
 			<?php $this->generateViewLanguage("msg-language"); ?>
 			</label>

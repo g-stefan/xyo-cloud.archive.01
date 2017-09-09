@@ -43,5 +43,6 @@ $this->requireComponent(array(
 	"xui.form-text-icon-left",
 	"xui.form-username",
 	"xui.form-password",
-	"xui.list-group"
+	"xui.list-group",
+	"xui.form-submit-button-group"
 ));

@@ -29,4 +29,3 @@ $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,true,fals
 $this->setModuleGroup("xyo-tpl-install", "xyo-system-exec");
 $this->setModuleAsApplication("xyo-app-install");
 $this->setApplication("xyo-app-install");
-
