@@ -969,9 +969,16 @@ class xyo_datasource_csv_Table extends xyo_Config {
 			if (is_array($this->$key_)) {
 				$found_ = false;
 				foreach ($this->$key_ as $v_) {
-					if ($v_ == $row[$key_]) {
-						$found_ = true;
-						break;
+					if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+						if (strcasecmp($v_,$row[$key_])==0) {
+							$found_ = true;
+							break;
+						};
+					}else{
+						if ($v_ == $row[$key_]) {
+							$found_ = true;
+							break;
+						};
 					};
 				};
 				if ($found_) {
@@ -986,9 +993,16 @@ class xyo_datasource_csv_Table extends xyo_Config {
 					break;
 				}
 			} else {
-				if ($this->$key_ != $row[$key_]) {
-					$retV = false;
-					break;
+				if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+					if (strcasecmp($this->$key_ , $row[$key_])!=0) {
+						$retV = false;
+						break;
+					};
+				}else{
+					if ($this->$key_ != $row[$key_]) {
+						$retV = false;
+						break;
+					};
 				};
 			};
 		};
@@ -1027,8 +1041,15 @@ class xyo_datasource_csv_Table extends xyo_Config {
 						$v1=strtotime($v1);
 						$v2=strtotime($v2);
 					};
-					if(($val_ >=$v1)&&($val_ <=$v2)) {
-						$bRet=true;
+
+					if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+						if((strcasecmp($val_,$v1)>=0)&&(strcasecmp($val_,$v2)<=0)) {
+							$bRet=true;
+						};
+					}else{
+						if(($val_ >=$v1)&&($val_ <=$v2)) {
+							$bRet=true;
+						};
 					};
 
 				} else if($value_[2]==2) {
@@ -1053,9 +1074,17 @@ class xyo_datasource_csv_Table extends xyo_Config {
 						$v1=strtotime($v1);
 						$v2=strtotime($v2);
 					};
-					if(($val_ >=$v1)&&($val_ <=$v2)) {
-					} else {
-						$bRet=true;
+
+					if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+						if((strcasecmp($val_,$v1)>=0)&&(strcasecmp($val_,$v2)<=0)) {
+						}else{
+							$bRet=true;		
+						};
+					}else{
+						if(($val_ >=$v1)&&($val_ <=$v2)) {
+						} else {
+							$bRet=true;
+						};
 					};
 				} else if($value_[2]==3) {
 					if(is_null($row[$key_])) {
@@ -1082,8 +1111,15 @@ class xyo_datasource_csv_Table extends xyo_Config {
 						} else {
 							$v1=$value_[3];
 						};
-						if($chk==$v1) {
-							$bRet=true;
+
+						if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+							if(strcasecmp($chk,$v1)==0) {
+								$bRet=true;
+							};
+						}else{
+							if($chk==$v1) {
+								$bRet=true;
+							};
 						};
 					};
 				} else if($value_[2]==6) {
@@ -1112,8 +1148,14 @@ class xyo_datasource_csv_Table extends xyo_Config {
 							$v1=strtotime($v1);
 						};
 
-						if($chk<$v1) {
-							$bRet=true;
+						if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+							if(strcasecmp($chk,$v1)<0) {
+								$bRet=true;
+							};
+						}else{
+							if($chk<$v1) {
+								$bRet=true;
+							};
 						};
 					};
 				} else if($value_[2]==7) {
@@ -1142,8 +1184,14 @@ class xyo_datasource_csv_Table extends xyo_Config {
 							$v1=strtotime($v1);
 						};
 
-						if($chk>$v1) {
-							$bRet=true;
+						if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+							if(strcasecmp($chk,$v1)>0) {
+								$bRet=true;
+							};
+						}else{
+							if($chk>$v1) {
+								$bRet=true;
+							};
 						};
 					};
 				} else if($value_[2]==8) {
@@ -1172,8 +1220,14 @@ class xyo_datasource_csv_Table extends xyo_Config {
 							$v1=strtotime($v1);
 						};
 
-						if($chk<=$v1) {
-							$bRet=true;
+						if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+							if(strcasecmp($chk,$v1)<=0) {
+								$bRet=true;
+							};
+						}else{
+							if($chk<=$v1) {
+								$bRet=true;
+							};
 						};
 					};
 				} else if($value_[2]==9) {
@@ -1202,8 +1256,14 @@ class xyo_datasource_csv_Table extends xyo_Config {
 							$v1=strtotime($v1);
 						};
 
-						if($chk>=$v1) {
-							$bRet=true;
+						if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+							if(strcasecmp($chk,$v1)>=0) {
+								$bRet=true;
+							};
+						}else{
+							if($chk>=$v1) {
+								$bRet=true;
+							};
 						};
 					};
 				} else if($value_[2]==10) {
@@ -1222,8 +1282,15 @@ class xyo_datasource_csv_Table extends xyo_Config {
 						} else {
 							$v1=$value_[3];
 						};
-						if($chk!=$v1) {
-							$bRet=true;
+
+						if(($this->fieldType_[$key_]=="text") || ($this->fieldType_[$key_]=="varchar")){
+							if(strcasecmp($chk,$v1)!=0) {
+								$bRet=true;
+							};
+						}else{
+							if($chk!=$v1) {
+								$bRet=true;
+							};
 						};
 					};
 				} else if($value_[2]==11) {
