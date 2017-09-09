@@ -10,9 +10,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->set("application_title","Instalare");
 
-$this->set("cmd_next", "Inainte");
-$this->set("cmd_back", "Inapoi");
-$this->set("cmd_try", "Incearca din nou");
+$this->set("button_next", "Inainte");
+$this->set("button_back", "Inapoi");
+$this->set("button_try", "Incearca din nou");
 
 $this->set("panel_welcome", "Bine ai venit");
 $this->set("panel_package", "Pachet");

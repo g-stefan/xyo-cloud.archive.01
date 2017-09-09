@@ -44,6 +44,7 @@ $this->requireComponent(array(
 	"xui.panel2-begin",
 	"xui.panel2-content",
 	"xui.panel2-footer",
-	"xui.panel2-end"
+	"xui.panel2-end",
+	"xui.form-submit-button-group"
 ));
 

@@ -10,9 +10,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->set("application_title","Install");
 
-$this->set("cmd_next","Next");
-$this->set("cmd_back","Back");
-$this->set("cmd_try","Try again");
+$this->set("button_next","Next");
+$this->set("button_back","Back");
+$this->set("button_try","Try again");
 
 $this->set("panel_welcome", "Welcome");
 $this->set("panel_package", "Package");
