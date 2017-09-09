@@ -18,6 +18,7 @@ $this->requireModule("xui-form-label");
 $this->requireModule("xui-form-radio");
 $this->requireModule("xui-form-select");
 $this->requireModule("xui-form-text");
+$this->requireModule("xui-form-text-material");
 $this->requireModule("xui-form-text-button-group");
 $this->requireModule("xui-form-textarea");
 $this->requireModule("xui-form-textarea-material");

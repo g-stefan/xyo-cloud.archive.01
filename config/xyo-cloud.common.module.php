@@ -41,6 +41,7 @@ $this->setModule("xui",null,"xui-form-label");
 $this->setModule("xui",null,"xui-form-radio");
 $this->setModule("xui",null,"xui-form-select");
 $this->setModule("xui",null,"xui-form-text");
+$this->setModule("xui",null,"xui-form-text-material");
 $this->setModule("xui",null,"xui-form-text-icon-left");
 $this->setModule("xui",null,"xui-form-text-icon-right");
 $this->setModule("xui",null,"xui-form-text-button-group");

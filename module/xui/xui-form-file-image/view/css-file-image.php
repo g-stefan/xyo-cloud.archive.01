@@ -26,8 +26,10 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 
 	box-sizing: border-box;
 	
-	overflow: hidden;
+	overflow: visible;
 	width: 100%;
+
+	border-radius: 3px;
 }
 
 .xui-form-file-image__delete{
