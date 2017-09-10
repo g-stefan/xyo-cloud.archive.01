@@ -24,12 +24,14 @@ $layer=$this->getElementValueStr("layer","xyo");
     }
 </script>
 
+<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" class="xui-application-form">
+
 <?php
+
 $this->generateComponent("xui.box-1x1-begin");
 $this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLanguage($formTitle)));
 
 ?>
-                <form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" >
 
 			
 						<label class="xui-form-label" for="<?php $this->eElementId("connection"); ?>">
@@ -46,12 +48,14 @@ $this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLan
 
                     <input type="hidden" name="action" value="default" />
 					<input type="hidden" name="<?php $this->eElementName("id"); ?>" value="<?php echo $this->eElementValue("id", 0); ?>" />
-					<?php $this->eFormRequest(); ?>
-                </form>
 
 <?php 
 
+$this->eFormRequest();
+
 $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x1-end");
+
+echo "</form>";
 
 $this->generateView("view-return");

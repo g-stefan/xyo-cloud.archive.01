@@ -8,21 +8,25 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+echo "<forn name=\"x\" class=\"xui-application-form\">";
 $this->generateComponent("xui.box-1x1-begin");
 $this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLanguage("backup_title")));
 
 ?>
 
-<div id="progress_bar1" class="progress">
-	<div id="progress_bar1_slider" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-		<span id="progress_bar1_text">0%</span>
-	</div>
+<div id="progress_bar1" class="xui-progress-bar xui-progress-bar--success xui--elevation-1">
+	<div class="xui-progress-bar__bar" id="progress_bar1_slider"></div>
+	<div class="xui-progress-bar__label" id="progress_bar1_text">0%</div>
 </div>
-<div id="progress_bar2" class="progress">
-	<div id="progress_bar2_slider" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-		<span id="progress_bar2_text">0%</span>
-	</div>
+
+<br />
+
+<div id="progress_bar2" class="xui-progress-bar xui-progress-bar--info xui--elevation-1">
+	<div class="xui-progress-bar__bar" id="progress_bar2_slider"></div>
+	<div class="xui-progress-bar__label" id="progress_bar2_text">0%</div>
 </div>
+
+<br />
 
 <div id="status_info"></div>
 
@@ -31,16 +35,17 @@ $this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLan
 
 $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x1-end");
+echo "</form>";
 
 $this->ejsBegin(); ?>
 
 function progressBarSetProcent1(procent){
-	$("#progress_bar1_slider").css("width",procent+"%").attr("aria-valuenow", procent);
+	$("#progress_bar1_slider").css("width",procent+"%");
 	$("#progress_bar1_text").html(procent+"%");
 }
 
 function progressBarSetProcent2(procent){
-	$("#progress_bar2_slider").css("width",procent+"%").attr("aria-valuenow", procent);
+	$("#progress_bar2_slider").css("width",procent+"%");
 	$("#progress_bar2_text").html(procent+"%");
 }
 

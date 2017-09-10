@@ -21,3 +21,5 @@ $this->requireComponent(array(
 	"xui.box-1x1-begin",
 	"xui.box-1x1-end",
 ));
+                      
+$this->requireModule("xui-progress-bar");
