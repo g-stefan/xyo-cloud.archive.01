@@ -64,10 +64,6 @@ body{
 }
 
 .xui-panel__content .xui-form-button.xui-form-button--primary{
-	position: relative;
-	display: block;
 	width: 144px;
-	margin-right: auto;
-	margin-left: auto;
 }
 

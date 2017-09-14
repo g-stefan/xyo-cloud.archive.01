@@ -81,7 +81,9 @@ $this->generateComponent("xui.separator");
 
 ?>
 
-<input type="submit" class="xui-form-button xui-form-button--primary xui--elevation-2" name="<?php $this->eElementName("login"); ?>" value="<?php $this->eLanguage("cmd_login"); ?>" ></input>
+<div style="display:block;text-align:center;">
+	<input type="submit" class="xui-form-button xui-form-button--primary" name="<?php $this->eElementName("login"); ?>" value="<?php $this->eLanguage("cmd_login"); ?>" ></input>
+</div>
 
 <?php
 

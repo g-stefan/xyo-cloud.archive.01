@@ -15,19 +15,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 <?php
 
 $color=$xuiPalette->colorTypeButton["default"];
-$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-20);
-
-$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,5,-10);
-$colorHoverBorder=$xuiColor->rgbHexHSLAdjust($color,0,10,-20);
-
-$colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
+$colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-25);
+$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
 
 .xui-form-button-icon-right{
-	position: relative;
 	display: inline-block;
-        vertical-align: middle;
+	position: relative;
+	vertical-align: middle;
 	user-select: none;
 	cursor: pointer;
 
@@ -37,32 +33,31 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 
 	border-radius: 3px;
 
-	padding-top: 8px;
-	padding-right: 36px;
-	padding-bottom: 8px;
-	padding-left: 12px;
+	padding-top: 7px;
+	padding-left: 11px;
+	padding-bottom: 7px;
+	padding-right: 35px;
 
 	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
 	margin-left: 0px;
+	margin-bottom: 3px;
+	margin-right: 0px;
 
 	box-sizing: border-box;
 
 	color: <?php echo $xuiPalette->colorTypeButtonText["default"]; ?>;
 	background-color: <?php echo $color; ?>;
-	border-top: 0px solid <?php echo $colorBorder; ?>; 
-	border-right: 0px solid <?php echo $colorBorder; ?>;
-	border-bottom: 4px solid <?php echo $colorBorder; ?>;
-	border-left: 0px solid <?php echo $colorBorder; ?>;
 
 	font-family: "Roboto", sans-serif;
+
+	border: 1px solid <?php echo $colorHover; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
 .xui-form-button-icon-right i{
 	position: absolute;
-	top: 6px;
-	right: 6px;
+	top: 5px;
+	right: 5px;
 }
 
 .xui-form-button-icon-right:focus{
@@ -70,64 +65,61 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 }
 
 .xui-form-button-icon-right:hover, .xui-form-button-icon-right:focus{
+	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
-	border-top: 0px solid <?php echo $colorHoverBorder; ?>; 
-	border-right: 0px solid <?php echo $colorHoverBorder; ?>;
-	border-bottom: 4px solid <?php echo $colorHoverBorder; ?>;
-	border-left: 0px solid <?php echo $colorHoverBorder; ?>;
 }
 
 .xui-form-button-icon-right:active{
-	background-color: <?php echo $colorAction; ?>;
+	border: 1px solid <?php echo $colorHover; ?>;
+	background-color: <?php echo $colorHover; ?>;
 	margin-top: 2px;
-	border-bottom: 2px solid <?php echo $colorHoverBorder; ?>;
+	margin-bottom: 1px;
+	box-shadow: 0px 1px 0px 0px <?php echo $colorWall; ?>;
 }
 
 /* --- */
 
+.xui-form-button-icon-right--default{
+}
+
 <?php 
 
 foreach($xuiPalette->colorTypeButton as $key=>$value){
+	if($key=="default"){
+		continue;
+	};
 	if($key=="disabled"){
 		continue;
 	};
 
 	$color=$value;
-	$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-20);
-
-	$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,5,-10);
-	$colorHoverBorder=$xuiColor->rgbHexHSLAdjust($color,0,10,-20);
-
-	$colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
+	$colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-15);
+	$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
 .xui-form-button-icon-right--<?php echo $key; ?>{
 	color: <?php echo $xuiPalette->colorTypeButtonText[$key]; ?>;
 	background-color: <?php echo $color; ?>;
-	border-top: 0px solid <?php echo $colorBorder; ?>; 
-	border-right: 0px solid <?php echo $colorBorder; ?>;
-	border-bottom: 4px solid <?php echo $colorBorder; ?>;
-	border-left: 0px solid <?php echo $colorBorder; ?>;
+	border: 1px solid <?php echo $color; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
 .xui-form-button-icon-right--<?php echo $key; ?>:hover, .xui-form-button-icon-right--<?php echo $key; ?>:focus{
+	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
-	border-top: 0px solid <?php echo $colorHoverBorder; ?>; 
-	border-right: 0px solid <?php echo $colorHoverBorder; ?>;
-	border-bottom: 4px solid <?php echo $colorHoverBorder; ?>;
-	border-left: 0px solid <?php echo $colorHoverBorder; ?>;
 }
 
 .xui-form-button-icon-right--<?php echo $key; ?>:active{
-	background-color: <?php echo $colorAction; ?>;
-	margin-top: 2px;
-	border-bottom: 2px solid <?php echo $colorHoverBorder; ?>;
+	border: 1px solid <?php echo $colorHover; ?>;
+	background-color: <?php echo $colorHover; ?>;
+	box-shadow: 0px 1px 0px 0px <?php echo $colorWall; ?>;
 }
 
 <?php }; 
 
 $color=$xuiPalette->colorTypeButton["disabled"];
-$colorBorder=$xuiColor->rgbHexHSLAdjust($value,0,0,-20);
+$colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-20);
+$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
 
@@ -135,17 +127,26 @@ $colorBorder=$xuiColor->rgbHexHSLAdjust($value,0,0,-20);
 	cursor: default;
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
-	border-top: 0px solid <?php echo $colorBorder; ?>; 
-	border-right: 0px solid <?php echo $colorBorder; ?>;
-	border-bottom: 4px solid <?php echo $colorBorder; ?>;
-	border-left: 0px solid <?php echo $colorBorder; ?>;
+	border: 1px solid <?php echo $color; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
 .xui-form-button-icon-right--disabled:hover, .xui-form-button-icon-right--disabled:focus{
-
+	cursor: default;
+	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
+	background-color: <?php echo $color; ?>;
+	border: 1px solid <?php echo $color; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
 .xui-form-button-icon-right--disabled:active{
+	cursor: default;
+	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
+	background-color: <?php echo $color; ?>;
+	border: 1px solid <?php echo $color; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
+	margin-top: 0px;
+	margin-bottom: 3px;
 }
 
 /* --- */

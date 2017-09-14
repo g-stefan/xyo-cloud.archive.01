@@ -9,12 +9,8 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $color=$xuiPalette->colorTypeButton["default"];
-$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-20);
-
-$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,5,-10);
-$colorHoverBorder=$xuiColor->rgbHexHSLAdjust($color,0,10,-20);
-
-$colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
+$colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-25);
+$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
 
@@ -51,24 +47,22 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 0px;
 
-	padding-top: 8px;
-	padding-left: 36px;
-	padding-bottom: 8px;
-	padding-right: 12px;
+	padding-top: 7px;
+	padding-left: 35px;
+	padding-bottom: 7px;
+	padding-right: 11px;
 
 	margin-top: 0px;
 	margin-left: 0px;
-	margin-bottom: 0px;
+	margin-bottom: 3px;
 	margin-right: 0px;
 
 	box-sizing: border-box;
 
 	color: <?php echo $xuiPalette->colorTypeButtonText["default"]; ?>;
 	background-color: <?php echo $color; ?>;
-	border-top: 0px solid <?php echo $colorBorder; ?>; 
-	border-right: 0px solid <?php echo $colorBorder; ?>;
-	border-bottom: 4px solid <?php echo $colorBorder; ?>;
-	border-left: 0px solid <?php echo $colorBorder; ?>;
+	border: 1px solid <?php echo $colorHover; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 
 	font-family: "Roboto", sans-serif;
 
@@ -101,16 +95,15 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 }
 
 .xui-form-file__file:hover + label, .xui-form-file__file:focus + label, .xui-form-file__file + label:hover, .xui-form-file__file.xui-form-file__file--focus + label{
+	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
-	border-top: 0px solid <?php echo $colorHoverBorder; ?>; 
-	border-right: 0px solid <?php echo $colorHoverBorder; ?>;
-	border-bottom: 4px solid <?php echo $colorHoverBorder; ?>;
-	border-left: 0px solid <?php echo $colorHoverBorder; ?>;
 }
 
 .xui-form-file__file:active + label{
-	background-color: <?php echo $colorAction; ?>;
+	border: 1px solid <?php echo $colorHover; ?>;
+	background-color: <?php echo $colorHover; ?>;
 	margin-top: 2px;
-	border-bottom: 2px solid <?php echo $colorHoverBorder; ?>;
+	margin-bottom: 1px;
+	box-shadow: 0px 1px 0px 0px <?php echo $colorWall; ?>;
 }
 

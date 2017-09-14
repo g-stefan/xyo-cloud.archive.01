@@ -8,14 +8,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$color=$xuiPalette->colorTypeButton["default"];
-$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-20);
-
-$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,5,-10);
-$colorHoverBorder=$xuiColor->rgbHexHSLAdjust($color,0,10,-20);
-
-$colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
-
 ?>
 
 /* --- */
@@ -77,7 +69,7 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 .xui-form-file-image .xui-form-file{
 	display: block;
 	width: 100%;
-	height: 40px;
+	height: 39px;
 
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
@@ -89,10 +81,12 @@ $colorAction=$xuiColor->rgbHexHSLAdjust($color,0,5,-15);
 	overflow:hidden;
 	top: 0px;
 	left: 0px;
-	right: 44px;
+	right: 46px;
 
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;	
+
+	box-sizing: border-box;
 }
 
 .xui-form-file-image .xui-form-file .xui-form-button-icon{

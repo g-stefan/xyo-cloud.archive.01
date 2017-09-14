@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $group = $this->getArgument("group");
 if(count($group)>0){
 
-	echo "<div class=\"xui-form-button-group xui--elevation-2\">";
+	echo "<div class=\"xui-form-button-group\">";
 
 	foreach($group as $key=>$value){
 		if($value=="disabled"){

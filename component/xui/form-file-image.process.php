@@ -56,6 +56,7 @@ if(strlen($fileName)){
 	};
 };
 
+$isDeleted=false;
 $elementDelete = $this->getElementValue($element."_delete");
 if(strlen($elementDelete)){	
 	if(1*$elementDelete==1){
@@ -75,6 +76,7 @@ if(strlen($elementDelete)){
 		};
 		$this->setElementValue($element,"");
 		$isOk=true;
+		$isDeleted=true;
 	};
 };
 
@@ -93,13 +95,17 @@ $this->setElementValue($element."_height",number_format(1*$this->getElementValue
 $this->setElementValue($element."_view_x",number_format(1*$this->getElementValue($element."_view_x",320),0,".",""));
 $this->setElementValue($element."_view_y",number_format(1*$this->getElementValue($element."_view_y",240),0,".",""));
 
-$value="\"".$fileName."\",";
-$value.=$this->getElementValue($element."_offset_x").",";
-$value.=$this->getElementValue($element."_offset_y").",";
-$value.=$this->getElementValue($element."_zoom").",";
-$value.=$this->getElementValue($element."_width").",";
-$value.=$this->getElementValue($element."_height").",";
-$value.=$this->getElementValue($element."_view_x").",";
-$value.=$this->getElementValue($element."_view_y");
-$this->setElementValue($element,$value);	
+if(!$isDeleted){
+	$value="\"".$fileName."\",";
+	$value.=$this->getElementValue($element."_offset_x").",";
+	$value.=$this->getElementValue($element."_offset_y").",";
+	$value.=$this->getElementValue($element."_zoom").",";
+	$value.=$this->getElementValue($element."_width").",";
+	$value.=$this->getElementValue($element."_height").",";
+	$value.=$this->getElementValue($element."_view_x").",";
+	$value.=$this->getElementValue($element."_view_y");
+	$this->setElementValue($element,$value);
+};
+
+
 

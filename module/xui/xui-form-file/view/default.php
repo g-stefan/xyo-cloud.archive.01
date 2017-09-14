@@ -23,8 +23,8 @@ $xuiPalette=&$this->getModule("xui-palette");
 
 <div class="xui-form-file">
 <input type="file" name="x-file" id="x-file" class="xui-form-file__file"></input>
-<label for="x-file" class="xui--elevation-2"><i class="material-icons">file_upload</i> Browse ...</label><!--
---><button type="button" class="xui-form-button-icon xui-form-button-icon--info xui--elevation-2" onclick="document.getElementById('x-file').value=null;$('#x-file').trigger('change');"><i class="material-icons">delete</i></button>
+<label for="x-file" ><i class="material-icons">file_upload</i> Browse ...</label><!--
+--><button type="button" class="xui-form-button-icon xui-form-button-icon--info" onclick="document.getElementById('x-file').value=null;$('#x-file').trigger('change');"><i class="material-icons">delete</i></button>
 </div>
 
 <br>

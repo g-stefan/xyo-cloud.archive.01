@@ -20,7 +20,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 <?php foreach($xuiPalette->colorTypeButton as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <?php  ?>
-<button type="button" class="xui-form-button-icon-left xui-form-button-icon-left--<?php echo $key; ?> xui--elevation-2"<?php echo $disabled; ?>><i class="material-icons">radio_button_unchecked</i><?php echo $key; ?></button>
+<button type="button" class="xui-form-button-icon-left xui-form-button-icon-left--<?php echo $key; ?>"<?php echo $disabled; ?>><i class="material-icons">radio_button_unchecked</i><?php echo $key; ?></button>
 <br><br>
 <?php }; ?>
 <hr>

@@ -58,10 +58,10 @@ class xui_Palette extends xyo_Module {
 			"warning"=>$this->colorPalette["xui-sunflower"],
 			"danger"=>$this->colorPalette["xui-grapefruit"],
 			"disabled"=>"#DDDDDD"
-		);
+		);	
 
 		$this->colorTypeButton=array(
-			"default"=>$this->colorPalette["xui-light-gray-v1"],
+			"default"=>$this->colorPalette["xui-light-gray"],
 			"primary"=>$this->colorContext["primary"],
 			"success"=>$this->colorContext["success"],
 			"info"=>$this->colorContext["info"],

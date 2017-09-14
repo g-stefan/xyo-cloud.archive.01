@@ -97,10 +97,10 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 		</div>
 		<div class="xui-separator"></div>
 </div><!--<?php  if(strlen($fileName)){ ?>
---><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon--success xui--elevation-2"><i class="material-icons">photo</i></a><!--
+--><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon--success"><i class="material-icons">photo</i></a><!--
 <?php  }; ?>
---><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon--danger xui--elevation-2" onclick="$('#<?php $this->eElementId($element); ?>_delete').val(1);return false;"><i class="material-icons">close</i></button>
-<div class="xui-form-file xui--elevation-2">
+--><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon--danger" onclick="$('#<?php $this->eElementId($element); ?>_delete').val(1);return false;"><i class="material-icons">close</i></button>
+<div class="xui-form-file">
 <input type="file" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" class="xui-form-file__file cropit-image-input" accept="image/*"></input>
 <label for="<?php $this->eElementId($element); ?>"><i class="material-icons">file_upload</i> Browse ...</label><!--
 --><button type="button" class="xui-form-button-icon xui-form-button-icon--info" onclick="document.getElementById('<?php $this->eElementId($element); ?>').value=null;$('#<?php $this->eElementId($element); ?>').trigger('change');"><i class="material-icons">delete</i></button>

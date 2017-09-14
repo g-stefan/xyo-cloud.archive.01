@@ -15,12 +15,12 @@ $xuiPalette=&$this->getModule("xui-palette");
 
 <br>
 <br>
-<form>
+<form style="padding-left: 30px;">
 <hr>
 <?php foreach($xuiPalette->colorTypeButton as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <?php  ?>
-<button type="button" class="xui-form-button-icon xui-form-button-icon--<?php echo $key; ?> xui--elevation-2"<?php echo $disabled; ?>><i class="material-icons">radio_button_unchecked</i></button>
+<button type="button" class="xui-form-button-icon xui-form-button-icon--<?php echo $key; ?>"<?php echo $disabled; ?>><i class="material-icons">radio_button_unchecked</i></button>
 <br><br>
 <?php }; ?>
 <hr>
