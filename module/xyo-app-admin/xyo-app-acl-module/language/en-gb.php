@@ -34,3 +34,5 @@ $this->set("select_xyo_core_any_edit","- any -");
 $this->set("select_xyo_module_group_any_edit","- none -");
 $this->set("select_xyo_user_group_any_edit","- any -");
 $this->set("select_xyo_module_any_edit","- none -");
+
+$this->set("el_id_xyo_module_not_selected","not selected");

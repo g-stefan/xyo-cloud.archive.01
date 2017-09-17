@@ -12,17 +12,18 @@ $className = "xyo_app_Table";
 
 class xyo_app_Table extends xyo_app_Application {
 
-    protected $tableComPath;
+	protected $tableComPath;
 //---
-    protected $tableHead;
-    protected $tableSearch;
-    protected $tableSelect;
-    protected $tableSort;        
-    protected $tableSelectInfo;
-    protected $tableData;
-    protected $tableType;    
+	protected $tableHead;
+	protected $tableSearch;
+	protected $tableSelect;
+	protected $tableSort;        
+	protected $tableSelectInfo;
+	protected $tableData;
+	protected $tableType; 
+	protected $tableDelete;   
 //---
-    protected $viewData;
+	protected $viewData;
 //---
 	protected $viewKey;
 	protected $viewId;
@@ -35,28 +36,29 @@ class xyo_app_Table extends xyo_app_Application {
 	protected $dialogEdit_;
         protected $isDialog;
 
-    public function __construct(&$object, &$cloud) {
-        parent::__construct($object, $cloud);
+	public function __construct(&$object, &$cloud) {
+		parent::__construct($object, $cloud);
 
-        $this->tableComPath = $this->getModulePath("xyo-app-table");
+	        $this->tableComPath = $this->getModulePath("xyo-app-table");
 
-        $this->tableHead = array();
-        $this->tableSearch = array();
-        $this->tableSelect = array();        
-        $this->tableSort = array();
-        $this->tableSelectInfo = array();             
-	$this->tableData = array();
+        	$this->tableHead = array();
+	        $this->tableSearch = array();
+	        $this->tableSelect = array();        
+	        $this->tableSort = array();
+	        $this->tableSelectInfo = array();             
+		$this->tableData = array();
 
-        $this->tableType = array();
+	        $this->tableType = array();
+	        $this->tableDelete = array();
 
-        $this->viewData = null;
-	$this->viewKey=null;
-	$this->viewId=0;
-	$this->tableIsDelete=false;
-	$this->dialogNew_=false;
-	$this->dialogEdit_=false;
-	$this->isDialog=false;
-    }
+	        $this->viewData = null;
+		$this->viewKey=null;
+		$this->viewId=0;
+		$this->tableIsDelete=false;
+		$this->dialogNew_=false;
+		$this->dialogEdit_=false;
+		$this->isDialog=false;
+	}
 
 	public function viewKeepRequest(){
 		$this->transferRequest("page","view_page");

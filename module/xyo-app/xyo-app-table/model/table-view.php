@@ -38,3 +38,5 @@ $this->tableData = array(
 $this->tableType = array(
 );
 
+$this->tableDelete = array(
+);

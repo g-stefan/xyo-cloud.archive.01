@@ -167,3 +167,7 @@
 	width:100%;
 }
 
+.xyo-app-table__table--delete{
+	border-left: 1px solid #DDDDDD !important;
+}
+

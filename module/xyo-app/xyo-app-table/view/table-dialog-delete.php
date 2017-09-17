@@ -9,18 +9,24 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $count=0;
+if(count($this->tableDelete)==0){
+	$this->tableDelete=$this->tableHead;
+};
 
 ?>
 <div class="xyo-app-table__responsive">
-    <table id="xyo-app-table__table">
+    <table id="xyo-app-table__table" class="xyo-app-table__table--delete">
 	<thead>
                 <?php
-                foreach ($this->tableHead as $key => $value) {
+                foreach ($this->tableDelete as $key => $value) {
+			if(!$value){
+				continue;
+			};
 			if($key==="#"){
 				continue;
 			};
 			echo "<th style=\"vertical-align:middle;\">";
-				$this->eLanguage($value);
+				$this->eLanguage($this->tableHead[$key]);
 			echo "</th>";
                 };
 
@@ -35,7 +41,10 @@ $count=0;
 		};
 
                 echo "<tr>";
-                foreach ($this->tableHead as $key_ => $value_) {
+                foreach ($this->tableDelete as $key_ => $value_) {
+			if(!$value){
+				continue;
+			};
 			if($key_==="#"){
 				continue;
 			};

@@ -37,7 +37,7 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	width: auto;
 
 	font-family: "Roboto", sans-serif;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .xui-form-text-material label{
@@ -112,6 +112,22 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	outline-color: transparent;
 	outline-style: none;
 	border-bottom: 1px solid <?php echo $itemTextColorBorderFocus; ?>;
+}
+
+.xui-form-text-material__border{
+	transition:0.3s all ease;
+	left: 50%;
+	transform: translateX(-50%);	
+	position:absolute;
+	bottom: 0px;
+	height: 1px;
+	width: 0px;
+	background: #967ADC;
+	backface-visibility: hidden;
+}
+
+.xui-form-text-material label.xui-form-text-material--focus + div.xui-form-text-material__border{
+	width:100%;
 }
 
 

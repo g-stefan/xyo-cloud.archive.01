@@ -67,3 +67,9 @@ $this->tableSelectInfo = array(
     "enabled" => $this->getParameter("select_enabled", array())
 );
 
+$this->tableDelete = array(
+    "name" => true,
+    "username" => true,
+    "id" => true
+);
+

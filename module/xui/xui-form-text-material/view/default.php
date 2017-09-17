@@ -15,7 +15,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 
 <br>
 <br>
-<form>
+<form style="padding-left:30px;">
 
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
@@ -24,6 +24,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 <div class="xui-form-text-material xui-form-text-material--<?php echo $key; ?>">
 	<label for="text-material-<?php echo $key; ?>"><?php echo $key; ?></label>
 	<input id="text-material-<?php echo $key; ?>" type="text" value="" <?php echo $disabled; ?>></input>
+	<div class="xui-form-text-material__border"></div>
 </div>
 
 <br>

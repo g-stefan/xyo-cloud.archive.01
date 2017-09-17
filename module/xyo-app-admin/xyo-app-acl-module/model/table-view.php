@@ -94,3 +94,11 @@ $this->tableData = array(
 	"id_xyo_core"=>"id_xyo_core"
 );
 
+$this->tableDelete= array(
+    "module_name" => true,
+    "module_group_name" => true,
+    "user_group_name" => true,
+    "core_name" => true,
+    "id" => true
+);
+

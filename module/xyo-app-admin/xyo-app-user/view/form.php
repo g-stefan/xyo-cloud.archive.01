@@ -18,10 +18,15 @@ $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x2-separator");
 
 $this->generateComponent("xui.panel-begin");
-$this->generateComponent("xui.form-text", array("element" =>"name"));
-$this->generateComponent("xui.form-username", array("element" =>"username"));
-$this->generateComponent("xui.form-password", array("element" =>"password1"));
-$this->generateComponent("xui.form-password", array("element" =>"password2"));
+$this->generateComponent("xui.form-text-required", array("element" =>"name"));
+$this->generateComponent("xui.form-username-required", array("element" =>"username"));
+if($this->isNew){
+	$this->generateComponent("xui.form-password-required", array("element" =>"password1"));
+	$this->generateComponent("xui.form-password-required", array("element" =>"password2"));
+}else{
+	$this->generateComponent("xui.form-password", array("element" =>"password1"));
+	$this->generateComponent("xui.form-password", array("element" =>"password2"));
+};
 $this->generateComponent("xui.form-email", array("element" =>"email"));
 if($this->isNew){
     $this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group"));

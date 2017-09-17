@@ -26,6 +26,10 @@ if ($this->id_xyo_module) {
     $this->ds->id_xyo_module = $this->id_xyo_module;
 } else {
     $this->ds->id_xyo_module = $this->getElementValueInt("id_xyo_module", 0,"*");
+    if($this->ds->id_xyo_module==0){
+	$this->setElementError("id_xyo_module", $this->getFromLanguage("el_id_xyo_module_not_selected"));
+        return;
+    };
 }
 
 if ($this->id_xyo_module_group) {
@@ -41,7 +45,6 @@ $this->ds->id_xyo_user_group = $this->getElementValueInt("id_xyo_user_group", 0,
 $this->ds->tryLoad();
 $this->ds->order = $this->getElementValueInt("order", 0, "*");
 $this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
-
 
 $this->processModel("select-xyo-module");
 

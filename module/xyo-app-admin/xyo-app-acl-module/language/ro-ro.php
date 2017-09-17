@@ -36,3 +36,4 @@ $this->set("select_xyo_module_group_any_edit","- nici unul -");
 $this->set("select_xyo_user_group_any_edit","- oricare -");
 $this->set("select_xyo_module_any_edit","- nici unul -");
 
+$this->set("el_id_xyo_module_not_selected","nu a fost selectat");

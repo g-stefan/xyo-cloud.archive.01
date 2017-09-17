@@ -60,6 +60,9 @@ $this->setModule("xui",null,"xui-list-group");
 $this->setModule("xui",null,"xui-alert");
 $this->setModule("xui",null,"xui-form-file-image");
 $this->setModule("xui",null,"xui-progress-bar");
+$this->setModule("xui",null,"xui-form-text-required");
+$this->setModule("xui",null,"xui-form-text-icon-left-required");
+$this->setModule("xui",null,"xui-form-text-icon-right-required");
 //
 //
 $this->setModule("lib",null,"lib-js-cookie");
