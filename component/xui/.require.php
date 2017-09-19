@@ -31,3 +31,4 @@ $this->requireModule("xui-list-group");
 $this->requireModule("xui-form-text-required");
 $this->requireModule("xui-form-text-icon-left-required");
 $this->requireModule("xui-form-text-icon-right-required");
+$this->requireModule("xui-inner-box");
