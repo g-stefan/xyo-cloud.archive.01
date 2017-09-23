@@ -1140,7 +1140,7 @@ class xyo_Cloud extends xyo_Config {
 		};
 	}
 
-	public function setHtmlJsSource($module,$code,$opt="defer") {
+	public function setHtmlJsSource($module,$code,$opt="none") {
 		if(!array_key_exists($module,$this->htmlJsSourceList)) {
 			$this->htmlJsSourceList[$module]=array();
 		};
@@ -1157,20 +1157,10 @@ class xyo_Cloud extends xyo_Config {
 	public function eHtmlJsSource() {
 		if(count($this->htmlJsSourceList)>0) {
 			$simple=array();
-			$defer=array();
-			$async=array();
 			$load=array();
 
 			foreach($this->htmlJsSourceList as $key=>$js) {
 				foreach($js as $code) {
-					if($code[1]==="async") {
-						$async[]=$code[0];
-						continue;
-					};
-					if($code[1]==="defer") {
-						$defer[]=$code[0];
-						continue;
-					};
 					if($code[1]==="load") {
 						$load[]=$code[0];
 						continue;
@@ -1179,27 +1169,10 @@ class xyo_Cloud extends xyo_Config {
 				};
 			};
 
-
-			if(count($simple)) {
-				echo "<script>";
+			if(count($simple)||count($load)) {
+				echo "<script>\n";
 				foreach($simple as $code) {
 					echo $code;
-				};
-				echo "</script>\n";
-			};
-			if(count($async)) {
-				echo "<script async>";
-				foreach($async as $code) {
-					echo $code;
-				};
-				echo "</script>\n";
-			};
-			if(count($defer)||count($load)) {
-				echo "<script defer>";
-				if(count($defer)){
-					foreach($defer as $code) {
-						echo $code;
-					};
 				};
 				if(count($load)) {
 					echo "var __load__=function(){";
@@ -1274,15 +1247,15 @@ class xyo_Cloud extends xyo_Config {
 		};
 	}
 
-	public function setHtmlJsSourceOrAjax($module,$source,$opt="defer") {
+	public function setHtmlJsSourceOrAjax($module,$source,$opt="none") {
 		if($this->isAjaxJs) {
 			echo $source;
 			return;
 		};
 		if($this->isAjax) {
-			echo "<script>";
+			echo "<script>\n";
 			echo $source;
-			echo "</script>";
+			echo "</script>\n";
 			return;
 		};
 		$this->setHtmlJsSource($module,$source,$opt);

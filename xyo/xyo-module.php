@@ -665,7 +665,7 @@ class xyo_Module extends xyo_Config {
 		$this->cloud->eHtmlJs();
 	}
 
-	public function setHtmlJsSource($code,$opt="defer") {
+	public function setHtmlJsSource($code,$opt="none") {
 		$this->cloud->setHtmlJsSource($this->name,$code,$opt);
 	}
 
@@ -717,7 +717,7 @@ class xyo_Module extends xyo_Config {
 		$this->cloud->eHtmlIcon();
 	}
 
-	public function setHtmlJsSourceOrAjax($source,$opt="defer") {
+	public function setHtmlJsSourceOrAjax($source,$opt="none") {
 		$this->cloud->setHtmlJsSourceOrAjax($this->name,$source,$opt);
 	}
 
