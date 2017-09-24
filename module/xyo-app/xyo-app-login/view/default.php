@@ -30,7 +30,7 @@ if($languageSelector){
 	$this->setParameter("select_language",$languageList);
 };
 
-$rnd=$this->getElementValueStr("rnd","");
+$rnd=$this->getElementValueString("rnd","");
 if(strlen($rnd)>=strlen(md5("x"))){
 }else{
 	$rnd=md5("" . rand());

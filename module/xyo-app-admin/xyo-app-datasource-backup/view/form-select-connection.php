@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$connection=$this->getElementValueStr("connection","db");
+$connection=$this->getElementValueString("connection","db");
 
 ?>
             <select class="xui-form-select" name="<?php $this->eElementName("connection"); ?>" id="<?php $this->eElementId("connection"); ?>" >

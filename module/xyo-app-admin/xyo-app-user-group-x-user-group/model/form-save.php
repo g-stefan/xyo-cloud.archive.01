@@ -24,14 +24,14 @@ if ($this->isNew) {
 if($this->id_xyo_user_group_super){
     $this->ds->id_xyo_user_group_super=$this->id_xyo_user_group_super;
 }else{
-    $this->ds->id_xyo_user_group_super = $this->getElementValueInt("id_xyo_user_group_super", 0, "*");
+    $this->ds->id_xyo_user_group_super = $this->getElementValueNumber("id_xyo_user_group_super", 0, "*");
 }
-$this->ds->id_xyo_user_group = $this->getElementValueInt("id_xyo_user_group", 0, "*");
+$this->ds->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0, "*");
 if($this->isNew){
     $this->ds->tryLoad();
 }
 
-$this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
+$this->ds->enabled = $this->getElementValueNumber("enabled", 0, "*");
 
 if ($this->ds->save()) {
     

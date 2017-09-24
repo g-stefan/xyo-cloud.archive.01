@@ -8,9 +8,9 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$connection=$this->getElementValueStr("connection","*");
-$datasource=$this->getElementValueStr("datasource","*");
-$option=$this->getElementValueStr("option","*");
+$connection=$this->getElementValueString("connection","*");
+$datasource=$this->getElementValueString("datasource","*");
+$option=$this->getElementValueString("option","*");
 
 if(strlen($datasource)>0){
 	if($datasource!="*"){

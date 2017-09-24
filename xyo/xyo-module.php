@@ -452,7 +452,7 @@ class xyo_Module extends xyo_Config {
 		echo $this->getElementError($name, $default);
 	}
 
-	public function getElementValueStr($element, $default=null, $size=0) {
+	public function getElementValueString($element, $default=null, $size=0) {
 		$retV=$this->getElementValue($element,$default);
 		if(!is_null($retV)) {
 			if($size) {
@@ -463,7 +463,7 @@ class xyo_Module extends xyo_Config {
 		return null;
 	}
 
-	public function getElementValueInt($element, $default=0, $exDefault=null) {
+	public function getElementValueNumber($element, $default=0, $exDefault=null) {
 		$retV = $this->getElementValue($element);
 		if($retV) {
 			$retV=trim($retV);

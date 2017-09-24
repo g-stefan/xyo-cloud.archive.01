@@ -13,12 +13,12 @@ $this->setView("datasource");
 $this->clearElementError();
 $layer = $this->getElementValue("layer");
 if ($layer === "mysqli" || $layer === "mysql" || $layer === "postgresql" ) {
-    $server = $this->getElementValueStr("server");
+    $server = $this->getElementValueString("server");
     if (strlen($server) == 0) {
         $this->setElementError("server", $this->getFromLanguage("server_empty"));
     }
 
-    $port = $this->getElementValueStr("port");
+    $port = $this->getElementValueString("port");
     if (strlen($port) == 0) {		
 		$port=0;
     }
@@ -37,12 +37,12 @@ if ($layer === "mysqli" || $layer === "mysql" || $layer === "postgresql" ) {
 	$this->setElementValue("port",$port);
 	
 
-    $username = $this->getElementValueStr("username");
+    $username = $this->getElementValueString("username");
     if (strlen($username) == 0) {
         $this->setElementError("username", $this->getFromLanguage("username_empty"));
     }
 
-    $database = $this->getElementValueStr("database");
+    $database = $this->getElementValueString("database");
     if (strlen($database) == 0) {
         $this->setElementError("database", $this->getFromLanguage("database_empty"));
     }

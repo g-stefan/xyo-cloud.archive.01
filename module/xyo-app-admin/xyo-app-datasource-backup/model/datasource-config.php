@@ -75,17 +75,17 @@ if ($fileHandle) {
     if ($layer === "mysql") {
         fwrite($fileHandle, "\$this->setConnection(" .
                 "\"backup\",\"" .
-                addslashes($this->getElementValueStr("username")) .
+                addslashes($this->getElementValueString("username")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("password")) .
+                addslashes($this->getElementValueString("password")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("server")) .
+                addslashes($this->getElementValueString("server")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("port")) .
+                addslashes($this->getElementValueString("port")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("database")) .
+                addslashes($this->getElementValueString("database")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("prefix")) .
+                addslashes($this->getElementValueString("prefix")) .
                 "\");\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(" .
                 "\"backup\",\"debug\",true);\r\n");
@@ -97,17 +97,17 @@ if ($fileHandle) {
     if ($layer === "mysqli") {
         fwrite($fileHandle, "\$this->setConnection(" .
                 "\"backup\",\"" .
-                addslashes($this->getElementValueStr("username")) .
+                addslashes($this->getElementValueString("username")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("password")) .
+                addslashes($this->getElementValueString("password")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("server")) .
+                addslashes($this->getElementValueString("server")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("port")) .
+                addslashes($this->getElementValueString("port")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("database")) .
+                addslashes($this->getElementValueString("database")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("prefix")) .
+                addslashes($this->getElementValueString("prefix")) .
                 "\");\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(" .
                 "\"backup\",\"debug\",true);\r\n");
@@ -119,17 +119,17 @@ if ($fileHandle) {
     if ($layer === "postgresql") {
         fwrite($fileHandle, "\$this->setConnection(" .
                 "\"backup\",\"" .
-                addslashes($this->getElementValueStr("username")) .
+                addslashes($this->getElementValueString("username")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("password")) .
+                addslashes($this->getElementValueString("password")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("server")) .
+                addslashes($this->getElementValueString("server")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("port")) .
+                addslashes($this->getElementValueString("port")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("database")) .
+                addslashes($this->getElementValueString("database")) .
                 "\",\"" .
-                addslashes($this->getElementValueStr("prefix")) .
+                addslashes($this->getElementValueString("prefix")) .
                 "\");\r\n");
         fwrite($fileHandle, "\$this->setConnectionOption(" .
                 "\"backup\",\"debug\",true);\r\n");

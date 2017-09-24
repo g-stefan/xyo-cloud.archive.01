@@ -8,18 +8,18 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$name = $this->getElementValueStr("name");
+$name = $this->getElementValueString("name");
 if (strlen($name) == 0) {
     $this->setElementError("name", $this->getFromLanguage("el_name_empty"));
 }
 
-$username = $this->getElementValueStr("username");
+$username = $this->getElementValueString("username");
 if (strlen($username) == 0) {
     $this->setElementError("username", $this->getFromLanguage("el_username_empty"));
 }
 
-$password1 = $this->getElementValueStr("password1");
-$password2 = $this->getElementValueStr("password2");
+$password1 = $this->getElementValueString("password1");
+$password2 = $this->getElementValueString("password2");
 
 if (strlen($password1) || strlen($password2)) {
     if ($password1 !== $password2) {
@@ -64,9 +64,9 @@ if (strlen($password1)) {
 	$this->ds->password = "md5:" . md5($password1);
 }
 
-$this->ds->id_xyo_language = $this->getElementValueInt("id_xyo_language", 0, "*");
-$this->ds->description = $this->getElementValueStr("description","");
-$this->ds->email = $this->getElementValueStr("email","");
+$this->ds->id_xyo_language = $this->getElementValueNumber("id_xyo_language", 0, "*");
+$this->ds->description = $this->getElementValueString("description","");
+$this->ds->email = $this->getElementValueString("email","");
 
 if ($this->ds->save()) {
 
@@ -75,7 +75,7 @@ if ($this->ds->save()) {
 	"filename"=>"repository/xyo-user/".$this->ds->id."-".$this->ds->username."-picture-".time(),
 	"extension"=>true,
 	"delete_before_save"=>true));
-	$this->ds->picture=$this->getElementValueStr("picture");
+	$this->ds->picture=$this->getElementValueString("picture");
         $this->ds->save();
 
     

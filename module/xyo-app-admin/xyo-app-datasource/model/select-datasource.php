@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $select=array("*"=>$this->getFromLanguage("select_datasource_none"));
-$connection=$this->getElementValueStr("connection","");
+$connection=$this->getElementValueString("connection","");
 if(strlen($connection)>0){
 	$connectionX=$connection.".table.";
 

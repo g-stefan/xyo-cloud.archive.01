@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$name = $this->getElementValueStr("name");
+$name = $this->getElementValueString("name");
 if (strlen($name) == 0) {
     $this->setElementError("name", $this->getFromLanguage("el_name_empty"));
 }
@@ -17,7 +17,7 @@ if ($this->isElementError()) {
     return;
 };
 
-$id_xyo_core = $this->getElementValueInt("id_xyo_core", 0, "*");
+$id_xyo_core = $this->getElementValueNumber("id_xyo_core", 0, "*");
 
 $found=false;
 $this->ds->clear();
@@ -52,8 +52,8 @@ if ($this->isNew) {
 }
 
 $this->ds->name = $name;
-$this->ds->description = $this->getElementValueStr("description");
-$this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
+$this->ds->description = $this->getElementValueString("description");
+$this->ds->enabled = $this->getElementValueNumber("enabled", 0, "*");
 
 if ($this->ds->save()) {
     

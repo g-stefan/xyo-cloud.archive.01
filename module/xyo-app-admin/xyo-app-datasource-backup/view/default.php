@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $formTitle="form_title_select";
-$layer=$this->getElementValueStr("layer","xyo");
+$layer=$this->getElementValueString("layer","xyo");
 
 
 ?>

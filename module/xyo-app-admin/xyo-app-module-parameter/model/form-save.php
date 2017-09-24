@@ -17,7 +17,7 @@ if($this->id_xyo_module>0) {
 			$this->ds->id_xyo_module=$this->id_xyo_module;
 			$this->ds->name=$item["name"];
 			$this->ds->tryLoad(0,1);		
-			$this->ds->value=$this->getElementValueStr($item["name"],$item["default_value"]);
+			$this->ds->value=$this->getElementValueString($item["name"],$item["default_value"]);
 			$this->ds->save();		
 		};
 	};

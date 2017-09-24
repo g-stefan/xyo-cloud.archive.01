@@ -24,14 +24,14 @@ if ($this->isNew) {
 if ($this->id_xyo_user) {
     $this->ds->id_xyo_user = $this->id_xyo_user;
 } else {
-    $this->ds->id_xyo_user = $this->getElementValueInt("id_xyo_user", 0, "*");
+    $this->ds->id_xyo_user = $this->getElementValueNumber("id_xyo_user", 0, "*");
 }
-$this->ds->id_xyo_core = $this->getElementValueInt("id_xyo_core", 0, "*");
+$this->ds->id_xyo_core = $this->getElementValueNumber("id_xyo_core", 0, "*");
 if ($this->isNew) {
     $this->ds->tryLoad();
 }
 
-$this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
+$this->ds->enabled = $this->getElementValueNumber("enabled", 0, "*");
 
 if ($this->ds->save()) {
     

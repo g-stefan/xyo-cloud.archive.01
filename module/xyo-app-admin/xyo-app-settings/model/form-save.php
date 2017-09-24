@@ -14,11 +14,11 @@ foreach($this->items as $item) {
 		$this->ds->clear();
 		$this->ds->name=$item["name"];
 		$this->ds->tryLoad(0,1);		
-		$this->ds->value=$this->getElementValueStr($item["name"],$item["default_value"]);
+		$this->ds->value=$this->getElementValueString($item["name"],$item["default_value"]);
 		$this->ds->save();		
 	};
 };
 
 //
-$this->cloud->set("xui_dashboard_user_background",$this->getElementValueStr("xui_dashboard_user_background"));
+$this->cloud->set("xui_dashboard_user_background",$this->getElementValueString("xui_dashboard_user_background"));
 //

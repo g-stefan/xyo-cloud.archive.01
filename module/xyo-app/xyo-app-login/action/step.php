@@ -11,12 +11,12 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setView("default");
 $this->clearElementError();
 
-$username = $this->getElementValueStr("username");
+$username = $this->getElementValueString("username");
 if (strlen($username) == 0) {
     $this->setElementError("username", $this->getFromLanguage("username_empty"));
 }
 
-$password = $this->getElementValueStr("password");
+$password = $this->getElementValueString("password");
 if (strlen($password) == 0) {
     $this->setElementError("password", $this->getFromLanguage("password_empty"));
 }

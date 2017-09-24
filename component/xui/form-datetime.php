@@ -21,28 +21,28 @@ $format = $this->getArgument("format",$this->cloud->get("locale_date_format","")
 if(strlen($format)){
 	if($format=="Y-m-d"){
 		$format="YYYY-MM-DD HH:mm";
-		$value=$this->getElementValueStr($element);
+		$value=$this->getElementValueString($element);
 		if(strlen($value)){
 			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
 		};
 	};
 	if($format=="Y/m/d"){
 		$format="YYYY/MM/DD HH:mm";
-		$value=$this->getElementValueStr($element);
+		$value=$this->getElementValueString($element);
 		if(strlen($value)){
 			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
 		};
 	};
 	if($format=="d-m-Y"){
 		$format="DD-MM-YYYY HH:mm";
-		$value=$this->getElementValueStr($element);
+		$value=$this->getElementValueString($element);
 		if(strlen($value)){
 			$this->setElementValue($element,substr($value,8,2)."-".substr($value,5,2)."-".substr($value,0,4).substr($value,10,strlen($value)));
 		};
 	};
 	if($format=="d/m/Y"){
 		$format="DD/MM/YYYY HH:mm";
-		$value=$this->getElementValueStr($element);
+		$value=$this->getElementValueString($element);
 		if(strlen($value)){
 			$this->setElementValue($element,substr($value,8,2)."-".substr($value,5,2)."-".substr($value,0,4).substr($value,10,strlen($value)));
 		};

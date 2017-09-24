@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$name = $this->getElementValueStr("name");
+$name = $this->getElementValueString("name");
 if (strlen($name) == 0) {
 	$this->setElementError("name", $this->getFromLanguage("el_name_empty"));
 }
@@ -56,10 +56,10 @@ if ($this->isNew) {
 
 
 $this->ds->name=$name;
-$this->ds->parent=$this->getElementValueStr("parent");
-$this->ds->path=$this->getElementValueStr("path");
-$this->ds->description=$this->getElementValueStr("description");
-$this->ds->enabled=$this->getElementValueInt("enabled", 0, "*");
+$this->ds->parent=$this->getElementValueString("parent");
+$this->ds->path=$this->getElementValueString("path");
+$this->ds->description=$this->getElementValueString("description");
+$this->ds->enabled=$this->getElementValueNumber("enabled", 0, "*");
 
 if($this->ds->save()) {
 
@@ -83,13 +83,13 @@ if($this->ds->save()) {
 			$dsAclModule->id_xyo_module=$this->ds->id;
 			$dsAclModule->module=$this->ds->name;
 
-			$dsAclModule->id_xyo_module_group = $this->getElementValueInt("id_xyo_module_group", 0,"*");
-			$dsAclModule->id_xyo_user_group = $this->getElementValueInt("id_xyo_user_group", 0,"*");
+			$dsAclModule->id_xyo_module_group = $this->getElementValueNumber("id_xyo_module_group", 0,"*");
+			$dsAclModule->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0,"*");
 
-			$dsAclModule->id_xyo_core = $this->getElementValueInt("id_xyo_core", 0,"*");
+			$dsAclModule->id_xyo_core = $this->getElementValueNumber("id_xyo_core", 0,"*");
 
-			$dsAclModule->enabled = $this->getElementValueInt("acl_enabled", 0,"*");
-			$dsAclModule->order = $this->getElementValueInt("order", 0);
+			$dsAclModule->enabled = $this->getElementValueNumber("acl_enabled", 0,"*");
+			$dsAclModule->order = $this->getElementValueNumber("order", 0);
 
 
 			$dsAclModule->save();

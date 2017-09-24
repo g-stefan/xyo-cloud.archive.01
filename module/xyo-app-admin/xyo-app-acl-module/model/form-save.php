@@ -25,7 +25,7 @@ if ($this->isNew) {
 if ($this->id_xyo_module) {
     $this->ds->id_xyo_module = $this->id_xyo_module;
 } else {
-    $this->ds->id_xyo_module = $this->getElementValueInt("id_xyo_module", 0,"*");
+    $this->ds->id_xyo_module = $this->getElementValueNumber("id_xyo_module", 0,"*");
     if($this->ds->id_xyo_module==0){
 	$this->setElementError("id_xyo_module", $this->getFromLanguage("el_id_xyo_module_not_selected"));
         return;
@@ -35,16 +35,16 @@ if ($this->id_xyo_module) {
 if ($this->id_xyo_module_group) {
     $this->ds->id_xyo_module_group = $this->id_xyo_module_group;
 } else {
-    $this->ds->id_xyo_module_group = $this->getElementValueInt("id_xyo_module_group", 0,"*");
+    $this->ds->id_xyo_module_group = $this->getElementValueNumber("id_xyo_module_group", 0,"*");
 }
 
 
-$this->ds->id_xyo_core = $this->getElementValueInt("id_xyo_core", 0,"*");
+$this->ds->id_xyo_core = $this->getElementValueNumber("id_xyo_core", 0,"*");
 
-$this->ds->id_xyo_user_group = $this->getElementValueInt("id_xyo_user_group", 0,"*");
+$this->ds->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0,"*");
 $this->ds->tryLoad();
-$this->ds->order = $this->getElementValueInt("order", 0, "*");
-$this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
+$this->ds->order = $this->getElementValueNumber("order", 0, "*");
+$this->ds->enabled = $this->getElementValueNumber("enabled", 0, "*");
 
 $this->processModel("select-xyo-module");
 

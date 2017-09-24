@@ -8,18 +8,18 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$name = $this->getElementValueStr("name");
+$name = $this->getElementValueString("name");
 if (strlen($name) == 0) {
     $this->setElementError("name", $this->getFromLanguage("el_name_empty"));
 }
 
-$username = $this->getElementValueStr("username");
+$username = $this->getElementValueString("username");
 if (strlen($username) == 0) {
     $this->setElementError("username", $this->getFromLanguage("el_username_empty"));
 }
 
-$password1 = $this->getElementValueStr("password1");
-$password2 = $this->getElementValueStr("password2");
+$password1 = $this->getElementValueString("password1");
+$password2 = $this->getElementValueString("password2");
 
 if (strlen($password1) || strlen($password2)) {
     if ($password1 !== $password2) {
@@ -42,7 +42,7 @@ if ($this->isElementError()) {
     return;
 };
 
-$id_xyo_core = $this->getElementValueInt("id_xyo_core", 0, "*");
+$id_xyo_core = $this->getElementValueNumber("id_xyo_core", 0, "*");
 
 $found=false;
 $this->ds->clear();
@@ -92,11 +92,11 @@ if ($this->isNew) {
     }
 }
 
-$this->ds->id_xyo_language = $this->getElementValueInt("id_xyo_language", 0, "*");
-$this->ds->enabled = $this->getElementValueInt("enabled", 0, "*");
-$this->ds->email = $this->getElementValueStr("email","");
-$this->ds->description = $this->getElementValueStr("description","");
-$this->ds->invisible = $this->getElementValueInt("invisible", 0, "*");
+$this->ds->id_xyo_language = $this->getElementValueNumber("id_xyo_language", 0, "*");
+$this->ds->enabled = $this->getElementValueNumber("enabled", 0, "*");
+$this->ds->email = $this->getElementValueString("email","");
+$this->ds->description = $this->getElementValueString("description","");
+$this->ds->invisible = $this->getElementValueNumber("invisible", 0, "*");
 
 if (1 * $this->ds->enabled == 0) {
     if ($this->ds->id == $this->user->info->id) {
@@ -112,7 +112,7 @@ if ($this->ds->save()) {
 	"filename"=>"repository/xyo-user/".$this->ds->id."-".$this->ds->username."-picture-".time(),
 	"extension"=>true,
 	"delete_before_save"=>true));
-	$this->ds->picture=$this->getElementValueStr("picture");
+	$this->ds->picture=$this->getElementValueString("picture");
         $this->ds->save();
 	
     
@@ -121,7 +121,7 @@ if ($this->ds->save()) {
         if ($dsUserXUserGroup) {
             $dsUserXUserGroup->clear();
             $dsUserXUserGroup->id_xyo_user = $this->ds->id;
-            $dsUserXUserGroup->id_xyo_user_group = $this->getElementValueInt("id_xyo_user_group", 0, "*");
+            $dsUserXUserGroup->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0, "*");
             $dsUserXUserGroup->allow = 1;
             $dsUserXUserGroup->enabled = 1;
             if ($dsUserXUserGroup->save()) {

@@ -10,17 +10,17 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->clearElementError();
 
-$username = $this->getElementValueStr("username");
+$username = $this->getElementValueString("username");
 if (strlen($username) == 0) {
     $this->setElementError("username", $this->getFromLanguage("username_empty"));
 }
 
-$password = $this->getElementValueStr("password");
+$password = $this->getElementValueString("password");
 if (strlen($password) == 0) {
     $this->setElementError("password", $this->getFromLanguage("password_empty"));
 }
 
-$retype_password = $this->getElementValueStr("retype_password");
+$retype_password = $this->getElementValueString("retype_password");
 if (strlen($retype_password) == 0) {
     $this->setElementError("retype_password", $this->getFromLanguage("retype_password_empty"));
 }

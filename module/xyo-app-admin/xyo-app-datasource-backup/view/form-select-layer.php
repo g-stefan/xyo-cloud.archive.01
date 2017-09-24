@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$layer=$this->getElementValueStr("layer","xyo");
+$layer=$this->getElementValueString("layer","xyo");
 
 ?>
             <select class="xui-form-select" name="<?php $this->eElementName("layer"); ?>" id="<?php $this->eElementId("layer"); ?>" onChange="this.form.submit();">
