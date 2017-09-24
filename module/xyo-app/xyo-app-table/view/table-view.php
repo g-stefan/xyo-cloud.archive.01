@@ -771,7 +771,7 @@ foreach($this->tableType as $key_=>$value_){
 		"\r\n".
 		"function cmdDialogNew(){".
 			"\$(\"#xyo-app-table-modal-new\").iziModal(\"startLoading\");".
-			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-new\", ajax: 1 } )".
+			"$.post(\"".$this->requestUriThis()."\", { action: \"table-dialog-new\", ajax: 1 } )".
   			".done(function(result){".
 				"\$(\"#xyo-app-table-modal-new__button\").off(\"click\").on(\"click\",function(){".
 					"\$(\"#xyo-app-table-modal-new\").iziModal(\"startLoading\");".
@@ -818,7 +818,7 @@ foreach($this->tableType as $key_=>$value_){
 			"if(!found){return};".
 			"};".
 			"\$(\"#xyo-app-table-modal-edit\").iziModal(\"startLoading\");".
-			"\$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-edit\", primary_key_value: id, ajax: 1 } )".
+			"\$.post(\"".$this->requestUriThis()."\", { action: \"table-dialog-edit\", primary_key_value: id, ajax: 1 } )".
   			".done(function(result){".
 				"\$(\"#xyo-app-table-modal-edit__button\").off(\"click\").on(\"click\",function(){".
 					"\$(\"#xyo-app-table-modal-edit\").iziModal(\"startLoading\");".
@@ -856,7 +856,7 @@ foreach($this->tableType as $key_=>$value_){
 		        "};".
 			"if(!found){return};".
 			"\$(\"#xyo-app-table-modal-delete\").iziModal(\"startLoading\");".
-			"$.post(\"".$this->cloud->requestUriModule($this->name)."\", { action: \"table-dialog-delete\", primary_key_value: id, ajax: 1 } )".
+			"$.post(\"".$this->requestUriThis()."\", { action: \"table-dialog-delete\", primary_key_value: id, ajax: 1 } )".
   			".done(function(result){".
 				"\$(\"#xyo-app-table-modal-delete__button\").off(\"click\").on(\"click\",function(){".
 					"doCommand('table-delete');".
