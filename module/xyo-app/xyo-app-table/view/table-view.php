@@ -182,7 +182,7 @@ function doValueSave(key){
                     <select name="view_select_<?php echo $key; ?>"
                             size="1"
                             onChange="this.form.submit();"
-                            class="xui-form-select"><?php
+                            class="xui-form-select" id="view_select_<?php echo $key; ?>"><?php
         foreach ($select_info[$key] as $key_ => $value_) {
             $selected = "";
             if (strcmp($key_, $select_value[$key]) == 0) {
@@ -624,7 +624,7 @@ function doValueSave(key){
         <select name="count"
                 size="1"
                 onChange="this.form.submit();"
-                class="xui-form-select" data-width="auto">
+                class="xui-form-select" data-width="auto" id="table_select_count">
 
             <?php
             $key = "count";

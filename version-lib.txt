@@ -1,4 +1,4 @@
-06.09.2017
+24.09.2017
 ----------
 air-datepicker,2.2.3,https://github.com/t1m0n/air-datepicker
 font-awesome,4.7.0,http://fontawesome.io/
@@ -15,3 +15,4 @@ roboto-regular,2017,https://fonts.google.com/specimen/Roboto
 select2,4.0.3,https://github.com/select2/select2
 tinymce,4.6.4,https://www.tinymce.com/
 cropit,0.5.1,https://github.com/scottcheng/cropit
+maximize-select2-height,1.0.2,https://github.com/panorama-ed/maximize-select2-height

@@ -11,6 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->setModuleAsApplication($module);
 $this->setReferenceLink($module, "lib-normalize");
 $this->setReferenceLink($module, "lib-select2");
+$this->setReferenceLink($module, "lib-maximize-select2-height");
 $this->setReferenceLink($module, "lib-roboto-regular");
 $this->setReferenceLink($module, "xui-core");
 $this->setReferenceLink($module, "xui-elevation");

@@ -29,7 +29,7 @@ XUI.FormSelect={};
 		$("#"+id).select2({
 			minimumResultsForSearch: Infinity,
 			dropdownAutoWidth: true
-		});
+		}).maximizeSelect2Height();
 	};
 
 
@@ -37,7 +37,7 @@ XUI.FormSelect={};
 		$(".xui-form-select").select2({
 			minimumResultsForSearch: Infinity,
 			dropdownAutoWidth: true
-		});
+		}).maximizeSelect2Height();
 	};
 
 	this.load=function(event){
