@@ -21,13 +21,16 @@ $viewX=$this->getArgument("view_x",320);
 $viewY=$this->getArgument("view_y",240);
 $imageWidth=$viewX;
 $imageHeight=$viewY;
+$emptySet=true;
 //
 //
 //
 if(strlen($value)>0){
 	$list=str_getcsv($value,",","\"","\\");
 	$fileName=$list[0];
+	$emptySet=true;
 	if(count($list)>1){
+		$emptySet=false;
 		$offsetX=$list[1];
 		$offsetY=$list[2];
 		$zoom=$list[3];
@@ -48,21 +51,28 @@ if(1*$zoom==0){
 $maxZoom = $this->getArgument("max_zoom",3);
 
 $src="";
-$src="var ".$this->getElementId($element)."_first=true;";
+$src.="var ".$this->getElementId($element)."_first=true;";
+if($emptySet){
+	$src.="var ".$this->getElementId($element)."_emptySet=true;";
+}else{
+	$src.="var ".$this->getElementId($element)."_emptySet=false;";
+};
 
 $src.="\$(\"#".$this->getElementId($element)."_component\").cropit({ imageBackground: true, allowDragNDrop: false, imageBackgroundBorderWidth: 16, maxZoom: ".$maxZoom." ";
 $src.=", onOffsetChange: function(offset){";
 $src.="var offset=\$(\"#".$this->getElementId($element)."_component\").cropit(\"offset\");";
-$src.="document.getElementById(\"".$this->getElementId($element)."_offset_x\").value=offset.x;console.log(offset.x);";
-$src.="document.getElementById(\"".$this->getElementId($element)."_offset_y\").value=offset.y;console.log(offset.y);";
+$src.="document.getElementById(\"".$this->getElementId($element)."_offset_x\").value=offset.x;";
+$src.="document.getElementById(\"".$this->getElementId($element)."_offset_y\").value=offset.y;";
 $src.="}";
 $src.=", onZoomChange: function(zoom){";
-$src.="document.getElementById(\"".$this->getElementId($element)."_zoom\").value=zoom;console.log(zoom);";
+$src.="document.getElementById(\"".$this->getElementId($element)."_zoom\").value=zoom;";
 $src.="}";
 $src.=", onImageLoaded: function(){";
 $src.="if(".$this->getElementId($element)."_first){".$this->getElementId($element)."_first=false;";
+$src.="if(!".$this->getElementId($element)."_emptySet){";
 $src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"zoom\", ".$zoom.");";
 $src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"offset\",{ x: ".$offsetX.", y: ".$offsetY." });";
+$src.="}";
 $src.="}";
 $src.="var imageSize=\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSize\");";
 $src.="document.getElementById(\"".$this->getElementId($element)."_width\").value=imageSize.width;";
