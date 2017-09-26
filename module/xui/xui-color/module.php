@@ -164,5 +164,23 @@ class xui_Color extends xyo_Module {
 	public function rgbHexToRGBA($hex,$alpha){
 		return "rgba(".hexdec($hex[1].$hex[2]).",".hexdec($hex[3].$hex[4]).",".hexdec($hex[5].$hex[6]).",".number_format(hexdec($alpha[0].$alpha[1])/255,4,".","").")";
 	}
+
+	public function rgbHexToY($hex,$scale=255){
+		$r=hexdec($hex[1].$hex[2])/255;
+		$g=hexdec($hex[3].$hex[4])/255;
+		$b=hexdec($hex[5].$hex[6])/255;
+		
+		$y=(0.2126*$r) + (0.7152*$g) + (0.0722*$b);
+
+		return	floor($scale*$y);
+	}
+
+	public function rgbHexContrastBlackOrWhite($hex,$delta=60){
+		$y=$this->rgbHexToY($hex,100);
+		if($y>=$delta){
+			return "#000000";
+		};
+		return "#FFFFFF";
+	}
 	
 }
