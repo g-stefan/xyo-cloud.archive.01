@@ -48,10 +48,9 @@ if ($layer === "mysqli" || $layer === "mysql" || $layer === "postgresql" ) {
     }
 }
 
-$this->processModel("datasource-config");
-
 if ($this->isError()) {
     $this->doRedirect("datasource");
 } else {
+    $this->processModel("datasource-config");
     $this->doRedirect("install");
 }
