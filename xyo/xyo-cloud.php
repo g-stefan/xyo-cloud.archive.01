@@ -1058,6 +1058,7 @@ class xyo_Cloud extends xyo_Config {
 	//
 
 	protected $htmlClassList;
+	protected $htmlBodyClassList;
 	protected $htmlCssList;
 	protected $htmlJsList;
 	protected $htmlJsSourceList;
@@ -1067,6 +1068,7 @@ class xyo_Cloud extends xyo_Config {
 
 	private function initHtmlManager() {
 		$this->htmlClassList=array();
+		$this->htmlBodyClassList=array();
 		$this->htmlCssList=array();
 		$this->htmlJsList=array();
 		$this->htmlJsSourceList=array();
@@ -1098,6 +1100,34 @@ class xyo_Cloud extends xyo_Config {
 
 	public function eHtmlClass() {
 		$value=$this->getHtmlClass();
+		if($value) {
+			echo " class=\"".$value."\"";
+		};
+	}
+
+	public function setHtmlBodyClass($class) {
+		$this->htmlBodyClassList[$class]=$class;
+	}
+
+	public function removeHtmlBodyClass($class) {
+		if(array_key_exists($class,$this->htmlBodyClassList)) {
+			unset($this->htmlBodyClassList[$class]);
+		};
+	}
+
+	public function getHtmlBodyClass() {
+		$retV="";
+		foreach($this->htmlBodyClassList as $class) {
+			if(strlen($retV)) {
+				$retV.=" ";
+			};
+			$retV.=$class;
+		};
+		return $retV;
+	}
+
+	public function eHtmlBodyClass() {
+		$value=$this->getHtmlBodyClass();
 		if($value) {
 			echo " class=\"".$value."\"";
 		};

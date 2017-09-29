@@ -645,6 +645,22 @@ class xyo_Module extends xyo_Config {
 		$this->cloud->eHtmlClass();
 	}
 
+	public function setHtmlBodyClass($class) {
+		$this->cloud->setHtmlBodyClass($class);
+	}
+
+	public function removeHtmlBodyClass($class) {
+		$this->cloud->removeHtmlBodyClass($class);
+	}
+
+	public function getHtmlBodyClass() {
+		$this->cloud->getHtmlBodyClass();
+	}
+
+	public function eHtmlBodyClass() {
+		$this->cloud->eHtmlBodyClass();
+	}
+
 	public function eHtmlLanguage() {
 		$this->cloud->eHtmlLanguage();
 	}
