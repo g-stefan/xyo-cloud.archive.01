@@ -18,7 +18,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 		<?php $this->eHtmlDescription(); ?>
 		<?php $this->eHtmlCss(); ?>
 	</head>
-	<body>
+	<body<?php eHtmlBodyClass(); ?>>
 
 	<?php $this->generateApplicationView(); ?>
 
