@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 ?>
 <div class="xui-application">
-	<div class="xui-toolbar"><div class="xui--right">
+	<div class="xui-toolbar"><div class="xui_right">
 <?php
            $this->execModule("xyo-mod-toolbar", array_merge(array(
                         "module" => $this->name,

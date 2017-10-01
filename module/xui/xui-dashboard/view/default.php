@@ -23,7 +23,7 @@ $this->generateComponent("xui.dashboard.app-bar-navigation-drawer-toggle");
 // ---
 $this->generateComponent("xui.dashboard.app-bar-app-title",array("title"=>"Application"));
 // ---
-echo "<div class=\"xui--right\">";
+echo "<div class=\"xui_right\">";
 $this->execGroup("xyo-status");
 echo "</div>";
 // ---

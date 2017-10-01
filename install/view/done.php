@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->generateComponent("xui.form-action-begin",array("action"=>$this->getFormActionRouteModule("administrator.php","xyo-app-dashboard")));
 
-echo "<div class=\"xui--right\">";
+echo "<div class=\"xui_right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"disabled",
 	"try"=>"disabled",

@@ -21,7 +21,7 @@ foreach ($path as $key => $value) {
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui--right\">";
+echo "<div class=\"xui_right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"default",
 	"try"=>"default",

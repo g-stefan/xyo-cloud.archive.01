@@ -155,7 +155,7 @@ function doValueSave(key){
 	
 	if($has_search){
                 ?>
-		    <div class="xui xui--left" style="margin-left:4px;height:32px;">
+		    <div class="xui xui_left" style="margin-left:4px;height:32px;">
                     <input type="text"
                            value="<?php echo $search_value; ?>"
                            name="search"
@@ -420,7 +420,7 @@ function doValueSave(key){
 			}else
 			if($this->tableType[$key_][0]=="order"){
 
-				echo "<div class=\"xui xui--left\">";
+				echo "<div class=\"xui xui_left\">";
 		        		echo "<input type=\"text\"";
 			                       echo " name=\"order_" . $value[$this->primaryKey] . "\"";
 			                       echo " value=\"" . $value[$key_] . "\"";
@@ -601,7 +601,7 @@ function doValueSave(key){
 	<div class="row-fluid">
 	<div class="span12">
 
-	<div class="xui xui--left">
+	<div class="xui xui_left">
 
 		<span class="xui-form-text-button-group xui-form-text-button-group--left">
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_first').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">first_page</i></button>

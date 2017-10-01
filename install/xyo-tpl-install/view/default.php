@@ -30,7 +30,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	
 	            <img src="<?php echo $this->site; ?>lib/xyo/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;" alt="XYO" ></img>
         	    <span style="font-family:arial;color:#0194FE;font-size:22px;font-weight:bold;vertical-align: middle;">&#160;CLOUD&#160;</span>
-	            <span class="xui--right" style="font-family:arial;color:#0194FE;font-size:11px;margin-top:18px;">
+	            <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;margin-top:18px;">
         	        <?php echo $this->cloud->get("version"); ?>
 	            </span>
 
@@ -41,7 +41,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	$this->generateComponent("xui.panel2-footer");
 
 	?>
-        	    <span class="xui--right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2017&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
+        	    <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2017&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
 
 	<?php
 
