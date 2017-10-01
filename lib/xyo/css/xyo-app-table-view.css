@@ -130,27 +130,27 @@
 	position: relative;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table--action{
+#xyo-app-table__table td a.xyo-app-table__table_action{
 	position: relative;
 	display: inline-block;
 	text-decoration: none;
 	color: #1853A0;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table--action:hover{
+#xyo-app-table__table td a.xyo-app-table__table_action:hover{
 	color: #000000;
 	font-weight: normal;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table--action:visited{
+#xyo-app-table__table td a.xyo-app-table__table_action:visited{
 	color: #1853A0;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table--action:visited:hover{
+#xyo-app-table__table td a.xyo-app-table__table_action:visited:hover{
 	color: #000000;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table--action::before{
+#xyo-app-table__table td a.xyo-app-table__table_action::before{
 	content: "";
 	transition:0.3s all ease;
 	left: 50%;
@@ -163,11 +163,11 @@
 	backface-visibility: hidden;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table--action:hover::before{
+#xyo-app-table__table td a.xyo-app-table__table_action:hover::before{
 	width:100%;
 }
 
-.xyo-app-table__table--delete{
+.xyo-app-table__table_delete{
 	border-left: 1px solid #DDDDDD !important;
 }
 

@@ -22,12 +22,12 @@ if($prefix) {
 
 ?>
 
-<label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label--danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
 <div class="xui-form-captcha">
 	<img id="<?php $this->eElementId($element); ?>__image" src="<?php echo $this->requestUriModule("xui-image-captcha",array_merge($params,array("stamp"=>md5(time().rand())))); ?>"></img>
 	<div class="xui-form-captcha__input">
-	<input type="text" class="xui-form-text xui-form-text--default" placeholder=""
+	<input type="text" class="xui-form-text xui-form-text_default" placeholder=""
 		value="<?php $this->eElementValue($element, ""); ?>"
 		name="<?php $this->eElementName($element); ?>"
 		id="<?php $this->eElementId($element); ?>" ></input>

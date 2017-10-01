@@ -75,13 +75,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeButton as $key=>$value){ ?>
 
-.xui-progress-bar--<?php echo $key; ?> .xui-progress-bar__bar{
+.xui-progress-bar_<?php echo $key; ?> .xui-progress-bar__bar{
 	background-color: <?php echo $value; ?>;
 }
 
 <?php }; ?>
 
-.xui-progress-bar--disabled{
+.xui-progress-bar_disabled{
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>
 }
 

@@ -92,7 +92,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 /* --- */
 
-.xui-form-button-icon--default{
+.xui-form-button-icon_default{
 }
 
 <?php 
@@ -110,19 +110,19 @@ foreach($xuiPalette->colorTypeButton as $key=>$value){
 	$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
-.xui-form-button-icon--<?php echo $key; ?>{
+.xui-form-button-icon_<?php echo $key; ?>{
 	color: <?php echo $xuiPalette->colorTypeButtonText[$key]; ?>;
 	background-color: <?php echo $color; ?>;
 	border: 1px solid <?php echo $color; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
-.xui-form-button-icon--<?php echo $key; ?>:hover, .xui-form-button-icon--<?php echo $key; ?>:focus{
+.xui-form-button-icon_<?php echo $key; ?>:hover, .xui-form-button-icon_<?php echo $key; ?>:focus{
 	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
 }
 
-.xui-form-button-icon--<?php echo $key; ?>:active{
+.xui-form-button-icon_<?php echo $key; ?>:active{
 	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
 	box-shadow: 0px 1px 0px 0px <?php echo $colorWall; ?>;
@@ -136,7 +136,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
 
-.xui-form-button-icon--disabled{
+.xui-form-button-icon_disabled{
 	cursor: default;
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
@@ -144,7 +144,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
-.xui-form-button-icon--disabled:hover, .xui-form-button-icon--disabled:focus{
+.xui-form-button-icon_disabled:hover, .xui-form-button-icon_disabled:focus{
 	cursor: default;
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
@@ -152,7 +152,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
-.xui-form-button-icon--disabled:active{
+.xui-form-button-icon_disabled:active{
 	cursor: default;
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;

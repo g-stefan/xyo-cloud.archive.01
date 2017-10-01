@@ -5,4 +5,4 @@ $mode=$scan[0];
 $state=$scan[1];
 
 ?>
-<div class="xui-brand xui-brand--<?php echo $mode; ?> xui-brand--<?php echo $state; ?> xui--toggle" data-xui-toggle-group="xui-brand">
+<div class="xui-brand xui-brand_<?php echo $mode; ?> xui-brand_<?php echo $state; ?> xui_toggle" data-xui-toggle-group="xui-brand">

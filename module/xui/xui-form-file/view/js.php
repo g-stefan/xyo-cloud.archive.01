@@ -51,11 +51,11 @@ XUI.FormFile={};
 			});
 
 			el.on("focus",function(){
-				el.addClass("xui-form-file__file--focus");
+				el.addClass("xui-form-file__file_focus");
 			});
 
 			el.on("blur",function(){
-				el.removeClass("xui-form-file__file--focus");
+				el.removeClass("xui-form-file__file_focus");
 			});
 		});
 

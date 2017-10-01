@@ -9,7 +9,7 @@
 
 /* --- effect ripple --- */
 
-.xui--effect-ripple__element {
+.xui_effect-ripple__element {
 	display: block;
 	position: absolute;
 	background-color: #000000;
@@ -17,7 +17,7 @@
 	opacity: 0.1;
 }
 
-.xui--effect-ripple__super {
+.xui_effect-ripple__super {
 	display: block;
 	position: relative;
 	overflow: visible;

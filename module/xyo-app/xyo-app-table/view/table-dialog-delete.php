@@ -15,7 +15,7 @@ if(count($this->tableDelete)==0){
 
 ?>
 <div class="xyo-app-table__responsive">
-    <table id="xyo-app-table__table" class="xyo-app-table__table--delete">
+    <table id="xyo-app-table__table" class="xyo-app-table__table_delete">
 	<thead>
                 <?php
                 foreach ($this->tableDelete as $key => $value) {

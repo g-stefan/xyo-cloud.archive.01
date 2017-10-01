@@ -19,6 +19,6 @@ $this->generateComponent("xui.form-text-icon-left",array("element"=>"database","
 $this->generateComponent("xui.form-text-icon-left",array("element"=>"prefix","icon"=>"<i class=\"material-icons\">device_hub</i>"));
 
 ?>
-<div class="xui-alert xui-alert--info">
+<div class="xui-alert xui-alert_info">
 Nota: Baza de date trebuie sa existe pe server inainte de instalare.
 </div>

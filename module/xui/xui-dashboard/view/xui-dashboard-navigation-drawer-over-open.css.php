@@ -9,7 +9,7 @@
 
 /* --- dasboard navigation drawer over open --- */
 
-.xui-dashboard .xui-navigation-drawer--over.xui-navigation-drawer--open ~ .xui-dashboard__content-cover{
+.xui-dashboard .xui-navigation-drawer_over.xui-navigation-drawer_open ~ .xui-dashboard__content-cover{
 	height: 100%;
 	opacity: 0.4;
 }

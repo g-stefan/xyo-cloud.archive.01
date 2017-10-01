@@ -19,8 +19,8 @@ $xuiPalette=&$this->getModule("xui-palette");
 <hr>
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<label class="xui-form-label xui-form-label--<?php echo $key; ?>"><?php echo $key; ?></label><br>
-<input type="text" value="" class="xui-form-text xui-form-text--<?php echo $key; ?>"<?php echo $disabled; ?>></input>
+<label class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label><br>
+<input type="text" value="" class="xui-form-text xui-form-text_<?php echo $key; ?>"<?php echo $disabled; ?>></input>
 <br><br>
 <?php }; ?>
 <hr>

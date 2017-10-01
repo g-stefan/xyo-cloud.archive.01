@@ -65,7 +65,7 @@ foreach($xuiPalette->colorTypeButton as $key=>$value){
 	$colorText=$xuiColor->rgbHexHSLAdjust($color,0,0,-30);
 
 ?>
-.xui-alert--<?php echo $key; ?>{
+.xui-alert_<?php echo $key; ?>{
 	color: <?php echo $colorText; ?>;
 	background-color: <?php echo $colorBackground; ?>;
 	border-top: 1px solid <?php echo $colorBorder; ?>; 

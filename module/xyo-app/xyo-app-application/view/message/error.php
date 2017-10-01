@@ -28,7 +28,7 @@ if ($this->isError()) {
 	$this->hasError__=true;
 
     ?>
-<div class="xui-alert xui-alert--danger">
+<div class="xui-alert xui-alert_danger">
         <?php if (strlen($msgTxt)) { ?>
 		<strong><?php $this->eLanguage($msgLang); ?></strong>
 		<?php echo $msgTxt; ?>

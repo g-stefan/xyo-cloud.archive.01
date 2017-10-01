@@ -25,7 +25,7 @@
 	background-color: <?php echo $this->appBarBackgroundColorHover; ?>;
 }
 
-.xui-dashboard .xui-app-bar .xui-button .xui--effect-ripple__element{
+.xui-dashboard .xui-app-bar .xui-button .xui_effect-ripple__element{
 	background-color: <?php echo $this->appBarBackgroundColorRipple; ?>;
 }
 
@@ -41,24 +41,24 @@
 	background-color: <?php echo $this->appBarBrandBackgroundColor; ?>;
 }
 
-.xui-dashboard .xui-app-bar .xui-brand--normal.xui-brand--closed{
+.xui-dashboard .xui-app-bar .xui-brand_normal.xui-brand_closed{
 	width: <?php echo $this->navigationDrawerMiniWidth-1; ?>px;
 }
 
-.xui-dashboard .xui-app-bar .xui-brand--mini.xui-brand--closed{
+.xui-dashboard .xui-app-bar .xui-brand_mini.xui-brand_closed{
 	width: <?php echo $this->navigationDrawerMiniWidth-1; ?>px;
 }
 
-.xui-dashboard .xui-app-bar .xui-brand--mini.xui-brand--open{
+.xui-dashboard .xui-app-bar .xui-brand_mini.xui-brand_open{
 	width: <?php echo $this->navigationDrawerMiniWidth-1; ?>px;
 }
 
-.xui-dashboard .xui-app-bar .xui-brand--over.xui-brand--open{
+.xui-dashboard .xui-app-bar .xui-brand_over.xui-brand_open{
 	padding-left: 0px;
 	width: 0px;
 }
 
-.xui-dashboard .xui-app-bar .xui-brand--over.xui-brand--closed{
+.xui-dashboard .xui-app-bar .xui-brand_over.xui-brand_closed{
 	padding-left: 0px;
 	width: 0px;
 }

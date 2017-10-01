@@ -9,7 +9,7 @@
 
 /* --- dasboard navigation drawer normal closed --- */
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed{
 	width: <?php echo $this->navigationDrawerMiniWidth; ?>px;
 	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
 	padding-top: 8px;
@@ -17,7 +17,7 @@
 	overflow: visible;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup {
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup {
 	position: relative;
 	width: <?php echo $this->navigationDrawerMiniWidth-9; ?>px;
 	height: auto;
@@ -25,11 +25,11 @@
 	cursor: pointer;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed > .xui-popup {
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed > .xui-popup {
 	transition: width 0.5s ease;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next{
 	position: relative;
 	height: 0px;
 	overflow: hidden;
@@ -37,7 +37,7 @@
 	z-index: 5;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action{
 	position: relative;
 	width: <?php echo $this->navigationDrawerMiniWidth-1; ?>px;
 	height: 40px;
@@ -59,24 +59,24 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed > .xui-action {
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed > .xui-action {
 	transition: background-color 0.5s ease, height 0.5s ease, width 0.5s ease;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-separator{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-separator{
 	transition: height 0.5s ease;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action:hover{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover{
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action .xui--effect-ripple__element {
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui_effect-ripple__element {
 	background-color: <?php echo $this->navigationDrawerBackgroundColorRipple; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui-icon-left{
 	position: relative;
 	float:left;
 	width: 48px;
@@ -93,7 +93,7 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action .xui-text{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui-text{
 	position: relative;
 	float:left;
 	height: 40px;
@@ -110,7 +110,7 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui-icon-right{
 	position: relative;
 	float:right;
 	width: 48px;
@@ -128,39 +128,39 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup--on .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup_on .xui-icon-right{
 	transform: rotate(90deg);
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup--off .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup_off .xui-icon-right{
 	transform: rotate(0deg);
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup--on .xui-next .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup_on .xui-next .xui-action{
 	height: 40px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup--off .xui-next .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup_off .xui-next .xui-action{
 	height: 0px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed + .xui-content{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed + .xui-content{
 	margin-left: <?php echo $this->navigationDrawerMiniWidth; ?>px;
 }
 
 /* --- hover --- */
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover{
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 	overflow: visible;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-action{
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next{
 	position: relative;
 	height: 0px;
 	overflow: visible;
@@ -168,55 +168,55 @@
 	margin-left: <?php echo $this->navigationDrawerMiniWidth; ?>px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-popup{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup{
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 	height: auto;
 	width: <?php echo $this->navigationDrawerOpenWidth-$this->navigationDrawerMiniWidth; ?>px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-popup .xui-next{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup .xui-next{
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 	height: auto;
 	width: <?php echo $this->navigationDrawerOpenWidth-$this->navigationDrawerMiniWidth; ?>px;
 	margin-left: 0px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-action{
 	height: 40px;
 	width: <?php echo $this->navigationDrawerOpenWidth-$this->navigationDrawerMiniWidth; ?>px;
 	padding-left: 0px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-action .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-action .xui-icon-left{
 	display: none;	
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-action .xui-text{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-action .xui-text{
 	width: auto;
 	padding-left: 0px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-icon-right{
 	transform: rotate(90deg);
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-popup--off .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup_off .xui-icon-right{
 	transform: rotate(0deg);
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-popup .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup .xui-action{
 	height: 40px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-popup--off .xui-next .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup_off .xui-next .xui-action{
 	height: 0px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-next .xui-separator{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-separator{
 	width: <?php echo $this->navigationDrawerOpenWidth-$this->navigationDrawerMiniWidth; ?>px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-popup--off .xui-next .xui-separator{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-popup_off .xui-next .xui-separator{
 	height: 0px;
 } 
 
@@ -224,74 +224,74 @@
 
 /* --- outline --- */
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-action{
 	border-top: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 	border-right: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 } 
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action:hover{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover{
 	border-top: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 	border-right: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 } 
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-action{
 	border-top: 0px solid #000000;
 	border-right: 0px solid #000000;
 	border-bottom: 0px solid #000000;
 	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-action:hover .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover .xui-icon-left{
 	padding-top: 7px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup:hover .xui-action .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-action .xui-icon-left{
 	padding-top: 7px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action{
 	border-top: none;
 	border-bottom: none;
 	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
 } 
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-action:hover{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:hover{
 	border-top: none;
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 } 
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-action:last-child{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:last-child{
 	border-top: none;
 	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 } 
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-popup .xui-next .xui-action:last-child{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-popup .xui-next .xui-action:last-child{
 	border-top: none;
 	border-bottom: none;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-popup:last-child .xui-next .xui-action:last-child{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-popup:last-child .xui-next .xui-action:last-child{
 	border-top: none;
 	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-separator{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-separator{
 	border-right: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 } 
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup .xui-next .xui-separator:last-child{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-separator:last-child{
 	border-top: none;
 	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup--active .xui-next > .xui-action--active{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup_active .xui-next > .xui-action_active{
 	padding-left: 0px !important;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-popup--active .xui-next > .xui-action--active .xui-text{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup_active .xui-next > .xui-action_active .xui-text{
 	margin-left: 4px;
 }
 

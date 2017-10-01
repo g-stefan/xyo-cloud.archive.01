@@ -45,7 +45,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-select--<?php echo $key; ?>{
+.xui-form-select_<?php echo $key; ?>{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid <?php echo $value; ?>; 
@@ -75,11 +75,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 
-.xui-form-select--disabled{
+.xui-form-select_disabled{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form-select--disabled:focus{
+.xui-form-select_disabled:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -87,7 +87,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;	
 }
 
-.xui-form-select--disabled:active{
+.xui-form-select_disabled:active{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -126,22 +126,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-select--<?php echo $key; ?> + .select2-container--default .select2-selection--single {
+.xui-form-select_<?php echo $key; ?> + .select2-container--default .select2-selection--single {
 	border-top: 1px solid <?php echo $value; ?>; 
 	border-right: 1px solid <?php echo $value; ?>;
 	border-bottom: 1px solid <?php echo $value; ?>;
 	border-left: 1px solid <?php echo $value; ?>;
 }
 
-.xui-form-select--<?php echo $key; ?> + .select2-container--default .select2-selection--single .select2-selection__arrow b{
+.xui-form-select_<?php echo $key; ?> + .select2-container--default .select2-selection--single .select2-selection__arrow b{
 	border-color: <?php echo $value; ?> transparent transparent transparent;
 }
 
-.xui-form-select--<?php echo $key; ?> + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+.xui-form-select_<?php echo $key; ?> + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
 	border-color: transparent transparent <?php echo $value; ?> transparent;
 }
 
-.xui-form-select--<?php echo $key; ?> + .select2-container--default .select2-selection--single:focus {
+.xui-form-select_<?php echo $key; ?> + .select2-container--default .select2-selection--single:focus {
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
@@ -154,22 +154,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
-.xui-form-select--disabled + .select2-container--default .select2-selection--single {
+.xui-form-select_disabled + .select2-container--default .select2-selection--single {
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
 }
 
-.xui-form-select--disabled + .select2-container--default .select2-selection--single .select2-selection__arrow b{
+.xui-form-select_disabled + .select2-container--default .select2-selection--single .select2-selection__arrow b{
 	border-color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?> transparent transparent transparent;
 }
 
-.xui-form-select--disabled + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+.xui-form-select_disabled + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
 	border-color: transparent transparent <?php echo $xuiPalette->colorTypeInput["disabled"]; ?> transparent;
 }
 
-.xui-form-select--disabled + .select2-container--default .select2-selection--single:focus {
+.xui-form-select_disabled + .select2-container--default .select2-selection--single:focus {
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;

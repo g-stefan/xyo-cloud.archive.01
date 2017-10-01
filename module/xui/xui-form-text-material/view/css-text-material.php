@@ -60,14 +60,14 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	font-weight: normal;
 }
 
-.xui-form-text-material label.xui-form-text-material--has-value{
+.xui-form-text-material label.xui-form-text-material_has-value{
 	margin-top: <?php echo $itemTextLabelMarginTop; ?>px;
 	margin-bottom: <?php echo $itemTextLabelMarginBottom; ?>px;
 	cursor: initial;
 	font-size: <?php echo $itemTextInputSize-6; //16->14 ?>px;
 }
 
-.xui-form-text-material label.xui-form-text-material--focus{
+.xui-form-text-material label.xui-form-text-material_focus{
 	color: <?php echo $itemTextColorLabelFocus; ?>;
 	font-size: <?php echo $itemTextInputSize-6; //16->14 ?>px;
 }
@@ -126,18 +126,18 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	backface-visibility: hidden;
 }
 
-.xui-form-text-material label.xui-form-text-material--focus + div.xui-form-text-material__border{
+.xui-form-text-material label.xui-form-text-material_focus + div.xui-form-text-material__border{
 	width:100%;
 }
 
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-text-material--<?php echo $key; ?> label{
+.xui-form-text-material_<?php echo $key; ?> label{
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form-text-material--<?php echo $key; ?> input[type=text]{
+.xui-form-text-material_<?php echo $key; ?> input[type=text]{
 	border-bottom: 1px solid <?php echo $value; ?>;
 }
 
@@ -145,7 +145,7 @@ $itemTextColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	background-color: <?php echo $value; ?>;
 }
 
-.xui-form-text-material--<?php echo $key; ?> label.xui-form-text-material--focus{
+.xui-form-text-material_<?php echo $key; ?> label.xui-form-text-material_focus{
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 

@@ -54,7 +54,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 
-.xui-toolbar__item .xui--effect-ripple__element{
+.xui-toolbar__item .xui_effect-ripple__element{
 	background-color: #C0C0C0;
 }
 
@@ -100,15 +100,15 @@ $xuiPalette=&$this->getModule("xui-palette");
 
 ?>
 
-.xui-toolbar__item--<?php echo $key; ?> .xui-toolbar__icon{
+.xui-toolbar__item_<?php echo $key; ?> .xui-toolbar__icon{
 	color: <?php echo $colorIcon; ?>;
 }
 
-.xui-toolbar__item--<?php echo $key; ?> .xui-toolbar__text{
+.xui-toolbar__item_<?php echo $key; ?> .xui-toolbar__text{
 	color: <?php echo $colorText; ?>;
 }
 
-.xui-toolbar__item.xui-toolbar__item--<?php echo $key; ?>:hover{
+.xui-toolbar__item.xui-toolbar__item_<?php echo $key; ?>:hover{
 	border-top: 1px solid <?php echo $colorIcon; ?>;
 	border-right: 1px solid <?php echo $colorIcon; ?>;
 	border-bottom: 1px solid <?php echo $colorIcon; ?>;
@@ -117,26 +117,26 @@ $xuiPalette=&$this->getModule("xui-palette");
 	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
-.xui-toolbar__item.xui-toolbar__item--<?php echo $key; ?> .xui--effect-ripple__element{
+.xui-toolbar__item.xui-toolbar__item_<?php echo $key; ?> .xui_effect-ripple__element{
 	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($colorIcon,0,0,25); ?>;
 }
 
-.xui-toolbar__item--<?php echo $key; ?>:active .xui-toolbar__icon{
+.xui-toolbar__item_<?php echo $key; ?>:active .xui-toolbar__icon{
 	color: <?php echo $xuiColor->rgbHexHSLAdjust($colorIcon,0,0,-15); ?>;
 }
 
 <?php }; ?>
 
 
-.xui-toolbar__item--disabled .xui-toolbar__icon{
+.xui-toolbar__item_disabled .xui-toolbar__icon{
 	color: #E6E9ED;
 }
 
-.xui-toolbar__item--disabled .xui-toolbar__text{
+.xui-toolbar__item_disabled .xui-toolbar__text{
 	color: #E6E9ED;
 }
 
-.xui-toolbar__item.xui-toolbar__item--disabled .xui--effect-ripple__element{
+.xui-toolbar__item.xui-toolbar__item_disabled .xui_effect-ripple__element{
 	background-color: transparent;
 }
 
@@ -179,7 +179,7 @@ a.xui-toolbar__item:hover{
 }
 
 
-.xui-toolbar__item.xui-toolbar__item--disabled:active{
+.xui-toolbar__item.xui-toolbar__item_disabled:active{
 	margin-top: 0px;
 	margin-bottom: 2px;
 }

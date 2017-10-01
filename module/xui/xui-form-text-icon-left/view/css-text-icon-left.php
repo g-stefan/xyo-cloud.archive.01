@@ -64,7 +64,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-text-icon-left--<?php echo $key; ?> input{
+.xui-form-text-icon-left_<?php echo $key; ?> input{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid <?php echo $value; ?>; 
@@ -73,7 +73,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $value; ?>;
 }
 
-.xui-form-text-icon-left--<?php echo $key; ?> i{
+.xui-form-text-icon-left_<?php echo $key; ?> i{
 	color: <?php echo $value; ?>;	
 }
 
@@ -89,15 +89,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;	
 }
 
-.xui-form-text-icon-left--disabled input{
+.xui-form-text-icon-left_disabled input{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form-text-icon-left--disabled i{
+.xui-form-text-icon-left_disabled i{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form-text-icon-left--disabled input:focus{
+.xui-form-text-icon-left_disabled input:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;

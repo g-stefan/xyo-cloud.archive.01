@@ -73,7 +73,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 /* --- */
 
-.xui-form-button--default{
+.xui-form-button_default{
 }
 
 <?php 
@@ -91,19 +91,19 @@ foreach($xuiPalette->colorTypeButton as $key=>$value){
 	$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
-.xui-form-button--<?php echo $key; ?>{
+.xui-form-button_<?php echo $key; ?>{
 	color: <?php echo $xuiPalette->colorTypeButtonText[$key]; ?>;
 	background-color: <?php echo $color; ?>;
 	border: 1px solid <?php echo $color; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
-.xui-form-button--<?php echo $key; ?>:hover, .xui-form-button--<?php echo $key; ?>:focus{
+.xui-form-button_<?php echo $key; ?>:hover, .xui-form-button_<?php echo $key; ?>:focus{
 	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
 }
 
-.xui-form-button--<?php echo $key; ?>:active{
+.xui-form-button_<?php echo $key; ?>:active{
 	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
 	box-shadow: 0px 1px 0px 0px <?php echo $colorWall; ?>;
@@ -117,7 +117,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 ?>
 
-.xui-form-button--disabled{
+.xui-form-button_disabled{
 	cursor: default;
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
@@ -125,7 +125,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
-.xui-form-button--disabled:hover, .xui-form-button--disabled:focus{
+.xui-form-button_disabled:hover, .xui-form-button_disabled:focus{
 	cursor: default;
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
@@ -133,7 +133,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
-.xui-form-button--disabled:active{
+.xui-form-button_disabled:active{
 	cursor: default;
 	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;

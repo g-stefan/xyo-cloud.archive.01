@@ -14,7 +14,7 @@ $this->setModule("xui",null,"xui-core");
 $this->setModule("xui",null,"xui-typography");
 $this->setModule("xui",null,"xui-color");
 $this->setModule("xui",null,"xui-palette");
-$this->setModule("xui",null,"xui-theme");
+//$this->setModule("xui",null,"xui-theme");
 $this->setModule("xui",null,"xui-effect-ripple");
 $this->setModule("xui",null,"xui-responsive");
 $this->setModule("xui",null,"xui-toggle");

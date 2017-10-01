@@ -33,7 +33,7 @@ foreach ($items as $key => $value) {
 	};
 	
 	if($selected){
-		echo "<div class=\"xui-list-group__item xui-list-group__item--active\">";
+		echo "<div class=\"xui-list-group__item xui-list-group__item_active\">";
 	}else{
 		echo "<div class=\"xui-list-group__item\">";
 	};

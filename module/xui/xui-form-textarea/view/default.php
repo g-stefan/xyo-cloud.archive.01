@@ -20,8 +20,8 @@ $xuiPalette=&$this->getModule("xui-palette");
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<label class="xui-form-label xui-form-label--<?php echo $key; ?>"><?php echo $key; ?></label><br>
-<textarea class="xui-form-textarea xui-form-textarea--<?php echo $key; ?>"<?php echo $disabled; ?>></textarea>
+<label class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label><br>
+<textarea class="xui-form-textarea xui-form-textarea_<?php echo $key; ?>"<?php echo $disabled; ?>></textarea>
 <br><br>
 <?php }; ?>
 <hr>

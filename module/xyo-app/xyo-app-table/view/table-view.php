@@ -159,11 +159,11 @@ function doValueSave(key){
                     <input type="text"
                            value="<?php echo $search_value; ?>"
                            name="search"
-                           class="xui-form-text xui-form-text--group-right"
+                           class="xui-form-text xui-form-text_group-right"
                            style="width:196px;display:inline-block;position:relative;float:left;"
                            size="32"
 			   placeholder="<?php $this->eLanguage("search"); ?>"></input>
-			<span class="xui-form-text-button-group xui-form-text-button-group--right">
+			<span class="xui-form-text-button-group xui-form-text-button-group_right">
 			<button class="xui-form-text-button-icon" type="submit" name="submit_search" onclick="$('#submit_search').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">search</i></button>
 			<button class="xui-form-text-button-icon" type="button" name="search_reset" onclick="clearSearch(this,'search');"><i class="material-icons">close</i></button>
 			</span>
@@ -425,8 +425,8 @@ function doValueSave(key){
 			                       echo " name=\"order_" . $value[$this->primaryKey] . "\"";
 			                       echo " value=\"" . $value[$key_] . "\"";
 			                       echo " size=\"4\"";
-		        		       echo "class=\"xui-form-text xui-form-text--group-right\" style=\"float:left;\"></input>";
-					echo "<span class=\"xui-form-text-button-group xui-form-text-button-group--right\">";
+		        		       echo "class=\"xui-form-text xui-form-text_group-right\" style=\"float:left;\"></input>";
+					echo "<span class=\"xui-form-text-button-group xui-form-text-button-group_right\">";
 						echo "<button type=\"button\" class=\"xui-form-text-button-icon\" onclick=\"doOrderUp('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"material-icons\">expand_less</i></button>";
 						echo "<button type=\"button\" class=\"xui-form-text-button-icon\" onclick=\"doOrderDown('" . $value[$this->primaryKey] . "','" . $key_ . "');return false;\"><i class=\"material-icons\">expand_more</i></button>";
 					echo "</span>";
@@ -534,7 +534,7 @@ function doValueSave(key){
 							}
                         		}
 					$p .= "}";
-		                        echo "<a class=\"xyo-app-table__table--action\" href=\"".$this->requestUriThis($parameters)."\" onclick=\"callActionLink_".$key_."(".$p.");return false;\">" . $valueX . "</a>";
+		                        echo "<a class=\"xyo-app-table__table_action\" href=\"".$this->requestUriThis($parameters)."\" onclick=\"callActionLink_".$key_."(".$p.");return false;\">" . $valueX . "</a>";
 				}else{
 					echo $valueX;
 				};				
@@ -566,7 +566,7 @@ function doValueSave(key){
 				};
 
 				if($value["@write"]){
-		                        echo "<a class=\"xyo-app-table__table--action\" href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $valueX . "</a>";
+		                        echo "<a class=\"xyo-app-table__table_action\" href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $valueX . "</a>";
 				}else{
 					echo $valueX;
 				};
@@ -603,7 +603,7 @@ function doValueSave(key){
 
 	<div class="xui xui_left">
 
-		<span class="xui-form-text-button-group xui-form-text-button-group--left">
+		<span class="xui-form-text-button-group xui-form-text-button-group_left">
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_first').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">first_page</i></button>
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_previous').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">chevron_left</i></button>
 		</span>
@@ -611,9 +611,9 @@ function doValueSave(key){
 	               value="<?php echo $page; ?>"
         	       name="page"
 	               size="4"
-        	       class="xui-form-text xui-form-text--in-group"
+        	       class="xui-form-text xui-form-text_in-group"
                        style="width:64px;display:inline-block;position:relative;float:left;" ></input>
-		<span class="xui-form-text-button-group xui-form-text-button-group--right">
+		<span class="xui-form-text-button-group xui-form-text-button-group_right">
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_next').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">chevron_right</i></button>
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_last').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">last_page</i></button>
 		</span>
@@ -692,7 +692,7 @@ function doValueSave(key){
 <div id="xyo-app-table-modal-new" data-izimodal-title="<?php $this->eLanguage("form_title_new"); ?>">
 	<div id="xyo-app-table-modal-new__form"></div>
 	<div id="xyo-app-table-modal-new__action" style="text-align: right;">
-		<button type="button" class="xui-form-button xui-form-button--primary" id="xyo-app-table-modal-new__button"><?php $this->eLanguage("label_button_new"); ?></button>
+		<button type="button" class="xui-form-button xui-form-button_primary" id="xyo-app-table-modal-new__button"><?php $this->eLanguage("label_button_new"); ?></button>
 	</div>
 </div>
 <?php }; ?>
@@ -701,7 +701,7 @@ function doValueSave(key){
 <div id="xyo-app-table-modal-edit" data-izimodal-title="<?php $this->eLanguage("form_title_edit"); ?>">
 	<div id="xyo-app-table-modal-edit__form"></div>
 	<div id="xyo-app-table-modal-edit__action" style="text-align: right;">
-		<button type="button" class="xui-form-button xui-form-button--primary" id="xyo-app-table-modal-edit__button"><?php $this->eLanguage("label_button_edit"); ?></button>
+		<button type="button" class="xui-form-button xui-form-button_primary" id="xyo-app-table-modal-edit__button"><?php $this->eLanguage("label_button_edit"); ?></button>
 	</div>
 </div>
 <?php }; ?>
@@ -709,7 +709,7 @@ function doValueSave(key){
 <div id="xyo-app-table-modal-delete" data-izimodal-title="<?php $this->eLanguage("form_title_delete"); ?>">
 	<div id="xyo-app-table-modal-delete__form"></div>
 	<div id="xyo-app-table-modal-delete__action" style="text-align: right;">
-		<button type="button" class="xui-form-button xui-form-button--danger" id="xyo-app-table-modal-delete__button"><?php $this->eLanguage("label_button_delete"); ?></button>
+		<button type="button" class="xui-form-button xui-form-button_danger" id="xyo-app-table-modal-delete__button"><?php $this->eLanguage("label_button_delete"); ?></button>
 	</div>
 </div>
 

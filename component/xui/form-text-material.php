@@ -19,8 +19,8 @@ if($maxlength==0){
 
 ?>
 
-<div class="xui-form-text-material<?php if($this->isElementError($element)){echo " xui-form-text-material--danger";}; ?>" style="width:100%">
-<label for="<?php $this->eElementId($element); ?>"<?php if(strlen($this->getElementValue($element, ""))>0){ echo " class=\"xui-form-text-material--has-value\""; }?>><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<div class="xui-form-text-material<?php if($this->isElementError($element)){echo " xui-form-text-material_danger";}; ?>" style="width:100%">
+<label for="<?php $this->eElementId($element); ?>"<?php if(strlen($this->getElementValue($element, ""))>0){ echo " class=\"xui-form-text-material_has-value\""; }?>><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <input type="text"<?php echo $maxlength; ?> placeholder=""
 	name="<?php $this->eElementName($element); ?>"
 	value="<?php $this->eElementValue($element, ""); ?>"

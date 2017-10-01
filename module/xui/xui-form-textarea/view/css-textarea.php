@@ -44,7 +44,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-textarea--<?php echo $key; ?>{
+.xui-form-textarea_<?php echo $key; ?>{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid <?php echo $value; ?>; 
@@ -65,11 +65,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;	
 }
 
-.xui-form-textarea--disabled{
+.xui-form-textarea_disabled{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form-textarea--disabled:focus{
+.xui-form-textarea_disabled:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;

@@ -94,7 +94,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 	border-bottom-right-radius: 3px;
 }
 
-.xui-form-file__file:hover + label, .xui-form-file__file:focus + label, .xui-form-file__file + label:hover, .xui-form-file__file.xui-form-file__file--focus + label{
+.xui-form-file__file:hover + label, .xui-form-file__file:focus + label, .xui-form-file__file + label:hover, .xui-form-file__file.xui-form-file__file_focus + label{
 	border: 1px solid <?php echo $colorHover; ?>;
 	background-color: <?php echo $colorHover; ?>;
 }

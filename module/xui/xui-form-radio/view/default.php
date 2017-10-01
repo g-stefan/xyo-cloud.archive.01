@@ -20,7 +20,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 <hr>
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<div class="xui-form-radio xui-form-radio--<?php echo $key; ?>">
+<div class="xui-form-radio xui-form-radio_<?php echo $key; ?>">
     <input type="radio" id="radio-item-<?php echo $key; ?>" name="radio-item" value="radio-option-<?php echo $key; ?>"<?php echo $disabled; ?>></input>
     <label for="radio-item-<?php echo $key; ?>"><?php echo $key; ?></label>
 </div>

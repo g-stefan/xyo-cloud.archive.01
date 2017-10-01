@@ -21,7 +21,7 @@ a rezlova defectele in aplicatii.
 Poti schimba locatia editand fisierul
 config/config.ds.db.php .
 </p>
-<div class="xui-alert xui-alert--warning">
+<div class="xui-alert xui-alert_warning">
 Avertisment: Daca salvezi informatii cu caracter
 confidential sugestia este ca locatia sa fie in
 afara website-ului.

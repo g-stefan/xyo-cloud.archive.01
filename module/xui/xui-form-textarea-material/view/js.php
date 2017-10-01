@@ -43,11 +43,11 @@ XUI.FormTextareaMaterial={};
 			};
 		};
 		if(scan!=null){
-			if(!scan.classList.contains("xui-form-textarea-material--has-value")){
-				scan.classList.add("xui-form-textarea-material--has-value");
+			if(!scan.classList.contains("xui-form-textarea-material_has-value")){
+				scan.classList.add("xui-form-textarea-material_has-value");
 			};
-			if(!scan.classList.contains("xui-form-textarea-material--focus")){
-				scan.classList.add("xui-form-textarea-material--focus");
+			if(!scan.classList.contains("xui-form-textarea-material_focus")){
+				scan.classList.add("xui-form-textarea-material_focus");
 			};
 		};
 	};
@@ -67,12 +67,12 @@ XUI.FormTextareaMaterial={};
 		};
 		if(scan!=null){
 			if((""+this.value).length==0){
-				if(scan.classList.contains("xui-form-textarea-material--has-value")){
-					scan.classList.remove("xui-form-textarea-material--has-value");
+				if(scan.classList.contains("xui-form-textarea-material_has-value")){
+					scan.classList.remove("xui-form-textarea-material_has-value");
 				};
 			};
-			if(scan.classList.contains("xui-form-textarea-material--focus")){
-				scan.classList.remove("xui-form-textarea-material--focus");
+			if(scan.classList.contains("xui-form-textarea-material_focus")){
+				scan.classList.remove("xui-form-textarea-material_focus");
 			};
 		};
 	};
@@ -91,8 +91,8 @@ XUI.FormTextareaMaterial={};
 			};
 		};
 		if(scan!=null){
-			if(!scan.classList.contains("xui-form-textarea-material--active")){
-				scan.classList.add("xui-form-textarea-material--active");
+			if(!scan.classList.contains("xui-form-textarea-material_active")){
+				scan.classList.add("xui-form-textarea-material_active");
 			};
 		};
 	};

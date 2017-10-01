@@ -9,20 +9,20 @@
 
 /* --- dasboard navigation drawer normal open --- */
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open{
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
 	padding-top: 8px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-popup {
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-popup {
 	position: relative;
 	height: auto;
 	overflow: hidden;
 	cursor: pointer;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action{
 	position: relative;
 	height: 40px;
 	overflow: hidden;
@@ -42,19 +42,19 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-separator{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-separator{
 	transition: height 0.5s ease;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-action:hover{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action:hover{
 	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-action .xui--effect-ripple__element {
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action .xui_effect-ripple__element {
 	background-color: <?php echo $this->navigationDrawerBackgroundColorRipple; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-action .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action .xui-icon-left{
 	position: relative;
 	float:left;
 	width: 48px;
@@ -71,7 +71,7 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-action .xui-text{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action .xui-text{
 	position: relative;
 	float:left;
 	height: 40px;
@@ -88,7 +88,7 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-action .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action .xui-icon-right{
 	position: relative;
 	float:right;
 	width: 48px;
@@ -106,27 +106,27 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-popup--on .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-popup_on .xui-icon-right{
 	transform: rotate(90deg);
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-popup--off .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-popup_off .xui-icon-right{
 	transform: rotate(0deg);
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-popup--on .xui-next .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-popup_on .xui-next .xui-action{
 	height: 40px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-popup--off .xui-next .xui-action{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-popup_off .xui-next .xui-action{
 	height: 0px;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open .xui-popup--off .xui-next .xui-separator{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-popup_off .xui-next .xui-separator{
 	display: none;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--open + .xui-content{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open + .xui-content{
 	margin-left: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 }
 

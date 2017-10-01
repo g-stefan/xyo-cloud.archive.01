@@ -10,7 +10,7 @@
 
 /* --- dasboard --- */
 
-.xui-dashboard{
+.xui-dashboard{ 
 	position: relative;
 	width: 100%;
 	height: 100%;

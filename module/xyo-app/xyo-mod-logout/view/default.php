@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 ?>                 
-<a class="xui--effect-ripple xui-button xui-button--size-40x40 xui_left" href="<?php echo $this->requestUriModule("xyo-app-logout", array("stamp"=>md5(time().rand()))); ?>" style="text-align:center;">
+<a class="xui_effect-ripple xui-button xui-button_size-40x40 xui_left" href="<?php echo $this->requestUriModule("xyo-app-logout", array("stamp"=>md5(time().rand()))); ?>" style="text-align:center;">
 	<i class="material-icons">eject</i>
 </a>
 

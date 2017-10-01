@@ -18,11 +18,11 @@ $xuiPalette=&$this->getModule("xui-palette");
 <form>
 <hr>
 
-<label class="xui-form-label xui-form-label--default">Captcha</label><br>
+<label class="xui-form-label xui-form-label_default">Captcha</label><br>
 <div class="xui-form-captcha">
 	<img id="captcha_image" src="<?php echo $this->requestUriModule("xui-image-captcha",array("stamp"=>md5(time().rand()))); ?>"></img>
 	<div class="xui-form-captcha__input">
-	<input type="text" value="" class="xui-form-text xui-form-text--default"></input>
+	<input type="text" value="" class="xui-form-text xui-form-text_default"></input>
 	<button type="button" class="xui-form-text-button-icon" onclick="console.log('refresh');"><i class="material-icons">sync</i></button>
 	</div>
 </div>

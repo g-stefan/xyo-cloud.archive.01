@@ -31,15 +31,15 @@
 	transition: opacity 0.5s ease;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-user .xui-user__background{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-user .xui-user__background{
 	opacity: 1;
 }
 
-.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-user .xui-user__background{
+.xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-user .xui-user__background{
 	opacity: 1;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-user .xui-user__image{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-user .xui-user__image{
 	position: absolute;
 	top: 2px;
 	left: 12px; 
@@ -49,7 +49,7 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-user .xui-user__image{
+.xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-user .xui-user__image{
 	position: absolute;
 	top: 2px;
 	left: 12px; 

@@ -41,13 +41,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeLabel as $key=>$value){ ?>
 
-.xui-form-label--<?php echo $key; ?>{
+.xui-form-label_<?php echo $key; ?>{
 	color: <?php echo $value; ?>;
 }
 
 <?php }; ?>
 
-.xui-form-label--disabled{
+.xui-form-label_disabled{
 	color: <?php echo $xuiPalette->colorTypeLabel["disabled"]; ?>
 }
 

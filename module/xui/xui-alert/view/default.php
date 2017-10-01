@@ -18,7 +18,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 <form>
 <hr>
 <?php foreach($xuiPalette->colorTypeButton as $key=>$value){ ?>
-<div class="xui-alert xui-alert--<?php echo $key; ?>"><?php echo $key; ?></div>
+<div class="xui-alert xui-alert_<?php echo $key; ?>"><?php echo $key; ?></div>
 <br><br>
 <?php }; ?>
 <hr>

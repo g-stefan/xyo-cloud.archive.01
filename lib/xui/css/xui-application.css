@@ -40,7 +40,7 @@
 	overflow: auto;	
 }
 
-.xui-application .xui-content--has-toolbar{
+.xui-application .xui-content_has-toolbar{
 	position: relative;
 	width: 100%;
 	margin-left: 0px;
@@ -99,15 +99,15 @@
 	overflow: auto;	
 }
 
-.xui-application .xui-content--has-toolbar.xui-content--has-message-alert{
+.xui-application .xui-content_has-toolbar.xui-content_has-message-alert{
 	height: calc(100% - 96px );
 }
 
-.xui-application .xui-content--has-toolbar.xui-content--has-message-error{
+.xui-application .xui-content_has-toolbar.xui-content_has-message-error{
 	height: calc(100% - 96px);
 }
 
-.xui-application .xui-content--has-toolbar.xui-content--has-message-alert.xui-content--has-message-error{
+.xui-application .xui-content_has-toolbar.xui-content_has-message-alert.xui-content_has-message-error{
 	height: calc(100% - 144px);
 }
 

@@ -60,14 +60,14 @@ $itemTextareaColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	font-weight: normal;
 }
 
-.xui-form-textarea-material label.xui-form-textarea-material--has-value{
+.xui-form-textarea-material label.xui-form-textarea-material_has-value{
 	margin-top: <?php echo $itemTextareaLabelMarginTop; ?>px;
 	margin-bottom: <?php echo $itemTextareaLabelMarginBottom; ?>px;
 	cursor: initial;
 	font-size: <?php echo $itemTextareaInputSize-6; //16->14 ?>px;
 }
 
-.xui-form-textarea-material label.xui-form-textarea-material--focus{
+.xui-form-textarea-material label.xui-form-textarea-material_focus{
 	color: <?php echo $itemTextareaColorLabelFocus; ?>;
 	font-size: <?php echo $itemTextareaInputSize-6; //16->14 ?>px;
 }
@@ -124,11 +124,11 @@ $itemTextareaColorBorderFocus=$xuiPalette->colorTypeInputActive;
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-textarea-material--<?php echo $key; ?> label{
+.xui-form-textarea-material_<?php echo $key; ?> label{
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form-textarea-material--<?php echo $key; ?> input[type=text]{
+.xui-form-textarea-material_<?php echo $key; ?> input[type=text]{
 	border-bottom: 1px solid <?php echo $value; ?>;
 }
 
@@ -136,7 +136,7 @@ $itemTextareaColorBorderFocus=$xuiPalette->colorTypeInputActive;
 	background-color: <?php echo $value; ?>;
 }
 
-.xui-form-textarea-material--<?php echo $key; ?> label.xui-form-textarea-material--focus{
+.xui-form-textarea-material_<?php echo $key; ?> label.xui-form-textarea-material_focus{
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 

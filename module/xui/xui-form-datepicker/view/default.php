@@ -18,12 +18,12 @@ $xuiPalette=&$this->getModule("xui-palette");
 <form>
 <br>
 <br>
-<label class="xui-form-label xui-form-label--default">Datepicker</label><br>
-<input type="text" value="" class="xui-form-text xui-form-text--default datepicker-here" data-language="en"></input>
+<label class="xui-form-label xui-form-label_default">Datepicker</label><br>
+<input type="text" value="" class="xui-form-text xui-form-text_default datepicker-here" data-language="en"></input>
 <br>
 <br>
-<label class="xui-form-label xui-form-label--default">Datetimepicker</label><br>
-<input type="text" value="" class="xui-form-text xui-form-text--default datepicker-here" data-timepicker="true" data-language="en"></input>
+<label class="xui-form-label xui-form-label_default">Datetimepicker</label><br>
+<input type="text" value="" class="xui-form-text xui-form-text_default datepicker-here" data-timepicker="true" data-language="en"></input>
 <br>
 <br>
 <br>

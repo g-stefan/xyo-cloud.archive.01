@@ -61,19 +61,19 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-action--active{
+.xui-dashboard .xui-navigation-drawer .xui-action_active{
 	background-color: <?php echo $this->navigationDrawerBackgroundColorActive; ?> !important;
 	border-left: 4px solid <?php echo $this->navigationDrawerBarColorActive; ?>;
 	padding-left: 8px !important;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-popup--active > .xui-action--active{
+.xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action_active{
 	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?> !important;
 	border-left: 0px solid <?php echo $this->navigationDrawerBarColorActive; ?>;
 	padding-left: 12px !important;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-action--active .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer .xui-action_active .xui-icon-left{
 	color: <?php echo $this->navigationDrawerColorActive; ?>;
 }
 
@@ -81,11 +81,11 @@
 	color: <?php echo $this->navigationDrawerColorIconLeftHover; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-action--active:hover .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer .xui-action_active:hover .xui-icon-left{
 	color: <?php echo $this->navigationDrawerColorActive; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-popup--active > .xui-action .xui-icon-left{
+.xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action .xui-icon-left{
 	color: <?php echo $this->navigationDrawerColorPopupActive; ?>;
 }
 
@@ -93,12 +93,12 @@
 	color: <?php echo $this->navigationDrawerColor; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-action--active .xui-text{
+.xui-dashboard .xui-navigation-drawer .xui-action_active .xui-text{
 	color: <?php echo $this->navigationDrawerColorActive; ?>;
 	font-weight: normal;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-popup--active > .xui-action .xui-text{
+.xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action .xui-text{
 	color: <?php echo $this->navigationDrawerColor; ?>;
 	font-weight: normal;
 }
@@ -107,7 +107,7 @@
 	color: <?php echo $this->navigationDrawerColorIconRight; ?>;
 }
 
-.xui-dashboard .xui-navigation-drawer .xui-action--active .xui-icon-right{
+.xui-dashboard .xui-navigation-drawer .xui-action_active .xui-icon-right{
 	color: <?php echo $this->navigationDrawerColorIconRight; ?>;
 }
 
@@ -126,7 +126,7 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--normal.xui-navigation-drawer--closed .xui-user{
+.xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-user{
 	position: relative;
 	overflow: hidden;
 	height: 48px;
@@ -137,7 +137,7 @@
 	box-sizing: border-box;
 }
 
-.xui-dashboard .xui-navigation-drawer--mini.xui-navigation-drawer--closed .xui-user{
+.xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-user{
 	position: relative;
 	overflow: hidden;
 	height: 48px;

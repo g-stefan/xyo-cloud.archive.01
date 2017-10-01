@@ -138,15 +138,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-radio--<?php echo $key; ?> label {
+.xui-form-radio_<?php echo $key; ?> label {
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form-radio--<?php echo $key; ?> label::before {
+.xui-form-radio_<?php echo $key; ?> label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInput[$key]; ?>;
 }
 
-.xui-form-radio--<?php echo $key; ?> input[type="radio"]:checked + label::after {
+.xui-form-radio_<?php echo $key; ?> input[type="radio"]:checked + label::after {
 	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput[$key],0,5,-20); ?>;
 }
 	

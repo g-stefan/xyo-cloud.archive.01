@@ -14,18 +14,18 @@ if(array_key_exists("popup",$item)){
 		};
 		if($on){
 			if($active){
-				echo "<div class=\"xui-popup xui-popup--active xui-popup--on\">";
+				echo "<div class=\"xui-popup xui-popup_active xui-popup_on\">";
 			}else{
-				echo "<div class=\"xuipopup xui-popup--on\">";
+				echo "<div class=\"xuipopup xui-popup_on\">";
 			}
 		}else{
-			echo "<div class=\"xui-popup xui-popup--off\">";
+			echo "<div class=\"xui-popup xui-popup_off\">";
 		};
 
 		if($active){
-			echo "<div class=\"xui-action xui-action--active xui--effect-ripple xui--toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup--on, xui-popup--off\">";
+			echo "<div class=\"xui-action xui-action_active xui_effect-ripple xui_toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup_on, xui-popup_off\">";
 		}else{
-			echo "<div class=\"xui-action xui--effect-ripple xui--toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup--on, xui-popup--off\">";
+			echo "<div class=\"xui-action xui_effect-ripple xui_toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup_on, xui-popup_off\">";
 		};
 
 		echo "<div class=\"xui-icon-left\">";
@@ -66,9 +66,9 @@ if(array_key_exists("separator",$item)){
 if(array_key_exists("url",$item)){
 
 	if($active){
-		echo "<a class=\"xui-action xui-action--active xui--effect-ripple\" href=\"".$item["url"]."\">";
+		echo "<a class=\"xui-action xui-action_active xui_effect-ripple\" href=\"".$item["url"]."\">";
 	}else{
-		echo "<a class=\"xui-action xui--effect-ripple\" href=\"".$item["url"]."\">";
+		echo "<a class=\"xui-action xui_effect-ripple\" href=\"".$item["url"]."\">";
 	};
 	echo "<div class=\"xui-icon-left\">";
 	if(array_key_exists("icon",$item)){
@@ -85,9 +85,9 @@ if(array_key_exists("url",$item)){
 };
 
 if($active){
-	echo "<div class=\"xui-action xui-action--active xui--effect-ripple\">";
+	echo "<div class=\"xui-action xui-action_active xui_effect-ripple\">";
 }else{
-	echo "<div class=\"xui-action xui--effect-ripple\">";
+	echo "<div class=\"xui-action xui_effect-ripple\">";
 };
 echo "<div class=\"xui-icon-left\">";
 if(array_key_exists("icon",$item)){

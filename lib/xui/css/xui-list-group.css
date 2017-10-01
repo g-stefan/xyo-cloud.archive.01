@@ -75,7 +75,7 @@
 	line-height: 20px;
 }
 
-.xui-list-group__item--active{
+.xui-list-group__item_active{
 	background-color: #4A89DC;
 	color: #FFFFFF;
 }

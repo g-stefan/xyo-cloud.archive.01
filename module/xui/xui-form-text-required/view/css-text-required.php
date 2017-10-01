@@ -52,7 +52,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-text-required--<?php echo $key; ?> input{
+.xui-form-text-required_<?php echo $key; ?> input{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid <?php echo $value; ?>; 
@@ -73,11 +73,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;	
 }
 
-.xui-form-text-required--disabled input{
+.xui-form-text-required_disabled input{
 	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
 }
 
-.xui-form-text-required--disabled input:focus{
+.xui-form-text-required_disabled input:focus{
 	outline: none;
 	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
@@ -85,18 +85,18 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;	
 }
 
-.xui-form-text-required--in-group input{
+.xui-form-text-required_in-group input{
 	border-radius: 0px;
 }
 
-.xui-form-text-required--group-left input{
+.xui-form-text-required_group-left input{
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
 
-.xui-form-text-required--group-right input{
+.xui-form-text-required_group-right input{
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
 	border-top-right-radius: 0px;
@@ -117,7 +117,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	background-color: <?php echo $xuiPalette->colorTypeInput["danger"] ?>;
 }
 
-.xui-form-text-required--disabled::after{
+.xui-form-text-required_disabled::after{
 	background-color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
 }
 

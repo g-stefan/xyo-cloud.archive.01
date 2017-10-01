@@ -156,15 +156,15 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 
 <?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
 
-.xui-form-checkbox--<?php echo $key; ?> label {
+.xui-form-checkbox_<?php echo $key; ?> label {
 	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form-checkbox--<?php echo $key; ?> label::before {
+.xui-form-checkbox_<?php echo $key; ?> label::before {
 	border: 2px solid <?php echo $xuiPalette->colorTypeInput[$key]; ?>;
 }
 
-.xui-form-checkbox--<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
+.xui-form-checkbox_<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
 	background-image: <?php
 
 $color=$xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput[$key],0,5,-20);

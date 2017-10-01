@@ -69,37 +69,37 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--right .xui-form-text-button-icon{
+.xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon{
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--right .xui-form-text-button-icon:last-child {
+.xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child {
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--right .xui-form-text-button-icon:last-child:hover {
+.xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:hover {
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--right .xui-form-text-button-icon:last-child:active {
+.xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:active {
 	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--left .xui-form-text-button-icon{
+.xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon{
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--left .xui-form-text-button-icon:first-child {
+.xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child {
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--left .xui-form-text-button-icon:first-child:hover {
+.xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:hover {
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 
-.xui-form-text-button-group.xui-form-text-button-group--left .xui-form-text-button-icon:first-child:active {
+.xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:active {
 	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
 }
 

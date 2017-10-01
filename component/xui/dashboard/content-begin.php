@@ -1,1 +1,1 @@
-<div class="xui-content xui--bg-material-white">
+<div class="xui-content xui_bg-material-white">

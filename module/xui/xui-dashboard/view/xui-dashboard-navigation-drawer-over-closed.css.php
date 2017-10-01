@@ -9,7 +9,7 @@
 
 /* --- dasboard navigation drawer over closed --- */
 
-.xui-dashboard .xui-navigation-drawer--over.xui-navigation-drawer--closed{
+.xui-dashboard .xui-navigation-drawer_over.xui-navigation-drawer_closed{
 	width: 0px;
 	overflow: hidden;
 }

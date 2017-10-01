@@ -97,7 +97,7 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 
 </style>
 
-<label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label--danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
 <div class="xui-form-file-image" id="<?php $this->eElementId($element); ?>_component">
 <div class="xui-form-file-image__image">
@@ -107,7 +107,7 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 		</div>
 		<div class="xui-separator"></div>
 </div><!--<?php  if(strlen($fileName)){ ?>
---><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon--success"><i class="material-icons">photo</i></a><!--
+--><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
 <?php  }; ?>
 --><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon--danger" onclick="$('#<?php $this->eElementId($element); ?>_delete').val(1);return false;"><i class="material-icons">close</i></button>
 <div class="xui-form-file">

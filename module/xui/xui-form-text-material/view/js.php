@@ -43,11 +43,11 @@ XUI.FormTextMaterial={};
 			};
 		};
 		if(scan!=null){			
-			if(!scan.classList.contains("xui-form-text-material--has-value")){
-				scan.classList.add("xui-form-text-material--has-value");
+			if(!scan.classList.contains("xui-form-text-material_has-value")){
+				scan.classList.add("xui-form-text-material_has-value");
 			};
-			if(!scan.classList.contains("xui-form-text-material--focus")){
-				scan.classList.add("xui-form-text-material--focus");
+			if(!scan.classList.contains("xui-form-text-material_focus")){
+				scan.classList.add("xui-form-text-material_focus");
 			};
 		};
 	};
@@ -67,12 +67,12 @@ XUI.FormTextMaterial={};
 		};
 		if(scan!=null){
 			if((""+this.value).length==0){
-				if(scan.classList.contains("xui-form-text-material--has-value")){
-					scan.classList.remove("xui-form-text-material--has-value");
+				if(scan.classList.contains("xui-form-text-material_has-value")){
+					scan.classList.remove("xui-form-text-material_has-value");
 				};
 			};
-			if(scan.classList.contains("xui-form-text-material--focus")){
-				scan.classList.remove("xui-form-text-material--focus");
+			if(scan.classList.contains("xui-form-text-material_focus")){
+				scan.classList.remove("xui-form-text-material_focus");
 			};
 		};
 	};
@@ -91,8 +91,8 @@ XUI.FormTextMaterial={};
 			};
 		};
 		if(scan!=null){
-			if(!scan.classList.contains("xui-form-text-material--active")){
-				scan.classList.add("xui-form-text-material--active");
+			if(!scan.classList.contains("xui-form-text-material_active")){
+				scan.classList.add("xui-form-text-material_active");
 			};
 		};
 	};

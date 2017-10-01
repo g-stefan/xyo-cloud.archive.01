@@ -33,7 +33,7 @@
 	transition: opacity 0.5s ease;	
 }
 
-.xui-dashboard .xui-app-bar .xui-brand--closed .xui-brand__text{
+.xui-dashboard .xui-app-bar .xui-brand_closed .xui-brand__text{
 	opacity: 0;
 }
 
