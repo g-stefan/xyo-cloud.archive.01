@@ -17,7 +17,8 @@ class xui_Core extends xyo_Module {
 		if ($this->isBase("xui_Core")) {
 			$this->setHtmlCss($this->site."lib/xui/css/xui.css");
 			$this->setHtmlJs($this->site."lib/xui/js/xui.js");
-			$this->setHtmlClass("xui");
+			$this->setHtmlClass("xui-html");
+			$this->setHtmlBodyClass("xui-body");
         	}
 	}
 
