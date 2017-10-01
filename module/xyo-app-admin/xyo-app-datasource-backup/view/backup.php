@@ -14,14 +14,14 @@ $this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLan
 
 ?>
 
-<div id="progress_bar1" class="xui-progress-bar xui-progress-bar--success xui--elevation-1">
+<div id="progress_bar1" class="xui-progress-bar xui-progress-bar--success xui_elevation-1">
 	<div class="xui-progress-bar__bar" id="progress_bar1_slider"></div>
 	<div class="xui-progress-bar__label" id="progress_bar1_text">0%</div>
 </div>
 
 <br />
 
-<div id="progress_bar2" class="xui-progress-bar xui-progress-bar--info xui--elevation-1">
+<div id="progress_bar2" class="xui-progress-bar xui-progress-bar--info xui_elevation-1">
 	<div class="xui-progress-bar__bar" id="progress_bar2_slider"></div>
 	<div class="xui-progress-bar__label" id="progress_bar2_text">0%</div>
 </div>

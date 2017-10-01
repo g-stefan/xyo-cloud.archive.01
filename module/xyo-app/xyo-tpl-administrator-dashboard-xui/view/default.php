@@ -87,9 +87,9 @@ echo "<div class=\"xui-user__content\" style=\"background-image:none;\">";
 echo "<div class=\"xui-user__content__background__img\"></div>";
 echo "<div class=\"xui-user__background\"></div>";
 if(strlen($userImage)>0){
-	echo "<div class=\"xui-user__image xui--elevation-2\" style=\"background-image:none;overflow: hidden;\"><div class=\"xui-user__image__img\"><div class=\"xui-user__image__img__src\"></div></div></div>";
+	echo "<div class=\"xui-user__image xui_elevation-2\" style=\"background-image:none;overflow: hidden;\"><div class=\"xui-user__image__img\"><div class=\"xui-user__image__img__src\"></div></div></div>";
 }else{
-	echo "<div class=\"xui-user__image xui--elevation-2\"></div>";
+	echo "<div class=\"xui-user__image xui_elevation-2\"></div>";
 };
 echo "<div class=\"xui-user__info\">".$userName."</div>";
 echo "</div>";

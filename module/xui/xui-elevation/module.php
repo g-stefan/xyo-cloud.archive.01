@@ -15,7 +15,10 @@ class xui_Elevation extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Elevation")) {
-			$this->setHtmlCss($this->site."lib/xui/css/xui-elevation.css");
+			$this->setHtmlCss($this->requestUriThis(array(
+				"ajax"=>1,
+				"action"=>"css"
+			)));
         	}
 	}
 

@@ -42,9 +42,9 @@ $userImage="";
 echo "<div class=\"xui-user__content\">";
 echo "<div class=\"xui-user__background\"></div>";
 if(strlen($userImage)>0){
-	echo "<div class=\"xui-user__image xui--elevation-2\" style=\"background-image:url('".$this->site.$userImage."');\"></div>";
+	echo "<div class=\"xui-user__image xui_elevation-2\" style=\"background-image:url('".$this->site.$userImage."');\"></div>";
 }else{
-	echo "<div class=\"xui-user__image xui--elevation-2\"></div>";
+	echo "<div class=\"xui-user__image xui_elevation-2\"></div>";
 };
 echo "<div class=\"xui-user__info\">".$userName."</div>";
 echo "</div>";

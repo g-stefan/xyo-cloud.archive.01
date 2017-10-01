@@ -8,7 +8,14 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-?>
+echo "<div style=\"padding:30px;background-color:#FFFFFF;\">";
 
-Hello World!
+for($k=0; $k<=24; ++$k){
+	echo "<div style=\"float:left;background-color:#FFFFFF;width:192px;height:64px;border-radius:8px;border:0px solid transparent;overflow: hidden;margin:32px;padding:24px;box-sizing: border-box;\" class=\"xui-elevation-".$k."\">";
+	echo $k;
+	echo "</div>";
+};
 
+echo "<div style=\"clear:both;\"></div>";
+
+echo "</div>";
