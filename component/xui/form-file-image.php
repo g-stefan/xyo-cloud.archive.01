@@ -109,11 +109,11 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 </div><!--<?php  if(strlen($fileName)){ ?>
 --><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
 <?php  }; ?>
---><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon--danger" onclick="$('#<?php $this->eElementId($element); ?>_delete').val(1);return false;"><i class="material-icons">close</i></button>
+--><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon_danger" onclick="$('#<?php $this->eElementId($element); ?>_delete').val(1);return false;"><i class="material-icons">close</i></button>
 <div class="xui-form-file">
 <input type="file" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" class="xui-form-file__file cropit-image-input" accept="image/*"></input>
 <label for="<?php $this->eElementId($element); ?>"><i class="material-icons">file_upload</i> Browse ...</label><!--
---><button type="button" class="xui-form-button-icon xui-form-button-icon--info" onclick="document.getElementById('<?php $this->eElementId($element); ?>').value=null;$('#<?php $this->eElementId($element); ?>').trigger('change');"><i class="material-icons">delete</i></button>
+--><button type="button" class="xui-form-button-icon xui-form-button-icon_info" onclick="document.getElementById('<?php $this->eElementId($element); ?>').value=null;$('#<?php $this->eElementId($element); ?>').trigger('change');"><i class="material-icons">delete</i></button>
 </div>
 </div>
 <input type="hidden"
