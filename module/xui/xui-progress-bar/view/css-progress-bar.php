@@ -36,8 +36,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	color: <?php echo $xuiPalette->colorTypeLabel["default"]; ?>;
-	background-color: <?php echo $xuiPalette->colorPalette["xui-light-gray"]; ?>;
+	color: <?php echo $xuiTheme->colorTypeLabel["default"]; ?>;
+	background-color: <?php echo $xuiPalette->palette["core-light-gray"]; ?>;
 
 	border-radius: 3px;
 	overflow: hidden;
@@ -73,7 +73,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	padding-left: 0px;
 }
 
-<?php foreach($xuiPalette->colorTypeButton as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ ?>
 
 .xui-progress-bar_<?php echo $key; ?> .xui-progress-bar__bar{
 	background-color: <?php echo $value; ?>;
@@ -82,7 +82,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 <?php }; ?>
 
 .xui-progress-bar_disabled{
-	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>
+	color: <?php echo $xuiTheme->colorTypeButtonText["disabled"]; ?>
 }
 
 /* --- */

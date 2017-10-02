@@ -12,6 +12,7 @@ header("Content-type: text/css");
 
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 /*
@@ -85,7 +86,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 }
 
 
-<?php foreach($xuiPalette->colorTypeButton as $key=>$value){ 
+<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ 
 
 	if($key=="disabled"){
 		continue;
@@ -95,7 +96,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 	$colorText="#000000"; 
 
 	if($key=="default"){
-		$colorIcon=$xuiPalette->colorPalette["xui-medium-gray"];
+		$colorIcon=$xuiPalette->palette["core-medium-gray"];
 	};
 
 ?>

@@ -64,7 +64,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	cursor: pointer;
 	box-sizing: border-box;
 
-	<?php echo $xuiPalette->colorTypeLabel["default"]; ?>
+	<?php echo $xuiTheme->colorTypeLabel["default"]; ?>
 }
 
 .xui-form-checkbox label::before {
@@ -93,16 +93,16 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	border: 2px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-radius: 3px;
 }
 
 .xui-form-checkbox input[type="checkbox"]:active + label::before {
-	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-checkbox input[type="checkbox"]:focus + label::before {
-	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-checkbox input[type="checkbox"] + label::after {
@@ -139,7 +139,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	background-image: <?php
 
-$color=$xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput["default"],0,5,-20);
+$color=$xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["default"],0,5,-20);
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".
@@ -154,20 +154,20 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 
 }
 
-<?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
 
 .xui-form-checkbox_<?php echo $key; ?> label {
-	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
+	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
 }
 
 .xui-form-checkbox_<?php echo $key; ?> label::before {
-	border: 2px solid <?php echo $xuiPalette->colorTypeInput[$key]; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
 }
 
 .xui-form-checkbox_<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
 	background-image: <?php
 
-$color=$xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput[$key],0,5,-20);
+$color=$xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput[$key],0,5,-20);
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".

@@ -10,13 +10,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
 <br>
 <br>
 <hr>
-<?php foreach($xuiPalette->colorTypeButton as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ ?>
 <div class="xui-toolbar__item xui-toolbar__item_<?php echo $key; ?> xui_effect-ripple">
 	<div class="xui-toolbar__icon">
 		<i class="material-icons">extension</i>	

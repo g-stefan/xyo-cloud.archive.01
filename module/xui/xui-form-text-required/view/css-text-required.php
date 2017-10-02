@@ -40,17 +40,17 @@ defined('XYO_CLOUD') or die('Access is denied');
 	background-color: #FFFFFF;
 
 	border-radius: 3px;
-	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>; 
-	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
-	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 
 	height: 32px;
 }
 
 /* --- */
 
-<?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
 
 .xui-form-text-required_<?php echo $key; ?> input{
 	color: #000000;
@@ -67,22 +67,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 .xui-form-text-required input:focus{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;	
+	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;	
 }
 
 .xui-form-text-required_disabled input{
-	color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>
+	color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>
 }
 
 .xui-form-text-required_disabled input:focus{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;	
+	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;	
 }
 
 .xui-form-text-required_in-group input{
@@ -114,10 +114,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 	box-sizing: border-box;
 	border-radius: 4px;
 	overflow: hidden;
-	background-color: <?php echo $xuiPalette->colorTypeInput["danger"] ?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput["danger"] ?>;
 }
 
 .xui-form-text-required_disabled::after{
-	background-color: <?php echo $xuiPalette->colorTypeInput["disabled"]; ?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
 }
 

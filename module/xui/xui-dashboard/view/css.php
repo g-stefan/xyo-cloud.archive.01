@@ -10,7 +10,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 header("Content-type: text/css");
 
+$xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
 
 include("xui-app-bar.css");
 include("xui-button-size-32x40.css");

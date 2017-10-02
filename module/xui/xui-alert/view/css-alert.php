@@ -14,7 +14,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php
 
-$color=$xuiPalette->colorTypeButton["default"];
+$color=$xuiTheme->colorTypeButton["default"];
 $colorBackground=$xuiColor->rgbHexHSLAdjust($color,0,0,30);
 $colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,0);
 $colorText=$xuiColor->rgbHexHSLAdjust($color,0,0,-30);
@@ -57,7 +57,7 @@ $colorText=$xuiColor->rgbHexHSLAdjust($color,0,0,-30);
 
 <?php 
 
-foreach($xuiPalette->colorTypeButton as $key=>$value){
+foreach($xuiTheme->colorTypeButton as $key=>$value){
 
 	$color=$value;
 	$colorBackground=$xuiColor->rgbHexHSLAdjust($color,0,0,30);

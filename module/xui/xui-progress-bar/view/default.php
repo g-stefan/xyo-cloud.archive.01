@@ -10,6 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
@@ -19,7 +20,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 <hr>
 <hr>
 <div style="width:640px;margin-left: 30px;">
-<?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
 <div class="xui-progress-bar xui-progress-bar_<?php echo $key; ?> xui_elevation_1">
 	<div class="xui-progress-bar__bar"></div>
 	<div class="xui-progress-bar__label">50%</div>

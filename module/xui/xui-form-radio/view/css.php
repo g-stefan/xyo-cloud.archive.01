@@ -12,5 +12,6 @@ header("Content-type: text/css");
 
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
 
 include("css-radio.php");

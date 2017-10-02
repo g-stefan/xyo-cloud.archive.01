@@ -18,13 +18,13 @@ $itemTextareaMarginBottom=6;
 
 $itemTextareaMarginTopX=$itemTextareaLabelMarginTop+$itemTextareaLabelSize+$itemTextareaLabelMarginBottom;
 
-$itemTextareaColorLabel=$xuiPalette->colorPalette["xui-dark-gray-v1"];
-$itemTextareaColorInput="#000000";
-$itemTextareaColorBorder=$xuiPalette->colorPalette["xui-dark-gray-v1"];
+$itemTextareaColorLabel=$xuiPalette->palette["core-dark-gray-v1"];
+$itemTextareaColorInput="#000000";   
+$itemTextareaColorBorder=$xuiPalette->palette["core-dark-gray-v1"];
 
-$itemTextareaColorLabelFocus=$xuiPalette->colorTypeInputActive;
+$itemTextareaColorLabelFocus=$xuiTheme->colorTypeInputActive;
 $itemTextareaColorInputFocus="#000000";
-$itemTextareaColorBorderFocus=$xuiPalette->colorTypeInputActive;
+$itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 
 ?>
 
@@ -122,10 +122,10 @@ $itemTextareaColorBorderFocus=$xuiPalette->colorTypeInputActive;
 }
 
 
-<?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
 
 .xui-form-textarea-material_<?php echo $key; ?> label{
-	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
+	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
 }
 
 .xui-form-textarea-material_<?php echo $key; ?> input[type=text]{
@@ -137,7 +137,7 @@ $itemTextareaColorBorderFocus=$xuiPalette->colorTypeInputActive;
 }
 
 .xui-form-textarea-material_<?php echo $key; ?> label.xui-form-textarea-material_focus{
-	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
+	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
 }
 
 

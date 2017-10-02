@@ -51,7 +51,7 @@
 .xui-dashboard .xui-app-bar .xui-brand .xui-brand__logo{
 	background-image: <?php
 
-$color=$xuiPalette->colorPalette["xui-aqua-v1"];
+$color=$xuiPalette->palette["core-aqua-v1"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".

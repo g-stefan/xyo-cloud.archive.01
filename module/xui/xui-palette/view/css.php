@@ -16,7 +16,7 @@ header("Content-type: text/css");
 //
 */
 
-<?php foreach($this->colorPalette as $key=>$value){ ?>
+<?php foreach($this->palette as $key=>$value){ ?>
 
 .xui_bg_<?php echo $key; ?> {
 	background-color: <?php echo $value; ?>;
@@ -35,3 +35,4 @@ header("Content-type: text/css");
 }
 
 <?php }; ?>
+

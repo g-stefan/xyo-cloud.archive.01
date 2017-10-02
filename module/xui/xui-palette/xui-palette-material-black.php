@@ -10,4 +10,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->colorPalette["material-black"]="#000000";
+$this->palette["material-black"]="#000000";

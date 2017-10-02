@@ -29,19 +29,19 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 for($k=1; $k<=24; ++$k){
 	echo ".xui_elevation_".$k." {\r\n";
-	$this->eElevationCss($value);
+	$this->eElevationCss($k);
 	echo "}\r\n\r\n";
 
 	echo ".xui_elevation_".$k."-hover:hover {\r\n";
-	$this->eElevationCss($value);
+	$this->eElevationCss($k);
 	echo "}\r\n\r\n";
 
 	echo ".xui_elevation_".$k."-focus:focus {\r\n";
-	$this->eElevationCss($value);
+	$this->eElevationCss($k);
 	echo "}\r\n\r\n";
 
 	echo ".xui_elevation_".$k."-active:active {\r\n";
-	$this->eElevationCss($value);
+	$this->eElevationCss($k);
 	echo "}\r\n\r\n";
 
 };

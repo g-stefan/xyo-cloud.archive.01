@@ -64,7 +64,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	cursor: pointer;
 	box-sizing: border-box;
 
-	<?php echo $xuiPalette->colorTypeLabel["default"]; ?>
+	<?php echo $xuiTheme->colorTypeLabel["default"]; ?>
 }
 
 .xui-form-radio label::before {
@@ -92,15 +92,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	border: 2px solid <?php echo $xuiPalette->colorTypeInput["default"]; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 }
 
 .xui-form-radio input[type="radio"]:active + label::before {
-	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-radio input[type="radio"]:focus + label::before {
-	border: 2px solid <?php echo $xuiPalette->colorTypeInputActive; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-radio input[type="radio"] + label::after {
@@ -132,22 +132,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-radio input[type="radio"]:checked + label::after {
-	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput["default"],0,5,-20); ?>;
+	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["default"],0,5,-20); ?>;
 }
 
 
-<?php foreach($xuiPalette->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
 
 .xui-form-radio_<?php echo $key; ?> label {
-	color: <?php echo $xuiPalette->colorTypeLabel[$key]; ?>;
+	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
 }
 
 .xui-form-radio_<?php echo $key; ?> label::before {
-	border: 2px solid <?php echo $xuiPalette->colorTypeInput[$key]; ?>;
+	border: 2px solid <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
 }
 
 .xui-form-radio_<?php echo $key; ?> input[type="radio"]:checked + label::after {
-	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiPalette->colorTypeInput[$key],0,5,-20); ?>;
+	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput[$key],0,5,-20); ?>;
 }
 	
 <?php }; ?>

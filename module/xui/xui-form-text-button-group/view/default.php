@@ -10,6 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 

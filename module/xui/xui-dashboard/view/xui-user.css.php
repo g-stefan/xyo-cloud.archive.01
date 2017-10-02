@@ -92,7 +92,7 @@
 
 	background-image: <?php
 
-$color=$xuiPalette->colorPalette["xui-mint-v1"];
+$color=$xuiPalette->palette["core-mint-v1"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 640 480\" xmlns=\"http://www.w3.org/2000/svg\">".

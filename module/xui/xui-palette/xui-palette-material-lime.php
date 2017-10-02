@@ -10,18 +10,18 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->colorPalette["material-lime-p50"]="#F9FBE7";
-$this->colorPalette["material-lime-p100"]="#F0F4C3";
-$this->colorPalette["material-lime-p200"]="#E6EE9C";
-$this->colorPalette["material-lime-p300"]="#DCE775";
-$this->colorPalette["material-lime-p400"]="#D4E157";
-$this->colorPalette["material-lime-p500"]="#CDDC39";
-$this->colorPalette["material-lime-p600"]="#C0CA33";
-$this->colorPalette["material-lime-p700"]="#AFB42B";
-$this->colorPalette["material-lime-p800"]="#9E9D24";
-$this->colorPalette["material-lime-p900"]="#827717";
-$this->colorPalette["material-lime-a100"]="#F4FF81";
-$this->colorPalette["material-lime-a200"]="#EEFF41";
-$this->colorPalette["material-lime-a400"]="#C6FF00";
-$this->colorPalette["material-lime-a700"]="#AEEA00";
+$this->palette["material-lime-p50"]="#F9FBE7";
+$this->palette["material-lime-p100"]="#F0F4C3";
+$this->palette["material-lime-p200"]="#E6EE9C";
+$this->palette["material-lime-p300"]="#DCE775";
+$this->palette["material-lime-p400"]="#D4E157";
+$this->palette["material-lime-p500"]="#CDDC39";
+$this->palette["material-lime-p600"]="#C0CA33";
+$this->palette["material-lime-p700"]="#AFB42B";
+$this->palette["material-lime-p800"]="#9E9D24";
+$this->palette["material-lime-p900"]="#827717";
+$this->palette["material-lime-a100"]="#F4FF81";
+$this->palette["material-lime-a200"]="#EEFF41";
+$this->palette["material-lime-a400"]="#C6FF00";
+$this->palette["material-lime-a700"]="#AEEA00";
 

@@ -14,7 +14,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php
 
-$color=$xuiPalette->colorTypeButton["default"];
+$color=$xuiTheme->colorTypeButton["default"];
 $colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-25);
 $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
@@ -45,7 +45,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 	box-sizing: border-box;
 
-	color: <?php echo $xuiPalette->colorTypeButtonText["default"]; ?>;
+	color: <?php echo $xuiTheme->colorTypeButtonText["default"]; ?>;
 	background-color: <?php echo $color; ?>;
 
 	font-family: "Roboto", sans-serif;
@@ -84,7 +84,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 <?php 
 
-foreach($xuiPalette->colorTypeButton as $key=>$value){
+foreach($xuiTheme->colorTypeButton as $key=>$value){
 	if($key=="default"){
 		continue;
 	};
@@ -98,7 +98,7 @@ foreach($xuiPalette->colorTypeButton as $key=>$value){
 
 ?>
 .xui-form-button-icon-right_<?php echo $key; ?>{
-	color: <?php echo $xuiPalette->colorTypeButtonText[$key]; ?>;
+	color: <?php echo $xuiTheme->colorTypeButtonText[$key]; ?>;
 	background-color: <?php echo $color; ?>;
 	border: 1px solid <?php echo $color; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
@@ -117,7 +117,7 @@ foreach($xuiPalette->colorTypeButton as $key=>$value){
 
 <?php }; 
 
-$color=$xuiPalette->colorTypeButton["disabled"];
+$color=$xuiTheme->colorTypeButton["disabled"];
 $colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-20);
 $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
@@ -125,7 +125,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 .xui-form-button-icon-right_disabled{
 	cursor: default;
-	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
+	color: <?php echo $xuiTheme->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
 	border: 1px solid <?php echo $color; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
@@ -133,7 +133,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 .xui-form-button-icon-right_disabled:hover, .xui-form-button-icon-right_disabled:focus{
 	cursor: default;
-	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
+	color: <?php echo $xuiTheme->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
 	border: 1px solid <?php echo $color; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
@@ -141,7 +141,7 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 .xui-form-button-icon-right_disabled:active{
 	cursor: default;
-	color: <?php echo $xuiPalette->colorTypeButtonText["disabled"]; ?>;
+	color: <?php echo $xuiTheme->colorTypeButtonText["disabled"]; ?>;
 	background-color: <?php echo $color; ?>;
 	border: 1px solid <?php echo $color; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;

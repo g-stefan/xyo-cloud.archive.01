@@ -10,6 +10,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
@@ -17,7 +18,7 @@ $xuiPalette=&$this->getModule("xui-palette");
 <br>
 <form>
 <hr>
-<?php foreach($xuiPalette->colorTypeButton as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <?php  ?>
 <input type="button" value="<?php echo $key; ?>" class="xui-form-button xui-form-button_<?php echo $key; ?>"<?php echo $disabled; ?>></input>

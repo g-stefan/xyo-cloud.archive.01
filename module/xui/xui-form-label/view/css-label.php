@@ -33,13 +33,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	color: <?php echo $xuiPalette->colorTypeLabel["default"]; ?>;
+	color: <?php echo $xuiTheme->colorTypeLabel["default"]; ?>;
 
 }
 
 /* --- */
 
-<?php foreach($xuiPalette->colorTypeLabel as $key=>$value){ ?>
+<?php foreach($xuiTheme->colorTypeLabel as $key=>$value){ ?>
 
 .xui-form-label_<?php echo $key; ?>{
 	color: <?php echo $value; ?>;
@@ -48,7 +48,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 <?php }; ?>
 
 .xui-form-label_disabled{
-	color: <?php echo $xuiPalette->colorTypeLabel["disabled"]; ?>
+	color: <?php echo $xuiTheme->colorTypeLabel["disabled"]; ?>
 }
 
 /* --- */

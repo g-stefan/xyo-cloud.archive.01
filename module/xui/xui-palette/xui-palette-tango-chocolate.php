@@ -10,6 +10,6 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->colorPalette["tango-chocolate-p1"]="#E9B96E";
-$this->colorPalette["tango-chocolate-p2"]="#C17D11";
-$this->colorPalette["tango-chocolate-p3"]="#8F5902";
+$this->palette["tango-chocolate-p1"]="#E9B96E";
+$this->palette["tango-chocolate-p2"]="#C17D11";
+$this->palette["tango-chocolate-p3"]="#8F5902";

@@ -12,9 +12,8 @@ $className = "xui_Palette";
 
 class xui_Palette extends xyo_Module {
 
-	public $colorCore;
-	public $colorPalette;
-	public $colorType;
+	public $xuiColor;
+	public $palette;
 
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
@@ -25,83 +24,22 @@ class xui_Palette extends xyo_Module {
 			)));
         	}
 
-		$xuiColor=&$this->getModule("xui-color");
+		$this->xuiColor=&$this->getModule("xui-color");
 
-		$this->colorCore=array(
-			"xui-grapefruit"=>array("#ED5565","#DA4453"),
-			"xui-bittersweet"=>array("#FC6E51","#E9573F"),
-			"xui-sunflower"=>array("#FFCE54","#F6BB42"),
-			"xui-grass"=>array("#A0D468","#8CC152"),
-			"xui-mint"=>array("#48CFAD","#37BC9B"),
-			"xui-aqua"=>array("#4FC1E9","#3BAFDA"),
-			"xui-blue-jeans"=>array("#5D9CEC","#4A89DC"),
-			"xui-lavender"=>array("#AC92EC","#967ADC"),
-			"xui-pink-rose"=>array("#EC87C0","#D770AD"),
-			"xui-light-gray"=>array("#F5F7FA","#E6E9ED"),
-			"xui-medium-gray"=>array("#CCD1D9","#AAB2BD"),
-			"xui-dark-gray"=>array("#656D78","#434A54")
-		);
+		$this->palette=array();
 
-		$this->colorPalette=array();
-
-		foreach($this->colorCore as $key=>$value){
-			$this->colorPalette[$key]=$xuiColor->rgbHexMiddle($this->colorCore[$key][0],$this->colorCore[$key][1]);
-			$this->colorPalette[$key."-v1"]=$this->colorCore[$key][0];
-			$this->colorPalette[$key."-v2"]=$this->colorCore[$key][1];
-		};
-
-		$this->colorContext=array(
-			"default"=>$this->colorPalette["xui-medium-gray"],
-			"primary"=>$this->colorPalette["xui-blue-jeans"],
-			"success"=>$this->colorPalette["xui-grass"],
-			"info"=>$this->colorPalette["xui-aqua"],
-			"warning"=>$this->colorPalette["xui-sunflower"],
-			"danger"=>$this->colorPalette["xui-grapefruit"],
-			"disabled"=>"#DDDDDD"
-		);	
-
-		$this->colorTypeButton=array(
-			"default"=>$this->colorPalette["xui-light-gray"],
-			"primary"=>$this->colorContext["primary"],
-			"success"=>$this->colorContext["success"],
-			"info"=>$this->colorContext["info"],
-			"warning"=>$this->colorContext["warning"],
-			"danger"=>$this->colorContext["danger"],
-			"disabled"=>$this->colorContext["disabled"]
-		);
-
-		$this->colorTypeButtonText=array(
-			"default"=>"#000000",
-			"primary"=>"#FFFFFF",
-			"success"=>"#FFFFFF",
-			"info"=>"#FFFFFF",
-			"warning"=>"#000000",
-			"danger"=>"#FFFFFF",
-			"disabled"=>"#888888"
-		);
-
-		$this->colorTypeLabel=array(
-			"default"=>"#000000",
-			"primary"=>$xuiColor->rgbHexHSLAdjust($this->colorContext["primary"],0,0,-20),
-			"success"=>$xuiColor->rgbHexHSLAdjust($this->colorContext["success"],0,0,-20),
-			"info"=>$xuiColor->rgbHexHSLAdjust($this->colorContext["info"],0,0,-20),
-			"warning"=>$xuiColor->rgbHexHSLAdjust($this->colorContext["warning"],0,0,-20),
-			"danger"=>$xuiColor->rgbHexHSLAdjust($this->colorContext["danger"],0,0,-20),
-			"disabled"=>"#CCCCCC"
-		);
-
-		$this->colorTypeInput=array(
-			"default"=>$this->colorContext["default"],
-			"primary"=>$this->colorContext["primary"],
-			"success"=>$this->colorContext["success"],
-			"info"=>$this->colorContext["info"],
-			"warning"=>$this->colorContext["warning"],
-			"danger"=>$this->colorContext["danger"],
-			"disabled"=>$this->colorContext["disabled"]
-		);
-
-		$this->colorTypeInputActive=$this->colorPalette["xui-lavender"];
-
+		include("xui-palette-core-grapefruit.php");
+		include("xui-palette-core-bittersweet.php");
+		include("xui-palette-core-sunflower.php");
+		include("xui-palette-core-grass.php");
+		include("xui-palette-core-mint.php");
+		include("xui-palette-core-aqua.php");
+		include("xui-palette-core-blue-jeans.php");
+		include("xui-palette-core-lavender.php");
+		include("xui-palette-core-pink-rose.php");
+		include("xui-palette-core-light-gray.php");
+		include("xui-palette-core-medium-gray.php");
+		include("xui-palette-core-dark-gray.php");
 		include("xui-palette-material-red.php");
 		include("xui-palette-material-pink.php");
 		include("xui-palette-material-purple.php");
