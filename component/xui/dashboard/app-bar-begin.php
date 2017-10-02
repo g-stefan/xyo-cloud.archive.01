@@ -1,1 +1,1 @@
-<div class="xui-app-bar xui_elevation-4">
+<div class="xui-app-bar xui_elevation_4">

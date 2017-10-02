@@ -18,19 +18,19 @@ header("Content-type: text/css");
 
 <?php foreach($this->colorPalette as $key=>$value){ ?>
 
-.xui_bg-<?php echo $key; ?> {
+.xui_bg_<?php echo $key; ?> {
 	background-color: <?php echo $value; ?>;
 }
 
-.xui_fg-<?php echo $key; ?> {
+.xui_fg_<?php echo $key; ?> {
 	color: <?php echo $value; ?>;
 }
 
-.xui_bg-<?php echo $key; ?>-hover:hover {
+.xui_bg_<?php echo $key; ?>-hover:hover {
 	background-color: <?php echo $value; ?>;
 }
 
-.xui_fg-<?php echo $key; ?>-hover:hover {
+.xui_fg_<?php echo $key; ?>-hover:hover {
 	color: <?php echo $value; ?>;
 }
 
