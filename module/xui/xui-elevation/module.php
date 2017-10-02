@@ -24,7 +24,7 @@ class xui_Elevation extends xyo_Module {
 
 	function elevationCss($level){
 		if($level==0){
-			return "\tbox-shadow:none;\r\n";
+			return "\tbox-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);\r\n";
 		};
 		return "\tbox-shadow: 0px 0px ".floor($level/4)."px 0px rgba(0, 0, 0, 0.2), ".floor($level/4)."px ".$level."px ".$level."px 0px rgba(0, 0, 0, 0.12), ".floor($level/8)."px ".floor($level/4)."px ".$level."px 0px rgba(0, 0, 0, 0.14);\r\n";
 	}

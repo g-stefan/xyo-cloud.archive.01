@@ -13,6 +13,7 @@ header("Content-type: text/css");
 $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
 $xuiTheme=&$this->getModule("xui-theme");
+$xuiElevation=&$this->getModule("xui-elevation");
 
 ?>
 /*
@@ -48,11 +49,11 @@ $xuiTheme=&$this->getModule("xui-theme");
 	border-bottom: 1px solid transparent;
 	border-left: 1px solid transparent;
 
-	transition: border 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
+	transition: border 0.3s ease, box-shadow 0.3s ease;
 
 	border-radius: 3px;
 
-	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+<?php $xuiElevation->eElevationCss(0); ?>
 }
 
 .xui-toolbar__item .xui_effect-ripple__element{
@@ -115,7 +116,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 	border-bottom: 1px solid <?php echo $colorIcon; ?>;
 	border-left: 1px solid <?php echo $colorIcon; ?>;
 
-	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+<?php $xuiElevation->eElevationCss(2); ?>
 }
 
 .xui-toolbar__item.xui-toolbar__item_<?php echo $key; ?> .xui_effect-ripple__element{
@@ -171,12 +172,12 @@ a.xui-toolbar__item:hover{
 .xui-toolbar__item:active{
 	margin-top: 2px;
 	margin-bottom: 0px;
-	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+<?php $xuiElevation->eElevationCss(2); ?>
 }
 
 .xui-toolbar__item:hover:active{
 	transition: box-shadow 0s ease;
-	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+<?php $xuiElevation->eElevationCss(0); ?>
 }
 
 
