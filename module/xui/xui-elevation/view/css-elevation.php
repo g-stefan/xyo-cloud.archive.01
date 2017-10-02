@@ -22,26 +22,26 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui_elevation_0{
-	box-shadow: none;	
+<?php 	$this->eElevationCss(0); ?>
 }
 
 <?php
 
 for($k=1; $k<=24; ++$k){
 	echo ".xui_elevation_".$k." {\r\n";
-	echo "\tbox-shadow: 0px 0px ".floor($k/4)."px 0px rgba(0, 0, 0, 0.2), ".floor($k/4)."px ".$k."px ".$k."px 0px rgba(0, 0, 0, 0.12), ".floor($k/8)."px ".floor($k/4)."px ".$k."px 0px rgba(0, 0, 0, 0.14);\r\n";
+	$this->eElevationCss($value);
 	echo "}\r\n\r\n";
 
 	echo ".xui_elevation_".$k."-hover:hover {\r\n";
-	echo "\tbox-shadow: 0px 0px ".floor($k/4)."px 0px rgba(0, 0, 0, 0.2), ".floor($k/4)."px ".$k."px ".$k."px 0px rgba(0, 0, 0, 0.12), ".floor($k/8)."px ".floor($k/4)."px ".$k."px 0px rgba(0, 0, 0, 0.14);\r\n";
+	$this->eElevationCss($value);
 	echo "}\r\n\r\n";
 
 	echo ".xui_elevation_".$k."-focus:focus {\r\n";
-	echo "\tbox-shadow: 0px 0px ".floor($k/4)."px 0px rgba(0, 0, 0, 0.2), ".floor($k/4)."px ".$k."px ".$k."px 0px rgba(0, 0, 0, 0.12), ".floor($k/8)."px ".floor($k/4)."px ".$k."px 0px rgba(0, 0, 0, 0.14);\r\n";
+	$this->eElevationCss($value);
 	echo "}\r\n\r\n";
 
 	echo ".xui_elevation_".$k."-active:active {\r\n";
-	echo "\tbox-shadow: 0px 0px ".floor($k/4)."px 0px rgba(0, 0, 0, 0.2), ".floor($k/4)."px ".$k."px ".$k."px 0px rgba(0, 0, 0, 0.12), ".floor($k/8)."px ".floor($k/4)."px ".$k."px 0px rgba(0, 0, 0, 0.14);\r\n";
+	$this->eElevationCss($value);
 	echo "}\r\n\r\n";
 
 };
