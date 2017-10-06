@@ -54,3 +54,5 @@ $this->setModule("xui",null,"xui-form-text-icon-right-required");
 $this->setModule("xui",null,"xui-inner-box");
 $this->setModule("xui",null,"xui-line");
 //
+$this->setModule("xui",null,"xui-complete");
+//

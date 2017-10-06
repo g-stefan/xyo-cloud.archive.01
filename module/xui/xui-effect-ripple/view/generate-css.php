@@ -8,7 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-header("Content-type: text/css");
-
-include("generate-css.php");
-
+echo file_get_contents("lib/xui/css/xui-effect-ripple.css");

@@ -23,3 +23,4 @@ class xui_FormTextButtonGroup extends xyo_Module {
 	}
 
 }
+

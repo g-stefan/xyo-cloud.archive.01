@@ -8,13 +8,13 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$className = "xui_FormButtonIconLeft";
+$className = "xui_FormButtonIconRight";
 
-class xui_FormButtonIconLeft extends xyo_Module {
+class xui_FormButtonIconRight extends xyo_Module {
 
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
-		if ($this->isBase("xui_FormButtonIconLeft")) {
+		if ($this->isBase("xui_FormButtonIconRight")) {
 			$this->setHtmlCss($this->requestUriThis(array(
 				"ajax"=>1,
 				"action"=>"css"

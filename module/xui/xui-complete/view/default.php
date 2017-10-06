@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-header("Content-type: text/css");
+?>
 
-include("generate-css.php");
+Hello World!
 
