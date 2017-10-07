@@ -14,19 +14,21 @@ class xui_Complete extends xyo_Module {
 
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
-		if ($this->isBase("xui_Complete")) {			
+		if ($this->isBase("xui_Complete")) {
+			if($this->getSetting("xui_complete",true)){
+				if(!(file_exists("lib/xui/css/xui-complete.css") && file_exists("lib/xui/js/xui-complete.js"))){
+					$this->generate();
+				};
 
-			if(!(file_exists("lib/xui/css/xui-complete.css") && file_exists("lib/xui/js/xui-complete.js"))){
+				if(file_exists("lib/xui/css/xui-complete.css") && file_exists("lib/xui/js/xui-complete.js")){
+					$this->setHtmlCss($this->site."lib/xui/css/xui-complete.css");
+					$this->setHtmlJs($this->site."lib/xui/js/xui-complete.js");
+			
+					$this->cleanup();	
+				};
+			}else{
 				$this->generate();
 			};
-
-			if(file_exists("lib/xui/css/xui-complete.css") && file_exists("lib/xui/js/xui-complete.js")){
-				$this->setHtmlCss($this->site."lib/xui/css/xui-complete.css");
-				$this->setHtmlJs($this->site."lib/xui/js/xui-complete.js");
-			
-				$this->cleanup();	
-			};
-
         	}
 	}
 
@@ -50,6 +52,7 @@ class xui_Complete extends xyo_Module {
 			"xui-form-button-icon-right",
 			"xui-form-captcha",
 			"xui-form-checkbox",
+			"xui-form-checkbox2",
 			"xui-form-datepicker",
 			"xui-form-file",
 			"xui-form-file-image",
@@ -66,6 +69,7 @@ class xui_Complete extends xyo_Module {
 			"xui-form-text-required",
 			"xui-form-textarea",
 			"xui-form-textarea-material",
+			"xui-form-switch",
 			//
 			"xui-image-captcha",
 			"xui-inner-box",

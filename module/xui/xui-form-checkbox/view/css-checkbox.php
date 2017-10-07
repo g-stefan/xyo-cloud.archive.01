@@ -78,7 +78,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	width: 22px;
 	height: 22px;
-	border-radius: 0px;
+
 	background-color: transparent;
 
 	padding-top: 0px;

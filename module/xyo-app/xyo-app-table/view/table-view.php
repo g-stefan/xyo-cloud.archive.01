@@ -1,4 +1,4 @@
-<?php
+<?php                                                                   
 //
 // Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
@@ -216,7 +216,7 @@ function doValueSave(key){
 
 
                     if ($key === "#") {
-                        echo "<div class=\"xui-form-checkbox\"><input type=\"checkbox\" name=\"id_0\" id=\"id_0\" value=\"0\" onchange=\"setCheckboxState(this);\" onclick=\"setCheckboxState(this);\"></input><label for=\"id_0\" style=\"margin-bottom: 0px;\"></label></div>";
+                        echo "<div class=\"xui-form-checkbox2\"><input type=\"checkbox\" name=\"id_0\" id=\"id_0\" value=\"0\" onchange=\"setCheckboxState(this);\" onclick=\"setCheckboxState(this);\"></input><label for=\"id_0\" style=\"margin-bottom: 0px;\"></label></div>";
                     } else
 		   if (array_key_exists($key, $this->tableType)) {
                     
@@ -312,7 +312,7 @@ function doValueSave(key){
                     if ($key_ === "#") {
 				++$recordId;
 				if($value["@write"]){
-	                        	echo "<div class=\"xui-form-checkbox\"><input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" ></input><label for=\"cbox_" . $recordId . "\" style=\"margin-bottom: 0px;\"></label></div>";
+	                        	echo "<div class=\"xui-form-checkbox2\"><input type=\"checkbox\" id=\"cbox_" . $recordId . "\"  name=\"id_" . $value[$this->primaryKey] . "\" value=\"" . $value[$this->primaryKey] . "\" ></input><label for=\"cbox_" . $recordId . "\" style=\"margin-bottom: 0px;\"></label></div>";
 				}else{
 					echo "&#160;";
 				};				

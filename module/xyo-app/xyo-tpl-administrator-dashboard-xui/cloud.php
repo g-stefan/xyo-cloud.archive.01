@@ -34,3 +34,5 @@ $this->setReferenceLink($module, "xui-box");
 $this->setReferenceLink($module, "xui-panel");
 $this->setReferenceLink($module, "xui-toolbar");
 $this->setReferenceLink($module, "xui-application");
+//
+$this->setReferenceLink($module, "xui-complete");

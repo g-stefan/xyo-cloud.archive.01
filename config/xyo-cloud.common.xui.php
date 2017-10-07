@@ -9,6 +9,8 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 //
+//$this->set("xui_complete",false);
+//
 $this->setModule(null,null,"xui");
 $this->setModule("xui",null,"xui-core");
 $this->setModule("xui",null,"xui-typography");
@@ -26,6 +28,7 @@ $this->setModule("xui",null,"xui-form-button-icon-left");
 $this->setModule("xui",null,"xui-form-button-icon-right");
 $this->setModule("xui",null,"xui-form-button-group");
 $this->setModule("xui",null,"xui-form-checkbox");
+$this->setModule("xui",null,"xui-form-checkbox2");
 $this->setModule("xui",null,"xui-form-datepicker");
 $this->setModule("xui",null,"xui-form-label");
 $this->setModule("xui",null,"xui-form-radio");
@@ -38,6 +41,7 @@ $this->setModule("xui",null,"xui-form-text-button-group");
 $this->setModule("xui",null,"xui-form-textarea");
 $this->setModule("xui",null,"xui-form-textarea-material");
 $this->setModule("xui",null,"xui-form-file");                             
+$this->setModule("xui",null,"xui-form-switch");
 $this->setModule("xui",null,"xui-box");
 $this->setModule("xui",null,"xui-panel");
 $this->setModule("xui",null,"xui-toolbar");
