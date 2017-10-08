@@ -51,9 +51,12 @@ class xui_Dasboard extends xyo_Module {
 		$xuiPalette=&$this->getModule("xui-palette");
 		$xuiTheme=&$this->getModule("xui-theme");
 
-		$this->appBarBackgroundColor=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,-25);
-		$this->appBarBackgroundColorHover=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,-20);
-		$this->appBarBackgroundColorRipple=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,-15);
+		$colorApp = $xuiPalette->palette["core-blue-jeans"];
+		$colorAppAdjust = -20;
+
+		$this->appBarBackgroundColor=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust);
+		$this->appBarBackgroundColorHover=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust + 5);
+		$this->appBarBackgroundColorRipple=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust + 10);
 		$this->appBarColor=$xuiPalette->palette["material-white"];
 
 		$this->appBarBrandBackgroundColor=$xuiPalette->palette["core-blue-jeans"];
@@ -70,8 +73,8 @@ class xui_Dasboard extends xyo_Module {
 
 		$this->navigationDrawerUserBackgroundColor=$xuiPalette->palette["core-aqua"];
 
-		$this->navigationDrawerColorActive=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,-25);
-		$this->navigationDrawerColorPopupActive=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,-25);
+		$this->navigationDrawerColorActive=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust);
+		$this->navigationDrawerColorPopupActive=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust);
 		$this->navigationDrawerColorIconLeftHover=$xuiPalette->palette["material-grey-p900"];
 		$this->navigationDrawerBackgroundColorActive=$xuiPalette->palette["core-light-gray"];
 		$this->navigationDrawerBarColorActive=$xuiPalette->palette["core-blue-jeans"];

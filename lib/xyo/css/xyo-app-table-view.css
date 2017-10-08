@@ -67,7 +67,7 @@
 }
 
 #xyo-app-table__table tr:hover{
-	background-color: #F0EAFF;
+	background-color: #E6F0FC;
 }
 
 /* --- */
@@ -159,7 +159,7 @@
 	bottom: -1px;
 	height: 1px;
 	width: 0px;
-	background: #967ADC;
+	background: #5392E5;
 	backface-visibility: hidden;
 }
 

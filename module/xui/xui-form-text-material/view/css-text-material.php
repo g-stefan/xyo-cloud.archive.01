@@ -122,7 +122,7 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	bottom: 0px;
 	height: 1px;
 	width: 0px;
-	background: #967ADC;
+	background: #5392E5;
 	backface-visibility: hidden;
 }
 

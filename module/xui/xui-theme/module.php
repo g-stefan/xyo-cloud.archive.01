@@ -85,7 +85,7 @@ class xui_Theme extends xyo_Module {
 			"disabled"=>$this->colorContext["disabled"]
 		);
 
-		$this->colorTypeInputActive=$this->xuiPalette->palette["core-lavender"];
+		$this->colorTypeInputActive=$this->xuiPalette->palette["core-blue-jeans"];
 
 		$this->inputBorderRadius=2;		
 	}
