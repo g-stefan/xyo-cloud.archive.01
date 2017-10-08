@@ -19,6 +19,5 @@ if($this->isNew){
 	$this->setElementValue("id_xyo_module_group",0);
 	$this->setElementValue("order",0);
 	$this->setElementValue("id_xyo_user_group",0);
-	$this->setElementValue("id_xyo_core",0);
 	$this->setElementValue("acl_enabled",1);
 };

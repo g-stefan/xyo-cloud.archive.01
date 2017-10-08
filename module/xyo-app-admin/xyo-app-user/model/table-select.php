@@ -10,7 +10,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->ds->setGroup("id",true);
 $this->ds->setGroup("id_xyo_user_group",true);
-$this->ds->setGroup("id_xyo_core",true);
 $this->ds->setGroup("language",true);
 
 if(!$this->user->isInGroup("wheel")){

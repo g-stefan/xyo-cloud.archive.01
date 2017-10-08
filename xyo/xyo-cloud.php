@@ -730,20 +730,6 @@ class xyo_Cloud extends xyo_Config {
 						$this->request->set("run",$redirectList[1]);
 					};
 				};
-				// /core/run/[module-name]
-				foreach($this->get("core_list",array()) as $key=>$value) {
-					if($key==$redirectList[0]) {
-						$this->set("core",$key);
-						if(count($redirectList)>1) {
-							if($redirectList[1]=="run") {
-								if(count($redirectList)>2) {
-									$this->request->set("run",$redirectList[2]);
-								};
-							};
-						};
-						break;
-					};
-				};
 			};
 		};
 
@@ -883,21 +869,12 @@ class xyo_Cloud extends xyo_Config {
 			$requestMain="index.php";
 		};
 
-		$core="";
-		foreach($this->get("core_list",array()) as $key=>$value) {
-			if($value==$requestMain) {
-				$core=$key;
-				break;
-			};
-		};
-
 		$redirect=$this->getRequest("__","");
 		if((strlen($redirect)>0)||$this->get("use_redirect",false)) {
-			if(strlen($core)>0) {
-				if ($parameters) {
+			if ($parameters) {
 					$retV=$this->cloud->get("site","");
 					if (array_key_exists("run", $parameters)) {
-						$retV.=$core."/run/".rawurlencode($parameters["run"]);
+						$retV.="/run/".rawurlencode($parameters["run"]);
 					};
 					$first = false;
 					foreach ($parameters as $key => $value) {
@@ -913,9 +890,8 @@ class xyo_Cloud extends xyo_Config {
 						$retV.=rawurlencode($key) . "=" . rawurlencode($value);
 					};
 					return $retV;
-				};
-				return $this->cloud->get("site","").$core;
 			};
+			return $this->cloud->get("site","");
 		};
 
 		$retV = $requestMain;
@@ -955,28 +931,12 @@ class xyo_Cloud extends xyo_Config {
 					$redirect=$this->getRequest("__","");
 					if((strlen($redirect)>0)||$this->get("use_redirect",false)) {
 
-						$found=false;
-						$site=substr($site,0,$x+1);
-						foreach($this->get("core_list",array()) as $key=>$value) {
-							if(!$found) {
-								$x=@strpos($site,"/".$key."/run/",0);
-								if($x===false) {
-								} else if($x>=0) {
-									$this->set("site",substr($site,0,$x+1));
-									$found=true;
-									break;
-								};
-							};
-						};
-
-						if(!$found) {
-							$x=@strpos($site,"/run/",0);
-							if($x===false) {
-							} else if($x>=0) {
-								$this->set("site",substr($site,0,$x+1));
-								$found=true;
-							};
-						};
+						$x=@strpos($site,"/run/",0);
+						if($x===false) {
+						} else if($x>=0) {
+							$this->set("site",substr($site,0,$x+1));
+							$found=true;
+						};						
 
 					} else {
 						$this->set("site",substr($site,0,$x+1));
@@ -987,7 +947,7 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function requestUri($parameters=null) {
-		return $this->requestUriRoute($this->get("request_main","public"),$parameters);
+		return $this->requestUriRoute($this->get("request_main","index.php"),$parameters);
 	}
 
 	public function requestModuleDirect($module, $parameters=null) {
@@ -1351,9 +1311,7 @@ class xyo_Cloud extends xyo_Config {
 		parent::__construct($this);
 
 		$this->set("kernel_version","3.0.0.0");
-
-		$this->set("core","public");
-		$this->set("core_list",array("public"=>"index.php"));
+		
 		$this->set("site","");
 		$this->set("use_redirect",false);
 		$this->set("log_module",true);
@@ -1472,7 +1430,7 @@ class xyo_Cloud extends xyo_Config {
 		};
 		
 		//
-		$this->set("version", "5.2.1.0");
+		$this->set("version", "5.4.0.0");
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);
@@ -1485,10 +1443,6 @@ class xyo_Cloud extends xyo_Config {
 		$this->set("locale_date_format","Y-m-d");
 		$this->set("locale_datetime_format","Y-m-d H:i:s");
 		$this->set("locale_time_format","H:i:s");
-		//
-		$coreList=array_flip($this->get("core_list",array()));
-		$coreList[$this->get("request_main","index.php")]=$this->get("core","public");
-		$this->set("core_list",array_flip($coreList));
 		//
 		$this->initRequest();
 		$this->dataSource->loadConfig();

@@ -16,12 +16,3 @@ $this->eGenerateCallRequest(
 	"callUserXUserGroup"
 );
 
-
-$this->eGenerateCallRequest(
-	array("action"=>"table-view"),
-	"xyo-app-user-x-core",
-	array("id_xyo_user"=>0),
-	"id_xyo_user",
-	"callUserXCore"
-);
-

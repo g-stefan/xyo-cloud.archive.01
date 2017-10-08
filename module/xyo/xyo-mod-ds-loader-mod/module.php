@@ -12,9 +12,6 @@ $className = "xyo_mod_ds_Loader";
 
 class xyo_mod_ds_Loader extends xyo_Module {
 
-	var $modDs;
-	var $modCore;
-	var $modUser;
 	var $dsModule;
 	var $dsModuleGroup;
 	var $dsModuleParameter;
@@ -89,7 +86,6 @@ class xyo_mod_ds_Loader extends xyo_Module {
 		$dsModuleGroup->clear();
 		$dsModuleGroup->name = $name;
 		$dsModuleGroup->enabled = 1;
-		$dsModuleGroup->id_xyo_core=$this->modAcl->getAclSysCore();
 		if ($dsModuleGroup->load(0, 1)) {
 
 			$dsAclModule = &$this->dsAclModule->copyThis();

@@ -24,14 +24,6 @@ class xyo_Config extends xyo_Attributes {
 		if ($this->includeFile($config)) {
 			$retV = true;
 		};
-		$core = $this->cloud->get("core","public");
-		if (strlen($core) > 0) {
-			$core = "." . $core;
-			$config = $path . $name . $core . ".php";
-			if ($this->includeFile($config)) {
-				$retV = true;
-			};
-		};
 		return $retV;
 	}
 

@@ -14,12 +14,6 @@ foreach ($this->viewData as $key => $value) {
     } else {
         $this->viewData[$key]["user_group_name"] = "*";
     }
-
-	    if ($this->viewData[$key]["core_name"]) {
-        
-    	} else {
-        	$this->viewData[$key]["core_name"] = "*";
-	    }    
 	
 }
 

@@ -66,15 +66,6 @@ if ($this->isElementError()) {
         return;
     }
 
-    $dsUserXCore = &$this->getDataSource("db.table.xyo_user_x_core");
-    if ($dsUserXCore) {
-        
-    } else {
-        $this->setError(array("datasource_not_found" => "db.table.xyo_user_x_core"));
-        return;
-    }
-
-
     $dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
     if ($dsUserGroup) {
         
@@ -129,13 +120,6 @@ if ($this->isElementError()) {
         $dsUserXUserGroup->save();
 
     };
-
-
-	$dsUserXCore->clear();
-        $dsUserXCore->id_xyo_user = $dsUser->id;
-        $dsUserXCore->id_xyo_core = 0;
-        $dsUserXCore->enabled = 1;
-        $dsUserXCore->save();
 
 
     $dsSettings->clear();

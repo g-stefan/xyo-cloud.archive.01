@@ -31,13 +31,10 @@ $this->set("select_xyo_module_group_any","- module group -");
 $this->set("label_id_xyo_module_group","Module group");
 $this->set("label_order","Order");  
 $this->set("label_id_xyo_user_group","User group");
-$this->set("label_id_xyo_core","Core");
 $this->set("label_acl_enabled","Enabled");
 
 $this->set("select_xyo_user_group_any","- user group -");
-$this->set("select_xyo_core_any","- core -");
 
-$this->set("select_xyo_core_any_edit","- any -");
 $this->set("select_xyo_module_group_any_edit","- none -");
 $this->set("select_xyo_user_group_any_edit","- any -");
 

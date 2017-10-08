@@ -17,8 +17,6 @@ if ($this->isElementError()) {
     return;
 };
 
-$id_xyo_core = $this->getElementValueNumber("id_xyo_core", 0, "*");
-
 $found=false;
 $this->ds->clear();
 $this->ds->name = $name;

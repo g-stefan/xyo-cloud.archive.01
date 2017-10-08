@@ -10,5 +10,4 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $this->set("logout","Logout");
 $this->set("user_group","Group");
-$this->set("core","Core");
 

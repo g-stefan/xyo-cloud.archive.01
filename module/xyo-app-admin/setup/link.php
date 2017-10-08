@@ -11,7 +11,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 $this->processLink($package,$path,"xyo-app-acl-module");
 $this->processLink($package,$path,"xyo-app-acl-module-parameter");
 $this->processLink($package,$path,"xyo-app-acl-property");
-$this->processLink($package,$path,"xyo-app-core");
 $this->processLink($package,$path,"xyo-app-datasource");
 $this->processLink($package,$path,"xyo-app-language");
 $this->processLink($package,$path,"xyo-app-module");

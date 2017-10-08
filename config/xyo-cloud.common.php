@@ -42,7 +42,6 @@ if ($this->get("configured")) {
     
 } else {
     define("XYO_CLOUD_INSTALL", 1);
-    $this->set("core", "install");
     $this->includeConfig("xyo-cloud.install");
     return;
 }

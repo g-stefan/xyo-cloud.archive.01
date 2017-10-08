@@ -13,7 +13,6 @@ $className = "xyo_mod_ds_Acl";
 class xyo_mod_ds_acl_Info {
 
 	public $aclUserGroup; // any and user groups
-	public $aclCore; // any and core
 	public $aclUser; // any and user id
 	public $aclUserId; // only user id
 
@@ -22,28 +21,23 @@ class xyo_mod_ds_acl_Info {
 class xyo_mod_ds_Acl extends xyo_Module {
 
 	protected $acl;
-	protected $dsCore;
 	protected $dsUser;
 	protected $dsUserGroup;
 	protected $dsUserGroupXUserGroup;
 	protected $dsUserXUserGroupSuper;
 	protected $dsAclProperty;
 
-	protected $aclCore;
-
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isOk) {
 			$this->reloadDataSource();
 			$this->acl = &$this->getDefaultAcl();
-			$this->aclCore = null;
 		}
 	}
 
 	public function &getDefaultAcl() {
 		$retV = new xyo_mod_ds_acl_Info;
 		$retV->aclUserGroup = 0;
-		$retV->aclCore = 0;
 		$retV->aclUser = 0;
 		$retV->aclUser1 = 0;
 		return $retV;
@@ -51,29 +45,11 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 	public function reloadDataSource() {
 
-		$this->dsCore = &$this->getDataSource("db.table.xyo_core");
 		$this->dsUser = &$this->getDataSource("db.table.xyo_user");
 		$this->dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
 		$this->dsUserGroupXUserGroup = &$this->getDataSource("db.table.xyo_user_group_x_user_group");
 		$this->dsUserXUserGroup = &$this->getDataSource("db.table.xyo_user_x_user_group");
 
-	}
-
-	public function getAclSysCore() {
-		if($this->aclCore) {
-			return $this->aclCore[1];
-		};
-
-		$dsCore = &$this->dsCore->copyThis();
-		$dsCore->clear();
-		$dsCore->name = $this->cloud->get("core");
-		$dsCore->enabled = 1;
-		if ($dsCore->load(0, 1)) {
-			$this->aclCore = array(1=>array(0, $dsCore->id));
-		} else {
-			$this->aclCore = array(1=>0);
-		}
-		return $this->aclCore[1];
 	}
 
 	public function &getUserIdAcl($id_xyo_user) {
@@ -86,7 +62,6 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 		$retV = new xyo_mod_ds_acl_Info;
 
-		$retV->aclCore = $this->getAclSysCore();
 		$retV->aclUserGroup = array();
 		if($id_xyo_user) {
 			$retV->aclUser = array(0, $id_xyo_user);
@@ -153,7 +128,6 @@ class xyo_mod_ds_Acl extends xyo_Module {
 	}
 
 	public function setDsAcl(&$ds, &$acl) {
-		$ds->id_xyo_core = $acl->aclCore;
 		$ds->id_xyo_user_group = $acl->aclUserGroup;
 	}
 
@@ -182,14 +156,12 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 	public function processDsAcl(&$ds, &$acl) {
 		$ds->enabled=1;
-		$ds->id_xyo_core = $acl->aclCore;
 		$ds->id_xyo_user_group = $acl->aclUserGroup;
 		return $ds->load(0,1);
 	}
 
 	public function processDsAclList(&$ds, &$acl) {
 		$ds->enabled=1;
-		$ds->id_xyo_core = $acl->aclCore;
 		$ds->id_xyo_user_group = $acl->aclUserGroup;
 		return $ds->load();
 	}

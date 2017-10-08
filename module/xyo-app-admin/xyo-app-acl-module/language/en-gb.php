@@ -14,10 +14,8 @@ $this->set("head_module_name","Module");
 $this->set("head_module_group_name","Module group");
 $this->set("head_order","Order");
 $this->set("head_user_group_name","User group");
-$this->set("head_core_name","Core");
 $this->set("head_id","Id");
 
-$this->set("select_xyo_core_any","- core -");
 $this->set("select_xyo_user_group_any","- user group -");
 $this->set("select_xyo_module_group_any","- module group -");
 
@@ -28,9 +26,7 @@ $this->set("select_xyo_module_group_any","- group -");
 $this->set("label_order","Order");
 
 $this->set("label_id_xyo_user_group","User group");
-$this->set("label_id_xyo_core","Core");
 
-$this->set("select_xyo_core_any_edit","- any -");
 $this->set("select_xyo_module_group_any_edit","- none -");
 $this->set("select_xyo_user_group_any_edit","- any -");
 $this->set("select_xyo_module_any_edit","- none -");

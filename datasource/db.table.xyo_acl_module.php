@@ -14,7 +14,6 @@ $this->set("table_item", array(
 		   "id" => array("bigint","DEFAULT","unsigned","auto_increment"),
 		   "id_xyo_module" => array("bigint",0,"unsigned"),
 		   "id_xyo_module_group" => array("bigint",0,"unsigned"),
-		   "id_xyo_core" => array("bigint",0,"unsigned"),
 		   "id_xyo_user_group" => array("bigint",0,"unsigned"),
 		   "enabled" => array("int",0,"unsigned"),
 		   "module" => array("varchar",64,null),

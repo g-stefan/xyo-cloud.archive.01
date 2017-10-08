@@ -57,15 +57,13 @@ class xyo_mod_Setup extends xyo_Module {
 		return false;
 	}
 
-	function registerModuleAcl($module, $moduleGroup, $core, $userGroup, $order, $enabled) {
+	function registerModuleAcl($module, $moduleGroup, $userGroup, $order, $enabled) {
 		$dsModule = &$this->getDataSource("db.table.xyo_module");
 		$dsModuleGroup = &$this->getDataSource("db.table.xyo_module_group");
-		$dsCore = &$this->getDataSource("db.table.xyo_core");
 		$dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
 		$dsAclModule = &$this->getDataSource("db.table.xyo_acl_module");
 		if ($dsModule &&
 		    $dsModuleGroup &&
-		    $dsCore &&
 		    $dsUserGroup &&
 		    $dsAclModule) {
 			$dsModule->name = $module;
@@ -80,16 +78,6 @@ class xyo_mod_Setup extends xyo_Module {
 					}
 				} else {
 					$dsAclModule->id_xyo_module_group = 0;
-				}
-				if ($core) {
-					$dsCore->name = $core;
-					if ($dsCore->load(0, 1)) {
-						$dsAclModule->id_xyo_core = $dsCore->id;
-					} else {
-						return false;
-					}
-				} else {
-					$dsAclModule->id_xyo_core = 0;
 				}
 				if ($userGroup) {
 					$dsUserGroup->name = $userGroup;
@@ -111,15 +99,13 @@ class xyo_mod_Setup extends xyo_Module {
 		return false;
 	}
 
-	function removeModuleAcl($module, $moduleGroup, $core, $userGroup) {
+	function removeModuleAcl($module, $moduleGroup, $userGroup) {
 		$dsModule = &$this->getDataSource("db.table.xyo_module");
 		$dsModuleGroup = &$this->getDataSource("db.table.xyo_module_group");
-		$dsCore = &$this->getDataSource("db.table.xyo_core");
 		$dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
 		$dsAclModule = &$this->getDataSource("db.table.xyo_acl_module");
 		if ($dsModule &&
 		    $dsModuleGroup &&
-		    $dsCore &&
 		    $dsUserGroup &&
 		    $dsAclModule) {
 			$dsModule->name = $module;
@@ -134,16 +120,6 @@ class xyo_mod_Setup extends xyo_Module {
 					}
 				} else {
 					$dsAclModule->id_xyo_module_group = 0;
-				}
-				if ($core) {
-					$dsCore->name = $core;
-					if ($dsCore->load(0, 1)) {
-						$dsAclModule->id_xyo_core = $dsCore->id;
-					} else {
-						return false;
-					}
-				} else {
-					$dsAclModule->id_xyo_core = 0;
 				}
 				if ($userGroup) {
 					$dsUserGroup->name = $userGroup;
@@ -206,16 +182,6 @@ class xyo_mod_Setup extends xyo_Module {
 		$dsModuleGroup->tryLoad();
 		$dsModuleGroup->enabled = 1;
 		$dsModuleGroup->save();
-	}
-
-	function registerCore($name, $main) {
-		$dsCore = &$this->getDataSource("db.table.xyo_core");
-		$dsCore->clear();
-		$dsCore->name = $name;
-		$dsCore->tryLoad();
-		$dsCore->main = $main;
-		$dsCore->enabled = 1;
-		$dsCore->save();
 	}
 
 	function unregisterModule($module_) {
@@ -946,15 +912,13 @@ class xyo_mod_Setup extends xyo_Module {
 		return false;
 	}
 
-	function selectMouleAclAsTemplate($module,$core,$userGroup) {
+	function selectMouleAclAsTemplate($module,$userGroup) {
 		$dsModuleGroup=&$this->getDataSource("db.table.xyo_module_group");
 		$dsUserGroup=&$this->getDataSource("db.table.xyo_user_group");
-		$dsCore=&$this->getDataSource("db.table.xyo_core");
 		$dsAclModule=&$this->getDataSource("db.table.xyo_acl_module");
 		$dsModule=&$this->getDataSource("db.table.xyo_module");
 		if($dsModuleGroup&&
 		   $dsUserGroup&&
-		   $dsCore&&
 		   $dsAclModule&&
 		   $dsModule) {
 			$idUserGroup=0;
@@ -968,19 +932,6 @@ class xyo_mod_Setup extends xyo_Module {
 					return false;
 				};
 			};
-
-			$idCore=0;
-			if($core) {
-				$dsCore->clear();
-				$dsCore->name=$core;
-				$dsCore->enabled=1;
-				if($dsCore->load(0,1)) {
-					$idCore=$dsCore->id;
-				} else {
-					return false;
-				};
-			};
-
 
 			$idModuleGroupTemplate=0;
 			$idModuleGroupLoad=0;
@@ -1015,8 +966,7 @@ class xyo_mod_Setup extends xyo_Module {
 				$dsModule->enabled=1;
 				if($dsModule->load(0,1)) {
 					$dsAclModule->clear();
-					$dsAclModule->id_xyo_user_group=$idUserGroup;
-					$dsAclModule->id_xyo_core=$idCore;
+					$dsAclModule->id_xyo_user_group=$idUserGroup;					
 					$dsAclModule->id_xyo_module_group=$idModuleGroupTemplate;
 					$moduleList=array();
 					for($dsAclModule->load(); $dsAclModule->isValid(); $dsAclModule->loadNext()) {
@@ -1030,7 +980,6 @@ class xyo_mod_Setup extends xyo_Module {
 						$dsAclModule->clear();
 						$dsAclModule->id_xyo_module_group=array($idModuleGroupLoad,$idModuleGroupExec);
 						$dsAclModule->id_xyo_user_group=$idUserGroup;
-						$dsAclModule->id_xyo_core=$idCore;
 						$dsAclModule->id_xyo_module=$moduleList;
 						$dsAclModule->update(array("enabled"=>0));
                         
@@ -1039,7 +988,6 @@ class xyo_mod_Setup extends xyo_Module {
 					$dsAclModule->clear();
 					$dsAclModule->id_xyo_module_group=$idModuleGroupLoad;
 					$dsAclModule->id_xyo_user_group=$idUserGroup;
-					$dsAclModule->id_xyo_core=$idCore;
 					$dsAclModule->id_xyo_module=$dsModule->id;
 					$dsAclModule->tryLoad(0,1);
 					$dsAclModule->module=$dsModule->name;
@@ -1049,7 +997,6 @@ class xyo_mod_Setup extends xyo_Module {
 					$dsAclModule->clear();
 					$dsAclModule->id_xyo_module_group=$idModuleGroupExec;
 					$dsAclModule->id_xyo_user_group=$idUserGroup;
-					$dsAclModule->id_xyo_core=$idCore;
 					$dsAclModule->id_xyo_module=$dsModule->id;
 					$dsAclModule->tryLoad(0,1);
 					$dsAclModule->module=$dsModule->name;

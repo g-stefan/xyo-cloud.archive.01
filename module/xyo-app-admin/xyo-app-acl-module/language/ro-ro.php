@@ -13,11 +13,9 @@ $this->set("head_module_name","Modul");
 $this->set("head_module_group_name","Grup modul");
 $this->set("head_order","Ordine");
 $this->set("head_user_group_name","Grup utilizator");
-$this->set("head_core_name","Baza sistem");
 $this->set("head_id","Id");
 
 
-$this->set("select_xyo_core_any","- baza sistem -");
 $this->set("select_xyo_user_group_any","- grup utilizator -");
 $this->set("select_xyo_module_group_any","- grup modul -");
 
@@ -28,10 +26,7 @@ $this->set("select_xyo_module_group_any","- grup -");
 $this->set("label_order","Ordine");
 
 $this->set("label_id_xyo_user_group","Grup utilizator");
-$this->set("label_id_xyo_core","Baza sistem");
 
-
-$this->set("select_xyo_core_any_edit","- oricare -");
 $this->set("select_xyo_module_group_any_edit","- nici unul -");
 $this->set("select_xyo_user_group_any_edit","- oricare -");
 $this->set("select_xyo_module_any_edit","- nici unul -");

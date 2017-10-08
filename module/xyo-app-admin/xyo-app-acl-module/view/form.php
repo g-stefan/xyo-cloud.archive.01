@@ -28,7 +28,6 @@ if ($this->id_xyo_module_group) {
 
 $this->generateComponent("xui.form-order", array("element" => "order"));
 $this->generateComponent("xui.form-select", array("element" => "id_xyo_user_group"));
-$this->generateComponent("xui.form-select", array("element" => "id_xyo_core"));
 $this->generateComponent("xui.form-switch", array("element" => "enabled"));
 
 if(!$this->isDialog){

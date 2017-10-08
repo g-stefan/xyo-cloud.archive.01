@@ -54,7 +54,6 @@ $this->set("err_new_user_x_user_group_save_error", "Nu am putut salva grupul imp
 $this->set("err_logout_this_user", "Nu te poti deloga singur folosit aceast comanda");
 $this->set("err_delete_this_user", "Nu te posti sterge singur");
 $this->set("err_id_user_not_found", "Nu am gasit id-ul utilizatorului");
-$this->set("err_new_user_x_core_save_error","Nu am putut salva baza implicita a utilizatorului");
 
 $this->set("info_logout_ok", "Delogare cu succes");
 
@@ -62,6 +61,5 @@ $this->set("select_invisible_any", "- invizibil-");
 $this->set("select_invisible_enabled", "da");
 $this->set("select_invisible_disabled", "nu");
 
-$this->set("select_xyo_core_any", "- core -");
 $this->set("select_xyo_user_group_none","- nici unul -");
 $this->set("select_xyo_language_none","- nici una -");

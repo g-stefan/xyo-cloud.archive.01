@@ -54,7 +54,6 @@ $this->set("err_new_user_x_user_group_save_error", "Unable to save user default 
 $this->set("err_logout_this_user", "Can't logout yourself using that");
 $this->set("err_delete_this_user", "Can't delete yourself");
 $this->set("err_id_user_not_found", "User id not found");
-$this->set("err_new_user_x_core_save_error","Unable to save user default core");
 
 $this->set("info_logout_ok", "Logout successfully");
 
@@ -62,6 +61,5 @@ $this->set("select_invisible_any", "- invisible -");
 $this->set("select_invisible_enabled", "yes");
 $this->set("select_invisible_disabled", "no");
 
-$this->set("select_xyo_core_any", "- core -");
 $this->set("select_xyo_user_group_none","- none -");
 $this->set("select_xyo_language_none","- none -");

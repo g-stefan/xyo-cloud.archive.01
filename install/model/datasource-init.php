@@ -52,7 +52,6 @@ if ($setup) {
 };
 
 $setup->registerDataSource("db.table.xyo_settings");
-$setup->registerDataSource("db.table.xyo_core");
 $setup->registerDataSource("db.table.xyo_language");
 $setup->registerDataSource("db.table.xyo_module");
 $setup->registerDataSource("db.table.xyo_module_group");
@@ -62,7 +61,6 @@ $setup->registerDataSource("db.table.xyo_user");
 $setup->registerDataSource("db.table.xyo_user_group");
 $setup->registerDataSource("db.table.xyo_user_group_x_user_group");
 $setup->registerDataSource("db.table.xyo_user_x_user_group");
-$setup->registerDataSource("db.table.xyo_user_x_core");
 
 //---
 $order = array();

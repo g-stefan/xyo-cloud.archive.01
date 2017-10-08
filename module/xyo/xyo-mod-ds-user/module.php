@@ -32,8 +32,6 @@ class xyo_mod_ds_User extends xyo_Module {
 	var $modAcl;
 	//
 	var $dsUser;
-	var $dsCore;
-	var $dsUserXCore;
 	var $dsLanguage;
 	//
 	var $mode;
@@ -78,8 +76,6 @@ class xyo_mod_ds_User extends xyo_Module {
 
 	function reloadDataSource() {
 		$this->dsUser = &$this->getDataSource("db.table.xyo_user");
-		$this->dsCore = &$this->getDataSource("db.table.xyo_core");
-		$this->dsUserXCore = &$this->getDataSource("db.table.xyo_user_x_core");
 		$this->dsLanguage = &$this->getDataSource("db.table.xyo_language");
 		$this->dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");	
 	}
@@ -187,28 +183,7 @@ class xyo_mod_ds_User extends xyo_Module {
 			$this->dsUser->username = $this->info->username;
 		};
 
-		$this->dsUser->id_xyo_core=$this->modAcl->getAclSysCore();
-
 		if ($this->dsUser->load(0, 1)) {
-			// check if user allowed on this core
-			$coreAuthFail=true;
-			$this->dsCore->clear();
-			$this->dsCore->name = $this->cloud->get("core");
-			$this->dsCore->enabled = 1;
-			if ($this->dsCore->load(0, 1)) {
-				$this->dsUserXCore->clear();				
-				$this->dsUserXCore->id_xyo_user=$this->dsUser->id;
-				$this->dsUserXCore->id_xyo_core=array(0,$this->dsCore->id); // any core or core
-				$this->dsUserXCore->enabled=1;
-				if ($this->dsUserXCore->load(0, 1)) {
-					$coreAuthFail=false;	
-				};
-			};
-			
-			if($coreAuthFail){
-				return false;	
-			};
-
 			// check credentials
 
 			$password = "unknown";

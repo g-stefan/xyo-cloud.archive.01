@@ -32,7 +32,6 @@ $this->set("table_item", array(
 	   ));
 
 $this->set("table_link",array(
-		   "xyo_user_x_core"=>array("db.table.xyo_user_x_core","id_xyo_user","id","delete"),
 		   "xyo_user_x_user_group"=>array("db.table.xyo_user_x_user_group","id_xyo_user","id","delete"),
 		   "xyo_user"=>array("db.table.xyo_user","id_xyo_user","id","set",0)
 	   ));

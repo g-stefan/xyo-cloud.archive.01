@@ -86,8 +86,6 @@ if($this->ds->save()) {
 			$dsAclModule->id_xyo_module_group = $this->getElementValueNumber("id_xyo_module_group", 0,"*");
 			$dsAclModule->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0,"*");
 
-			$dsAclModule->id_xyo_core = $this->getElementValueNumber("id_xyo_core", 0,"*");
-
 			$dsAclModule->enabled = $this->getElementValueNumber("acl_enabled", 0,"*");
 			$dsAclModule->order = $this->getElementValueNumber("order", 0);
 

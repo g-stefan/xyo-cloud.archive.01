@@ -9,8 +9,6 @@
 //
 // Execute an module from current directory, to be used as service (not for web)
 //
-// - string $xyoCloudServiceCore(optional) Core of the system,
-//      default to "public"
 // - string $xyoCloudServiceModuleName (optional) Module name to be "seen"
 //      by the system, default to "-xyo-mod-service-"
 // Example:
@@ -31,7 +29,6 @@
 //
 // Options
 //
-//	$xyoCloudServiceCore
 //	$xyoCloudServiceRequestMain
 //	$xyoCloudServiceSite
 //	$xyoCloudServiceModuleName
@@ -49,12 +46,6 @@ $currentDirectory=getcwd();
 
 $xyoCloud = new xyo_Cloud();
 defined('XYO_CLOUD') or die('Access is denied');
-
-if (!isset($xyoCloudServiceCore)) {
-	$xyoCloudServiceCore = "public";
-};
-
-$xyoCloud->set("core", $xyoCloudServiceCore);
 
 if(isset($xyoCloudServiceSite)) {
 	$xyoCloud->set("site",$xyoCloudServiceSite);

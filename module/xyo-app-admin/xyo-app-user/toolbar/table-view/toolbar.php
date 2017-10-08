@@ -26,15 +26,6 @@ $this->setItemAfter("logout","user_group",
         "callUserXUserGroup();"
 );
 
-$this->setItemAfter("user_group","core",
-        "item-js",
-        "<i class=\"material-icons\">device_hub</i>",
-        "core",
-        "primary",
-        "#",
-        "callUserXCore();"
-);
-
 $this->setItem("new",
         "item-js",
         "<i class=\"material-icons\">add</i>",
