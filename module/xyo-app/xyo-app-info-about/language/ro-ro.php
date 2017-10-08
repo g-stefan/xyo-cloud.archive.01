@@ -8,4 +8,5 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$this->set("application_title", "Despre");
 $this->set("title_info_about", "Despre");
