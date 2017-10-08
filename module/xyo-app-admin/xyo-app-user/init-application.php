@@ -27,6 +27,7 @@ $this->requireComponent(array(
 	"xui.form-textarea",
 	"xui.form-select",
 	"xui.form-file-image",
+	"xui.form-switch",
 
 	"xui.box-1x2-begin",
 	"xui.box-1x2-separator",

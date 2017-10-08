@@ -20,6 +20,7 @@ $this->requireComponent(array(
 	"xui.form-text",
 	"xui.form-text-required",
 	"xui.form-textarea",
+	"xui.form-switch",
 
 	"xui.panel-begin",
 	"xui.panel-end",

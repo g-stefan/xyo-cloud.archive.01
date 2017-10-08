@@ -32,8 +32,8 @@ if($this->isNew){
     $this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group"));
 }
 $this->generateComponent("xui.form-select", array("element" =>"id_xyo_language"));
-$this->generateComponent("xui.form-select", array("element" =>"invisible"));
-$this->generateComponent("xui.form-select", array("element" =>"enabled"));
+$this->generateComponent("xui.form-switch", array("element" =>"invisible"));
+$this->generateComponent("xui.form-switch", array("element" =>"enabled"));
 $this->generateComponent("xui.panel-end");
 
 $this->generateComponent("xui.box-1x2-end");

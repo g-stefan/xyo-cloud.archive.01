@@ -19,6 +19,7 @@ $this->setDialogEdit(true);
 $this->requireComponent(array(
 	"xui.form-select",
 	"xui.form-order",
+	"xui.form-switch",
 	"xui.panel-begin",
 	"xui.panel-end",
 	"xui.box-1x1-begin",

@@ -19,7 +19,7 @@ if ($this->id_xyo_user) {
 
 $this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group"));
 $this->generateComponent("xui.form-select", array("element" =>"principal"));
-$this->generateComponent("xui.form-select", array("element" =>"enabled"));
+$this->generateComponent("xui.form-switch", array("element" =>"enabled"));
 
 $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x1-end");

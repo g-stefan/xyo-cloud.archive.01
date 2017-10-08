@@ -61,7 +61,6 @@ $layer = $this->getElementValue("layer", null);
 $date=$this->getParameter("date",null);
 $stamp=$this->getParameter("stamp",null);
 
-
 if($layer&&$connection){
 	$js="$.ajax({type: \"POST\",url: \"";
 	$js.=$this->requestUriThis(array(

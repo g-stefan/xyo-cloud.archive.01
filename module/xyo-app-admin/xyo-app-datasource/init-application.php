@@ -12,7 +12,6 @@ $this->setApplicationIcon("<i class=\"material-icons\">storage</i>");
 
 $this->requireComponent(array(
 	"xui.form-select",
-
 	"xui.panel-begin",
 	"xui.panel-end",
 	"xui.box-1x1-begin",

@@ -25,7 +25,7 @@ $this->generateComponent("xui.form-text-required", array("element" => "name"));
 $this->generateComponent("xui.form-text", array("element" => "parent"));
 $this->generateComponent("xui.form-text", array("element" => "path"));
 $this->generateComponent("xui.form-textarea", array("element" => "description"));
-$this->generateComponent("xui.form-select", array("element" => "enabled"));
+$this->generateComponent("xui.form-switch", array("element" => "enabled"));
 
 if(!$this->isDialog){
 	$this->generateComponent("xui.panel-end");
@@ -40,7 +40,7 @@ if($this->isNew){
 	$this->generateComponent("xui.form-order", array("element" =>"order"));
 	$this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group"));
 	$this->generateComponent("xui.form-select", array("element" =>"id_xyo_core"));
-	$this->generateComponent("xui.form-select", array("element" =>"acl_enabled"));
+	$this->generateComponent("xui.form-switch", array("element" =>"acl_enabled"));
 	$this->generateComponent("xui.panel-end");
 
 	$this->generateComponent("xui.box-1x2-end");
