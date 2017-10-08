@@ -8,10 +8,10 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$checkedX=9;
-$checkedY=4;
-$checkedLx=14;
-$checkedLy=14;
+$checkedX=10;
+$checkedY=5;
+$checkedLx=12;
+$checkedLy=12;
 
 ?>
 
@@ -69,7 +69,7 @@ $checkedLy=14;
 	cursor: pointer;
 	box-sizing: border-box;
 
-	<?php echo $xuiTheme->colorTypeLabel["default"]; ?>
+	color: <?php echo $xuiTheme->colorTypeLabel["default"]; ?>
 }
 
 .xui-form-checkbox2 label::before {
@@ -98,22 +98,22 @@ $checkedLy=14;
 
 	box-sizing: border-box;
 
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-radius: 3px;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 
 	transition: all 0.3s ease;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:active + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:focus + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:checked + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"] + label::after {
@@ -124,7 +124,7 @@ $checkedLy=14;
 	left: <?php echo ($checkedY+$checkedLy/2-1); ?>px;
 	content: " ";
 
-	border-radius: 2px;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 
 	width: 2px;
 	height: 2px;
@@ -152,11 +152,7 @@ $checkedLy=14;
 	width: <?php echo $checkedLx; ?>px;
 	height: <?php echo $checkedLy; ?>px;
 
-	background-color: <?php
-
-$color=$xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["primary"],0,5,-20);
-
-	echo $color;?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
 }
 
 <?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
@@ -175,13 +171,8 @@ $color=$xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["primary"],0,5,-20);
 }
 
 .xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
-	background-color: <?php
-
-$color=$xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput[$key],0,5,-20);
-
-echo $color;?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
 }
-
 	
 <?php }; ?>
 

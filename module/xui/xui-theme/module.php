@@ -20,6 +20,8 @@ class xui_Theme extends xyo_Module {
 	public $colorPalette;
 	public $colorType;
 
+	public $inputBorderRadius;
+
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Theme")) {
@@ -85,6 +87,7 @@ class xui_Theme extends xyo_Module {
 
 		$this->colorTypeInputActive=$this->xuiPalette->palette["core-lavender"];
 
+		$this->inputBorderRadius=2;		
 	}
 
 }

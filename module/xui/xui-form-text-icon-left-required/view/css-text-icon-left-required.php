@@ -40,7 +40,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	color: #000000;
 	background-color: #FFFFFF;
 
-	border-radius: 3px;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
@@ -116,7 +116,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	width: 8px;
 	height: 8px;
 	box-sizing: border-box;
-	border-radius: 4px;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	overflow: hidden;
 	background-color: <?php echo $xuiTheme->colorTypeInput["danger"] ?>;
 }

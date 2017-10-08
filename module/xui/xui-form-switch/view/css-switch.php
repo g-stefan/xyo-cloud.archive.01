@@ -54,7 +54,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	padding-top: 4px;
 	padding-right: 0px;
 	padding-bottom: 4px;
-	padding-left: 48px;
+	padding-left: 52px;
 
 	margin-top: 0px;
 	margin-right: 0px;
@@ -93,37 +93,37 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-radius: 3px;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 
 	transition: all 0.3s ease;
 }
 
 .xui-form-switch input[type="checkbox"]:active + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-switch input[type="checkbox"]:focus + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-switch input[type="checkbox"]:checked + label::before {
-	border: 2px solid <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["primary"],0,5,-20); ?>;
-	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["primary"],0,5,-20); ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
 }
 
 .xui-form-switch input[type="checkbox"] + label::after {
 	display: block;	
 	cursor: pointer;
 	position: absolute;
-	top: 9px;
-	left: 4px;
+	top: 8px;
+	left: 3px;
 	content: " ";
 
-	border-radius: 2px;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 
-	width: 14px;
-	height: 14px;
+	width: 16px;
+	height: 16px;
 
 	padding-top: 0px;
 	padding-left: 0px;
@@ -137,14 +137,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["default"],0,5,-20); ?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 
 	transition: all 0.3s ease;
 }
 
 .xui-form-switch input[type="checkbox"]:checked + label::after {
-	top: 9px;
-	left: 26px;	
+	top: 8px;
+	left: 25px;	
 
 	background-color: #FFFFFF;
 }
@@ -157,16 +157,16 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-switch_<?php echo $key; ?> label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
 }
 
 .xui-form-switch_<?php echo $key; ?> input[type="checkbox"] + label::after {
-	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput[$key],0,5,-20); ?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
 }
 
 .xui-form-switch_<?php echo $key; ?> input[type="checkbox"]:checked + label::before {
-	border: 2px solid <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput[$key],0,5,-20); ?>;
-	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput[$key],0,5,-20); ?>;
+	border: 1px solid <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
+	background-color: <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
 }
 
 .xui-form-switch_<?php echo $key; ?> input[type="checkbox"]:checked + label::after {

@@ -43,8 +43,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-bottom: 0px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
+	border-top-left-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
+	border-top-right-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 
 	overflow: hidden;
 
@@ -75,7 +75,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 3px;
+	border-bottom-left-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 }
 
 .xui-form-captcha__input button[type="button"]{
@@ -87,7 +87,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px;
-	border-bottom-right-radius: 3px;
+	border-bottom-right-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	border-bottom-left-radius: 0px;
 }
 

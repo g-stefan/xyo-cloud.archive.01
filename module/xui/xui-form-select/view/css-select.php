@@ -34,7 +34,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	color: #000000;
 	background-color: #FFFFFF;
 
-	border-radius: 3px;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
@@ -99,7 +99,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 /* --- select2 --- */
 
 .xui-form-select + .select2-container--default .select2-selection--single {
-	border-radius: 3px;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
@@ -205,7 +205,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 .select2-dropdown {
 	overflow: hidden;
-	border-radius: 3px;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;

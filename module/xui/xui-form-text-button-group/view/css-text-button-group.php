@@ -74,8 +74,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child {
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-top-right-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
+	border-bottom-right-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:hover {
@@ -91,8 +91,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child {
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
+	border-top-left-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
+	border-bottom-left-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:hover {
