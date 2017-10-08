@@ -23,7 +23,7 @@ $this->setModule("lib",null,"lib-air-datepicker");
 $this->setModule("lib",null,"lib-tinymce");
 $this->setModule("lib",null,"lib-cropit");
 //
-include("xyo-cloud.common.xui.php");
+include("xyo-cloud.xui.php");
 //
 //
 $this->setModule("lib",null,"lib-js-cookie");
