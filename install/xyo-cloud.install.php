@@ -22,7 +22,7 @@ if ($this->isRequest("website_language")) {
 $this->set("datasource_layer", "xyo-datasource-xyo");
 $this->includeConfig("config.website");
 /* --- */
-$this->includeConfig("xyo-cloud.common.module");
+$this->includeConfig("xyo-cloud.module");
 /* --- */
 $this->setModule(null, "install", "xyo-app-install", true, null, true,false);
 $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,true,false);
