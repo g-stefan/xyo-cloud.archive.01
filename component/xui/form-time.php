@@ -26,51 +26,27 @@ $hasValue=false;
 $value=$this->getElementValueString($element);		
 if(strlen($value)){
 	$hasValue=true;
-	$year=substr($value,0,4);
-	$month=1*substr($value,5,2)-1;
-	$day=substr($value,8,2);
-	$hour=substr($value,11,2);
-	$minutes=substr($value,14,2);
+	$hour=substr($value,0,2);
+	$minutes=substr($value,3,2);
 };
 
-$format = $this->getArgument("format",$this->cloud->get("locale_date_format",""));
+$format = $this->getArgument("format",$this->cloud->get("locale_time_format",""));
 if(strlen($format)){
-	if($format=="Y-m-d"){
-		$format="yyyy-mm-dd";
-		$value=$this->getElementValueString($element);
+	if($format=="H:i:s"){
+		$format="hh:ii";
+		$value=$this->getElementValueString($element);		
 		if(strlen($value)){
-			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
-		};
-	};
-	if($format=="Y/m/d"){
-		$format="yyyy/mm/dd";
-		$value=$this->getElementValueString($element);
-		if(strlen($value)){
-			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
-		};
-	};
-	if($format=="d-m-Y"){
-		$format="dd-mm-yyyy";
-		$value=$this->getElementValueString($element);
-		if(strlen($value)){
-			$this->setElementValue($element,substr($value,8,2)."-".substr($value,5,2)."-".substr($value,0,4).substr($value,10,strlen($value)));
-		};
-	};
-	if($format=="d/m/Y"){
-		$format="dd/mm/yyyy";
-		$value=$this->getElementValueString($element);
-		if(strlen($value)){
-			$this->setElementValue($element,substr($value,8,2)."-".substr($value,5,2)."-".substr($value,0,4).substr($value,10,strlen($value)));
+			$this->setElementValue($element,substr($value,0,2).":".substr($value,3,2));
 		};
 	};
 }else{
-	$format="yyyy/mm/dd";
+	$format="hh:ii";
 };
 
 if($hasValue){
 	$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker({autoClose:true,onlyTimepicker:true}).data(\"datepicker\").selectDate(new Date(".$year.",".$month.",".$day.",".$hour.",".$minutes."));","load");
 }else{
-	$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker({autoClose:true});","load");
+	$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker({autoClose:true,onlyTimepicker:true});","load");
 };
 
 ?>
@@ -80,5 +56,5 @@ if($hasValue){
 	name="<?php $this->eElementName($element); ?>"
 	value="<?php $this->eElementValue($element, ""); ?>"
 	id="<?php $this->eElementId($element); ?>"
-	data-date-format="<?php echo $format; ?>" data-timepicker="true" data-language="en" data-time-format="hh:ii"></input>
+	data-date-format="<?php echo $format; ?>" data-timepicker="true" data-time-format="hh:ii" data-language="en"></input>
 <br>
