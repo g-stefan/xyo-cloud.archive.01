@@ -212,22 +212,22 @@ if ($this->ds) {
 
         ++$index;
 
-        $this->viewData[$this->ds->id] = array();
-        $this->viewData[$this->ds->id]["#"] = $index;
-        $this->viewData[$this->ds->id]["@write"] = true;
+        $this->viewData[$this->ds->{$this->primaryKey}] = array();
+        $this->viewData[$this->ds->{$this->primaryKey}]["#"] = $index;
+        $this->viewData[$this->ds->{$this->primaryKey}]["@write"] = true;
         foreach ($this->tableHead as $key => $value) {
             if ($key === "#")
                 continue;
 			if(array_key_exists($key,$this->tableData)){
 			}else{
-	            $this->viewData[$this->ds->id][$key] = $this->ds->$key;
+	            $this->viewData[$this->ds->{$this->primaryKey}][$key] = $this->ds->$key;
 			}
         }
         foreach ($this->tableData as $key => $value) {
 			if(is_array($value)){
-				$this->viewData[$this->ds->id][$key] = $value[0];
+				$this->viewData[$this->ds->{$this->primaryKey}][$key] = $value[0];
 			}else{
-				$this->viewData[$this->ds->id][$key] = $this->ds->$value;
+				$this->viewData[$this->ds->{$this->primaryKey}][$key] = $this->ds->$value;
 			}
 		}
     }
