@@ -16,6 +16,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-radius: 3px;
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
+	z-index: 1000;
 }
 
 .datepicker--day-name{
