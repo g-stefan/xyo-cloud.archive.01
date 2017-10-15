@@ -68,7 +68,7 @@ if(strlen($format)){
 };
 
 if($hasValue){
-	$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker({autoClose:true,onlyTimepicker:true}).data(\"datepicker\").selectDate(new Date(".$year.",".$month.",".$day.",".$hour.",".$minutes."));","load");
+	$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker({autoClose:true,onlyTimepicker:false}).data(\"datepicker\").selectDate(new Date(".$year.",".$month.",".$day.",".$hour.",".$minutes."));","load");
 }else{
 	$this->setHtmlJsSourceOrAjax("\$(\"#".$this->getElementId($element)."\").datepicker({autoClose:true});","load");
 };
