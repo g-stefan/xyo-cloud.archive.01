@@ -84,3 +84,8 @@ if(!$isOk){
 	$value=$this->getElementValue($element."_value","");
 	$this->setElementValue($element,$value);
 };
+
+if(!$isDeleted){
+	$this->setElementValue($element,$fileName);
+};
+
