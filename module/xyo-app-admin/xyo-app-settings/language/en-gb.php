@@ -16,7 +16,7 @@ $this->set("select_enabled_enabled", "yes");
 $this->set("select_enabled_disabled", "no");
 
 $this->set("label_website_title","Website title");
-$this->set("label_user_logoff_after_idle_time","User logoff after idle time");
+$this->set("label_user_logoff_after_idle_time","User logoff after idle time (minutes)");
 $this->set("label_user_action","User action");
 $this->set("label_user_captcha","User captcha");
 
