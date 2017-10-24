@@ -151,7 +151,7 @@ function doValueSave(key){
 		
 	echo "<div class=\"xui-table\">";
 	echo "<div class=\"xui-table-toolbar-top\">";
-	echo "<div style=\"display:inline-block;width:50%;box-sizing: border-box;\">";
+	echo "<div class=\"xui-table-toolbar-top__left\">";
 	
 	if($has_search){
                 ?>
@@ -173,7 +173,7 @@ function doValueSave(key){
           
 
         echo "</div>";
- 	echo "<div style=\"display:inline-block;width:50%;box-sizing: border-box;\">";
+ 	echo "<div class=\"xui-table-toolbar-top__right\">";
  	                        
         foreach (array_reverse($this->tableSelect,true) as $key => $value) {
             if ($value) {
@@ -620,7 +620,7 @@ function doValueSave(key){
 
 	</div>
 
-	<div class="pull-left" style="margin-left:6px;">
+	<div class="xyo-app-table__indicator_items xui_left" style="margin-left:6px;">
         <select name="count"
                 size="1"
                 onChange="this.form.submit();"

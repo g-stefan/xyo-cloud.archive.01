@@ -171,3 +171,37 @@
 	border-left: 1px solid #DDDDDD !important;
 }
 
+.xui-table-toolbar-top__left{
+	display:inline-block;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.xui-table-toolbar-top__right{
+	display:none;
+	width:50%;
+	box-sizing: border-box;
+}
+
+.xyo-app-table__indicator_items{
+	display:none;
+	box-sizing: border-box;
+}
+
+@media only screen and (min-width: 600px){
+
+	.xui-table-toolbar-top__left{
+		width:50%;
+	}
+
+	.xui-table-toolbar-top__right{
+		display:inline-block;
+	}
+
+	.xyo-app-table__indicator_items{
+		display:inline-block;
+	}
+
+
+}
+
