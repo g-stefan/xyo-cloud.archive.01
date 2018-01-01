@@ -80,8 +80,26 @@ $src.="document.getElementById(\"".$this->getElementId($element)."_height\").val
 $src.="}";
 $src.="});";
 if(strlen($fileName)>0){
+	$src.="var ".$this->getElementId($element)."_filename=\"".$fileName."\";";
 	$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",\"".$fileName."\");";
+}else{
+	$src.="var ".$this->getElementId($element)."_filename=\"\";";
 };
+
+$src.=$this->getElementId($element)."__delete=function(){";
+$src.="$(\"#".$this->getElementId($element)."_delete\").val(1);";
+$src.=$this->getElementId($element)."_filename=\"".$this->site."lib/xui/images/empty.png\";";
+$src.="document.getElementById(\"".$this->getElementId($element)."\").value=null;";
+$src.="$(\"#".$this->getElementId($element)."\").trigger(\"change\");";
+$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",".$this->getElementId($element)."_filename);";
+$src.="};";
+
+$src.=$this->getElementId($element)."__clear=function(){";
+$src.="document.getElementById(\"".$this->getElementId($element)."\").value=null;";
+$src.="$(\"#".$this->getElementId($element)."\").trigger(\"change\");";
+$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",".$this->getElementId($element)."_filename);";
+$src.="};";
+
 $this->setHtmlJsSourceOrAjax($src,"load");
 
 ?>
@@ -109,11 +127,11 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 </div><!--<?php  if(strlen($fileName)){ ?>
 --><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
 <?php  }; ?>
---><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon_danger" onclick="$('#<?php $this->eElementId($element); ?>_delete').val(1);return false;"><i class="material-icons">close</i></button>
+--><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon_danger" onclick="<?php $this->eElementId($element); ?>__delete();return false;"><i class="material-icons">close</i></button>
 <div class="xui-form-file">
 <input type="file" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" class="xui-form-file__file cropit-image-input" accept="image/*"></input>
 <label for="<?php $this->eElementId($element); ?>"><i class="material-icons">file_upload</i> Browse ...</label><!--
---><button type="button" class="xui-form-button-icon xui-form-button-icon_info" onclick="document.getElementById('<?php $this->eElementId($element); ?>').value=null;$('#<?php $this->eElementId($element); ?>').trigger('change');"><i class="material-icons">delete</i></button>
+--><button type="button" class="xui-form-button-icon xui-form-button-icon_info" onclick="<?php $this->eElementId($element); ?>__clear();return false;"><i class="material-icons">delete</i></button>
 </div>
 </div>
 <input type="hidden"
