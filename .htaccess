@@ -1,4 +1,6 @@
 #
+# Apache MultiViews must be disabled
+#
 AddDefaultCharset utf-8
 #
 RewriteEngine on
