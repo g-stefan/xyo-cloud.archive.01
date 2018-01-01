@@ -1,5 +1,8 @@
 #
 # Apache MultiViews must be disabled
+<IfModule mod_negotiation.c>
+	Options -MultiViews
+</IfModule>
 #
 AddDefaultCharset utf-8
 #
