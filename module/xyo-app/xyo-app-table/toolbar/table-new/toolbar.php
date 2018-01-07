@@ -8,8 +8,8 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->setItem("apply", "item-js", "<i class=\"material-icons\">done</i>", "apply", "warning", "#", "doCommand('form-new-apply')");
+$this->setItem("apply", "item-js.important", "<i class=\"material-icons\">done</i>", "apply", "warning", "#", "doCommand('form-new-apply')");
 
-$this->setItem("save", "item-js", "<i class=\"material-icons\">done_all</i>", "save", "success", "#", "doCommand('table-new-save')");
+$this->setItem("save", "item-js.important", "<i class=\"material-icons\">done_all</i>", "save", "success", "#", "doCommand('table-new-save')");
 
-$this->setItem("cancel", "item-js", "<i class=\"material-icons\">close</i>", "cancel", "danger", "#", "doCommand('table-view')");
+$this->setItem("cancel", "item-js.important", "<i class=\"material-icons\">close</i>", "cancel", "danger", "#", "doCommand('table-view')");

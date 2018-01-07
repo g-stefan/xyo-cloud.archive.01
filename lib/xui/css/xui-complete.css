@@ -12593,7 +12593,6 @@
 }
 
 
-
 .xui-toolbar__item_default .xui-toolbar__icon{
 	color: #BBC1CB;
 }
@@ -12801,14 +12800,46 @@ a.xui-toolbar__item:hover{
 	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
-
 .xui-toolbar__item.xui-toolbar__item_disabled:active{
 	margin-top: 0px;
 	margin-bottom: 2px;
 }
 
 
+/* responsive based on script */
 
+.xui-toolbar_small .xui-toolbar__item{
+	margin-left: 0px;
+	margin-right: 0px;		
+}
+
+.xui-toolbar_small .xui-toolbar__icon{
+	margin-right: 0px;
+}
+
+.xui-toolbar_small .xui-toolbar__text{
+	display: none;
+}
+
+/* --- */
+
+.xui-toolbar_important .xui-toolbar__item{
+	margin-left: 0px;
+	margin-right: 0px;
+	display: none;
+}
+
+.xui-toolbar_important .xui-toolbar__icon{
+	margin-right: 0px;
+}
+
+.xui-toolbar_important .xui-toolbar__text{
+	display: none;
+}
+
+.xui-toolbar_important .xui-toolbar__item.xui-toolbar__item_important{
+	display: block;
+}
 
 
 /* --- */

@@ -8,5 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-echo file_get_contents("lib/xui/js/xui-responsive.js");
-echo file_get_contents("lib/xui/js/xui-responsive-element.js");
+echo file_get_contents("lib/xui/js/xui-toolbar.js");

@@ -15,7 +15,7 @@ if(!$this->isDialog){
 
 $this->generateComponent("xui.form-text-required", array("element" => "name"));
 $this->generateComponent("xui.form-textarea", array("element" => "description"));
-$this->generateComponent("xui.form-select", array("element" => "default"));
+$this->generateComponent("xui.form-switch", array("element" => "default"));
 $this->generateComponent("xui.form-switch", array("element" => "enabled"));
 
 if(!$this->isDialog){

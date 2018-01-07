@@ -84,7 +84,6 @@ $xuiElevation=&$this->getModule("xui-elevation");
 	color: #000000;
 }
 
-
 <?php foreach($xuiTheme->colorTypeButton as $key=>$value){ 
 
 	if($key=="disabled"){
@@ -178,12 +177,44 @@ a.xui-toolbar__item:hover{
 <?php $xuiElevation->eElevationCss(0); ?>
 }
 
-
 .xui-toolbar__item.xui-toolbar__item_disabled:active{
 	margin-top: 0px;
 	margin-bottom: 2px;
 }
 
 
+/* responsive based on script */
 
+.xui-toolbar_small .xui-toolbar__item{
+	margin-left: 0px;
+	margin-right: 0px;		
+}
+
+.xui-toolbar_small .xui-toolbar__icon{
+	margin-right: 0px;
+}
+
+.xui-toolbar_small .xui-toolbar__text{
+	display: none;
+}
+
+/* --- */
+
+.xui-toolbar_important .xui-toolbar__item{
+	margin-left: 0px;
+	margin-right: 0px;
+	display: none;
+}
+
+.xui-toolbar_important .xui-toolbar__icon{
+	margin-right: 0px;
+}
+
+.xui-toolbar_important .xui-toolbar__text{
+	display: none;
+}
+
+.xui-toolbar_important .xui-toolbar__item.xui-toolbar__item_important{
+	display: block;
+}
 

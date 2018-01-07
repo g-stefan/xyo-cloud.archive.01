@@ -17,6 +17,7 @@ class xui_Responsive extends xyo_Module {
 		if ($this->isBase("xui_Responsive")) {
 			$this->setHtmlCss($this->site."lib/xui/css/xui-responsive.css");
 			$this->setHtmlJs($this->site."lib/xui/js/xui-responsive.js");
+			$this->setHtmlJs($this->site."lib/xui/js/xui-responsive-element.js");
         	}
 	}
 

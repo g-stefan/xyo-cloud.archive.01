@@ -9,7 +9,7 @@
 defined('XYO_CLOUD') or die('Access is denied');
 ?>
 <div class="xui-application">
-	<div class="xui-toolbar"><div class="xui_right">
+	<div class="xui-toolbar" id="xui-toolbar"><div class="xui_right" id="xui-toolbar__container">
 <?php
            $this->execModule("xyo-mod-toolbar", array_merge(array(
                         "module" => $this->name,
@@ -33,3 +33,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 	<?php $this->generateCurrentView(); ?>
 	</div>
 </div>
+<?php
+
+$this->setHtmlJsSourceOrAjax("XUI.Toolbar.linkContainer(\"xui-content\",\"xui-toolbar\",\"xui-toolbar__container\",[\"xui-toolbar_important\",\"xui-toolbar_small\",\"xui-toolbar_large\"]);","load");

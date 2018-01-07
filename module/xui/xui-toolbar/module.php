@@ -19,6 +19,7 @@ class xui_Toolbar extends xyo_Module {
 				"ajax"=>1,
 				"action"=>"css"
 			)));
+			$this->setHtmlJs($this->site."lib/xui/js/xui-toolbar.js");
         	}
 	}
 

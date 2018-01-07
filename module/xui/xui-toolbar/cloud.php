@@ -19,3 +19,4 @@ $this->setReferenceLink($module, "xui-effect-ripple");
 $this->setReferenceLink($module, "xui-typography");
 $this->setReferenceLink($module, "xui-color");
 $this->setReferenceLink($module, "xui-palette");
+$this->setReferenceLink($module, "xui-responsive");
