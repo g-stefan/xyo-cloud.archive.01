@@ -191,3 +191,10 @@
 	border-right: 0px;
 }
 
+.xui-application-form .xui-form-text{
+	width: 100%;
+}
+
+.xui-application-form .xui-form-textarea{
+	width: 100%;
+}
