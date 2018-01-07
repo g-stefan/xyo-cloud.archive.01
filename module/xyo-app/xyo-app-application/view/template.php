@@ -35,4 +35,4 @@ defined('XYO_CLOUD') or die('Access is denied');
 </div>
 <?php
 
-$this->setHtmlJsSourceOrAjax("XUI.Toolbar.linkContainer(\"xui-content\",\"xui-toolbar\",\"xui-toolbar__container\",[\"xui-toolbar_important\",\"xui-toolbar_small\",\"xui-toolbar_large\"]);","load");
+$this->setHtmlJsSourceOrAjax("XUI.Responsive.Element.linkContainer(\"xui-content\",\"xui-toolbar\",\"xui-toolbar__container\",[\"xui-toolbar_important\",\"xui-toolbar_small\",\"xui-toolbar_large\"]);","load");
