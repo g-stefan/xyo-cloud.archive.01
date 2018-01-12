@@ -22,6 +22,10 @@
 	margin-left: 0px;
 }
 
+.xui-box-row_top-space{
+	padding-top: 0px;
+}
+
 .xui-box-1x1{
 	position: relative;
 	display: block;
@@ -89,6 +93,10 @@
 		max-width: 1280px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.xui-box-row_top-space{
+		padding-top: 32px;
 	}
 
 	.xui-box-1x1 {

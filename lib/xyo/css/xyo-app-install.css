@@ -32,3 +32,62 @@
 	width: calc(100% - 250px);
 	padding-left: 10px;
 }
+
+.xyo-install__image{
+	width:128px;
+	height:128px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+}
+
+@media only screen and (max-width: 600px){
+
+.xui-panel__content{
+	padding: 0px !important;
+}
+
+.xyo-install__application .xyo-install__panel{
+	float: none;
+	display: block;
+	width: 100%;
+}
+
+.xyo-install__application .xyo-install__content{
+	float: none;
+	display: block;
+	width: 100%;
+}
+
+.xyo-install__application .xui-list-group{
+	border-radius: 0px;
+		border: 0px solid #000;
+	}
+
+	.xyo-install__application .xui-list-group .xui-list-group__item{
+		display: none;
+	}
+
+	.xyo-install__application .xui-list-group .xui-list-group__item.xui-list-group__item_active{
+		display: block;
+	}
+
+	.xyo-install__application .xui-list-group .xui-list-group__item.xui-list-group__item_active .xui-list-group__item__icon-left{
+		display: none;
+	}
+
+	.xyo-install__image{
+		display: none;
+	}
+		
+	.xyo-install__content{
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		box-sizing: border-box;
+	}
+}
+
+

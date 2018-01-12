@@ -25,9 +25,7 @@ foreach ($listGroup as $key => &$value) {
     }
 };
 
-
-	echo "<br>";
-	$this->generateComponent("xui.box-x-900-begin");
+	$this->generateComponent("xui.box-x-900-begin",array("top-space"=>1));
 	$this->generateComponent("xui.panel2-begin");
 	$this->eLanguage("alt_install");
 	$this->generateComponent("xui.panel2-content");
@@ -37,8 +35,7 @@ foreach ($listGroup as $key => &$value) {
 <div class="xyo-install__application">
 	<div class="xyo-install__panel">
 		<?php $this->generateComponent("xui.list-group", array("items"=>$listGroup)); ?>
-		<img class="hidden-xs" src="<?php echo $this->site; ?>lib/xyo/images/system-installer-2-128.png"
-			style="width:128px;height:128px;display:block;margin-left:auto;margin-right:auto;margin-top:0px;"
+		<img class="xyo-install__image" src="<?php echo $this->site; ?>lib/xyo/images/system-installer-2-128.png"
 			alt="<?php $this->eLanguage("alt_install"); ?>" ></img>
 	</div>
 	<div class="xyo-install__content">

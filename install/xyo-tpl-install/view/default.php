@@ -20,17 +20,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 	</head>
     <body<?php $this->eHtmlBodyClass(); ?>>
 
-	<br />
-	<br />
-
 	<?php
-	$this->generateComponent("xui.box-x-900-begin");
+	$this->generateComponent("xui.box-x-900-begin",array("top-space"=>1));
 	$this->generateComponent("xui.panel2-begin");
 	?>
 	
 	            <img src="<?php echo $this->site; ?>lib/xyo/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;" alt="XYO" ></img>
         	    <span style="font-family:arial;color:#0194FE;font-size:22px;font-weight:bold;vertical-align: middle;">&#160;CLOUD&#160;</span>
-	            <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;margin-top:18px;">
+	            <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;padding-top:16px;padding-bottom:0px;margin-bottom:0px;overflow:hidden;height:32px;box-sizing: border-box;">
         	        <?php echo $this->cloud->get("version"); ?>
 	            </span>
 
