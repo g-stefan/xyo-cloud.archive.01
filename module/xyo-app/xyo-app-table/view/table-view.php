@@ -209,10 +209,24 @@ function doValueSave(key){
                 foreach ($this->tableHead as $key => $value) {
 
 	                if ($key === "#") {
-	                    echo "<th style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;\">";
+	                    echo "<th class=\"xyo-app-table__col_important\" style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;\">";
 			}else{
-	                    echo "<th style=\"vertical-align:middle;\">";
-			}
+				$isImportant=false;
+				if(count($this->tableImportant)==0){
+					$isImportant=true;
+				}else{
+					if(array_key_exists($key,$this->tableImportant)){
+						$isImportant=$this->tableImportant[$key];
+					};
+				};
+				
+				$classImportant="xyo-app-table__col_normal";
+				if($isImportant){
+					$classImportant="xyo-app-table__col_important";
+				};
+
+				echo "<th class=\"".$classImportant."\" style=\"vertical-align:middle;\">";
+			};
 
 
                     if ($key === "#") {
@@ -305,9 +319,24 @@ function doValueSave(key){
                 foreach ($this->tableHead as $key_ => $value_) {
 
 			if ($key_ === "#") {
-				echo "<td style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;\">";
+				echo "<td class=\"xyo-app-table__col_important\" style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;\">";
 			}else{
-				echo "<td style=\"vertical-align:middle;\">";
+				$isImportant=false;
+				if(count($this->tableImportant)==0){
+					$isImportant=true;
+				}else{
+					if(array_key_exists($key_,$this->tableImportant)){
+						$isImportant=$this->tableImportant[$key_];
+					};
+				};
+				
+				$classImportant="xyo-app-table__col_normal";
+				if($isImportant){
+					$classImportant="xyo-app-table__col_important";
+				};
+
+				echo "<td class=\"".$classImportant."\" style=\"vertical-align:middle;\">";
+
 			};
                     if ($key_ === "#") {
 				++$recordId;
@@ -637,7 +666,7 @@ function doValueSave(key){
             }
             ?>
         </select>
-	<span style="position:relative;font-family:'Roboto', sans-serif;font-size: 16px;line-height: 20px;font-weight: normal;">
+	<span class="xui-table-toolbar-bottom__indicator_items" style="position:relative;font-family:'Roboto', sans-serif;font-size: 16px;line-height: 20px;font-weight: normal;">
 	items <span style="color: #999;"> - </span> <?php echo $page_count; ?> pages <span style="color: #999;"> - </span> <?php echo $nr_items; ?> total items
 	</span>
 	</div>

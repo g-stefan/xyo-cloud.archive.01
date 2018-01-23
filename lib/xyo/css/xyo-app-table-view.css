@@ -188,6 +188,15 @@
 	box-sizing: border-box;
 }
 
+.xyo-app-table__col_important{
+	display: table-cell;
+}
+
+.xyo-app-table__col_normal{
+	display: none;
+}
+
+
 @media only screen and (min-width: 600px){
 
 	.xui-table-toolbar-top__left{
@@ -202,6 +211,13 @@
 		display:inline-block;
 	}
 
+	.xyo-app-table__col_important{
+		display: table-cell;
+	}
+
+	.xyo-app-table__col_normal{
+		display: table-cell;
+	}
 
 }
 

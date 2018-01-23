@@ -21,7 +21,8 @@ class xyo_app_Table extends xyo_app_Application {
 	protected $tableSelectInfo;
 	protected $tableData;
 	protected $tableType; 
-	protected $tableDelete;   
+	protected $tableDelete;
+	protected $tableImportant;
 //---
 	protected $viewData;
 //---
@@ -50,6 +51,7 @@ class xyo_app_Table extends xyo_app_Application {
 
 	        $this->tableType = array();
 	        $this->tableDelete = array();
+		$this->tableImportant = array();
 
 	        $this->viewData = null;
 		$this->viewKey=null;

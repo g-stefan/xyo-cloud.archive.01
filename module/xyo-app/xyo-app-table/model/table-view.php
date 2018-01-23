@@ -40,3 +40,6 @@ $this->tableType = array(
 
 $this->tableDelete = array(
 );
+
+$this->tableImportant = array(
+);
