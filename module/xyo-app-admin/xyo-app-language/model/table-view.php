@@ -51,3 +51,6 @@ $this->tableSelectInfo = array(
 	"enabled" => $this->getParameter("select_enabled", array())
 );
 
+$this->tableImportant=array(
+	"name"=>true
+);

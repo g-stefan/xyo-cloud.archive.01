@@ -45,3 +45,6 @@ $this->tableData = array(
 	"active"=>array(0=>0)
 );
 
+$this->tableImportant=array(
+    "module_name" => true
+);

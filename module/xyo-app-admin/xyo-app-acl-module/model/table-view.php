@@ -94,3 +94,7 @@ $this->tableDelete= array(
     "id" => true
 );
 
+$this->tableImportant=array(
+    "module_name" => true,
+    "module_group_name" => true	
+);

@@ -70,3 +70,6 @@ $this->tableDelete = array(
     "id" => true
 );
 
+$this->tableImportant=array(
+	"name"=>true
+);
