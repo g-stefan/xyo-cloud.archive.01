@@ -13,6 +13,6 @@ $this->set("table_primary_key", "id");
 $this->set("table_item", array(
 		   "id" => array("bigint","DEFAULT","unsigned","auto_increment"),
 		   "id_xyo_module" => array("bigint",0,"unsigned"),
-		   "name" => array("varchar",64,null),
-		   "value" => array("varchar",128,null)
+		   "name" => array("varchar",128,null),
+		   "value" => array("varchar",255,null)
 	   ));

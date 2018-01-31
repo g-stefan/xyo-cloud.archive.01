@@ -16,6 +16,6 @@ $this->set("table_item", array(
 		   "id_xyo_module_group" => array("bigint",0,"unsigned"),
 		   "id_xyo_user_group" => array("bigint",0,"unsigned"),
 		   "enabled" => array("int",0,"unsigned"),
-		   "module" => array("varchar",64,null),
+		   "module" => array("varchar",128,null),
 		   "order" => array("int",0,"unsigned")
 	   ));
