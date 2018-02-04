@@ -7,10 +7,5 @@
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
-
-$this->setModuleAsApplication($module);
-$this->setReferenceLink($module, "lib-sha512");
-$this->setReferenceLink($module, "xui-form-button");
-$this->setReferenceBase($module, "xyo-mod-application");
-$this->setVersion($module, "2.0.0");
-
+                            
+$this->setVersion($module, "1.0.0");

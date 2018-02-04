@@ -67,7 +67,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		$this->excludeModuleFromAction_=array();
 		if ($this->isBase("xyo_mod_ds_User")) {
 			$this->includeConfig($this->name);
-		}
+		};
 
 		$this->doLogin();
 		$this->generateAutoCookie();
@@ -92,7 +92,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				unset($this->excludeModuleFromAction_[$name]);
 			};
 		};
-	}
+	}	
 
 	function tryAuthorize() {
 
@@ -124,10 +124,13 @@ class xyo_mod_ds_User extends xyo_Module {
 				};
 
 				if ($password) {
-					if (strncmp($password, "md5:", 4) == 0) {
-						$password = substr($password, 4);
-					}
-				}		
+					$algorithmX="hash:";
+					if (strncmp($password, $algorithmX, strlen($algorithmX)) == 0) {
+						$password = substr($password, strlen($algorithmX));
+					}else{
+						return false;
+					};
+				};
 
 				if ($username && $password && $rnd && $captcha) {
 
@@ -142,12 +145,12 @@ class xyo_mod_ds_User extends xyo_Module {
 					$this->mode = false;
 
 					$this->authorized = $this->performUserCheck();
-				}
-			}
-		}
+				};
+			};
+		};
 		if ($this->authorized) {
 			return true;
-		}
+		};
 
 		if (!$authorization) {
 			$session = $this->cloud->getRequest("user_session");
@@ -158,19 +161,108 @@ class xyo_mod_ds_User extends xyo_Module {
 					$this->info->rnd = $rnd;
 					$this->mode = true;
 					$this->authorized = $this->performUserCheck();
-				}
-			}
-		}
+				};
+			};
+		};
 
 		return $this->authorized;
+	}
+
+	function getPasswordHash($password,$rnd){
+		if(is_null($rnd)){
+			$rnd = hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);
+		};
+
+		// sha256[salt].sha512[sha256[salt].sha512[password]]
+		$pwd = explode(":", $password);
+		if ($pwd[0] === "hash") {
+			return $pwd[1];
+		};
+		if ($pwd[0] === "reco") {
+			$key=hash("sha512",hash("sha512",strtolower($this->dsUser->username),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
+			$salt=hash("sha256",$rnd,false);
+			return $salt.".".hash("sha512",$salt.hash("sha512",$this->recoDecode($pwd[1], pack("H*", $key))),false);
+		};
+		if ($pwd[0] === "plain") {
+			$salt=hash("sha256",$rnd,false);
+			return $salt.".".hash("sha512",$salt.hash("sha512",$pwd[1]),false);
+		};
+	
+		return "";	
+	}
+
+	function setPasswordHash($passwordPlain,$mode){
+
+		if($mode === "hash"){
+			$salt=hash("sha256",date("Y-m-d H:i:s")." - ".rand(),false);
+			return "hash:".$salt.".".hash("sha512",$salt.hash("sha512",$passwordPlain),false);
+		};
+		if($mode === "reco"){
+			$key=hash("sha512",hash("sha512",strtolower($this->dsUser->username),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
+			return "reco:".$this->recoEncode($passwordPlain, pack("H*", $key));
+		};
+		if($mode === "plain"){
+			return "plain:".$passwordPlain;
+		};
+
+		return "";
+	}
+
+	function hex2x($hex){
+		$retV=array();
+		for ($i = 0; $i < strlen($hex); $i += 2){
+        		array_push($retV,hexdec(substr($hex,$i, 2)));
+		};
+		return $retV;		
+	}
+
+	function zeroPad($x){
+		if(strlen($x)<2){
+			return "0".$x;
+		};
+		return $x;
+	}
+
+	function x2hex($x) {
+		$retV = array();
+		for ($i = 0; $i < count($x); ++$i) {
+			array_push($retV,$this->zeroPad(dechex($x[$i])));
+		};
+		return implode("",$retV);
+	}
+
+	function x2xor($x,$y,$z){
+		$retV = array();
+		for ($i = 0; $i < count($x); ++$i) {
+			array_push($retV,$x[$i]^$y[$i]^$z[$i]);
+		};
+		return $retV;
+	}
+
+	function x2combo($x,$y,$z){
+		if(strlen($x)!=strlen($y)){
+			return "";
+		};
+		if(strlen($x)!=strlen($z)){
+			return "";
+		};
+		return $this->x2hex($this->x2xor($this->hex2x($x),$this->hex2x($y),$this->hex2x($z)));
+	}
+
+	function checkPasswordHash($p,$rnd,$x,$y,$z){
+		$password=$this->getPasswordHash($p,$rnd);
+		$passwordX=explode(".",$password);
+
+		$checkPasword = $this->x2combo($x,$y,$z);
+		$checkPasword = $passwordX[0].".".hash("sha512",$passwordX[0].$checkPasword,false);
+
+		return (strcmp($password,$checkPasword)==0);
 	}
 
 	function performUserCheck() {
 		$this->authorized = false;
 
-		if ($this->dsUser) {
-
-		} else {
+		if (!$this->dsUser) {
 			return false;
 		};
 
@@ -184,41 +276,53 @@ class xyo_mod_ds_User extends xyo_Module {
 		};
 
 		if ($this->dsUser->load(0, 1)) {
-			// check credentials
+			// check credentials			               
 
-			$password = "unknown";
-			$pwd = explode(":", $this->dsUser->password);
-			if ($pwd[0] === "md5") {
-				$password = $pwd[1];
-			} else if ($pwd[0] === "reco") {
-				$password = md5($this->recoDecode($pwd[1], pack("H*", md5(strtolower($this->dsUser->username)))));
-			} else if ($pwd[0] === "plain") {
-				$password = md5($pwd[1]);
-			} else {
+			$password=$this->getPasswordHash($this->dsUser->password,$this->info->rnd);
+			if(strlen($password)==0){
 				return false;
 			};
-			                        
-			$checkPasword = md5(md5(strtolower($this->dsUser->username) . $password) . $this->info->rnd);
-			$chk = "";
+			$passwordX=explode(".",$password);
+
+			$inputPassword = $this->info->password;
+			if ($this->mode) {
+				$inputPassword = $this->info->session;
+			};
+			        
+			$checkPasword = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$inputPassword,$this->info->rnd);
+			if(strlen($checkPasword)==0){
+				return false;
+			};
+			$checkPasword = $passwordX[0].".".hash("sha512",$passwordX[0].$checkPasword,false);
+
+			// check system generated authorization (password is sha512[passowordHash])
+			if ($this->mode) {
+				$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->session,$this->info->rnd);
+			}else{
+				$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->password,$this->info->rnd);
+			};
+			if(strlen($checkPasword2X)==0){
+				return false;
+			};
+			$checkPasword2Y = hash("sha512",$password,false);
 
 			$captchaOk=false;
 			if ($this->mode) {
 				$captchaOk=true;
-				$chk = "session";
 			} else {
 				if($this->useCaptcha) {
-					$captchaKey=md5($this->info->rnd.md5($this->info->captcha));
+					$captchaKey=hash("sha512",$this->info->rnd.hash("sha512",$this->info->captcha,false),false);
 					if(isset($_SESSION["user_captcha_key"])) {
 						if($captchaKey===$_SESSION["user_captcha_key"]) {
 							$captchaOk=true;
-						}
+						};
 					};
 
 					//
 					// Check service key
 					//
 					if(!$captchaOk){
-						$serviceKey=md5($this->info->rnd.md5($this->cloud->get("service_key","")));
+						$serviceKey=hash("sha512",$this->info->rnd.hash("sha512",$this->cloud->get("service_key","unknown"),false),false);
 						$captcha = $this->cloud->getRequest("user_captcha");
 						if(strlen($captcha)>0){
 							if(strcmp($captcha,$serviceKey)==0){
@@ -229,15 +333,14 @@ class xyo_mod_ds_User extends xyo_Module {
 
 				} else {
 					$captchaOk=true;
-				}
-				$chk = "password";
+				}				
 			};
 
-			if (($this->info->$chk === $checkPasword)&&($captchaOk)) {
+			if (((strcmp($password,$checkPasword)==0)||(strcmp($checkPasword2X,$checkPasword2Y)==0))&&($captchaOk)) {
 
 				$this->info->id = $this->dsUser->id;
 				$this->info->username = $this->dsUser->username;
-				$this->info->session = $checkPasword;
+				$this->info->session = $inputPassword;
 				$this->info->name = $this->dsUser->name;
 				$this->info->authorizedBy = "datasource";
 
@@ -279,8 +382,7 @@ class xyo_mod_ds_User extends xyo_Module {
 					// allow secondary requests (from services)
 					// that will not unauthorize current session 
 					//
-					if($this->cloud->getRequest("user_service",0)){
-					}else{
+					if(!$this->cloud->getRequest("user_service",0)){
 						if(strlen($this->dsUser->session)==0){
 							$this->dsUser->session = $this->info->session;
 							$this->dsUser->session_rnd = $this->info->rnd;
@@ -291,8 +393,7 @@ class xyo_mod_ds_User extends xyo_Module {
 							//
 							 
 							// first verify if user/password changed
-							$checkPasword = md5(md5(strtolower($this->dsUser->username) . $password) . $this->dsUser->session_rnd);
-							if($checkPasword!=$this->dsUser->session){
+							if(!$this->checkPasswordHash($this->info->session,$this->info->rnd,hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->dsUser->session,$this->info->rnd)){
 								// update new credentials
 								$this->dsUser->session=$this->info->session;
 								$this->dsUser->session_rnd=$this->info->rnd;
@@ -384,56 +485,50 @@ class xyo_mod_ds_User extends xyo_Module {
 	}
 
 	function getAuthorizationRequestDirect($user=null) {
-		if ($this->dsUser) {
-
-		} else {
+		if (!$this->dsUser) {
 			return null;
 		};
-		if ($this->info->id) {
-
-		} else {
-			if ($user) {
-
-			} else {
+		if (!$this->info->id) {
+			if (!$user) {
 				return null;
-			}
-		}
+			};
+		};
 		$this->dsUser->clear();
 		if ($user) {
 			$this->dsUser->username = $user;
 		} else {
 			$this->dsUser->id = $this->info->id;
-		}
+		};
 		$this->dsUser->enabled = 1;
 		if ($this->dsUser->load(0, 1)) {
-			$password = "unknown";
-			$pwd = explode(":", $this->dsUser->password);
-			if ($pwd[0] === "md5") {
-				$password = $pwd[1];
-			} else if ($pwd[0] === "reco") {
-				$password = md5($this->recoDecodeMd5($pwd[1], strtolower($this->dsUser->username)));
-			} else if ($pwd[0] === "plain") {
-				$password = md5($pwd[1]);
-			} else {
+
+			$rnd = hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);
+			$password = $this->getPasswordHash($this->dsUser->password,$rnd);
+			if(strlen($password)==0){
 				return null;
 			};
-			$rnd = md5("".rand());
+			$password = hash("sha512",$password,false);
+			$passwordHash = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$rnd,false),$password,$rnd,false);
+			if(strlen($passwordHash)==0){
+				return null;
+			};
 
 			if($this->useCaptcha) {
-				$capctha=md5("".rand());
+				$captcha=hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);
 				$_SESSION["user_captcha_rnd"]=$rnd;
-				$_SESSION["user_captcha_key"]=md5($rnd.md5($capctha));
+				$_SESSION["user_captcha_key"]=hash("sha512",$rnd.hash("sha512",$captcha,false),false);
+				
 				return array(
 					       "user_username" => $this->dsUser->username,
-					       "user_password" => "md5:".md5(md5(strtolower($this->dsUser->username) . $password) . $rnd),
+					       "user_password" => "hash:".$passwordHash,
 					       "user_rnd" => $rnd,
 					       "user_authorization" => "true",
-					       "user_captcha"=>$capctha
+					       "user_captcha"=>$captcha
 				       );
 			};
 			return array(
 				       "user_username" => $this->dsUser->username,
-				       "user_password" => "md5:".md5(md5(strtolower($this->dsUser->username) . $password) . $rnd),
+				       "user_password" => "hash:".$passwordHash,
 				       "user_rnd" => $rnd,
 				       "user_authorization" => "true"
 			       );
@@ -519,14 +614,6 @@ class xyo_mod_ds_User extends xyo_Module {
 			}
 		}
 		return false;
-	}
-
-	function recoDecodeMd5($in, $key_) {
-		return recoDecode($in, pack("H*", md5($key_)));
-	}
-
-	function recoEncodeMd5($in, $key_) {
-		return recoEncode($in, pack("H*", md5($key_)));
 	}
 
 	function recoEncode($in, $key_) {
@@ -624,7 +711,7 @@ class xyo_mod_ds_User extends xyo_Module {
 						}else{
 							$path_=substr($path_,0,$x+1);
 						};
-						header("Location: http://".$_SERVER["SERVER_NAME"].$path_.$this->requestUri(array("stamp"=>md5(time().rand()))));
+						header("Location: http://".$_SERVER["SERVER_NAME"].$path_.$this->requestUri(array("stamp"=>hash("sha512",time().rand(),false))));
 					};
 					$this->cloud->setInitOk(false);
 				};
@@ -663,7 +750,7 @@ class xyo_mod_ds_User extends xyo_Module {
 						}else{
 							$path_=substr($path_,0,$x+1);
 						};
-						header("Location: http://".$_SERVER["SERVER_NAME"].$path_.$this->requestUri(array("stamp"=>md5(time().rand()))));
+						header("Location: http://".$_SERVER["SERVER_NAME"].$path_.$this->requestUri(array("stamp"=>hash("sha512",time().rand(),false))));
 					};
 					$this->cloud->setInitOk(false);
 				};

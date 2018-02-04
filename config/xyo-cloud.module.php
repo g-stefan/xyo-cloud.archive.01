@@ -30,6 +30,7 @@ $this->setModule("lib",null,"lib-js-cookie");
 $this->setModule("lib",null,"lib-jquery-form");
 $this->setModule("lib",null,"lib-jquery-stickytableheaders");
 $this->setModule("lib",null,"lib-md5");
+$this->setModule("lib",null,"lib-sha512");
 $this->setModule("lib",null,"lib-pear-archive-tar");
 $this->setModule("lib",null,"lib-izimodal");
 //

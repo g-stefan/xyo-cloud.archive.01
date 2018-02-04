@@ -1,6 +1,6 @@
 <?php
 //
-// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2018 Grigore Stefan, <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // The MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -31,9 +31,8 @@ if($languageSelector){
 };
 
 $rnd=$this->getElementValueString("rnd","");
-if(strlen($rnd)>=strlen(md5("x"))){
-}else{
-	$rnd=md5("" . rand());
+if(strlen($rnd)<strlen(hash("sha512","x",true))){
+	$rnd=hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);
 	$this->setElementValue("rnd",$rnd);
 };
 
@@ -50,9 +49,9 @@ if($sysCaptcha){
 		if(array_key_exists("user_captcha_force",$_SESSION)){
 			$useCaptcha=true;
 		}else{
-			$captcha=md5("" . rand());	
+			$captcha=hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);	
 			$_SESSION["user_captcha_rnd"]=$rnd;
-			$_SESSION["user_captcha_key"]=md5($rnd.md5($captcha));
+			$_SESSION["user_captcha_key"]=hash("sha512",$rnd.hash("sha512",$captcha,false),false);
 			$parameters=array_merge($parameters,array("user_captcha"=>$captcha));
 		};
 	};

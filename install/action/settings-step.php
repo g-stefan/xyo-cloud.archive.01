@@ -93,10 +93,11 @@ if ($this->isElementError()) {
     }
 
 
+    $modUser = $this->getModule("xyo-mod-ds-user");
+
     $dsUser->clear();
     $dsUser->username = $this->getElementValue("username");
-    $dsUser->password = "md5:" . md5($this->getElementValue("password"));
-
+    $dsUser->password = $modUser->setPasswordHash($this->getElementValue("password"),"hash");
 
     $dsUser->id_xyo_language = $dsLanguage->id;
 

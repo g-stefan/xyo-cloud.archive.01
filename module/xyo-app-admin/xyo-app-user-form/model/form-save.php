@@ -61,7 +61,8 @@ if ($this->ds->load(0, 1)) {
 $this->ds->name = $name;
 $this->ds->username = $username;
 if (strlen($password1)) {
-	$this->ds->password = "md5:" . md5($password1);
+	$modUser = $this->getModule("xyo-mod-ds-user");
+	$this->ds->password = $modUser->setPasswordHash($this->getElementValue("password1"),"hash");
 }
 
 $this->ds->id_xyo_language = $this->getElementValueNumber("id_xyo_language", 0, "*");
@@ -82,13 +83,17 @@ if ($this->ds->save()) {
     if($this->ds->id==$this->user->info->id){
         if (strlen($password1)) {
             $auth=$this->user->getAuthorizationRequestDirect($this->ds->username);                        
-            foreach($auth as $key=>$value){
-                $this->setRequest($key,$value);
-            }
-            $this->user->doLogin();
-            $this->ejsBegin();
-            $this->user->ejsMakeScript();
-            $this->ejsEnd();
+	    if(!is_null($auth)){
+	            foreach($auth as $key=>$value){
+        	        $this->setRequest($key,$value);
+	            }
+        	    $this->user->doLogin();
+	            $this->ejsBegin();
+        	    $this->user->ejsMakeScript();
+	            $this->ejsEnd();
+	   }else{
+		$this->setError("err_save_error");
+	   };
         }
     }
     

@@ -8,7 +8,7 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$rnd=$this->getParameterRequest("rnd",md5(time().rand()));
+$rnd=$this->getParameterRequest("rnd",hash("sha512",time().rand(),false));
 $prefix=$this->getParameterRequest("prefix","xui_image_captcha");
 
 $cpatchaChr="23456789abcdefghijkmnpqrstuvwxyz"; // safe characters no visual colision
@@ -98,7 +98,7 @@ for($k=0;$k<32;$k++){
 };
 
 $_SESSION[$prefix."_captcha_rnd"]=$rnd;
-$_SESSION[$prefix."_captcha_key"]=md5($rnd.md5(implode("",$captchaStr)));
+$_SESSION[$prefix."_captcha_key"]=hash("sha512",$rnd.hash("sha512",implode("",$captchaStr),false),false);
 
 header("Content-Type: image/jpeg");
 imagejpeg($captchaImg);

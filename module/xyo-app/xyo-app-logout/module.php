@@ -16,7 +16,7 @@ class xyo_app_Logout extends xyo_Module{
                 $user=&$this->cloud->getModule("xyo-mod-ds-user");
                 if($user){
                     $user->makeResetCookie();
-                    $user->doLogout();
+                    $user->doLogout();		   
                 }
                 if($this->isApplication($this->name)){
                     $this->moduleDisable();
