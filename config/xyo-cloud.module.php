@@ -41,7 +41,7 @@ $this->setModule("xyo",null,"xyo-mod-application");
 $this->setModule("xyo",null,"xyo-mod-ds-acl");
 $this->setModule("xyo",null,"xyo-mod-ds-loader-mod");
 $this->setModule("xyo",null,"xyo-mod-ds-user");
-$this->setModule("xyo",null,"xyo-mod-jsonx");
+$this->setModule("xyo",null,"xyo-mod-crypt-rpc");
 $this->setModule("xyo",null,"xyo-mod-setup");
 $this->setModule("xyo",null,"xyo-mod-thumbnail");
 //
