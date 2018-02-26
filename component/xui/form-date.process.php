@@ -13,14 +13,14 @@ $format = $this->getArgument("format",$this->cloud->get("locale_date_format","")
 if(strlen($format)){
 	if($format=="Y-m-d"){
 		$value=$this->getElementValueString($element);
-		if(strlen($value)){				                        
-			$this->setElementValue($element,substr($value,0,2)."-".substr($value,3,2)."-".substr($value,6,4));
+		if(strlen($value)){
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2));
 		};
 	};
 	if($format=="Y/m/d"){
 		$value=$this->getElementValueString($element);
 		if(strlen($value)){
-			$this->setElementValue($element,substr($value,0,2)."-".substr($value,3,2)."-".substr($value,6,4));
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2));
 		};
 	};
 	if($format=="d-m-Y"){

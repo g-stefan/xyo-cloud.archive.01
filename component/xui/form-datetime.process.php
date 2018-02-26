@@ -14,13 +14,13 @@ if(strlen($format)){
 	if($format=="Y-m-d"){
 		$value=$this->getElementValueString($element);
 		if(strlen($value)){
-			$this->setElementValue($element,substr($value,0,2)."-".substr($value,3,2)."-".substr($value,6,4).substr($value,10,strlen($value)));
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
 		};
 	};
 	if($format=="Y/m/d"){
 		$value=$this->getElementValueString($element);
 		if(strlen($value)){
-			$this->setElementValue($element,substr($value,0,2)."-".substr($value,3,2)."-".substr($value,6,4).substr($value,10,strlen($value)));
+			$this->setElementValue($element,substr($value,0,4)."-".substr($value,5,2)."-".substr($value,8,2).substr($value,10,strlen($value)));
 		};
 	};
 	if($format=="d-m-Y"){
