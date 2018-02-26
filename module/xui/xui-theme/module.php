@@ -87,7 +87,7 @@ class xui_Theme extends xyo_Module {
 
 		$this->colorTypeInputActive=$this->xuiPalette->palette["core-blue-jeans"];
 
-		$this->inputBorderRadius=2;		
+		$this->inputBorderRadius=3;		
 	}
 
 }

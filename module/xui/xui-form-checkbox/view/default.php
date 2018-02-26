@@ -16,7 +16,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 <br>
 <br>
-<form>
+<form style="padding:30px;">
 <hr>
 <hr>
 <?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>

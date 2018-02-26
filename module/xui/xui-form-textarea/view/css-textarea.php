@@ -38,6 +38,17 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+
+	transition: all 0.3s ease;
+}
+
+.xui-form-textarea:focus{
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;	
 }
 
 /* --- */
@@ -53,17 +64,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $value; ?>;
 }
 
+<?php if($key!="default"){ ?>
+
+.xui-form-textarea_<?php echo $key; ?>:focus{
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	border-top: 1px solid <?php echo $value; ?>; 
+	border-right: 1px solid <?php echo $value; ?>;
+	border-bottom: 1px solid <?php echo $value; ?>;
+	border-left: 1px solid <?php echo $value; ?>;	
+}
+
+<?php }; ?>
+
 <?php }; ?>
 
 /* --- */
-
-.xui-form-textarea:focus{
-	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;	
-}
 
 .xui-form-textarea_disabled{
 	color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>

@@ -38,6 +38,8 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 
 	font-family: "Roboto", sans-serif;
 	overflow: visible;
+
+	box-sizing: border-box;
 }
 
 .xui-form-text-material label{
@@ -58,6 +60,8 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	font-size: <?php echo $itemTextInputSize-4; //16 ?>px;
 	line-height: <?php echo $itemTextInputSize; //20 ?>px;
 	font-weight: normal;
+
+	box-sizing: border-box;
 }
 
 .xui-form-text-material label.xui-form-text-material_has-value{
@@ -89,6 +93,8 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	font-weight: normal;
 
 	background: transparent;
+
+	box-sizing: border-box;
 }
 
 .xui-form-text-material input[type=text] + .xui-form-text-material__border{
@@ -96,11 +102,18 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	display: block;
 	overflow: hidden;
 	background-color: <?php echo $itemTextColorBorder; ?>;
-	height: 1px;
+	height: 3px;
 	width: 0px;
 	margin-left: 0px;
 	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px 0px 0px 0px;
 	transition: width 0.2s ease, background-color 0.2s ease;
+	opacity: 0.2510;
+	box-sizing: border-box;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
 .xui-form-text-material input[type=text]:focus + .xui-form-text-material__border{
@@ -112,18 +125,6 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	outline-color: transparent;
 	outline-style: none;
 	border-bottom: 1px solid <?php echo $itemTextColorBorderFocus; ?>;
-}
-
-.xui-form-text-material__border{
-	transition:0.3s all ease;
-	left: 50%;
-	transform: translateX(-50%);	
-	position:absolute;
-	bottom: 0px;
-	height: 1px;
-	width: 0px;
-	background: #5392E5;
-	backface-visibility: hidden;
 }
 
 .xui-form-text-material label.xui-form-text-material_focus + div.xui-form-text-material__border{
@@ -141,14 +142,25 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	border-bottom: 1px solid <?php echo $value; ?>;
 }
 
-.xui-form-text-material input[type=text] + .xui-form-text-material__border{
-	background-color: <?php echo $value; ?>;
+.xui-form-text-material_<?php echo $key; ?> input[type=text] + .xui-form-text-material__border{
+	background-color: <?php echo $value; ?>;	
 }
 
 .xui-form-text-material_<?php echo $key; ?> label.xui-form-text-material_focus{
 	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
 }
 
+<?php if($key!="default"){ ?>
+
+.xui-form-text-material_<?php echo $key; ?> input[type=text]:focus{
+	border-bottom: 1px solid <?php echo $value; ?>;
+}
+
+.xui-form-text-material_<?php echo $key; ?> input[type=text]:focus + .xui-form-text-material__border{
+	background-color: <?php echo $value; ?>;	
+}
+
+<?php }; ?>
 
 <?php }; ?>
 

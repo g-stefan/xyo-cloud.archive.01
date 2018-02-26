@@ -39,7 +39,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 /* --- */
 
 .xui-form-switch input[type="checkbox"]{
-	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: block;
+	opacity: 0;
 }
 
 .xui-form-switch label {
@@ -64,7 +68,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	cursor: pointer;
 	box-sizing: border-box;
 
-	<?php echo $xuiTheme->colorTypeLabel["default"]; ?>
+	color: <?php echo $xuiTheme->colorTypeLabel["default"]; ?>;
 }
 
 .xui-form-switch label::before {
@@ -100,10 +104,14 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-switch input[type="checkbox"]:active + label::before {
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
 	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 .xui-form-switch input[type="checkbox"]:focus + label::before {
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
 	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
@@ -149,6 +157,29 @@ defined('XYO_CLOUD') or die('Access is denied');
 	background-color: #FFFFFF;
 }
 
+.xui-form-switch input[type="checkbox"]:active + label::after {
+	background-color: <?php echo $xuiTheme->colorTypeInputActive; ?>;
+}
+
+.xui-form-switch input[type="checkbox"]:focus + label::after {
+	background-color: <?php echo $xuiTheme->colorTypeInputActive; ?>;
+}
+
+.xui-form-switch input[type="checkbox"]:active:checked + label::after {
+	top: 8px;
+	left: 25px;	
+
+	background-color: #FFFFFF;
+}
+
+.xui-form-switch input[type="checkbox"]:focus:checked + label::after {
+	top: 8px;
+	left: 25px;	
+
+	background-color: #FFFFFF;
+}
+
+
 <?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
 <?php if($key=="default"){ continue; }; ?>
 
@@ -172,6 +203,30 @@ defined('XYO_CLOUD') or die('Access is denied');
 .xui-form-switch_<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
 	background-color: #FFFFFF;
 }
+
+<?php if($key!="default"){ ?>
+
+.xui-form-switch_<?php echo $key; ?> input[type="checkbox"]:active + label::before {
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	border: 1px solid <?php echo $value; ?>;
+}
+
+.xui-form-switch_<?php echo $key; ?> input[type="checkbox"]:focus + label::before {
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	border: 1px solid <?php echo $value; ?>;
+}
+
+.xui-form-switch_<?php echo $key; ?> input[type="checkbox"]:active + label::after {
+	background-color: <?php echo $value; ?>;
+}
+
+.xui-form-switch_<?php echo $key; ?> input[type="checkbox"]:focus + label::after {
+	background-color: <?php echo $value; ?>;
+}
+
+<?php }; ?>
 	
 <?php }; ?>
 

@@ -50,16 +50,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	overflow: hidden;
 
+	cursor: pointer;
 }
 
 .xui-form-text-button-icon:focus{
+	color: <?php echo $xuiTheme->colorTypeInputActive; ?>; 
+	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
 }
 
 .xui-form-text-button-icon:hover{
-	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInputActive,0,0,20); ?>;
+	color: <?php echo $xuiTheme->colorTypeInputActive; ?>; 
 	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
 	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	outline: none;
 }
 
 .xui-form-text-button-icon:active{
@@ -82,6 +88,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
+.xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:focus {
+	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+}
+
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:active {
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
@@ -96,6 +106,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:hover {
+	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+}
+
+.xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:focus {
 	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 

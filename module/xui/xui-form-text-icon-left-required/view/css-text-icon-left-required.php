@@ -47,6 +47,8 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 
 	height: 32px;
+
+	transition: all 0.3s ease;
 }
 
 .xui-form-text-icon-left-required i{
@@ -58,6 +60,21 @@ defined('XYO_CLOUD') or die('Access is denied');
 	line-height: 24px;
 
 	color: <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+
+	transition: all 0.3s ease;
+}
+
+.xui-form-text-icon-left-required input:focus{
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;	
+}
+
+.xui-form-text-icon-left-required input:focus + i{
+	color: <?php echo $xuiTheme->colorTypeInputActive; ?>;
 }
 
 /* --- */
@@ -77,17 +94,26 @@ defined('XYO_CLOUD') or die('Access is denied');
 	color: <?php echo $value; ?>;	
 }
 
+<?php if($key!="default"){ ?>
+
+.xui-form-text-icon-left-required_<?php echo $key; ?> input:focus{
+	outline: none;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	border-top: 1px solid <?php echo $value; ?>; 
+	border-right: 1px solid <?php echo $value; ?>;
+	border-bottom: 1px solid <?php echo $value; ?>;
+	border-left: 1px solid <?php echo $value; ?>;	
+}
+
+.xui-form-text-icon-left-required_<?php echo $key; ?> input:focus + i{
+	color: <?php echo $value; ?>;	
+}
+
+<?php }; ?>
+
 <?php }; ?>
 
 /* --- */
-
-.xui-form-text-icon-left-required input:focus{
-	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;	
-}
 
 .xui-form-text-icon-left-required_disabled input{
 	color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>

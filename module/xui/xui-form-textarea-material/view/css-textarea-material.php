@@ -38,6 +38,8 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 
 	font-family: "Roboto", sans-serif;
 	overflow: hidden;
+
+	box-sizing: border-box;
 }
 
 .xui-form-textarea-material label{
@@ -58,6 +60,8 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	font-size: <?php echo $itemTextareaInputSize-4; //16 ?>px;
 	line-height: <?php echo $itemTextareaInputSize; //20 ?>px;
 	font-weight: normal;
+
+	box-sizing: border-box;
 }
 
 .xui-form-textarea-material label.xui-form-textarea-material_has-value{
@@ -65,11 +69,13 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	margin-bottom: <?php echo $itemTextareaLabelMarginBottom; ?>px;
 	cursor: initial;
 	font-size: <?php echo $itemTextareaInputSize-6; //16->14 ?>px;
+	box-sizing: border-box;
 }
 
 .xui-form-textarea-material label.xui-form-textarea-material_focus{
 	color: <?php echo $itemTextareaColorLabelFocus; ?>;
 	font-size: <?php echo $itemTextareaInputSize-6; //16->14 ?>px;
+	box-sizing: border-box;	
 }
 
 .xui-form-textarea-material textarea{
@@ -96,6 +102,8 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	font-weight: normal;
 
 	background: transparent;
+
+	box-sizing: border-box;
 }
 
 .xui-form-textarea-material textarea + .xui-form-textarea-material__border{
@@ -103,11 +111,15 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	display: block;
 	overflow: hidden;
 	background-color: <?php echo $itemTextareaColorBorder; ?>;
-	height: 1px;
+	height: 3px;
 	width: 0px;
 	margin-left: 0px;
 	margin-right: auto;
 	transition: width 0.2s ease, background-color 0.2s ease;
+	opacity: 0.2510;
+	box-sizing: border-box;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
 .xui-form-textarea-material textarea:focus + .xui-form-textarea-material__border{
@@ -128,7 +140,7 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
 }
 
-.xui-form-textarea-material_<?php echo $key; ?> input[type=text]{
+.xui-form-textarea-material_<?php echo $key; ?> textarea{
 	border-bottom: 1px solid <?php echo $value; ?>;
 }
 
@@ -140,6 +152,17 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
 }
 
+<?php if($key!="default"){ ?>
+
+.xui-form-textarea-material_<?php echo $key; ?> textarea:focus{
+	border-bottom: 1px solid <?php echo $value; ?>;
+}
+
+.xui-form-textarea-material_<?php echo $key; ?> textarea:focus + .xui-form-textarea-material__border{
+	background-color: <?php echo $value; ?>;	
+}
+
+<?php }; ?>
 
 <?php }; ?>
 

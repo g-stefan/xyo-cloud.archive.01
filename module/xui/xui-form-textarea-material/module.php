@@ -19,6 +19,10 @@ class xui_FormTextareaMaterial extends xyo_Module {
 				"ajax"=>1,
 				"action"=>"css"
 			)));
+			$this->setHtmlJs($this->requestUriThis(array(
+				"ajax"=>1,
+				"action"=>"js"
+			)));
         	}
 	}
 

@@ -52,20 +52,25 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 
 	border: 1px solid <?php echo $colorHover; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
-}
 
-.xui-form-button:focus{
 	outline: none;
 }
 
-.xui-form-button:hover, .xui-form-button:focus{
-	border: 1px solid <?php echo $colorHover; ?>;
-	background-color: <?php echo $colorHover; ?>;
+.xui-form-button:hover,
+.xui-form-button:focus{
+	border-top: 1px solid <?php echo $colorHover; ?>;
+	border-left: 1px solid <?php echo $colorHover; ?>;
+	border-right: 1px solid <?php echo $colorHover; ?>;
+	border-bottom: 1px solid <?php echo $colorHover; ?>;
+	background-color: #FFFFFF;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>,
+		0px 3px 2px 2px <?php echo $xuiColor->rgbHexToRGBA("#FFFFFF","80"); ?>,
+		0px 3px 2px 3px <?php echo $xuiColor->rgbHexToRGBA($colorHover,"C0"); ?>;
 }
 
 .xui-form-button:active{
+	background-color: #FFFFFF;
 	border: 1px solid <?php echo $colorHover; ?>;
-	background-color: <?php echo $colorHover; ?>;
 	margin-top: 2px;
 	margin-bottom: 1px;
 	box-shadow: 0px 1px 0px 0px <?php echo $colorWall; ?>;
@@ -98,9 +103,16 @@ foreach($xuiTheme->colorTypeButton as $key=>$value){
 	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 }
 
-.xui-form-button_<?php echo $key; ?>:hover, .xui-form-button_<?php echo $key; ?>:focus{
-	border: 1px solid <?php echo $colorHover; ?>;
-	background-color: <?php echo $colorHover; ?>;
+.xui-form-button_<?php echo $key; ?>:hover,
+.xui-form-button_<?php echo $key; ?>:focus{
+	border-top: 1px solid <?php echo $colorHover; ?>;
+	border-left: 1px solid <?php echo $colorHover; ?>;
+	border-right: 1px solid <?php echo $colorHover; ?>;
+	border-bottom: 1px solid <?php echo $colorHover; ?>;
+	background-color: <?php echo $color; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>,
+		0px 3px 2px 2px <?php echo $xuiColor->rgbHexToRGBA("#FFFFFF","80"); ?>,
+		0px 3px 2px 3px <?php echo $xuiColor->rgbHexToRGBA($color,"80"); ?>;
 }
 
 .xui-form-button_<?php echo $key; ?>:active{
