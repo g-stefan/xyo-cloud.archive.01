@@ -64,8 +64,8 @@ class xui_Dasboard extends xyo_Module {
 		$this->navigationDrawerOpenWidth=(48+12+12)*4;
 		$this->navigationDrawerMiniWidth=48+12+12;
 		$this->navigationDrawerBackgroundColor=$xuiPalette->palette["material-white"];
-		$this->navigationDrawerBackgroundColorHover=$xuiPalette->palette["material-grey-p200"];
-		$this->navigationDrawerBackgroundColorRipple=$xuiPalette->palette["material-grey-p400"];
+		$this->navigationDrawerBackgroundColorHover=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,30);
+		$this->navigationDrawerBackgroundColorRipple=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,20);
 		$this->navigationDrawerColor=$xuiPalette->palette["material-black"];
 		$this->navigationDrawerColorIconLeft=$xuiPalette->palette["material-grey-p600"];
 		$this->navigationDrawerColorIconRight=$xuiPalette->palette["material-grey-p800"];

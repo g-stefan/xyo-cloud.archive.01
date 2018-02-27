@@ -10,7 +10,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 $color=$xuiTheme->colorTypeButton["default"];
 $colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-25);
+$colorWallDark=$xuiColor->rgbHexHSLAdjust($color,0,2,-35);
 $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
+$colorHoverDark=$xuiColor->rgbHexHSLAdjust($color,0,0,-10);
 
 ?>
 
@@ -95,15 +97,22 @@ $colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
 }
 
 .xui-form-file__file:hover + label, .xui-form-file__file:focus + label, .xui-form-file__file + label:hover, .xui-form-file__file.xui-form-file__file_focus + label{
-	border: 1px solid <?php echo $colorHover; ?>;
-	background-color: <?php echo $colorHover; ?>;
+	border-top: 1px solid <?php echo $colorHoverDark; ?>;
+	border-left: 1px solid <?php echo $colorHoverDark; ?>;
+	border-right: 1px solid <?php echo $colorHoverDark; ?>;
+	border-bottom: 1px solid <?php echo $colorHover; ?>;
+	background-color: #FFFFFF;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWallDark; ?>;
 }
 
 .xui-form-file__file:active + label{
-	border: 1px solid <?php echo $colorHover; ?>;
-	background-color: <?php echo $colorHover; ?>;
+	background-color: #FFFFFF;
+	border-top: 1px solid <?php echo $colorHoverDark; ?>;
+	border-left: 1px solid <?php echo $colorHoverDark; ?>;
+	border-right: 1px solid <?php echo $colorHoverDark; ?>;
+	border-bottom: 1px solid #FFFFFF;
 	margin-top: 2px;
 	margin-bottom: 1px;
-	box-shadow: 0px 1px 0px 0px <?php echo $colorWall; ?>;
+	box-shadow: 0px 1px 0px 0px <?php echo $colorWallDark; ?>;
 }
 

@@ -16,7 +16,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 <br>
 <br>
-<form>
+<form style="padding:30px;">
 <hr>
 <?php foreach($xuiTheme->colorTypeButton as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>

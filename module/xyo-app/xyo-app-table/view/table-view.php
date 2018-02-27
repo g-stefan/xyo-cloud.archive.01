@@ -721,7 +721,7 @@ function doValueSave(key){
 <div id="xyo-app-table-modal-new" data-izimodal-title="<?php $this->eLanguage("form_title_new"); ?>">
 	<div id="xyo-app-table-modal-new__form"></div>
 	<div id="xyo-app-table-modal-new__action" style="text-align: right;">
-		<button type="button" class="xui-form-button xui-form-button_primary" id="xyo-app-table-modal-new__button"><?php $this->eLanguage("label_button_new"); ?></button>
+		<button type="button" class="xui-form-button xui-form-button_primary" id="xyo-app-table-modal-new__button">&nbsp;&nbsp;&nbsp;&nbsp;<?php $this->eLanguage("label_button_new"); ?>&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
 </div>
 <?php }; ?>
@@ -730,7 +730,7 @@ function doValueSave(key){
 <div id="xyo-app-table-modal-edit" data-izimodal-title="<?php $this->eLanguage("form_title_edit"); ?>">
 	<div id="xyo-app-table-modal-edit__form"></div>
 	<div id="xyo-app-table-modal-edit__action" style="text-align: right;">
-		<button type="button" class="xui-form-button xui-form-button_primary" id="xyo-app-table-modal-edit__button"><?php $this->eLanguage("label_button_edit"); ?></button>
+		<button type="button" class="xui-form-button xui-form-button_primary" id="xyo-app-table-modal-edit__button">&nbsp;&nbsp;&nbsp;&nbsp;<?php $this->eLanguage("label_button_edit"); ?>&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
 </div>
 <?php }; ?>
@@ -738,7 +738,7 @@ function doValueSave(key){
 <div id="xyo-app-table-modal-delete" data-izimodal-title="<?php $this->eLanguage("form_title_delete"); ?>">
 	<div id="xyo-app-table-modal-delete__form"></div>
 	<div id="xyo-app-table-modal-delete__action" style="text-align: right;">
-		<button type="button" class="xui-form-button xui-form-button_danger" id="xyo-app-table-modal-delete__button"><?php $this->eLanguage("label_button_delete"); ?></button>
+		<button type="button" class="xui-form-button xui-form-button_danger" id="xyo-app-table-modal-delete__button">&nbsp;&nbsp;&nbsp;&nbsp;<?php $this->eLanguage("label_button_delete"); ?>&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
 </div>
 
