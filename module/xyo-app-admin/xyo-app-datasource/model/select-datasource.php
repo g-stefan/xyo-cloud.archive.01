@@ -38,4 +38,6 @@ if(strlen($connection)>0){
 
 };
 
+ksort($select);
+
 $this->setParameter("select_datasource",$select);
