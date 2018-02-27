@@ -646,10 +646,10 @@ function doValueSave(key){
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_next').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">chevron_right</i></button>
 		<button type="button" class="xui-form-text-button-icon" onclick="$('#go_last').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">last_page</i></button>
 		</span>
-
 	</div>
 
 	<div class="xyo-app-table__indicator_items xui_left" style="margin-left:6px;">
+
         <select name="count"
                 size="1"
                 onChange="this.form.submit();"
@@ -666,9 +666,11 @@ function doValueSave(key){
             }
             ?>
         </select>
-	<span class="xui-table-toolbar-bottom__indicator_items" style="position:relative;font-family:'Roboto', sans-serif;font-size: 16px;line-height: 20px;font-weight: normal;">
-	items <span style="color: #999;"> - </span> <?php echo $page_count; ?> pages <span style="color: #999;"> - </span> <?php echo $nr_items; ?> total items
+
+	<span class="xyo-app-table__indicator_items__info" style="position:relative;font-family:'Roboto', sans-serif;font-size: 16px;line-height: 20px;font-weight: normal;">
+		items <span style="color: #999;"> - </span> <?php echo $page_count; ?> pages <span style="color: #999;"> - </span> <?php echo $nr_items; ?> total items
 	</span>
+
 	</div>
 
         </div>

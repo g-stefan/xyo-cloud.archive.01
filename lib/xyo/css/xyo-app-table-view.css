@@ -184,6 +184,11 @@
 }
 
 .xyo-app-table__indicator_items{
+	display:inline-block;
+	box-sizing: border-box;
+}
+
+.xyo-app-table__indicator_items__info{
 	display:none;
 	box-sizing: border-box;
 }
@@ -208,6 +213,10 @@
 	}
 
 	.xyo-app-table__indicator_items{
+		display:inline-block;
+	}
+
+	.xyo-app-table__indicator_items__info{
 		display:inline-block;
 	}
 
