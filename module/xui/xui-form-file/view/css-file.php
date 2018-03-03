@@ -9,10 +9,12 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $color=$xuiTheme->colorTypeButton["default"];
-$colorWall=$xuiColor->rgbHexHSLAdjust($color,0,2,-25);
-$colorWallDark=$xuiColor->rgbHexHSLAdjust($color,0,2,-35);
-$colorHover=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
-$colorHoverDark=$xuiColor->rgbHexHSLAdjust($color,0,0,-10);
+$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
+$colorWall=$xuiColor->rgbHexHSLAdjust($color,0,0,-25);
+
+$colorHover="#FFFFFF";
+$colorHoverBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-10);
+$colorHoverWall=$xuiColor->rgbHexHSLAdjust($color,0,0,-35);
 
 ?>
 
@@ -62,9 +64,6 @@ $colorHoverDark=$xuiColor->rgbHexHSLAdjust($color,0,0,-10);
 	box-sizing: border-box;
 
 	color: <?php echo $xuiTheme->colorTypeButtonText["default"]; ?>;
-	background-color: <?php echo $color; ?>;
-	border: 1px solid <?php echo $colorHover; ?>;
-	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
 
 	font-family: "Roboto", sans-serif;
 
@@ -75,6 +74,14 @@ $colorHoverDark=$xuiColor->rgbHexHSLAdjust($color,0,0,-10);
 	text-overflow: ellipsis;
 
 	user-select: none;
+
+	border: 1px solid <?php echo $colorBorder; ?>;
+	background-color: <?php echo $color; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorWall; ?>;
+
+	outline: none;
+
+	transition: background-color 0.3s ease,border-color 0.3s ease;
 }
 
 .xui-form-file__file + label * {
@@ -97,22 +104,17 @@ $colorHoverDark=$xuiColor->rgbHexHSLAdjust($color,0,0,-10);
 }
 
 .xui-form-file__file:hover + label, .xui-form-file__file:focus + label, .xui-form-file__file + label:hover, .xui-form-file__file.xui-form-file__file_focus + label{
-	border-top: 1px solid <?php echo $colorHoverDark; ?>;
-	border-left: 1px solid <?php echo $colorHoverDark; ?>;
-	border-right: 1px solid <?php echo $colorHoverDark; ?>;
-	border-bottom: 1px solid <?php echo $colorHover; ?>;
-	background-color: #FFFFFF;
-	box-shadow: 0px 3px 0px 0px <?php echo $colorWallDark; ?>;
+	border: 1px solid <?php echo $colorHoverBorder; ?>;
+	background-color: <?php echo $colorHover; ?>;
+	box-shadow: 0px 3px 0px 0px <?php echo $colorHoverWall; ?>;
 }
 
 .xui-form-file__file:active + label{
-	background-color: #FFFFFF;
-	border-top: 1px solid <?php echo $colorHoverDark; ?>;
-	border-left: 1px solid <?php echo $colorHoverDark; ?>;
-	border-right: 1px solid <?php echo $colorHoverDark; ?>;
-	border-bottom: 1px solid #FFFFFF;
+	border: 1px solid <?php echo $colorHoverBorder; ?>;
+	background-color: <?php echo $colorHover; ?>;
+	box-shadow: 0px 1px 0px 0px <?php echo $colorHoverWall; ?>;
+
 	margin-top: 2px;
 	margin-bottom: 1px;
-	box-shadow: 0px 1px 0px 0px <?php echo $colorWallDark; ?>;
 }
 

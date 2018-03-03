@@ -98,17 +98,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- select2 --- */
 
-.xui-form-select + .select2.select2-container.select2-container--default .selection .select2-selection{
-	transition: all 0.3s ease;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"00"); ?>;
-}
-
 .xui-form-select + .select2-container--default .select2-selection--single {
 	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
 	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
 	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	transition: box-shadow 0.3s ease;
 }
 
 .xui-form-select + .select2-container--default .select2-selection--single .select2-selection__arrow b{
@@ -159,21 +155,28 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 /* --- */
 
+xui-form-select + .select2.select2-container.select2-container--default .select2-selection.select2-selection.select2-selection--single{
+	transition: box-shadow 0.3s ease;
+}
+
 .xui-form-select:active + .select2.select2-container.select2-container--default .select2-selection.select2-selection--single,
 .xui-form-select:focus + .select2.select2-container.select2-container--default .select2-selection.select2-selection--single{
 	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 	outline: none;
 	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	transition: box-shadow 0.3s ease;
 }
 
-.xui-form-select + .select2.select2-container.select2-container--default.select2-container--focus .select2-selection.select2-selection--single{
+.xui-form-select + .select2.select2-container.select2-container--default.select2-container--focus .select2-selection.select2-selection--single,
+.xui-form-select + .select2.select2-container.select2-container--default.select2-container--open.select2-container--focus .select2-selection.select2-selection--single{
 	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 	outline: none;
 	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	transition: box-shadow 0.3s ease;
 }
 
 .xui-form-select + .select2.select2-container.select2-container--default.select2-container--focus .select2-selection.select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInputActive; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->colorTypeInputActive; ?> transparent transparent transparent;	
 }
 
 
@@ -181,6 +184,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 	outline: none;
 	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	transition: box-shadow 0.3s ease;
 }
 
 .xui-form-select + .select2.select2-container.select2-container--default.select2-container--open .select2-selection.select2-selection--single .select2-selection__arrow b{

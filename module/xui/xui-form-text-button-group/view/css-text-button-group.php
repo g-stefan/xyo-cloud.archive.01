@@ -51,6 +51,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	overflow: hidden;
 
 	cursor: pointer;
+	transition: box-shadow 0.3s ease;
 }
 
 .xui-form-text-button-icon:focus{
