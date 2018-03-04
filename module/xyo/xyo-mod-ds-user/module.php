@@ -21,6 +21,7 @@ class xyo_mod_ds_user_Info {
 	public $language;
 	public $authorizedBy;
 	public $captcha;
+	public $key;
 
 }
 
@@ -105,6 +106,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		$this->info->language = null;
 		$this->info->authorizedBy = null;
 		$this->info->captcha=null;
+		$this->info->key=null;
 
 		$this->authorized = false;
 
@@ -142,9 +144,8 @@ class xyo_mod_ds_User extends xyo_Module {
 					} else {
 						$this->info->captcha = null;
 					};
-					$this->mode = false;
 
-					$this->authorized = $this->performUserCheck();
+					$this->authorized = $this->performUserCheckLogin();
 				};
 			};
 		};
@@ -153,16 +154,37 @@ class xyo_mod_ds_User extends xyo_Module {
 		};
 
 		if (!$authorization) {
-			$session = $this->cloud->getRequest("user_session");
-			if ($session) {
-				$rnd = $this->cloud->getRequest("user_rnd");
-				if ($rnd) {
-					$this->info->session = $session;
-					$this->info->rnd = $rnd;
-					$this->mode = true;
-					$this->authorized = $this->performUserCheck();
+			$id = $this->cloud->getRequest("user_id");
+			if ($id) {
+				$key = $this->cloud->getRequest("user_key");
+				if ($key) {
+					$session = $this->cloud->getRequest("user_session");
+					if ($session) {
+						$rnd = $this->cloud->getRequest("user_rnd");
+						if ($rnd) {
+							$this->info->id = $id;
+							$this->info->key = $key;
+							$this->info->session = $session;
+							$this->info->rnd = $rnd;
+							$this->authorized = $this->performUserCheckSession();
+						};
+					};
 				};
 			};
+		};
+
+		if(!$this->authorized){
+			$this->info->id = 0;
+			$this->info->name = "Guest";
+			$this->info->username = "guest";
+			$this->info->password = null;
+			$this->info->session = null;
+			$this->info->rnd = null;
+			$this->info->language = null;
+			$this->info->authorizedBy = null;
+			$this->info->captcha=null;
+			$this->info->key=null;
+			$this->updateSysAcl();
 		};
 
 		return $this->authorized;
@@ -249,17 +271,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		return $this->x2hex($this->x2xor($this->hex2x($x),$this->hex2x($y),$this->hex2x($z)));
 	}
 
-	function checkPasswordHash($p,$rnd,$x,$y,$z){
-		$password=$this->getPasswordHash($p,$rnd);
-		$passwordX=explode(".",$password);
-
-		$checkPasword = $this->x2combo($x,$y,$z);
-		$checkPasword = $passwordX[0].".".hash("sha512",$passwordX[0].$checkPasword,false);
-
-		return (strcmp($password,$checkPasword)==0);
-	}
-
-	function performUserCheck() {
+	function performUserCheckLogin() {
 		$this->authorized = false;
 
 		if (!$this->dsUser) {
@@ -269,11 +281,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		$this->dsUser->clear();
 		$this->dsUser->enabled = 1;
 
-		if ($this->mode) {
-			$this->dsUser->session = $this->info->session;
-		} else {
-			$this->dsUser->username = $this->info->username;
-		};
+		$this->dsUser->username = $this->info->username;
 
 		if ($this->dsUser->load(0, 1)) {
 			// check credentials			               
@@ -285,9 +293,6 @@ class xyo_mod_ds_User extends xyo_Module {
 			$passwordX=explode(".",$password);
 
 			$inputPassword = $this->info->password;
-			if ($this->mode) {
-				$inputPassword = $this->info->session;
-			};
 			        
 			$checkPasword = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$inputPassword,$this->info->rnd);
 			if(strlen($checkPasword)==0){
@@ -296,51 +301,112 @@ class xyo_mod_ds_User extends xyo_Module {
 			$checkPasword = $passwordX[0].".".hash("sha512",$passwordX[0].$checkPasword,false);
 
 			// check system generated authorization (password is sha512[passowordHash])
-			if ($this->mode) {
-				$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->session,$this->info->rnd);
-			}else{
-				$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->password,$this->info->rnd);
-			};
+			$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->password,$this->info->rnd);
+
 			if(strlen($checkPasword2X)==0){
 				return false;
 			};
 			$checkPasword2Y = hash("sha512",$password,false);
 
 			$captchaOk=false;
-			if ($this->mode) {
-				$captchaOk=true;
-			} else {
-				if($this->useCaptcha) {
-					$captchaKey=hash("sha512",$this->info->rnd.hash("sha512",$this->info->captcha,false),false);
-					if(isset($_SESSION["user_captcha_key"])) {
-						if($captchaKey===$_SESSION["user_captcha_key"]) {
+			if($this->useCaptcha) {
+				$captchaKey=hash("sha512",$this->info->rnd.hash("sha512",$this->info->captcha,false),false);
+				if(isset($_SESSION["user_captcha_key"])) {
+					if($captchaKey===$_SESSION["user_captcha_key"]) {
+						$captchaOk=true;
+					};
+				};
+
+				//
+				// Check service key
+				//
+				if(!$captchaOk){
+					$serviceKey=hash("sha512",$this->info->rnd.hash("sha512",$this->cloud->get("service_key","unknown"),false),false);
+					$captcha = $this->cloud->getRequest("user_captcha");
+					if(strlen($captcha)>0){
+						if(strcmp($captcha,$serviceKey)==0){
 							$captchaOk=true;
 						};
 					};
+				};
 
-					//
-					// Check service key
-					//
-					if(!$captchaOk){
-						$serviceKey=hash("sha512",$this->info->rnd.hash("sha512",$this->cloud->get("service_key","unknown"),false),false);
-						$captcha = $this->cloud->getRequest("user_captcha");
-						if(strlen($captcha)>0){
-							if(strcmp($captcha,$serviceKey)==0){
-								$captchaOk=true;
-							};
-						};
-					};
-
-				} else {
-					$captchaOk=true;
-				}				
-			};
+			} else {
+				$captchaOk=true;
+			}
 
 			if (((strcmp($password,$checkPasword)==0)||(strcmp($checkPasword2X,$checkPasword2Y)==0))&&($captchaOk)) {
 
 				$this->info->id = $this->dsUser->id;
 				$this->info->username = $this->dsUser->username;
-				$this->info->session = $inputPassword;
+				$this->info->name = $this->dsUser->name;
+				$this->info->authorizedBy = "datasource";
+				// key is allways system authorized => password = sha512[passowordHash]
+				$this->info->key = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$checkPasword2Y,$this->info->rnd);
+				if(strlen($this->dsUser->session)==0){
+					$this->dsUser->session=hash("sha512",$this->info->key,false);
+				};
+				$this->info->session = $this->dsUser->session;
+
+				$this->language = null;
+				$dsLanguage = &$this->dsLanguage->copyThis();
+				if ($dsLanguage) {
+					$dsLanguage->id = $this->dsUser->id_xyo_language;
+					$dsLanguage->enabled = 1;
+					if ($dsLanguage->load(0, 1)) {
+						$this->info->language = $dsLanguage->name;
+					};
+				};
+			
+				unset($_SESSION["user_captcha_force"]);
+				//
+				// allow secondary requests (from services)
+				// that will not unauthorize current session 
+				//
+				if(!$this->cloud->getRequest("user_service",0)){
+					$this->dsUser->logged_on = "NOW";
+					$this->dsUser->logged_in = 1;
+					$this->dsUser->action_on = "NOW";
+					$this->dsUser->action = 1;
+					$this->dsUser->save();
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function performUserCheckSession() {
+		$this->authorized = false;
+
+		if (!$this->dsUser) {
+			return false;
+		};
+
+		$this->dsUser->clear();
+		$this->dsUser->id = $this->info->id;
+		$this->dsUser->session = $this->info->session;
+		$this->dsUser->enabled = 1;
+		$this->dsUser->logged_in = 1;
+
+		if ($this->dsUser->load(0, 1)) {
+			// check credentials
+
+			$password=$this->getPasswordHash($this->dsUser->password,$this->info->rnd);
+			if(strlen($password)==0){
+				return false;
+			};
+
+			// key is allways system authorized => password = sha512[passowordHash]
+			$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->key,$this->info->rnd);
+			if(strlen($checkPasword2X)==0){
+				return false;
+			};
+			$checkPasword2Y = hash("sha512",$password,false);
+
+			if (strcmp($checkPasword2X,$checkPasword2Y)==0) {
+
+				$this->info->id = $this->dsUser->id;
+				$this->info->username = $this->dsUser->username;
 				$this->info->name = $this->dsUser->name;
 				$this->info->authorizedBy = "datasource";
 
@@ -356,65 +422,25 @@ class xyo_mod_ds_User extends xyo_Module {
 			
 				unset($_SESSION["user_captcha_force"]);
 
-				if ($this->mode) {
-					if ($this->useAction) {
+				if ($this->useAction) {
 
-						$do_=true;
-						$module_=$this->cloud->getModuleNameFromRequest();
-						if($module_) {
-							if(array_key_exists($module_,$this->excludeModuleFromAction_)) {
-								$do_=false;
-							};
-						};
-
-						if($do_) {
-							$this->authorized=true;
-						        $this->updateAction();
+					$do_=true;
+					$module_=$this->cloud->getModuleNameFromRequest();
+					if($module_) {
+						if(array_key_exists($module_,$this->excludeModuleFromAction_)) {
+							$do_=false;
 						};
 					};
-					return true;
-				} else {
-					//
-					// update session only on authorization
-					//
 
-					//
-					// allow secondary requests (from services)
-					// that will not unauthorize current session 
-					//
-					if(!$this->cloud->getRequest("user_service",0)){
-						if(strlen($this->dsUser->session)==0){
-							$this->dsUser->session = $this->info->session;
-							$this->dsUser->session_rnd = $this->info->rnd;
-						}else{
-							//
-							// set session from database to allow multiple browser sessions							
-							// logout from one session, force logoff to all
-							//
-							 
-							// first verify if user/password changed
-							if(!$this->checkPasswordHash($this->info->session,$this->info->rnd,hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->dsUser->session,$this->info->rnd)){
-								// update new credentials
-								$this->dsUser->session=$this->info->session;
-								$this->dsUser->session_rnd=$this->info->rnd;
-							}else{
-								$this->info->session=$this->dsUser->session;
-								$this->info->rnd=$this->dsUser->session_rnd;							
-							};
-						};
+					if($do_) {
+						$this->authorized=true;
+					        $this->updateAction();
 					};
-					//
-					//
-					//
-					$this->dsUser->logged_on = "NOW";
-					$this->dsUser->logged_in = 1;
-					$this->dsUser->action_on = "NOW";
-					$this->dsUser->action = 1;
-					$this->dsUser->save();
-					return true;
-				}
-			}
-		}
+
+				};
+				return true;
+			};
+		};
 		return false;
 	}
 
@@ -428,6 +454,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		$this->info->language = null;
 		$this->info->authorizedBy = null;
 		$this->info->captcha = null;
+		$this->info->key = null;
 
 		$this->authorized = false;
 
@@ -445,6 +472,12 @@ class xyo_mod_ds_User extends xyo_Module {
 		};
 		if ($this->cloud->isRequest("user_session")) {
 			$this->cloud->setRequest("user_session", null);
+		};
+		if ($this->cloud->isRequest("user_id")) {
+			$this->cloud->setRequest("user_id", null);
+		};
+		if ($this->cloud->isRequest("user_key")) {
+			$this->cloud->setRequest("user_key", null);
 		};
 
 		if($this->useCaptcha) {
@@ -471,14 +504,14 @@ class xyo_mod_ds_User extends xyo_Module {
 				$this->dsUser->clear();
 				$this->dsUser->id = $this->info->id;
 				if ($this->dsUser->load(0, 1)) {
-					$this->dsUser->session="";
 					$this->dsUser->action_on = "NOW";
 					$this->dsUser->action = 0;
 					$this->dsUser->logged_in = 0;
+					$this->dsUser->session = hash("sha512",date("Y-m-d H:i:s")." - ".rand().".".$this->dsUser->session,false);
 					$this->dsUser->save();
 				}
 			}
-		}		                        
+		}
 
 		$this->doReset();
 
@@ -508,7 +541,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				return null;
 			};
 			$password = hash("sha512",$password,false);
-			$passwordHash = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$rnd,false),$password,$rnd,false);
+			$passwordHash = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$rnd,false),$password,$rnd);
 			if(strlen($passwordHash)==0){
 				return null;
 			};
@@ -538,16 +571,20 @@ class xyo_mod_ds_User extends xyo_Module {
 
 	function makeCookie() {
 		if ($this->authorized) {
+			setcookie("user_id", $this->info->id);
 			setcookie("user_session", $this->info->session);
 			setcookie("user_rnd", $this->info->rnd);
+			setcookie("user_key", $this->info->key);
 			return true;
 		};
 		return false;
 	}
 
 	function makeResetCookie() {
+		setcookie("user_id", "", mktime(0, 0, 1, 1, 1, 1970));
 		setcookie("user_session", "", mktime(0, 0, 1, 1, 1, 1970));
 		setcookie("user_rnd", "", mktime(0, 0, 1, 1, 1, 1970));
+		setcookie("user_key", "", mktime(0, 0, 1, 1, 1, 1970));
 	}
 
 	function generateAutoCookie() {
@@ -563,16 +600,20 @@ class xyo_mod_ds_User extends xyo_Module {
 
 	function ejsMakeScript() {
 		if ($this->authorized) {
+			echo "document.cookie=\"user_id=\"+escape(\"" . $this->info->id . "\")+\";\";";
 			echo "document.cookie=\"user_session=\"+escape(\"" . $this->info->session . "\")+\";\";";
 			echo "document.cookie=\"user_rnd=\"+escape(\"" . $this->info->rnd . "\")+\";\";";
+			echo "document.cookie=\"user_key=\"+escape(\"" . $this->info->key . "\")+\";\";";
 			return true;
 		}
 		return false;
 	}
 
 	function ejsMakeResetScript() {
+		echo "document.cookie=\"user_id=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
 		echo "document.cookie=\"user_session=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
 		echo "document.cookie=\"user_rnd=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
+		echo "document.cookie=\"user_key=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
 	}
 
 	function generateAutoScript() {
@@ -732,9 +773,11 @@ class xyo_mod_ds_User extends xyo_Module {
 		}else{
 			if($this_){
 			}else{			
+				$id_=$this->cloud->getRequest("user_id", null);
 				$session_=$this->cloud->getRequest("user_session", null);
 				$rnd_=$this->cloud->getRequest("user_rnd", null);
-				if($rnd_&&$session_){
+				$key_=$this->cloud->getRequest("user_key", null);
+				if($id_&&$rnd_&&$session_&&$key_){
 					$this->makeResetCookie();
 					if(1*$this->cloud->getRequest("ajax-js",0)){
 						echo "document.location.assign(\"".$this->requestUri()."\");";
