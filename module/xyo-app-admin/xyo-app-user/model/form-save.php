@@ -83,10 +83,10 @@ $this->ds->name = $name;
 $this->ds->username = $username;
 if ($this->isNew) {
     $this->ds->created_on = "NOW";
-    $this->ds->password = "md5:" . md5($password1);
+    $this->ds->password = $this->user->setPasswordHash($password1,"hash");
 } else {
     if (strlen($password1)) {
-        $this->ds->password = "md5:" . md5($password1);
+        $this->ds->password = $this->user->setPasswordHash($password1,"hash");
     }
 }
 
@@ -135,13 +135,17 @@ if ($this->ds->save()) {
     if($this->ds->id==$this->user->info->id){
         if (strlen($password1)) {
             $auth=$this->user->getAuthorizationRequestDirect($this->ds->username);                        
-            foreach($auth as $key=>$value){
-                $this->setRequest($key,$value);
-            }
-            $this->user->doLogin();
-            $this->ejsBegin();
-            $this->user->ejsMakeScript();
-            $this->ejsEnd();
+	    if(!is_null($auth)){
+	            foreach($auth as $key=>$value){
+        	        $this->setRequest($key,$value);
+	            }
+        	    $this->user->doLogin();
+	            $this->ejsBegin();
+        	    $this->user->ejsMakeScript();
+	            $this->ejsEnd();
+	   }else{
+		$this->setError("err_save_error");
+	   };
         }
     }
     

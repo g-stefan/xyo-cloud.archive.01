@@ -61,8 +61,7 @@ if ($this->ds->load(0, 1)) {
 $this->ds->name = $name;
 $this->ds->username = $username;
 if (strlen($password1)) {
-	$modUser = $this->getModule("xyo-mod-ds-user");
-	$this->ds->password = $modUser->setPasswordHash($this->getElementValue("password1"),"hash");
+	$this->ds->password = $this->user->setPasswordHash($this->getElementValue("password1"),"hash");
 }
 
 $this->ds->id_xyo_language = $this->getElementValueNumber("id_xyo_language", 0, "*");
