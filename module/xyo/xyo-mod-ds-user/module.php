@@ -598,33 +598,36 @@ class xyo_mod_ds_User extends xyo_Module {
 		}
 	}
 
-	function ejsMakeScript() {
+	function jsMakeScript() {
 		if ($this->authorized) {
-			echo "document.cookie=\"user_id=\"+escape(\"" . $this->info->id . "\")+\";\";";
-			echo "document.cookie=\"user_session=\"+escape(\"" . $this->info->session . "\")+\";\";";
-			echo "document.cookie=\"user_rnd=\"+escape(\"" . $this->info->rnd . "\")+\";\";";
-			echo "document.cookie=\"user_key=\"+escape(\"" . $this->info->key . "\")+\";\";";
-			return true;
+			return "document.cookie=\"user_id=\"+escape(\"" . $this->info->id . "\")+\";\";".
+			"document.cookie=\"user_session=\"+escape(\"" . $this->info->session . "\")+\";\";".
+			"document.cookie=\"user_rnd=\"+escape(\"" . $this->info->rnd . "\")+\";\";".
+			"document.cookie=\"user_key=\"+escape(\"" . $this->info->key . "\")+\";\";";
 		}
-		return false;
+		return null;
 	}
 
-	function ejsMakeResetScript() {
-		echo "document.cookie=\"user_id=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
-		echo "document.cookie=\"user_session=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
-		echo "document.cookie=\"user_rnd=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
-		echo "document.cookie=\"user_key=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
+	function jsMakeResetScript() {
+		return "document.cookie=\"user_id=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";".
+		"document.cookie=\"user_session=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";".
+		"document.cookie=\"user_rnd=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";".
+		"document.cookie=\"user_key=;expires=Thu, 01-Jan-1970 00:00:01 GMT;\";";
+	}
+
+	function setSessionScript() {
+		$script=$this->jsMakeScript();
+		if (is_null($script)) {
+			$script=$this->jsMakeResetScript();
+		};
+		$this->setHtmlJsSourceOrAjax($script);		
 	}
 
 	function generateAutoScript() {
 		$authorization = $this->cloud->getRequest("user_authorization");
 		if ($authorization) {
 			if ($authorization === "true") {
-				$this->ejsBegin();
-				if (!$this->ejsMakeScript()) {
-					$this->ejsMakeResetScript();
-				};
-				$this->ejsEnd();
+				$this->setSessionScript();
 			};
 		};
 	}
@@ -771,8 +774,7 @@ class xyo_mod_ds_User extends xyo_Module {
 			$this->dsUser->save();
 
 		}else{
-			if($this_){
-			}else{			
+			if(!$this_){
 				$id_=$this->cloud->getRequest("user_id", null);
 				$session_=$this->cloud->getRequest("user_session", null);
 				$rnd_=$this->cloud->getRequest("user_rnd", null);

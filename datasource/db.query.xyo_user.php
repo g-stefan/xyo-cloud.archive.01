@@ -21,7 +21,6 @@ $this->set("query_item", array(
     "username" => array("user"=>"username"),
     "password" => array("user"=>"password"),
     "session" => array("user"=>"session"),
-    "session_rnd" => array("user"=>"session_rnd"),
     "invisible" => array("user"=>"invisible"),
     "enabled" => array("user"=>"enabled"),
     "picture" => array("user"=>"picture"),

@@ -57,11 +57,17 @@ class xui_FormFileImage extends xyo_Module {
 			return;
 		};
 
-		echo "/* ".$value." */\r\n";
 
 		$list=str_getcsv($value,",","\"","\\");
 		
 		$fileName = $list[0];
+
+		if(strlen($fileName)==0){
+			return;
+		};
+
+		echo "/* ".$value." */\r\n";
+
 		$offsetX = 0;
 		$offsetY = 0;
 		$zoom = 1;

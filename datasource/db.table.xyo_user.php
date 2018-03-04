@@ -16,7 +16,6 @@ $this->set("table_item", array(
 		   "username" => array("varchar",255,null),
 		   "password" => array("varchar",255,null),
 		   "session" => array("varchar",255,null),
-		   "session_rnd" => array("varchar",255,null),
 		   "enabled" => array("int",0,"unsigned"),
 		   "name" => array("varchar",255,null),
 		   "created_on" => array("datetime",null),

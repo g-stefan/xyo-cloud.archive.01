@@ -11,7 +11,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 $rnd=$this->getParameterRequest("rnd",hash("sha512",time().rand(),false));
 $prefix=$this->getParameterRequest("prefix","xui_image_captcha");
 
-$cpatchaChr="23456789abcdefghijkmnpqrstuvwxyz"; // safe characters no visual colision
+$cpatchaChr="23456789abcdefhijkmnpqrstuvwxyz"; // safe characters no visual colision
 
 $captchaFont="lib/roboto-regular/fonts/roboto-regular.ttf";
 $captchaFontSz=32; //32points

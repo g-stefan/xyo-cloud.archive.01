@@ -140,9 +140,7 @@ if ($this->ds->save()) {
         	        $this->setRequest($key,$value);
 	            }
         	    $this->user->doLogin();
-	            $this->ejsBegin();
-        	    $this->user->ejsMakeScript();
-	            $this->ejsEnd();
+        	    $this->user->setSessionScript();
 	   }else{
 		$this->setError("err_save_error");
 	   };
