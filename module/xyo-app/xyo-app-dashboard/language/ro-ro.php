@@ -8,4 +8,4 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$this->set("application_title", "Dashboard");
+$this->set("application_title", "Panou principal");
