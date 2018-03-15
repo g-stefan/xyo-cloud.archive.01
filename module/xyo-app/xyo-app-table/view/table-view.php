@@ -498,16 +498,16 @@ function doValueSave(key){
 					$format=$this->cloud->$this->cloud->get("locale_date_format","");
 				};
 				if($format=="Y-m-d"){
-					echo substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+					echo substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],11); 
 				}else
 				if($format=="Y/m/d"){
-					echo substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+					echo substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],11); 
 				}else
 				if($format=="d-m-Y"){
-					echo substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+					echo substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],11); 
 				}else
 				if($format=="d/m/Y"){
-					echo substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+					echo substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],11); 
 				}else{
 					echo $value[$key_];
 				};				
@@ -523,16 +523,16 @@ function doValueSave(key){
 							$format=$this->cloud->$this->cloud->get("locale_date_format","");
 						};
 						if($format=="Y-m-d"){
-							$valueX=substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],11); 
 						}else
 						if($format=="Y/m/d"){
-							$valueX=substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],11); 
 						}else
 						if($format=="d-m-Y"){
-							$valueX=substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],11); 
 						}else
 						if($format=="d/m/Y"){
-							$valueX=substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],11); 
 						}else{
 							//
 						};				
@@ -578,16 +578,16 @@ function doValueSave(key){
 							$format=$this->cloud->$this->cloud->get("locale_date_format","");
 						};
 						if($format=="Y-m-d"){
-							$valueX=substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],0,4)."-".substr($value[$key_],5,2)."-".substr($value[$key_],8,2)." ".substr($value[$key_],11); 
 						}else
 						if($format=="Y/m/d"){
-							$valueX=substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],0,4)."/".substr($value[$key_],5,2)."/".substr($value[$key_],8,2)." ".substr($value[$key_],11); 
 						}else
 						if($format=="d-m-Y"){
-							$valueX=substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],8,2)."-".substr($value[$key_],5,2)."-".substr($value[$key_],0,4)." ".substr($value[$key_],11); 
 						}else
 						if($format=="d/m/Y"){
-							$valueX=substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],9); 
+							$valueX=substr($value[$key_],8,2)."/".substr($value[$key_],5,2)."/".substr($value[$key_],0,4)." ".substr($value[$key_],11); 
 						}else{
 							//
 						};				
