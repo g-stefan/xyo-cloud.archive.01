@@ -28,7 +28,6 @@ if (strlen($password1) || strlen($password2)) {
     }
 }
 
-
 if($this->isNew){
     if(strlen($password1)==0){
         $this->setElementError("password1", $this->getFromLanguage("el_password1_empty"));
@@ -77,16 +76,20 @@ if ($this->isNew) {
     }
 }
 
-
+if (!$this->isNew) {
+    if(strcmp($this->ds->username,$username)!=0){
+        $this->ds->password=$this->user->changePasswordHashUsername($username,$this->ds->username,$this->ds->password,$this->cloud->get("user_password_encoding","hash"));
+    };
+};
 
 $this->ds->name = $name;
 $this->ds->username = $username;
 if ($this->isNew) {
     $this->ds->created_on = "NOW";
-    $this->ds->password = $this->user->setPasswordHash($password1,"hash");
+    $this->ds->password = $this->user->setPasswordHash($username,$password1,$this->cloud->get("user_password_encoding","hash"));
 } else {
     if (strlen($password1)) {
-        $this->ds->password = $this->user->setPasswordHash($password1,"hash");
+        $this->ds->password = $this->user->setPasswordHash($username,$password1,$this->cloud->get("user_password_encoding","hash"));
     }
 }
 

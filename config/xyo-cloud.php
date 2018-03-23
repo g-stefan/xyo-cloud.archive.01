@@ -17,6 +17,7 @@ $this->set("version", "5.4.0.0");
 //$this->set("use_redirect",true);
 $this->set("user_action",true);
 $this->set("user_captcha",true);
+$this->set("user_password_encoding","hash");
 $this->set("service_key","-put-here-service-key-");
 $this->set("user_reco_salt","-put-here-reco-salt-");
 // ---

@@ -190,7 +190,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		return $this->authorized;
 	}
 
-	function getPasswordHash($password,$rnd){
+	function getPasswordHash($username,$password,$rnd){
 		if(is_null($rnd)){
 			$rnd = hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);
 		};
@@ -201,7 +201,7 @@ class xyo_mod_ds_User extends xyo_Module {
 			return $pwd[1];
 		};
 		if ($pwd[0] === "reco") {
-			$key=hash("sha512",hash("sha512",strtolower($this->dsUser->username),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
+			$key=hash("sha512",hash("sha512",strtolower($username),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
 			$salt=hash("sha256",$rnd,false);
 			return $salt.".".hash("sha512",$salt.hash("sha512",$this->recoDecode($pwd[1], pack("H*", $key))),false);
 		};
@@ -213,20 +213,39 @@ class xyo_mod_ds_User extends xyo_Module {
 		return "";	
 	}
 
-	function setPasswordHash($passwordPlain,$mode){
+	function setPasswordHash($username,$passwordPlain,$mode){
 
 		if($mode === "hash"){
 			$salt=hash("sha256",date("Y-m-d H:i:s")." - ".rand(),false);
 			return "hash:".$salt.".".hash("sha512",$salt.hash("sha512",$passwordPlain),false);
 		};
 		if($mode === "reco"){
-			$key=hash("sha512",hash("sha512",strtolower($this->dsUser->username),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
+			$key=hash("sha512",hash("sha512",strtolower($username),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
 			return "reco:".$this->recoEncode($passwordPlain, pack("H*", $key));
 		};
 		if($mode === "plain"){
 			return "plain:".$passwordPlain;
 		};
 
+		return "";
+	}
+
+	function changePasswordHashUsername($usernameNew,$usernameOld,$password,$mode){
+		$pwd = explode(":", $password);
+		if($mode === "reco"){
+			$key=hash("sha512",hash("sha512",strtolower($usernameOld),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
+			$passwordPlain=$this->recoDecode($pwd[1], pack("H*", $key));
+			$key=hash("sha512",hash("sha512",strtolower($usernameNew),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
+			return "reco:".$this->recoEncode($passwordPlain, pack("H*", $key));
+		};
+		return $password;
+	}
+
+	function recoDecodePassword($username,$password,$mode){
+		if($mode === "reco"){
+			$key=hash("sha512",hash("sha512",strtolower($username),true).hash("sha512",$this->cloud->get("user_reco_salt","unknown"),false),false);
+			return $this->recoDecode($pwd[1], pack("H*", $key));
+		};
 		return "";
 	}
 
@@ -286,7 +305,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		if ($this->dsUser->load(0, 1)) {
 			// check credentials			               
 
-			$password=$this->getPasswordHash($this->dsUser->password,$this->info->rnd);
+			$password=$this->getPasswordHash($this->dsUser->username,$this->dsUser->password,$this->info->rnd);
 			if(strlen($password)==0){
 				return false;
 			};
@@ -391,7 +410,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		if ($this->dsUser->load(0, 1)) {
 			// check credentials
 
-			$password=$this->getPasswordHash($this->dsUser->password,$this->info->rnd);
+			$password=$this->getPasswordHash($this->dsUser->username,$this->dsUser->password,$this->info->rnd);
 			if(strlen($password)==0){
 				return false;
 			};
@@ -536,7 +555,7 @@ class xyo_mod_ds_User extends xyo_Module {
 		if ($this->dsUser->load(0, 1)) {
 
 			$rnd = hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);
-			$password = $this->getPasswordHash($this->dsUser->password,$rnd);
+			$password = $this->getPasswordHash($this->dsUser->username,$this->dsUser->password,$rnd);
 			if(strlen($password)==0){
 				return null;
 			};

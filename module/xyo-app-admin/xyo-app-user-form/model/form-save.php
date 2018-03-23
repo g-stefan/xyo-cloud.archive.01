@@ -58,10 +58,14 @@ if ($this->ds->load(0, 1)) {
 	return;
 }
 
+if(strcmp($this->ds->username,$username)!=0){
+    $this->ds->password=$this->user->changePasswordHashUsername($username,$this->ds->username,$this->ds->password,$this->cloud->get("user_password_encoding","hash"));
+};
+
 $this->ds->name = $name;
 $this->ds->username = $username;
 if (strlen($password1)) {
-	$this->ds->password = $this->user->setPasswordHash($this->getElementValue("password1"),"hash");
+	$this->ds->password = $this->user->setPasswordHash($username,$this->getElementValue("password1"),$this->cloud->get("user_password_encoding","hash"));
 }
 
 $this->ds->id_xyo_language = $this->getElementValueNumber("id_xyo_language", 0, "*");

@@ -97,7 +97,7 @@ if ($this->isElementError()) {
 
     $dsUser->clear();
     $dsUser->username = $this->getElementValue("username");
-    $dsUser->password = $modUser->setPasswordHash($this->getElementValue("password"),"hash");
+    $dsUser->password = $modUser->setPasswordHash($dsUser->username,$this->getElementValue("password"),"hash");
 
     $dsUser->id_xyo_language = $dsLanguage->id;
 
