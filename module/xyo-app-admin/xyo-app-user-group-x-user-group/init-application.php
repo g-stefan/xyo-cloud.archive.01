@@ -14,6 +14,9 @@ $this->setApplicationIcon("<i class=\"material-icons\">people</i>");
 $this->setApplicationDataSource("db.query.xyo_user_group_x_user_group");
 $this->setPrimaryKey("id");
 
+$this->setDialogNew(true);
+$this->setDialogEdit(true);
+
 $this->requireComponent(array(
 	"xui.form-select",
 	"xui.form-switch",

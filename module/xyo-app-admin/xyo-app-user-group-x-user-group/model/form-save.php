@@ -12,11 +12,11 @@ if ($this->isNew) {
     
 } else {
     $this->ds->clear();
-    $this->ds->id = $this->privateKeyValue;
+    $this->ds->id = $this->primaryKeyValue;
     if ($this->ds->load(0, 1)) {
         
     } else {
-        $this->setError(array("err_id_not_found" => $this->privateKeyValue));
+        $this->setError(array("err_id_not_found" => $this->primaryKeyValue));
         return;
     }
 }

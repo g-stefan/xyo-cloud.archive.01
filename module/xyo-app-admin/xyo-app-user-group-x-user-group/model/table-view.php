@@ -27,11 +27,8 @@ $this->tableSelect = array(
 );
 
 $this->tableType=array(
-	"user_group_super" => array("action",array(
-		"action" => "form-edit",
-		"primary_key_value" => array($this->primaryKey)
-	)),
-	"enabled" =>array("toggle")		
+	"user_group_super" => array("cmd-edit"),
+	"enabled" =>array("toggle")
 );
 
 $this->tableSort = array(
