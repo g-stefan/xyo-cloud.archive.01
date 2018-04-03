@@ -26,4 +26,4 @@ $this->generateComponent("xui.form-email", array("element" => "email"));
 $this->generateComponent("xui.form-select", array("element" => "id_xyo_language"));
 
 $this->generateComponent("xui.panel-end");
-$this->generateComponent("xui.box-1x2-begin");
+$this->generateComponent("xui.box-1x2-end");
