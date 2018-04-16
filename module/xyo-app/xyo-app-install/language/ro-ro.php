@@ -1,9 +1,9 @@
 <?php
 //
-// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
-// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
@@ -17,14 +17,14 @@ $this->set("button_try", "Incearca din nou");
 $this->set("panel_welcome", "Bine ai venit");
 $this->set("panel_package", "Pachet");
 $this->set("panel_require", "Necesar");
-$this->set("panel_licence", "Licenta");
+$this->set("panel_license", "Licenta");
 $this->set("panel_install", "Instalare");
 
 
 $this->set("title_welcome", "Bine ai venit");
 $this->set("title_package", "Pachet");
 $this->set("title_require", "Necesar");
-$this->set("title_licence", "Licenta");
+$this->set("title_license", "Licenta");
 $this->set("title_install", "Instalare");
 
 $this->set("alt_install", "Instalare pachete");
@@ -41,7 +41,7 @@ $this->set("alt_img_ok","Da");
 $this->set("alt_img_no","Nu");
 $this->set("module_not_found","Trebuiesc instalate modulele necesare");
 
-$this->set("label_licence","Licenta");
+$this->set("label_license","Licenta");
 
 $this->set("module_install_error","Eroare instalare");
 $this->set("alt_error","Eroare");

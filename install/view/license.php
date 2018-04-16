@@ -1,9 +1,9 @@
 <?php
 //
-// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
-// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
 defined('XYO_CLOUD') or die('Access is denied');                                                                                                             
@@ -20,11 +20,11 @@ echo "</div>";
 echo "<div class=\"xui-separator\"></div>";
 echo "<br />";
 
-$this->generateViewLanguage("msg-licence");
+$this->generateViewLanguage("msg-license");
 
 $this->eFormRequest(array(
 	"back" => "language",
-	"this" => "licence",
+	"this" => "license",
 	"next" => "check",
 	"website_language"=>$this->getSystemLanguage()
 ));

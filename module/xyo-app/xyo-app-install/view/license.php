@@ -1,9 +1,9 @@
 <?php
 //
-// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
-// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
@@ -26,7 +26,7 @@ echo "<br />";
 
                     $this->eFormRequest(array(
                         "back" => "require",
-                        "this" => "licence",
+                        "this" => "license",
                         "next" => "install",
                         "mode" => $mode,
                         "package" => $package,
@@ -54,11 +54,11 @@ echo "<br />";
 				echo "<div class=\"panel panel-default\">";
 					echo "<div class=\"panel-heading\">";
 						echo "<h3 class=\"panel-title\">";
-							echo $this->getFromLanguage("label_licence")." ".$key;
+							echo $this->getFromLanguage("label_license")." ".$key;
 						echo "</h3>";
 					echo "</div>";
 					echo "<div class=\"panel-body\">";
-		                            $modSetup->execPackageLicence($key);						
+		                            $modSetup->execPackageLicense($key);						
 					echo "</div>";
 				echo "</div>";
                         };

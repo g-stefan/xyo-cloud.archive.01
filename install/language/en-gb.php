@@ -1,9 +1,9 @@
 <?php
 //
-// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
-// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
@@ -13,7 +13,7 @@ $this->set("button_back", "Back");
 $this->set("button_try", "Try again");
 
 $this->set("title_language", "Language");
-$this->set("title_licence", "Licence");
+$this->set("title_license", "License");
 $this->set("title_check", "Environment check");
 $this->set("title_datasource", "Data source layer");
 $this->set("title_install", "Install");
@@ -22,7 +22,7 @@ $this->set("title_done", "Done");
 $this->set("title_already_configured", "Already configured");
 
 $this->set("panel_language", "Language");
-$this->set("panel_licence", "Licence");
+$this->set("panel_license", "License");
 $this->set("panel_check", "Environment check");
 $this->set("panel_datasource", "Data source layer");
 $this->set("panel_install", "Install");

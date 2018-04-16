@@ -1,9 +1,9 @@
 <?php
 //
-// Copyright (c) 2017 Grigore Stefan, <g_stefan@yahoo.com>
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
-// The MIT License (MIT) <http://opensource.org/licenses/MIT>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
 defined('XYO_CLOUD') or die('Access is denied');
@@ -13,7 +13,7 @@ $this->set("button_back", "Inapoi");
 $this->set("button_try", "Incearca din nou");
 
 $this->set("title_language", "Limba");
-$this->set("title_licence", "Licenta");
+$this->set("title_license", "Licenta");
 $this->set("title_check", "Verificare sistem");
 $this->set("title_datasource", "Baza de date");
 $this->set("title_install", "Instalare");
@@ -22,7 +22,7 @@ $this->set("title_done", "Finalizare");
 $this->set("title_already_configured", "Deja configurat");
 
 $this->set("panel_language", "Limba");
-$this->set("panel_licence", "Licenta");
+$this->set("panel_license", "Licenta");
 $this->set("panel_check", "Verificare sistem");
 $this->set("panel_datasource", "Baza de date");
 $this->set("panel_install", "Instalare");

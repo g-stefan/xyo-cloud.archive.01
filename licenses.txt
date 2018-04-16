@@ -16,10 +16,10 @@ This file includes the full text of the following licenses:
  * SIL OPEN FONT LICENSE Version 1.1
  * Apache License, Version 2.0
 
-The MIT License (MIT) <http://opensource.org/licenses/MIT>
+MIT License (MIT) <http://opensource.org/licenses/MIT>
 --------------------------------------------------------------------------------
 
-The MIT License (MIT)
+MIT License (MIT)
 
 Copyright (c) <year> <copyright holders>
 
@@ -173,7 +173,7 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-Licence: GNU Lesser General Public License (GNU LGPL) version 2.1
+License: GNU Lesser General Public License (GNU LGPL) version 2.1
 -----------------------------------------------------------------
 
                    GNU LESSER GENERAL PUBLIC LICENSE
@@ -682,7 +682,7 @@ That's all there is to it!
 
 
 
-Licence: SIL OPEN FONT LICENSE Version 1.1 <http://scripts.sil.org/OFL>
+License: SIL OPEN FONT LICENSE Version 1.1 <http://scripts.sil.org/OFL>
 -----------------------------------------------------------------
 
 Copyright (c) <dates>, <Copyright Holder> (<URL|email>),
@@ -784,7 +784,7 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 
-Licence: Apache License, Version 2.0   <http://www.apache.org/licenses/LICENSE-2.0.html>
+License: Apache License, Version 2.0   <http://www.apache.org/licenses/LICENSE-2.0.html>
 ----------------------------------------------------------------------------------------
 
 
