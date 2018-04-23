@@ -14,6 +14,7 @@ $fileName = $this->getArgument("filename","");
 $extension = $this->getArgument("extension",false);
 $deleteBeforeSave = $this->getArgument("delete_before_save",false);
 $elementName = $this->getElementName($element);
+$delete = $this->getArgument("delete",false);
 $isOk=false;
 if(strlen($fileName)){
 	if(array_key_exists($elementName,$_FILES)){
@@ -58,7 +59,15 @@ if(strlen($fileName)){
 
 $isDeleted=false;
 $elementDelete = $this->getElementValue($element."_delete");
-if(strlen($elementDelete)){	
+if($delete){
+	$elementDelete = 1;
+	$value = $this->getElementValue($element,"");
+	if(strlen($value)>0){
+		$list=str_getcsv($value,",","\"","\\");
+		$this->setElementValue($element."_file",$list[0]);
+	};	
+};
+if(strlen($elementDelete)){
 	if(1*$elementDelete==1){
 		$fileDelete=$this->getElementValue($element."_file","");
 		$readonly=$this->getArgument("readonly",array());
