@@ -80,8 +80,8 @@ $src.="document.getElementById(\"".$this->getElementId($element)."_height\").val
 $src.="}";
 $src.="});";
 if(strlen($fileName)>0){
-	$src.="var ".$this->getElementId($element)."_filename=\"".$fileName."\";";
-	$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",\"".$fileName."\");";
+	$src.="var ".$this->getElementId($element)."_filename=\"".$this->site.$fileName."\";";
+	$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",\"".$this->site.$fileName."\");";
 }else{
 	$src.="var ".$this->getElementId($element)."_filename=\"\";";
 };
