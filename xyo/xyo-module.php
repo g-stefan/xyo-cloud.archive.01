@@ -547,15 +547,17 @@ class xyo_Module extends xyo_Config {
 		};
 		if(count($scan)) {
 			foreach($scan as $appComponent) {
-				$componentFileName=str_replace(".","/",$appComponent);
-				$index=strrpos($componentFileName,"/");
-				if($index!==false) {
-					$componentName=substr($componentFileName,$index+1);
-					$componentPath=substr($componentFileName,0,$index);
+				$index=strpos($appComponent,".",0);
+				if($index!==false){
+					$componentSuper=substr($appComponent,0,$index);
+					$componentName=str_replace(".","/",substr($appComponent,$index+1));
+					$componentPath=$this->cloud->get("component.".$componentSuper,$componentSuper);
+					$componentFileName=$componentPath."/".$componentName;					
+
 					$this->language->includeFile("component/".$componentPath."/language/".strtolower($this->getSystemLanguage())."/".$componentName.".php");
 					$this->processComponentX($componentPath."/",".require");
 					$this->processComponentX($componentFileName,".require");
-					$this->componentCache[$appComponent]=true;
+					$this->componentCache[$appComponent]=$componentFileName;
 					if(file_exists("component/".$componentFileName.".php")) {
 						continue;
 					};
@@ -563,7 +565,7 @@ class xyo_Module extends xyo_Config {
 				};
 				$this->language->includeFile("component/language/".strtolower($this->getSystemLanguage())."/".$appComponent.".php");
 				$this->processComponentX($appComponent,".require");
-				$this->componentCache[$appComponent]=true;
+				$this->componentCache[$appComponent]=$appComponent;
 				if(file_exists("component/".$appComponent.".php")) {
 					continue;
 				};
@@ -578,7 +580,7 @@ class xyo_Module extends xyo_Config {
 			$arguments=array();
 		};
 		if(array_key_exists($comType,$this->componentCache)) {
-			$this->processComponentX(str_replace(".","/",$comType),".process",$arguments);
+			$this->processComponentX($this->componentCache[$comType],".process",$arguments);
 			return;
 		};
 		die("FATAL: Component ".$comType." not loaded.");
@@ -590,7 +592,7 @@ class xyo_Module extends xyo_Config {
 			$arguments=array();
 		};
 		if(array_key_exists($comType,$this->componentCache)) {
-			$this->processComponentX(str_replace(".","/",$comType),"",$arguments);
+			$this->processComponentX($this->componentCache[$comType],"",$arguments);
 			return;
 		};
 		die("FATAL: Component ".$comType." not loaded.");

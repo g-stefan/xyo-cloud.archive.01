@@ -1310,7 +1310,7 @@ class xyo_Cloud extends xyo_Config {
 	public function __construct() {
 		parent::__construct($this);
 
-		$this->set("kernel_version","3.0.0.0");
+		$this->set("kernel_version","3.1.0.0");
 		
 		$this->set("site","");
 		$this->set("use_redirect",false);
@@ -1430,7 +1430,7 @@ class xyo_Cloud extends xyo_Config {
 		};
 		
 		//
-		$this->set("version", "5.4.0.0");
+		$this->set("version", "5.5.0.0");
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);
