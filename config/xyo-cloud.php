@@ -108,3 +108,5 @@ $this->setGroupLoader("xyo-mod-ds-loader-mod");
 //
 $this->includeConfig("xyo-cloud.module");
 //
+$this->includeConfig("xyo-cloud.local");
+//
