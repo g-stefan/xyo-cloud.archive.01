@@ -84,8 +84,7 @@ class xyo_datasource_PostgreSql extends xyo_Module {
 		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
 
-				if (array_key_exists($matches[1], $this->connectionList_)) {
-				} else {
+				if (!array_key_exists($matches[1], $this->connectionList_)) {
 					$this->includeConfig("config.ds.".$matches[1]);
 				};
 
