@@ -103,7 +103,7 @@ class pear__archive_tar{
     *                   boolean value 'true' means 'gz'.
     * @access public
     */
-    function pear__archive_tar($p_tarname, $p_compress = null)
+    function __construct($p_tarname, $p_compress = null)
     {
         $this->_compress = false;
         $this->_compress_type = 'none';
@@ -551,7 +551,7 @@ class pear__archive_tar{
         }
 
         // ----- Get the arguments
-        $v_att_list = &func_get_args();
+        $v_att_list = func_get_args();
 
         // ----- Read the attributes
         $i=0;
