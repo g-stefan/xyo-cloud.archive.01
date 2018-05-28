@@ -18,7 +18,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 <br>
 <form>
 <hr>
-<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ ?>
+<?php foreach($xuiTheme->theme as $key=>&$value){ ?>
 <div class="xui-alert xui-alert_<?php echo $key; ?>"><?php echo $key; ?></div>
 <br><br>
 <?php }; ?>

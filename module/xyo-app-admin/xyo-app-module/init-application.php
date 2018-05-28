@@ -21,6 +21,7 @@ $this->requireComponent(array(
 	"xui.form-textarea",
 	"xui.form-order",
 	"xui.form-switch",
+	"xui.form-action-apply",
 
 	"xui.panel-begin",
 	"xui.panel-end",

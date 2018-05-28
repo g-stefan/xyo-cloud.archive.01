@@ -29,3 +29,5 @@ $this->set("title_log","Log");
 
 $this->set("label_xui_dashboard_user_background","Dashboard user background");
 $this->set("label_login_has_select_language","Login has select language");
+
+$this->set("title_login","Login");

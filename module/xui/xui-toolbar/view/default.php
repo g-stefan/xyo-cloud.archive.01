@@ -17,7 +17,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 <br>
 <br>
 <hr>
-<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ ?>
+<?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <div class="xui-toolbar__item xui-toolbar__item_<?php echo $key; ?> xui_effect-ripple">
 	<div class="xui-toolbar__icon">
 		<i class="material-icons">extension</i>	

@@ -13,5 +13,6 @@ $this->generateComponent("xui.panel-begin");
 $this->generateComponent("xui.form-select", array("element" => "connection","submit"=>true));
 $this->generateComponent("xui.form-select", array("element" => "datasource"));
 $this->generateComponent("xui.form-select", array("element" => "option"));
+$this->generateComponent("xui.form-action-apply", array("click" => "doCommand('form-edit-apply');"));
 $this->generateComponent("xui.panel-end");
 $this->generateComponent("xui.box-1x1-end");

@@ -41,10 +41,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 	min-height: 96px;
 	text-align: center;
 
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-bottom: 0px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["button"]["normal"]["color.high"]; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["button"]["normal"]["color.high"]; ?>;
+	border-bottom: 0px solid <?php echo $xuiTheme->theme["default"]["button"]["normal"]["color.high"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["button"]["normal"]["color.high"]; ?>;
 
 	padding: 2px 2px 2px 2px;
 	margin: 0px 0px 0px 0px;

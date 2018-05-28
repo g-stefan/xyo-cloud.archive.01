@@ -1,11 +1,16 @@
-/*
+<?php
 //
 // Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
-*/
+
+defined('XYO_CLOUD') or die('Access is denied');
+
+?>
+
+/* --- */
 
 .xui-panel{
 	position: relative;
@@ -27,7 +32,9 @@
 
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
-	border-top: 2px solid #5392E5;
+	border-top: 0px solid #000000;
+
+	<?php $xuiElevation->eElevationCss(4); ?>
 }
 
 .xui-panel__title{
@@ -36,12 +43,12 @@
 	width: 100%;
 	box-sizing: border-box;
 
-	border-top: 0px solid #E0E0E0;
+	border-top: 0px solid #000000;
 	border-right: 0px solid #000000;
-	border-bottom: 1px solid #E0E0E0;
+	border-bottom: 0px solid #000000;
 	border-left: 0px solid #000000;
-	color: #000000;    
-	background-color: #EEEEEE;	
+	color: #FFFFFF;    
+	background-color: <?php echo $xuiTheme->panel["color.title.background"]; ?>;
 	
 	min-height: 40px;
 	padding-left: 10px;
@@ -78,9 +85,9 @@
 	width: 100%;
 	box-sizing: border-box;
 
-	border-top: 1px solid #E0E0E0;
+	border-top: 1px solid <?php echo $xuiTheme->panel["color.border"]; ?>;
 	border-right: 0px solid #000000;
-	border-bottom: 0px solid #E0E0E0;
+	border-bottom: 0px solid #000000;
 	border-left: 0px solid #000000;
 	color: #000000;    
 	background-color: #EEEEEE;	
@@ -95,20 +102,18 @@
 	line-height: 20px;
 }
 
-
 @media only screen and (min-width: 600px){
+
 
 	.xui-panel{
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 3px;
 		border-bottom-right-radius: 3px;
-		border-top: 0px solid #5392E5;
-		border-left: 1px solid #CCD1D9;
-		border-right: 1px solid #CCD1D9;
-		border-bottom: 1px solid #CCD1D9;
-
-		box-shadow: 0px -3px 0px 0px #5392E5;
+		border-top: 0px solid #000000;
+		border-left: 0px solid <?php echo $xuiTheme->panel["color.border"]; ?>;
+		border-right: 0px solid <?php echo $xuiTheme->panel["color.border"]; ?>;
+		border-bottom: 0px solid <?php echo $xuiTheme->panel["color.border"]; ?>;		
 	}
 
 }

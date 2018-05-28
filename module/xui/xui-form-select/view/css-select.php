@@ -35,23 +35,27 @@ defined('XYO_CLOUD') or die('Access is denied');
 	background-color: #FFFFFF;
 
 	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 }
 
 /* --- */
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->theme as $context=>&$value){ ?>
 
-.xui-form-select_<?php echo $key; ?>{
+.xui-form-select_<?php echo $context; ?>{
 	color: #000000;
 	background-color: #FFFFFF;
-	border-top: 1px solid <?php echo $value; ?>; 
-	border-right: 1px solid <?php echo $value; ?>;
-	border-bottom: 1px solid <?php echo $value; ?>;
-	border-left: 1px solid <?php echo $value; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
+}
+
+.xui-form-select_<?php echo $context; ?> + .select2-container--default .select2-selection--single .select2-selection__rendered{
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
 <?php }; ?>
@@ -60,39 +64,39 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 .xui-form-select:focus{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;	
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;	
 }
 
 .xui-form-select:active{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;	
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;	
 }
 
 
 .xui-form-select_disabled{
-	color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>
+	color: <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.text"]; ?>;
 }
 
 .xui-form-select_disabled:focus{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;	
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;	
 }
 
 .xui-form-select_disabled:active{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;	
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;	
 }
 
 
@@ -100,60 +104,58 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 .xui-form-select + .select2.select2-container.select2-container--default .selection .select2-selection{
 	transition: all 0.3s ease;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"00"); ?>;
 }
 
 .xui-form-select + .select2-container--default .select2-selection--single {
 	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-select + .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInput["default"]; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?> transparent transparent transparent;
 }
 
 .xui-form-select + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $xuiTheme->colorTypeInput["default"]; ?> transparent;
+	border-color: transparent transparent <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?> transparent;
 }
 
 .xui-form-select + .select2-container--default .select2-selection--single:focus {
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 /* --- */
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->theme as $context=>&$value){ ?>
 
-.xui-form-select_<?php echo $key; ?> + .select2-container--default .select2-selection--single {
-	border-top: 1px solid <?php echo $value; ?>; 
-	border-right: 1px solid <?php echo $value; ?>;
-	border-bottom: 1px solid <?php echo $value; ?>;
-	border-left: 1px solid <?php echo $value; ?>;
+.xui-form-select_<?php echo $context; ?> + .select2-container--default .select2-selection--single {
+	border-top: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-.xui-form-select_<?php echo $key; ?> + .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $value; ?> transparent transparent transparent;
+.xui-form-select_<?php echo $context; ?> + .select2-container--default .select2-selection--single .select2-selection__arrow b{
+	border-color: <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?> transparent transparent transparent;
 }
 
-.xui-form-select_<?php echo $key; ?> + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $value; ?> transparent;
+.xui-form-select_<?php echo $context; ?> + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+	border-color: transparent transparent <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?> transparent;
 }
 
-.xui-form-select_<?php echo $key; ?> + .select2-container--default .select2-selection--single:focus {
+.xui-form-select_<?php echo $context; ?> + .select2-container--default .select2-selection--single:focus {
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 }
-
 
 <?php }; ?>
 
@@ -161,30 +163,30 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 .xui-form-select:active + .select2.select2-container.select2-container--default .select2-selection.select2-selection--single,
 .xui-form-select:focus + .select2.select2-container.select2-container--default .select2-selection.select2-selection--single{
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-select + .select2.select2-container.select2-container--default.select2-container--focus .select2-selection.select2-selection--single{
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-select + .select2.select2-container.select2-container--default.select2-container--focus .select2-selection.select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInputActive; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?> transparent transparent transparent;
 }
 
 
 .xui-form-select + .select2.select2-container.select2-container--default.select2-container--open .select2-selection.select2-selection--single{
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-select + .select2.select2-container.select2-container--default.select2-container--open .select2-selection.select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $xuiTheme->colorTypeInputActive; ?> transparent;
+	border-color: transparent transparent <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?> transparent;
 }
 
 .select2-container.select2-container--default.select2-container--open .select2-dropdown .select2-results{
@@ -193,144 +195,152 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .select2-container.select2-container--default.select2-container--open .select2-dropdown{
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 /* --- */
 
 .xui-form-select:active + .select2-container--default .select2-selection--single {
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-select:active + .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInputActive; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?> transparent transparent transparent;
 }
 
 .xui-form-select:active + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $xuiTheme->colorTypeInputActive; ?> transparent;
+	border-color: transparent transparent <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?> transparent;
 }
 
 .xui-form-select:active + .select2-container--default .select2-selection--single{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-select:focus + .select2-container--default .select2-selection--single {
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-select:focus + .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInputActive; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?> transparent transparent transparent;
 }
 
 .xui-form-select:focus + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $xuiTheme->colorTypeInputActive; ?> transparent;
+	border-color: transparent transparent <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?> transparent;
 }
 
 .xui-form-select:focus + .select2-container--default .select2-selection--single{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 /* --- */
 
 .xui-form-select_disabled + .select2-container--default .select2-selection--single {
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-select_disabled + .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?> transparent transparent transparent;
 }
 
 .xui-form-select_disabled + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $xuiTheme->colorTypeInput["disabled"]; ?> transparent;
+	border-color: transparent transparent <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?> transparent;
 }
 
 .xui-form-select_disabled + .select2-container--default .select2-selection--single:focus {
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 }
 
 
 .xui-form-select_disabled:active + .select2-container--default .select2-selection--single {
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-select_disabled:active + .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?> transparent transparent transparent;
 }
 
 .xui-form-select_disabled:active + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $xuiTheme->colorTypeInput["disabled"]; ?> transparent;
+	border-color: transparent transparent <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?> transparent;
 }
 
 .xui-form-select_disabled:active + .select2-container--default .select2-selection--single{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-select_disabled:focus + .select2-container--default .select2-selection--single {
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-select_disabled:focus + .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?> transparent transparent transparent;
 }
 
 .xui-form-select_disabled:focus + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
-	border-color: transparent transparent <?php echo $xuiTheme->colorTypeInput["disabled"]; ?> transparent;
+	border-color: transparent transparent <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?> transparent;
 }
 
 .xui-form-select_disabled:focus + .select2-container--default .select2-selection--single{
 	outline: none;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-select_disabled:active + .select2.select2-container.select2-container--default .select2-selection.select2-selection--single,
 .xui-form-select_disabled:focus + .select2.select2-container.select2-container--default .select2-selection.select2-selection--single{
-	border: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 	outline: none;
 	box-shadow: none;
 }
 
 .xui-form-select_disabled + .select2.select2-container.select2-container--default.select2-container--focus .select2-selection.select2-selection--single{
-	border: 1px solid <?php echo $xuiTheme->colorTypeInput["disabled"]; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?>;
 	outline: none;
 	box-shadow: none;
 }
 
 .xui-form-select_disabled + .select2.select2-container.select2-container--default.select2-container--focus .select2-selection.select2-selection--single .select2-selection__arrow b{
-	border-color: <?php echo $xuiTheme->colorTypeInput["disabled"]; ?> transparent transparent transparent;
+	border-color: <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.border"]; ?> transparent transparent transparent;
+}
+
+.xui-form-select_disabled + .select2-container--default.select2-container--disabled .select2-selection--single{
+	background-color: <?php echo $xuiTheme->theme["disabled"]["input"]["normal"]["color.background"]; ?>;
+}
+
+.xui-form-select_disabled + .select2-container--default .select2-selection--single .select2-selection__rendered{
+	color: <?php echo $xuiTheme->theme["disabled"]["input"]["color.label"]; ?>;
 }
 
 /* --- */
@@ -355,17 +365,17 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-	background-color: <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	background-color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	color: #FFFFFF;
 }
 
 .select2-dropdown {
 	overflow: hidden;
 	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>; 
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .select2-container .select2-selection--single{
@@ -408,21 +418,21 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .select2-container--open .select2-dropdown--above{
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	margin-top: 1px;
 }
 
 .select2-container--open .select2-dropdown--below{
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	margin-top: -1px;
 }
 
 .select2-container--default .select2-results__option[aria-selected="true"]{
-	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInputActive,0,0,30); ?>;
+	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->theme["default"]["input"]["active"]["color.border"],0,0,30); ?>;
 }
 
 .select2-container--default .select2-results__option.select2-results__option--highlighted[aria-selected="true"]{
-	background-color: <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	background-color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 

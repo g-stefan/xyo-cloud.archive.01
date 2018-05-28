@@ -17,6 +17,11 @@ defined('XYO_CLOUD') or die('Access is denied');
 		<?php $this->eHtmlTitle(); ?>
 		<?php $this->eHtmlDescription(); ?>
 		<?php $this->eHtmlCss(); ?>
+		<style>
+		.xui-panel__title{
+			background-color: #EEEEEE !important;
+		}
+		</style>
 	</head>
     <body<?php $this->eHtmlBodyClass(); ?>>
 
@@ -38,7 +43,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	$this->generateComponent("xui.panel2-footer");
 
 	?>
-        	    <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2017&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
+        	    <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2018&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
 
 	<?php
 

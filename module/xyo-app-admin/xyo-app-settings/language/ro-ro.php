@@ -29,3 +29,5 @@ $this->set("title_log","Log");
 
 $this->set("label_xui_dashboard_user_background","Fundalul pentru utilizator in panoul principal");
 $this->set("label_login_has_select_language","Limba se poate selecta la intrare");
+
+$this->set("title_login","Logare");

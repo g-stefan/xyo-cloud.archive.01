@@ -73,7 +73,7 @@ $checkedLy=12;
 	cursor: pointer;
 	box-sizing: border-box;
 
-	color: <?php echo $xuiTheme->colorTypeLabel["default"]; ?>
+	color: <?php echo $xuiTheme->theme["default"]["input"]["color.label"]; ?>;
 
 	transition: all 0.3s ease;
 }
@@ -104,34 +104,34 @@ $checkedLy=12;
 
 	box-sizing: border-box;
 
-	border: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 
 	transition: all 0.3s ease;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:active + label::before {
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:focus + label::before {
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:checked + label::before {
-	border: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:active:checked + label::before {
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:focus:checked + label::before {
-	border: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"] + label::after {
@@ -170,7 +170,7 @@ $checkedLy=12;
 	width: <?php echo $checkedLx; ?>px;
 	height: <?php echo $checkedLy; ?>px;
 
-	background-color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	background-color: <?php echo $xuiTheme->theme["primary"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:active:checked + label::after {
@@ -179,7 +179,7 @@ $checkedLy=12;
 	width: <?php echo $checkedLx; ?>px;
 	height: <?php echo $checkedLy; ?>px;
 
-	background-color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	background-color: <?php echo $xuiTheme->theme["primary"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-checkbox2 input[type="checkbox"]:focus:checked + label::after {
@@ -188,76 +188,76 @@ $checkedLy=12;
 	width: <?php echo $checkedLx; ?>px;
 	height: <?php echo $checkedLy; ?>px;
 
-	background-color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	background-color: <?php echo $xuiTheme->theme["primary"]["input"]["active"]["color.border"]; ?>;
 }
 
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
-<?php if($key=="default"){ continue; }; ?>
+<?php
 
-.xui-form-checkbox2_<?php echo $key; ?> label {
-	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
+foreach($xuiTheme->theme as $context=>&$value){
+	if($context=="default"){
+		continue;
+	};
+
+?>
+
+.xui-form-checkbox2_<?php echo $context; ?> label {
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
-.xui-form-checkbox2_<?php echo $key; ?> label::before {
-	border: 1px solid <?php echo $value; ?>;
+.xui-form-checkbox2_<?php echo $context; ?> label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:checked + label::before {
-	border: 1px solid <?php echo $value; ?>;
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:checked + label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
-	background-color: <?php echo $value; ?>;
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:checked + label::after {
+	background-color: <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-<?php if($key!="default"){ ?>
-
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:active + label::before {
-	border: 1px solid <?php echo $value; ?>;
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:active + label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:focus + label::before {
-	border: 1px solid <?php echo $value; ?>;
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:focus + label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
-
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:active:checked + label::before {
-	border: 1px solid <?php echo $value; ?>;
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:active:checked + label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:focus:checked + label::before {
-	border: 1px solid <?php echo $value; ?>;
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:focus:checked + label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:active:checked + label::after {
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:active:checked + label::after {
 	top: <?php echo $checkedX; ?>px;
 	left: <?php echo $checkedY; ?>px;
 	width: <?php echo $checkedLx; ?>px;
 	height: <?php echo $checkedLy; ?>px;
 
-	background-color: <?php echo $value; ?>;
+	background-color: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 }
 
-.xui-form-checkbox2_<?php echo $key; ?> input[type="checkbox"]:focus:checked + label::after {
+.xui-form-checkbox2_<?php echo $context; ?> input[type="checkbox"]:focus:checked + label::after {
 	top: <?php echo $checkedX; ?>px;
 	left: <?php echo $checkedY; ?>px;
 	width: <?php echo $checkedLx; ?>px;
 	height: <?php echo $checkedLy; ?>px;
 
-	background-color: <?php echo $value; ?>;
+	background-color: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 }
 
-<?php }; ?>
-
-	
 <?php }; ?>
 

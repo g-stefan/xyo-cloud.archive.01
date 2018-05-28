@@ -14,10 +14,9 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 <?php
 
-$color=$xuiTheme->colorTypeButton["default"];
-$colorBackground=$xuiColor->rgbHexHSLAdjust($color,0,0,30);
-$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,0);
-$colorText=$xuiColor->rgbHexHSLAdjust($color,0,0,-30);
+$colorBackground=$xuiTheme->theme["default"]["alert"]["color.background"];
+$colorBorder=$xuiTheme->theme["default"]["alert"]["color.border"];
+$colorText=$xuiTheme->theme["default"]["alert"]["color.text"];
 
 ?>
 
@@ -57,15 +56,17 @@ $colorText=$xuiColor->rgbHexHSLAdjust($color,0,0,-30);
 
 <?php 
 
-foreach($xuiTheme->colorTypeButton as $key=>$value){
+foreach($xuiTheme->theme as $context=>&$value){
+	if($context=="default"){
+		continue;
+	};
 
-	$color=$value;
-	$colorBackground=$xuiColor->rgbHexHSLAdjust($color,0,0,30);
-	$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,0);
-	$colorText=$xuiColor->rgbHexHSLAdjust($color,0,0,-30);
+	$colorBackground=$xuiTheme->theme[$context]["alert"]["color.background"];
+	$colorBorder=$xuiTheme->theme[$context]["alert"]["color.border"];
+	$colorText=$xuiTheme->theme[$context]["alert"]["color.text"];
 
 ?>
-.xui-alert_<?php echo $key; ?>{
+.xui-alert_<?php echo $context; ?>{
 	color: <?php echo $colorText; ?>;
 	background-color: <?php echo $colorBackground; ?>;
 	border-top: 1px solid <?php echo $colorBorder; ?>; 

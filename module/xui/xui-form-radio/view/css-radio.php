@@ -64,7 +64,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	cursor: pointer;
 	box-sizing: border-box;
 
-	<?php echo $xuiTheme->colorTypeLabel["default"]; ?>
+	color: <?php echo $xuiTheme->theme["default"]["input"]["color.label"]; ?>;
 }
 
 .xui-form-radio label::before {
@@ -92,15 +92,19 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-radio input[type="radio"]:active + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	outline: none;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-radio input[type="radio"]:focus + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	outline: none;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-radio input[type="radio"] + label::after {
@@ -132,23 +136,53 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-radio input[type="radio"]:checked + label::after {
-	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput["default"],0,5,-20); ?>;
+	background: <?php echo $xuiTheme->theme["primary"]["input"]["normal"]["color.border"]; ?>;
 }
 
+<?php
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+foreach($xuiTheme->theme as $context=>&$value){
+	if($context=="default"){
+		continue;
+	};
 
-.xui-form-radio_<?php echo $key; ?> label {
-	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
+?>
+
+.xui-form-radio_<?php echo $context; ?> label {
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
-.xui-form-radio_<?php echo $key; ?> label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
+.xui-form-radio_<?php echo $context; ?> label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-.xui-form-radio_<?php echo $key; ?> input[type="radio"]:checked + label::after {
-	background: <?php echo $xuiColor->rgbHexHSLAdjust($xuiTheme->colorTypeInput[$key],0,5,-20); ?>;
+.xui-form-radio_<?php echo $context; ?> input[type="radio"]:checked + label::after {
+	outline: none;
+	background: <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
+
+.xui-form-radio_<?php echo $context; ?> input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
+}
+
+.xui-form-radio_<?php echo $context; ?> input[type="radio"]:focus + label::before {
+	outline: none;
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
+}
+
+.xui-form-radio_<?php echo $context; ?> input[type="radio"]:checked:active + label::after {
+	outline: none;
+	background: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+}
+
+.xui-form-radio_<?php echo $context; ?> input[type="radio"]:checked:focus + label::after {
+	outline: none;
+	background: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+}
+
 	
 <?php }; ?>
 

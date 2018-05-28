@@ -84,30 +84,30 @@ $xuiElevation=&$this->getModule("xui-elevation");
 	color: #000000;
 }
 
-<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ 
+<?php foreach($xuiTheme->theme as $context=>&$value){ 
 
-	if($key=="disabled"){
+	if($context=="disabled"){
 		continue;
 	};
 
-	$colorIcon=$value; 
+	$colorIcon=$xuiTheme->theme[$context]["input"]["color.label"]; 
 	$colorText="#000000"; 
 
-	if($key=="default"){
+	if($context=="default"){
 		$colorIcon=$xuiPalette->palette["core-medium-gray"];
 	};
 
 ?>
 
-.xui-toolbar__item_<?php echo $key; ?> .xui-toolbar__icon{
+.xui-toolbar__item_<?php echo $context; ?> .xui-toolbar__icon{
 	color: <?php echo $colorIcon; ?>;
 }
 
-.xui-toolbar__item_<?php echo $key; ?> .xui-toolbar__text{
+.xui-toolbar__item_<?php echo $context; ?> .xui-toolbar__text{
 	color: <?php echo $colorText; ?>;
 }
 
-.xui-toolbar__item.xui-toolbar__item_<?php echo $key; ?>:hover{
+.xui-toolbar__item.xui-toolbar__item_<?php echo $context; ?>:hover{
 	border-top: 1px solid <?php echo $colorIcon; ?>;
 	border-right: 1px solid <?php echo $colorIcon; ?>;
 	border-bottom: 1px solid <?php echo $colorIcon; ?>;
@@ -116,11 +116,11 @@ $xuiElevation=&$this->getModule("xui-elevation");
 <?php $xuiElevation->eElevationCss(2); ?>
 }
 
-.xui-toolbar__item.xui-toolbar__item_<?php echo $key; ?> .xui_effect-ripple__element{
+.xui-toolbar__item.xui-toolbar__item_<?php echo $context; ?> .xui_effect-ripple__element{
 	background-color: <?php echo $xuiColor->rgbHexHSLAdjust($colorIcon,0,0,25); ?>;
 }
 
-.xui-toolbar__item_<?php echo $key; ?>:active .xui-toolbar__icon{
+.xui-toolbar__item_<?php echo $context; ?>:active .xui-toolbar__icon{
 	color: <?php echo $xuiColor->rgbHexHSLAdjust($colorIcon,0,0,-15); ?>;
 }
 

@@ -15,7 +15,10 @@ class xui_Panel extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Panel")) {
-			$this->setHtmlCss($this->site."lib/xui/css/xui-panel.css");
+			$this->setHtmlCss($this->requestUriThis(array(
+				"ajax"=>1,
+				"action"=>"css"
+			)));
         	}
 	}
 

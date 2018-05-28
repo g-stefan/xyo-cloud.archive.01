@@ -18,13 +18,13 @@ $itemTextMarginBottom=6;
 
 $itemTextMarginTopX=$itemTextLabelMarginTop+$itemTextLabelSize+$itemTextLabelMarginBottom;
 
-$itemTextColorLabel=$xuiPalette->palette["core-dark-gray-v1"];
+$itemTextColorLabel=$xuiTheme->theme["default"]["input"]["color.label"];
 $itemTextColorInput="#000000";
-$itemTextColorBorder=$xuiPalette->palette["core-dark-gray-v1"];
+$itemTextColorBorder=$xuiTheme->theme["default"]["input"]["normal"]["color.border"];
 
-$itemTextColorLabelFocus=$xuiTheme->colorTypeInputActive;
+$itemTextColorLabelFocus=$xuiTheme->theme["default"]["input"]["color.label"];
 $itemTextColorInputFocus="#000000";
-$itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
+$itemTextColorBorderFocus=$xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"];
 
 ?>
 
@@ -131,36 +131,37 @@ $itemTextColorBorderFocus=$xuiTheme->colorTypeInputActive;
 	width:100%;
 }
 
+<?php
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+foreach($xuiTheme->theme as $context=>&$value){
+	if($context=="default"){
+		continue;
+	};
+?>
 
-.xui-form-text-material_<?php echo $key; ?> label{
-	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
+.xui-form-text-material_<?php echo $context; ?> label{
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
-.xui-form-text-material_<?php echo $key; ?> input[type=text]{
-	border-bottom: 1px solid <?php echo $value; ?>;
+.xui-form-text-material_<?php echo $context; ?> input[type=text]{
+	border-bottom: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-.xui-form-text-material_<?php echo $key; ?> input[type=text] + .xui-form-text-material__border{
-	background-color: <?php echo $value; ?>;	
+.xui-form-text-material_<?php echo $context; ?> input[type=text] + .xui-form-text-material__border{
+	background-color: <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.high"]; ?>;	
 }
 
-.xui-form-text-material_<?php echo $key; ?> label.xui-form-text-material_focus{
-	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
+.xui-form-text-material_<?php echo $context; ?> label.xui-form-text-material_focus{
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
-<?php if($key!="default"){ ?>
-
-.xui-form-text-material_<?php echo $key; ?> input[type=text]:focus{
-	border-bottom: 1px solid <?php echo $value; ?>;
+.xui-form-text-material_<?php echo $context; ?> input[type=text]:focus{
+	border-bottom: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 }
 
-.xui-form-text-material_<?php echo $key; ?> input[type=text]:focus + .xui-form-text-material__border{
-	background-color: <?php echo $value; ?>;	
+.xui-form-text-material_<?php echo $context; ?> input[type=text]:focus + .xui-form-text-material__border{
+	background-color: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;	
 }
-
-<?php }; ?>
 
 <?php }; ?>
 

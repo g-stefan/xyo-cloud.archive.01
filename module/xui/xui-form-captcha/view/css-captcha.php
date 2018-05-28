@@ -38,10 +38,10 @@ defined('XYO_CLOUD') or die('Access is denied');
 	position: relative;
 	display: block;
 
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-bottom: 0px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 0px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 
 	border-top-left-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 	border-top-right-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
@@ -83,7 +83,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	top: 0px;
 	right: 0px;	
 
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px;

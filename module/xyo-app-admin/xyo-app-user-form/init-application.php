@@ -25,6 +25,7 @@ $this->requireComponent(array(
 	"xui.form-password-required",
 	"xui.form-file-image",
 	"xui.form-email",
+	"xui.form-action-apply",
 
 	"xui.panel-begin",
 	"xui.panel-end",

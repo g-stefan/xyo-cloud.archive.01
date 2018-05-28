@@ -19,7 +19,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 <br>
 <form>
 <hr>
-<?php foreach($xuiTheme->colorTypeButton as $key=>$value){ ?>
+<?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <?php  ?>
 <input type="button" value="<?php echo $key; ?>" class="xui-form-button xui-form-button_<?php echo $key; ?>"<?php echo $disabled; ?>></input>

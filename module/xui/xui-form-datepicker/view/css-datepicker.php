@@ -20,18 +20,18 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .datepicker--day-name{
-	color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	color: <?php echo $xuiTheme->theme["primary"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .datepicker--cell.-current-{
-	color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	color: <?php echo $xuiTheme->theme["primary"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .datepicker--cell.-selected-{
-	background-color: <?php echo $xuiTheme->colorTypeInput["primary"]; ?>;
+	background-color: <?php echo $xuiTheme->theme["primary"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .datepicker--cell.-selected-.-focus-{
-	background-color: <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	background-color: <?php echo $xuiTheme->theme["primary"]["input"]["active"]["color.border"]; ?>;
 }
 

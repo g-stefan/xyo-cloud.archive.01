@@ -33,22 +33,32 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	color: <?php echo $xuiTheme->colorTypeLabel["default"]; ?>;
+	color: <?php echo $xuiTheme->theme["default"]["input"]["color.label"]; ?>;
 
 }
 
 /* --- */
 
-<?php foreach($xuiTheme->colorTypeLabel as $key=>$value){ ?>
+<?php 
 
-.xui-form-label_<?php echo $key; ?>{
-	color: <?php echo $value; ?>;
+foreach($xuiTheme->theme as $context=>&$value){
+	if($context=="default"){
+		continue;
+	};
+	if($context=="disabled"){
+		continue;
+	};
+
+?>
+
+.xui-form-label_<?php echo $context; ?>{
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
 <?php }; ?>
 
 .xui-form-label_disabled{
-	color: <?php echo $xuiTheme->colorTypeLabel["disabled"]; ?>
+	color: <?php echo $xuiTheme->theme["disabled"]["input"]["color.label"]; ?>
 }
 
 /* --- */

@@ -19,7 +19,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 <form style="padding-left:30px;">
 
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 
 <div class="xui-form-text-material xui-form-text-material_<?php echo $key; ?>">

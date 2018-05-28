@@ -8,13 +8,13 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
-$color=$xuiTheme->colorTypeButton["default"];
-$colorBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-5);
-$colorWall=$xuiColor->rgbHexHSLAdjust($color,0,0,-25);
+$color=$xuiTheme->theme["default"]["button"]["normal"]["color"];
+$colorBorder=$xuiTheme->theme["default"]["button"]["normal"]["color.high"];
+$colorWall=$xuiTheme->theme["default"]["button"]["normal"]["color.low"];
 
-$colorHover="#FFFFFF";
-$colorHoverBorder=$xuiColor->rgbHexHSLAdjust($color,0,0,-10);
-$colorHoverWall=$xuiColor->rgbHexHSLAdjust($color,0,0,-35);
+$colorHover=$xuiTheme->theme["default"]["button"]["active"]["color"];
+$colorHoverBorder=$xuiTheme->theme["default"]["button"]["active"]["color.high"];
+$colorHoverWall=$xuiTheme->theme["default"]["button"]["active"]["color.low"];
 
 ?>
 
@@ -63,7 +63,7 @@ $colorHoverWall=$xuiColor->rgbHexHSLAdjust($color,0,0,-35);
 
 	box-sizing: border-box;
 
-	color: <?php echo $xuiTheme->colorTypeButtonText["default"]; ?>;
+	color: <?php echo $xuiTheme->theme["default"]["button"]["normal"]["color.contrast"]; ?>;
 
 	font-family: "Roboto", sans-serif;
 
@@ -107,12 +107,14 @@ $colorHoverWall=$xuiColor->rgbHexHSLAdjust($color,0,0,-35);
 	border: 1px solid <?php echo $colorHoverBorder; ?>;
 	background-color: <?php echo $colorHover; ?>;
 	box-shadow: 0px 3px 0px 0px <?php echo $colorHoverWall; ?>;
+	color: <?php echo $xuiTheme->theme["default"]["button"]["active"]["color.contrast"]; ?>;
 }
 
 .xui-form-file__file:active + label{
 	border: 1px solid <?php echo $colorHoverBorder; ?>;
 	background-color: <?php echo $colorHover; ?>;
 	box-shadow: 0px 1px 0px 0px <?php echo $colorHoverWall; ?>;
+	color: <?php echo $xuiTheme->theme["default"]["button"]["active"]["color.contrast"]; ?>;
 
 	margin-top: 2px;
 	margin-bottom: 1px;

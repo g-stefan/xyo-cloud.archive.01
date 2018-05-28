@@ -18,13 +18,13 @@ $itemTextareaMarginBottom=6;
 
 $itemTextareaMarginTopX=$itemTextareaLabelMarginTop+$itemTextareaLabelSize+$itemTextareaLabelMarginBottom;
 
-$itemTextareaColorLabel=$xuiPalette->palette["core-dark-gray-v1"];
+$itemTextareaColorLabel=$xuiTheme->theme["default"]["input"]["color.label"];
 $itemTextareaColorInput="#000000";   
-$itemTextareaColorBorder=$xuiPalette->palette["core-dark-gray-v1"];
+$itemTextareaColorBorder=$xuiTheme->theme["default"]["input"]["normal"]["color.border"];
 
-$itemTextareaColorLabelFocus=$xuiTheme->colorTypeInputActive;
+$itemTextareaColorLabelFocus=$xuiTheme->theme["default"]["input"]["color.label"];
 $itemTextareaColorInputFocus="#000000";
-$itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
+$itemTextareaColorBorderFocus=$xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"];
 
 ?>
 
@@ -134,35 +134,37 @@ $itemTextareaColorBorderFocus=$xuiTheme->colorTypeInputActive;
 }
 
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+<?php
 
-.xui-form-textarea-material_<?php echo $key; ?> label{
-	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
+foreach($xuiTheme->theme as $context=>&$value){
+	if($context=="default"){
+		continue;
+	};
+?>
+
+.xui-form-textarea-material_<?php echo $context; ?> label{
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
-.xui-form-textarea-material_<?php echo $key; ?> textarea{
-	border-bottom: 1px solid <?php echo $value; ?>;
+.xui-form-textarea-material_<?php echo $context; ?> textarea{
+	border-bottom: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-.xui-form-textarea-material input[type=text] + .xui-form-textarea-material__border{
-	background-color: <?php echo $value; ?>;
+.xui-form-textarea-material_<?php echo $context; ?> input[type=text] + .xui-form-textarea-material__border{
+	background-color: <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.high"]; ?>;
 }
 
-.xui-form-textarea-material_<?php echo $key; ?> label.xui-form-textarea-material_focus{
-	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
+.xui-form-textarea-material_<?php echo $context; ?> label.xui-form-textarea-material_focus{
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
-<?php if($key!="default"){ ?>
-
-.xui-form-textarea-material_<?php echo $key; ?> textarea:focus{
-	border-bottom: 1px solid <?php echo $value; ?>;
+.xui-form-textarea-material_<?php echo $context; ?> textarea:focus{
+	border-bottom: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 }
 
-.xui-form-textarea-material_<?php echo $key; ?> textarea:focus + .xui-form-textarea-material__border{
-	background-color: <?php echo $value; ?>;	
+.xui-form-textarea-material_<?php echo $context; ?> textarea:focus + .xui-form-textarea-material__border{
+	background-color: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 }
-
-<?php }; ?>
 
 <?php }; ?>
 

@@ -23,6 +23,8 @@ $this->addItem("xui.form-integer", "user_logoff_after_idle_time",15);
 $this->addItem("xui.form-switch", "user_action",1);
 $this->addItem("xui.form-switch", "user_captcha",1);
 
+$this->addItem("xui.form-action-apply",null,null,array("click"=>"doCommand('form-edit-apply');"));
+
 $this->addItem("xui.panel-end");
 $this->addItem("xui.box-1x2-separator");
 $this->addItem("xui.panel-begin",null,null,array("title"=>"title_log"));
@@ -49,7 +51,7 @@ $this->addItem("xui.form-file-image","xui_dashboard_user_background","lib/xyo/im
 
 $this->addItem("xui.panel-end");
 $this->addItem("xui.box-1x2-separator");
-$this->addItem("xui.panel-begin");
+$this->addItem("xui.panel-begin",null,null,array("title"=>"title_login"));
 
 $this->addItem("xui.form-switch", "login_has_select_language",0);
 

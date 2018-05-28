@@ -68,7 +68,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 	cursor: pointer;
 	box-sizing: border-box;
 
-	color: <?php echo $xuiTheme->colorTypeLabel["default"]; ?>
+	color: <?php echo $xuiTheme->theme["default"]["input"]["color.label"]; ?>;
 
 	transition: all 0.3s ease;
 }
@@ -99,22 +99,22 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-radius: 3px;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px;
 
 	transition: all 0.3s ease;
 }
 
 .xui-form-checkbox input[type="checkbox"]:active + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-checkbox input[type="checkbox"]:focus + label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	border: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-checkbox input[type="checkbox"] + label::after {
@@ -153,7 +153,7 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	background-image: <?php
 
-$color=$xuiTheme->colorTypeInputActive;
+$color=$xuiTheme->theme["primary"]["input"]["normal"]["color.border"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".
@@ -174,7 +174,7 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 
 	background-image: <?php
 
-$color=$xuiTheme->colorTypeInputActive;
+$color=$xuiTheme->theme["primary"]["input"]["active"]["color.border"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".
@@ -195,7 +195,7 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 
 	background-image: <?php
 
-$color=$xuiTheme->colorTypeInputActive;
+$color=$xuiTheme->theme["primary"]["input"]["active"]["color.border"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".
@@ -211,34 +211,39 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 }
 
 
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+<?php
 
-.xui-form-checkbox_<?php echo $key; ?> label {
-	color: <?php echo $xuiTheme->colorTypeLabel[$key]; ?>;
+foreach($xuiTheme->theme as $context=>&$value){
+	if($context=="default"){
+		continue;
+	};
+
+?>
+
+.xui-form-checkbox_<?php echo $context; ?> label {
+	color: <?php echo $xuiTheme->theme[$context]["input"]["color.label"]; ?>;
 }
 
-.xui-form-checkbox_<?php echo $key; ?> label::before {
-	border: 2px solid <?php echo $xuiTheme->colorTypeInput[$key]; ?>;
+.xui-form-checkbox_<?php echo $context; ?> label::before {
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;
 }
 
-<?php if($key!="default"){ ?>
-
-.xui-form-checkbox_<?php echo $key; ?> input[type="checkbox"]:active + label::before {
-	border: 2px solid <?php echo $value; ?>;
+.xui-form-checkbox_<?php echo $context; ?> input[type="checkbox"]:active + label::before {
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
-.xui-form-checkbox_<?php echo $key; ?> input[type="checkbox"]:focus + label::before {
-	border: 2px solid <?php echo $value; ?>;
+.xui-form-checkbox_<?php echo $context; ?> input[type="checkbox"]:focus + label::before {
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($value,"40"); ?>;
+	border: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
-.xui-form-checkbox_<?php echo $key; ?> input[type="checkbox"]:checked + label::after {
+.xui-form-checkbox_<?php echo $context; ?> input[type="checkbox"]:checked + label::after {
 	background-image: <?php
 
-$color=$value;
+$color=$xuiTheme->theme[$context]["input"]["normal"]["color.border"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".
@@ -252,13 +257,13 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 ?>;
 }
 
-.xui-form-checkbox_<?php echo $key; ?> input[type="checkbox"]:active:checked + label::after {
+.xui-form-checkbox_<?php echo $context; ?> input[type="checkbox"]:active:checked + label::after {
 	background-size: 16px 16px;
 	background-repeat: no-repeat;
 
 	background-image: <?php
 
-$color=$value;
+$color=$xuiTheme->theme[$context]["input"]["active"]["color.border"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".
@@ -273,13 +278,13 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 
 }
 
-.xui-form-checkbox_<?php echo $key; ?> input[type="checkbox"]:focus:checked + label::after {
+.xui-form-checkbox_<?php echo $context; ?> input[type="checkbox"]:focus:checked + label::after {
 	background-size: 16px 16px;
 	background-repeat: no-repeat;
 
 	background-image: <?php
 
-$color=$value;
+$color=$xuiTheme->theme[$context]["input"]["active"]["color.border"];
 
 $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 "<svg viewBox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\">".
@@ -293,10 +298,6 @@ $svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
 ?>;
 
 }
-
 
 <?php }; ?>
-
 	
-<?php }; ?>
-

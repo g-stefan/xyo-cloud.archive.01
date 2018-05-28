@@ -27,6 +27,10 @@ $this->generateComponent("xui.form-text", array("element" => "path"));
 $this->generateComponent("xui.form-textarea", array("element" => "description"));
 $this->generateComponent("xui.form-switch", array("element" => "enabled"));
 
+if($this->isNew){
+	$this->generateComponent("xui.form-action-apply",array("click"=>"doCommand('form-new-apply');"));	
+};
+
 if(!$this->isDialog){
 	$this->generateComponent("xui.panel-end");
 };

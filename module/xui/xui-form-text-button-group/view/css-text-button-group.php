@@ -37,13 +37,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 
 	box-sizing: border-box;
 
-	color: #000000;
-	background-color: #FFFFFF;
+	color: <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.text"]; ?>;
+	background-color: <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.background"]; ?>;
 	border-radius: 0px;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>; 
-	border-right: 0px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
-	border-left: 0px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>; 
+	border-right: 0px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
+	border-left: 0px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 
 	min-width: 32px;
 	min-height: 32px;
@@ -55,29 +55,29 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-text-button-icon:focus{
-	color: <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	outline: none;
-	box-shadow: 0px 0px 0px 3px <?php echo $xuiColor->rgbHexToRGBA($xuiTheme->colorTypeInputActive,"40"); ?>;
+	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"]; ?>;
 }
 
 .xui-form-text-button-icon:hover{
-	color: <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 	outline: none;
 }
 
 .xui-form-text-button-icon:active{
 	color: #FFFFFF;
-	background-color: <?php echo $xuiTheme->colorTypeInputActive; ?>;
-	border-top: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>; 
-	border-bottom: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	background-color: <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon{
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child {
@@ -86,19 +86,19 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:hover {
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:focus {
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_right .xui-form-text-button-icon:last-child:active {
-	border-right: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon{
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInput["default"]; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["normal"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child {
@@ -107,15 +107,15 @@ defined('XYO_CLOUD') or die('Access is denied');
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:hover {
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:focus {
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 .xui-form-text-button-group.xui-form-text-button-group_left .xui-form-text-button-icon:first-child:active {
-	border-left: 1px solid <?php echo $xuiTheme->colorTypeInputActive; ?>;
+	border-left: 1px solid <?php echo $xuiTheme->theme["default"]["input"]["active"]["color.border"]; ?>;
 }
 
 /* --- */

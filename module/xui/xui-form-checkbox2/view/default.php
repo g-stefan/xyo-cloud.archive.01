@@ -20,7 +20,7 @@ $xuiTheme=&$this->getModule("xui-theme");
 <form>
 <hr>
 <hr>
-<?php foreach($xuiTheme->colorTypeInput as $key=>$value){ ?>
+<?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <div class="xui-form-checkbox2 xui-form-checkbox2_<?php echo $key; ?>">
     <input type="checkbox" id="chekbox-item-<?php echo $key; ?>" name="chekbox-item" value="chekbox-option-<?php echo $key; ?>"<?php echo $disabled; ?>></input>
