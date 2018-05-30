@@ -8,6 +8,63 @@
 
 defined('XYO_CLOUD') or die('Access is denied');
 
+$xuiTheme=&$this->getModule("xui-theme");
+?>
+<style>
+.iziModal{
+	border-top-left-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px !important;
+	border-top-right-radius: <?php echo $xuiTheme->inputBorderRadius; ?>px !important;
+}
+
+.iziModal .iziModal-header {
+	color: <?php echo $xuiTheme->panel["color.title.color"]; ?>;
+	box-shadow: none;
+}
+
+.iziModal .iziModal-header-title {
+	color: <?php echo $xuiTheme->panel["color.title.color"]; ?>;
+	box-shadow: none;
+}
+
+.iziModal .iziModal-wrap::before{
+	content: "";
+	display: block;
+	position: relative;
+	margin-left: 10px;
+	margin-right: 10px;
+	overflow:hidden;
+	height:1px;
+	background-color: <?php echo $xuiTheme->panel["color.border"]; ?>;
+}
+
+.iziModal .iziModal-button.iziModal-button-close{
+	background-image: <?php
+
+$color="#99101F";
+
+$svg="<?xml version=\"1.0\" encoding=\"UTF-8\"?>".
+"<svg width=\"44px\" height=\"44px\" viewPort=\"0 0 44 44\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">".
+"    <line x1=\"4\" y1=\"40\"".
+"       x2=\"40\" y2=\"4\"". 
+"       stroke=\"".$color."\"".
+"	stroke-linecap=\"round\"".
+"       stroke-width=\"8\"/>".
+"    <line x1=\"4\" y1=\"4\"".
+"       x2=\"40\" y2=\"40\"". 
+"       stroke=\"".$color."\"".
+"	stroke-linecap=\"round\"".
+"       stroke-width=\"8\"/>".
+"</svg>";
+
+	echo "url(\"data:image/svg+xml;base64,".base64_encode($svg)."\")";
+
+?>;
+	background-size: 15px 15px !important;
+}
+
+</style>
+
+<?php
 $has_search=false;
 foreach ($this->tableSearch as $key => $value) {
 	if ($value) {
@@ -802,18 +859,18 @@ foreach($this->tableType as $key_=>$value_){
 
 	if($this->dialogNew_){
 		$this->setHtmlJsSource(
-			"$(\"#xyo-app-table-modal-new\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"#4A89DC\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:true,closeButton:true});"
+			"$(\"#xyo-app-table-modal-new\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 		,"load");
 	};
 
 	if($this->dialogEdit_){
 		$this->setHtmlJsSource(
-			"$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"#4A89DC\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:true,closeButton:true});"
+			"$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 		,"load");
 	};
 
 	$this->setHtmlJsSource(
-		"$(\"#xyo-app-table-modal-delete\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"#4A89DC\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:true,closeButton:true});"
+		"$(\"#xyo-app-table-modal-delete\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 	,"load");
 
 	if($this->dialogNew_){

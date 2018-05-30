@@ -14022,8 +14022,8 @@
 	border-right: 0px solid #000000;
 	border-bottom: 0px solid #000000;
 	border-left: 0px solid #000000;
-	color: #FFFFFF;    
-	background-color: #4A89DC;
+	color: #656D78;
+	background-color: #FFFFFF;
 	
 	min-height: 40px;
 	padding-left: 10px;
@@ -14060,12 +14060,12 @@
 	width: 100%;
 	box-sizing: border-box;
 
-	border-top: 1px solid #C2CEE1;
+	border-top: 0px solid #000000;
 	border-right: 0px solid #000000;
 	border-bottom: 0px solid #000000;
 	border-left: 0px solid #000000;
-	color: #000000;    
-	background-color: #EEEEEE;	
+	color: #656D78;
+	background-color: #FFFFFF;
 	
 	min-height: 40px;
 	padding-left: 10px;
@@ -14075,6 +14075,24 @@
 	overflow: hidden;
 	font-size: 16px;
 	line-height: 20px;
+}
+
+.xui-panel__line{
+	margin-left: 10px;
+	margin-right: 10px;
+	overflow:hidden;
+	height:1px;
+	background-color: #C2CEE1;
+	clear: both;
+}
+
+.xui-panel__separator{
+	margin-top: 8px;
+	margin-bottom: 8px;
+	overflow:hidden;
+	height:1px;
+	background-color: #C2CEE1;
+	clear: both;
 }
 
 @media only screen and (min-width: 600px){

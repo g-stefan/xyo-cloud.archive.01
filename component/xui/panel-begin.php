@@ -15,5 +15,6 @@ $noTitle=$this->getArgument("no-title",0);
 <div class="xui-panel">
 <?php if(!$noTitle) {?>
 	<div class="xui-panel__title"><?php echo $title; ?></div>
+	<div class="xui-panel__line"></div>
 <?php }; ?>
 	<div class="xui-panel__content">

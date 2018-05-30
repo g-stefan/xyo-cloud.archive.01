@@ -264,7 +264,8 @@ class xui_Theme extends xyo_Module {
 		$this->inputBorderRadius=3;		
 
 		$this->panel["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-light-gray-v1"],0,0,-15);
-		$this->panel["color.title.background"]=$this->xuiPalette->palette["core-blue-jeans-v2"];
+		$this->panel["color.title.background"]="#FFFFFF";
+		$this->panel["color.title.color"]=$this->xuiPalette->palette["core-dark-gray-v1"];
 
 	}
 
