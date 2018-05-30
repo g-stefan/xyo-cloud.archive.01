@@ -357,10 +357,8 @@ class xyo_Module extends xyo_Config {
 	}
 
 	public function setElementValueIfNotExists($name, $value) {
-		if (array_key_exists($name, $this->elementValue)) {
-
-		} else {
-			$this->elementValue[$name] = $value;
+		if (!array_key_exists($this->elementPrefixV . $name, $this->elementValue)) {
+			$this->elementValue[$this->elementPrefixV . $name] = $value;
 		}
 	}
 
