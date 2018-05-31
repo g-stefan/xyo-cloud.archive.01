@@ -42,6 +42,10 @@
 	margin-top:0px;
 }
 
+.xui-panel__title + .xui-panel__line{
+	display: none;
+}
+
 @media only screen and (max-width: 600px){
 
 .xui-panel__content{
