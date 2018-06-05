@@ -14,13 +14,8 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<br>
-<br>
-<form style="padding:30px;">
-<hr>
-<br>
-<br>
-<br>
+<div style="padding:32px;">
+<form>
 
 <div class="xui-form-file">
 <input type="file" name="x-file" id="x-file" class="xui-form-file__file"></input>
@@ -28,31 +23,5 @@ $xuiTheme=&$this->getModule("xui-theme");
 --><button type="button" class="xui-form-button-icon xui-form-button-icon_info" onclick="document.getElementById('x-file').value=null;$('#x-file').trigger('change');"><i class="material-icons">delete</i></button>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<hr>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>

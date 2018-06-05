@@ -24,7 +24,8 @@ $itemTextareaColorBorder=$xuiTheme->theme["default"]["input"]["normal"]["color.b
 
 $itemTextareaColorLabelFocus=$xuiTheme->theme["default"]["input"]["color.label"];
 $itemTextareaColorInputFocus="#000000";
-$itemTextareaColorBorderFocus=$xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"];
+$itemTextareaColorBorderFocus=$xuiTheme->theme["default"]["input"]["active"]["color.border"];
+$itemTextareaColorBorderFocusHigh=$xuiTheme->theme["default"]["input"]["active"]["color.high.rgba"];
 
 ?>
 
@@ -124,7 +125,7 @@ $itemTextareaColorBorderFocus=$xuiTheme->theme["default"]["input"]["active"]["co
 
 .xui-form-textarea-material textarea:focus + .xui-form-textarea-material__border{
 	width: 100%;
-	background-color: <?php echo $itemTextareaColorBorderFocus; ?>;
+	background-color: <?php echo $itemTextColorBorderFocusHigh; ?>;
 }
 
 .xui-form-textarea-material textarea:focus {

@@ -12,15 +12,12 @@ $xuiColor=&$this->getModule("xui-color");
 $xuiPalette=&$this->getModule("xui-palette");
 $xuiTheme=&$this->getModule("xui-theme");
 
+$this->language->set("label_picture","Picture");
+
 ?>
 
-<br>
-<br>
-<br>
-<br>
-<br>
+<div style="padding:32px;">
 <form>
-
 
 <?php
 
@@ -28,10 +25,7 @@ $this->generateComponent("xui.box-1x1-begin");
 $this->generateComponent("xui.form-file-image",array("element"=>"picture"));
 $this->generateComponent("xui.box-1x1-end");
 
- ?>
+?>
 
 </form>
-<br>
-<br>
-<br>
-<br>
+</div>

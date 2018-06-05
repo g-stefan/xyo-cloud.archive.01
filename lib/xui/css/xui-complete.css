@@ -11323,9 +11323,7 @@
 	color: #4A89DC;	
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>108</b><br />
- input:focus{
+.xui-form-text-icon-left_primary input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(139,184,241,0.2510);
 	color: #000000;
@@ -11336,9 +11334,7 @@
 	border-left: 1px solid #5D9CEC;
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>119</b><br />
- input:focus + i{
+.xui-form-text-icon-left_primary input:focus + i{
 	color: #5D9CEC;	
 }
 
@@ -11356,9 +11352,7 @@
 	color: #8CC152;	
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>108</b><br />
- input:focus{
+.xui-form-text-icon-left_success input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(185,223,144,0.2510);
 	color: #000000;
@@ -11369,9 +11363,7 @@
 	border-left: 1px solid #A0D468;
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>119</b><br />
- input:focus + i{
+.xui-form-text-icon-left_success input:focus + i{
 	color: #A0D468;	
 }
 
@@ -11389,9 +11381,7 @@
 	color: #3BAFDA;	
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>108</b><br />
- input:focus{
+.xui-form-text-icon-left_info input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(124,209,239,0.2510);
 	color: #000000;
@@ -11402,9 +11392,7 @@
 	border-left: 1px solid #4FC1E9;
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>119</b><br />
- input:focus + i{
+.xui-form-text-icon-left_info input:focus + i{
 	color: #4FC1E9;	
 }
 
@@ -11422,9 +11410,7 @@
 	color: #F6BB42;	
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>108</b><br />
- input:focus{
+.xui-form-text-icon-left_warning input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(255,221,135,0.2510);
 	color: #000000;
@@ -11435,9 +11421,7 @@
 	border-left: 1px solid #FFCE54;
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>119</b><br />
- input:focus + i{
+.xui-form-text-icon-left_warning input:focus + i{
 	color: #FFCE54;	
 }
 
@@ -11455,9 +11439,7 @@
 	color: #DA4453;	
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>108</b><br />
- input:focus{
+.xui-form-text-icon-left_danger input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(242,131,143,0.2510);
 	color: #000000;
@@ -11468,9 +11450,7 @@
 	border-left: 1px solid #ED5565;
 }
 
-.xui-form-text-icon-left_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-left\view\css-text-icon-left.php</b> on line <b>119</b><br />
- input:focus + i{
+.xui-form-text-icon-left_danger input:focus + i{
 	color: #ED5565;	
 }
 
@@ -11831,9 +11811,7 @@
 /* --- */
 
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>94</b><br />
- input{
+.xui-form-text-icon-right_primary input{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid #4A89DC; 
@@ -11842,15 +11820,11 @@
 	border-left: 1px solid #4A89DC;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>103</b><br />
- i{
+.xui-form-text-icon-right_primary i{
 	color: #4A89DC;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>107</b><br />
- input:focus{
+.xui-form-text-icon-right_primary input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(139,184,241,0.2510);
 	color: #000000;
@@ -11861,16 +11835,12 @@
 	border-left: 1px solid #5D9CEC;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>118</b><br />
- input:focus + i{
+.xui-form-text-icon-right_primary input:focus + i{
 	color: #5D9CEC;
 }
 
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>94</b><br />
- input{
+.xui-form-text-icon-right_success input{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid #8CC152; 
@@ -11879,15 +11849,11 @@
 	border-left: 1px solid #8CC152;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>103</b><br />
- i{
+.xui-form-text-icon-right_success i{
 	color: #8CC152;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>107</b><br />
- input:focus{
+.xui-form-text-icon-right_success input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(185,223,144,0.2510);
 	color: #000000;
@@ -11898,16 +11864,12 @@
 	border-left: 1px solid #A0D468;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>118</b><br />
- input:focus + i{
+.xui-form-text-icon-right_success input:focus + i{
 	color: #A0D468;
 }
 
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>94</b><br />
- input{
+.xui-form-text-icon-right_info input{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid #3BAFDA; 
@@ -11916,15 +11878,11 @@
 	border-left: 1px solid #3BAFDA;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>103</b><br />
- i{
+.xui-form-text-icon-right_info i{
 	color: #3BAFDA;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>107</b><br />
- input:focus{
+.xui-form-text-icon-right_info input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(124,209,239,0.2510);
 	color: #000000;
@@ -11935,16 +11893,12 @@
 	border-left: 1px solid #4FC1E9;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>118</b><br />
- input:focus + i{
+.xui-form-text-icon-right_info input:focus + i{
 	color: #4FC1E9;
 }
 
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>94</b><br />
- input{
+.xui-form-text-icon-right_warning input{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid #F6BB42; 
@@ -11953,15 +11907,11 @@
 	border-left: 1px solid #F6BB42;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>103</b><br />
- i{
+.xui-form-text-icon-right_warning i{
 	color: #F6BB42;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>107</b><br />
- input:focus{
+.xui-form-text-icon-right_warning input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(255,221,135,0.2510);
 	color: #000000;
@@ -11972,16 +11922,12 @@
 	border-left: 1px solid #FFCE54;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>118</b><br />
- input:focus + i{
+.xui-form-text-icon-right_warning input:focus + i{
 	color: #FFCE54;
 }
 
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>94</b><br />
- input{
+.xui-form-text-icon-right_danger input{
 	color: #000000;
 	background-color: #FFFFFF;
 	border-top: 1px solid #DA4453; 
@@ -11990,15 +11936,11 @@
 	border-left: 1px solid #DA4453;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>103</b><br />
- i{
+.xui-form-text-icon-right_danger i{
 	color: #DA4453;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>107</b><br />
- input:focus{
+.xui-form-text-icon-right_danger input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px rgba(242,131,143,0.2510);
 	color: #000000;
@@ -12009,9 +11951,7 @@
 	border-left: 1px solid #ED5565;
 }
 
-.xui-form-text-icon-right_<br />
-<b>Notice</b>:  Undefined variable: key in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-icon-right\view\css-text-icon-right.php</b> on line <b>118</b><br />
- input:focus + i{
+.xui-form-text-icon-right_danger input:focus + i{
 	color: #ED5565;
 }
 
@@ -12396,7 +12336,7 @@
 .xui-form-text-material input[type=text]:focus {
 	outline-color: transparent;
 	outline-style: none;
-	border-bottom: 1px solid rgba(139,184,241,0.2510);
+	border-bottom: 1px solid #5D9CEC;
 }
 
 .xui-form-text-material label.xui-form-text-material_focus + div.xui-form-text-material__border{
@@ -12414,7 +12354,7 @@
 
 .xui-form-text-material_primary input[type=text] + .xui-form-text-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>151</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>152</b><br />
 ;	
 }
 
@@ -12441,7 +12381,7 @@
 
 .xui-form-text-material_success input[type=text] + .xui-form-text-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>151</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>152</b><br />
 ;	
 }
 
@@ -12468,7 +12408,7 @@
 
 .xui-form-text-material_info input[type=text] + .xui-form-text-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>151</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>152</b><br />
 ;	
 }
 
@@ -12495,7 +12435,7 @@
 
 .xui-form-text-material_warning input[type=text] + .xui-form-text-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>151</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>152</b><br />
 ;	
 }
 
@@ -12522,7 +12462,7 @@
 
 .xui-form-text-material_danger input[type=text] + .xui-form-text-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>151</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>152</b><br />
 ;	
 }
 
@@ -12549,7 +12489,7 @@
 
 .xui-form-text-material_disabled input[type=text] + .xui-form-text-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>151</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-text-material\view\css-text-material.php</b> on line <b>152</b><br />
 ;	
 }
 
@@ -13049,13 +12989,15 @@
 
 .xui-form-textarea-material textarea:focus + .xui-form-textarea-material__border{
 	width: 100%;
-	background-color: rgba(139,184,241,0.2510);
+	background-color: <br />
+<b>Notice</b>:  Undefined variable: itemTextColorBorderFocusHigh in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>128</b><br />
+;
 }
 
 .xui-form-textarea-material textarea:focus {
 	outline-color: transparent;
 	outline-style: none;
-	border-bottom: 1px solid rgba(139,184,241,0.2510);
+	border-bottom: 1px solid #5D9CEC;
 }
 
 
@@ -13070,7 +13012,7 @@
 
 .xui-form-textarea-material_primary input[type=text] + .xui-form-textarea-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>154</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>155</b><br />
 ;
 }
 
@@ -13097,7 +13039,7 @@
 
 .xui-form-textarea-material_success input[type=text] + .xui-form-textarea-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>154</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>155</b><br />
 ;
 }
 
@@ -13124,7 +13066,7 @@
 
 .xui-form-textarea-material_info input[type=text] + .xui-form-textarea-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>154</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>155</b><br />
 ;
 }
 
@@ -13151,7 +13093,7 @@
 
 .xui-form-textarea-material_warning input[type=text] + .xui-form-textarea-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>154</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>155</b><br />
 ;
 }
 
@@ -13178,7 +13120,7 @@
 
 .xui-form-textarea-material_danger input[type=text] + .xui-form-textarea-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>154</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>155</b><br />
 ;
 }
 
@@ -13205,7 +13147,7 @@
 
 .xui-form-textarea-material_disabled input[type=text] + .xui-form-textarea-material__border{
 	background-color: <br />
-<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>154</b><br />
+<b>Notice</b>:  Undefined index: color.high in <b>X:\XYO\xampp\htdocs\xyo-cloud\module\xui\xui-form-textarea-material\view\css-textarea-material.php</b> on line <b>155</b><br />
 ;
 }
 

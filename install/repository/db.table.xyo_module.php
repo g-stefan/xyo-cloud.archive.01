@@ -11,6 +11,13 @@ defined('XYO_CLOUD') or die('Access is denied');
 $setup = &$this->cloud->getModule("xyo-mod-setup");
 if ($setup) {
 
+	// xui
+	$setup->registerModule(null, null, "xui");
+	$setup->registerModuleAcl("xui", "xyo-none", null, 0, true);
+
+	$setup->registerModule("xui", null, "xui-app-xui");
+	$setup->registerModuleAcl("xui-app-xui", "xyo-control-panel", "wheel", 300, true);
+
 	// xyo-app
 	$setup->registerModule(null, null, "xyo-app");
 	$setup->registerModuleAcl("xyo-app", "xyo-none", null, 0, true);

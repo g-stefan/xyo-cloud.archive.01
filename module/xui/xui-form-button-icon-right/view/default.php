@@ -14,31 +14,15 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<br>
-<br>
-<form style="padding:30px;">
-<hr>
+<div style="padding:32px;">
+<form>
+
 <?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <?php  ?>
 <button type="button" class="xui-form-button-icon-right xui-form-button-icon-right_<?php echo $key; ?>"<?php echo $disabled; ?>><?php echo $key; ?><i class="material-icons">radio_button_unchecked</i></button>
 <br><br>
 <?php }; ?>
-<hr>
-
-<br>
-<br>
-<br>
-<br>
-<br>
 
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>

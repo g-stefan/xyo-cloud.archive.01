@@ -105,7 +105,7 @@ foreach($xuiTheme->theme as $context=>&$value){
 	color: <?php echo $xuiTheme->theme[$context]["input"]["normal"]["color.border"]; ?>;	
 }
 
-.xui-form-text-icon-left_<?php echo $key; ?> input:focus{
+.xui-form-text-icon-left_<?php echo $context; ?> input:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 3px <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.high.rgba"]; ?>;
 	color: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.text"]; ?>;
@@ -116,7 +116,7 @@ foreach($xuiTheme->theme as $context=>&$value){
 	border-left: 1px solid <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;
 }
 
-.xui-form-text-icon-left_<?php echo $key; ?> input:focus + i{
+.xui-form-text-icon-left_<?php echo $context; ?> input:focus + i{
 	color: <?php echo $xuiTheme->theme[$context]["input"]["active"]["color.border"]; ?>;	
 }
 

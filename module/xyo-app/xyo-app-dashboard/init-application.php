@@ -9,5 +9,3 @@
 defined('XYO_CLOUD') or die('Access is denied');
 
 $this->loadGroup("xyo-dashboard");
-//$this->setApplicationTitle($this->getFromLanguage("application_title"));
-

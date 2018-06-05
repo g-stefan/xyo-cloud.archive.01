@@ -14,33 +14,15 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<div style="margin-left:30px">
-<br>
-<br>
+<div style="padding:32px;">
 <form>
-<hr>
+
 <?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <?php  ?>
 <input type="button" value="<?php echo $key; ?>" class="xui-form-button xui-form-button_<?php echo $key; ?>"<?php echo $disabled; ?>></input>
-<br><br>
+<br /><br />
 <?php }; ?>
-<hr>
-
-<br>
-<br>
-<br>
-<br>
-<br>
 
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 </div>

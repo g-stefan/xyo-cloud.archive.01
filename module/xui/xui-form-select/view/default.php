@@ -14,10 +14,9 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<br>
-<br>
-<form style="padding:30px;">
-<hr>
+<div style="padding:32px;">
+<form>
+
 <?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <label for="xui-form-select-id-<?php echo $key; ?>" class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label><br>
@@ -27,34 +26,8 @@ $xuiTheme=&$this->getModule("xui-theme");
   <option value="fiat">Fiat</option>
   <option value="audi">Audi</option>
 </select>
-<br><br>
+<br />
 <?php }; ?>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<hr>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>

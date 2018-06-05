@@ -14,34 +14,17 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<br>
-<br>
+<div style="padding:32px;">
 <form>
-<br>
-<br>
-<label class="xui-form-label xui-form-label_default">Datepicker</label><br>
+
+<label class="xui-form-label xui-form-label_default">Date picker</label><br>
 <input type="text" value="" class="xui-form-text xui-form-text_default datepicker-here" data-language="en"></input>
-<br>
-<br>
-<label class="xui-form-label xui-form-label_default">Datetimepicker</label><br>
+<br />
+<br />
+<label class="xui-form-label xui-form-label_default">Datetime picker</label><br>
 <input type="text" value="" class="xui-form-text xui-form-text_default datepicker-here" data-timepicker="true" data-language="en"></input>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br />
+<br />
 
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>

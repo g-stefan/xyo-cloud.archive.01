@@ -14,33 +14,17 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<br>
-<br>
-<form style="padding:30px;">
-<hr>
-<hr>
+<div style="padding:32px;">
+<form>
+
 <?php foreach($xuiTheme->theme as $key=>$value){ ?>
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <div class="xui-form-checkbox xui-form-checkbox_<?php echo $key; ?>">
     <input type="checkbox" id="chekbox-item-<?php echo $key; ?>" name="chekbox-item" value="chekbox-option-<?php echo $key; ?>"<?php echo $disabled; ?>></input>
     <label for="chekbox-item-<?php echo $key; ?>"><?php echo $key; ?></label>
 </div>
+<br />
 <?php }; ?>
-<hr>
-
-<br>
-<br>
-<br>
-<br>
-<br>
 
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>

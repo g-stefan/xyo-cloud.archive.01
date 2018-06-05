@@ -39,6 +39,10 @@ $title="";
 if($app){
 	if ($app instanceof xyo_mod_Application) {
 		$title=$app->getApplicationTitle();
+	}else
+	if ($app instanceof xyo_Module) {
+		$app->loadLanguage();
+		$title=$app->getFromLanguage("application_title","");
 	};
 };
 $this->generateComponent("xui.dashboard.app-bar-app-title",array("title"=>$title));

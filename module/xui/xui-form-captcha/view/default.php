@@ -14,49 +14,16 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<br>
-<br>
+<div style="padding:32px;">
 <form>
-<hr>
 
-<label class="xui-form-label xui-form-label_default">Captcha</label><br>
 <div class="xui-form-captcha">
 	<img id="captcha_image" src="<?php echo $this->requestUriModule("xui-image-captcha",array("stamp"=>md5(time().rand()))); ?>"></img>
 	<div class="xui-form-captcha__input">
 	<input type="text" value="" class="xui-form-text xui-form-text_default"></input>
-	<button type="button" class="xui-form-text-button-icon" onclick="console.log('refresh');"><i class="material-icons">sync</i></button>
+	<button type="button" class="xui-form-text-button-icon" onclick="var el=document.getElementById('captcha_image');if(el){el.src='<?php echo $this->requestUriModule("xui-image-captcha"); ?>&stamp='+Math.random();};return false;"><i class="material-icons">sync</i></button>
 	</div>
 </div>
 
-
-<hr>
-
-
-
-<br>
-<br>
-<br>
-<br>
-<hr>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>
