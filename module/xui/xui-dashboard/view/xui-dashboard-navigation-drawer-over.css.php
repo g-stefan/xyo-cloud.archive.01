@@ -11,7 +11,7 @@
 
 .xui-dashboard .xui-navigation-drawer_over{
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
-	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color"]; ?>;
 	padding-top: 8px;
 	position: absolute;
 }
@@ -48,11 +48,11 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_over .xui-action:hover{
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer_over .xui-action .xui_effect-ripple__element {
-	background-color: <?php echo $this->navigationDrawerBackgroundColorRipple; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.ripple"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer_over .xui-action .xui-icon-left{

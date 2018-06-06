@@ -6280,21 +6280,21 @@
 
 .xui-dashboard .xui-app-bar{
 	position: relative;	
-	background-color: #1C5EB6;
+	background-color: #12509E;
 	z-index: 4;
 }
 
 .xui-dashboard .xui-app-bar .xui-button{
 	color: #FFFFFF;
-	background-color: #1C5EB6;
+	background-color: #12509E;
 }
 
 .xui-dashboard .xui-app-bar .xui-button:hover{
-	background-color: #1F6ACD;
+	background-color: #155BB4;
 }
 
 .xui-dashboard .xui-app-bar .xui-button .xui_effect-ripple__element{
-	background-color: #2776DE;
+	background-color: #1A72E2;
 }
 
 .xui-dashboard .xui-app-bar .xui-app-title{
@@ -6306,7 +6306,7 @@
 .xui-dashboard .xui-app-bar .xui-brand{
 	width: 287px;
 	transition: width 0.5s ease;
-	background-color: #5392E5;
+	background-color: #FFFFFF;
 }
 
 .xui-dashboard .xui-app-bar .xui-brand_normal.xui-brand_closed{
@@ -6396,18 +6396,18 @@
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active{
 	background-color: #EDF0F4 !important;
-	border-left: 4px solid #5392E5;
+	border-left: 4px solid #4A89DC;
 	padding-left: 8px !important;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action_active{
 	background-color: #FFFFFF !important;
-	border-left: 0px solid #5392E5;
+	border-left: 0px solid #4A89DC;
 	padding-left: 12px !important;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active .xui-icon-left{
-	color: #1C5EB6;
+	color: #12509E;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action:hover .xui-icon-left{
@@ -6415,11 +6415,11 @@
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active:hover .xui-icon-left{
-	color: #1C5EB6;
+	color: #12509E;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action .xui-icon-left{
-	color: #1C5EB6;
+	color: #12509E;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action .xui-text{
@@ -6427,7 +6427,7 @@
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active .xui-text{
-	color: #1C5EB6;
+	color: #12509E;
 	font-weight: normal;
 }
 
@@ -6530,11 +6530,11 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action:hover{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action .xui_effect-ripple__element {
-	background-color: #ACCAF2;
+	background-color: #B8D4F7;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_open .xui-action .xui-icon-left{
@@ -6683,12 +6683,12 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	width: 288px;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui_effect-ripple__element {
-	background-color: #ACCAF2;
+	background-color: #B8D4F7;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui-icon-left{
@@ -6766,7 +6766,7 @@
 /* --- hover --- */
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	width: 288px;
 	overflow: visible;
 }
@@ -6784,13 +6784,13 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	height: auto;
 	width: 216px;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup .xui-next{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	height: auto;
 	width: 216px;
 	margin-left: 0px;
@@ -6842,14 +6842,14 @@
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-action{
 	border-top: 1px solid #E0E0E0;
 	border-right: 1px solid #E0E0E0;
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover{
 	border-top: 1px solid #E0E0E0;
 	border-right: 1px solid #E0E0E0;
 	border-bottom: 1px solid #E0E0E0;
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-action{
@@ -6875,7 +6875,7 @@
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:hover{
 	border-top: none;
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:last-child{
@@ -6962,11 +6962,11 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_over .xui-action:hover{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 }
 
 .xui-dashboard .xui-navigation-drawer_over .xui-action .xui_effect-ripple__element {
-	background-color: #ACCAF2;
+	background-color: #B8D4F7;
 }
 
 .xui-dashboard .xui-navigation-drawer_over .xui-action .xui-icon-left{
@@ -7130,11 +7130,11 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_open .xui-action:hover{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_open .xui-action .xui_effect-ripple__element {
-	background-color: #ACCAF2;
+	background-color: #B8D4F7;
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_open .xui-action .xui-icon-left{
@@ -7301,12 +7301,12 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-action:hover{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	width: 288px;
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-action .xui_effect-ripple__element {
-	background-color: #ACCAF2;
+	background-color: #B8D4F7;
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-action .xui-icon-left{
@@ -7384,7 +7384,7 @@
 /* --- hover --- */
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-popup:hover{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	width: 288px;
 	overflow: visible;
 }
@@ -7402,13 +7402,13 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	height: auto;
 	width: 216px;
 }
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup .xui-next{
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 	height: auto;
 	width: 216px;
 	margin-left: 0px;
@@ -7460,14 +7460,14 @@
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-popup:hover .xui-action{
 	border-top: 1px solid #E0E0E0;
 	border-right: 1px solid #E0E0E0;
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 } 
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-action:hover{
 	border-top: 1px solid #E0E0E0;
 	border-right: 1px solid #E0E0E0;
 	border-bottom: 1px solid #E0E0E0;
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 } 
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-popup .xui-action{
@@ -7493,7 +7493,7 @@
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:hover{
 	border-top: none;
-	background-color: #D8E6F9;
+	background-color: #E6F0FC;
 } 
 
 .xui-dashboard .xui-navigation-drawer_mini.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:last-child{

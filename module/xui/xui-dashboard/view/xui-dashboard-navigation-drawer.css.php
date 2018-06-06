@@ -16,7 +16,7 @@
 	float:left;
 	left: 0;
 	right: 0;
-	border-right: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
 	transition: width 0.5s ease;	
 	z-index: 4;
 
@@ -25,7 +25,7 @@
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-separator{
-	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color"]; ?>;
 	height: 4px;
 	overflow: hidden;
 
@@ -36,7 +36,7 @@
 .xui-dashboard .xui-navigation-drawer .xui-separator .xui-line{
 	height: 2px;
 	overflow: hidden;
-	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
 
 	font-family: "Roboto", sans-serif;
 	box-sizing: border-box;
@@ -55,60 +55,60 @@
 
 .xui-dashboard .xui-navigation-drawer .xui-action .xui-icon-left{
 	transition: color 0.5s ease;
-	color: <?php echo $this->navigationDrawerColorIconLeft; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.icon.left"]; ?>;
 
 	font-family: "Roboto", sans-serif;
 	box-sizing: border-box;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active{
-	background-color: <?php echo $this->navigationDrawerBackgroundColorActive; ?> !important;
-	border-left: 4px solid <?php echo $this->navigationDrawerBarColorActive; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.active"]; ?> !important;
+	border-left: 4px solid <?php echo $xuiTheme->dashboard["navigation.drawer.bar.color.active"]; ?>;
 	padding-left: 8px !important;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action_active{
-	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?> !important;
-	border-left: 0px solid <?php echo $this->navigationDrawerBarColorActive; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color"]; ?> !important;
+	border-left: 0px solid <?php echo $xuiTheme->dashboard["navigation.drawer.bar.color.active"]; ?>;
 	padding-left: 12px !important;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active .xui-icon-left{
-	color: <?php echo $this->navigationDrawerColorActive; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.active"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action:hover .xui-icon-left{
-	color: <?php echo $this->navigationDrawerColorIconLeftHover; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.icon.left.hover"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active:hover .xui-icon-left{
-	color: <?php echo $this->navigationDrawerColorActive; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.active"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action .xui-icon-left{
-	color: <?php echo $this->navigationDrawerColorPopupActive; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.popup.active"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action .xui-text{
-	color: <?php echo $this->navigationDrawerColor; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active .xui-text{
-	color: <?php echo $this->navigationDrawerColorActive; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.active"]; ?>;
 	font-weight: normal;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-popup_active > .xui-action .xui-text{
-	color: <?php echo $this->navigationDrawerColor; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color"]; ?>;
 	font-weight: normal;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action .xui-icon-right{
-	color: <?php echo $this->navigationDrawerColorIconRight; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.icon.right"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer .xui-action_active .xui-icon-right{
-	color: <?php echo $this->navigationDrawerColorIconRight; ?>;
+	color: <?php echo $xuiTheme->dashboard["navigation.drawer.color.icon.right"]; ?>;
 }
 
 /* --- dasboard navigation drawer user --- */
@@ -120,7 +120,7 @@
 	margin-top: -8px;
 	margin-bottom: 8px;
 	transition: height 0.5s ease, width 0.5s ease;	
-	background-color: <?php echo $this->navigationDrawerUserBackgroundColor; ?>;	
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.user.background.color"]; ?>;	
 
 	font-family: "Roboto", sans-serif;
 	box-sizing: border-box;

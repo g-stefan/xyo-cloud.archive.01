@@ -17,6 +17,8 @@ class xui_Theme extends xyo_Module {
 	public $xuiPalette;
 
 	public $theme;
+	public $panel;
+	public $dashboard;
 
 	public $colorCore;
 	public $colorPalette;
@@ -39,6 +41,7 @@ class xui_Theme extends xyo_Module {
 
 		$this->theme=array();
 		$this->panel=array();
+		$this->dashboard=array();
 
 		// default
 		$this->theme["default"]=array();
@@ -266,6 +269,32 @@ class xui_Theme extends xyo_Module {
 		$this->panel["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-light-gray-v1"],0,0,-15);
 		$this->panel["color.title.background"]="#FFFFFF";
 		$this->panel["color.title.color"]=$this->xuiPalette->palette["core-dark-gray-v1"];
+
+		//
+		
+		$this->dashboard["app.bar.background.color"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,-30);
+		$this->dashboard["app.bar.background.color.hover"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,-25);
+		$this->dashboard["app.bar.background.color.ripple"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,-15);
+		$this->dashboard["app.bar.color"]=$this->xuiPalette->palette["material-white"];
+		$this->dashboard["app.bar.brand.background.color"]=$this->xuiPalette->palette["material-white"];
+
+		$this->dashboard["navigation.drawer.background.color"]=$this->xuiPalette->palette["material-white"];
+		$this->dashboard["navigation.drawer.background.color.hover"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,30);
+		$this->dashboard["navigation.drawer.background.color.ripple"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,20);
+
+		$this->dashboard["navigation.drawer.color"]=$this->xuiPalette->palette["material-black"];
+		$this->dashboard["navigation.drawer.color.icon.left"]=$this->xuiPalette->palette["material-grey-p600"];
+		$this->dashboard["navigation.drawer.color.icon.right"]=$this->xuiPalette->palette["material-grey-p800"];
+		$this->dashboard["navigation.drawer.color.border"]=$this->xuiPalette->palette["material-grey-p300"];
+
+		$this->dashboard["navigation.drawer.user.background.color"]=$this->xuiPalette->palette["core-aqua"];
+
+		$this->dashboard["navigation.drawer.color.active"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,-30);
+		$this->dashboard["navigation.drawer.color.popup.active"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,-30);
+		$this->dashboard["navigation.drawer.color.icon.left.hover"]=$this->xuiPalette->palette["material-grey-p900"];
+		$this->dashboard["navigation.drawer.background.color.active"]=$this->xuiPalette->palette["core-light-gray"];
+		$this->dashboard["navigation.drawer.bar.color.active"]=$this->xuiPalette->palette["core-blue-jeans-v2"];
+
 
 	}
 

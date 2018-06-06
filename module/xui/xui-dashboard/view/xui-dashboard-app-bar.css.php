@@ -12,25 +12,25 @@
 
 .xui-dashboard .xui-app-bar{
 	position: relative;	
-	background-color: <?php echo $this->appBarBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["app.bar.background.color"]; ?>;
 	z-index: 4;
 }
 
 .xui-dashboard .xui-app-bar .xui-button{
-	color: <?php echo $this->appBarColor; ?>;
-	background-color: <?php echo $this->appBarBackgroundColor; ?>;
+	color: <?php echo $xuiTheme->dashboard["app.bar.color"]; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["app.bar.background.color"]; ?>;
 }
 
 .xui-dashboard .xui-app-bar .xui-button:hover{
-	background-color: <?php echo $this->appBarBackgroundColorHover; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["app.bar.background.color.hover"]; ?>;
 }
 
 .xui-dashboard .xui-app-bar .xui-button .xui_effect-ripple__element{
-	background-color: <?php echo $this->appBarBackgroundColorRipple; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["app.bar.background.color.ripple"]; ?>;
 }
 
 .xui-dashboard .xui-app-bar .xui-app-title{
-	color: <?php echo $this->appBarColor; ?>;
+	color: <?php echo $xuiTheme->dashboard["app.bar.color"]; ?>;
 }
 
 /* --- dasboard app bar brand --- */
@@ -38,7 +38,7 @@
 .xui-dashboard .xui-app-bar .xui-brand{
 	width: <?php echo $this->navigationDrawerOpenWidth-1; ?>px;
 	transition: width 0.5s ease;
-	background-color: <?php echo $this->appBarBrandBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["app.bar.brand.background.color"]; ?>;
 }
 
 .xui-dashboard .xui-app-bar .xui-brand_normal.xui-brand_closed{

@@ -859,18 +859,18 @@ foreach($this->tableType as $key_=>$value_){
 
 	if($this->dialogNew_){
 		$this->setHtmlJsSource(
-			"$(\"#xyo-app-table-modal-new\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
+			"$(\"#xyo-app-table-modal-new\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 		,"load");
 	};
 
 	if($this->dialogEdit_){
 		$this->setHtmlJsSource(
-			"$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
+			"$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 		,"load");
 	};
 
 	$this->setHtmlJsSource(
-		"$(\"#xyo-app-table-modal-delete\").iziModal({transitionIn:\"comingIn\",padding:\"16px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
+		"$(\"#xyo-app-table-modal-delete\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"".$xuiTheme->panel["color.title.background"]."\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 	,"load");
 
 	if($this->dialogNew_){

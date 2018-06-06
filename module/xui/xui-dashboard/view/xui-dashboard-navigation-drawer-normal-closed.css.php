@@ -11,7 +11,7 @@
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed{
 	width: <?php echo $this->navigationDrawerMiniWidth; ?>px;
-	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color"]; ?>;
 	padding-top: 8px;
 	z-index: 4;
 	overflow: visible;
@@ -45,7 +45,7 @@
 	padding-left: 12px;
 	cursor: pointer;
 	display: block;
-	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color"]; ?>;
 	transition: background-color 0.5s ease, height 0.5s ease;
 
 	-webkit-touch-callout: none;
@@ -68,12 +68,12 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover{
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui_effect-ripple__element {
-	background-color: <?php echo $this->navigationDrawerBackgroundColorRipple; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.ripple"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action .xui-icon-left{
@@ -151,7 +151,7 @@
 /* --- hover --- */
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover{
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 	width: <?php echo $this->navigationDrawerOpenWidth; ?>px;
 	overflow: visible;
 }
@@ -169,13 +169,13 @@
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup{
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 	height: auto;
 	width: <?php echo $this->navigationDrawerOpenWidth-$this->navigationDrawerMiniWidth; ?>px;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-next .xui-popup .xui-next{
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 	height: auto;
 	width: <?php echo $this->navigationDrawerOpenWidth-$this->navigationDrawerMiniWidth; ?>px;
 	margin-left: 0px;
@@ -225,23 +225,23 @@
 /* --- outline --- */
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup:hover .xui-action{
-	border-top: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
-	border-right: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover{
-	border-top: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
-	border-right: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
-	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	border-top: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-action{
 	border-top: 0px solid #000000;
 	border-right: 0px solid #000000;
 	border-bottom: 0px solid #000000;
-	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-action:hover .xui-icon-left{
@@ -255,17 +255,17 @@
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action{
 	border-top: none;
 	border-bottom: none;
-	background-color: <?php echo $this->navigationDrawerBackgroundColor; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color"]; ?>;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:hover{
 	border-top: none;
-	background-color: <?php echo $this->navigationDrawerBackgroundColorHover; ?>;
+	background-color: <?php echo $xuiTheme->dashboard["navigation.drawer.background.color.hover"]; ?>;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-action:last-child{
 	border-top: none;
-	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-popup .xui-next .xui-action:last-child{
@@ -275,16 +275,16 @@
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-popup:last-child .xui-next .xui-action:last-child{
 	border-top: none;
-	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-separator{
-	border-right: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
+	border-right: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
 } 
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup .xui-next .xui-separator:last-child{
 	border-top: none;
-	border-bottom: 1px solid <?php echo $this->navigationDrawerColorBorder; ?>;
+	border-bottom: 1px solid <?php echo $xuiTheme->dashboard["navigation.drawer.color.border"]; ?>;
 }
 
 .xui-dashboard .xui-navigation-drawer_normal.xui-navigation-drawer_closed .xui-popup_active .xui-next > .xui-action_active{

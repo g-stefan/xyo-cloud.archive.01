@@ -12,30 +12,8 @@ $className = "xui_Dasboard";
 
 class xui_Dasboard extends xyo_Module {
 
-	public $appBarBackgroundColor;
-	public $appBarBackgroundColorHover;
-	public $appBarBackgroundColorRipple;
-	public $appBarColor;
-
-	public $appBarBrandBackgroundColor;
-
 	public $navigationDrawerOpenWidth;
 	public $navigationDrawerMiniWidth;
-	public $navigationDrawerBackgroundColor;
-	public $navigationDrawerBackgroundColorHover;
-	public $navigationDrawerBackgroundColorRipple;
-	public $navigationDrawerColor;
-	public $navigationDrawerColorIconLeft;
-	public $navigationDrawerColorIconRight;
-	public $navigationDrawerColorBorder;
-	public $navigationDrawerColorActive;
-	public $navigationDrawerColorPopupActive;
-	public $navigationDrawerColorIconLeftHover;
-	public $navigationDrawerBackgroundColorActive;
-	public $navigationDrawerBarColorActive;
-
-	public $navigationDrawerUserBackgroundColor;
-
 
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
@@ -46,39 +24,9 @@ class xui_Dasboard extends xyo_Module {
 			)));
 			$this->setHtmlJs($this->site."lib/xui/js/xui-dashboard.js");
         	}
-
-		$xuiColor=&$this->getModule("xui-color");
-		$xuiPalette=&$this->getModule("xui-palette");
-		$xuiTheme=&$this->getModule("xui-theme");
-
-		$colorApp = $xuiPalette->palette["core-blue-jeans"];
-		$colorAppAdjust = -20;
-
-		$this->appBarBackgroundColor=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust);
-		$this->appBarBackgroundColorHover=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust + 5);
-		$this->appBarBackgroundColorRipple=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust + 10);
-		$this->appBarColor=$xuiPalette->palette["material-white"];
-
-		$this->appBarBrandBackgroundColor=$xuiPalette->palette["core-blue-jeans"];
-
+		
 		$this->navigationDrawerOpenWidth=(48+12+12)*4;
-		$this->navigationDrawerMiniWidth=48+12+12;
-		$this->navigationDrawerBackgroundColor=$xuiPalette->palette["material-white"];
-		$this->navigationDrawerBackgroundColorHover=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,30);
-		$this->navigationDrawerBackgroundColorRipple=$xuiColor->rgbHexHSLAdjust($xuiPalette->palette["core-blue-jeans"],0,0,20);
-		$this->navigationDrawerColor=$xuiPalette->palette["material-black"];
-		$this->navigationDrawerColorIconLeft=$xuiPalette->palette["material-grey-p600"];
-		$this->navigationDrawerColorIconRight=$xuiPalette->palette["material-grey-p800"];
-		$this->navigationDrawerColorBorder=$xuiPalette->palette["material-grey-p300"];
-
-		$this->navigationDrawerUserBackgroundColor=$xuiPalette->palette["core-aqua"];
-
-		$this->navigationDrawerColorActive=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust);
-		$this->navigationDrawerColorPopupActive=$xuiColor->rgbHexHSLAdjust($colorApp,0,0,$colorAppAdjust);
-		$this->navigationDrawerColorIconLeftHover=$xuiPalette->palette["material-grey-p900"];
-		$this->navigationDrawerBackgroundColorActive=$xuiPalette->palette["core-light-gray"];
-		$this->navigationDrawerBarColorActive=$xuiPalette->palette["core-blue-jeans"];
-
+		$this->navigationDrawerMiniWidth=48+12+12;		
 	}
 
 	public function scanNavigationDrawerMenuActive(&$menu){
