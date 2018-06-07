@@ -993,6 +993,10 @@ class xyo_Module extends xyo_Config {
 		$this->cloud->clearRequest();
 	}
 
+	public function mergeRequest($value) {
+		$this->cloud->mergeRequest($value);
+	}
+
 	public function getParameterRequest($name, $default=null) {
 		return $this->cloud->getParameterRequest($name, $this->parameters, $default);
 	}
