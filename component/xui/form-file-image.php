@@ -84,8 +84,8 @@ if(strlen($fileName)>0){
 		$src.="var ".$this->getElementId($element)."_filename=\"".$fileName."\";";
 		$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",\"".$fileName."\");";
 	}else{
-		$src.="var ".$this->getElementId($element)."_filename=\"".$this->site.$fileName."\";";
-		$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",\"".$this->site.$fileName."\");";
+		$src.="var ".$this->getElementId($element)."_filename=\"".urlencode($this->site.$fileName)."\";";
+		$src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",\"".urlencode($this->site.$fileName)."\");";
 	};
 }else{
 	$src.="var ".$this->getElementId($element)."_filename=\"\";";
@@ -135,7 +135,7 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 	if(substr($fileName, 0, strlen("http")) === "http"){ ?>
 		--><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
 <?php	}else{ ?>
-		--><a href="<?php echo $this->site.$fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
+		--><a href="<?php echo urlencode($this->site.$fileName); ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
 <?php	}; ?>
 <?php }; ?>
 --><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon_danger" onclick="<?php $this->eElementId($element); ?>__delete();return false;"><i class="material-icons">close</i></button>
