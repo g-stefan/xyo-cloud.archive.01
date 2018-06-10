@@ -95,7 +95,7 @@ class xui_FormFileImage extends xyo_Module {
 		if(substr($fileName, 0, strlen("http")) === "http"){
 			echo "\tbackground-image: url(\"".$fileName."\");\r\n";
 		}else{
-			echo "\tbackground-image: url(\"".urlencode($this->site.$fileName)."\");\r\n";
+			echo "\tbackground-image: url(\"".$this->site.$fileName."\");\r\n";
 		};
 		echo "\tbackground-size: ".number_format((100*$zoom*$imageWidth)/$viewX,2,".","")."% auto;\r\n";
 
