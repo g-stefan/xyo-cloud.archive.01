@@ -206,9 +206,9 @@ function doValueSave(key){
 
 <?php
 		
-	echo "<div class=\"xui-table\">";
-	echo "<div class=\"xui-table-toolbar-top\">";
-	echo "<div class=\"xui-table-toolbar-top__left\">";
+	echo "<div class=\"xui-application-table\">";
+	echo "<div class=\"xui-application-table-toolbar-top\">";
+	echo "<div class=\"xui-application-vvtable-toolbar-top__left\">";
 	
 	if($has_search){
                 ?>
@@ -230,7 +230,7 @@ function doValueSave(key){
           
 
         echo "</div>";
- 	echo "<div class=\"xui-table-toolbar-top__right\">";
+ 	echo "<div class=\"xui-application-vvvtable-toolbar-top__right\">";
  	                        
         foreach (array_reverse($this->tableSelect,true) as $key => $value) {
             if ($value) {
@@ -703,7 +703,7 @@ function doValueSave(key){
 </div>
 
 </div>
-<div class="xui-table-toolbar-bottom">
+<div class="xui-application-table-toolbar-bottom">
         <div style="margin-left:4px;margin-right:4px">
 	<div class="row-fluid">
 	<div class="span12">

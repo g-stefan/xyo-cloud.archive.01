@@ -55,14 +55,14 @@
 	height: calc(100% - 48px);
 }
 
-.xui-application .xui-table{
+.xui-application .xui-application-table{
 	position: relative;
 	width: 100%;
 	height: 100%;
 	overflow: visible;
 }
 
-.xui-application .xui-table .xui-table-toolbar-top{
+.xui-application .xui-application-table .xui-application-table-toolbar-top{
 	position: relative;
 	height: 40px;
 	width: 100%;
@@ -72,7 +72,7 @@
 	box-sizing: border-box;
 }
 
-.xui-application .xui-table .xui-table-toolbar-bottom{
+.xui-application .xui-application-table .xui-application-table-toolbar-bottom{
 	position: relative;
 	height: 40px;
 	width: 100%;
@@ -84,7 +84,7 @@
 	box-sizing: border-box;
 }
 
-.xui-application .xui-table .xui-content{
+.xui-application .xui-application-table .xui-content{
 	position: relative;
 	width: 100%;
 	height: calc(100% - 84px);
@@ -151,7 +151,7 @@
 
 }
 
-.xui-application .xui-table .xui-table-toolbar-top {
+.xui-application .xui-application-table .xui-application-table-toolbar-top {
 	padding-top: 4px;
 	border-bottom: 0px solid #000000;
 }

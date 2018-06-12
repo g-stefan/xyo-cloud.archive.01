@@ -74,6 +74,18 @@ class xui_Theme extends xyo_Module {
 		$this->theme["default"]["alert"]["color.text"]="#000000";
 		$this->theme["default"]["alert"]["color.background"]=$this->xuiPalette->palette["core-light-gray-v1"];
 
+		$this->theme["default"]["table"]=array();
+		$this->theme["default"]["table"]["color.text.head"]="#000000";
+		$this->theme["default"]["table"]["normal"]=array();
+		$this->theme["default"]["table"]["normal"]["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-light-gray-v1"],0,0,-15);
+		$this->theme["default"]["table"]["normal"]["color.text"]="#000000";
+		$this->theme["default"]["table"]["normal"]["color.background"]="#FFFFFF";
+		$this->theme["default"]["table"]["normal"]["color.background.even"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,30);
+		$this->theme["default"]["table"]["active"]=array();
+		$this->theme["default"]["table"]["active"]["color.border"]=$this->xuiPalette->palette["core-blue-jeans-v1"];
+		$this->theme["default"]["table"]["active"]["color.text"]="#000000";
+		$this->theme["default"]["table"]["active"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,25);
+
 		// primary
 		$this->theme["primary"]=array();
 		$this->theme["primary"]["button"]=array();
@@ -104,6 +116,18 @@ class xui_Theme extends xyo_Module {
 		$this->theme["primary"]["alert"]["color.border"]=$this->xuiPalette->palette["core-blue-jeans-v2"];
 		$this->theme["primary"]["alert"]["color.text"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v2"],0,0,-15);
 		$this->theme["primary"]["alert"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,30);
+
+		$this->theme["primary"]["table"]=array();
+		$this->theme["primary"]["table"]["color.text.head"]=$this->xuiPalette->palette["core-blue-jeans-v2"];
+		$this->theme["primary"]["table"]["normal"]=array();
+		$this->theme["primary"]["table"]["normal"]["color.border"]=$this->xuiPalette->palette["core-blue-jeans-v2"];
+		$this->theme["primary"]["table"]["normal"]["color.text"]="#000000";
+		$this->theme["primary"]["table"]["normal"]["color.background"]="#FFFFFF";
+		$this->theme["primary"]["table"]["normal"]["color.background.even"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,30);
+		$this->theme["primary"]["table"]["active"]=array();
+		$this->theme["primary"]["table"]["active"]["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v2"],0,0,-15);
+		$this->theme["primary"]["table"]["active"]["color.text"]="#000000";
+		$this->theme["primary"]["table"]["active"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-v1"],0,0,25);
 
 		// success
 		$this->theme["success"]=array();
@@ -136,6 +160,17 @@ class xui_Theme extends xyo_Module {
 		$this->theme["success"]["alert"]["color.text"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grass-v2"],0,0,-15);
 		$this->theme["success"]["alert"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grass-v1"],0,0,30);
 
+		$this->theme["success"]["table"]=array();
+		$this->theme["success"]["table"]["color.text.head"]=$this->xuiPalette->palette["core-grass-v2"];
+		$this->theme["success"]["table"]["normal"]=array();
+		$this->theme["success"]["table"]["normal"]["color.border"]=$this->xuiPalette->palette["core-grass-v2"];
+		$this->theme["success"]["table"]["normal"]["color.text"]="#000000";
+		$this->theme["success"]["table"]["normal"]["color.background"]="#FFFFFF";
+		$this->theme["success"]["table"]["normal"]["color.background.even"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grass-v1"],0,0,30);
+		$this->theme["success"]["table"]["active"]=array();
+		$this->theme["success"]["table"]["active"]["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grass-v2"],0,0,-15);
+		$this->theme["success"]["table"]["active"]["color.text"]="#000000";
+		$this->theme["success"]["table"]["active"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grass-v1"],0,0,25);
 
 		// info
 		$this->theme["info"]=array();
@@ -168,6 +203,17 @@ class xui_Theme extends xyo_Module {
 		$this->theme["info"]["alert"]["color.text"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-aqua-v2"],0,0,-15);
 		$this->theme["info"]["alert"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-aqua-v1"],0,0,30);
 
+		$this->theme["info"]["table"]=array();
+		$this->theme["info"]["table"]["color.text.head"]=$this->xuiPalette->palette["core-aqua-v2"];
+		$this->theme["info"]["table"]["normal"]=array();
+		$this->theme["info"]["table"]["normal"]["color.border"]=$this->xuiPalette->palette["core-aqua-v2"];
+		$this->theme["info"]["table"]["normal"]["color.text"]="#000000";
+		$this->theme["info"]["table"]["normal"]["color.background"]="#FFFFFF";
+		$this->theme["info"]["table"]["normal"]["color.background.even"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-aqua-v1"],0,0,30);
+		$this->theme["info"]["table"]["active"]=array();
+		$this->theme["info"]["table"]["active"]["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-aqua-v2"],0,0,-15);
+		$this->theme["info"]["table"]["active"]["color.text"]="#000000";
+		$this->theme["info"]["table"]["active"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-aqua-v1"],0,0,25);
 
 		// warning
 		$this->theme["warning"]=array();
@@ -200,6 +246,17 @@ class xui_Theme extends xyo_Module {
 		$this->theme["warning"]["alert"]["color.text"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-sunflower-v2"],0,0,-15);
 		$this->theme["warning"]["alert"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-sunflower-v1"],0,0,30);
 
+		$this->theme["warning"]["table"]=array();
+		$this->theme["warning"]["table"]["color.text.head"]=$this->xuiPalette->palette["core-sunflower-v2"];
+		$this->theme["warning"]["table"]["normal"]=array();
+		$this->theme["warning"]["table"]["normal"]["color.border"]=$this->xuiPalette->palette["core-sunflower-v2"];
+		$this->theme["warning"]["table"]["normal"]["color.text"]="#000000";
+		$this->theme["warning"]["table"]["normal"]["color.background"]="#FFFFFF";
+		$this->theme["warning"]["table"]["normal"]["color.background.even"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-sunflower-v1"],0,0,30);
+		$this->theme["warning"]["table"]["active"]=array();
+		$this->theme["warning"]["table"]["active"]["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-sunflower-v2"],0,0,-15);
+		$this->theme["warning"]["table"]["active"]["color.text"]="#000000";
+		$this->theme["warning"]["table"]["active"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-sunflower-v1"],0,0,25);
 
 		// danger
 		$this->theme["danger"]=array();
@@ -232,6 +289,17 @@ class xui_Theme extends xyo_Module {
 		$this->theme["danger"]["alert"]["color.text"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grapefruit-v2"],0,0,-15);
 		$this->theme["danger"]["alert"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grapefruit-v1"],0,0,30);
 
+		$this->theme["danger"]["table"]=array();
+		$this->theme["danger"]["table"]["color.text.head"]=$this->xuiPalette->palette["core-grapefruit-v2"];
+		$this->theme["danger"]["table"]["normal"]=array();
+		$this->theme["danger"]["table"]["normal"]["color.border"]=$this->xuiPalette->palette["core-grapefruit-v2"];
+		$this->theme["danger"]["table"]["normal"]["color.text"]="#000000";
+		$this->theme["danger"]["table"]["normal"]["color.background"]="#FFFFFF";
+		$this->theme["danger"]["table"]["normal"]["color.background.even"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grapefruit-v1"],0,0,30);
+		$this->theme["danger"]["table"]["active"]=array();
+		$this->theme["danger"]["table"]["active"]["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grapefruit-v2"],0,0,-15);
+		$this->theme["danger"]["table"]["active"]["color.text"]="#000000";
+		$this->theme["danger"]["table"]["active"]["color.background"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-grapefruit-v1"],0,0,25);
 
 		// disabled
 		$this->theme["disabled"]=array();
@@ -264,6 +332,20 @@ class xui_Theme extends xyo_Module {
 		$this->theme["disabled"]["alert"]["color.text"]="#EEEEEE";
 		$this->theme["disabled"]["alert"]["color.background"]="#FFFFFF";
 
+		$this->theme["disabled"]["table"]=array();
+		$this->theme["disabled"]["table"]["color.text.head"]="#EEEEEE";
+		$this->theme["disabled"]["table"]["normal"]=array();
+		$this->theme["disabled"]["table"]["normal"]["color.border"]="#EEEEEE";
+		$this->theme["disabled"]["table"]["normal"]["color.text"]="#EEEEEE";
+		$this->theme["disabled"]["table"]["normal"]["color.background"]="#FFFFFF";
+		$this->theme["disabled"]["table"]["normal"]["color.background.even"]="#FFFFFF";
+		$this->theme["disabled"]["table"]["active"]=array();
+		$this->theme["disabled"]["table"]["active"]["color.border"]="#EEEEEE";
+		$this->theme["disabled"]["table"]["active"]["color.text"]="#EEEEEE";
+		$this->theme["disabled"]["table"]["active"]["color.background"]="#FFFFFF";
+
+		//
+		
 		$this->inputBorderRadius=3;		
 
 		$this->panel["color.border"]=$this->xuiColor->rgbHexHSLAdjust($this->xuiPalette->palette["core-light-gray-v1"],0,0,-15);

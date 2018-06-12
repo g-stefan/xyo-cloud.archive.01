@@ -35,4 +35,5 @@ defined('XYO_CLOUD') or die('Access is denied');
 <a href="<?php echo $this->requestUriModule("xui-form-text-required"); ?>">Text required</a><br />
 <a href="<?php echo $this->requestUriModule("xui-form-textarea"); ?>">Textarea</a><br />
 <a href="<?php echo $this->requestUriModule("xui-form-textarea-material"); ?>">Textare material</a><br />
+<a href="<?php echo $this->requestUriModule("xui-table"); ?>">Table</a><br />
 </div>

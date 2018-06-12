@@ -80,7 +80,8 @@ class xui_Complete extends xyo_Module {
 			"xui-toolbar",
 			"xui-alert",
 			"xui-application",
-			"xui-box"
+			"xui-box",
+			"xui-table"
 		);
 	}
 
