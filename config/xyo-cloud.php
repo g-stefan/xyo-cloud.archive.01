@@ -35,27 +35,32 @@ $this->set("locale_time_format","H:i:s");
 //
 //
 $this->set("configured", false);
+//
+// local init settings
+//
+$this->includeConfig("xyo-cloud.local.init");
+//
+// website settings
+//
 $this->includeConfig("config.website");
 // ---
-// Recover site value from server request
+// recover site value from server request
 $this->setSiteFromServerRequest();
 // ---
-if ($this->get("configured")) {
-    
-} else {
-    define("XYO_CLOUD_INSTALL", 1);
-    $this->includeConfig("xyo-cloud.install");
-    return;
+if (!$this->get("configured",false)) {
+	define("XYO_CLOUD_INSTALL", 1);
+	$this->includeConfig("xyo-cloud.install");
+	return;
 }
 $this->set("language", $this->get("default_language", "en-GB"));
 //
 //
-$this->setModule(null, null, "xyo", true, null, true, false);
+$this->setModule(null, null, "xyo");
 //
 // datasource 
 //
 $layer = $this->cloud->get("datasource_layer", "xyo-datasource-xyo");
-$this->setModule("xyo", null, $layer, true, null, true, false);
+$this->setModule("xyo", null, $layer);
 //
 // process settings
 //
@@ -66,8 +71,8 @@ for($dsSettings->load();$dsSettings->isValid();$dsSettings->loadNext()){
 };
 //
 //
-$this->setModule("xyo", null, "xyo-mod-ds-acl", true, null, true, false);
-$this->setModule("xyo", null, "xyo-mod-ds-user", true, null, true, false);
+$this->setModule("xyo", null, "xyo-mod-ds-acl");
+$this->setModule("xyo", null, "xyo-mod-ds-user");
 //
 // check for user
 //
@@ -101,14 +106,14 @@ if ($website_language === "*") {
 //
 // set module loader ... (must be after user)
 //
-$this->setModule("xyo", null, "xyo-mod-ds-loader-mod", true, null, true, false);
+$this->setModule("xyo", null, "xyo-mod-ds-loader-mod");
 $this->setModuleLoader("xyo-mod-ds-loader-mod");
 $this->setGroupLoader("xyo-mod-ds-loader-mod");
 //
 //
 $this->includeConfig("xyo-cloud.module");
 //
-// Local configuration/settings
+// local configuration/settings
 //
-$this->includeConfig("xyo-cloud.local");
+$this->includeConfig("xyo-cloud.local.config");
 //

@@ -175,11 +175,6 @@
 	width:100%;
 }
 
-.xyo-app-table__table_delete{
-	border-left: 1px solid #DDDDDD !important;
-	border-right: 1px solid #DDDDDD !important;
-}
-
 .xui-application-table-toolbar-top__left{
 	display:inline-block;
 	width:100%;
