@@ -36,4 +36,6 @@ defined('XYO_CLOUD') or die('Access is denied');
 <a href="<?php echo $this->requestUriModule("xui-form-textarea"); ?>">Textarea</a><br />
 <a href="<?php echo $this->requestUriModule("xui-form-textarea-material"); ?>">Textare material</a><br />
 <a href="<?php echo $this->requestUriModule("xui-table"); ?>">Table</a><br />
+<a href="<?php echo $this->requestUriModule("xui-progress-bar"); ?>">Progress bar</a><br />
+<a href="<?php echo $this->requestUriModule("xui-alert"); ?>">Alert</a><br />
 </div>

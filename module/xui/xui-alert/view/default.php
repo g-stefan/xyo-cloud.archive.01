@@ -14,29 +14,11 @@ $xuiTheme=&$this->getModule("xui-theme");
 
 ?>
 
-<br>
-<br>
-<form>
-<hr>
+<div style="padding:32px;">
+
 <?php foreach($xuiTheme->theme as $key=>&$value){ ?>
 <div class="xui-alert xui-alert_<?php echo $key; ?>"><?php echo $key; ?></div>
-<br><br>
+<br />
 <?php }; ?>
-<hr>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-
-</form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>
