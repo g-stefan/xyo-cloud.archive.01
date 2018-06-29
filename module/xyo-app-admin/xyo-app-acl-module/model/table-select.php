@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 if($this->id_xyo_module){
     $this->ds->id_xyo_module=$this->id_xyo_module;

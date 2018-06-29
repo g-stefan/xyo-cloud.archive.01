@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $title=$this->getArgument("title-text",$this->getFromLanguage($this->getArgument("title",$this->getParameter("form_title"))));
 $noTitle=$this->getArgument("no-title",0);

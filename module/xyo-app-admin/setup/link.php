@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $this->processLink($package,$path,"xyo-app-acl-module");
 $this->processLink($package,$path,"xyo-app-acl-module-parameter");

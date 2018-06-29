@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 if($this->setPrimaryKeyValue($this->getElementValueString("primary_key_value", $this->getRequest("primary_key_value")))){
 	$this->setElementValue("primary_key_value",$this->primaryKeyValue);

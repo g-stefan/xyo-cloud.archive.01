@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $popup = &$this->addItem($menu, "item", "<i class=\"material-icons\">settings</i>", "application", $module, null);
 $this->addGroup($popup, "xyo-control-panel");

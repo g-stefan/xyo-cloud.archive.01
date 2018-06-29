@@ -8,7 +8,7 @@
 //
 */
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $this->palette["tango-plum-p1"]="#AD7FA8";
 $this->palette["tango-plum-p2"]="#75507B";

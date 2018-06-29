@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 class xyo_datasource_csv_Query extends xyo_Config {
 
@@ -885,9 +885,7 @@ class xyo_datasource_csv_Query extends xyo_Config {
 	}
 
 	function prepareResult_() {
-		if ($this->resultCount_) {
-
-		} else {
+		if (!$this->resultCount_) {
 			return;
 		}
 		//group by,order

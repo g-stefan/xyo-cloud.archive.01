@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 //
 // to do file lock/wait ..
@@ -1478,7 +1478,7 @@ class xyo_datasource_xyo_Table extends xyo_Config {
 
 	function writeBegin_($file_) {
 		fwrite($file_, "<" . "?" . "php ");
-		fwrite($file_, "defined('XYO_CLOUD') or die('Access is denied'); if(true){}else{");
+		fwrite($file_, "defined(\"XYO_CLOUD\") or die(\"Access is denied\"); return; ");
 		fwrite($file_, "// " . $this->realName_ . " - datasource ?>\r\n");
 	}
 

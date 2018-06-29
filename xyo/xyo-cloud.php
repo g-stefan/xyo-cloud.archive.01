@@ -67,18 +67,16 @@ class xyo_Cloud extends xyo_Config {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
 			if ($moduleObject->enabled) {
-				if ($moduleObject->loaded) {
-
-				} else {
+				if (!$moduleObject->loaded) {
 					if ($this->loadModule($moduleObject->module)) {
 
 					} else {
 						return null;
-					}
-				}
+					};
+				};
 				return $moduleObject->object->moduleMainExec($parameters);
-			}
-		}
+			};
+		};
 		return null;
 	}
 
@@ -86,32 +84,30 @@ class xyo_Cloud extends xyo_Config {
 		$rValue = null;
 		if (strlen($module) == 0) {
 			return $rValue;
-		}
+		};
 
 		if (array_key_exists($module, $this->moduleList)) {
-			if ($this->moduleList[$module]->check) {
-
-			} else {
+			if (!$this->moduleList[$module]->check) {
 				return $this->moduleList[$module];
-			}
-		}
+			};
+		};
 
 		if ($this->moduleLoader) {
 			if ($this->moduleLoader->systemSetModule($module)) {
 				if (array_key_exists($module, $this->moduleList)) {
 					$this->moduleList[$module]->check = false;
 					return $this->moduleList[$module];
-				}
-			}
-		}
+				};
+			};
+		};
 
 		if (array_key_exists($module, $this->moduleList)) {
 			if ($this->moduleList[$module]->check) {
 				$this->moduleList[$module]->check = false;
 				$this->moduleList[$module]->enabled = false;
-			}
+			};
 			return $this->moduleList[$module];
-		}
+		};
 
 		return $rValue;
 	}
@@ -121,19 +117,14 @@ class xyo_Cloud extends xyo_Config {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
 			if ($moduleObject->enabled) {
-
-				if ($moduleObject->loaded) {
-
-				} else {
-					if ($this->loadModule($moduleObject->module)) {
-
-					} else {
+				if (!$moduleObject->loaded) {
+					if (!$this->loadModule($moduleObject->module)) {
 						return $rValue;
-					}
-				}
+					};
+				};
 				return $moduleObject->object;
-			}
-		}
+			};
+		};
 		return $rValue;
 	}
 
@@ -142,7 +133,7 @@ class xyo_Cloud extends xyo_Config {
 		if ($moduleObject) {
 			$moduleObject->enabled = $enable;
 			return true;
-		}
+		};
 		return false;
 	}
 
@@ -177,21 +168,21 @@ class xyo_Cloud extends xyo_Config {
 
 			if ($moduleObject->loaded) {
 				return true;
-			}
+			};
 
 			if ($moduleObject->init) {
 				return true;
-			}
+			};
 
 			$initFile = $moduleObject->path . "cloud.php";
 			if (file_exists($initFile)) {
 				require_once($initFile);
-			}
+			};
 
 			$moduleObject->init = true;
 			return true;
 
-		}
+		};
 		return false;
 	}
 
@@ -201,33 +192,34 @@ class xyo_Cloud extends xyo_Config {
 
 			if (!$moduleObject->enabled) {
 				return false;
-			}
+			};
 
 			if ($moduleObject->loaded) {
 				return true;
-			}
+			};
 
 			if (!$moduleObject->init) {
 
 				$initFile = $moduleObject->path . "cloud.php";
 				if (file_exists($initFile)) {
 					require_once($initFile);
-				}
+				};
 
-			}
+			};
 
 			$moduleObject->init = true;
 
 			if (!$this->loadReferenceLinks($module)) {
 				return false;
-			}
+			};
 
 			$moduleFile = $moduleObject->path . "module.php";
 			$className = "xyo_Module";
 			$module = $moduleObject->module;
 			if (file_exists($moduleFile)) {
 				require_once($moduleFile);
-			}
+			};
+
 			$moduleObject->className = $className;
 
 			if ($className === "xyo_Module") {
@@ -239,12 +231,12 @@ class xyo_Cloud extends xyo_Config {
 							$moduleObject->className = $base->className;
 						} else {
 							return false;
-						}
-					}
-				}
+						};
+					};
+				};
 			} else {
 				$moduleObject->baseClass = $className;
-			}
+			};
 
 			$moduleObject->pathBase = array($module => $moduleObject->path);
 			$moduleBase = $module;
@@ -253,17 +245,17 @@ class xyo_Cloud extends xyo_Config {
 				$base = &$this->getModuleObject($moduleBase);
 				if ($base) {
 					$moduleObject->pathBase[$moduleBase] = $base->path;
-				}
-			}
+				};
+			};
 
 			$moduleObject->loaded = true;
 			$moduleObject->object = new $moduleObject->className($moduleObject, $this);
 			if ($moduleObject->enabled) {
 				$moduleObject->object->moduleInit();
-			}
+			};
 
 			return $moduleObject->enabled;
-		}
+		};
 		return false;
 	}
 
@@ -277,14 +269,14 @@ class xyo_Cloud extends xyo_Config {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
 			$moduleObject->check = $check;
-		}
+		};
 	}
 
 	public function setModuleParameters($module, $parameters) {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
 			$moduleObject->parameters = $parameters;
-		}
+		};
 	}
 
 	public function setModule($moduleParent=null, $path=null, $module, $enabled=true, $parameters=null, $registered=true, $override=false) {
@@ -292,8 +284,8 @@ class xyo_Cloud extends xyo_Config {
 			if (array_key_exists($module, $this->moduleList)) {
 				$this->moduleList[$module]->enabled = $enabled;
 				return true;
-			}
-		}
+			};
+		};
 
 		if (strlen($moduleParent) > 0) {
 			if (array_key_exists($moduleParent, $this->moduleList)) {
@@ -302,9 +294,9 @@ class xyo_Cloud extends xyo_Config {
 				$check = &$this->getModuleObject($moduleParent);
 				if (!$check) {
 					return false;
-				}
-			}
-		}
+				};
+			};
+		};
 
 		$pathModule = null;
 
@@ -313,16 +305,16 @@ class xyo_Cloud extends xyo_Config {
 				$pathModule = $this->moduleList[$moduleParent]->path . $path . "/";
 			} else {
 				$pathModule = $this->moduleList[$moduleParent]->path . $module . "/";
-			}
+			};
 		} else if (strlen($path) > 0) {
 			$pathModule = $path . "/";
 		} else {
-			$pathModule = "module/" . $module . "/";
-		}
+			$pathModule = $this->path . "module/" . $module . "/";
+		};
 
 		if (!$parameters) {
 			$parameters = array();
-		}
+		};
 
 		$this->moduleList[$module] = new xyo_ModuleObject();
 		$this->moduleList[$module]->parent = $moduleParent;
@@ -352,7 +344,7 @@ class xyo_Cloud extends xyo_Config {
 		$moduleObject = &$this->getModuleObject($name);
 		if ($moduleObject) {
 			return $moduleObject->parameters;
-		}
+		};
 		return null;
 	}
 
@@ -391,16 +383,14 @@ class xyo_Cloud extends xyo_Config {
 	public function loadReferenceLinks($derivate) {
 		if (array_key_exists($derivate, $this->referenceLinks)) {
 			foreach ($this->referenceLinks[$derivate] as $base) {
-				if ($this->loadModule($base)) {
-
-				} else {
+				if (!$this->loadModule($base)) {
 					if ($this->get("log_module",false)) {
 						$this->cloud->logMessage("module", "LOAD-FAIL: [" . $base . "] on [" . $derivate . "]");
-					}
+					};
 					return false;
-				}
-			}
-		}
+				};
+			};
+		};
 		return true;
 	}
 
@@ -431,9 +421,7 @@ class xyo_Cloud extends xyo_Config {
 			if (strlen($module) == 0) {
 				return null;
 			};
-			if (array_key_exists($module, $this->moduleList)) {
-
-			} else {
+			if (!array_key_exists($module, $this->moduleList)) {
 				foreach ($m as $v) {
 					if ($this->loadModule($v)) {
 
@@ -467,8 +455,8 @@ class xyo_Cloud extends xyo_Config {
 			if ($moduleObject->enabled) {
 				if ($moduleObject->loaded) {
 					return true;
-				}
-			}
+				};
+			};
 		};
 		return false;
 	}
@@ -478,7 +466,7 @@ class xyo_Cloud extends xyo_Config {
 		if ($moduleObject) {
 			if ($moduleObject->enabled) {
 				return true;
-			}
+			};
 		};
 		return false;
 	}
@@ -488,7 +476,7 @@ class xyo_Cloud extends xyo_Config {
 		if ($moduleObject) {
 			$moduleObject->application = $enabled;
 			return true;
-		}
+		};
 		return false;
 	}
 
@@ -497,8 +485,8 @@ class xyo_Cloud extends xyo_Config {
 		if ($moduleObject) {
 			if ($moduleObject->application) {
 				return true;
-			}
-		}
+			};
+		};
 		return false;
 	}
 
@@ -526,21 +514,16 @@ class xyo_Cloud extends xyo_Config {
 	public function &getGroup($group) {
 		$moduleList = array();
 
-		if (array_key_exists($group, $this->groupLoadedOk)) {
-
-		} else {
+		if (!array_key_exists($group, $this->groupLoadedOk)) {
 			$this->groupLoaderOk[$group] = true;
-
 			if ($this->groupLoader) {
 				$this->groupLoader->systemSetGroup($group);
-			}
-		}
+			};
+		};
 
-		if (array_key_exists($group, $this->groupList)) {
-
-		} else {
+		if (!array_key_exists($group, $this->groupList)) {
 			return $moduleList;
-		}
+		};
 
 		asort($this->groupList[$group]);
 		$moduleList = array_keys($this->groupList[$group]);
@@ -551,20 +534,18 @@ class xyo_Cloud extends xyo_Config {
 		$moduleList = &$this->getGroup($group);
 		foreach ($moduleList as $module) {
 			$this->execModule($module, $parameters);
-		}
+		};
 	}
 
 	public function loadGroup($group) {
 		$moduleList = &$this->getGroup($group);
 		foreach ($moduleList as $module) {
 			$this->loadModule($module);
-		}
+		};
 	}
 
 	public function setModuleGroup($module, $group, $order=0) {
-		if (array_key_exists($group, $this->groupList)) {
-
-		} else {
+		if (!array_key_exists($group, $this->groupList)) {
 			$this->groupList[$group] = array();
 		};
 		$this->groupList[$group][$module] = $order;
@@ -626,10 +607,9 @@ class xyo_Cloud extends xyo_Config {
 
 	public function setDefaultApplication($name) {
 		$this->defaultApplication=$name;
-		if ($this->application) {
-		} else {
+		if (!$this->application) {
 			$this->setApplication($name);
-		}
+		};
 	}
 
 	public function getDefaultApplication() {
@@ -658,8 +638,8 @@ class xyo_Cloud extends xyo_Config {
 				$applicationModule->applicationPrepare();
 				$applicationModule->applicationInit();
 				$applicationModule->applicationAction();
-			}
-		}
+			};
+		};
 	}
 
 
@@ -736,14 +716,12 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function pushRequest($request) {
-		if($request) {
-		} else {
+		if(!$request) {
 			return array();
-		}
-		if(count($request)) {
-		} else {
+		};
+		if(!count($request)) {
 			return array();
-		}
+		};
 		$retV=array();
 		$sp=0;
 		if(array_key_exists("x_",$request)) {
@@ -756,21 +734,19 @@ class xyo_Cloud extends xyo_Config {
 				$retV[$key]=$value;
 			} else {
 				$retV[$newXSp.$key]=$value;
-			}
+			};
 		};
 		$retV["x_"]=$sp;
 		return $retV;
 	}
 
 	public function popRequest($request) {
-		if($request) {
-		} else {
+		if(!$request) {
 			return array();
 		};
-		if(count($request)) {
-		} else {
+		if(!count($request)) {
 			return array();
-		}
+		};
 		$retV=array();
 		$sp=0;
 		if(array_key_exists("x_",$request)) {
@@ -830,8 +806,7 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function callRequest($requestThis,$requestCall=null) {
-		if($requestCall) {
-		} else {
+		if(!$requestCall) {
 			return $requestThis;
 		};
 		$retV=$this->pushRequest($requestThis);
@@ -839,10 +814,9 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function returnRequest($requestThis,$requestReturn=null) {
-		if($requestReturn) {
-		} else {
+		if(!$requestReturn) {
 			return $this->popRequest($requestThis);
-		}
+		};
 		$retV=$this->popRequest($requestThis);
 		return array_merge($retV,$requestReturn);
 	}
@@ -886,7 +860,7 @@ class xyo_Cloud extends xyo_Config {
 						} else {
 							$retV.="?";
 							$first = true;
-						}
+						};
 						$retV.=rawurlencode($key) . "=" . rawurlencode($value);
 					};
 					return $retV;
@@ -910,7 +884,7 @@ class xyo_Cloud extends xyo_Config {
 				} else {
 					$retV.="?";
 					$first = true;
-				}
+				};
 				$retV.=rawurlencode($key) . "=" . rawurlencode($value);
 			};
 		};
@@ -951,15 +925,13 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function requestModuleDirect($module, $parameters=null) {
-		if ($parameters) {
-
-		} else {
+		if (!$parameters) {
 			$parameters = array();
-		}
+		};
 		if($module) {
 			$module_ = $this->getModuleExecPath($module);
 			$parameters["run"] = $module_;
-		}
+		};
 		return $parameters;
 	}
 
@@ -987,7 +959,7 @@ class xyo_Cloud extends xyo_Config {
 		if ($parameters) {
 			if (array_key_exists($name, $parameters)) {
 				return $parameters[$name];
-			}
+			};
 		};
 		return $this->getRequest($name, $default);
 	}
@@ -1290,14 +1262,14 @@ class xyo_Cloud extends xyo_Config {
 	private function initDataSourceManager() {
 		$this->dataSource=new xyo_DataSource($this);
 		//
-		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-csv", "xyo-datasource-csv");
-		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-mysql", "xyo-datasource-mysql");
-		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-mysqli", "xyo-datasource-mysqli");
-		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-postgresql", "xyo-datasource-postgresql");
-		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-sqlite", "xyo-datasource-sqlite");
-		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-xyo", "xyo-datasource-xyo");
+		$this->setModule(null, $this->path."xyo/xyo-datasource/xyo-datasource-csv", "xyo-datasource-csv");
+		$this->setModule(null, $this->path."xyo/xyo-datasource/xyo-datasource-mysql", "xyo-datasource-mysql");
+		$this->setModule(null, $this->path."xyo/xyo-datasource/xyo-datasource-mysqli", "xyo-datasource-mysqli");
+		$this->setModule(null, $this->path."xyo/xyo-datasource/xyo-datasource-postgresql", "xyo-datasource-postgresql");
+		$this->setModule(null, $this->path."xyo/xyo-datasource/xyo-datasource-sqlite", "xyo-datasource-sqlite");
+		$this->setModule(null, $this->path."xyo/xyo-datasource/xyo-datasource-xyo", "xyo-datasource-xyo");
 		//
-		$this->setModule(null, "xyo/xyo-datasource/xyo-datasource-quantum", "xyo-datasource-quantum");
+		$this->setModule(null, $this->path."xyo/xyo-datasource/xyo-datasource-quantum", "xyo-datasource-quantum");
 	}
 
 	//
@@ -1306,11 +1278,14 @@ class xyo_Cloud extends xyo_Config {
 
 	protected $isInitOk;
 	protected $site;
+	protected $basePath;
 
 	public function __construct() {
+		$this->path=realpath(dirname(realpath(__FILE__)) . "/..")."/";
+
 		parent::__construct($this);
 
-		$this->set("kernel_version","3.1.0.0");
+		$this->set("kernel_version","3.1.1.0");
 		
 		$this->set("site","");
 		$this->set("use_redirect",false);
@@ -1353,13 +1328,13 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function logMessage($type, $message_,$module_=null) {
-		$fs = fopen("log/" . date("Y-m-d")."-". $type.".log", "ab");
+		$fs = fopen($this->path."log/" . date("Y-m-d")."-". $type.".log", "ab");
 		if ($fs) {
 			if($module_) {
 				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getModuleExecPath($module_)."] [".$this->getClientIP()."]: ");
 			} else {
 				fwrite($fs, date("Y-m-d H:i:s") . ": ");
-			}
+			};
 			if (is_array($message_)) {
 				fwrite($fs, "Array (\r\n");
 				foreach ($message_ as $key => $value) {
@@ -1368,7 +1343,7 @@ class xyo_Cloud extends xyo_Config {
 							fwrite($fs, "true");
 						} else {
 							fwrite($fs, "false");
-						}
+						};
 					} else if (is_string($key)) {
 						fwrite($fs, "\"" . $key . "\"");
 					} else {
@@ -1380,7 +1355,7 @@ class xyo_Cloud extends xyo_Config {
 							fwrite($fs, "true");
 						} else {
 							fwrite($fs, "false");
-						}
+						};
 					} else if (is_string($value)) {
 						fwrite($fs, "\"" . $value . "\"");
 					} else {
@@ -1394,7 +1369,7 @@ class xyo_Cloud extends xyo_Config {
 			};
 			fwrite($fs, "\r\n");
 			fclose($fs);
-		}
+		};
 	}
 
 	public static function logResponseShutdown($x) {
@@ -1430,7 +1405,7 @@ class xyo_Cloud extends xyo_Config {
 		};
 		
 		//
-		$this->set("version", "5.5.0.0");
+		$this->set("version", "5.6.0.0");
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);
@@ -1458,7 +1433,7 @@ class xyo_Cloud extends xyo_Config {
 
 			$retV = ob_get_contents();
 			ob_end_clean();
-			$fs = fopen("log/" . date("Y-m-d")."-request.log", "ab");
+			$fs = fopen($this->path . "log/" . date("Y-m-d")."-request.log", "ab");
 			if ($fs) {
 				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getClientIP()."]\n");
 				fwrite($fs, $retV);
@@ -1469,7 +1444,7 @@ class xyo_Cloud extends xyo_Config {
 
 		if ($this->get("log_response",false)) {
 			ob_start();
-			$x=array(0=>"log/",1=>$this->getClientIP());
+			$x=array(0=>$this->path . "log/",1=>$this->getClientIP());
 			register_shutdown_function(xyo_Cloud::$logResponseShutdown, $x);
 		};
 

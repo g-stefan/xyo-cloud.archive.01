@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 ?>
 <div class="xui-application">
 	<div class="xui-toolbar" id="xui-toolbar"><div class="xui_right" id="xui-toolbar__container">

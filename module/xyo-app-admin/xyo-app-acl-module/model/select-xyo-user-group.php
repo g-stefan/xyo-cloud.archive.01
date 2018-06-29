@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $listUserGroup = array();
 $listUserGroup["*"] = $this->getFromLanguage("select_xyo_user_group_any");

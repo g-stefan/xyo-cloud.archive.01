@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 class xyo_datasource_EmptyField {
 
@@ -90,11 +90,9 @@ class xyo_DataSource extends xyo_Config {
 			};
 			return $v_;
 		};
-		if ($as_) {
-
-		} else {
-			if (file_exists("datasource/".$name.".php")) {
-				$this->setDataSourceDescriptor($name, "datasource/". $name.".php");
+		if (!$as_) {
+			if (file_exists($this->cloud->path."datasource/".$name.".php")) {
+				$this->setDataSourceDescriptor($name, $this->cloud->path."datasource/". $name.".php");
 				if (array_key_exists($name, $this->dataSourceAs_)) {
 					$v_ = &$this->getDataSource($this->dataSourceAs_[$name], $name);
 					if ($v_) {
@@ -145,9 +143,8 @@ class xyo_DataSource extends xyo_Config {
 	}
 
 	function setModuleDataSource($module, $name) {
-		$descriptor = "datasource/" . $name . ".php";
-		if (file_exists($descriptor)) {
-		} else {
+		$descriptor = $this->cloud->path."datasource/" . $name . ".php";
+		if (!file_exists($descriptor)) {
 			$descriptorPath = $this->cloud->getModulePathBase($module);
 			if ($descriptorPath) {
 				$notFound=true;

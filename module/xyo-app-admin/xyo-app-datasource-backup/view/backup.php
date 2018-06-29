@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 echo "<forn name=\"x\" class=\"xui-application-form\">";
 $this->generateComponent("xui.box-1x1-begin");

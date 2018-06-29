@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 function xyo_datasource_quantum_query__cmp($a, $b) {
 	foreach ($a["*"] as $key_ => $value_) {

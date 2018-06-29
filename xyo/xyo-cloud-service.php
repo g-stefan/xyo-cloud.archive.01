@@ -7,10 +7,10 @@
 //
 
 //
-// Execute an module from current directory, to be used as service (not for web)
+// Execute an module from current directory, to be used as service
 //
 // - string $xyoCloudServiceModuleName (optional) Module name to be "seen"
-//      by the system, default to "-xyo-mod-service-"
+//      by the system, default to "-service-"
 // Example:
 //      in service.php
 //      $xyoClud...  - options
@@ -21,7 +21,7 @@
 //
 //      $xyoClud...  - options
 //	include([path to "xyo-cloud-service.php" ]);
-//	defined('XYO_CLOUD') or die('Access is denied');
+//	defined("XYO_CLOUD") or die("Access is denied");
 //
 //      ... module code ...
 //
@@ -29,6 +29,7 @@
 //
 // Options
 //
+//	$xyoCloudServiceConfigOnly
 //	$xyoCloudServiceRequestMain
 //	$xyoCloudServiceSite
 //	$xyoCloudServiceModuleName
@@ -40,12 +41,8 @@ if (defined('XYO_CLOUD')) {
 define("XYO_CLOUD_SERVICE", 1);
 
 require_once("xyo-cloud.php");
-$pathBaseAbsolute=realpath(dirname(realpath(__FILE__))."/../");
-$currentDirectory=getcwd();
-@chdir($pathBaseAbsolute);
-
 $xyoCloud = new xyo_Cloud();
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 if(isset($xyoCloudServiceSite)) {
 	$xyoCloud->set("site",$xyoCloudServiceSite);
@@ -60,14 +57,15 @@ if (!isset($xyoCloudServiceModuleName)) {
 
 $run=$xyoCloud->getRequest("run", $xyoCloudServiceModuleName);
 if($run==$xyoCloudServiceModuleName) {
-	$xyoCloud->setModule(null, $currentDirectory, $xyoCloudServiceModuleName, true, null, false, true);
+	$xyoCloud->setModule(null, getcwd(), $xyoCloudServiceModuleName, true, null, false, true);
 	$xyoCloud->setModuleCheck($xyoCloudServiceModuleName, false);
 	$xyoCloud->setRequest("run", $xyoCloudServiceModuleName);
 };
-$xyoCloud->main();
+if(!isset($xyoCloudServiceConfigOnly)) {
+	$xyoCloud->main();	
+	exit();
+}else{
+	$xyoCloud->initRequest();
+	$xyoCloud->dataSource->loadConfig();	
+};
 
-@chdir($currentDirectory);
-//
-// Force exit
-//
-exit();

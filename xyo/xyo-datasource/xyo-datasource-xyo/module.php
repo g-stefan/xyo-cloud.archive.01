@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 //
 // implements - Active Record Pattern
 //
@@ -74,9 +74,7 @@ class xyo_datasource_Xyo extends xyo_Module {
 
 	function &getDataSource($name, $as_=null) { // system.connexion_name.table/query.name
 		$v_ = null;
-		if ($name) {
-
-		} else {
+		if (!$name) {
 			return $v_;
 		};
 		$matches = array();
@@ -120,20 +118,16 @@ class xyo_datasource_Xyo extends xyo_Module {
 	}
 
 	function setModuleDataSource($module, $name) {
-		$descriptor = "datasource/" . $name . ".php";
+		$descriptor = $this->cloud->path."datasource/" . $name . ".php";
 		if (file_exists($descriptor)) {
-
-		} else {
 			$descriptor = $this->cloud->getModulePath($module);
 			if ($descriptor) {
 				$descriptor.="datasource/" . $name . ".php";
-				if (file_exists($descriptor)) {
-
-				} else {
+				if (!file_exists($descriptor)) {
 					return false;
-				}
-			}
-		}
+				};
+			};
+		};
 
 		$this->ds->setDataSourceDescriptor($name, $descriptor);
 		$this->setDataSourceDescriptor($name, $descriptor);

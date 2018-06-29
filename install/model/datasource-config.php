@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $layer = $this->getElementValue("layer", "xyo");
 
@@ -46,7 +46,7 @@ if ($fileName) {
 
 if ($fileHandle) {
     fwrite($fileHandle, "<" . "?" . "php\r\n");
-    fwrite($fileHandle, "defined('XYO_CLOUD') or die('Access is denied');\r\n");
+    fwrite($fileHandle, "defined(\"XYO_CLOUD\") or die(\"Access is denied\");\r\n");
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// Data Source Layer Config\r\n");
     fwrite($fileHandle, "// \r\n");
@@ -151,7 +151,7 @@ if (strlen($fileName)) {
 
 if ($fileHandle) {
     fwrite($fileHandle, "<" . "?" . "php\r\n");
-    fwrite($fileHandle, "defined('XYO_CLOUD') or die('Access is denied');\r\n");
+    fwrite($fileHandle, "defined(\"XYO_CLOUD\") or die(\"Access is denied\");\r\n");
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// DataSource Config\r\n");
     fwrite($fileHandle, "// \r\n");
@@ -175,7 +175,7 @@ if (strlen($fileName)) {
 
 if ($fileHandle) {
     fwrite($fileHandle, "<" . "?" . "php\r\n");
-    fwrite($fileHandle, "defined('XYO_CLOUD') or die('Access is denied');\r\n");
+    fwrite($fileHandle, "defined(\"XYO_CLOUD\") or die(\"Access is denied\");\r\n");
     fwrite($fileHandle, "// \r\n");
     fwrite($fileHandle, "// Website Config\r\n");
     fwrite($fileHandle, "// \r\n");

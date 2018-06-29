@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $rnd=$this->getParameterRequest("rnd",hash("sha512",time().rand(),false));
 $prefix=$this->getParameterRequest("prefix","xui_image_captcha");

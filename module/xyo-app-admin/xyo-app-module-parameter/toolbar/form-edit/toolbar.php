@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setItem("apply", "item-js", "<i class=\"material-icons\">done</i>", "apply", "warning", "#", "doCommand('form-edit-apply')");
 

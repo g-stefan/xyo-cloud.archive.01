@@ -6,7 +6,7 @@
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
 
-defined('XYO_CLOUD') or die('Access is denied');
+defined("XYO_CLOUD") or die("Access is denied");
 
 class xyo_Config extends xyo_Attributes {
 
@@ -28,7 +28,7 @@ class xyo_Config extends xyo_Attributes {
 	}
 
 	public function getConfigPath() {
-		return "config/";
+		return $this->cloud->path."config/";
 	}
 
 }
