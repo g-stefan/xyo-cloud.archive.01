@@ -68,26 +68,26 @@ class xyo_mod_Setup extends xyo_Module {
 		    $dsAclModule) {
 			$dsModule->name = $module;
 			if ($dsModule->load(0, 1)) {
-				$dsAclModule->id_xyo_module = $dsModule->id;
+				$dsAclModule->xyo_module_id = $dsModule->id;
 				if ($moduleGroup) {
 					$dsModuleGroup->name = $moduleGroup;
 					if ($dsModuleGroup->load(0, 1)) {
-						$dsAclModule->id_xyo_module_group = $dsModuleGroup->id;
+						$dsAclModule->xyo_module_group_id = $dsModuleGroup->id;
 					} else {
 						return false;
 					}
 				} else {
-					$dsAclModule->id_xyo_module_group = 0;
+					$dsAclModule->xyo_module_group_id = 0;
 				}
 				if ($userGroup) {
 					$dsUserGroup->name = $userGroup;
 					if ($dsUserGroup->load(0, 1)) {
-						$dsAclModule->id_xyo_user_group = $dsUserGroup->id;
+						$dsAclModule->xyo_user_group_id = $dsUserGroup->id;
 					} else {
 						return false;
 					}
 				} else {
-					$dsAclModule->id_xyo_user_group = 0;
+					$dsAclModule->xyo_user_group_id = 0;
 				}
 				$dsAclModule->tryLoad();
 				$dsAclModule->module = $module;
@@ -110,26 +110,26 @@ class xyo_mod_Setup extends xyo_Module {
 		    $dsAclModule) {
 			$dsModule->name = $module;
 			if ($dsModule->load(0, 1)) {
-				$dsAclModule->id_xyo_module = $dsModule->id;
+				$dsAclModule->xyo_module_id = $dsModule->id;
 				if ($moduleGroup) {
 					$dsModuleGroup->name = $moduleGroup;
 					if ($dsModuleGroup->load(0, 1)) {
-						$dsAclModule->id_xyo_module_group = $dsModuleGroup->id;
+						$dsAclModule->xyo_module_group_id = $dsModuleGroup->id;
 					} else {
 						return false;
 					}
 				} else {
-					$dsAclModule->id_xyo_module_group = 0;
+					$dsAclModule->xyo_module_group_id = 0;
 				}
 				if ($userGroup) {
 					$dsUserGroup->name = $userGroup;
 					if ($dsUserGroup->load(0, 1)) {
-						$dsAclModule->id_xyo_user_group = $dsUserGroup->id;
+						$dsAclModule->xyo_user_group_id = $dsUserGroup->id;
 					} else {
 						return false;
 					}
 				} else {
-					$dsAclModule->id_xyo_user_group = 0;
+					$dsAclModule->xyo_user_group_id = 0;
 				}
 				return $dsAclModule->delete();
 			}
@@ -191,12 +191,12 @@ class xyo_mod_Setup extends xyo_Module {
 			if ($dsModule->load(0, 1)) {
 				$dsX = &$this->getDataSource("db.table.xyo_form_element");
 				if ($dsX) {
-					$dsX->id_xyo_module = $dsModule->id;
+					$dsX->xyo_module_id = $dsModule->id;
 					$dsX->delete();
 				};
 				$dsX = &$this->getDataSource("db.table.xyo_acl_module");
 				if ($dsX) {
-					$dsX->id_xyo_module = $dsModule->id;
+					$dsX->xyo_module_id = $dsModule->id;
 					$dsX->delete();
 				};
 				$dsModule->delete();
@@ -899,8 +899,8 @@ class xyo_mod_Setup extends xyo_Module {
 					if($dsUserGroup->load(0,1)) {
 						$dsUserGroupXUserGroup=&$ds->getDataSource("db.table.xyo_user_group_x_user_group");
 						if($dsUserGroupXUserGroup) {
-							$dsUserGroupXUserGroup->id_xyo_user_group_super=$dsUserGroupSuper->id;
-							$dsUserGroupXUserGroup->id_xyo_user_group=$dsUserGroup->id;
+							$dsUserGroupXUserGroup->xyo_user_group_id_super=$dsUserGroupSuper->id;
+							$dsUserGroupXUserGroup->xyo_user_group_id=$dsUserGroup->id;
 							$dsUserGroupXUserGroup->tryLoad();
 							$dsUserGroupXUserGroup->enabled=$enabled;
 							return $dsUserGroupXUserGroup->save();
@@ -966,38 +966,38 @@ class xyo_mod_Setup extends xyo_Module {
 				$dsModule->enabled=1;
 				if($dsModule->load(0,1)) {
 					$dsAclModule->clear();
-					$dsAclModule->id_xyo_user_group=$idUserGroup;					
-					$dsAclModule->id_xyo_module_group=$idModuleGroupTemplate;
+					$dsAclModule->xyo_user_group_id=$idUserGroup;					
+					$dsAclModule->xyo_module_group_id=$idModuleGroupTemplate;
 					$moduleList=array();
 					for($dsAclModule->load(); $dsAclModule->isValid(); $dsAclModule->loadNext()) {
-						if($dsAclModule->id_xyo_module==$dsModule->id) {} else {
-							$moduleList[]=$dsAclModule->id_xyo_module;
+						if($dsAclModule->xyo_module_id==$dsModule->id) {} else {
+							$moduleList[]=$dsAclModule->xyo_module_id;
 						};
 					};
 
 					if(count($moduleList)) {
 
 						$dsAclModule->clear();
-						$dsAclModule->id_xyo_module_group=array($idModuleGroupLoad,$idModuleGroupExec);
-						$dsAclModule->id_xyo_user_group=$idUserGroup;
-						$dsAclModule->id_xyo_module=$moduleList;
+						$dsAclModule->xyo_module_group_id=array($idModuleGroupLoad,$idModuleGroupExec);
+						$dsAclModule->xyo_user_group_id=$idUserGroup;
+						$dsAclModule->xyo_module_id=$moduleList;
 						$dsAclModule->update(array("enabled"=>0));
                         
 					};
 
 					$dsAclModule->clear();
-					$dsAclModule->id_xyo_module_group=$idModuleGroupLoad;
-					$dsAclModule->id_xyo_user_group=$idUserGroup;
-					$dsAclModule->id_xyo_module=$dsModule->id;
+					$dsAclModule->xyo_module_group_id=$idModuleGroupLoad;
+					$dsAclModule->xyo_user_group_id=$idUserGroup;
+					$dsAclModule->xyo_module_id=$dsModule->id;
 					$dsAclModule->tryLoad(0,1);
 					$dsAclModule->module=$dsModule->name;
 					$dsAclModule->enabled=1;
 					$dsAclModule->save();
 
 					$dsAclModule->clear();
-					$dsAclModule->id_xyo_module_group=$idModuleGroupExec;
-					$dsAclModule->id_xyo_user_group=$idUserGroup;
-					$dsAclModule->id_xyo_module=$dsModule->id;
+					$dsAclModule->xyo_module_group_id=$idModuleGroupExec;
+					$dsAclModule->xyo_user_group_id=$idUserGroup;
+					$dsAclModule->xyo_module_id=$dsModule->id;
 					$dsAclModule->tryLoad(0,1);
 					$dsAclModule->module=$dsModule->name;
 					$dsAclModule->enabled=1;

@@ -16,7 +16,7 @@ $this->ds->{$this->primaryKey} = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
     if ($dsAclModule) {
         $dsAclModule->clear();
-        $dsAclModule->id_xyo_module_group = $this->ds->id;
+        $dsAclModule->xyo_module_group_id = $this->ds->id;
         $dsAclModule->delete();
     }
     $this->ds->delete();

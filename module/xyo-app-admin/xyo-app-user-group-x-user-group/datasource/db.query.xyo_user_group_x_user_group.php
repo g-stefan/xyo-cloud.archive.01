@@ -16,8 +16,8 @@ $this->set("query_table", array(
 
 $this->set("query_item", array(
     "id" => array("user_group_x_user_group" => "id"),
-    "id_xyo_user_group_super" => array("user_group_x_user_group" => "id_xyo_user_group_super"),
-    "id_xyo_user_group" => array("user_group_x_user_group" => "id_xyo_user_group"),
+    "xyo_user_group_id_super" => array("user_group_x_user_group" => "xyo_user_group_id_super"),
+    "xyo_user_group_id" => array("user_group_x_user_group" => "xyo_user_group_id"),
     "enabled" => array("user_group_x_user_group" => "enabled"),
     "user_group_super" => array("user_group_super" => "name"),
     "user_group" => array("user_group" => "name")
@@ -25,8 +25,8 @@ $this->set("query_item", array(
 
 $this->set("query_link", array(
     "user_group_x_user_group" => "base",
-    "user_group_super" => array("outer", array("user_group_super" => "id"), array("user_group_x_user_group" => "id_xyo_user_group_super")),
-    "user_group" => array("outer", array("user_group" => "id"), array("user_group_x_user_group" => "id_xyo_user_group"))
+    "user_group_super" => array("outer", array("user_group_super" => "id"), array("user_group_x_user_group" => "xyo_user_group_id_super")),
+    "user_group" => array("outer", array("user_group" => "id"), array("user_group_x_user_group" => "xyo_user_group_id"))
 ));
 
 

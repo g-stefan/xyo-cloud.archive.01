@@ -23,8 +23,8 @@ $this->tableSearch = array(
 );
 
 $this->tableSelect = array(
-    "id_xyo_module_group" => true,
-    "id_xyo_user_group" => true,
+    "xyo_module_group_id" => true,
+    "xyo_user_group_id" => true,
     "enabled" => true
 );
 
@@ -45,20 +45,20 @@ $this->tableSort = array(
 
 $this->processModel("select-enabled");
 
-if ($this->id_xyo_module_group) {}else{
+if ($this->xyo_module_group_id) {}else{
 	$this->processModel("select-xyo-module-group");
 }
 
 $this->processModel("select-xyo-user-group");
 
 $this->tableSelectInfo = array(
-    "id_xyo_module_group" => $this->getParameter("select_id_xyo_module_group", array()),
-    "id_xyo_user_group" => $this->getParameter("select_id_xyo_user_group", array()),
+    "xyo_module_group_id" => $this->getParameter("select_xyo_module_group_id", array()),
+    "xyo_user_group_id" => $this->getParameter("select_xyo_user_group_id", array()),
     "enabled" => $this->getParameter("select_enabled", array())
 );
 
 
-if ($this->id_xyo_module) {
+if ($this->xyo_module_id) {
     unset($this->tableHead["module_name"]);
     unset($this->tableSelect["module_name"]);
     unset($this->tableSort["module_name"]);
@@ -69,15 +69,15 @@ if ($this->id_xyo_module) {
 };
 
 
-if ($this->id_xyo_module_group) {
+if ($this->xyo_module_group_id) {
 	unset($this->tableHead["module_group_name"]);
-	unset($this->tableSelect["id_xyo_module_group"]);
+	unset($this->tableSelect["xyo_module_group_id"]);
 	unset($this->tableSort["module_group_name"]);
 
 	$this->tableSort["module_name"]="none";
 	$this->tableSort["order"]="ascendent";
 
-	if($this->id_xyo_module){
+	if($this->xyo_module_id){
 		unset($this->tableSort["module_name"]);
 		unset($this->tableSort["module_group_name"]);
 		unset($this->tableType["module_name"]);

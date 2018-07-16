@@ -19,16 +19,16 @@ $this->set("head_id","Id");
 $this->set("select_xyo_user_group_any","- grup utilizator -");
 $this->set("select_xyo_module_group_any","- grup modul -");
 
-$this->set("label_id_xyo_module","Modul");
+$this->set("label_xyo_module_id","Modul");
 $this->set("select_xyo_module_any","- modul -");
-$this->set("label_id_xyo_module_group","Grup modul");
+$this->set("label_xyo_module_group_id","Grup modul");
 $this->set("select_xyo_module_group_any","- grup -");
 $this->set("label_order","Ordine");
 
-$this->set("label_id_xyo_user_group","Grup utilizator");
+$this->set("label_xyo_user_group_id","Grup utilizator");
 
 $this->set("select_xyo_module_group_any_edit","- nici unul -");
 $this->set("select_xyo_user_group_any_edit","- oricare -");
 $this->set("select_xyo_module_any_edit","- nici unul -");
 
-$this->set("el_id_xyo_module_not_selected","nu a fost selectat");
+$this->set("el_xyo_module_id_not_selected","nu a fost selectat");

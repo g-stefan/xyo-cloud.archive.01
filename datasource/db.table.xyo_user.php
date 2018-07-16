@@ -12,7 +12,7 @@ $this->set("table_primary_key", "id");
 
 $this->set("table_item", array(
 	"id" => array("bigint","DEFAULT","unsigned","auto_increment"),
-	"id_xyo_user" => array("bigint",0,"unsigned"), // user creator - 0 - creator is one of the system users
+	"xyo_user_id" => array("bigint",0,"unsigned"), // user creator - 0 - creator is one of the system users
 	"username" => array("varchar",255,null),
 	"password" => array("varchar",255,null),
 	"session" => array("varchar",255,null),
@@ -23,7 +23,7 @@ $this->set("table_item", array(
 	"logged_in" => array("int",0,"unsigned"),
 	"action" => array("int",0,"unsigned"), // authorization checks
 	"action_on" => array("datetime",null), // last time when an authorization was requested
-	"id_xyo_language" => array("bigint",0,"unsigned"),
+	"xyo_language_id" => array("bigint",0,"unsigned"),
 	"picture" => array("varchar",255,null),
 	"description" => array("varchar",255,null),
 	"email" => array("varchar",255,null),
@@ -31,6 +31,6 @@ $this->set("table_item", array(
 ));
 
 $this->set("table_link",array(
-   "xyo_user_x_user_group"=>array("db.table.xyo_user_x_user_group","id_xyo_user","id","delete"),
-   "xyo_user"=>array("db.table.xyo_user","id_xyo_user","id","set",0)
+   "xyo_user_x_user_group"=>array("db.table.xyo_user_x_user_group","xyo_user_id","id","delete"),
+   "xyo_user"=>array("db.table.xyo_user","xyo_user_id","id","set",0)
 ));

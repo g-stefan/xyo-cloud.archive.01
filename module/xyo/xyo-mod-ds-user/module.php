@@ -374,7 +374,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				$this->language = null;
 				$dsLanguage = &$this->dsLanguage->copyThis();
 				if ($dsLanguage) {
-					$dsLanguage->id = $this->dsUser->id_xyo_language;
+					$dsLanguage->id = $this->dsUser->xyo_language_id;
 					$dsLanguage->enabled = 1;
 					if ($dsLanguage->load(0, 1)) {
 						$this->info->language = $dsLanguage->name;
@@ -437,7 +437,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				$this->language = null;
 				$dsLanguage = &$this->dsLanguage->copyThis();
 				if ($dsLanguage) {
-					$dsLanguage->id = $this->dsUser->id_xyo_language;
+					$dsLanguage->id = $this->dsUser->xyo_language_id;
 					$dsLanguage->enabled = 1;
 					if ($dsLanguage->load(0, 1)) {
 						$this->info->language = $dsLanguage->name;

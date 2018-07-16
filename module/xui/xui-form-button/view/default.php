@@ -21,6 +21,14 @@ $xuiTheme=&$this->getModule("xui-theme");
 <?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
 <?php  ?>
 <input type="button" value="<?php echo $key; ?>" class="xui-form-button xui-form-button_<?php echo $key; ?>"<?php echo $disabled; ?>></input>
+<br /><br /><pre style="border-radius:3px;width:640px;display:block;height:auto;"><code data-language="html"><?php 
+
+	if($key=="disabled"){
+		$disabled="\n\t".trim($disabled);
+	};
+	echo htmlentities("<input type=\"button\"\n\tvalue=\"".$key."\"\n\tclass=\"xui-form-button xui-form-button_".$key."\"".$disabled."></input>");
+
+?></code></pre>
 <br /><br />
 <?php }; ?>
 

@@ -22,6 +22,7 @@ $this->setModule("xui",null,"xui-responsive");
 $this->setModule("xui",null,"xui-toggle");
 $this->setModule("xui",null,"xui-elevation");
 $this->setModule("xui",null,"xui-dashboard");
+$this->setModule("xui",null,"xui-grid");
 $this->setModule("xui",null,"xui-form-button");
 $this->setModule("xui",null,"xui-form-button-icon");
 $this->setModule("xui",null,"xui-form-button-icon-left");

@@ -29,9 +29,9 @@ if($this->isNew){
 };
 $this->generateComponent("xui.form-email", array("element" =>"email"));
 if($this->isNew){
-    $this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group"));
+    $this->generateComponent("xui.form-select", array("element" =>"xyo_user_group_id"));
 }
-$this->generateComponent("xui.form-select", array("element" =>"id_xyo_language"));
+$this->generateComponent("xui.form-select", array("element" =>"xyo_language_id"));
 $this->generateComponent("xui.form-switch", array("element" =>"invisible"));
 $this->generateComponent("xui.form-switch", array("element" =>"enabled"));
 if($this->isNew){

@@ -14,8 +14,8 @@ $this->set("head_user_group_super","Super grup");
 $this->set("head_user_group","Grup");
 $this->set("head_id","Id");
 
-$this->set("label_id_xyo_user_group_super","Super grup");
-$this->set("label_id_xyo_user_group","Grup");
+$this->set("label_xyo_user_group_id_super","Super grup");
+$this->set("label_xyo_user_group_id","Grup");
 
 $this->set("select_xyo_user_group_super_any","- super grup -");
 $this->set("select_xyo_user_group_any","- grup -");

@@ -13,21 +13,21 @@ if(!$this->isDialog){
 	$this->generateComponent("xui.panel-begin");
 };
 
-if ($this->id_xyo_module) {
+if ($this->xyo_module_id) {
     
 } else {
-	$this->generateComponent("xui.form-select", array("element" => "id_xyo_module"));
+	$this->generateComponent("xui.form-select", array("element" => "xyo_module_id"));
 }
 
 
-if ($this->id_xyo_module_group) {
+if ($this->xyo_module_group_id) {
     
 } else {
-	$this->generateComponent("xui.form-select", array("element" => "id_xyo_module_group"));
+	$this->generateComponent("xui.form-select", array("element" => "xyo_module_group_id"));
 }
 
 $this->generateComponent("xui.form-order", array("element" => "order"));
-$this->generateComponent("xui.form-select", array("element" => "id_xyo_user_group"));
+$this->generateComponent("xui.form-select", array("element" => "xyo_user_group_id"));
 $this->generateComponent("xui.form-switch", array("element" => "enabled"));
 
 if(!$this->isDialog){

@@ -8,7 +8,7 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-if($this->id_xyo_user_group_super){
+if($this->xyo_user_group_id_super){
     
 }else{
     $this->processModel("select-xyo-user-group-super");

@@ -93,7 +93,7 @@ if ($this->isNew) {
     }
 }
 
-$this->ds->id_xyo_language = $this->getElementValueNumber("id_xyo_language", 0, "*");
+$this->ds->xyo_language_id = $this->getElementValueNumber("xyo_language_id", 0, "*");
 $this->ds->enabled = $this->getElementValueNumber("enabled", 0, "*");
 $this->ds->email = $this->getElementValueString("email","");
 $this->ds->description = $this->getElementValueString("description","");
@@ -121,8 +121,8 @@ if ($this->ds->save()) {
         $dsUserXUserGroup = &$this->getDataSource("db.table.xyo_user_x_user_group");
         if ($dsUserXUserGroup) {
             $dsUserXUserGroup->clear();
-            $dsUserXUserGroup->id_xyo_user = $this->ds->id;
-            $dsUserXUserGroup->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0, "*");
+            $dsUserXUserGroup->xyo_user_id = $this->ds->id;
+            $dsUserXUserGroup->xyo_user_group_id = $this->getElementValueNumber("xyo_user_group_id", 0, "*");
             $dsUserXUserGroup->allow = 1;
             $dsUserXUserGroup->enabled = 1;
             if ($dsUserXUserGroup->save()) {

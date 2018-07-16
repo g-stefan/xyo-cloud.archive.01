@@ -21,7 +21,7 @@ if ($toggle=="principal") {
 	if($this->ds->load(0,1)){
 		$dsx=&$this->ds->copyThis();
 		$dsx->clear();
-		$dsx->id_xyo_user=$this->ds->id_xyo_user;
+		$dsx->xyo_user_id=$this->ds->xyo_user_id;
 		$dsx->update(array("principal"=>0));
 		for (;$this->ds->isValid(); $this->ds->loadNext()) {
 			$this->ds->principal=1;

@@ -52,7 +52,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 	}
 
-	public function &getUserIdAcl($id_xyo_user) {
+	public function &getUserIdAcl($xyo_user_id) {
 		if ($this->dsUser) {
 
 		} else {
@@ -63,24 +63,24 @@ class xyo_mod_ds_Acl extends xyo_Module {
 		$retV = new xyo_mod_ds_acl_Info;
 
 		$retV->aclUserGroup = array();
-		if($id_xyo_user) {
-			$retV->aclUser = array(0, $id_xyo_user);
+		if($xyo_user_id) {
+			$retV->aclUser = array(0, $xyo_user_id);
 		} else {
 			$retV->aclUser = 0;
 		};
-		$retV->aclUserId = $id_xyo_user;
+		$retV->aclUserId = $xyo_user_id;
 
 		$listUserGroup = array();
 
-		if ($id_xyo_user) {
+		if ($xyo_user_id) {
 
 			$dsUserXUserGroup = &$this->dsUserXUserGroup->copyThis();
 			$dsUserXUserGroup->clear();
-			$dsUserXUserGroup->id_xyo_user = $id_xyo_user;
+			$dsUserXUserGroup->xyo_user_id = $xyo_user_id;
 			$dsUserXUserGroup->enabled = 1;
 
 			for ($dsUserXUserGroup->load(); $dsUserXUserGroup->isValid(); $dsUserXUserGroup->loadNext()) {
-				$listUserGroup[$dsUserXUserGroup->id_xyo_user_group]=$dsUserXUserGroup->id_xyo_user_group;
+				$listUserGroup[$dsUserXUserGroup->xyo_user_group_id]=$dsUserXUserGroup->xyo_user_group_id;
 			};
 
 		} else {
@@ -98,11 +98,11 @@ class xyo_mod_ds_Acl extends xyo_Module {
 		if (count($listUserGroup)) {
 			$dsUserGroupXUserGroup = &$this->dsUserGroupXUserGroup->copyThis();
 			$dsUserGroupXUserGroup->clear();
-			$dsUserGroupXUserGroup->id_xyo_user_group_super = array_keys($listUserGroup);
+			$dsUserGroupXUserGroup->xyo_user_group_id_super = array_keys($listUserGroup);
 			$dsUserGroupXUserGroup->enabled = 1;
 
 			for ($dsUserGroupXUserGroup->load(); $dsUserGroupXUserGroup->isValid(); $dsUserGroupXUserGroup->loadNext()) {
-				$listUserGroup[$dsUserGroupXUserGroup->id_xyo_user_group] = $dsUserGroupXUserGroup->id_xyo_user_group;
+				$listUserGroup[$dsUserGroupXUserGroup->xyo_user_group_id] = $dsUserGroupXUserGroup->xyo_user_group_id;
 			}
 		}
 
@@ -128,7 +128,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 	}
 
 	public function setDsAcl(&$ds, &$acl) {
-		$ds->id_xyo_user_group = $acl->aclUserGroup;
+		$ds->xyo_user_group_id = $acl->aclUserGroup;
 	}
 
 	public function setDsAclSys(&$ds) {
@@ -143,8 +143,8 @@ class xyo_mod_ds_Acl extends xyo_Module {
 		return $this->acl;
 	}
 
-	public function setAclSysUserId($id_xyo_user) {
-		$retV = $this->getUserIdAcl($id_xyo_user);		
+	public function setAclSysUserId($xyo_user_id) {
+		$retV = $this->getUserIdAcl($xyo_user_id);		
 		$this->setAclSys($retV);
 	}
 
@@ -156,13 +156,13 @@ class xyo_mod_ds_Acl extends xyo_Module {
 
 	public function processDsAcl(&$ds, &$acl) {
 		$ds->enabled=1;
-		$ds->id_xyo_user_group = $acl->aclUserGroup;
+		$ds->xyo_user_group_id = $acl->aclUserGroup;
 		return $ds->load(0,1);
 	}
 
 	public function processDsAclList(&$ds, &$acl) {
 		$ds->enabled=1;
-		$ds->id_xyo_user_group = $acl->aclUserGroup;
+		$ds->xyo_user_group_id = $acl->aclUserGroup;
 		return $ds->load();
 	}
 

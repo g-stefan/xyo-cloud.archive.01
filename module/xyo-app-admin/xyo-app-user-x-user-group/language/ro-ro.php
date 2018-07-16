@@ -19,8 +19,8 @@ $this->set("head_id", "Id");
 $this->set("select_xyo_user_any", "- utilizator -");
 $this->set("select_xyo_user_group_any", "- grup utilizator -");
 
-$this->set("label_id_xyo_user", "Utilizator");
-$this->set("label_id_xyo_user_group", "Grup utilizator");
+$this->set("label_xyo_user_id", "Utilizator");
+$this->set("label_xyo_user_group_id", "Grup utilizator");
 $this->set("label_principal", "Principal");
 
 $this->set("select_xyo_user_group_none","- nici unul -");

@@ -19,17 +19,17 @@ $this->ds-> {$this->primaryKey} = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
 	if($dsFormElement) {
 		$dsFormElement->clear();
-		$dsAclModule->id_xyo_module = $this->ds->id;
+		$dsAclModule->xyo_module_id = $this->ds->id;
 		$dsAclModule->delete();
 	}
 	if ($dsAclModule) {
 		$dsAclModule->clear();
-		$dsAclModule->id_xyo_module = $this->ds->id;
+		$dsAclModule->xyo_module_id = $this->ds->id;
 		$dsAclModule->delete();
 	}
 	if ($dsModuleParameter) {
 		$dsModuleParameter->clear();
-		$dsModuleParameter->id_xyo_module = $this->ds->id;
+		$dsModuleParameter->xyo_module_id = $this->ds->id;
 		$dsModuleParameter->delete();
 	}
 	$this->ds->delete();

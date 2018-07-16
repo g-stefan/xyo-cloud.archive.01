@@ -11,8 +11,8 @@ defined("XYO_CLOUD") or die("Access is denied");
 $this->eGenerateCallRequest(
 	array("action"=>"table-view"),
 	"xyo-app-user-x-user-group",
-	array("id_xyo_user"=>0),
-	"id_xyo_user",
+	array("xyo_user_id"=>0),
+	"xyo_user_id",
 	"callUserXUserGroup"
 );
 

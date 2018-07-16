@@ -23,14 +23,14 @@ $this->requireComponent(array(
 	"xui.box-1x1-end"
 ));
 
-$this->id_xyo_user = 1 * $this->getParameterRequest("id_xyo_user", 0);
-if ($this->id_xyo_user) {
-    $this->setKeepRequest("id_xyo_user", $this->id_xyo_user);
+$this->xyo_user_id = 1 * $this->getParameterRequest("xyo_user_id", 0);
+if ($this->xyo_user_id) {
+    $this->setKeepRequest("xyo_user_id", $this->xyo_user_id);
 
     $dsUser = &$this->getDataSource("db.table.xyo_user");
     if ($dsUser) {
         $dsUser->clear();
-        $dsUser->id = $this->id_xyo_user;
+        $dsUser->id = $this->xyo_user_id;
         if ($dsUser->load(0, 1)) {
             $this->setApplicationTitle($this->getFromLanguage("application_title") . " - " . $dsUser->name);
         }

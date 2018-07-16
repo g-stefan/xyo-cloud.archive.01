@@ -8,8 +8,8 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-if($this->id_xyo_user){
-    $this->ds->id_xyo_user=$this->id_xyo_user;
+if($this->xyo_user_id){
+    $this->ds->xyo_user_id=$this->xyo_user_id;
 };
 
 $this->ds->setGroup("id",true);

@@ -1,0 +1,79 @@
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+/* --- grid --- */
+
+.xui-grid {
+	box-sizing: border-box;
+}
+
+.xui-grid__row {
+	box-sizing: border-box;
+}
+
+.xui-grid__row:after{
+	content:"";
+	display:table;
+	clear:both;
+}
+
+.xui-grid__col {
+	float: left;
+	box-sizing: border-box;
+	margin-left: 0%;
+}
+
+.xui-grid__col_1 {
+	width: 8.333333333333334%;
+}
+
+.xui-grid__col_2 {
+	width: 16.666666666666668%;
+}
+
+.xui-grid__col_3 {
+	width: 25%;
+}
+
+.xui-grid__col_4 {
+	width: 33.333333333333336%;
+}
+
+.xui-grid__col_5 {
+	width: 41.66666666666667%;
+}
+
+.xui-grid__col_6 {
+	width: 50%;
+}
+
+.xui-grid__col_7 {
+	width: 58.333333333333336%;
+}
+
+.xui-grid__col_8 {
+	width: 66.66666666666667%;
+}
+
+.xui-grid__col_9 {
+	width: 75%;
+}
+
+.xui-grid__col_10 {
+	width: 83.33333333333334%;
+}
+
+.xui-grid__col_11 {
+	width: 91.66666666666667%;
+}
+
+.xui-grid__col_12 {
+	width: 100%;
+}
+

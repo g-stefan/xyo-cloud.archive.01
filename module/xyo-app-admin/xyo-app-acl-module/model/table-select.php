@@ -8,12 +8,12 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-if($this->id_xyo_module){
-    $this->ds->id_xyo_module=$this->id_xyo_module;
+if($this->xyo_module_id){
+    $this->ds->xyo_module_id=$this->xyo_module_id;
 }
 
-if($this->id_xyo_module_group){
-    $this->ds->id_xyo_module_group=$this->id_xyo_module_group;
+if($this->xyo_module_group_id){
+    $this->ds->xyo_module_group_id=$this->xyo_module_group_id;
 }
 
 

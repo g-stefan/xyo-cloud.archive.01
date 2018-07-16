@@ -25,5 +25,5 @@ if ($dsUserGroup) {
     }
 };
 
-$this->setParameter("select_id_xyo_user_group",$userGroup);
+$this->setParameter("select_xyo_user_group_id",$userGroup);
 

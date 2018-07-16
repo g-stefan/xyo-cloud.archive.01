@@ -66,7 +66,7 @@ if($this->ds->save()) {
 	if($updateAcl) {
 		$dsAclModule=&$this->getDataSource("db.table.xyo_acl_module");
 		if($dsAclModule) {
-			$dsAclModule->id_xyo_module=$this->ds->id;
+			$dsAclModule->xyo_module_id=$this->ds->id;
 			for($dsAclModule->load(); $dsAclModule->isValid(); $dsAclModule->loadNext()) {
 				$dsAclModule->module=$this->ds->name;
 				$dsAclModule->save();
@@ -80,11 +80,11 @@ if($this->ds->save()) {
 
 		$dsAclModule=&$this->getDataSource("db.table.xyo_acl_module");
 		if($dsAclModule) {
-			$dsAclModule->id_xyo_module=$this->ds->id;
+			$dsAclModule->xyo_module_id=$this->ds->id;
 			$dsAclModule->module=$this->ds->name;
 
-			$dsAclModule->id_xyo_module_group = $this->getElementValueNumber("id_xyo_module_group", 0,"*");
-			$dsAclModule->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0,"*");
+			$dsAclModule->xyo_module_group_id = $this->getElementValueNumber("xyo_module_group_id", 0,"*");
+			$dsAclModule->xyo_user_group_id = $this->getElementValueNumber("xyo_user_group_id", 0,"*");
 
 			$dsAclModule->enabled = $this->getElementValueNumber("acl_enabled", 0,"*");
 			$dsAclModule->order = $this->getElementValueNumber("order", 0);

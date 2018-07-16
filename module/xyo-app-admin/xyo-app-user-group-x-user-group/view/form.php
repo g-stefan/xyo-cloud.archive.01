@@ -13,12 +13,12 @@ if(!$this->isDialog){
 	$this->generateComponent("xui.panel-begin");
 };
 
-if($this->id_xyo_user_group_super){
+if($this->xyo_user_group_id_super){
 }else{
-    $this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group_super"));
+    $this->generateComponent("xui.form-select", array("element" =>"xyo_user_group_id_super"));
 }
 
-$this->generateComponent("xui.form-select", array("element" =>"id_xyo_user_group"));
+$this->generateComponent("xui.form-select", array("element" =>"xyo_user_group_id"));
 $this->generateComponent("xui.form-switch", array("element" =>"enabled"));
 
 if(!$this->isDialog){

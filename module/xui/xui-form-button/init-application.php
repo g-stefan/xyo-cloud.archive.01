@@ -9,3 +9,6 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setDefaultAction($this->getRequest("action", "default"));
+if($this->isDefaultAction("default")){
+	$this->requireModule("lib-rainbow");
+};

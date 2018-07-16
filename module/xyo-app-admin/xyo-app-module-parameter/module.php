@@ -12,13 +12,13 @@ $className = "xyo_app_ModuleParameter2";
 
 class xyo_app_ModuleParameter2 extends xyo_app_Application {
 
-    protected $id_xyo_module;
+    protected $xyo_module_id;
     protected $items; 
     protected $elements; 	
 
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
-        $this->id_xyo_module=0;
+        $this->xyo_module_id=0;
 	$this->items=array();
 	$this->elements=array();
     }   

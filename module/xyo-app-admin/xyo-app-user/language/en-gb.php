@@ -31,8 +31,8 @@ $this->set("label_password2", "Retype password");
 $this->set("label_enabled", "Enabled");
 $this->set("label_picture", "Picture");
 $this->set("label_description", "Description");
-$this->set("label_id_xyo_user_group", "Default user group");
-$this->set("label_id_xyo_language", "Default language");
+$this->set("label_xyo_user_group_id", "Default user group");
+$this->set("label_xyo_language_id", "Default language");
 $this->set("label_invisible","Invisible");
 $this->set("label_email","E-Mail");
 

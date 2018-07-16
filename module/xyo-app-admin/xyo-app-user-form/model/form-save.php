@@ -68,7 +68,7 @@ if (strlen($password1)) {
 	$this->ds->password = $this->user->setPasswordHash($username,$this->getElementValue("password1"),$this->cloud->get("user_password_encoding","hash"));
 }
 
-$this->ds->id_xyo_language = $this->getElementValueNumber("id_xyo_language", 0, "*");
+$this->ds->xyo_language_id = $this->getElementValueNumber("xyo_language_id", 0, "*");
 $this->ds->description = $this->getElementValueString("description","");
 $this->ds->email = $this->getElementValueString("email","");
 

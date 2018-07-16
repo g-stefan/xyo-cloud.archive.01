@@ -15,9 +15,9 @@ $this->ds->{$this->primaryKey} = $this->primaryKeyValue;
 for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
     if ($dsUser) {
         $dsUser->clear();
-        $dsUser->id_xyo_language = $this->ds->id;
+        $dsUser->xyo_language_id = $this->ds->id;
         for($dsUser->load();$dsUser->isValid();$dsUser->loadNext()){
-            $dsUser->id_xyo_language=0;
+            $dsUser->xyo_language_id=0;
             $dsUser->save();
         }
     }

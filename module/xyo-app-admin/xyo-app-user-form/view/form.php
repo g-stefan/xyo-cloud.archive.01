@@ -23,7 +23,7 @@ $this->generateComponent("xui.form-username-required", array("element" => "usern
 $this->generateComponent("xui.form-password", array("element" => "password1"));
 $this->generateComponent("xui.form-password", array("element" => "password2"));
 $this->generateComponent("xui.form-email", array("element" => "email"));
-$this->generateComponent("xui.form-select", array("element" => "id_xyo_language"));
+$this->generateComponent("xui.form-select", array("element" => "xyo_language_id"));
 
 $this->generateComponent("xui.form-action-apply",array("click"=>"doCommand('form-edit-apply');"));
 

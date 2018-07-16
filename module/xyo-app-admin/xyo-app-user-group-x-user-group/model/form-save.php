@@ -21,12 +21,12 @@ if ($this->isNew) {
     }
 }
 
-if($this->id_xyo_user_group_super){
-    $this->ds->id_xyo_user_group_super=$this->id_xyo_user_group_super;
+if($this->xyo_user_group_id_super){
+    $this->ds->xyo_user_group_id_super=$this->xyo_user_group_id_super;
 }else{
-    $this->ds->id_xyo_user_group_super = $this->getElementValueNumber("id_xyo_user_group_super", 0, "*");
+    $this->ds->xyo_user_group_id_super = $this->getElementValueNumber("xyo_user_group_id_super", 0, "*");
 }
-$this->ds->id_xyo_user_group = $this->getElementValueNumber("id_xyo_user_group", 0, "*");
+$this->ds->xyo_user_group_id = $this->getElementValueNumber("xyo_user_group_id", 0, "*");
 if($this->isNew){
     $this->ds->tryLoad();
 }

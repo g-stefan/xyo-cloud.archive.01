@@ -1341,6 +1341,10 @@ class xyo_Module extends xyo_Config {
 		return $this->defaultAction;
 	}
 
+	public function isDefaultAction($action) {
+		return (strcmp($this->defaultAction,$action)==0);
+	}
+
 	public function setViewTemplate($name) {
 		$this->viewTemplate = $name;
 	}

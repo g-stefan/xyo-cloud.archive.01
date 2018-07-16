@@ -41,7 +41,7 @@ $this->tableSelectInfo = array();
 $this->tableActionLink = array();
 
 $this->tableData = array(
-	"id_xyo_module"=>"id_xyo_module",
+	"xyo_module_id"=>"xyo_module_id",
 	"active"=>array(0=>0)
 );
 

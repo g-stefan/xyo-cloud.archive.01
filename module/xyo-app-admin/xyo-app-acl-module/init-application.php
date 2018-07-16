@@ -31,18 +31,18 @@ if($id_xyo_acl_module){
 	$dsAclModule=&$this->getDataSource($this->applicationDataSource);
 	$dsAclModule->id=$id_xyo_acl_module;
 	if($dsAclModule->load(0,1)){
-		$this->setParameter("id_xyo_module",$dsAclModule->id_xyo_module);
+		$this->setParameter("xyo_module_id",$dsAclModule->xyo_module_id);
 	};
 };
 
-$this->id_xyo_module = 1 * $this->getParameterRequest("id_xyo_module", 0);
-if ($this->id_xyo_module) {
-    $this->setKeepRequest("id_xyo_module", $this->id_xyo_module);
+$this->xyo_module_id = 1 * $this->getParameterRequest("xyo_module_id", 0);
+if ($this->xyo_module_id) {
+    $this->setKeepRequest("xyo_module_id", $this->xyo_module_id);
 
     $dsModule = &$this->getDataSource("db.table.xyo_module");
     if ($dsModule) {
         $dsModule->clear();
-        $dsModule->id = $this->id_xyo_module;
+        $dsModule->id = $this->xyo_module_id;
         if ($dsModule->load(0, 1)) {
             $this->setApplicationTitle($this->getFromLanguage("application_title") . " - " . $dsModule->name);
         }
@@ -51,16 +51,16 @@ if ($this->id_xyo_module) {
 }
 
 
-$this->id_xyo_module_group = 1 * $this->getParameterRequest("id_xyo_module_group", 0);
-if ($this->id_xyo_module_group) {
-    $this->setKeepRequest("id_xyo_module_group", $this->id_xyo_module_group);
+$this->xyo_module_group_id = 1 * $this->getParameterRequest("xyo_module_group_id", 0);
+if ($this->xyo_module_group_id) {
+    $this->setKeepRequest("xyo_module_group_id", $this->xyo_module_group_id);
 
     $dsModuleGroup = &$this->getDataSource("db.table.xyo_module_group");
     if ($dsModuleGroup) {
         $dsModuleGroup->clear();
-        $dsModuleGroup->id = $this->id_xyo_module_group;
+        $dsModuleGroup->id = $this->xyo_module_group_id;
         if ($dsModuleGroup->load(0, 1)) {
-			if ($this->id_xyo_module) {
+			if ($this->xyo_module_id) {
 	            $this->setApplicationTitle($this->getFromLanguage("application_title") . " - " . $dsModule->name . " [". $dsModuleGroup->name. "]");
 			}else{
 	            $this->setApplicationTitle($this->getFromLanguage("application_title") . " - " . $dsModuleGroup->name);

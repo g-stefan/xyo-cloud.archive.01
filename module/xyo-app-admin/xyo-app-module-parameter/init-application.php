@@ -14,28 +14,28 @@ $this->setApplicationDataSource("db.table.xyo_module_parameter");
 $this->setDefaultAction($this->getRequest("action", "form-edit"));
 
 $id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);
-$this->id_xyo_module = 1 * $this->getParameterRequest("id_xyo_module", 0);
-if ($this->id_xyo_module==0) {
+$this->xyo_module_id = 1 * $this->getParameterRequest("xyo_module_id", 0);
+if ($this->xyo_module_id==0) {
 	if ($id_xyo_acl_module) {
 		$dsAclModule = &$this->getDataSource("db.table.xyo_acl_module");
 		if($dsAclModule){
 			$dsAclModule->clear();
 			$dsAclModule->id=$id_xyo_acl_module;
 			if($dsAclModule->load(0,1)){
-				$this->id_xyo_module=$dsAclModule->id_xyo_module;
+				$this->xyo_module_id=$dsAclModule->xyo_module_id;
 			};				
 		};
 	};		    
 };
 
 
-if ($this->id_xyo_module) {
-    $this->setKeepRequest("id_xyo_module", $this->id_xyo_module);
+if ($this->xyo_module_id) {
+    $this->setKeepRequest("xyo_module_id", $this->xyo_module_id);
 
     $dsModule = &$this->getDataSource("db.table.xyo_module");
     if ($dsModule) {
         $dsModule->clear();
-        $dsModule->id = $this->id_xyo_module;
+        $dsModule->id = $this->xyo_module_id;
         if ($dsModule->load(0, 1)) {
             $this->setApplicationTitle($this->getFromLanguage("application_title") . " - " . $dsModule->name);
 	    $this->addModule($dsModule->name);

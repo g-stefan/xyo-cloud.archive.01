@@ -17,7 +17,7 @@ $this->set("query_table", array(
 
 $this->set("query_item", array(
     "id" => array("user"=>"id"),
-    "id_xyo_user" => array("user"=>"id_xyo_user"),
+    "xyo_user_id" => array("user"=>"xyo_user_id"),
     "username" => array("user"=>"username"),
     "password" => array("user"=>"password"),
     "session" => array("user"=>"session"),
@@ -32,16 +32,16 @@ $this->set("query_item", array(
     "logged_in" => array("user"=>"logged_in"),
     "user_group" => array("user_group"=>"name"),
     "language" => array("language"=>"name"),
-    "id_xyo_user_group" => array("user_group"=>"id"),
-    "id_xyo_language" => array("user"=>"id_xyo_language")
+    "xyo_user_group_id" => array("user_group"=>"id"),
+    "xyo_language_id" => array("user"=>"xyo_language_id")
 ));
 
 
 $this->set("query_link", array(
     "user" => "base",
-    "user_x_user_group" => array("outer",array("user_x_user_group"=>"id_xyo_user"),array("user"=>"id")),
-    "user_group" => array("outer",array("user_group"=>"id"),array("user_x_user_group"=>"id_xyo_user_group")),
-    "language" => array("outer",array("language"=>"id"),array("user"=>"id_xyo_language"))
+    "user_x_user_group" => array("outer",array("user_x_user_group"=>"xyo_user_id"),array("user"=>"id")),
+    "user_group" => array("outer",array("user_group"=>"id"),array("user_x_user_group"=>"xyo_user_group_id")),
+    "language" => array("outer",array("language"=>"id"),array("user"=>"xyo_language_id"))
 ));
 
 

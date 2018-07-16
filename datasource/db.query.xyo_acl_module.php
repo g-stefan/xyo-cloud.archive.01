@@ -17,9 +17,9 @@ $this->set("query_table", array(
 
 $this->set("query_item", array(
     "id" => array("acl_module" => "id"),
-    "id_xyo_module" => array("acl_module" => "id_xyo_module"),
-    "id_xyo_module_group" => array("acl_module" => "id_xyo_module_group"),
-    "id_xyo_user_group" => array("acl_module" => "id_xyo_user_group"),
+    "xyo_module_id" => array("acl_module" => "xyo_module_id"),
+    "xyo_module_group_id" => array("acl_module" => "xyo_module_group_id"),
+    "xyo_user_group_id" => array("acl_module" => "xyo_user_group_id"),
     "enabled" => array("acl_module" => "enabled"),
     "module" => array("acl_module" => "module"),
     "order" => array("acl_module" => "order"),
@@ -30,9 +30,9 @@ $this->set("query_item", array(
 
 $this->set("query_link", array(
     "acl_module" => "base",
-    "module" => array("outer", array("module" => "id"), array("acl_module" => "id_xyo_module")),
-    "module_group" => array("outer", array("module_group" => "id"), array("acl_module" => "id_xyo_module_group")),
-    "user_group" => array("outer", array("user_group" => "id"), array("acl_module" => "id_xyo_user_group"))
+    "module" => array("outer", array("module" => "id"), array("acl_module" => "xyo_module_id")),
+    "module_group" => array("outer", array("module_group" => "id"), array("acl_module" => "xyo_module_group_id")),
+    "user_group" => array("outer", array("user_group" => "id"), array("acl_module" => "xyo_user_group_id"))
 ));
 
 $this->set("query_save", array(

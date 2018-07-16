@@ -8,8 +8,8 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-if($this->id_xyo_user_group_super){
-    $this->ds->id_xyo_user_group_super=$this->id_xyo_user_group_super;
+if($this->xyo_user_group_id_super){
+    $this->ds->xyo_user_group_id_super=$this->xyo_user_group_id_super;
 }
 
 $this->ds->setGroup("id",true);

@@ -26,8 +26,8 @@ if ($dsUserGroupX->load(0, 1)) {
 
 
 		$dsUserGroupXUserGroup->clear();
-		$dsUserGroupXUserGroup->id_xyo_user_group_super = $dsUserGroupX->id;
-		$dsUserGroupXUserGroup->id_xyo_user_group = $dsUserGroupY->id;
+		$dsUserGroupXUserGroup->xyo_user_group_id_super = $dsUserGroupX->id;
+		$dsUserGroupXUserGroup->xyo_user_group_id = $dsUserGroupY->id;
 		$dsUserGroupXUserGroup->tryLoad();
 		$dsUserGroupXUserGroup->enabled = 1;
 		$dsUserGroupXUserGroup->save();
@@ -50,8 +50,8 @@ if ($dsUserGroupX->load(0, 1)) {
 
 
 		$dsUserGroupXUserGroup->clear();
-		$dsUserGroupXUserGroup->id_xyo_user_group_super = $dsUserGroupX->id;
-		$dsUserGroupXUserGroup->id_xyo_user_group = $dsUserGroupY->id;
+		$dsUserGroupXUserGroup->xyo_user_group_id_super = $dsUserGroupX->id;
+		$dsUserGroupXUserGroup->xyo_user_group_id = $dsUserGroupY->id;
 		$dsUserGroupXUserGroup->tryLoad();
 		$dsUserGroupXUserGroup->enabled = 1;
 		$dsUserGroupXUserGroup->save();
@@ -65,8 +65,8 @@ if ($dsUserGroupX->load(0, 1)) {
 
 
 		$dsUserGroupXUserGroup->clear();
-		$dsUserGroupXUserGroup->id_xyo_user_group_super = $dsUserGroupX->id;
-		$dsUserGroupXUserGroup->id_xyo_user_group = $dsUserGroupY->id;
+		$dsUserGroupXUserGroup->xyo_user_group_id_super = $dsUserGroupX->id;
+		$dsUserGroupXUserGroup->xyo_user_group_id = $dsUserGroupY->id;
 		$dsUserGroupXUserGroup->tryLoad();
 		$dsUserGroupXUserGroup->enabled = 1;
 		$dsUserGroupXUserGroup->save();

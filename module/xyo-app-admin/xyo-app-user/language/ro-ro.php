@@ -31,8 +31,8 @@ $this->set("label_password2", "Introduce parola din nou");
 $this->set("label_enabled", "Activat");
 $this->set("label_picture", "Poza");
 $this->set("label_description", "Descriere");
-$this->set("label_id_xyo_user_group", "Grup utilizator implicit");
-$this->set("label_id_xyo_language", "Limba implicita");
+$this->set("label_xyo_user_group_id", "Grup utilizator implicit");
+$this->set("label_xyo_language_id", "Limba implicita");
 $this->set("label_invisible","Invizibil");
 $this->set("label_email","E-Mail");
 

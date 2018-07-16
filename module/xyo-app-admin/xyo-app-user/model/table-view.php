@@ -26,7 +26,7 @@ $this->tableSearch = array(
 );
 
 $this->tableSelect = array(
-    "id_xyo_user_group" => true,
+    "xyo_user_group_id" => true,
     "enabled" => true
 );
 
@@ -60,7 +60,7 @@ $this->processModel("select-xyo-user-group");
 $this->processModel("select-enabled");
 
 $this->tableSelectInfo = array(
-    "id_xyo_user_group" => $this->getParameter("select_id_xyo_user_group", array()),
+    "xyo_user_group_id" => $this->getParameter("select_xyo_user_group_id", array()),
     "enabled" => $this->getParameter("select_enabled", array())
 );
 

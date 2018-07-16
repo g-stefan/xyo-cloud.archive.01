@@ -28,9 +28,9 @@ $this->set("el_name_empty","este gol");
 
 $this->set("title_default_acl","ACL initial");
 $this->set("select_xyo_module_group_any","- nimic -");
-$this->set("label_id_xyo_module_group","Grup modul");
+$this->set("label_xyo_module_group_id","Grup modul");
 $this->set("label_order","Ordine");
-$this->set("label_id_xyo_user_group","Grup utilizator");
+$this->set("label_xyo_user_group_id","Grup utilizator");
 $this->set("label_acl_enabled","Activat");
 
 $this->set("select_xyo_user_group_any","- grup utilizator -");

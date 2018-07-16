@@ -19,5 +19,5 @@ $this->set("table_item", array(
 ));
 
 $this->set("table_link",array(
-	"xyo_user"=>array("db.table.xyo_user","id_xyo_language","id","set",0)
+	"xyo_user"=>array("db.table.xyo_user","xyo_language_id","id","set",0)
 ));

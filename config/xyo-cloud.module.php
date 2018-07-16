@@ -22,9 +22,9 @@ $this->setModule("lib",null,"lib-maximize-select2-height");
 $this->setModule("lib",null,"lib-air-datepicker");
 $this->setModule("lib",null,"lib-tinymce");
 $this->setModule("lib",null,"lib-cropit");
+$this->setModule("lib",null,"lib-rainbow");
 //
 include("xyo-cloud.xui.php");
-//
 //
 $this->setModule("lib",null,"lib-js-cookie");
 $this->setModule("lib",null,"lib-jquery-form");
@@ -33,7 +33,6 @@ $this->setModule("lib",null,"lib-md5");
 $this->setModule("lib",null,"lib-sha512");
 $this->setModule("lib",null,"lib-pear-archive-tar");
 $this->setModule("lib",null,"lib-izimodal");
-//
 //
 $this->setModule(null,null,"xyo");
 //

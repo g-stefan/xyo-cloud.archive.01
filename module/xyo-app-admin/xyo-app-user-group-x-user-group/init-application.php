@@ -26,14 +26,14 @@ $this->requireComponent(array(
 	"xui.box-1x1-end"
 ));
 
-$this->id_xyo_user_group_super = 1 * $this->getParameterRequest("id_xyo_user_group_super", 0);
-if ($this->id_xyo_user_group_super) {
-    $this->setKeepRequest("id_xyo_user_group_super", $this->id_xyo_user_group_super);
+$this->xyo_user_group_id_super = 1 * $this->getParameterRequest("xyo_user_group_id_super", 0);
+if ($this->xyo_user_group_id_super) {
+    $this->setKeepRequest("xyo_user_group_id_super", $this->xyo_user_group_id_super);
 
     $dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
     if ($dsUserGroup) {
         $dsUserGroup->clear();
-        $dsUserGroup->id = $this->id_xyo_user_group_super;
+        $dsUserGroup->id = $this->xyo_user_group_id_super;
         if ($dsUserGroup->load(0, 1)) {
             $this->setApplicationTitle($this->getFromLanguage("application_title") . " - " . $dsUserGroup->name);
         }

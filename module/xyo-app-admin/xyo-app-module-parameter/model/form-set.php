@@ -8,12 +8,12 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-if($this->id_xyo_module>0) {
+if($this->xyo_module_id>0) {
 
 	foreach($this->items as $item) {
 		if(!is_null($item["name"])){
 			$this->ds->clear();
-			$this->ds->id_xyo_module=$this->id_xyo_module;
+			$this->ds->xyo_module_id=$this->xyo_module_id;
 			$value=$item["default_value"];
 			$this->ds->name=$item["name"];
 			if($this->ds->load(0,1)) {

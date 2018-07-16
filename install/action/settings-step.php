@@ -99,7 +99,7 @@ if ($this->isElementError()) {
     $dsUser->username = $this->getElementValue("username");
     $dsUser->password = $modUser->setPasswordHash($dsUser->username,$this->getElementValue("password"),"hash");
 
-    $dsUser->id_xyo_language = $dsLanguage->id;
+    $dsUser->xyo_language_id = $dsLanguage->id;
 
     $dsUser->name = "Administrator";
     $dsUser->created_on = "NOW";
@@ -115,8 +115,8 @@ if ($this->isElementError()) {
     if ($dsUserGroup->load(0, 1)) {
 
 	$dsUserXUserGroup->clear();
-        $dsUserXUserGroup->id_xyo_user = $dsUser->id;
-        $dsUserXUserGroup->id_xyo_user_group = $dsUserGroup->id;
+        $dsUserXUserGroup->xyo_user_id = $dsUser->id;
+        $dsUserXUserGroup->xyo_user_group_id = $dsUserGroup->id;
         $dsUserXUserGroup->enabled = 1;
         $dsUserXUserGroup->save();
 

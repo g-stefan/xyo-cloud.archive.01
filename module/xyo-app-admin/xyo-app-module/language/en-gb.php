@@ -28,9 +28,9 @@ $this->set("el_name_empty","is empty");
 
 $this->set("title_default_acl","Default ACL");
 $this->set("select_xyo_module_group_any","- module group -");
-$this->set("label_id_xyo_module_group","Module group");
+$this->set("label_xyo_module_group_id","Module group");
 $this->set("label_order","Order");  
-$this->set("label_id_xyo_user_group","User group");
+$this->set("label_xyo_user_group_id","User group");
 $this->set("label_acl_enabled","Enabled");
 
 $this->set("select_xyo_user_group_any","- user group -");

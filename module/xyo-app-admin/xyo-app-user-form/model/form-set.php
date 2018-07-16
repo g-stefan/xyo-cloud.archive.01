@@ -13,7 +13,7 @@ $this->setElementValue("name",$this->ds->name);
 $this->setElementValue("username",$this->ds->username);
 $this->setElementValue("password1","");
 $this->setElementValue("password2","");
-$this->setElementValue("id_xyo_language",$this->ds->id_xyo_language);
+$this->setElementValue("xyo_language_id",$this->ds->xyo_language_id);
 $this->setElementValue("picture",$this->ds->picture);
 $this->setElementValue("description",$this->ds->description);
 $this->setElementValue("email",$this->ds->email);

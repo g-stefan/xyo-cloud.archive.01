@@ -21,7 +21,7 @@ for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
         
     if($dsUserXUserGroup){
             $dsUserXUserGroup->clear();
-            $dsUserXUserGroup->id_xyo_user=$this->ds->id;
+            $dsUserXUserGroup->xyo_user_id=$this->ds->id;
             $dsUserXUserGroup->delete();
     }
         

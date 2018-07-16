@@ -28,7 +28,7 @@ $this->set("el_password1_not_match", "nu se potriveste");
 $this->set("el_password2_not_match", "nu se potriveste");
 $this->set("el_username_already_exists", "deja exista");
 
-$this->set("label_id_xyo_language", "Limba implicita");
+$this->set("label_xyo_language_id", "Limba implicita");
 $this->set("select_xyo_language_none","- nici una -");
 
 $this->set("label_picture", "Poza");

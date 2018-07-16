@@ -23,7 +23,7 @@ $this->tableSearch = array(
 );
 
 $this->tableSelect = array(
-    "id_xyo_user_group" => true,
+    "xyo_user_group_id" => true,
     "enabled" => true
 );
 
@@ -49,7 +49,7 @@ $this->tableSort = array(
 	"id" => "none"
 );
 
-if ($this->id_xyo_user) {
+if ($this->xyo_user_id) {
     
 } else {
     $this->processModel("select-xyo-user-group");
@@ -59,18 +59,18 @@ $this->processModel("select-enabled");
 $this->processModel("select-allow");
 
 $this->tableSelectInfo = array(
-    "id_xyo_user_group" => $this->getParameter("select_id_xyo_user_group", array()),
+    "xyo_user_group_id" => $this->getParameter("select_xyo_user_group_id", array()),
     "enabled" => $this->getParameter("select_enabled", array())
 );
 
-if ($this->id_xyo_user) {
+if ($this->xyo_user_id) {
     unset($this->tableHead["name"]);
     unset($this->tableSelect["name"]);
     unset($this->tableSort["name"]);
     unset($this->tableSearch["name"]);
     unset($this->tableType["name"]);
-    unset($this->tableSelect["id_xyo_user_group"]);
-    unset($this->tableSelectInfo["id_xyo_user_group"]);
+    unset($this->tableSelect["xyo_user_group_id"]);
+    unset($this->tableSelectInfo["xyo_user_group_id"]);
     
 
 	$this->tableType["user_group"] =array("action", array(
@@ -79,7 +79,7 @@ if ($this->id_xyo_user) {
         ));
     
 } else {
-    unset($this->tableSelect["id_xyo_user_group"]);
+    unset($this->tableSelect["xyo_user_group_id"]);
     unset($this->tableSort["user_group"]);
 }
 

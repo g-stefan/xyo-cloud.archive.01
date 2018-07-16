@@ -15,7 +15,7 @@ $this->setElementValue("password1","");
 $this->setElementValue("password2","");
 $this->setElementValue("enabled",$this->ds->enabled);
 $this->setElementValue("invisible",$this->ds->invisible);
-$this->setElementValue("id_xyo_language",$this->ds->id_xyo_language);
+$this->setElementValue("xyo_language_id",$this->ds->xyo_language_id);
 $this->setElementValue("picture",$this->ds->picture);
 $this->setElementValue("description",$this->ds->description);
 $this->setElementValue("email",$this->ds->email);

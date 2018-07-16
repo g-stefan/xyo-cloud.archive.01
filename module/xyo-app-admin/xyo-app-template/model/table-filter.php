@@ -12,7 +12,7 @@ foreach ($this->viewData as $key => $value) {
 
 	$dsAclCheck=&$this->getDataSource($this->applicationDataSource);
 	$dsAclCheck->module_group_name="xyo-system-exec";
-	$dsAclCheck->id_xyo_module=$this->viewData[$key]["id_xyo_module"];
+	$dsAclCheck->xyo_module_id=$this->viewData[$key]["xyo_module_id"];
 	$dsAclCheck->enabled=1;
 	if($dsAclCheck->load(0,1)){
 		$this->viewData[$key]["active"]=1;

@@ -29,7 +29,7 @@ $this->set("el_password1_not_match", "does not match");
 $this->set("el_password2_not_match", "does not match");
 $this->set("el_username_already_exists", "already exists");
 
-$this->set("label_id_xyo_language", "Default language");
+$this->set("label_xyo_language_id", "Default language");
 $this->set("select_xyo_language_none","- none -");
 
 $this->set("label_picture", "Picture");

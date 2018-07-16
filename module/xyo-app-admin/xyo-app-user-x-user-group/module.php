@@ -12,11 +12,11 @@ $className = "xyo_app_UserXUserGroup";
 
 class xyo_app_UserXUserGroup extends xyo_app_Table {
 
-    protected $id_xyo_user;
+    protected $xyo_user_id;
     
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
-        $this->id_xyo_user=0;
+        $this->xyo_user_id=0;
     }   
 
 }

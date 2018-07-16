@@ -8,13 +8,13 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-if($this->id_xyo_module>0) {
+if($this->xyo_module_id>0) {
 
 	foreach($this->items as $item) {
 		if(!is_null($item["name"])){
 			$this->processComponent($item["type"],array_merge(array("element" =>$item["name"]),$item["parameters"]));
 			$this->ds->clear();
-			$this->ds->id_xyo_module=$this->id_xyo_module;
+			$this->ds->xyo_module_id=$this->xyo_module_id;
 			$this->ds->name=$item["name"];
 			$this->ds->tryLoad(0,1);		
 			$this->ds->value=$this->getElementValueString($item["name"],$item["default_value"]);
@@ -24,7 +24,7 @@ if($this->id_xyo_module>0) {
 
 	$dsModule=&$this->getDataSource("db.table.xyo_module");
 	$dsModule->clear();
-	$dsModule->id=$this->id_xyo_module;
+	$dsModule->id=$this->xyo_module_id;
 	$dsModule->parameter=1;
 	$dsModule->save();	
 };

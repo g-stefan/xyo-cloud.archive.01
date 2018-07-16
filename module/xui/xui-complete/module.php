@@ -44,6 +44,7 @@ class xui_Complete extends xyo_Module {
 			"xui-toggle",
 			"xui-elevation",
 			"xui-dashboard",
+			"xui-grid",
 			//
 			"xui-form-button",
 			"xui-form-button-group",

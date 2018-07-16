@@ -18,5 +18,5 @@ $this->set("table_item", array(
 ));
 
 $this->set("table_link",array(
-	"xyo_acl_module"=>array("db.table.xyo_acl_module","id_xyo_module_group","id","delete")
+	"xyo_acl_module"=>array("db.table.xyo_acl_module","xyo_module_group_id","id","delete")
 ));

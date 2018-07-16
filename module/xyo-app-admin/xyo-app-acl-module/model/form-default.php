@@ -9,8 +9,8 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setElementValue("id",0);
-$this->setElementValue("id_xyo_module",0);
-$this->setElementValue("id_xyo_module_group",0);
-$this->setElementValue("id_xyo_user_group",0);
+$this->setElementValue("xyo_module_id",0);
+$this->setElementValue("xyo_module_group_id",0);
+$this->setElementValue("xyo_user_group_id",0);
 $this->setElementValue("enabled",1);
 $this->setElementValue("order",0);

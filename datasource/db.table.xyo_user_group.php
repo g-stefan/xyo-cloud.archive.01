@@ -18,8 +18,8 @@ $this->set("table_item", array(
 ));
 
 $this->set("table_link",array(
-	"xyo_acl_module"=>array("db.table.xyo_acl_module","id_xyo_user_group","id","delete"),
-	"xyo_user_group_x_user_group_super"=>array("db.table.xyo_user_group_x_user_group","id_xyo_user_group_super","id","delete"),
-	"xyo_user_group_x_user_group"=>array("db.table.xyo_user_group_x_user_group","id_xyo_user_group","id","delete"),
-	"xyo_user_x_user_group"=>array("db.table.xyo_user_x_user_group","id_xyo_user_group","id","delete")
+	"xyo_acl_module"=>array("db.table.xyo_acl_module","xyo_user_group_id","id","delete"),
+	"xyo_user_group_x_user_group_super"=>array("db.table.xyo_user_group_x_user_group","xyo_user_group_id_super","id","delete"),
+	"xyo_user_group_x_user_group"=>array("db.table.xyo_user_group_x_user_group","xyo_user_group_id","id","delete"),
+	"xyo_user_x_user_group"=>array("db.table.xyo_user_x_user_group","xyo_user_group_id","id","delete")
 ));

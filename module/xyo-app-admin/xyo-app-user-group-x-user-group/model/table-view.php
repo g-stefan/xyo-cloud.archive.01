@@ -42,11 +42,11 @@ $this->processModel("select-xyo-user-group");
 $this->processModel("select-enabled");
 
 $this->tableSelectInfo = array(
-	"user_group" => $this->getParameter("select_id_xyo_user_group", array()),
+	"user_group" => $this->getParameter("select_xyo_user_group_id", array()),
 	"enabled" => $this->getParameter("select_enabled", array())
 );
 
-if ($this->id_xyo_user_group_super) {
+if ($this->xyo_user_group_id_super) {
 
 	unset($this->tableHead["user_group_super"]);
 	unset($this->tableSelect["user_group_super"]);

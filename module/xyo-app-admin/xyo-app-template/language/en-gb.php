@@ -20,11 +20,11 @@ $this->set("head_id","Id");
 $this->set("select_xyo_user_group_any","- user group -");
 $this->set("select_xyo_module_group_any","- module group -");
 
-$this->set("label_id_xyo_module","Module");
+$this->set("label_xyo_module_id","Module");
 $this->set("select_xyo_module_any","- module -");
-$this->set("label_id_xyo_module_group","Module group");
+$this->set("label_xyo_module_group_id","Module group");
 $this->set("select_xyo_module_group_any","- group -");
 $this->set("label_order","Order");
 
-$this->set("label_id_xyo_user_group","User group");
+$this->set("label_xyo_user_group_id","User group");
 

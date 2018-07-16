@@ -9,6 +9,6 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setElementValue("id",$this->ds->id);
-$this->setElementValue("id_xyo_user_group_super",$this->ds->id_xyo_user_group_super);
-$this->setElementValue("id_xyo_user_group",$this->ds->id_xyo_user_group);
+$this->setElementValue("xyo_user_group_id_super",$this->ds->xyo_user_group_id_super);
+$this->setElementValue("xyo_user_group_id",$this->ds->xyo_user_group_id);
 $this->setElementValue("enabled",$this->ds->enabled);
