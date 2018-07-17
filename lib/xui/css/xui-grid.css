@@ -29,51 +29,161 @@
 	margin-left: 0%;
 }
 
-.xui-grid__col_1 {
+/* --- 12 --- */
+
+.xui-grid__col_1x12 {
 	width: 8.333333333333334%;
 }
 
-.xui-grid__col_2 {
+.xui-grid__col_2x12 {
 	width: 16.666666666666668%;
 }
 
-.xui-grid__col_3 {
+.xui-grid__col_3x12 {
 	width: 25%;
 }
 
-.xui-grid__col_4 {
+.xui-grid__col_4x12 {
 	width: 33.333333333333336%;
 }
 
-.xui-grid__col_5 {
+.xui-grid__col_5x12 {
 	width: 41.66666666666667%;
 }
 
-.xui-grid__col_6 {
+.xui-grid__col_6x12 {
 	width: 50%;
 }
 
-.xui-grid__col_7 {
+.xui-grid__col_7x12 {
 	width: 58.333333333333336%;
 }
 
-.xui-grid__col_8 {
+.xui-grid__col_8x12 {
 	width: 66.66666666666667%;
 }
 
-.xui-grid__col_9 {
+.xui-grid__col_9x12 {
 	width: 75%;
 }
 
-.xui-grid__col_10 {
+.xui-grid__col_10x12 {
 	width: 83.33333333333334%;
 }
 
-.xui-grid__col_11 {
+.xui-grid__col_11x12 {
 	width: 91.66666666666667%;
 }
 
-.xui-grid__col_12 {
+.xui-grid__col_12x12 {
+	width: 100%;
+}
+
+/* --- 8 --- */
+
+.xui-grid__col_1x8 {
+	width: 12.5%;
+}
+
+.xui-grid__col_2x8 {
+	width: 25%;
+}
+
+.xui-grid__col_3x8 {
+	width: 37.5%;
+}
+
+.xui-grid__col_4x8 {
+	width: 50%;
+}
+
+.xui-grid__col_5x8 {
+	width: 62.5%;
+}
+
+.xui-grid__col_6x8 {
+	width: 75%;
+}
+
+.xui-grid__col_7x8 {
+	width: 87.5%;
+}
+
+.xui-grid__col_8x8 {
+	width: 100%;
+}
+
+/* --- 6 --- */
+
+.xui-grid__col_1x6 {
+	width: 16.666666666666668%;
+}
+
+.xui-grid__col_2x6 {
+	width: 33.333333333333336%;
+}
+
+.xui-grid__col_3x6 {
+	width: 50%;
+}
+
+.xui-grid__col_4x6 {
+	width: 66.66666666666667%;
+}
+
+.xui-grid__col_5x6 {
+	width: 83.33333333333334%;
+}
+
+.xui-grid__col_6x6 {
+	width: 100%;
+}
+
+/* --- 4 --- */
+
+.xui-grid__col_1x4 {
+	width: 25%;
+}
+
+.xui-grid__col_2x4 {
+	width: 50%;
+}
+
+.xui-grid__col_3x4 {
+	width: 75%;
+}
+
+.xui-grid__col_4x4 {
+	width: 100%;
+}
+
+/* --- 3 --- */
+
+.xui-grid__col_1x3 {
+	width: 33.333333333333336%;
+}
+
+.xui-grid__col_2x3 {
+	width: 66.66666666666667%;
+}
+
+.xui-grid__col_3x3 {
+	width: 100%;
+}
+
+/* --- 2 --- */
+
+.xui-grid__col_1x2 {
+	width: 50%;
+}
+
+.xui-grid__col_2x2 {
+	width: 100%;
+}
+
+/* --- 1 --- */
+
+.xui-grid__col_1x1 {
 	width: 100%;
 }
 
