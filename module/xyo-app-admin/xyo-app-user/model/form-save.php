@@ -85,7 +85,7 @@ if (!$this->isNew) {
 $this->ds->name = $name;
 $this->ds->username = $username;
 if ($this->isNew) {
-    $this->ds->created_on = "NOW";
+    $this->ds->created_at = "NOW";
     $this->ds->password = $this->user->setPasswordHash($username,$password1,$this->cloud->get("user_password_encoding","hash"));
 } else {
     if (strlen($password1)) {

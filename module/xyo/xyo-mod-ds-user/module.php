@@ -387,9 +387,9 @@ class xyo_mod_ds_User extends xyo_Module {
 				// that will not unauthorize current session 
 				//
 				if(!$this->cloud->getRequest("user_service",0)){
-					$this->dsUser->logged_on = "NOW";
+					$this->dsUser->logged_at = "NOW";
 					$this->dsUser->logged_in = 1;
-					$this->dsUser->action_on = "NOW";
+					$this->dsUser->action_at = "NOW";
 					$this->dsUser->action = 1;
 					$this->dsUser->save();
 					return true;
@@ -528,7 +528,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				$this->dsUser->clear();
 				$this->dsUser->id = $this->info->id;
 				if ($this->dsUser->load(0, 1)) {
-					$this->dsUser->action_on = "NOW";
+					$this->dsUser->action_at = "NOW";
 					$this->dsUser->action = 0;
 					$this->dsUser->logged_in = 0;
 					$this->dsUser->session = hash("sha512",date("Y-m-d H:i:s")." - ".rand().".".$this->dsUser->session,false);
@@ -753,12 +753,12 @@ class xyo_mod_ds_User extends xyo_Module {
 		$dsUser->logged_in=1;
 		for($dsUser->load();$dsUser->isValid();$dsUser->loadNext()){		
 			if(time()-mktime(
-					substr($dsUser->action_on,11,2),	
-					substr($dsUser->action_on,14,2),
-					substr($dsUser->action_on,17,2),
-					substr($dsUser->action_on,5,2),
-					substr($dsUser->action_on,8,2),
-					substr($dsUser->action_on,0,4)
+					substr($dsUser->action_at,11,2),	
+					substr($dsUser->action_at,14,2),
+					substr($dsUser->action_at,17,2),
+					substr($dsUser->action_at,5,2),
+					substr($dsUser->action_at,8,2),
+					substr($dsUser->action_at,0,4)
 				)>=$minutes){
 
 				if($this->info->id==$dsUser->id){
@@ -793,7 +793,7 @@ class xyo_mod_ds_User extends xyo_Module {
 
 
 		if($this->isAuthorized()){
-			$this->dsUser->action_on = "NOW";
+			$this->dsUser->action_at = "NOW";
 			$this->dsUser->action = $this->dsUser->action + 1;
 			$this->dsUser->save();
 

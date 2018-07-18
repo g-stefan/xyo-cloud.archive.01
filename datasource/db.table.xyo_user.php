@@ -18,11 +18,11 @@ $this->set("table_item", array(
 	"session" => array("varchar",255,null),
 	"enabled" => array("int",0,"unsigned"),
 	"name" => array("varchar",255,null),
-	"created_on" => array("datetime",null),
-	"logged_on" => array("datetime",null),
+	"created_at" => array("datetime",null),
+	"logged_at" => array("datetime",null),
 	"logged_in" => array("int",0,"unsigned"),
 	"action" => array("int",0,"unsigned"), // authorization checks
-	"action_on" => array("datetime",null), // last time when an authorization was requested
+	"action_at" => array("datetime",null), // last time when an authorization was requested
 	"xyo_language_id" => array("bigint",0,"unsigned"),
 	"picture" => array("varchar",255,null),
 	"description" => array("varchar",255,null),

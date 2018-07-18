@@ -102,7 +102,7 @@ if ($this->isElementError()) {
     $dsUser->xyo_language_id = $dsLanguage->id;
 
     $dsUser->name = "Administrator";
-    $dsUser->created_on = "NOW";
+    $dsUser->created_at = "NOW";
     $dsUser->enabled = 1;
     $dsUser->save();
 

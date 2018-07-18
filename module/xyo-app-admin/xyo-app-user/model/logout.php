@@ -16,7 +16,7 @@ for ($this->ds->load(); $this->ds->isValid(); $this->ds->loadNext()) {
         continue;
     }
     $this->ds->session = "";
-    $this->ds->action_on = "NOW";
+    $this->ds->action_at = "NOW";
     $this->ds->action = 0;
     $this->ds->logged_in = 0;
     $this->ds->save();

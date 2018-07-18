@@ -13,10 +13,10 @@ $this->set("application_title", "Utilizatori");
 $this->set("head_name", "Nume");
 $this->set("head_username", "Utilizator");
 $this->set("head_id", "Id");
-$this->set("head_logged_on", "Ultimul login");
+$this->set("head_logged_at", "Ultimul login");
 $this->set("head_enabled", "Activat");
 $this->set("head_logged_in", "Este logat");
-$this->set("head_created_on", "Creat");
+$this->set("head_created_at", "Creat");
 $this->set("head_invisible","Invizibil");
 
 $this->set("select_xyo_user_group_any", "- grup utilizator -");

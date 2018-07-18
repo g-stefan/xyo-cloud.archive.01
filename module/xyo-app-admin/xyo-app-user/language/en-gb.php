@@ -13,10 +13,10 @@ $this->set("application_title", "Users");
 $this->set("head_name", "Name");
 $this->set("head_username", "Username");
 $this->set("head_id", "Id");
-$this->set("head_logged_on", "Logged on");
+$this->set("head_logged_at", "Logged at");
 $this->set("head_enabled", "Enabled");
 $this->set("head_logged_in", "Logged in");
-$this->set("head_created_on", "Created on");
+$this->set("head_created_at", "Created at");
 $this->set("head_invisible","Invisible");
 
 $this->set("select_xyo_user_group_any", "- user group -");
