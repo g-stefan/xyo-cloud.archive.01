@@ -23,7 +23,8 @@ class xyo_datasource_mysql_Connection {
 	var $user;
 	var $password;
 	var $database;
-	var $prefix;
+	var $prefix;	
+	var $notify;
 
 	function __construct(&$cloud, &$module, $name, $user, $password, $server,$port, $database, $prefix) {
 		$this->cloud = &$cloud;
@@ -41,6 +42,8 @@ class xyo_datasource_mysql_Connection {
 		$this->forceUse = false;
 		$this->log = false;
 		$this->db_use = false;
+
+		$this->notify=array();
 	}
 
 	function setLog($log) {
@@ -332,5 +335,9 @@ class xyo_datasource_mysql_Connection {
 		return addcslashes(mysql_real_escape_string($value), "%_");
 	}
 
+	function setNotify($datasource,$moduleName){
+		$this->notify[$datasource]=&$this->module->getModule($moduleName);
+	}
+	
 }
 

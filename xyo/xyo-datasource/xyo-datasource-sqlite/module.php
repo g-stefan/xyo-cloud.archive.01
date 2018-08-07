@@ -49,6 +49,10 @@ class xyo_datasource_Sqlite extends xyo_Module {
 				$v_->setDebug($value);
 			} else if (strcmp($option, "log") == 0) {
 				$v_->setLog($value);
+			}else if (strcmp($option, "notify") == 0) {
+				foreach($value as $keyX=>$valueX){
+					$v_->setNotify($keyX,$valueX);
+				};
 			};
 		};
 	}

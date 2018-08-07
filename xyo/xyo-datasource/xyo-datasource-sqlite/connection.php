@@ -18,17 +18,21 @@ class xyo_datasource_sqlite_Connection {
 	var $name;
 	var $database;
 	var $mode;
+	var $notify;
 
-	function __construct(&$cloud, &$module, $name, $database, $mode) {
+	function __construct(&$cloud, &$module, $name, $database, $mode, $prefix="") {
 		$this->cloud = &$cloud;
 		$this->module = &$module;
 		$this->name = $name;
 		$this->database = $database;
-		$this->mode = $mode;
+		$this->mode = $mode;		
+		$this->prefix = $prefix;
 
 		$this->db = null;
 		$this->debug = false;
 		$this->log = false;
+
+		$this->notify=array();
 	}
 
 	function setLog($log) {
@@ -37,6 +41,10 @@ class xyo_datasource_sqlite_Connection {
 
 	function setDebug($debug) {
 		$this->debug = $debug;
+	}
+
+	function getPrefix() {
+		return $this->prefix;
 	}
 
 	function getDateNow() {
@@ -363,6 +371,10 @@ class xyo_datasource_sqlite_Connection {
 
 	function safeLikeValue($value) {
 		return SQLite3::escapeString($value);
+	}
+
+	function setNotify($datasource,$moduleName){
+		$this->notify[$datasource]=&$this->module->getModule($moduleName);
 	}
 
 }

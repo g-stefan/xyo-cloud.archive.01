@@ -82,6 +82,9 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	var $fieldAutoIncrement_;
 
+	//----
+	var $notify_;
+	
 	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $as_, $doInit=true) {
 		parent::__construct($module->getCloud());
 
@@ -92,6 +95,11 @@ class xyo_datasource_csv_Table extends xyo_Config {
 		$this->realName_ = $name;
 		$this->as_ = $as_;
 		$this->descriptor_=$descriptor;
+		$this->notify_=false;
+
+		if(array_key_exists($datasource,$connection->notify)){
+			$this->notify_=$connection->notify[$datasource];			
+		};		
 
 		$this->datasourceName_ = $datasource;
 		if ($as_) {
@@ -207,7 +215,11 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	}
 
 	function getPrimaryKey() {
-		return $this->primaryKey_;
+		return $this->primaryKey_;	
+	}
+
+	function setPrimaryKey($key) {
+		$this->primaryKey_=$key;	
 	}
 
 	function getFieldType() {
@@ -229,15 +241,25 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 			$retV->fileName_ = $this->fileName_;
 
-			$retV->primaryKey_ = &$this->primaryKey_;
-			$retV->fieldType_ = &$this->fieldType_;
-			$retV->fieldExtra_ = &$this->fieldExtra_;
-			$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
-			$retV->fieldAttribute_ = &$this->fieldAttribute_;
-			$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
-
-			$retV->tableLink_ = &$this->tableLink_;
-			$retV->cloudDataSource_=&$this->cloudDataSource_;
+			if($retV->notify_){
+				$retV->primaryKey_ = $this->primaryKey_;
+				$retV->fieldType_ = $this->fieldType_;
+				$retV->fieldExtra_ = $this->fieldExtra_;
+				$retV->fieldDefaultValue_ = $this->fieldDefaultValue_;
+				$retV->fieldAttribute_ = $this->fieldAttribute_;
+				$retV->fieldAutoIncrement_=$this->fieldAutoIncrement_;
+				$retV->tableLink_ = $this->tableLink_;
+				$retV->cloudDataSource_=$this->cloudDataSource_;
+			}else{
+				$retV->primaryKey_ = &$this->primaryKey_;
+				$retV->fieldType_ = &$this->fieldType_;
+				$retV->fieldExtra_ = &$this->fieldExtra_;
+				$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
+				$retV->fieldAttribute_ = &$this->fieldAttribute_;
+				$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
+				$retV->tableLink_ = &$this->tableLink_;
+				$retV->cloudDataSource_=&$this->cloudDataSource_;
+			};
 
 			$retV->fieldGroup_ = $this->fieldGroup_;
 			$retV->fieldOrder_ = $this->fieldOrder_;
@@ -421,6 +443,10 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function save() {
 
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeSave($this);
+		};
+
 		if($this->primaryKey_) {
 			$tablePrimaryKeyValue = $this-> {$this->primaryKey_};
 			if (is_array($tablePrimaryKeyValue)) {
@@ -463,6 +489,10 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	function delete() {
 		if ($this->isValid()) {
 
+			if($this->notify_){
+				$this->notify_->onDataSourceBeforeDelete($this);
+			};
+
 			if(count($this->tableLink_)) {
 				foreach($this->tableLink_ as $key=>$value) {
 					$ds=&$this->cloudDataSource_->getDataSource($value[0]);
@@ -487,6 +517,10 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	}
 
 	function load($start=null, $length=null) {
+
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeLoad($this);
+		};
 
 		if($this->primaryKey_) {
 			if (is_null($this-> {$this->primaryKey_})) {
@@ -532,6 +566,10 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function tryLoad($start=null, $length=null) {
 
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeLoad($this);
+		};
+
 		if($this->primaryKey_) {
 			if (is_null($this-> {$this->primaryKey_})) {
 				if (($this->fieldType_[$this->primaryKey_] === "int")||
@@ -572,6 +610,11 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	}
 
 	function count() {
+
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeLoad($this);
+		};
+
 		$this->resultLoadAll_ = false;
 		$this->loadRecords_();
 		$this->prepareResult_();
@@ -796,6 +839,11 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function destroyStorage() {
 		if (file_exists($this->fileName_)) {
+
+			if($this->notify_){
+				$this->notify_->onDataSourceBeforeDestroyStorage($this);
+			};
+
 			return unlink($this->fileName_);
 		};
 		return true;
@@ -805,6 +853,11 @@ class xyo_datasource_csv_Table extends xyo_Config {
 		if (file_exists($this->fileName_)) {
 			return true;
 		}
+
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeCreateStorage($this);
+		};
+
 		$this->resultPrimaryKeyIndex_ = 0;
 		$this->resultCol_ = array();
 		$this->resultRow_ = array();
@@ -1638,5 +1691,71 @@ class xyo_datasource_csv_Table extends xyo_Config {
 		$this->fieldSelect_=null;
 	}
 
+	function disableNotify(){
+		$this->notify_=false;		
+	}
+
+	function getStorageName(){
+		return $this->get("name", $this->name_);
+	}
+
+	function setStorageName($name){
+		$this->set("name", $name);
+		$this->name_ = $name;
+		$this->realName_ = $name;
+		$this->storageHint_=$this->realName_;
+		$this->fileName_ = $this->connection_->databasePath . $this->realName_ . ".php";
+	}
+
+	function setKeyAtIndex($arrayInput,$key,$value,$index){
+		if(is_null($index)){
+			$arrayInput[$key]=$value;
+			return $arrayInput;
+		};
+		$scanKey=array_keys($arrayInput);
+		$countKey=count($scanKey);
+		for($scanIndex=0;$scanIndex<$countKey;++$scanIndex){
+			if($scanKey[$scanIndex]==$key){
+				break;
+			};
+		};
+		$retV=array();		
+		for($k=0;$k<$index;++$k){
+			if($k==$scanIndex){
+				continue;
+			};
+			$retV[$scanKey[$k]]=$arrayInput[$scanKey[$k]];
+		};
+		$retV[$key]=$value;
+		for(;$k<$countKey;++$k){
+			if($k==$scanIndex){
+				continue;
+			};
+			$retV[$scanKey[$k]]=$arrayInput[$scanKey[$k]];
+		};
+		return $retV;		
+	}
+
+	function setField($name,$type,$defaultValue,$attribute=null,$extra=null,$atIndex=null){
+
+		$this->$name = new xyo_datasource_EmptyField();
+
+		$this->fieldType_=$this->setKeyAtIndex($this->fieldType_,$name,$type,$atIndex);		
+
+		if($type=="varchar"){
+			$this->fieldAttribute_[$name]=$defaultValue;
+			$this->fieldDefaultValue_[$name]=$attribute;
+			$this->fieldExtra_[$name]=$extra;
+			return;
+		};
+		
+		$this->fieldAttribute_[$name]=$attribute;
+		$this->fieldDefaultValue_[$name]=$defaultValue;		
+		$this->fieldExtra_[$name]=$extra;
+		if($extra=="auto_increment"){
+			$this->fieldAutoIncrement_=$name;
+		};
+	}
 
 }
+

@@ -19,6 +19,11 @@ class xyo_datasource_PostgreSql extends xyo_Module {
 	var $connectionList_;
 	var $dataSourceList_;
 
+	//----
+	var $notifyBeforeLoad_;
+	var $notifyBeforeSave_;
+	var $notifyBeforeDelete_;
+
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 
@@ -32,8 +37,11 @@ class xyo_datasource_PostgreSql extends xyo_Module {
 		}
 
 		$this->connectionList_ = array();
-		$this->dataSourceList_ = array();
+		$this->dataSourceList_ = array();		
 
+		$this->notifyBeforeLoad_ = null;
+		$this->notifyBeforeSave_ = null;
+		$this->notifyBeforeDelete_ = null;
 	}
 
 	function setConnection($name, $user, $password, $server, $port, $database, $prefix) {
@@ -47,6 +55,10 @@ class xyo_datasource_PostgreSql extends xyo_Module {
 				$v_->setDebug($value);
 			} else if (strcmp($option, "log") == 0) {
 				$v_->setLog($value);
+			}else if (strcmp($option, "notify") == 0) {
+				foreach($value as $keyX=>$valueX){
+					$v_->setNotify($keyX,$valueX);
+				};
 			};
 		};
 	}

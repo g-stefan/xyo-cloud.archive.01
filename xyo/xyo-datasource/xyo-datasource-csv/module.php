@@ -30,7 +30,7 @@ class xyo_datasource_Csv extends xyo_Module {
 		}
 
 		$this->connectionList_ = array();
-		$this->dataSourceList_= array();
+		$this->dataSourceList_= array();				
 	}
 
 	function setConnection($name, $databasePath) {
@@ -38,7 +38,14 @@ class xyo_datasource_Csv extends xyo_Module {
 	}
 
 	function setConnectionOption($name, $option, $value) {
-
+		$v_ = &$this->getConnection($name);
+		if ($v_) {
+			if (strcmp($option, "notify") == 0) {
+				foreach($value as $keyX=>$valueX){
+					$v_->setNotify($keyX,$valueX);
+				};
+			};
+		};
 	}
 
 	function getLayer() {
@@ -79,11 +86,9 @@ class xyo_datasource_Csv extends xyo_Module {
 		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
 
-
 				if (!array_key_exists($matches[1], $this->connectionList_)) {
 					$this->includeConfig("config.ds.".$matches[1]);
 				};
-
 
 				if (array_key_exists($matches[1], $this->connectionList_)) {
 					if (array_key_exists($name, $this->dataSourceList_)) {

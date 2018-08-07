@@ -21,8 +21,9 @@ class xyo_datasource_postgresql_Connection {
 	var $user;
 	var $password;
 	var $database;
-	var $prefix;
-
+	var $prefix;	
+	var $notify;
+	
 	function __construct(&$cloud, &$module, $name, $user, $password, $server,$port, $database, $prefix) {
 		$this->cloud = &$cloud;
 		$this->module = &$module;
@@ -37,6 +38,8 @@ class xyo_datasource_postgresql_Connection {
 		$this->db = null;
 		$this->debug = false;
 		$this->log = false;
+
+		$this->notify=array();
 	}
 
 	function setLog($log) {
@@ -293,5 +296,9 @@ class xyo_datasource_postgresql_Connection {
 		return addcslashes(pg_escape_string($this->db, $value), "%_");
 	}
 
+	function setNotify($datasource,$moduleName){
+		$this->notify[$datasource]=&$this->module->getModule($moduleName);
+	}
+	
 }
 

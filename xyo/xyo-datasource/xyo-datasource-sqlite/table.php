@@ -44,6 +44,9 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 
 	var $fieldAutoIncrement_;
 
+	//----
+	var $notify_;
+
 	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $as_, $doInit=true) {
 		parent::__construct($module->getCloud());
 
@@ -51,9 +54,13 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 		$this->connection_ = &$connection;
 		$this->name_ = $name;
 		$this->datasource_ = $datasource;
-		$this->realName_ = $name;
+		$this->realName_ = $connection->getPrefix().$name;
 		$this->as_ = $as_;
 		$this->descriptor_=$descriptor;
+
+		if(array_key_exists($datasource,$connection->notify)){
+			$this->notify_=$connection->notify[$datasource];			
+		};
 
 		$this->datasourceName_ = $datasource;
 		if ($as_) {
@@ -66,7 +73,7 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 
 			$this->includeFile($this->descriptor_);
 
-			$this->realName_ = $this->get("name", $name);
+			$this->realName_ = $connection->getPrefix().$this->get("name", $name);
 
 			$this->primaryKey_ = $this->get("table_primary_key");
 
@@ -165,6 +172,10 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 		return $this->primaryKey_;
 	}
 
+	function setPrimaryKey($key) {
+		$this->primaryKey_=$key;	
+	}
+
 	function getFieldType() {
 		return $this->fieldType_;
 	}
@@ -179,15 +190,26 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 		if ($retV) {
 
 			$retV->realName_ =$this->realName_;
-			$retV->primaryKey_ = &$this->primaryKey_;
-			$retV->fieldType_ = &$this->fieldType_;
-			$retV->fieldExtra_ = &$this->fieldExtra_;
-			$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
-			$retV->fieldAttribute_ = &$this->fieldAttribute_;
-			$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
-
-			$retV->tableLink_ = &$this->tableLink_;
-			$retV->cloudDataSource_=&$this->cloudDataSource_;
+			
+			if($retV->notify_){
+				$retV->primaryKey_ = $this->primaryKey_;
+				$retV->fieldType_ = $this->fieldType_;
+				$retV->fieldExtra_ = $this->fieldExtra_;
+				$retV->fieldDefaultValue_ = $this->fieldDefaultValue_;
+				$retV->fieldAttribute_ = $this->fieldAttribute_;
+				$retV->fieldAutoIncrement_=$this->fieldAutoIncrement_;
+				$retV->tableLink_ = $this->tableLink_;
+				$retV->cloudDataSource_=$this->cloudDataSource_;
+			}else{
+				$retV->primaryKey_ = &$this->primaryKey_;
+				$retV->fieldType_ = &$this->fieldType_;
+				$retV->fieldExtra_ = &$this->fieldExtra_;
+				$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
+				$retV->fieldAttribute_ = &$this->fieldAttribute_;
+				$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
+				$retV->tableLink_ = &$this->tableLink_;
+				$retV->cloudDataSource_=&$this->cloudDataSource_;
+			};
 
 
 			$retV->fieldGroup_ = $this->fieldGroup_;
@@ -554,6 +576,10 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 
 	function save() {
 
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeSave($this);
+		};
+
 		if($this->primaryKey_) {
 
 			$tablePrimaryKeyValue = $this-> {$this->primaryKey_};
@@ -688,6 +714,10 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 	function delete() {
 		if ($this->isValid()) {
 
+			if($this->notify_){
+				$this->notify_->onDataSourceBeforeDelete($this);
+			};
+
 			if(count($this->tableLink_)) {
 				foreach($this->tableLink_ as $key=>$value) {
 					$ds=&$this->cloudDataSource_->getDataSource($value[0]);
@@ -743,10 +773,20 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 
 
 	function load($start=null, $length=null) {
+
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeLoad($this);
+		};
+
 		return $this->loadDirectCode($this->getLoadDirectCode($start, $length));
 	}
 
 	function tryLoad($start=null, $length=null) {
+
+		if($this->notifyBeforeLoad_){
+			$this->notify_->onDataSourceBeforeLoad($this);
+		};
+
 		return $this->tryLoadDirectCode($this->getLoadDirectCode($start, $length));
 	}
 
@@ -820,6 +860,11 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 	}
 
 	function count() {
+
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeLoad($this);
+		};
+
 		$query = $this->getLoadQuery("SELECT COUNT(*)", true);
 		return $this->connection_->queryValueDefaultDirect($query, 0);
 	}
@@ -907,6 +952,11 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 		$query = "SELECT [name] FROM [sqlite_master] WHERE [name]=\"" . $this->realName_ . "\";";
 		$result = $this->connection_->queryValueDefaultDirect($query, null);
 		if ($result) {
+
+			if($this->notify_){
+				$this->notify_->onDataSourceBeforeDestroyStorage($this);
+			};
+
 			$query = "DROP TABLE [" . $this->realName_ . "];";
 			$result = $this->connection_->queryDirect($query);
 			if ($result) {
@@ -924,6 +974,9 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 			return true;
 		};
 
+		if($this->notify_){
+			$this->notify_->onDataSourceBeforeCreateStorage($this);
+		};
 
 		$before = false;
 		$query = "CREATE TABLE [" . $this->realName_ . "] (";
@@ -1084,6 +1137,69 @@ class xyo_datasource_sqlite_Table extends xyo_Config {
 		$this->fieldSelect_=null;
 	}
 
+	function disableNotify(){
+		$this->notify_=false;
+	}
+
+	function getStorageName(){
+		return $this->get("name", $this->name_);
+	}
+
+	function setStorageName($name){
+		$this->set("name", $name);
+		$this->name_ = $name;
+		$this->realName_ = $this->connection_->getPrefix().$name;
+	}
+
+	function setKeyAtIndex($arrayInput,$key,$value,$index){
+		if(is_null($index)){
+			$arrayInput[$key]=$value;
+			return $arrayInput;
+		};
+		$scanKey=array_keys($arrayInput);
+		$countKey=count($scanKey);
+		for($scanIndex=0;$scanIndex<$countKey;++$scanIndex){
+			if($scanKey[$scanIndex]==$key){
+				break;
+			};
+		};
+		$retV=array();		
+		for($k=0;$k<$index;++$k){
+			if($k==$scanIndex){
+				continue;
+			};
+			$retV[$scanKey[$k]]=$arrayInput[$scanKey[$k]];
+		};
+		$retV[$key]=$value;
+		for(;$k<$countKey;++$k){
+			if($k==$scanIndex){
+				continue;
+			};
+			$retV[$scanKey[$k]]=$arrayInput[$scanKey[$k]];
+		};
+		return $retV;		
+	}
+
+	function setField($name,$type,$defaultValue,$attribute=null,$extra=null,$atIndex=null){
+
+		$this->$name = new xyo_datasource_EmptyField();
+		
+		$this->fieldType_=$this->setKeyAtIndex($this->fieldType_,$name,$type,$atIndex);		
+
+		if($type=="varchar"){
+			$this->fieldAttribute_[$name]=$defaultValue;
+			$this->fieldDefaultValue_[$name]=$attribute;
+			$this->fieldExtra_[$name]=$extra;
+			return;
+		};
+		
+		$this->fieldAttribute_[$name]=$attribute;
+		$this->fieldDefaultValue_[$name]=$defaultValue;		
+		$this->fieldExtra_[$name]=$extra;
+		if($extra=="auto_increment"){
+			$this->fieldAutoIncrement_=$name;
+		};
+	}
 
 }
 

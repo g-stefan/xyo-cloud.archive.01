@@ -106,27 +106,24 @@ class xyo_DataSource extends xyo_Config {
 		$matches = array();
 		if(preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
-
-				foreach ($this->dataSourceConnectionProvider_ as $key_ => $value_) {
-					if ($matches[1]==$key_) {
-						$module = &$this->cloud->getModule($value_);
-						if ($module) {
-							if(array_key_exists($name,$this->dataSourceDescriptor_)) {
-								$module->setDataSourceDescriptor($name,$this->dataSourceDescriptor_[$name]);
-							};
-
-							$rVal = &$module->getDataSource($name, $as_);
-							if ($rVal) {
-								$this->dataSourceCache_[$name] = &$rVal;
-								$rVal = &$rVal->copyThis();
-								return $rVal;
-							};
+				if(array_key_exists($matches[1],$this->dataSourceConnectionProvider_)){
+					$module = &$this->cloud->getModule($this->dataSourceConnectionProvider_[$matches[1]]);
+					if ($module) {
+						if(array_key_exists($name,$this->dataSourceDescriptor_)) {
+							$module->setDataSourceDescriptor($name,$this->dataSourceDescriptor_[$name]);
 						};
-					};
-				};
 
+						$rVal = &$module->getDataSource($name, $as_);
+						if ($rVal) {
+							$this->dataSourceCache_[$name] = &$rVal;
+							$rVal = &$rVal->copyThis();
+							return $rVal;
+						};
+					};					
+				};
 			};
 		};
+		
 		$rNull = null;
 		return $rNull;
 	}
@@ -153,16 +150,27 @@ class xyo_DataSource extends xyo_Config {
 					if (file_exists($descriptor)) {
 						$notFound=false;
 						break;
-					}
-				}
+					};
+				};
 				if($notFound) {
 					return false;
 				};
-			}
-		}
+			};
+		};
 
 		$this->setDataSourceDescriptor($name, $descriptor);
 		return true;
+	}
+
+	function getDataSourceConnection($name) {
+		if(!array_key_exists($name,$this->dataSourceConnectionProvider_)){
+			return null;			
+		};
+		$module = &$this->cloud->getModule($this->dataSourceConnectionProvider_[$name]);
+		if(!$module){
+			return null;
+		};
+		return $module->getConnection($name);
 	}
 
 }

@@ -24,6 +24,7 @@ class xyo_datasource_mysqli_Connection {
 	var $password;
 	var $database;
 	var $prefix;
+	var $notify;
 
 	function __construct(&$cloud, &$module, $name, $user, $password, $server,$port, $database, $prefix) {
 		$this->cloud = &$cloud;
@@ -41,6 +42,8 @@ class xyo_datasource_mysqli_Connection {
 		$this->forceUse = false;
 		$this->log = false;
 		$this->db_use = false;
+
+		$this->notify=array();
 	}
 
 	function setLog($log) {
@@ -330,6 +333,10 @@ class xyo_datasource_mysqli_Connection {
 
 	function safeLikeValue($value) {
 		return addcslashes($this->db->real_escape_string ($value), "%_");
+	}
+
+	function setNotify($datasource,$moduleName){
+		$this->notify[$datasource]=&$this->module->getModule($moduleName);
 	}
 
 }

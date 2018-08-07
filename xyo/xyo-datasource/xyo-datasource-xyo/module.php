@@ -42,7 +42,14 @@ class xyo_datasource_Xyo extends xyo_Module {
 	}
 
 	function setConnectionOption($name, $option, $value) {
-
+		$v_ = &$this->getConnection($name);
+		if ($v_) {
+			if (strcmp($option, "notify") == 0) {
+				foreach($value as $keyX=>$valueX){
+					$v_->setNotify($keyX,$valueX);
+				};
+			};
+		};
 	}
 
 	function getLayer() {

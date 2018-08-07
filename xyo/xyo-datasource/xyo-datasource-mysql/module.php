@@ -33,7 +33,7 @@ class xyo_datasource_Mysql extends xyo_Module {
 
 		$this->connectionList_ = array();
 		$this->dataSourceList_ = array();
-
+	
 	}
 
 	function setConnection($name, $user, $password, $server, $port, $database, $prefix) {
@@ -49,6 +49,10 @@ class xyo_datasource_Mysql extends xyo_Module {
 				$v_->setForceUse($value);
 			} else if (strcmp($option, "log") == 0) {
 				$v_->setLog($value);
+			}else if (strcmp($option, "notify") == 0) {
+				foreach($value as $keyX=>$valueX){
+					$v_->setNotify($keyX,$valueX);
+				};
 			};
 		};
 	}
@@ -96,7 +100,6 @@ class xyo_datasource_Mysql extends xyo_Module {
 
 							if (strcmp($matches[2], "table") == 0) {
 								if ($this->connectionList_[$matches[1]]->open()) {
-
 									if ($this->connectionList_[$matches[1]]->useDb()) {
 										$v_ = new xyo_datasource_mysql_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
 										if ($v_->isOk()) {
