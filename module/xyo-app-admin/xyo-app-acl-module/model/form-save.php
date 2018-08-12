@@ -39,6 +39,7 @@ if ($this->xyo_module_group_id) {
 }
 
 
+$this->ds->xyo_core_id = $this->getElementValueNumber("xyo_core_id", 0,"*");
 $this->ds->xyo_user_group_id = $this->getElementValueNumber("xyo_user_group_id", 0,"*");
 $this->ds->tryLoad();
 $this->ds->order = $this->getElementValueNumber("order", 0, "*");

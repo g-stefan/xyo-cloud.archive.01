@@ -27,6 +27,7 @@ if ($this->xyo_module_group_id) {
 }
 
 $this->generateComponent("xui.form-order", array("element" => "order"));
+$this->generateComponent("xui.form-select", array("element" => "xyo_core_id"));
 $this->generateComponent("xui.form-select", array("element" => "xyo_user_group_id"));
 $this->generateComponent("xui.form-switch", array("element" => "enabled"));
 

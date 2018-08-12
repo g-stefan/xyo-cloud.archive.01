@@ -54,8 +54,10 @@ class xyo_mod_ds_Loader extends xyo_Module {
 			$dsAclModule = &$this->dsAclModule->copyThis();
 			$dsAclModule->clear();
 			$dsAclModule->xyo_module_id = $dsModule->id;
+			$dsAclModule->enabled=1;
+			$this->modAcl->setDsAclSys($dsAclModule);
 
-			if($this->modAcl->processDsAclSys($dsAclModule)) {
+			if($dsAclModule->load(0,1)) {
 
 				$parameter = array();
 				if ($dsModule->parameter) {
@@ -91,8 +93,10 @@ class xyo_mod_ds_Loader extends xyo_Module {
 			$dsAclModule = &$this->dsAclModule->copyThis();
 			$dsAclModule->clear();
 			$dsAclModule->xyo_module_group_id = $dsModuleGroup->id;
+			$dsAclModule->enabled=1;
+			$this->modAcl->setDsAclSys($dsAclModule);
 
-			if($this->modAcl->processDsAclSysList($dsAclModule)) {
+			if($dsAclModule->load()) {
 				for(; $dsAclModule->isValid(); $dsAclModule->loadNext()) {
 					$this->cloud->setModuleGroup($dsAclModule->module, $name, $dsAclModule->order);
 				}

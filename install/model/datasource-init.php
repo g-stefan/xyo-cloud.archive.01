@@ -56,6 +56,7 @@ $setup->registerDataSource("db.table.xyo_language");
 $setup->registerDataSource("db.table.xyo_module");
 $setup->registerDataSource("db.table.xyo_module_group");
 $setup->registerDataSource("db.table.xyo_module_parameter");
+$setup->registerDataSource("db.table.xyo_core");
 $setup->registerDataSource("db.table.xyo_acl_module");
 $setup->registerDataSource("db.table.xyo_user");
 $setup->registerDataSource("db.table.xyo_user_group");

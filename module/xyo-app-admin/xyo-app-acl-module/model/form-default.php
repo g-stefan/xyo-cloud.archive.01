@@ -12,5 +12,6 @@ $this->setElementValue("id",0);
 $this->setElementValue("xyo_module_id",0);
 $this->setElementValue("xyo_module_group_id",0);
 $this->setElementValue("xyo_user_group_id",0);
+$this->setElementValue("xyo_core_id",0);
 $this->setElementValue("enabled",1);
 $this->setElementValue("order",0);

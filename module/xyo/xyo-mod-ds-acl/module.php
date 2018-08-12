@@ -15,6 +15,7 @@ class xyo_mod_ds_acl_Info {
 	public $aclUserGroup; // any and user groups
 	public $aclUser; // any and user id
 	public $aclUserId; // only user id
+	public $aclCore; // any and core
 
 }
 
@@ -26,6 +27,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 	protected $dsUserGroupXUserGroup;
 	protected $dsUserXUserGroupSuper;
 	protected $dsAclProperty;
+	protected $dsCore;
 
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
@@ -40,6 +42,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 		$retV->aclUserGroup = 0;
 		$retV->aclUser = 0;
 		$retV->aclUser1 = 0;
+		$retV->aclCore = 0;
 		return $retV;
 	}
 
@@ -49,7 +52,19 @@ class xyo_mod_ds_Acl extends xyo_Module {
 		$this->dsUserGroup = &$this->getDataSource("db.table.xyo_user_group");
 		$this->dsUserGroupXUserGroup = &$this->getDataSource("db.table.xyo_user_group_x_user_group");
 		$this->dsUserXUserGroup = &$this->getDataSource("db.table.xyo_user_x_user_group");
+		$this->dsCore = &$this->getDataSource("db.table.xyo_core");
 
+	}
+
+	public function getSysCoreAcl() {
+		$dsCore = &$this->dsCore->copyThis();
+		$dsCore->clear();
+		$dsCore->name = $this->cloud->get("core");
+		$dsCore->enabled = 1;
+		if ($dsCore->load(0, 1)) {
+			return array(0, $dsCore->id);
+		};
+		return array(0);
 	}
 
 	public function &getUserIdAcl($xyo_user_id) {
@@ -109,6 +124,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 		$listUserGroup[0]=0;
 
 		$retV->aclUserGroup=array_keys($listUserGroup);
+		$retV->aclCore=$this->getSysCoreAcl();
 
 		return $retV;
 	}
@@ -128,6 +144,7 @@ class xyo_mod_ds_Acl extends xyo_Module {
 	}
 
 	public function setDsAcl(&$ds, &$acl) {
+		$ds->xyo_core_id = $acl->aclCore;
 		$ds->xyo_user_group_id = $acl->aclUserGroup;
 	}
 
@@ -152,28 +169,6 @@ class xyo_mod_ds_Acl extends xyo_Module {
 		$retV = $this->getUserAcl($username);
 		$this->setAclSys($retV);
 	}
-
-
-	public function processDsAcl(&$ds, &$acl) {
-		$ds->enabled=1;
-		$ds->xyo_user_group_id = $acl->aclUserGroup;
-		return $ds->load(0,1);
-	}
-
-	public function processDsAclList(&$ds, &$acl) {
-		$ds->enabled=1;
-		$ds->xyo_user_group_id = $acl->aclUserGroup;
-		return $ds->load();
-	}
-
-	public function processDsAclSys(&$ds) {
-		return $this->processDsAcl($ds, $this->acl);
-	}
-
-	public function processDsAclSysList(&$ds) {
-		return $this->processDsAclList($ds, $this->acl);
-	}
-
 
 }
 

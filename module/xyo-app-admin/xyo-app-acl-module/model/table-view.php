@@ -13,6 +13,7 @@ $this->tableHead = array(
     "module_name" => "head_module_name",
     "module_group_name" => "head_module_group_name",
     "order" => "head_order",
+    "core_name" => "head_core_name",
     "user_group_name" => "head_user_group_name",
     "enabled" => "head_enabled",
     "id" => "head_id"
@@ -24,6 +25,7 @@ $this->tableSearch = array(
 
 $this->tableSelect = array(
     "xyo_module_group_id" => true,
+    "xyo_core_id" => true,
     "xyo_user_group_id" => true,
     "enabled" => true
 );
@@ -38,6 +40,7 @@ $this->tableSort = array(
     "module_name" => "ascendent",
     "module_group_name" => "none",
 	"order" => "none",
+    "core_name" => "none",
     "user_group_name" => "none",
     "enabled" => "none",
 	"id"=> "none"
@@ -49,10 +52,12 @@ if ($this->xyo_module_group_id) {}else{
 	$this->processModel("select-xyo-module-group");
 }
 
+$this->processModel("select-xyo-core");
 $this->processModel("select-xyo-user-group");
 
 $this->tableSelectInfo = array(
     "xyo_module_group_id" => $this->getParameter("select_xyo_module_group_id", array()),
+    "xyo_core_id" => $this->getParameter("select_xyo_core_id", array()),
     "xyo_user_group_id" => $this->getParameter("select_xyo_user_group_id", array()),
     "enabled" => $this->getParameter("select_enabled", array())
 );
@@ -90,6 +95,7 @@ $this->tableData = array();
 $this->tableDelete= array(
     "module_name" => true,
     "module_group_name" => true,
+    "core_name" => true,
     "user_group_name" => true,
     "id" => true
 );
@@ -98,3 +104,4 @@ $this->tableImportant=array(
     "module_name" => true,
     "module_group_name" => true	
 );
+

@@ -14,3 +14,4 @@ $this->ds->setGroup("id",true);
 $this->ds->setGroup("module_name",true);
 $this->ds->setGroup("module_group_name",true);
 $this->ds->setGroup("user_group_name",true);
+$this->ds->setGroup("core_name",true);

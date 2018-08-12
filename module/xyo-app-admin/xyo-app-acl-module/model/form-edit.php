@@ -18,6 +18,7 @@ if($this->xyo_module_id){}else{
 	$this->processModel("select-xyo-module-edit");
 }
 
+$this->processModel("select-xyo-core-edit");
 $this->processModel("select-xyo-user-group-edit");
 
 if($this->isNew){

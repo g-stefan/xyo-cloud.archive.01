@@ -12,8 +12,6 @@ $this->loadModule("xyo-mod-sys-menu");
 $this->loadGroup("xyo-desktop");
 $this->loadGroup("xyo-status");
 
-$this->setHtmlCss($this->site."lib/xyo/css/xyo-tpl-administrator-dashboard-xui.css");
-
 $this->setHtmlTitle($this->getSetting("website_title","XYO Cloud"));
 
 

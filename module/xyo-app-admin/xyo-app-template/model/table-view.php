@@ -12,6 +12,7 @@ $this->tableHead = array(
     "#" => "#",
     "module_name" => "head_module_name",
     "active" => "head_active",
+    "core_name" => "head_core_name",
     "id" => "head_id"
 );
 
@@ -19,7 +20,9 @@ $this->tableSearch = array(
     "module_name" => true
 );
 
-$this->tableSelect = array();
+$this->tableSelect = array(
+	"xyo_core_id" => true
+);
 
 $this->tableType=array(
 	"active"=>array("toggle",array(
@@ -33,14 +36,21 @@ $this->tableType=array(
 $this->tableSort = array(
     "module_name" => "ascendent",
     "active" => "none",
+    "core_name" => "none",
     "id" => "none"
 );
 
-$this->tableSelectInfo = array();
+$this->processModel("select-xyo-core");
+
+$this->tableSelectInfo = array(
+    "xyo_core_id" => $this->getParameter("select_xyo_core_id", array())
+);
+
 
 $this->tableActionLink = array();
 
 $this->tableData = array(
+	"xyo_core_id"=>"xyo_core_id",
 	"xyo_module_id"=>"xyo_module_id",
 	"active"=>array(0=>0)
 );
@@ -48,3 +58,4 @@ $this->tableData = array(
 $this->tableImportant=array(
     "module_name" => true
 );
+
