@@ -265,7 +265,7 @@ class xyo_Module extends xyo_Config {
 	}
 
 	//
-	//  From Manager
+	//  Form Manager
 	//
 
 	protected $formName;
