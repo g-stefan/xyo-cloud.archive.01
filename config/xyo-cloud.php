@@ -8,7 +8,7 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->set("version", "7.1.0.0");
+$this->set("version", "7.2.0.0");
 
 //$this->set("log_module",true);
 //$this->set("log_request",true);
@@ -18,8 +18,10 @@ $this->set("version", "7.1.0.0");
 $this->set("user_action",true);
 $this->set("user_captcha",true);
 $this->set("user_password_encoding","hash");
-$this->set("service_key","-put-here-service-key-");
-$this->set("user_reco_salt","-put-here-reco-salt-");
+// --- set this in xyo-cloud.local.config
+$this->set("service_key","unknown");
+$this->set("user_reco_salt","unknown");
+$this->set("crypt_rpc_private_key","unknown");
 // ---
 
 //

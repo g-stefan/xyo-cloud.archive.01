@@ -391,9 +391,10 @@ class xyo_mod_ds_User extends xyo_Module {
 					$this->dsUser->logged_in = 1;
 					$this->dsUser->action_at = "NOW";
 					$this->dsUser->action = 1;
-					$this->dsUser->save();
-					return true;
+					$this->dsUser->save();					
 				}
+
+				return true;
 			}
 		}
 		return false;

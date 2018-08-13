@@ -23,6 +23,15 @@ defined("XYO_CLOUD") or die("Access is denied");
 //
 
 header("Content-Type: application/json");
+
+$GLOBALS["xyo_mod_CryptRPC__privateKey"]=$this->cloud->get("crypt_rpc_private_key","unknown");
+if(strcmp($GLOBALS["xyo_mod_CryptRPC__privateKey"],"unknown")==0){
+	$result="{\"error\":\"invalid settings #0\"}\r\n";
+	header("Content-Length: ".strlen($result));
+	echo $result;
+	return;
+};
+
 $request = json_decode(file_get_contents("php://input"),true);
 if(!$request){
 	$result="{\"error\":\"invalid request #0\"}\r\n";
@@ -40,7 +49,7 @@ if(!xyo_Crypt::privateDecrypt($GLOBALS["xyo_mod_CryptRPC__privateKey"],base64_de
 };
 
 if(strlen($dataJSON)==0){
-	$result="{\"error\":\"invalid request #3\"}\r\n";
+	$result="{\"error\":\"invalid request #2\"}\r\n";
 	header("Content-Length: ".strlen($result));
 	echo $result;
 	return;
@@ -48,6 +57,13 @@ if(strlen($dataJSON)==0){
 
 $process=json_decode($dataJSON);
 if(!$process){
+	$result="{\"error\":\"invalid request #3\"}\r\n";
+	header("Content-Length: ".strlen($result));
+	echo $result;
+	return;
+};
+
+if(!is_object($process)){
 	$result="{\"error\":\"invalid request #4\"}\r\n";
 	header("Content-Length: ".strlen($result));
 	echo $result;

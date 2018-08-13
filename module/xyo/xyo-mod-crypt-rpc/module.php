@@ -18,7 +18,6 @@ class xyo_mod_CryptRPC extends xyo_Module {
 	        if ($this->isOk) {
 			if ($this->isBase("xyo_mod_CryptRPC")) {
 				include("xyo-crypt.php");
-				include("private-key.php");		
 			};
 		};
 	}
