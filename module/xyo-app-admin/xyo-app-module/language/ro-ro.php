@@ -37,3 +37,6 @@ $this->set("select_xyo_user_group_any","- grup utilizator -");
 
 $this->set("select_xyo_module_group_any_edit","- nici unul -");
 $this->set("select_xyo_user_group_any_edit","- oricare -");
+
+$this->set("label_xyo_core_id","Core");
+$this->set("select_xyo_core_any_edit","- oricare -");

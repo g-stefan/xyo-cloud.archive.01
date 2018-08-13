@@ -84,6 +84,7 @@ if($this->ds->save()) {
 			$dsAclModule->module=$this->ds->name;
 
 			$dsAclModule->xyo_module_group_id = $this->getElementValueNumber("xyo_module_group_id", 0,"*");
+			$dsAclModule->xyo_core_id = $this->getElementValueNumber("xyo_core_id", 0,"*");
 			$dsAclModule->xyo_user_group_id = $this->getElementValueNumber("xyo_user_group_id", 0,"*");
 
 			$dsAclModule->enabled = $this->getElementValueNumber("acl_enabled", 0,"*");

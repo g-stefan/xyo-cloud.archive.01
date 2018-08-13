@@ -18,6 +18,7 @@ $this->setElementValue("parent","");
 if($this->isNew){
 	$this->setElementValue("xyo_module_group_id",0);
 	$this->setElementValue("order",0);
+	$this->setElementValue("xyo_core_id",0);
 	$this->setElementValue("xyo_user_group_id",0);
 	$this->setElementValue("acl_enabled",1);
 };

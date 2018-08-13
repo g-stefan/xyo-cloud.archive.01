@@ -38,3 +38,5 @@ $this->set("select_xyo_user_group_any","- user group -");
 $this->set("select_xyo_module_group_any_edit","- none -");
 $this->set("select_xyo_user_group_any_edit","- any -");
 
+$this->set("label_xyo_core_id","Core");
+$this->set("select_xyo_core_any_edit","- any -");

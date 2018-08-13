@@ -42,6 +42,7 @@ if($this->isNew){
 	$this->generateComponent("xui.panel-begin", array("title"=>"title_default_acl"));
 	$this->generateComponent("xui.form-select", array("element" =>"xyo_module_group_id"));
 	$this->generateComponent("xui.form-order", array("element" =>"order"));
+	$this->generateComponent("xui.form-select", array("element" =>"xyo_core_id"));
 	$this->generateComponent("xui.form-select", array("element" =>"xyo_user_group_id"));
 	$this->generateComponent("xui.form-switch", array("element" =>"acl_enabled"));
 	$this->generateComponent("xui.panel-end");
