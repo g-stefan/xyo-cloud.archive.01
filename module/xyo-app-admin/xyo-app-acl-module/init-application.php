@@ -26,10 +26,10 @@ $this->requireComponent(array(
 	"xui.box-1x1-end"
 ));
 
-$id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);
-if($id_xyo_acl_module){
+$xyo_acl_module_id=1 * $this->getParameterRequest("xyo_acl_module_id", 0);
+if($xyo_acl_module_id){
 	$dsAclModule=&$this->getDataSource($this->applicationDataSource);
-	$dsAclModule->id=$id_xyo_acl_module;
+	$dsAclModule->id=$xyo_acl_module_id;
 	if($dsAclModule->load(0,1)){
 		$this->setParameter("xyo_module_id",$dsAclModule->xyo_module_id);
 	};

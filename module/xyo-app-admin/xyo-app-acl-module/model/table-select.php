@@ -16,6 +16,13 @@ if($this->xyo_module_group_id){
     $this->ds->xyo_module_group_id=$this->xyo_module_group_id;
 }
 
+if(!$this->ds->isEmpty($this->ds->xyo_core_id)){
+    $this->ds->xyo_core_id=array(0,$this->ds->xyo_core_id);
+}
+
+if(!$this->ds->isEmpty($this->ds->xyo_user_group_id)){
+    $this->ds->xyo_user_group_id=array(0,$this->ds->xyo_user_group_id);
+}
 
 $this->ds->setGroup("id",true);
 $this->ds->setGroup("module_name",true);

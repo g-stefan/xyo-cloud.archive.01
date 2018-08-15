@@ -11,16 +11,16 @@ defined("XYO_CLOUD") or die("Access is denied");
 $this->eGenerateCallRequest(
 	array("action"=>"table-view"),
 	"xyo-app-module-parameter",
-	array("id_xyo_acl_module"=>0),
-	"id_xyo_acl_module",
+	array("xyo_acl_module_id"=>0),
+	"xyo_acl_module_id",
 	"callModuleParameter"
 );
 
 $this->eGenerateCallRequest(
 	array("action"=>"table-view"),
 	"xyo-app-acl-module",
-	array("id_xyo_acl_module"=>0),
-	"id_xyo_acl_module",
+	array("xyo_acl_module_id"=>0),
+	"xyo_acl_module_id",
 	"callModuleAcl"
 );
 

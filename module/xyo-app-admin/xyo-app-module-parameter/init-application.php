@@ -13,14 +13,14 @@ $this->setApplicationDataSource("db.table.xyo_module_parameter");
 
 $this->setDefaultAction($this->getRequest("action", "form-edit"));
 
-$id_xyo_acl_module=1 * $this->getParameterRequest("id_xyo_acl_module", 0);
+$xyo_acl_module_id=1 * $this->getParameterRequest("xyo_acl_module_id", 0);
 $this->xyo_module_id = 1 * $this->getParameterRequest("xyo_module_id", 0);
 if ($this->xyo_module_id==0) {
-	if ($id_xyo_acl_module) {
+	if ($xyo_acl_module_id) {
 		$dsAclModule = &$this->getDataSource("db.table.xyo_acl_module");
 		if($dsAclModule){
 			$dsAclModule->clear();
-			$dsAclModule->id=$id_xyo_acl_module;
+			$dsAclModule->id=$xyo_acl_module_id;
 			if($dsAclModule->load(0,1)){
 				$this->xyo_module_id=$dsAclModule->xyo_module_id;
 			};				
