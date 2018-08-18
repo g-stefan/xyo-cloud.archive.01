@@ -48,7 +48,7 @@ if($this->ds->load(0,1)){
 	$dsAclCheck->clear();
 	$dsAclCheck->module_group_name="xyo-system-load";
 	$dsAclCheck->xyo_user_group_id=0;//all users
-	$dsAclCheck->xyo_core_id=$this->ds->id_xyo_core;
+	$dsAclCheck->xyo_core_id=$this->ds->xyo_core_id;
 	$dsAclCheck->xyo_module_id=$this->ds->xyo_module_id;
 	$dsAclCheck->tryLoad(0,1);	
 	$dsAclCheck->module=$this->ds->module_name;
