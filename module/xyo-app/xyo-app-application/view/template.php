@@ -11,7 +11,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 <div class="xui-application">
 	<div class="xui-toolbar" id="xui-toolbar"><div class="xui_right" id="xui-toolbar__container">
 <?php
-           $this->execModule("xyo-mod-toolbar", array_merge(array(
+           $this->runModule("xyo-mod-toolbar", array_merge(array(
                         "module" => $this->name,
                         "config" => $this->getParameter("toolbar", "toolbar/default")
                             ), $this->toolbarParameter)

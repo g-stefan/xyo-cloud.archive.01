@@ -16,7 +16,7 @@ foreach ($this->viewData as $key => $value) {
 
 
 	$dsAclCheck=&$this->getDataSource($this->applicationDataSource);
-	$dsAclCheck->module_group_name="xyo-system-exec";
+	$dsAclCheck->module_group_name="xyo-system-run";
 	$dsAclCheck->xyo_module_id=$this->viewData[$key]["xyo_module_id"];
 	$dsAclCheck->xyo_core_id=$this->viewData[$key]["xyo_core_id"];
 	$dsAclCheck->enabled=1;

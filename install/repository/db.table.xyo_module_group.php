@@ -29,7 +29,7 @@ $module_group->enabled = 1;
 $module_group->save();
 
 $module_group->clear();
-$module_group->name = "xyo-system-exec";
+$module_group->name = "xyo-system-run";
 $module_group->tryLoad();
 $module_group->enabled = 1;
 $module_group->save();

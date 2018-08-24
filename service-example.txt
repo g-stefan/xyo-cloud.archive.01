@@ -20,7 +20,7 @@ To be able to run cron jobs or other actions offline/online
 //
 include("[realtive path to xyo-cloud]/xyo/xyo-cloud-service.php");
 
-4. Execute it:
+4. Run it:
 
 	php index.php
 

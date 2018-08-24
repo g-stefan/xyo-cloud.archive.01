@@ -84,7 +84,7 @@ if(strlen($module_)==0){
 	return;
 };
 
-$module=$this->cloud->loadModuleExecPath($module_);
+$module=$this->cloud->loadModuleRunPath($module_);
 if(!$module){
 	$result="{\"error\":\"invalid request #6\"}\r\n";
 	header("Content-Length: ".strlen($result));
@@ -119,4 +119,4 @@ function _process__on_shutdown(){
 };
 register_shutdown_function("_process__on_shutdown");
 
-$this->execModule($module_);
+$this->runModule($module_);

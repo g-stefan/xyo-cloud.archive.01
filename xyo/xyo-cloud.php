@@ -63,7 +63,7 @@ class xyo_Cloud extends xyo_Config {
 		$this->moduleLoader = &$this->getModule($name);
 	}
 
-	public function execModule($module, $parameters=null) {
+	public function runModule($module, $parameters=null) {
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
 			if ($moduleObject->enabled) {
@@ -74,7 +74,7 @@ class xyo_Cloud extends xyo_Config {
 						return null;
 					};
 				};
-				return $moduleObject->object->moduleMainExec($parameters);
+				return $moduleObject->object->moduleMainRun($parameters);
 			};
 		};
 		return null;
@@ -348,7 +348,7 @@ class xyo_Cloud extends xyo_Config {
 		return null;
 	}
 
-	public function getModuleExecPath($module) {
+	public function getModuleRunPath($module) {
 		$moduleName = $module;
 		$moduleObject = &$this->getModuleObject($module);
 		if ($moduleObject) {
@@ -409,7 +409,7 @@ class xyo_Cloud extends xyo_Config {
 		return null;
 	}
 
-	public function loadModuleExecPath($module) {
+	public function loadModuleRunPath($module) {
 
 		if (strlen($module) == 0) {
 			return null;
@@ -434,7 +434,7 @@ class xyo_Cloud extends xyo_Config {
 		return $module;
 	}
 
-	public function moduleFromExecPath($module) {
+	public function moduleFromRunPath($module) {
 		if (strlen($module) == 0) {
 			return null;
 		};
@@ -530,10 +530,10 @@ class xyo_Cloud extends xyo_Config {
 		return $moduleList;
 	}
 
-	public function execGroup($group, $parameters=null) {
+	public function runGroup($group, $parameters=null) {
 		$moduleList = &$this->getGroup($group);
 		foreach ($moduleList as $module) {
-			$this->execModule($module, $parameters);
+			$this->runModule($module, $parameters);
 		};
 	}
 
@@ -822,9 +822,9 @@ class xyo_Cloud extends xyo_Config {
 	}
 
 	public function runRequest($parameters) {
-		$module=$this->loadModuleExecPath($this->get("run"));
+		$module=$this->loadModuleRunPath($this->get("run"));
 		if($module) {
-			return $this->execModule($module,$parameters);
+			return $this->runModule($module,$parameters);
 		};
 		return null;
 	}
@@ -929,7 +929,7 @@ class xyo_Cloud extends xyo_Config {
 			$parameters = array();
 		};
 		if($module) {
-			$module_ = $this->getModuleExecPath($module);
+			$module_ = $this->getModuleRunPath($module);
 			$parameters["run"] = $module_;
 		};
 		return $parameters;
@@ -1331,7 +1331,7 @@ class xyo_Cloud extends xyo_Config {
 		$fs = fopen($this->path."log/" . date("Y-m-d")."-". $type.".log", "ab");
 		if ($fs) {
 			if($module_) {
-				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getModuleExecPath($module_)."] [".$this->getClientIP()."]: ");
+				fwrite($fs, date("Y-m-d H:i:s") . " [".$this->getModuleRunPath($module_)."] [".$this->getClientIP()."]: ");
 			} else {
 				fwrite($fs, date("Y-m-d H:i:s") . ": ");
 			};
@@ -1405,7 +1405,7 @@ class xyo_Cloud extends xyo_Config {
 		};
 		
 		//
-		$this->set("version", "5.6.0.0");
+		$this->set("xyo_cloud_core_version", "6.0.0.12");
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);
@@ -1448,23 +1448,23 @@ class xyo_Cloud extends xyo_Config {
 			register_shutdown_function(xyo_Cloud::$logResponseShutdown, $x);
 		};
 
-		$this->execGroup("xyo-system-init", null);
+		$this->runGroup("xyo-system-init", null);
 		if ($this->isInitOk) {
-			$exec_ = true;
-			$module = $this->loadModuleExecPath($this->request->get("run",$this->getApplication()));
+			$run_ = true;
+			$module = $this->loadModuleRunPath($this->request->get("run",$this->getApplication()));
 			if ($module) {
 				$this->initModule($module);
 				if ($this->isModuleAnApplication($module)) {
 					if($this->isAjax || $this->isJson || $this->isAjaxJs) {
-						$exec_ = false;
-						$this->execModule($module, null);
+						$run_ = false;
+						$this->runModule($module, null);
 					};
 				} else {
-					$exec_ = false;
-					$this->execModule($module, null);
+					$run_ = false;
+					$this->runModule($module, null);
 				};
 			};
-			if ($exec_) {
+			if ($run_) {
 				$this->setApplication($module);
 				$this->loadGroup("xyo-system-load");
 
@@ -1472,7 +1472,7 @@ class xyo_Cloud extends xyo_Config {
 					$this->processApplication($this->getApplication(),null);
 				};
 
-				$this->execGroup("xyo-system-exec", null);
+				$this->runGroup("xyo-system-run", null);
 			};
 		};
 	}

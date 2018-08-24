@@ -38,7 +38,7 @@ if($this->ds->load(0,1)){
 	if(count($moduleList)>0){
 
 		$dsAclCheck->clear();
-		$dsAclCheck->module_group_name=array("xyo-system-load","xyo-system-exec");
+		$dsAclCheck->module_group_name=array("xyo-system-load","xyo-system-run");
 		$dsAclCheck->xyo_core_id=$this->ds->xyo_core_id;
 		$dsAclCheck->xyo_module_id=$moduleList;
 		$dsAclCheck->update(array("enabled"=>0));
@@ -56,7 +56,7 @@ if($this->ds->load(0,1)){
 	$dsAclCheck->save();
 
 	$dsAclCheck->clear();
-	$dsAclCheck->module_group_name="xyo-system-exec";
+	$dsAclCheck->module_group_name="xyo-system-run";
 	$dsAclCheck->xyo_user_group_id=0;//all users 
 	$dsAclCheck->xyo_core_id=$this->ds->xyo_core_id;
 	$dsAclCheck->xyo_module_id=$this->ds->xyo_module_id;

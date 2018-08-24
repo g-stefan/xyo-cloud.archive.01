@@ -753,8 +753,8 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->requireModule($module);
 	}
 
-	public function execModule($module, $parameters=null) {
-		return $this->cloud->execModule($module, $parameters);
+	public function runModule($module, $parameters=null) {
+		return $this->cloud->runModule($module, $parameters);
 	}
 
 	public function &getModule($module) {
@@ -778,8 +778,8 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->loadGroup($group);
 	}
 
-	public function execGroup($group, $parameters=null) {
-		return $this->cloud->execGroup($group, $parameters);
+	public function runGroup($group, $parameters=null) {
+		return $this->cloud->runGroup($group, $parameters);
 	}
 
 	public function &getGroup($group) {
@@ -1127,7 +1127,7 @@ class xyo_Module extends xyo_Config {
 		}
 	}
 
-	public function moduleMainExec($parameters=null) {
+	public function moduleMainRun($parameters=null) {
 		$this->pushParameters();
 		$this->mergeParameters($parameters);
 		$this->instance++;

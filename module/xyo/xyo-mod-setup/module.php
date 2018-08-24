@@ -240,7 +240,7 @@ class xyo_mod_Setup extends xyo_Module {
 	}
 
 	function uninstallModule($module_) {
-		if ($this->execModuleUninstall($module_)) {
+		if ($this->runModuleUninstall($module_)) {
 			$modPath_ = $this->getModulePath($module_);
 			$this->unregisterModule($module_);
 			if (!is_null($modPath_)) {
@@ -651,7 +651,7 @@ class xyo_mod_Setup extends xyo_Module {
 		return array();
 	}
 
-	function execPackageLicense($packageName) {
+	function runPackageLicense($packageName) {
 		$v = $this->getFileFromPackage($packageName, "setup/license.txt");
 		if (count($v)) {
 			echo htmlentities($v["content"]);
@@ -753,7 +753,7 @@ class xyo_mod_Setup extends xyo_Module {
 		return null;
 	}
 
-	function execModuleInstall($module) {
+	function runModuleInstall($module) {
 		$modPath_ = $this->getModulePath($module);
 		if (!is_null($modPath_)) {
 			$config_ = $modPath_ . "setup/install.php";
@@ -768,7 +768,7 @@ class xyo_mod_Setup extends xyo_Module {
 		return false;
 	}
 
-	function execModuleUpdate($module) {
+	function runModuleUpdate($module) {
 		$modPath_ = $this->getModulePath($module);
 		if (!is_null($modPath_)) {
 			$config_ = $modPath_ . "setup/update.php";
@@ -783,7 +783,7 @@ class xyo_mod_Setup extends xyo_Module {
 		return false;
 	}
 
-	function execModuleUninstall($module) {
+	function runModuleUninstall($module) {
 		$modPath_ = $this->getModulePath($module);
 		if (!is_null($modPath_)) {
 			$config_ = $modPath_ . "setup/uninstall.php";
@@ -817,20 +817,20 @@ class xyo_mod_Setup extends xyo_Module {
 			$cloud_path = null;
 		};
 
-		$exec_path = explode($path_separator, $path2_);
-		if (count($exec_path) > 1) {
-			$exec_path = array_chunk($exec_path, count($exec_path) - 1);
-			$exec_path = $exec_path[0];
+		$run_path = explode($path_separator, $path2_);
+		if (count($run_path) > 1) {
+			$run_path = array_chunk($run_path, count($run_path) - 1);
+			$run_path = $run_path[0];
 		} else {
-			$exec_path = null;
+			$run_path = null;
 		};
 
 		$path = array();
-		$a = count($exec_path);
+		$a = count($run_path);
 		$b = count($cloud_path);
 
 		for ($k = 0; ($k < $a) && ($k < $b); ++$k) {
-			if ($exec_path[$k] === $cloud_path[$k]) {
+			if ($run_path[$k] === $cloud_path[$k]) {
 
 			} else {
 				break;
@@ -981,7 +981,7 @@ class xyo_mod_Setup extends xyo_Module {
 
 			$idModuleGroupTemplate=0;
 			$idModuleGroupLoad=0;
-			$idModuleGroupExec=0;
+			$idModuleGroupRun=0;
 
 			$dsModuleGroup->clear();
 			$dsModuleGroup->name="xyo-template";
@@ -998,15 +998,15 @@ class xyo_mod_Setup extends xyo_Module {
 			}
 
 			$dsModuleGroup->clear();
-			$dsModuleGroup->name="xyo-system-exec";
+			$dsModuleGroup->name="xyo-system-run";
 			$dsModuleGroup->enabled=1;
 			if($dsModuleGroup->load(0,1)) {
-				$idModuleGroupExec=$dsModuleGroup->id;
+				$idModuleGroupRun=$dsModuleGroup->id;
 			}
 
 			if($idModuleGroupTemplate&&
 			   $idModuleGroupLoad&&
-			   $idModuleGroupExec) {
+			   $idModuleGroupRun) {
 				$dsModule->clear();
 				$dsModule->name=$module;
 				$dsModule->enabled=1;
@@ -1025,7 +1025,7 @@ class xyo_mod_Setup extends xyo_Module {
 					if(count($moduleList)) {
 
 						$dsAclModule->clear();
-						$dsAclModule->xyo_module_group_id=array($idModuleGroupLoad,$idModuleGroupExec);
+						$dsAclModule->xyo_module_group_id=array($idModuleGroupLoad,$idModuleGroupRun);
 						$dsAclModule->xyo_user_group_id=$idUserGroup;
 						$dsAclModule->xyo_core_id=$idCore;
 						$dsAclModule->xyo_module_id=$moduleList;
@@ -1044,7 +1044,7 @@ class xyo_mod_Setup extends xyo_Module {
 					$dsAclModule->save();
 
 					$dsAclModule->clear();
-					$dsAclModule->xyo_module_group_id=$idModuleGroupExec;
+					$dsAclModule->xyo_module_group_id=$idModuleGroupRun;
 					$dsAclModule->xyo_user_group_id=$idUserGroup;
 					$dsAclModule->xyo_core_id=$idCore;
 					$dsAclModule->xyo_module_id=$dsModule->id;

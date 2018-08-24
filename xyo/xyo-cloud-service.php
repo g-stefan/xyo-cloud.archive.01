@@ -7,7 +7,7 @@
 //
 
 //
-// Execute an module from current directory, to be used as service
+// Run a module from current directory, to be used as service
 //
 // - string $xyoCloudServiceModuleName (optional) Module name to be "seen"
 //      by the system, default to "-service-"

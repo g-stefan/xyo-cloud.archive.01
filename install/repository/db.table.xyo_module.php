@@ -72,7 +72,7 @@ if ($setup) {
 	//xyo-app-admin
 	$setup->registerModule(null, null, "xyo-app-admin");
 	$setup->registerModuleAcl("xyo-app-admin","xyo-none", null, null, 0, true);
-	$setup->execModuleInstall("xyo-app-admin");
+	$setup->runModuleInstall("xyo-app-admin");
 
 };
 

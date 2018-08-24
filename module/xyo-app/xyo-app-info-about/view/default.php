@@ -16,7 +16,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 <?php
 $this->generateComponent("xui.box-1x1-begin");
-$this->generateComponent("xui.panel-begin",array("title-text"=>"XYO Cloud - version ".$this->cloud->get("version")));
+$this->generateComponent("xui.panel-begin",array("title-text"=>"XYO Cloud - version ".$this->cloud->get("xyo_cloud_version")));
 
 ?>
     Copyright (c) 2018 Grigore Stefan &lt;<a href="mailto:g_stefan@yahoo.com" target="_blank">g_stefan@yahoo.com</a>&gt;<br/>

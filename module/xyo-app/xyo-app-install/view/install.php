@@ -81,7 +81,7 @@ echo "<br />";
                                     $modSetup->setModule($ret["parent"], null, $ret["module"], true,null,false,true);
 
                                     if ($doUpdate) {
-                                        if ($modSetup->execModuleUpdate($ret["module"])) {
+                                        if ($modSetup->runModuleUpdate($ret["module"])) {
 						echo "<li class=\"list-group-item list-group-item-success\">";
 	        		                echo $ret["module"];
 						echo "<span class=\"glyphicon glyphicon-ok pull-right\"></span>";
@@ -97,7 +97,7 @@ echo "<br />";
                                             $error = true;
                                         }
                                     } else {
-                                        if ($modSetup->execModuleInstall($ret["module"])) {
+                                        if ($modSetup->runModuleInstall($ret["module"])) {
 						echo "<li class=\"list-group-item list-group-item-success\">";
 	        		                    echo $ret["module"];
 						echo "<span class=\"glyphicon glyphicon-ok pull-right\"></span>";

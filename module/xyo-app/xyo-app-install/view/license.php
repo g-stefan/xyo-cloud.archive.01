@@ -58,7 +58,7 @@ echo "<br />";
 						echo "</h3>";
 					echo "</div>";
 					echo "<div class=\"panel-body\">";
-		                            $modSetup->execPackageLicense($key);						
+		                            $modSetup->runPackageLicense($key);						
 					echo "</div>";
 				echo "</div>";
                         };

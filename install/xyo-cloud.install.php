@@ -26,6 +26,6 @@ $this->includeConfig("xyo-cloud.module");
 /* --- */
 $this->setModule(null, "install", "xyo-app-install", true, null, true,false);
 $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,true,false);
-$this->setModuleGroup("xyo-tpl-install", "xyo-system-exec");
+$this->setModuleGroup("xyo-tpl-install", "xyo-system-run");
 $this->setModuleAsApplication("xyo-app-install");
 $this->setApplication("xyo-app-install");

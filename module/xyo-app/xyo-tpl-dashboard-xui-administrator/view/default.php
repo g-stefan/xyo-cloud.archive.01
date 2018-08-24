@@ -48,7 +48,7 @@ if($app){
 $this->generateComponent("xui.dashboard.app-bar-app-title",array("title"=>$title));
 // ---
 echo "<div class=\"xui_right\">";
-$this->execGroup("xyo-status");
+$this->runGroup("xyo-status");
 echo "</div>";
 // ---
 $this->generateComponent("xui.dashboard.app-bar-end");

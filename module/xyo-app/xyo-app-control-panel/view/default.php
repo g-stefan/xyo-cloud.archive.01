@@ -8,4 +8,4 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->execModule("xyo-mod-sys-panel", array("group" => "xyo-control-panel"));
+$this->runModule("xyo-mod-sys-panel", array("group" => "xyo-control-panel"));

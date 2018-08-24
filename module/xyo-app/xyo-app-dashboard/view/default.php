@@ -8,4 +8,4 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->execGroup("xyo-dashboard");
+$this->runGroup("xyo-dashboard");
