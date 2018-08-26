@@ -74,6 +74,7 @@ if ($setup) {
 	$setup->registerModuleAcl("xyo-app-admin","xyo-none", null, null, 0, true);
 	$setup->runModuleInstall("xyo-app-admin");
 
+	$setup->includeConfig("xyo-cloud.install.local");
 };
 
 
