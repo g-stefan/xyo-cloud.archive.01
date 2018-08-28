@@ -13,13 +13,13 @@
 //      by the system, default to "-service-"
 // Example:
 //      in service.php
-//      $xyoClud...  - options
+//      $xyoCloud...  - options
 //      include([path to "xyo-cloud-service.php" ]);
 //
 // Another example:
 //      in application.php - main module script
 //
-//      $xyoClud...  - options
+//      $xyoCloud...  - options
 //	include([path to "xyo-cloud-service.php" ]);
 //	defined("XYO_CLOUD") or die("Access is denied");
 //
