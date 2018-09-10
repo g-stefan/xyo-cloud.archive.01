@@ -35,3 +35,4 @@ $this->requireModule("xui-form-text-icon-left-required");
 $this->requireModule("xui-form-text-icon-right-required");
 $this->requireModule("xui-inner-box");
 $this->requireModule("xui-line");
+$this->requireModule("xui-form-autocomplete");

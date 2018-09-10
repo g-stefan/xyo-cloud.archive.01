@@ -8,4 +8,10 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->setVersion($module, "1.1.0");
+header("Content-type: text/css");
+
+$xuiColor=&$this->getModule("xui-color");
+$xuiPalette=&$this->getModule("xui-palette");
+$xuiTheme=&$this->getModule("xui-theme");
+
+include("css-autocomplete.php");

@@ -13,20 +13,20 @@ $this->set("table_primary_key", "id");
 $this->set("table_item", array(
 	"id" => array("bigint","DEFAULT","unsigned","auto_increment"),
 	"xyo_user_id" => array("bigint",0,"unsigned"), // user creator - 0 - creator is one of the system users
-	"username" => array("varchar",255,null),
-	"password" => array("varchar",255,null),
-	"session" => array("varchar",255,null),
+	"username" => array("varchar",null,255),
+	"password" => array("varchar",null,255),
+	"session" => array("varchar",null,255),
 	"enabled" => array("int",0,"unsigned"),
-	"name" => array("varchar",255,null),
+	"name" => array("varchar",null,255),
 	"created_at" => array("datetime",null),
 	"logged_at" => array("datetime",null),
 	"logged_in" => array("int",0,"unsigned"),
 	"action" => array("int",0,"unsigned"), // authorization checks
 	"action_at" => array("datetime",null), // last time when an authorization was requested
 	"xyo_language_id" => array("bigint",0,"unsigned"),
-	"picture" => array("varchar",255,null),
-	"description" => array("varchar",255,null),
-	"email" => array("varchar",255,null),
+	"picture" => array("varchar",null,255),
+	"description" => array("varchar",null,255),
+	"email" => array("varchar",null,255),
 	"invisible" => array("int",0,"unsigned")
 ));
 

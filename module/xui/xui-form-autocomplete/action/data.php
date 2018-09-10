@@ -8,4 +8,4 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->setVersion($module, "1.1.0");
+$this->setView("data");

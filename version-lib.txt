@@ -17,5 +17,5 @@ tinymce,4.6.4,https://www.tinymce.com/
 cropit,0.5.1,https://github.com/scottcheng/cropit
 maximize-select2-height,1.0.2,https://github.com/panorama-ed/maximize-select2-height
 js-sha512,0.8.0,https://github.com/emn178/js-sha512
-rainbow-2.1.4,https://github.com/ccampbell/rainbow
-
+rainbow,2.1.4,https://github.com/ccampbell/rainbow
+jquery-autocompleter,0.3.0,https://github.com/ArtemFitiskin/jquery-autocompleter

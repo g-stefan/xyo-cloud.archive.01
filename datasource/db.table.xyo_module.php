@@ -12,11 +12,11 @@ $this->set("table_primary_key", "id");
 
 $this->set("table_item", array(
 	"id" => array("bigint","DEFAULT","unsigned","auto_increment"),
-	"path" => array("varchar",255,null),
-	"name" => array("varchar",128,null),
-	"description" => array("varchar",255,null),
+	"path" => array("varchar",null,255),
+	"name" => array("varchar",null,255),
+	"description" => array("varchar",null,255),
 	"enabled" => array("int",0,"unsigned"),
-	"parent" => array("varchar",128,null),		   
+	"parent" => array("varchar",null,255),
 	"parameter" => array("int",0,"unsigned")
 ));
 

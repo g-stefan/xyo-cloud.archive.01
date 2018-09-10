@@ -82,7 +82,8 @@ class xui_Complete extends xyo_Module {
 			"xui-alert",
 			"xui-application",
 			"xui-box",
-			"xui-table"
+			"xui-table",
+			"xui-form-autocomplete"
 		);
 	}
 

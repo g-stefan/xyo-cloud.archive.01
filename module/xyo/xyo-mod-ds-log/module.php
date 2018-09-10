@@ -25,8 +25,8 @@ class xyo_mod_ds_Log extends xyo_Module {
 		$logTable->setField("log_datetime","datetime",null,null,null,1);
 		$logTable->setField("log_delete","integer",0,"unsigned",null,2);
 		$logTable->setField("log_xyo_user_id","bigint",0,"unsigned",null,3);
-		$logTable->setField("log_name","varchar",128,null,null,4);
-		$logTable->setField("log_username","varchar",128,null,null,5);		
+		$logTable->setField("log_name","varchar",null,128,null,4);
+		$logTable->setField("log_username","varchar",null,128,null,5);		
 		return $logTable;
 	}
 

@@ -89,18 +89,7 @@ class xyo_datasource_postgresql_Table extends xyo_Config {
 			//post-process
 			$item = $this->get("table_item", array());
 			foreach ($item as $k => &$v) {
-				$this->fieldType_[$k]=$v[0];
-				if($v[0]=="varchar") {
-					$this->fieldAttribute_[$k]=$v[1];
-					if(count($v)>2) {
-						$this->fieldDefaultValue_[$k]=$v[2];
-					};
-					if(count($v)>3) {
-						$this->fieldExtra_[$k]=$v[3];
-					};
-					continue;
-				};
-
+				$this->fieldType_[$k]=$v[0];				
 				$this->fieldDefaultValue_[$k]=$v[1];
 				if(count($v)>2) {
 					$this->fieldAttribute_[$k]=$v[2];
@@ -1259,13 +1248,6 @@ class xyo_datasource_postgresql_Table extends xyo_Config {
 		
 		$this->fieldType_=$this->setKeyAtIndex($this->fieldType_,$name,$type,$atIndex);		
 
-		if($type=="varchar"){
-			$this->fieldAttribute_[$name]=$defaultValue;
-			$this->fieldDefaultValue_[$name]=$attribute;
-			$this->fieldExtra_[$name]=$extra;
-			return;
-		};
-		
 		$this->fieldAttribute_[$name]=$attribute;
 		$this->fieldDefaultValue_[$name]=$defaultValue;		
 		$this->fieldExtra_[$name]=$extra;

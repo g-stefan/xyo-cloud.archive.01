@@ -12,6 +12,6 @@ $this->set("table_primary_key", "id");
 
 $this->set("table_item", array(
 	"id" => array("bigint","DEFAULT","unsigned","auto_increment"),
-	"name" => array("varchar",128,null),
-	"value" => array("varchar",255,null)
+	"name" => array("varchar",null,128),
+	"value" => array("varchar",null,255)
 ));
