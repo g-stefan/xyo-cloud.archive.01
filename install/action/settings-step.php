@@ -39,8 +39,6 @@ $this->doRedirect("done");
 if ($this->isElementError()) {
     $this->doRedirect("settings");
 } else {
-    // set datasource loader
-    $this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
 
     $dsUser = &$this->getDataSource("db.table.xyo_user");
     if ($dsUser) {

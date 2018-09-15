@@ -69,6 +69,9 @@ if ($setup) {
 	$setup->registerModule("xyo-app", null, "xyo-app-table");
 	$setup->registerModuleAcl("xyo-app-table","xyo-none", null, null,0,true);
 
+	$setup->registerModule("xyo-app", null, "xyo-mod-status-ajax");
+	$setup->registerModuleAcl("xyo-mod-status-ajax", "xyo-status", "administrator", "authenticated", 40000, true);
+
 	//xyo-app-admin
 	$setup->registerModule(null, null, "xyo-app-admin");
 	$setup->registerModuleAcl("xyo-app-admin","xyo-none", null, null, 0, true);

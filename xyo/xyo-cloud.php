@@ -1253,6 +1253,10 @@ class xyo_Cloud extends xyo_Config {
 		return $this->templatePath;
 	}
 
+	public function hasTemplate() {
+		return strlen($this->template)>0;
+	}
+
 	//
 	// DataSource Manager
 	//
@@ -1405,7 +1409,7 @@ class xyo_Cloud extends xyo_Config {
 		};
 		
 		//
-		$this->set("xyo_cloud_core_version", "6.0.0.12");
+		$this->set("xyo_cloud_core_version", "8.0.0.16");
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);
@@ -1448,7 +1452,7 @@ class xyo_Cloud extends xyo_Config {
 			register_shutdown_function(xyo_Cloud::$logResponseShutdown, $x);
 		};
 
-		$this->runGroup("xyo-system-init", null);
+		$this->runGroup("xyo-system-init");
 		if ($this->isInitOk) {
 			$run_ = true;
 			$module = $this->loadModuleRunPath($this->request->get("run",$this->getApplication()));
@@ -1457,11 +1461,11 @@ class xyo_Cloud extends xyo_Config {
 				if ($this->isModuleAnApplication($module)) {
 					if($this->isAjax || $this->isJson || $this->isAjaxJs) {
 						$run_ = false;
-						$this->runModule($module, null);
+						$this->runModule($module);
 					};
 				} else {
 					$run_ = false;
-					$this->runModule($module, null);
+					$this->runModule($module);
 				};
 			};
 			if ($run_) {
@@ -1469,10 +1473,15 @@ class xyo_Cloud extends xyo_Config {
 				$this->loadGroup("xyo-system-load");
 
 				if($this->hasApplication()) {
-					$this->processApplication($this->getApplication(),null);
+					$this->processApplication($this->getApplication());
 				};
 
-				$this->runGroup("xyo-system-run", null);
+				if($this->hasTemplate()){
+					$this->runModule($this->getTemplate());
+					return;
+				};
+
+				$this->runGroup("xyo-system-run");
 			};
 		};
 	}

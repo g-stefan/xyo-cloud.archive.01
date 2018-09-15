@@ -27,8 +27,8 @@ if ($this->isError()) {
 	$this->generateView("msg-error");
 };
 
-// set datasource loader
-$this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
+// get login salt
+$this->cloud->includeConfig("config.website");
 
 $administrator = $this->getRequest("administrator_username");
 if ($administrator) {

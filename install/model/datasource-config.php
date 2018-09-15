@@ -164,52 +164,10 @@ if ($fileHandle) {
     return;
 }
 
-
-
-
-$fileName = "config/config.website.php";
-$fileHandle = null;
-if (strlen($fileName)) {
-    $fileHandle = fopen($fileName, "w");
-};
-
-if ($fileHandle) {
-    fwrite($fileHandle, "<" . "?" . "php\r\n");
-    fwrite($fileHandle, "defined(\"XYO_CLOUD\") or die(\"Access is denied\");\r\n");
-    fwrite($fileHandle, "// \r\n");
-    fwrite($fileHandle, "// Website Config\r\n");
-    fwrite($fileHandle, "// \r\n");
-    fwrite($fileHandle, "\$this->set(\"configured\",false);\r\n");
-    fwrite($fileHandle, "\$this->set(\"datasource_layer\",\"" .
-            $moduleName .
-            "\");\r\n");
-    fwrite($fileHandle, "\r\n\r\n");
-    fclose($fileHandle);
-
-    $this->cloud->set("datasource_layer", $moduleName);
-} else {
-    $this->setError(array("config_not_writable" => $fileName));
-    return;
-}
-
-$moduleDatasourceLayer = null;
-$layerModule = $this->cloud->get("datasource_layer");
-$moduleDatasourceLayer = &$this->cloud->getModule($layerModule);
-if ($moduleDatasourceLayer) {
-    
-} else {
-    $this->setError(array("unknown_layer" => $layer));
-    return;
-};
-
 $this->cloud->dataSource->includeConfig("config.ds");
 
-$this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
-$moduleDatasourceLayer->includeFile($configFileName);
-
 if (!$this->isError()) {
-
-    $conDb = &$moduleDatasourceLayer->getConnection("db");
+    $conDb = &$this->cloud->dataSource->getDataSourceConnection("db");
     if ($conDb) {
         if ($conDb->open()) {
             $conDb->close();

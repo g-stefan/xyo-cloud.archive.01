@@ -162,7 +162,7 @@ class xyo_DataSource extends xyo_Config {
 		return true;
 	}
 
-	function getDataSourceConnection($name) {
+	function &getDataSourceConnection($name) {
 		if(!array_key_exists($name,$this->dataSourceConnectionProvider_)){
 			return null;			
 		};

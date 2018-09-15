@@ -73,6 +73,9 @@ class xyo_datasource_Xyo extends xyo_Module {
 
 	function &getConnection($name) {
 		$retV = null;
+		if (!array_key_exists($name, $this->connectionList_)) {
+			$this->includeConfig("config.ds.".$name);
+		};
 		if (array_key_exists($name, $this->connectionList_)) {
 			$retV = $this->connectionList_[$name];
 		};

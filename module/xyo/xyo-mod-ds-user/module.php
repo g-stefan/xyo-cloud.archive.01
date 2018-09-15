@@ -310,27 +310,38 @@ class xyo_mod_ds_User extends xyo_Module {
 		if ($this->dsUser->load(0, 1)) {
 			// check credentials			               
 
-			$password=$this->getPasswordHash($this->dsUser->username,$this->dsUser->password,$this->info->rnd);
+			$password = $this->getPasswordHash($this->dsUser->username,$this->dsUser->password,$this->info->rnd);
 			if(strlen($password)==0){
 				return false;
 			};
-			$passwordX=explode(".",$password);
+			$passwordX = explode(".",$password);
 
 			$inputPassword = $this->info->password;
-			        
-			$checkPasword = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$inputPassword,$this->info->rnd);
+
+			$loginSalt = hash("sha512",$this->info->rnd.".".$this->cloud->get("user_login_salt", "unknown"),false);
+			$checkPasword = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd.".".$loginSalt,false),$inputPassword,$this->info->rnd);
 			if(strlen($checkPasword)==0){
 				return false;
 			};
 			$checkPasword = $passwordX[0].".".hash("sha512",$passwordX[0].$checkPasword,false);
-
+			
 			// check system generated authorization (password is sha512[passowordHash])
-			$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->password,$this->info->rnd);
+			$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd.".".$loginSalt,false),$this->info->password,$this->info->rnd);
 
 			if(strlen($checkPasword2X)==0){
 				return false;
 			};
 			$checkPasword2Y = hash("sha512",$password,false);
+
+			// possible external authorization with service key
+			if(strcmp($password,$checkPasword)!=0){
+				$loginSalt = hash("sha512",$this->info->rnd.".".$this->cloud->get("service_key", "unknown"),false);
+				$checkPasword = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd.".".$loginSalt,false),$inputPassword,$this->info->rnd);
+				if(strlen($checkPasword) == 0){
+					return false;
+				};
+				$checkPasword = $passwordX[0].".".hash("sha512",$passwordX[0].$checkPasword,false);
+			};
 
 			$captchaOk=false;
 			if($this->useCaptcha) {
@@ -345,7 +356,7 @@ class xyo_mod_ds_User extends xyo_Module {
 				// Check service key
 				//
 				if(!$captchaOk){
-					$serviceKey=hash("sha512",$this->info->rnd.hash("sha512",$this->cloud->get("service_key","unknown"),false),false);
+					$serviceKey = hash("sha512",$this->info->rnd.hash("sha512",$this->cloud->get("service_key","unknown"),false),false);
 					$captcha = $this->cloud->getRequest("user_captcha");
 					if(strlen($captcha)>0){
 						if(strcmp($captcha,$serviceKey)==0){
@@ -365,7 +376,8 @@ class xyo_mod_ds_User extends xyo_Module {
 				$this->info->name = $this->dsUser->name;
 				$this->info->authorizedBy = "datasource";
 				// key is allways system authorized => password = sha512[passowordHash]
-				$this->info->key = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$checkPasword2Y,$this->info->rnd);
+				$loginSalt = hash("sha512",$this->info->rnd.".".$this->cloud->get("user_login_salt", "unknown"),false);
+				$this->info->key = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd.".".$loginSalt,false),$checkPasword2Y,$this->info->rnd);
 				if(strlen($this->dsUser->session)==0){
 					$this->dsUser->session=hash("sha512",$this->info->key,false);
 				};
@@ -422,7 +434,8 @@ class xyo_mod_ds_User extends xyo_Module {
 			};
 
 			// key is allways system authorized => password = sha512[passowordHash]
-			$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd,false),$this->info->key,$this->info->rnd);
+			$loginSalt = hash("sha512",$this->info->rnd.".".$this->cloud->get("user_login_salt", "unknown"),false);
+			$checkPasword2X = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$this->info->rnd.".".$loginSalt,false),$this->info->key,$this->info->rnd);
 			if(strlen($checkPasword2X)==0){
 				return false;
 			};
@@ -566,7 +579,8 @@ class xyo_mod_ds_User extends xyo_Module {
 				return null;
 			};
 			$password = hash("sha512",$password,false);
-			$passwordHash = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$rnd,false),$password,$rnd);
+			$loginSalt = hash("sha512",$rnd.".".$this->cloud->get("user_login_salt", "unknown"),false);
+			$passwordHash = $this->x2combo(hash("sha512",strtolower($this->dsUser->username).".".$rnd.".".$loginSalt,false),$password,$rnd);
 			if(strlen($passwordHash)==0){
 				return null;
 			};

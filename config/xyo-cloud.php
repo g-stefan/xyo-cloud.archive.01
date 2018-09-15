@@ -8,7 +8,7 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->set("xyo_cloud_version", "9.0.0.50");
+$this->set("xyo_cloud_version", "9.0.0.51");
 
 //$this->set("log_module",true);
 //$this->set("log_request",true);
@@ -18,16 +18,16 @@ $this->set("xyo_cloud_version", "9.0.0.50");
 $this->set("user_action",true);
 $this->set("user_captcha",true);
 $this->set("user_password_encoding","hash");
-// --- set this in xyo-cloud.local.init
-$this->set("service_key","unknown");
+// --- this will be generated automatically by installer in config.website
+$this->set("user_login_salt","unknown");
+// --- overwrite this in xyo-cloud.local.init
 $this->set("user_reco_salt","unknown");
+$this->set("service_key","unknown");
 $this->set("crypt_rpc_private_key","unknown");
 // ---
 
 //
 // some default values just in case
-//
-$this->set("datasource_layer", "xyo-datasource-xyo");
 //
 $this->set("language", "en-GB");
 $this->set("locale", "en-GB");
@@ -55,14 +55,8 @@ if (!$this->get("configured",false)) {
 	return;
 }
 $this->set("language", $this->get("default_language", "en-GB"));
+
 //
-//
-$this->setModule(null, null, "xyo");
-//
-// datasource 
-//
-$layer = $this->cloud->get("datasource_layer", "xyo-datasource-xyo");
-$this->setModule("xyo", null, $layer);
 //
 // process settings
 //
@@ -71,8 +65,10 @@ $dsSettings->clear();
 for($dsSettings->load();$dsSettings->isValid();$dsSettings->loadNext()){
 	$this->set($dsSettings->name,$dsSettings->value);		
 };
+
 //
 //
+$this->setModule(null, null, "xyo");
 $this->setModule("xyo", null, "xyo-mod-ds-acl");
 $this->setModule("xyo", null, "xyo-mod-ds-user");
 //
@@ -81,28 +77,22 @@ $this->setModule("xyo", null, "xyo-mod-ds-user");
 $modUser = &$this->getModule("xyo-mod-ds-user");
 if ($modUser) {
     if ($modUser->isAuthorized()) {
-
         if ($modUser->info->language) {
             $this->set("language", $modUser->info->language);
         }
-
     }
 }
 //
 // language from cookie/override user/config
 //
 $website_language = $this->getRequest("website_language", "*");
-if ($website_language === "*") {
-    
-} else {
-    $this->set("language", $website_language);
+if ($website_language !== "*") {
+	$this->set("language", $website_language);
 }
 //
 $website_language = $this->getRequest("user_language", "*");
-if ($website_language === "*") {
-    
-} else {
-    $this->set("language", $website_language);
+if ($website_language !== "*") {
+	$this->set("language", $website_language);
 	setcookie("website_language",$website_language);
 }
 //

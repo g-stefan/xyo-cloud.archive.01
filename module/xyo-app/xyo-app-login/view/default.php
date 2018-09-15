@@ -35,6 +35,7 @@ if(strlen($rnd)<strlen(hash("sha512","x",true))){
 	$rnd=hash("sha512",date("Y-m-d H:i:s")." - ".rand(),false);
 	$this->setElementValue("rnd",$rnd);
 };
+$salt=hash("sha512",$rnd.".".$this->cloud->get("user_login_salt", "unknown"),false);
 
 $parameters=array("user_authorization"=>"true");
 
@@ -61,7 +62,7 @@ if ($this->isError()) {
     $msg_lang = $this->getFromLanguage("error_unknown");
 };
 
-$this->generateComponent("xui.form-action-begin",array("onsubmit"=>"return (xyoFormLoginAction(this));"));
+$this->generateComponent("xui.form-action-begin",array("onsubmit"=>"return (xyoFormLoginAction(this,'".$salt."'));"));
 $this->generateComponent("xui.box-1x1-begin");
 $this->generateComponent("xui.panel-begin",array("title"=>"title_login"));
 

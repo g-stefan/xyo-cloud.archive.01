@@ -19,7 +19,7 @@ if ($this->isRequest("website_language")) {
         $this->set("language", $this->getRequest("website_language"));
     };
 };
-$this->set("datasource_layer", "xyo-datasource-xyo");
+/* --- */
 $this->includeConfig("config.website");
 /* --- */
 $this->includeConfig("xyo-cloud.module");

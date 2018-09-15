@@ -8,28 +8,7 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$configFileName = $this->getParameter("config_file");
-if ($configFileName) {
-    
-} else {
-    $this->setError("config_file_invalid");
-    return;
-}
-
-$moduleDatasourceLayer = null;
-$layerModule = $this->cloud->get("datasource_layer");
-$moduleDatasourceLayer = &$this->cloud->getModule($layerModule);
-if ($moduleDatasourceLayer) {
-    
-} else {
-    $this->setError(array("unknown_layer" => $layer));
-    return;
-};
-
-$this->cloud->set("datasource_loader", "xyo-mod-ds-loader-ds");
-$moduleDatasourceLayer->includeFile($configFileName);
-
-$conDb = &$moduleDatasourceLayer->getConnection("db");
+$conDb = &$this->cloud->dataSource->getDataSourceConnection("db");
 if ($conDb) {
     if ($conDb->open()) {
         $conDb->close();
