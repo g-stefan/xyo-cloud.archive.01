@@ -10,6 +10,6 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->palette["tango-sky-blue-p1"]="#729FCF";
-$this->palette["tango-sky-blue-p2"]="#3465A4";
-$this->palette["tango-sky-blue-p3"]="#204A87";
+$this->palette["tango-sky-blue-1"]="#729FCF";
+$this->palette["tango-sky-blue-2"]="#3465A4";
+$this->palette["tango-sky-blue-3"]="#204A87";

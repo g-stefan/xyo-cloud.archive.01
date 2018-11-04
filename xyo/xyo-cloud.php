@@ -384,10 +384,7 @@ class xyo_Cloud extends xyo_Config {
 		if (array_key_exists($derivate, $this->referenceLinks)) {
 			foreach ($this->referenceLinks[$derivate] as $base) {
 				if (!$this->loadModule($base)) {
-					if ($this->get("log_module",false)) {
-						$this->cloud->logMessage("module", "LOAD-FAIL: [" . $base . "] on [" . $derivate . "]");
-					};
-					return false;
+					die("FATAL: Load fail - [" . $base . "] on [" . $derivate . "]");
 				};
 			};
 		};
@@ -1282,15 +1279,15 @@ class xyo_Cloud extends xyo_Config {
 
 	protected $isInitOk;
 	protected $site;
+	protected $path;
 	protected $basePath;
 
 	public function __construct() {
 		$this->path=realpath(dirname(realpath(__FILE__)) . "/..")."/";
 
 		parent::__construct($this);
-
-		$this->set("kernel_version","3.1.1.0");
 		
+		$this->set("xyo_cloud_core_version", "9.2.0.19");
 		$this->set("site","");
 		$this->set("use_redirect",false);
 		$this->set("log_module",true);
@@ -1395,6 +1392,10 @@ class xyo_Cloud extends xyo_Config {
 		};
 	}
 
+	public function getCloudPath() {
+		return $this->path;
+	}
+
 	public function main() {
 
 		// start up session - cookie only
@@ -1407,9 +1408,7 @@ class xyo_Cloud extends xyo_Config {
 		}else{
 			register_shutdown_function("session_write_close");
 		};
-		
-		//
-		$this->set("xyo_cloud_core_version", "8.0.0.16");
+						
 		//
 		$this->set("log_module",false);
 		$this->set("log_request",false);

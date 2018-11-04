@@ -8,8 +8,9 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 ?>
-<div class="xui-application">
-	<div class="xui-toolbar" id="xui-toolbar"><div class="xui_right" id="xui-toolbar__container">
+<div class="xui application">
+	<div class="xui app-toolbar" id="xui-app-toolbar">
+		<div class="xui app-toolbar_content" id="xui-app-toolbar_content">
 <?php
            $this->runModule("xyo-mod-toolbar", array_merge(array(
                         "module" => $this->name,
@@ -18,7 +19,8 @@ defined("XYO_CLOUD") or die("Access is denied");
             );
 
 ?>	
-	</div></div>
+		</div>
+	</div>
 
 <?php
 	if ($this->isAlert()) {
@@ -29,10 +31,13 @@ defined("XYO_CLOUD") or die("Access is denied");
 	}
 
 ?>
-	<div class="xui-content xui-content_has-toolbar <?php if($this->hasAlert__){echo "xui-content_has-message-alert";}; ?> <?php if ($this->hasError__){echo "xui-content_has-message-error";}; ?>">
+	<div class="xui application_content -has-toolbar <?php if($this->hasAlert__){echo "-has-message-alert";}; ?> <?php if ($this->hasError__){echo "-has-message-error";}; ?>">
 	<?php $this->generateCurrentView(); ?>
 	</div>
 </div>
+
+<div class="xui separator" id="xui-application-responsive"></div>
+
 <?php
 
-$this->setHtmlJsSourceOrAjax("XUI.Responsive.Element.linkContainer(\"xui-content\",\"xui-toolbar\",\"xui-toolbar__container\",[\"xui-toolbar_important\",\"xui-toolbar_small\",\"xui-toolbar_large\"]);","load");
+$this->setHtmlJsSourceOrAjax("XUI.App.Toolbar.linkResponsive(\"xui-application-responsive\",\"xui-app-toolbar\",\"xui-app-toolbar_content\");","load");

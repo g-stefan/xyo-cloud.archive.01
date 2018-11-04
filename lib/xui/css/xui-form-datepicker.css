@@ -1,0 +1,27 @@
+
+
+
+.datepicker {
+	border-radius: 3px;
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	z-index: 1000;
+}
+
+.datepicker--day-name{
+	color: #2363B6;
+}
+
+.datepicker--cell.-current-{
+	color: #2363B6;
+}
+
+.datepicker--cell.-selected-{
+	background-color: #1A72E2;
+}
+
+.datepicker--cell.-selected-.-focus-{
+	background-color: #1A72E2;
+}
+
+

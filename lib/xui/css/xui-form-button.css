@@ -1,0 +1,310 @@
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+/* --- */
+
+.xui.form-button{
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	user-select: none;
+	cursor: pointer;
+
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	border-radius: 3px;
+
+	padding-top: 7px;
+	padding-left: 11px;
+	padding-bottom: 7px;
+	padding-right: 11px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 3px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	font-family: "Roboto", sans-serif;
+
+	color: #000000;
+	background-color: #EEEEEE;
+	border: 1px solid #BBBBBB;
+	box-shadow: 0px 3px 0px 0px #888888;
+
+	outline: none;
+
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.xui.form-button:hover,
+.xui.form-button:focus{
+	color: #000000;
+	background-color: #FFFFFF;
+	border: 1px solid #BBBBBB;
+	box-shadow: 0px 3px 0px 0px #444444;
+}
+
+.xui.form-button:active{
+	color: #000000;
+	background-color: #FFFFFF;
+	border: 1px solid #BBBBBB;
+	box-shadow: 0px 1px 0px 0px #444444;
+
+	margin-top: 2px;
+	margin-bottom: 1px;
+}
+
+/* --- */
+
+
+
+.xui.form-button.-primary{
+	color: #FFFFFF;
+	background-color: #2363B6;
+	border: 1px solid #2363B6;
+	box-shadow: 0px 3px 0px 0px #174076;
+}
+
+.xui.form-button.-primary:hover,
+.xui.form-button.-primary:focus{
+	color: #FFFFFF;
+	background-color: #1A72E2;
+	border: 1px solid #1A72E2;
+	box-shadow: 0px 3px 0px 0px #0A2D59;
+
+}
+
+.xui.form-button.-primary:active{
+	color: #FFFFFF;
+	background-color: #1A72E2;
+	border: 1px solid #1A72E2;
+	box-shadow: 0px 1px 0px 0px #0A2D59;
+}
+
+
+
+.xui.form-button.-success{
+	color: #FFFFFF;
+	background-color: #659234;
+	border: 1px solid #659234;
+	box-shadow: 0px 3px 0px 0px #3E5A20;
+}
+
+.xui.form-button.-success:hover,
+.xui.form-button.-success:focus{
+	color: #FFFFFF;
+	background-color: #7ABA35;
+	border: 1px solid #7ABA35;
+	box-shadow: 0px 3px 0px 0px #2C4313;
+
+}
+
+.xui.form-button.-success:active{
+	color: #FFFFFF;
+	background-color: #7ABA35;
+	border: 1px solid #7ABA35;
+	box-shadow: 0px 1px 0px 0px #2C4313;
+}
+
+
+
+.xui.form-button.-info{
+	color: #FFFFFF;
+	background-color: #2084A9;
+	border: 1px solid #2084A9;
+	box-shadow: 0px 3px 0px 0px #145269;
+}
+
+.xui.form-button.-info:hover,
+.xui.form-button.-info:focus{
+	color: #FFFFFF;
+	background-color: #1AA2D1;
+	border: 1px solid #1AA2D1;
+	box-shadow: 0px 3px 0px 0px #093949;
+
+}
+
+.xui.form-button.-info:active{
+	color: #FFFFFF;
+	background-color: #1AA2D1;
+	border: 1px solid #1AA2D1;
+	box-shadow: 0px 1px 0px 0px #093949;
+}
+
+
+
+.xui.form-button.-warning{
+	color: #FFFFFF;
+	background-color: #E19B0B;
+	border: 1px solid #E19B0B;
+	box-shadow: 0px 3px 0px 0px #986907;
+}
+
+.xui.form-button.-warning:hover,
+.xui.form-button.-warning:focus{
+	color: #FFFFFF;
+	background-color: #FFB807;
+	border: 1px solid #FFB807;
+	box-shadow: 0px 3px 0px 0px #6D4E00;
+
+}
+
+.xui.form-button.-warning:active{
+	color: #FFFFFF;
+	background-color: #FFB807;
+	border: 1px solid #FFB807;
+	box-shadow: 0px 1px 0px 0px #6D4E00;
+}
+
+
+
+.xui.form-button.-danger{
+	color: #FFFFFF;
+	background-color: #AF2331;
+	border: 1px solid #AF2331;
+	box-shadow: 0px 3px 0px 0px #6F161F;
+}
+
+.xui.form-button.-danger:hover,
+.xui.form-button.-danger:focus{
+	color: #FFFFFF;
+	background-color: #DE182C;
+	border: 1px solid #DE182C;
+	box-shadow: 0px 3px 0px 0px #540911;
+
+}
+
+.xui.form-button.-danger:active{
+	color: #FFFFFF;
+	background-color: #DE182C;
+	border: 1px solid #DE182C;
+	box-shadow: 0px 1px 0px 0px #540911;
+}
+
+
+.xui.form-button.-disabled,
+.xui.form-button.-disabled:hover,
+.xui.form-button.-disabled:focus,
+.xui.form-button.-disabled:active{
+	color: #CCCCCC;
+	background-color: #FFFFFF;
+	border: 1px solid #EEEEEE;
+	box-shadow: 0px 3px 0px 0px #CCCCCC;
+	margin-top: 0px;
+	margin-bottom: 3px;
+}
+
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-button.-icon {
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: normal;
+
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+}
+
+.xui.form-button.-icon i {
+	position: relative;
+	display: block;
+
+	width: 24px;
+	height: 24px;
+
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: normal;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-button.-icon-left {
+	padding-top: 7px;
+	padding-left: 35px;
+	padding-bottom: 7px;
+	padding-right: 11px;
+}
+
+.xui.form-button.-icon-left i {
+	position: absolute;
+	top: 6px;
+	left: 6px;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-button.-icon-right {
+	padding-top: 7px;
+	padding-left: 11px;
+	padding-bottom: 7px;
+	padding-right: 35px;
+}
+
+.xui.form-button.-icon-right i {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+}
+
+

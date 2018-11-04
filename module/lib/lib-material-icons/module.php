@@ -14,7 +14,7 @@ class lib_MaterialIcons extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("lib_MaterialIcons")) {
-			$this->setHtmlCss($this->site."lib/material-icons/css/material-icons.css");
+			$this->setHtmlCss($this->site."lib/material-icons/material-icons.css");
         	}
 	}
 }

@@ -133,7 +133,7 @@ class xyo_datasource_Mysql extends xyo_Module {
 	}
 
 	function setModuleDataSource($module, $name) {
-		$descriptor = $this->cloud->path."datasource/" . $name . ".php";
+		$descriptor = $this->cloud->getCloudPath()."datasource/" . $name . ".php";
 		if (!file_exists($descriptor)) {
 			$descriptor = $this->cloud->getModulePath($module);
 			if ($descriptor) {

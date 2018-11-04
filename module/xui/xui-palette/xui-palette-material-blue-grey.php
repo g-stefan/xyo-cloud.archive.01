@@ -10,14 +10,14 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->palette["material-blue-grey-p50"]="#ECEFF1";
-$this->palette["material-blue-grey-p100"]="#CFD8DC";
-$this->palette["material-blue-grey-p200"]="#B0BEC5";
-$this->palette["material-blue-grey-p300"]="#90A4AE";
-$this->palette["material-blue-grey-p400"]="#78909C";
-$this->palette["material-blue-grey-p500"]="#607D8B";
-$this->palette["material-blue-grey-p600"]="#546E7A";
-$this->palette["material-blue-grey-p700"]="#455A64";
-$this->palette["material-blue-grey-p800"]="#37474F";
-$this->palette["material-blue-grey-p900"]="#263238";
+$this->palette["material-blue-grey-50"]="#ECEFF1";
+$this->palette["material-blue-grey-100"]="#CFD8DC";
+$this->palette["material-blue-grey-200"]="#B0BEC5";
+$this->palette["material-blue-grey-300"]="#90A4AE";
+$this->palette["material-blue-grey-400"]="#78909C";
+$this->palette["material-blue-grey-500"]="#607D8B";
+$this->palette["material-blue-grey-600"]="#546E7A";
+$this->palette["material-blue-grey-700"]="#455A64";
+$this->palette["material-blue-grey-800"]="#37474F";
+$this->palette["material-blue-grey-900"]="#263238";
 

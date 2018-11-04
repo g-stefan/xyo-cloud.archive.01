@@ -7,25 +7,41 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
-$this->language->set("label_picture","Picture");
-
 ?>
 
-<div style="padding:32px;">
+<div class="xui text -label-40">
+	Form - File Image
+</div>
+
+<div class="xui box -row">
+<div class="xui box -x1x1">
+
 <form>
+	<div class="xui form-file-image" id="form-file-image-component">
+		<div class="xui form-file-image_image">
+			<div class="cropit-preview"></div>
+				<div style="height:48px;position: relative;">
+				<i class="material-icons" style="font-size:24px;line-height: 48px;vertical-align: middle;">photo</i>
+				<input type="range" class="cropit-image-zoom-input"></input>
+				<i class="material-icons" style="font-size:48px;line-height: 48px;vertical-align: middle;">photo</i>
+			</div>
+			<div class="xui separator"></div>
+		</div>
+		<a href="#" onclick="return false;" class="xui form-file-image_link form-button -icon -success"><i class="material-icons">photo</i></a>
+		<button type="button" class="xui form-file-image_delete form-button -icon -danger" onclick="return false;"><i class="material-icons">close</i></button>
+		<div class="xui form-file">
+			<input type="file" name="file-image" id="file-image" class="xui form-file_file cropit-image-input" accept="image/*"></input>
+			<label for="file-image"><i class="material-icons">file_upload</i><span>Browse ...</span></label>
+			<button type="button" class="xui form-button -icon -info" onclick="return false;"><i class="material-icons">delete</i></button>
+		</div>
+	</div>
+</form>
+
+</div>	
+</div>
 
 <?php
 
-$this->generateComponent("xui.box-1x1-begin");
-$this->generateComponent("xui.form-file-image",array("element"=>"picture"));
-$this->generateComponent("xui.box-1x1-end");
-
-?>
-
-</form>
-</div>
+$src="$(\"#form-file-image-component\").cropit({ imageBackground: true, allowDragNDrop: false, imageBackgroundBorderWidth: 16 });";
+$this->setHtmlJsSourceOrAjax($src,"load");
+	

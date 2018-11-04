@@ -10,14 +10,14 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"default",
 	"try"=>"default",
 	"next"=>"primary"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
 $this->eLanguage("title_package");
@@ -40,8 +40,8 @@ echo "<br />";
                     );
     ?>
                     
-                        <label class="xui-form-label" for="mode"><?php $this->eLanguage("label_mode"); ?></label><br/>
-                        <select class="xui-form-select" name="mode" onChange="this.form.submit();">
+                        <label class="xui form-label" for="mode"><?php $this->eLanguage("label_mode"); ?></label><br/>
+                        <select class="xui form-select" name="mode" id="mode" onChange="this.form.submit();">
             <?php
                     foreach ($modeList as $key => $value) {
                         $selected = "";
@@ -57,8 +57,8 @@ echo "<br />";
         <?php
                     if ($mode === "single") {
         ?>
-                        <label class="xui-form-label" for="package"><?php $this->eLanguage("label_package"); ?></label><br/>
-                        <select name="package" class="xui-form-select">
+                        <label class="xui form-label" for="package"><?php $this->eLanguage("label_package"); ?></label><br/>
+                        <select name="package" class="xui form-select" id="name">
             <?php
                         $this->processModel("select-packages");
                         $packagesList = $this->getParameter("select_packages", array("*" => $this->getFromLanguage("package_none")));

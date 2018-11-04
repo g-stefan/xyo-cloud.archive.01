@@ -7,8 +7,8 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
 ?>
 
-Hello World!
-
+<div class="xui text -label-40">
+	Responsive
+</div>

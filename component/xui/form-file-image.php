@@ -93,7 +93,7 @@ if(strlen($fileName)>0){
 
 $src.=$this->getElementId($element)."__delete=function(){";
 $src.="$(\"#".$this->getElementId($element)."_delete\").val(1);";
-$src.=$this->getElementId($element)."_filename=\"".$this->site."lib/xui/images/empty.png\";";
+$src.=$this->getElementId($element)."_filename=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTnU1rJkAAABSklEQVR4Xu3IMQEAAAyDsPk33RnAARx5ctsihhkPzHhgxgMzHpjxwIwHZjww44EZD8x4YMYDMx6Y8cCMB2Y8MOOBGQ/MeGDGAzMemPHAjAdmPDDjgRkPzHhgxgMzHpjxwIwHZjww44EZD8x4YMYDMx6Y8cCMB2Y8MOOBGQ/MeGDGAzMemPHAjAdmPDDjgRkPzHhgxgMzHpjxwIwHZjww44EZD8x4YMYDMx6Y8cCMB2Y8MOOBGQ/MeGDGAzMemPHAjAdmPDDjgRkPzHhgxgMzHpjxwIwHZjww44EZD8x4YMYDMx6Y8cCMB2Y8MOOBGQ/MeGDGAzMemPHAjAdmPDDjgRkPzHhgxgMzHpjxwIwHZjww44EZD8x4YMYDMx6Y8cCMB2Y8MOOBGQ/MeGDGAzMemPHAjAdmPDDjgRkPzHhgxgMzHpjxwIwHZix2DyeSSzItWkMzAAAAAElFTkSuQmCC\";";
 $src.="document.getElementById(\"".$this->getElementId($element)."\").value=null;";
 $src.="$(\"#".$this->getElementId($element)."\").trigger(\"change\");";
 $src.="\$(\"#".$this->getElementId($element)."_component\").cropit(\"imageSrc\",".$this->getElementId($element)."_filename);";
@@ -120,29 +120,28 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 
 </style>
 
-<label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui form-label<?php if($this->isElementError($element)){echo " xui form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
-<div class="xui-form-file-image" id="<?php $this->eElementId($element); ?>_component">
-<div class="xui-form-file-image__image">
+<div class="xui form-file-image" id="<?php $this->eElementId($element); ?>_component">
+<div class="xui form-file-image_image">
 		<div class="cropit-preview"></div>
 		<div style="height:48px;position: relative;">
 			<i class="material-icons" style="font-size:24px;line-height: 48px;vertical-align: middle;">photo</i><input type="range" class="cropit-image-zoom-input"></input><i class="material-icons" style="font-size:48px;line-height: 48px;vertical-align: middle;">photo</i>
 		</div>
-		<div class="xui-separator"></div>
-</div><!--
-
+		<div class="xui separator"></div>
+</div>
 <?php if(strlen($fileName)){
 	if(substr($fileName, 0, strlen("http")) === "http"){ ?>
-		--><a href="<?php echo $fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
+		<a href="<?php echo $fileName; ?>" target="_blank" class="xui form-file-image_link form-button -icon -success"><i class="material-icons">photo</i></a>
 <?php	}else{ ?>
-		--><a href="<?php echo $this->site.$fileName; ?>" target="_blank" class="xui-form-file-image__link xui-form-button-icon xui-form-button-icon_success"><i class="material-icons">photo</i></a><!--
+		<a href="<?php echo $this->site.$fileName; ?>" target="_blank" class="xui form-file-image_link form-button -icon -success"><i class="material-icons">photo</i></a>
 <?php	}; ?>
 <?php }; ?>
---><button type="button" class="xui-form-file-image__delete xui-form-button-icon xui-form-button-icon_danger" onclick="<?php $this->eElementId($element); ?>__delete();return false;"><i class="material-icons">close</i></button>
-<div class="xui-form-file">
-<input type="file" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" class="xui-form-file__file cropit-image-input" accept="image/*"></input>
-<label for="<?php $this->eElementId($element); ?>"><i class="material-icons">file_upload</i> Browse ...</label><!--
---><button type="button" class="xui-form-button-icon xui-form-button-icon_info" onclick="<?php $this->eElementId($element); ?>__clear();return false;"><i class="material-icons">delete</i></button>
+<button type="button" class="xui form-file-image_delete form-button -icon -danger" onclick="<?php $this->eElementId($element); ?>__delete();return false;"><i class="material-icons">close</i></button>
+<div class="xui form-file">
+<input type="file" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" class="xui form-file_file cropit-image-input" accept="image/*"></input>
+<label for="<?php $this->eElementId($element); ?>"><i class="material-icons">file_upload</i><span>Browse ...</span></label>
+<button type="button" class="xui form-button -icon -info" onclick="<?php $this->eElementId($element); ?>__clear();return false;"><i class="material-icons">delete</i></button>
 </div>
 </div>
 <input type="hidden"
@@ -183,4 +182,4 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 	name="<?php $this->eElementName($element); ?>_view_y"
 	value="<?php echo $viewY; ?>"
 	id="<?php $this->eElementId($element); ?>_view_y" ></input>
-<div class="xui-separator"></div>
+<div class="xui separator"></div>

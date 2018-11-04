@@ -11,12 +11,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_InnerBox";
 
 class xui_InnerBox extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_InnerBox")) {
 			$this->setHtmlCss($this->site."lib/xui/css/xui-inner-box.css");
         	}
 	}
-
 }

@@ -13,19 +13,18 @@ $className = "xui_Palette";
 class xui_Palette extends xyo_Module {
 
 	public $xuiColor;
-	public $palette;
+	public $color;
+	public $palette;	
 
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Palette")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
+			$this->setHtmlCss($this->site."lib/xui/css/xui-palette.css");
         	}
 
 		$this->xuiColor=&$this->getModule("xui-color");
 
+		$this->color=&$this->xuiColor;
 		$this->palette=array();
 
 		include("xui-palette-core-grapefruit.php");
@@ -71,6 +70,4 @@ class xui_Palette extends xyo_Module {
 		include("xui-palette-tango-aluminium.php");
 
 	}
-
 }
-

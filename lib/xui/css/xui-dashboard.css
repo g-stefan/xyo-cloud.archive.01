@@ -1,0 +1,1297 @@
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.dashboard {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+.xui.dashboard .xui.navigation-drawer {
+	position: relative;
+	height: calc(100% - 48px);
+	width: 288px;
+	overflow: hidden;
+	float:left;
+	left: 0;
+	right: 0;
+	transition: width 0.5s ease;	
+	z-index: 4;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	background-color: #FFFFFF;
+}
+
+.xui.dashboard .xui.navigation-drawer:after {
+	content: "";	
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 5;
+}
+
+.xui.dashboard .xui.navigation-drawer > .xui.navigation-drawer_content{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+.xui.dashboard .xui.content {
+	position: relative;
+	display: block;
+	height: calc(100% - 48px);
+	width: auto;
+	overflow: auto;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+
+	transition: width 0.5s ease, margin 0.5s ease;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+.xui.dashboard .xui.navigation-drawer .xui.app-user {
+	width: 100%;
+}
+
+.xui.dashboard .xui.content-cover{
+	position: absolute;
+	top: 48px;
+	left: 0px;
+	width: 100%;
+	height: 0px;
+	overflow: hidden;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	background-color: #000000;
+	z-index: 3;
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer {
+	width: 72px;
+	overflow: visible;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer >  .xui.navigation-drawer_content {
+	overflow: visible;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-normal.-closed .xui.app-header > .xui.app-brand{
+	width: 72px;
+}
+
+.xui.dashboard.-normal.-closed .xui.app-header > .xui.app-brand > .xui.app-brand_content > .xui.app-brand_name{
+	opacity: 0;
+}
+
+.xui.dashboard.-normal.-closed .xui.app-header > .xui.app-brand > .xui.app-brand_content > .xui.app-brand_mark{
+	opacity: 0;
+}
+
+.xui.dashboard.-normal.-closed .xui.app-header > .xui.app-bar{
+	width: calc(100% - 72px);
+}
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.app-user {
+	width: 72px;
+	height: 48px;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.app-user > .xui.app-user_content > .xui.app-user_background{	
+	opacity: 1;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.app-user > .xui.app-user_content > .xui.app-user_image{
+	top: 2px;
+	left: 12px; 
+	width: 44px;
+	height: 44px;
+}
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu{	
+	width: 72px;
+	overflow: visible;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content {
+	overflow: visible;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu .xui.menu_item {
+	overflow: visible;
+	width: 288px;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu {
+	overflow: visible;
+	height: auto;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+	width: 288px;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
+	height: 0px;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item {
+	overflow: hidden;
+	width: 72px;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover {	
+	transition: width 0.5s ease;
+	width: calc(360px - 1px);
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover > .xui.menu_item_content {
+	width: calc(360px - 1px);
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover {
+	overflow: visible;
+	transition: none;
+	width: calc(360px - 1px);
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content {
+	width: calc(360px - 1px);
+}
+
+/* --- border --- */
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu:after{
+	content: "";	
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 6;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover:after{
+	content: "";
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover:after{
+	display: none;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover > .xui.menu_item_content {
+	z-index: 12;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:first-child > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:last-child > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px -1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:only-child > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 13;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-submenu:hover >
+  .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item:first-child > .xui.menu_item_content:after{
+	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-submenu:hover:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 72px;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px -1px 0px 0px #DDDDDD;
+	z-index: 13;
+}
+
+/*
+// Level 1
+*/
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_item_content >
+  .xui.action .xui.action_icon-right {
+	transition: none;
+	transform: rotate(90deg);
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item > .xui.menu_submenu {
+	position: absolute;
+	top: 40px;
+	left: calc(72px - 1px);
+	z-index:8;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;	
+}
+
+/*
+// Level 2
+*/
+
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item > .xui.menu_submenu {
+	position: absolute;
+	top: 0px;
+	left: calc(288px - 1px);
+	z-index:8;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+  .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content >
+    .xui.action.-active .xui.action_icon-right {	
+	transition: none;
+	transform: rotate(0deg);
+}
+
+/*
+// Level 3
+*/
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_submenu {
+	position: absolute;
+	top: 0px;
+	left: calc(288px - 1px);
+	z-index:8;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+    .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;	
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+  .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
+    .xui.menu_item > .xui.menu_item_content >
+     .xui.action.-active .xui.action_icon-right {	
+	transition: none;
+	transform: rotate(0deg);
+}
+
+
+
+
+
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.app-user {
+	width: 100%;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer .xui.menu:after {
+	display: none;
+}
+
+.xui.dashboard.-normal.-closed .xui.navigation-drawer  .xui.menu .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content:after{
+	box-shadow: inset 0px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+}
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu:after{
+	content: "";	
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 6;
+}
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu {
+	height: auto;
+}
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;
+}
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
+	height: 0px;	
+}
+
+/*
+// Level 1
+*/
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+/*
+// Level 2
+*/
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+/*
+// Level 3
+*/
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+    .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+
+
+
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu > .xui.menu_content {
+	width: 100%;
+}
+
+.xui.dashboard.-normal.-open .xui.navigation-drawer .xui.menu:after {
+	display: none;
+}
+
+
+
+
+
+.xui.dashboard.-normal .xui.navigation-drawer .xui.menu:after {
+	display: none;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.dashboard.-mini .xui.navigation-drawer >  .xui.navigation-drawer_content {
+	overflow: visible;
+}
+
+.xui.dashboard.-mini .xui.content {
+	transition: none;
+	left: 72px;
+	width: calc(100% - 72px);
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-mini .xui.app-header > .xui.app-brand{
+	width: 72px;
+}
+
+.xui.dashboard.-mini .xui.app-header > .xui.app-brand > .xui.app-brand_content > .xui.app-brand_name{
+	opacity: 0;
+}
+
+.xui.dashboard.-mini .xui.app-header > .xui.app-brand > .xui.app-brand_content > .xui.app-brand_mark{
+	opacity: 0;
+}
+
+.xui.dashboard.-mini .xui.app-header > .xui.app-bar{
+	width: calc(100% - 72px);
+}
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer {
+	position: absolute;
+	width: 72px;
+	overflow: visible;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.app-user {
+	width: 72px;
+	height: 48px;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.app-user > .xui.app-user_content > .xui.app-user_background{	
+	opacity: 1;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.app-user > .xui.app-user_content > .xui.app-user_image{
+	top: 2px;
+	left: 12px; 
+	width: 44px;
+	height: 44px;
+}
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu{	
+	width: 72px;
+	overflow: visible;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content {
+	overflow: visible;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu .xui.menu_item {
+	overflow: visible;
+	width: 288px;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu {
+	overflow: visible;
+	height: auto;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+	width: 288px;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
+	height: 0px;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item {
+	overflow: hidden;
+	width: 72px;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover {	
+	transition: width 0.5s ease;
+	width: calc(360px - 1px);
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover > .xui.menu_item_content {
+	width: calc(360px - 1px);
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover {
+	overflow: visible;
+	transition: none;
+	width: calc(360px - 1px);
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content {
+	width: calc(360px - 1px);
+}
+
+/* --- border --- */
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu:after{
+	content: "";	
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 6;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover:after{
+	content: "";
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover:after{
+	display: none;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item:hover > .xui.menu_item_content {
+	z-index: 12;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:first-child > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:last-child > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 1px -1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+	z-index: 13;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:only-child > .xui.menu_item_content:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 13;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-submenu:hover >
+  .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item:first-child > .xui.menu_item_content:after{
+	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-submenu:hover:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 72px;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px -1px 0px 0px #DDDDDD;
+	z-index: 13;
+}
+
+/*
+// Level 1
+*/
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_item_content >
+  .xui.action .xui.action_icon-right {
+	transition: none;
+	transform: rotate(90deg);
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item > .xui.menu_submenu {
+	position: absolute;
+	top: 40px;
+	left: calc(72px - 1px);
+	z-index:8;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;	
+}
+
+/*
+// Level 2
+*/
+
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item > .xui.menu_submenu {
+	position: absolute;
+	top: 0px;
+	left: calc(288px - 1px);
+	z-index:8;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+  .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content >
+    .xui.action.-active .xui.action_icon-right {	
+	transition: none;
+	transform: rotate(0deg);
+}
+
+/*
+// Level 3
+*/
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_submenu {
+	position: absolute;
+	top: 0px;
+	left: calc(288px - 1px);
+	z-index:8;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
+    .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;	
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu > .xui.menu_content >
+  .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
+    .xui.menu_item > .xui.menu_item_content >
+     .xui.action.-active .xui.action_icon-right {	
+	transition: none;
+	transform: rotate(0deg);
+}
+
+
+
+
+
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.menu:after {
+	display: none;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer .xui.app-user {
+	width: 100%;
+}
+
+.xui.dashboard.-mini.-closed .xui.navigation-drawer  .xui.menu .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content:after{
+	box-shadow: inset 0px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
+}
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer {
+	position: absolute;
+	width: 288px;
+	overflow: hidden;
+}
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer > .xui.navigation-drawer_content {
+	overflow: auto;
+}
+
+.xui.dashboard.-mini.-open .xui.content-cover {
+	height: 100%;
+	opacity: 0.4;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu:after{
+	content: "";	
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 6;
+}
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu {
+	height: auto;
+}
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;
+}
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
+	height: 0px;	
+}
+
+/*
+// Level 1
+*/
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+/*
+// Level 2
+*/
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+/*
+// Level 3
+*/
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+    .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+
+
+
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.menu:after {
+	display: none;
+}
+
+.xui.dashboard.-mini.-open .xui.navigation-drawer .xui.app-user {
+	width: 100%;
+}
+
+
+
+
+
+
+.xui.dashboard.-mini .xui.navigation-drawer .xui.menu:after {
+	display: none;
+}
+
+.xui.dashboard.-mini .xui.navigation-drawer .xui.app-user {
+	width: 100%;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-over .xui.app-header > .xui.app-brand{
+	width: 72px;
+}
+
+.xui.dashboard.-over .xui.app-header > .xui.app-brand > .xui.app-brand_content > .xui.app-brand_name{
+	opacity: 0;
+}
+
+.xui.dashboard.-over .xui.app-header > .xui.app-brand > .xui.app-brand_content > .xui.app-brand_mark{
+	opacity: 0;
+}
+
+.xui.dashboard.-over .xui.app-header > .xui.app-bar{
+	width: calc(100% - 72px);
+}
+
+
+
+
+.xui.dashboard.-over .xui.app-header > .xui.app-brand{
+	width: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.xui.dashboard.-over .xui.app-header > .xui.app-bar{
+	width: 100%;	
+}
+
+.xui.dashboard.-over .xui.content {
+	width: 100%;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu:after{
+	content: "";	
+	display: block;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	pointer-events: none;
+	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+	z-index: 6;
+}
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu {
+	height: auto;
+}
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
+	transition: height 0.5s ease;
+}
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
+	height: 0px;	
+}
+
+/*
+// Level 1
+*/
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+/*
+// Level 2
+*/
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+/*
+// Level 3
+*/
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu > .xui.menu_content >
+ .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+  .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item.-on > .xui.menu_submenu > .xui.menu_submenu_content >
+    .xui.menu_item > .xui.menu_item_content{
+	height: 40px;	
+}
+
+
+
+
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu > .xui.menu_content {
+	width: 100%;
+}
+
+.xui.dashboard.-over .xui.navigation-drawer .xui.menu:after {
+	display: none;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.dashboard.-over.-closed .xui.navigation-drawer {
+	position: absolute;
+	width: 0px;
+	overflow: hidden;
+}
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.dashboard.-over.-open .xui.navigation-drawer {
+	position: absolute;
+	width: 288px;
+	overflow: hidden;
+}
+
+.xui.dashboard.-over.-open .xui.content-cover {
+	height: 100%;
+	opacity: 0.4;
+}
+

@@ -11,7 +11,6 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_EffectRipple";
 
 class xui_EffectRipple extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_EffectRipple")) {
@@ -19,5 +18,4 @@ class xui_EffectRipple extends xyo_Module {
 			$this->setHtmlJs($this->site."lib/xui/js/xui-effect-ripple.js");
         	}
 	}
-
 }

@@ -7,27 +7,21 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
-<form>
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
 
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<label for="xui-form-select-id-<?php echo $key; ?>" class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label><br>
-<select class="xui-form-select xui-form-select_<?php echo $key; ?>" id="xui-form-select-id-<?php echo $key; ?>" name="cars-<?php echo $key; ?>" <?php echo $disabled; ?>>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="fiat">Fiat</option>
-  <option value="audi">Audi</option>
-</select>
-<br />
-<?php }; ?>
-
-</form>
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Form - Select - <?php echo ucfirst($context); ?>
 </div>
+<form>
+	<select class="xui form-select -<?php echo $context; ?>" id="form-select-<?php echo $context; ?>" name="form-select-<?php echo $context; ?>" <?php echo $disabled; ?> data-xui-select-theme="-<?php echo $context; ?>">
+		<option value="volvo">Volvo</option>
+		<option value="saab">Saab</option>
+		<option value="fiat">Fiat</option>
+		<option value="audi">Audi</option>
+	</select>
+</form>
+<?php }; ?>	

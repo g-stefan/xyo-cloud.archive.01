@@ -18,5 +18,4 @@ class xui_Grid extends xyo_Module {
 			$this->setHtmlCss($this->site."lib/xui/css/xui-grid.css");
         	}
 	}
-
 }

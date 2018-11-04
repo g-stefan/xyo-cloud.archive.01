@@ -7,28 +7,27 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
-<form>
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
 
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-
-<div class="xui-form-textarea-material xui-form-textarea-material_<?php echo $key; ?>">
-	<label for="textarea-material-<?php echo $key; ?>"><?php echo $key; ?></label>
-	<textarea id="textarea-material-<?php echo $key; ?>" <?php echo $disabled; ?>></textarea>
-	<div class="xui-form-textarea-material__border"></div>
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Form - Textarea Material - <?php echo ucfirst($context); ?>
 </div>
-
-<br />
-
-<?php }; ?>
-
+<form style="position:relative;width:480px;">
+	<div class="xui form-textarea-material -<?php echo $context; ?> -has-value">
+		<label for="textarea-material-1-<?php echo $context; ?>">Label - <?php echo $context; ?></label>
+		<textarea id="textarea-material-1-<?php echo $context; ?>" rows="9" cols="20" <?php echo $disabled; ?>><?php echo $context; ?></textarea>
+		<div class="xui form-textarea-material_border"></div>
+	</div>
+	<div class="xui separator"></div>
+	<div class="xui form-textarea-material -<?php echo $context; ?>">
+		<label for="textarea-material-2-<?php echo $context; ?>">Label - <?php echo $context; ?></label>
+		<textarea id="textarea-material-2-<?php echo $context; ?>" rows="9" cols="20" <?php echo $disabled; ?>></textarea>
+		<div class="xui form-textarea-material_border"></div>
+	</div>
 </form>
-</div>
+<?php }; ?>
+	

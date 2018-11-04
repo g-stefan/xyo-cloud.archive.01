@@ -15,8 +15,8 @@ class lib_Select2 extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("lib_Select2")) {
-			$this->setHtmlCss($this->site."lib/select2/css/select2.min.css");
-			$this->setHtmlJs($this->site."lib/select2/js/select2.full.min.js");
+			$this->setHtmlCss($this->site."lib/select2/select2.min.css");
+			$this->setHtmlJs($this->site."lib/select2/select2.full.min.js");
         	}
 	}
 

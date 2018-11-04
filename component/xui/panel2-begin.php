@@ -8,5 +8,5 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 ?>
-<div class="xui-panel">
-	<div class="xui-panel__title">
+<div class="xui panel -elevation-4">
+	<div class="xui panel_title">

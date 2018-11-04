@@ -1,0 +1,12 @@
+04.11.2018
+----------
+normalize,8.0.0,http://github.com/necolas/normalize.css
+material-icons,3.0.1,https://github.com/google/material-design-icons
+roboto-regular,2017,https://fonts.google.com/specimen/Roboto
+jquery,3.3.1,https://jquery.com/
+air-datepicker,2.2.3,https://github.com/t1m0n/air-datepicker
+select2,4.0.6-rc.1,https://github.com/select2/select2
+maximize-select2-height,1.0.2,https://github.com/panorama-ed/maximize-select2-height
+cropit,0.5.1,https://github.com/scottcheng/cropit
+jquery-autocompleter,0.3.0,https://github.com/ArtemFitiskin/jquery-autocompleter
+tinymce,4.8.5,https://www.tinymce.com/

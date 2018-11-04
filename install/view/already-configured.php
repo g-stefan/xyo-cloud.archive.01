@@ -10,14 +10,14 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"disabled",
 	"try"=>"disabled",
 	"next"=>"disabled"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
 $this->generateViewLanguage("msg-already-configured");

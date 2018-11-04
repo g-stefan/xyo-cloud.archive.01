@@ -11,5 +11,5 @@ defined("XYO_CLOUD") or die("Access is denied");
 $title=$this->getArgument("title",$this->getParameter("form_title"));
 
 ?>
-<div class="xui-inner-box-row">
-	<div class="xui-inner-box-1x2">
+<div class="xui inner-box -row">
+	<div class="xui inner-box -x1x2">

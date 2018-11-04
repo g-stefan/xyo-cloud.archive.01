@@ -7,18 +7,17 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
-<div style="width:320px;position:relative;display:block;">
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
 
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<table class="xui-table xui-table_<?php echo $key; ?>">
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Table - <?php echo ucfirst($context); ?>
+</div>
+
+<table class="xui table -<?php echo $context; ?>">
 	<thead>
 		<tr>
 			<th>Firstname</th>
@@ -26,36 +25,34 @@ $xuiTheme=&$this->getModule("xui-theme");
 			<th>Age</th>
 		</tr>
 	</thead>
-<tbody>
-	<tr>
-		<td>Bryan</td>
-		<td>Pineda</td> 
-		<td>25</td>
-	</tr>
-	<tr>
-		<td>Alejandra</td>
-		<td>Warren</td> 
-		<td>22</td>
-	</tr>
-	<tr>
-		<td>Ruthie</td>
-		<td>Mattera</td> 
-		<td>32</td>
-	</tr>
-	<tr>
-		<td>Hailey</td>
-		<td>Berke</td> 
-		<td>34</td>
-	</tr>
-	<tr>
-		<td>Milo</td>
-		<td>Tarnowski</td> 
-		<td>42</td>
-	</tr>
-</tbody>
+	<tbody>
+		<tr>
+			<td>Bryan</td>
+			<td>Pineda</td> 
+			<td>25</td>
+		</tr>
+		<tr>
+			<td>Alejandra</td>
+			<td>Warren</td> 
+			<td>22</td>
+		</tr>
+		<tr>
+			<td>Ruthie</td>
+			<td>Mattera</td> 
+			<td>32</td>
+		</tr>
+		<tr>
+			<td>Hailey</td>
+			<td>Berke</td> 
+			<td>34</td>
+		</tr>
+		<tr>
+			<td>Milo</td>
+			<td>Tarnowski</td> 
+			<td>42</td>
+		</tr>
+	</tbody>
 </table>
-<br />
-<?php }; ?>
 
-</div>
-</div>
+<?php }; ?>
+	

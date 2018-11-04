@@ -15,4 +15,4 @@ if(strlen($onSubmit)){
 $action=$this->getArgument("action",$this->getFormAction());
 
 ?>
-<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php echo $action; ?>" enctype="multipart/form-data" class="xui-application-form" <?php echo $onSubmit; ?>>
+<form name="<?php $this->eFormName(); ?>" id="<?php $this->eFormName(); ?>" method="POST" action="<?php echo $action; ?>" enctype="multipart/form-data" class="xui application-form" <?php echo $onSubmit; ?>>

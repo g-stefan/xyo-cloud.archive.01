@@ -18,3 +18,5 @@ $this->requireComponent(array(
 	"xui.panel2-footer",
 	"xui.panel2-end"
 ));
+
+$this->setHtmlIcon($this->site."lib/xyo/images/applications-internet.ico");

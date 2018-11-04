@@ -25,7 +25,7 @@ if ($this->isAlert()) {
 	$this->hasAlert__=true;
 	
     ?>
-<div class="xui-alert xui-alert_info">
+<div class="xui alert -info">
         <?php if (strlen($msgTxt)) { ?>
 		<strong><?php $this->eLanguage($msgLang); ?></strong>
 		<?php echo $msgTxt; ?>

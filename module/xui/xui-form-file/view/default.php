@@ -7,21 +7,16 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
+<div class="xui text -label-40">
+	Form - File
+</div>
 <form>
-
-<div class="xui-form-file">
-<input type="file" name="x-file" id="x-file" class="xui-form-file__file"></input>
-<label for="x-file" ><i class="material-icons">file_upload</i> Browse ...</label><!--
---><button type="button" class="xui-form-button-icon xui-form-button-icon_info" onclick="document.getElementById('x-file').value=null;$('#x-file').trigger('change');"><i class="material-icons">delete</i></button>
-</div>
-
+	<div class="xui form-file">
+		<input type="file" name="form-file" id="form-file" class="xui form-file_file"></input>
+		<label for="form-file" ><i class="material-icons">file_upload</i><span>Browse ...</span></label>
+		<button type="button" class="xui form-button -icon -info"><i class="material-icons">delete</i></button>
+	</div>
 </form>
-</div>
+	

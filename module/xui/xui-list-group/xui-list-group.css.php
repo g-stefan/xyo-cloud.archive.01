@@ -1,0 +1,142 @@
+<?php
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+defined("XYO_CLOUD") or die("Access is denied");
+?>
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+<style>
+
+.xui.list-group{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.xui.list-group_content{
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.xui.list-group_item{
+	display: block;
+	position: relative;
+	width: 100%;
+	clear: both;
+	box-sizing: border-box;
+	text-align: left;
+	height: 32px;
+
+	padding-top: 4px;
+	padding-right: 6px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+}
+
+.xui.list-group_item:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    bottom: 0px;
+    pointer-events: none;
+    box-shadow: inset 0px 1px 0px 0px <?php echo $this->settings["context-default-color"]; ?>,
+		inset 1px 0px 0px 0px <?php echo $this->settings["context-default-color"]; ?>,
+		inset -1px 0px 0px 0px <?php echo $this->settings["context-default-color"]; ?>;
+    z-index: 1;  
+}
+
+.xui.list-group_item:first-child:after {
+	border-radius: 3px 3px 0px 0px;
+}
+
+.xui.list-group_item:last-child:after {
+	border-radius: 0px 0px 3px 3px;
+	box-shadow: inset 0px 0px 0px 1px <?php echo $this->settings["context-default-color"]; ?>;
+}
+
+.xui.list-group_item.-active {
+	color: #FFFFFF;
+	background-color: <?php echo $this->settings["context-primary-color"]; ?>;
+}
+
+.xui.list-group_item.-active:after {
+	display: none;
+} 
+
+.xui.list-group_item.-active:first-child {
+	border-radius: 3px 3px 0px 0px;
+}
+
+.xui.list-group_item.-active:last-child {
+	border-radius: 0px 0px 3px 3px;
+}
+
+.xui.list-group_item.-active + .xui.list-group_item:after {
+    box-shadow: inset 1px 0px 0px 0px <?php echo $this->settings["context-default-color"]; ?>,
+		inset -1px 0px 0px 0px <?php echo $this->settings["context-default-color"]; ?>;	
+}
+
+.xui.list-group_item.-active + .xui.list-group_item:last-child:after {
+    box-shadow: inset 1px 0px 0px 0px <?php echo $this->settings["context-default-color"]; ?>,
+		inset -1px 0px 0px 0px <?php echo $this->settings["context-default-color"]; ?>,
+		inset 0px -1px 0px 0px <?php echo $this->settings["context-default-color"]; ?>;
+}
+
+.xui.list-group_item_id {
+	position: relative;
+	float: left;
+	display: inline-block;
+	height: 24px;
+
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	margin-right: 8px;
+}
+
+.xui.list-group_item_text {
+	position: relative;
+	float: left;
+	display: inline-block;
+	height: 24px;
+	padding-top: 2px;
+	padding-right: 0px;
+	padding-bottom: 2px;
+	padding-left: 0px;
+}
+
+.xui.list-group_item_icon-right {
+	position: relative;
+	float: right;
+	display: inline-block;
+	height: 24px;
+	font-size: 24px;
+	line-height: 24px;
+}
+
+</style>
+

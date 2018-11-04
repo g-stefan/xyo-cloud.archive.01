@@ -10,14 +10,14 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"disabled",
 	"try"=>"disabled",
 	"next"=>"primary"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
                     $mode = $this->getRequest("mode");
@@ -65,7 +65,8 @@ echo "<br />";
 
                         $error = false;
 
-		echo "<ul class=\"list-group\">";
+			echo "<div class=\"xui list-group\">";
+			echo "<div class=\"xui list-group_content\">";
 
                         foreach ($orderModule2 as $key => $value) {
                             $ret = $modSetup->installModulePackage($listModuleToCheck2[$key]);
@@ -82,49 +83,43 @@ echo "<br />";
 
                                     if ($doUpdate) {
                                         if ($modSetup->runModuleUpdate($ret["module"])) {
-						echo "<li class=\"list-group-item list-group-item-success\">";
-	        		                echo $ret["module"];
-						echo "<span class=\"glyphicon glyphicon-ok pull-right\"></span>";
-			                        echo "</li>";
-
+						echo "<div class=\"xui list-group_item\">";
+							echo "<div class=\"xui list-group_item_text\">".$ret["module"]."</div>";
+							echo "<div class=\"xui list-group_item_icon-right\"><i class=\"material-icons\">done</i></div>";
+						echo "</div>";
                                         } else {
-
-						echo "<li class=\"list-group-item list-group-item-danger\">";
-	        		                echo $$ret["module"];
-						echo "<span class=\"glyphicon glyphicon-remove pull-right\"></span>";
-	                		        echo "</li>";
-
-                                            $error = true;
+						echo "<div class=\"xui list-group_item\">";						
+							echo "<div class=\"xui list-group_item_text\">".$ret["module"]."</div>";
+							echo "<div class=\"xui list-group_item_icon-right\"><i class=\"material-icons\">highlight_off</i></div>";
+						echo "</div>";
+                                             	$error = true;
                                         }
                                     } else {
                                         if ($modSetup->runModuleInstall($ret["module"])) {
-						echo "<li class=\"list-group-item list-group-item-success\">";
-	        		                    echo $ret["module"];
-						echo "<span class=\"glyphicon glyphicon-ok pull-right\"></span>";
-			                        echo "</li>";
+						echo "<div class=\"xui list-group_item\">";						
+							echo "<div class=\"xui list-group_item_text\">".$ret["module"]."</div>";
+							echo "<div class=\"xui list-group_item_icon-right\"><i class=\"material-icons\">done</i></div>";
+						echo "</div>";
                                         } else {
-						echo "<li class=\"list-group-item list-group-item-danger\">";
-	        		                echo $$ret["module"];
-						echo "<span class=\"glyphicon glyphicon-remove pull-right\"></span>";
-	                		        echo "</li>";
-
-
-                                            $error = true;
+						echo "<div class=\"xui list-group_item\">";						
+							echo "<div class=\"xui list-group_item_text\">".$ret["module"]."</div>";
+							echo "<div class=\"xui list-group_item_icon-right\"><i class=\"material-icons\">highlight_off</i></div>";
+						echo "</div>";
+                                            	$error = true;
                                         }
                                     }
                                 }
                             } else {
-
-				echo "<li class=\"list-group-item list-group-item-danger\">";
-       		                echo $$ret["module"];
-				echo "<span class=\"glyphicon glyphicon-remove pull-right\"></span>";
-               		        echo "</li>";
-
+				echo "<div class=\"xui list-group_item\">";						
+					echo "<div class=\"xui list-group_item_text\">".$ret["module"]."</div>";
+					echo "<div class=\"xui list-group_item_icon-right\"><i class=\"material-icons\">highlight_off</i></div>";
+				echo "</div>";
                                 $error = true;
                             }
                         }
 
-		echo "</ul>";
+		echo "</div>";
+		echo "</div>";
 
 
                         if ($error) {

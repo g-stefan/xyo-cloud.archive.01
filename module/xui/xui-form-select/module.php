@@ -11,19 +11,11 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_FormSelect";
 
 class xui_FormSelect extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_FormSelect")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
-			$this->setHtmlJs($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"js"
-			)));
+			$this->setHtmlCss($this->site."lib/xui/css/xui-form-select.css");
+			$this->setHtmlJs($this->site."lib/xui/js/xui-form-select.js");
         	}
 	}
-
 }

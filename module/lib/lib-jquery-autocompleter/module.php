@@ -15,8 +15,8 @@ class lib_jqueryAutocompleter extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_jqueryAutocompleter")) {
-		$this->setHtmlCss($this->site."lib/jquery-autocompleter/css/jquery.autocompleter.css");
-		$this->setHtmlJs($this->site."lib/jquery-autocompleter/js/jquery.autocompleter.min.js");
+		$this->setHtmlCss($this->site."lib/jquery-autocompleter/jquery.autocompleter.css");
+		$this->setHtmlJs($this->site."lib/jquery-autocompleter/jquery.autocompleter.min.js");
 	}
     }
 

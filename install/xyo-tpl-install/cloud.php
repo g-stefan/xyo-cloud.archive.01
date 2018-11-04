@@ -9,8 +9,9 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setReferenceBase($module, "xyo-mod-application");
-$this->setReferenceLink($module, "xui-complete");
 
 $this->setDefaultApplication("xyo-app-install");
 $this->setTemplate($module);
 $this->setVersion($module, "2.0.0");
+
+$this->setReferenceLink($module,"xui-complete");

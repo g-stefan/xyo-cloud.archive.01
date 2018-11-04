@@ -7,18 +7,19 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
 
-<?php foreach($xuiTheme->theme as $key=>&$value){ ?>
-<div class="xui-alert xui-alert_<?php echo $key; ?>"><?php echo $key; ?></div>
-<br />
-<?php }; ?>
+<?php foreach($xuiContext->context as $context){ ?>
 
+<div class="xui text -label-40">
+	Alert - <?php echo ucfirst($context); ?>
 </div>
+
+<div class="xui alert -<?php echo $context; ?>">
+	<?php echo ucfirst($context); ?>
+</div>
+
+<?php }; ?>
+	

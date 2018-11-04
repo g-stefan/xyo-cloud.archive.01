@@ -91,8 +91,8 @@ class xyo_DataSource extends xyo_Config {
 			return $v_;
 		};
 		if (!$as_) {
-			if (file_exists($this->cloud->path."datasource/".$name.".php")) {
-				$this->setDataSourceDescriptor($name, $this->cloud->path."datasource/". $name.".php");
+			if (file_exists($this->cloud->getCloudPath()."datasource/".$name.".php")) {
+				$this->setDataSourceDescriptor($name, $this->cloud->getCloudPath()."datasource/". $name.".php");
 				if (array_key_exists($name, $this->dataSourceAs_)) {
 					$v_ = &$this->getDataSource($this->dataSourceAs_[$name], $name);
 					if ($v_) {
@@ -140,7 +140,7 @@ class xyo_DataSource extends xyo_Config {
 	}
 
 	function setModuleDataSource($module, $name) {
-		$descriptor = $this->cloud->path."datasource/" . $name . ".php";
+		$descriptor = $this->cloud->getCloudPath()."datasource/" . $name . ".php";
 		if (!file_exists($descriptor)) {
 			$descriptorPath = $this->cloud->getModulePathBase($module);
 			if ($descriptorPath) {

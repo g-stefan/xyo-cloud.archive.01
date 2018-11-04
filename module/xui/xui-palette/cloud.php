@@ -9,5 +9,6 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setModuleAsApplication($module);
-$this->setReferenceLink($module, "xui-typography");
-$this->setReferenceLink($module, "xui-color");
+$this->setVersion($module, "1.0.0");
+
+$this->setReferenceLink($module, "xui-text");

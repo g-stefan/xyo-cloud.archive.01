@@ -8,7 +8,4 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-?>
-
-Hello World!
-
+echo "XUI Core";

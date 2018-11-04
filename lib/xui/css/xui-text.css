@@ -1,0 +1,107 @@
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.text{	
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.text.-size-h20x40{
+	position: relative;
+	width: auto;
+	height: 40px;	
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+	font-size: 18px;
+	line-height: 20px;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.text.-size-h24x40{
+	position: relative;
+	width: auto;
+	height: 40px;	
+	padding-left: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-right: 8px;
+	overflow: hidden;
+	font-size: 24px;
+	line-height: 24px;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+}
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.text.-label-40{
+	position: relative;
+	width: auto;
+	height: auto;	
+	padding-left: 0px;
+	padding-top: 10px;
+	padding-bottom: 2px;
+	padding-right: 0px;
+	overflow: hidden;
+	font-size: 18px;
+	line-height: 20px;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	border-bottom: 1px solid #C2CEE1;
+	margin-bottom: 7px;
+}
+
+
+

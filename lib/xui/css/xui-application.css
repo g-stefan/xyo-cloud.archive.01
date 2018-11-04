@@ -1,3 +1,4 @@
+
 /*
 //
 // Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
@@ -7,7 +8,9 @@
 //
 */
 
-.xui-application{
+
+
+.xui.application{
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -15,7 +18,7 @@
 	box-sizing: border-box;
 }
 
-.xui-application .xui-toolbar {
+.xui.application .xui.app-toolbar {
 	position: relative;
 	width: 100%;
 	height: 48px;
@@ -30,8 +33,7 @@
 	box-sizing: border-box;
 }
 
-
-.xui-application .xui-content{
+.xui.application .xui.application_content{
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -40,7 +42,7 @@
 	overflow: auto;
 }
 
-.xui-application .xui-content_has-toolbar{
+.xui.application .xui.application_content.-has-toolbar{
 	position: relative;
 	width: 100%;
 	margin-left: 0px;
@@ -55,14 +57,14 @@
 	height: calc(100% - 48px);
 }
 
-.xui-application .xui-application-table{
+.xui.application .xui.application-table{
 	position: relative;
 	width: 100%;
 	height: 100%;
 	overflow: visible;
 }
 
-.xui-application .xui-application-table .xui-application-table-toolbar-top{
+.xui.application .xui.application-table .xui.application-table_toolbar-top{
 	position: relative;
 	height: 40px;
 	width: 100%;
@@ -72,7 +74,7 @@
 	box-sizing: border-box;
 }
 
-.xui-application .xui-application-table .xui-application-table-toolbar-bottom{
+.xui.application .xui.application-table .xui.application-table_toolbar-bottom{
 	position: relative;
 	height: 40px;
 	width: 100%;
@@ -84,7 +86,7 @@
 	box-sizing: border-box;
 }
 
-.xui-application .xui-application-table .xui-content{
+.xui.application .xui.application-table .xui.application_content{
 	position: relative;
 	width: 100%;
 	height: calc(100% - 84px);
@@ -99,19 +101,19 @@
 	overflow: auto;	
 }
 
-.xui-application .xui-content_has-toolbar.xui-content_has-message-alert{
+.xui-application .xui.application_content.-has-toolbar.-has-message-alert{
 	height: calc(100% - 96px );
 }
 
-.xui-application .xui-content_has-toolbar.xui-content_has-message-error{
+.xui-application .xui.application_content.-has-toolbar.-has-message-error{
 	height: calc(100% - 96px);
 }
 
-.xui-application .xui-content_has-toolbar.xui-content_has-message-alert.xui-content_has-message-error{
+.xui-application .xui.application_content.-has-toolbar.-has-message-alert.-has-message-error{
 	height: calc(100% - 144px);
 }
 
-.xui-application-form{
+.xui.application-form{
 	position: relative;
 	display: block;
 	width: 100%;
@@ -121,59 +123,44 @@
 
 @media only screen and (min-width: 600px){
 
-	.xui-application-form{
+	.xui.application-form{
 		padding-top: 16px;
 	}
 
 }
 
-.xui-application .xui-toolbar{
+.xui.application .xui.app-toolbar{
 	padding-top: 4px;
 	padding-right: 8px;
 	padding-bottom: 0px;
 	padding-left: 8px;
 }
 
-.xui-dashboard .xui-application .xui-content{
+.xui.dashboard .xui.application .xui.application_content{
 	padding-top: 0px;
 }
 
 
 @media only screen and (min-width: 600px){
 
-	.xui-application .xui-panel{
+	.xui.application .xui.panel{
 		margin-bottom: 16px;
 	}
 
-	.xui-application .xui-line{
+	.xui.application .xui.line{
 		margin-bottom: 16px;
 	}
 
 }
 
-.xui-application .xui-application-table .xui-application-table-toolbar-top {
-	padding-top: 4px;
+.xui.application .xui.application-table .xui.application-table_toolbar-top {
 	border-bottom: 0px solid #000000;
 }
 
-.xui-application .xui-application-form .xui-form-text{
-	width: 100%;
-}
-
-.xui-application .xui-application-form .xui-form-textarea{
-	width: 100%;
-}
-
-.xui-application .xui-alert{
+.xui.application .xui.alert{
 	border-radius: 0px;
 	border-left: 0px;
 	border-right: 0px;
 }
 
-.xui-application-form .xui-form-text{
-	width: 100%;
-}
 
-.xui-application-form .xui-form-textarea{
-	width: 100%;
-}

@@ -10,16 +10,16 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->palette["material-red-p50"]="#FFEBEE";
-$this->palette["material-red-p100"]="#FFCDD2";
-$this->palette["material-red-p200"]="#EF9A9A";
-$this->palette["material-red-p300"]="#E57373";
-$this->palette["material-red-p400"]="#EF5350";
-$this->palette["material-red-p500"]="#F44336";
-$this->palette["material-red-p600"]="#E53935";
-$this->palette["material-red-p700"]="#D32F2F";
-$this->palette["material-red-p800"]="#C62828";
-$this->palette["material-red-p900"]="#B71C1C";
+$this->palette["material-red-50"]="#FFEBEE";
+$this->palette["material-red-100"]="#FFCDD2";
+$this->palette["material-red-200"]="#EF9A9A";
+$this->palette["material-red-300"]="#E57373";
+$this->palette["material-red-400"]="#EF5350";
+$this->palette["material-red-500"]="#F44336";
+$this->palette["material-red-600"]="#E53935";
+$this->palette["material-red-700"]="#D32F2F";
+$this->palette["material-red-800"]="#C62828";
+$this->palette["material-red-900"]="#B71C1C";
 $this->palette["material-red-a100"]="#FF8A80";
 $this->palette["material-red-a200"]="#FF5252";
 $this->palette["material-red-a400"]="#FF1744";

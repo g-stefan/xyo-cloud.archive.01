@@ -1,0 +1,303 @@
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-radio{
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	position: relative;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: normal;
+
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+}
+
+/* --- */
+
+.xui.form-radio input[type="radio"]{
+	display: none;
+}
+
+.xui.form-radio label {
+	display: inline-block;
+        vertical-align: middle;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: normal;
+
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-left: 30px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	cursor: pointer;
+	box-sizing: border-box;
+
+	color: #000000;
+}
+
+.xui.form-radio label::before {
+	display: block;	
+	cursor: pointer;
+	position: absolute;
+	left: 0px;
+	top: 5px;
+	content: " ";
+
+	width: 22px;
+	height: 22px;
+	border-radius: 11px;
+	background-color: transparent;
+
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	border: 1px solid #DDDDDD;
+
+	transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.xui.form-radio input[type="radio"]:focus + label::before,
+.xui.form-radio input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid #1A72E2;
+	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+}
+
+.xui.form-radio input[type="radio"] + label::after {
+	display: block;
+	cursor: pointer;
+	position: absolute;
+	top: 10px;
+	left: 5px;
+	content: " ";
+
+	border-radius: 6px;
+
+	width: 12px;
+	height: 12px;
+
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	background: transparent;
+	transition: background-color 0.3s ease;
+}
+
+.xui.form-radio input[type="radio"]:focus + label::after,
+.xui.form-radio input[type="radio"]:active + label::after {
+	background-color: rgba(26,114,226,0.2510);
+}
+
+.xui.form-radio input[type="radio"]:checked + label::after {
+	background-color: #2363B6;
+}
+
+.xui.form-radio input[type="radio"]:focus:checked + label::after,
+.xui.form-radio input[type="radio"]:active:checked + label::after{
+	background-color: #1A72E2;
+}
+
+
+.xui.form-radio.-primary label::before {
+	border: 1px solid #2363B6;
+}
+
+.xui.form-radio.-primary input[type="radio"]:focus + label::before,
+.xui.form-radio.-primary input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid #1A72E2;
+	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+}
+
+.xui.form-radio.-primary input[type="radio"]:focus + label::after,
+.xui.form-radio.-primary input[type="radio"]:active + label::after {
+	background-color: rgba(26,114,226,0.2510);
+}
+
+.xui.form-radio.-primary input[type="radio"]:checked + label::after {
+	background-color: #2363B6;
+}
+
+.xui.form-radio.-primary input[type="radio"]:focus:checked + label::after,
+.xui.form-radio.-primary input[type="radio"]:active:checked + label::after{
+	background-color: #1A72E2;
+}
+
+
+.xui.form-radio.-success label::before {
+	border: 1px solid #659234;
+}
+
+.xui.form-radio.-success input[type="radio"]:focus + label::before,
+.xui.form-radio.-success input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid #7ABA35;
+	box-shadow: 0px 0px 0px 3px rgba(122,186,53,0.2510);
+}
+
+.xui.form-radio.-success input[type="radio"]:focus + label::after,
+.xui.form-radio.-success input[type="radio"]:active + label::after {
+	background-color: rgba(122,186,53,0.2510);
+}
+
+.xui.form-radio.-success input[type="radio"]:checked + label::after {
+	background-color: #659234;
+}
+
+.xui.form-radio.-success input[type="radio"]:focus:checked + label::after,
+.xui.form-radio.-success input[type="radio"]:active:checked + label::after{
+	background-color: #7ABA35;
+}
+
+
+.xui.form-radio.-info label::before {
+	border: 1px solid #2084A9;
+}
+
+.xui.form-radio.-info input[type="radio"]:focus + label::before,
+.xui.form-radio.-info input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid #1AA2D1;
+	box-shadow: 0px 0px 0px 3px rgba(26,162,209,0.2510);
+}
+
+.xui.form-radio.-info input[type="radio"]:focus + label::after,
+.xui.form-radio.-info input[type="radio"]:active + label::after {
+	background-color: rgba(26,162,209,0.2510);
+}
+
+.xui.form-radio.-info input[type="radio"]:checked + label::after {
+	background-color: #2084A9;
+}
+
+.xui.form-radio.-info input[type="radio"]:focus:checked + label::after,
+.xui.form-radio.-info input[type="radio"]:active:checked + label::after{
+	background-color: #1AA2D1;
+}
+
+
+.xui.form-radio.-warning label::before {
+	border: 1px solid #E19B0B;
+}
+
+.xui.form-radio.-warning input[type="radio"]:focus + label::before,
+.xui.form-radio.-warning input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid #FFB807;
+	box-shadow: 0px 0px 0px 3px rgba(255,184,7,0.2510);
+}
+
+.xui.form-radio.-warning input[type="radio"]:focus + label::after,
+.xui.form-radio.-warning input[type="radio"]:active + label::after {
+	background-color: rgba(255,184,7,0.2510);
+}
+
+.xui.form-radio.-warning input[type="radio"]:checked + label::after {
+	background-color: #E19B0B;
+}
+
+.xui.form-radio.-warning input[type="radio"]:focus:checked + label::after,
+.xui.form-radio.-warning input[type="radio"]:active:checked + label::after{
+	background-color: #FFB807;
+}
+
+
+.xui.form-radio.-danger label::before {
+	border: 1px solid #AF2331;
+}
+
+.xui.form-radio.-danger input[type="radio"]:focus + label::before,
+.xui.form-radio.-danger input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid #DE182C;
+	box-shadow: 0px 0px 0px 3px rgba(222,24,44,0.2510);
+}
+
+.xui.form-radio.-danger input[type="radio"]:focus + label::after,
+.xui.form-radio.-danger input[type="radio"]:active + label::after {
+	background-color: rgba(222,24,44,0.2510);
+}
+
+.xui.form-radio.-danger input[type="radio"]:checked + label::after {
+	background-color: #AF2331;
+}
+
+.xui.form-radio.-danger input[type="radio"]:focus:checked + label::after,
+.xui.form-radio.-danger input[type="radio"]:active:checked + label::after{
+	background-color: #DE182C;
+}
+
+
+.xui.form-radio.-disabled label::before {
+	border: 1px solid #D3D7CF;
+}
+
+.xui.form-radio.-disabled input[type="radio"]:focus + label::before,
+.xui.form-radio.-disabled input[type="radio"]:active + label::before {
+	outline: none;
+	border: 1px solid #D3D7CF;
+	box-shadow: none;
+}
+
+.xui.form-radio.-disabled input[type="radio"]:focus + label::after,
+.xui.form-radio.-disabled input[type="radio"]:active + label::after {
+	background-color: #FFFFFF;
+}
+
+.xui.form-radio.-disabled input[type="radio"]:checked + label::after,
+.xui.form-radio.-disabled input[type="radio"]:focus:checked + label::after,
+.xui.form-radio.-disabled input[type="radio"]:active:checked + label::after{
+	background-color: #CCCCCC;
+}
+
+
+

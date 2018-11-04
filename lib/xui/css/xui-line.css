@@ -1,3 +1,4 @@
+
 /*
 //
 // Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
@@ -7,7 +8,9 @@
 //
 */
 
-.xui-line{
+
+
+.xui.line{
 	position: relative;
 	display: block;
 	width: 100%;
@@ -21,13 +24,13 @@
 	margin-bottom: 0px;
 	margin-left: 0px;
 
-	background-color: #5392E5;
+	background-color: #C2CEE1;
 	height: 3px;	
 }
 
 @media only screen and (min-width: 600px){
 
-	.xui-line{
+	.xui.line{
 		min-width: 480px;
 		max-width: 1280px;
 		margin-left: auto;
@@ -39,7 +42,7 @@
 
 @media only screen and (min-width: 1280px){
 
-	.xui-line{
+	.xui.line{
 		min-width: 960px;
 		max-width: 1280px;
 		margin-left: auto;
@@ -51,7 +54,7 @@
 
 @media only screen and (min-width: 1600px){
 
-	.xui-line{
+	.xui.line{
 		max-width: 1280px;
 		width: 1280px;
 		margin-left: auto;

@@ -11,12 +11,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_Toggle";
 
 class xui_Toggle extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Toggle")) {
 			$this->setHtmlJs($this->site."lib/xui/js/xui-toggle.js");
         	}
 	}
-
 }

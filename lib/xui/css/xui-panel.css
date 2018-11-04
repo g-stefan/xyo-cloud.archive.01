@@ -1,0 +1,111 @@
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.panel{
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	box-sizing: border-box;
+	border: 0px solid #000000;
+	background-color: #FFFFFF;
+	border-radius: 0px;
+	overflow: hidden;
+}
+
+.xui.panel_title{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+
+	border: 0px solid #000000;
+	color: #444444;
+	background-color: #FFFFFF;
+	
+	min-height: 40px;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.xui.panel_content{
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	box-sizing: border-box;
+	border: 0px solid #000000;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+.xui.panel_footer{
+	position: relative;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+
+	border: 0px solid #000000;
+	color: #444444;
+	background-color: #FFFFFF;
+	
+	min-height: 40px;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.xui.panel_line{
+	margin-left: 10px;
+	margin-right: 10px;
+	overflow:hidden;
+	height:1px;
+	background-color: #C2CEE1;
+	clear: both;
+}
+
+@media only screen and (min-width: 600px){
+
+	.xui.panel{
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		border: 0px solid #000000;
+	}
+
+}
+
+

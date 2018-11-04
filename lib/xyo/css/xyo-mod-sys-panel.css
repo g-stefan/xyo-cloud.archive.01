@@ -7,7 +7,7 @@
 //
 */
 
-.xyo-mod-sys-panel i{
+.xyo.mod-sys-panel i{
 	font-size:64px;
 	color:#999;
 	text-align:center;
@@ -16,13 +16,13 @@
 	margin-right:auto;
 }
 
-.xyo-mod-sys-panel img{
+.xyo.mod-sys-panel img{
 	width:64px;
 	height:64px;
 	border:0px;
 }
 
-.xyo-mod-sys-panel .thumbnail{
+.xyo.mod-sys-panel .xyo.thumbnail{
 	width:128px;
 	height:128px;
 	cursor:pointer;
@@ -31,7 +31,7 @@
 	margin-left:6px;
 }
 
-.xyo-mod-sys-panel .caption{
+.xyo.mod-sys-panel .xyo.caption{
 	text-align:center;
 }
 

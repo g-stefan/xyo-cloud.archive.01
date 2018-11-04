@@ -28,7 +28,7 @@ class xyo_Config extends xyo_Attributes {
 	}
 
 	public function getConfigPath() {
-		return $this->cloud->path."config/";
+		return $this->cloud->getCloudPath()."config/";
 	}
 
 }

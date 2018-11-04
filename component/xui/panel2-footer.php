@@ -12,5 +12,5 @@ $title=$this->getArgument("title",$this->getParameter("form_title"));
 
 ?>
 	</div>
-	<div class="xui-panel__line"></div>
-	<div class="xui-panel__footer">
+	<div class="xui panel_line"></div>
+	<div class="xui panel_footer">

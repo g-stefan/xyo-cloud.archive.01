@@ -1,0 +1,171 @@
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.progress-bar{
+	position: relative;
+	display: block;
+        vertical-align: middle;
+	width: 100%;
+	height: 24px;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+/* --- */
+
+.xui.progress-bar_background{
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 24px;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px;
+}
+
+.xui.progress-bar_bar{
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 50%;
+	height: 24px;
+	margin: 0px;
+	padding: 0px;
+
+	box-sizing: border-box;
+
+	border-radius: 3px;
+}
+
+.xui.progress-bar_label{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	text-align: center;
+
+	box-sizing: border-box;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	padding-top: 2px;
+	padding-right: 0px;
+	padding-bottom: 2px;
+	padding-left: 0px;	
+}
+
+
+.xui.progress-bar > .xui.progress-bar_bar {
+	color: #000000;
+	background-color: #F5F8FD;
+	border: 1px solid #4A89DC;
+}
+
+.xui.progress-bar > .xui.progress-bar_label {
+	color: #000000;
+}
+
+
+.xui.progress-bar.-primary > .xui.progress-bar_bar {
+	color: #174076;
+	background-color: #CADDF5;
+	border: 1px solid #2363B6;
+}
+
+.xui.progress-bar.-primary > .xui.progress-bar_label {
+	color: #174076;
+}
+
+
+.xui.progress-bar.-success > .xui.progress-bar_bar {
+	color: #3E5A20;
+	background-color: #D7E9C3;
+	border: 1px solid #659234;
+}
+
+.xui.progress-bar.-success > .xui.progress-bar_label {
+	color: #3E5A20;
+}
+
+
+.xui.progress-bar.-info > .xui.progress-bar_bar {
+	color: #145168;
+	background-color: #BCE4F2;
+	border: 1px solid #2084A9;
+}
+
+.xui.progress-bar.-info > .xui.progress-bar_label {
+	color: #145168;
+}
+
+
+.xui.progress-bar.-warning > .xui.progress-bar_bar {
+	color: #986807;
+	background-color: #FDF0D4;
+	border: 1px solid #E19B0B;
+}
+
+.xui.progress-bar.-warning > .xui.progress-bar_label {
+	color: #986807;
+}
+
+
+.xui.progress-bar.-danger > .xui.progress-bar_bar {
+	color: #6F161F;
+	background-color: #F3C4C8;
+	border: 1px solid #AF2331;
+}
+
+.xui.progress-bar.-danger > .xui.progress-bar_label {
+	color: #6F161F;
+}
+
+
+.xui.progress-bar.-disabled > .xui.progress-bar_bar {
+	color: #EEEEEE;
+	background-color: #FFFFFF;
+	border: 1px solid #EEEEEE;
+}
+
+.xui.progress-bar.-disabled > .xui.progress-bar_label {
+	color: #EEEEEE;
+}
+
+
+
+

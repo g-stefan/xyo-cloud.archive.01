@@ -1,0 +1,391 @@
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-switch{
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	position: relative;
+
+	font-size: 16px;
+	line-height: 24px;
+
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	font-family: "Roboto", sans-serif;
+}
+
+/* --- */
+
+.xui.form-switch input[type="checkbox"]{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: block;
+	opacity: 0;
+}
+
+.xui.form-switch label {
+	display: inline-block;
+        vertical-align: middle;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: normal;
+
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-left: 52px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	cursor: pointer;
+	box-sizing: border-box;
+
+	color: #000000;
+}
+
+.xui.form-switch label::before {
+	display: block;	
+	cursor: pointer;
+	position: absolute;
+	cursor: pointer;
+	left: 0px;
+	top: 5px;
+	content: " ";
+
+	width: 44px;
+	height: 22px;
+
+	background-color: transparent;
+
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 4px;
+
+	box-sizing: border-box;
+
+	border: 1px solid #DDDDDD;
+	border-radius: 3px;
+
+	transition: all 0.3s ease;
+}
+
+.xui.form-switch input[type="checkbox"]:focus + label::before,
+.xui.form-switch input[type="checkbox"]:active + label::before {
+	outline: none;
+	border: 1px solid #1A72E2;
+	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+}
+
+.xui.form-switch input[type="checkbox"]:checked + label::before {
+	border: 1px solid #2363B6;
+	background-color: #2363B6;
+}
+
+.xui.form-switch input[type="checkbox"]:checked:focus + label::before,
+.xui.form-switch input[type="checkbox"]:checked:active + label::before {
+	border: 1px solid #1A72E2;
+	background-color: #1A72E2;
+}
+
+.xui.form-switch input[type="checkbox"] + label::after {
+	display: block;	
+	cursor: pointer;
+	position: absolute;
+	top: 8px;
+	left: 3px;
+	content: " ";
+
+	border-radius: 3px;
+
+	width: 16px;
+	height: 16px;
+
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	background-color: #8FA5C8;
+
+	transition: all 0.3s ease;
+}
+
+.xui.form-switch input[type="checkbox"]:checked + label::after {
+	top: 8px;
+	left: 25px;	
+
+	background-color: #FFFFFF;
+}
+
+.xui.form-switch input[type="checkbox"]:focus + label::after,
+.xui.form-switch input[type="checkbox"]:active + label::after {
+	background-color: #1A72E2;
+}
+
+.xui.form-switch input[type="checkbox"]:focus:checked + label::after,
+.xui.form-switch input[type="checkbox"]:active:checked + label::after {
+	top: 8px;
+	left: 25px;	
+
+	background-color: #FFFFFF;
+}
+
+
+.xui.form-switch.-primary label::before {
+	border: 1px solid #2363B6;
+}
+
+.xui.form-switch.-primary input[type="checkbox"]:focus + label::before,
+.xui.form-switch.-primary input[type="checkbox"]:active + label::before {
+	outline: none;
+	border: 1px solid #1A72E2;
+	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+}
+
+.xui.form-switch.-primary input[type="checkbox"]:checked + label::before {
+	border: 1px solid #2363B6;
+	background-color: #2363B6;
+}
+
+.xui.form-switch.-primary input[type="checkbox"]:checked:focus + label::before,
+.xui.form-switch.-primary input[type="checkbox"]:checked:active + label::before {
+	border: 1px solid #1A72E2;
+	background-color: #1A72E2;
+}
+
+.xui.form-switch.-primary input[type="checkbox"] + label::after {
+	background-color: #2363B6;
+}
+
+.xui.form-switch.-primary input[type="checkbox"]:focus + label::after,
+.xui.form-switch.-primary input[type="checkbox"]:active + label::after {
+	background-color: #1A72E2;
+}
+
+.xui.form-switch.-primary input[type="checkbox"]:checked + label::after {
+	background-color: #FFFFFF;
+}
+
+
+.xui.form-switch.-success label::before {
+	border: 1px solid #659234;
+}
+
+.xui.form-switch.-success input[type="checkbox"]:focus + label::before,
+.xui.form-switch.-success input[type="checkbox"]:active + label::before {
+	outline: none;
+	border: 1px solid #7ABA35;
+	box-shadow: 0px 0px 0px 3px rgba(122,186,53,0.2510);
+}
+
+.xui.form-switch.-success input[type="checkbox"]:checked + label::before {
+	border: 1px solid #659234;
+	background-color: #659234;
+}
+
+.xui.form-switch.-success input[type="checkbox"]:checked:focus + label::before,
+.xui.form-switch.-success input[type="checkbox"]:checked:active + label::before {
+	border: 1px solid #7ABA35;
+	background-color: #7ABA35;
+}
+
+.xui.form-switch.-success input[type="checkbox"] + label::after {
+	background-color: #659234;
+}
+
+.xui.form-switch.-success input[type="checkbox"]:focus + label::after,
+.xui.form-switch.-success input[type="checkbox"]:active + label::after {
+	background-color: #7ABA35;
+}
+
+.xui.form-switch.-success input[type="checkbox"]:checked + label::after {
+	background-color: #FFFFFF;
+}
+
+
+.xui.form-switch.-info label::before {
+	border: 1px solid #2084A9;
+}
+
+.xui.form-switch.-info input[type="checkbox"]:focus + label::before,
+.xui.form-switch.-info input[type="checkbox"]:active + label::before {
+	outline: none;
+	border: 1px solid #1AA2D1;
+	box-shadow: 0px 0px 0px 3px rgba(26,162,209,0.2510);
+}
+
+.xui.form-switch.-info input[type="checkbox"]:checked + label::before {
+	border: 1px solid #2084A9;
+	background-color: #2084A9;
+}
+
+.xui.form-switch.-info input[type="checkbox"]:checked:focus + label::before,
+.xui.form-switch.-info input[type="checkbox"]:checked:active + label::before {
+	border: 1px solid #1AA2D1;
+	background-color: #1AA2D1;
+}
+
+.xui.form-switch.-info input[type="checkbox"] + label::after {
+	background-color: #2084A9;
+}
+
+.xui.form-switch.-info input[type="checkbox"]:focus + label::after,
+.xui.form-switch.-info input[type="checkbox"]:active + label::after {
+	background-color: #1AA2D1;
+}
+
+.xui.form-switch.-info input[type="checkbox"]:checked + label::after {
+	background-color: #FFFFFF;
+}
+
+
+.xui.form-switch.-warning label::before {
+	border: 1px solid #E19B0B;
+}
+
+.xui.form-switch.-warning input[type="checkbox"]:focus + label::before,
+.xui.form-switch.-warning input[type="checkbox"]:active + label::before {
+	outline: none;
+	border: 1px solid #FFB807;
+	box-shadow: 0px 0px 0px 3px rgba(255,184,7,0.2510);
+}
+
+.xui.form-switch.-warning input[type="checkbox"]:checked + label::before {
+	border: 1px solid #E19B0B;
+	background-color: #E19B0B;
+}
+
+.xui.form-switch.-warning input[type="checkbox"]:checked:focus + label::before,
+.xui.form-switch.-warning input[type="checkbox"]:checked:active + label::before {
+	border: 1px solid #FFB807;
+	background-color: #FFB807;
+}
+
+.xui.form-switch.-warning input[type="checkbox"] + label::after {
+	background-color: #E19B0B;
+}
+
+.xui.form-switch.-warning input[type="checkbox"]:focus + label::after,
+.xui.form-switch.-warning input[type="checkbox"]:active + label::after {
+	background-color: #FFB807;
+}
+
+.xui.form-switch.-warning input[type="checkbox"]:checked + label::after {
+	background-color: #FFFFFF;
+}
+
+
+.xui.form-switch.-danger label::before {
+	border: 1px solid #AF2331;
+}
+
+.xui.form-switch.-danger input[type="checkbox"]:focus + label::before,
+.xui.form-switch.-danger input[type="checkbox"]:active + label::before {
+	outline: none;
+	border: 1px solid #DE182C;
+	box-shadow: 0px 0px 0px 3px rgba(222,24,44,0.2510);
+}
+
+.xui.form-switch.-danger input[type="checkbox"]:checked + label::before {
+	border: 1px solid #AF2331;
+	background-color: #AF2331;
+}
+
+.xui.form-switch.-danger input[type="checkbox"]:checked:focus + label::before,
+.xui.form-switch.-danger input[type="checkbox"]:checked:active + label::before {
+	border: 1px solid #DE182C;
+	background-color: #DE182C;
+}
+
+.xui.form-switch.-danger input[type="checkbox"] + label::after {
+	background-color: #AF2331;
+}
+
+.xui.form-switch.-danger input[type="checkbox"]:focus + label::after,
+.xui.form-switch.-danger input[type="checkbox"]:active + label::after {
+	background-color: #DE182C;
+}
+
+.xui.form-switch.-danger input[type="checkbox"]:checked + label::after {
+	background-color: #FFFFFF;
+}
+
+
+.xui.form-switch.-disabled label::before {
+	border: 1px solid #CCCCCC;
+}
+
+.xui.form-switch.-disabled input[type="checkbox"]:focus + label::before,
+.xui.form-switch.-disabled input[type="checkbox"]:active + label::before {
+	outline: none;
+	border: 1px solid #CCCCCC;
+	box-shadow: none;
+}
+
+.xui.form-switch.-disabled input[type="checkbox"]:checked + label::before {
+	border: 1px solid #CCCCCC;
+	background-color: #CCCCCC;
+}
+
+.xui.form-switch.-disabled input[type="checkbox"]:checked:focus + label::before,
+.xui.form-switch.-disabled input[type="checkbox"]:checked:active + label::before {
+	border: 1px solid #CCCCCC;
+	background-color: #CCCCCC;
+}
+
+.xui.form-switch.-disabled input[type="checkbox"] + label::after {
+	background-color: #CCCCCC;
+}
+
+.xui.form-switch.-disabled input[type="checkbox"]:focus + label::after,
+.xui.form-switch.-disabled input[type="checkbox"]:active + label::after {
+	background-color: #CCCCCC;
+}
+
+.xui.form-switch.-disabled input[type="checkbox"]:checked + label::after {
+	background-color: #FFFFFF;
+}
+
+
+
+

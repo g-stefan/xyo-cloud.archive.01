@@ -22,14 +22,14 @@ foreach ($selectDatasource as $key => $value) {
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"default",
 	"try"=>$allOk?"disabled":"default",
 	"next"=>$allOk?"primary":"disabled"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
 if($allOk){
@@ -39,25 +39,32 @@ if($allOk){
 		$this->generateView("msg-error");
 	}
 
-?>
-	<ul class="list-group">
-<?php
+	echo "<br />";
+	echo "<div class=\"xui list-group\">";
+	echo "<div class=\"xui list-group_content\">";
 
-		foreach ($listDatasource as $key => $value) {
-			if ($value == "yes") {
-				continue;
-			};
-			echo "<li class=\"list-group-item list-group-item-danger\">";
-                        echo $key;
-			echo "<span class=\"glyphicon glyphicon-remove pull-right\"></span>";
-                        echo "</li>";
+	foreach ($listDatasource as $key => $value) {
+		if ($value == "yes") {
+			continue;
 		};
+		echo "<div class=\"xui list-group_item\">";
+			echo "<div class=\"xui list-group_item_text\">";
+	                        echo $key;
+			echo "</div>";			
+			echo "<div class=\"xui list-group_item_icon-right\" style=\"color: #AA0000;\">";
+				echo "<i class=\"material-icons\">highlight_off</i>";
+                	echo "</div>";
+        	echo "</div>";
+	};
 
-?>
-	</ul>
-<?php }; ?>
+	echo "</div>";
+	echo "</div>";
+};
 
-<?php
+	echo "<br />";
+	echo "<br />";
+
+
                     $this->eFormRequest(array(
                         "back" => "datasource",
                         "this" => "install",

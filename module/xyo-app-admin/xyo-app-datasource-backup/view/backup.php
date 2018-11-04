@@ -8,24 +8,24 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-echo "<forn name=\"x\" class=\"xui-application-form\">";
+echo "<forn name=\"x\" class=\"xui application-form\">";
 $this->generateComponent("xui.box-1x1-begin");
 $this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLanguage("backup_title")));
 
 ?>
 
-<div id="progress_bar1" class="xui-progress-bar xui-progress-bar_success">
-	<div class="xui-progress-bar__background"></div>
-	<div class="xui-progress-bar__bar" id="progress_bar1_slider"></div>
-	<div class="xui-progress-bar__label" id="progress_bar1_text">0%</div>
+<div id="progress_bar1" class="xui progress-bar -success">
+	<div class="xui progress-bar_background"></div>
+	<div class="xui progress-bar_bar" id="progress_bar1_slider"></div>
+	<div class="xui progress-bar_label" id="progress_bar1_text">0%</div>
 </div>
 
 <br />
 
-<div id="progress_bar2" class="xui-progress-bar xui-progress-bar_info">
-	<div class="xui-progress-bar__background"></div>
-	<div class="xui-progress-bar__bar" id="progress_bar2_slider"></div>
-	<div class="xui-progress-bar__label" id="progress_bar2_text">0%</div>
+<div id="progress_bar2" class="xui progress-bar -info">
+	<div class="xui progress-bar_background"></div>
+	<div class="xui progress-bar_bar" id="progress_bar2_slider"></div>
+	<div class="xui progress-bar_label" id="progress_bar2_text">0%</div>
 </div>
 
 <br />

@@ -7,8 +7,28 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
 ?>
 
-Hello World!
-
+<div class="xui text -label-40">
+	Panel
+</div>
+<div class="xui box">
+	<div class="xui box -x1x1">
+		<div class="xui panel -elevation-4">
+			<div class="xui panel_title">
+				Title
+			</div>
+			<div class="xui panel_line"></div>
+			<div class="xui panel_content">
+				<div style="height:400px;">
+					Hello World
+				</div>
+			</div>
+			<div class="xui panel_line"></div>
+			<div class="xui panel_footer">
+				Footer
+			</div>
+		</div>
+	</div>
+</div>
+	

@@ -15,7 +15,7 @@ class lib_CropIt extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("lib_CropIt")) {
-			$this->setHtmlJs($this->site."lib/cropit/js/jquery.cropit.js");
+			$this->setHtmlJs($this->site."lib/cropit/jquery.cropit.js");
         	}
 	}
 

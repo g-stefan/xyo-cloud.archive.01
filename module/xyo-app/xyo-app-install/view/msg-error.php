@@ -22,20 +22,11 @@ if ($this->isError()) {
         }
     }
 ?>
-    <table cellpadding="0" cellspacing="0" border="0">
-        <tbody>
-            <tr>
-                <td style="border:1px solid #800000;background-color:#FFE0E0;width:auto;margin:8px 8px 8px 8px;padding:8px 8px 8px 8px;">
-                    <img src="<?php echo $this->site; ?>lib/xyo/images/process-stop-32.png"
-                         alt="<?php $this->eLanguage("alt_error"); ?>"
-                         style="width:32px;height:32px;float:left;margin-right:8px;"
-                         />
-                    <span style="color:#800000;font-weight:bold;font-size:16px;"><?php $this->eLanguage($msg_lang); ?></span><br/>
-                    <span style="color:#000040;font-weight:bold;font-size:12px;"><?php echo $msg_txt; ?></span><br/>
-                    <div style="height:1px;overflow:hidden;width:320px;clear:both;" ></div>
-                </td>
-        </tbody>
-    </table>
+
+<div class="xui alert -danger">
+	<?php $this->eLanguage($msg_lang); ?>
+	<?php echo $msg_txt; ?>
+</div>
+
 <?php
 };
-

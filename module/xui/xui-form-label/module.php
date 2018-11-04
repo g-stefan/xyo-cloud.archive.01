@@ -11,15 +11,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_FormLabel";
 
 class xui_FormLabel extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_FormLabel")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
+			$this->setHtmlCss($this->site."lib/xui/css/xui-form-label.css");
         	}
 	}
-
 }

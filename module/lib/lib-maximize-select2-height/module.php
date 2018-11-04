@@ -15,7 +15,7 @@ class lib_MaximizeSelect2Height extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("lib_MaximizeSelect2Height")) {
-			$this->setHtmlJs($this->site."lib/maximize-select2-height/js/maximize-select2-height.min.js");
+			$this->setHtmlJs($this->site."lib/maximize-select2-height/maximize-select2-height.min.js");
         	}
 	}
 

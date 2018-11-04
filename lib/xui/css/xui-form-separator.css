@@ -1,0 +1,22 @@
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-separator{
+	margin-top: 8px;
+	margin-bottom: 8px;
+	overflow:hidden;
+	height:1px;
+	background-color: #C2CEE1;
+	clear: both;
+}
+
+

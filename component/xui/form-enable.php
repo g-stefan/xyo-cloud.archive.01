@@ -16,9 +16,9 @@ $select_list = array(
 $select_value = $this->getElementValue($element);
 ?>	
 
-<label class="xui-form-label<?php if($this->isElementError($element)){echo " xui-form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui form-label<?php if($this->isElementError($element)){echo " -danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
-<select class="xui-form-select<?php if($this->isElementError($element)){echo " xui-form-select_danger";}; ?>" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>">
+<select class="xui form-select<?php if($this->isElementError($element)){echo " -danger";}; ?>" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>">
 <?php
 	foreach ($select_list as $key => $value) {
 		$selected = "";

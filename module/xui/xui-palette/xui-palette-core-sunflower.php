@@ -10,6 +10,6 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->palette["core-sunflower-v1"]="#FFCE54";
-$this->palette["core-sunflower-v2"]="#F6BB42";
-$this->palette["core-sunflower"]=$this->xuiColor->rgbHexMiddle($this->palette["core-sunflower-v1"],$this->palette["core-sunflower-v2"]);
+$this->palette["core-sunflower-1"]="#FFCE54";
+$this->palette["core-sunflower-2"]="#F6BB42";
+$this->palette["core-sunflower"]=$this->color->rgbHexMiddle($this->palette["core-sunflower-1"],$this->palette["core-sunflower-2"]);

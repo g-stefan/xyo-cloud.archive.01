@@ -8,8 +8,6 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$hasTopSpace=$this->getArgument("top-space",0);
-
 ?>
-<div class="xui-box-row<?php if($hasTopSpace){echo " xui-box-row_top-space";}; ?>">
-	<div class="xui-box-x-900">
+<div class="xui box -row">
+	<div class="xui box -x-900">

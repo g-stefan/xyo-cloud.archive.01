@@ -12,7 +12,7 @@ $this->setReferenceLink($module, "xyo-mod-xui-sidebar");
 $this->setReferenceLink($module, "lib-font-awesome");
 
 $this->setReferenceBase($module, "xyo-mod-application");
-$this->setVersion($module, "2.0.0");
+$this->setVersion($module, "3.0.0");
 
 $this->setTemplate($module);
 $this->setDefaultApplication("xyo-app-dashboard");
@@ -34,5 +34,6 @@ $this->setReferenceLink($module, "xui-box");
 $this->setReferenceLink($module, "xui-panel");
 $this->setReferenceLink($module, "xui-toolbar");
 $this->setReferenceLink($module, "xui-application");
+$this->setReferenceLink($module, "xui-dashboard");
 //
 $this->setReferenceLink($module, "xui-complete");

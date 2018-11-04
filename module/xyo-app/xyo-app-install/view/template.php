@@ -25,27 +25,31 @@ foreach ($listGroup as $key => &$value) {
     }
 };
 
-	$this->generateComponent("xui.box-x-900-begin",array("top-space"=>1));
+?>
+
+<div class="xyo install-application-top-space"></div>
+
+<?php
+
+	$this->generateComponent("xui.box-x-900-begin");
 	$this->generateComponent("xui.panel2-begin");
 	$this->eLanguage("alt_install");
 	$this->generateComponent("xui.panel2-content");
 
 ?>
 
-<div class="xyo-install__application">
-	<div class="xyo-install__panel">
+<div class="xyo install-application">
+	<div class="xyo install-application_panel">
 		<?php $this->generateComponent("xui.list-group", array("items"=>$listGroup)); ?>
-		<img class="xyo-install__image" src="<?php echo $this->site; ?>lib/xyo/images/system-installer-2-128.png"
+		<img class="xyo install-application_image" src="<?php echo $this->site; ?>lib/xyo/images/system-installer-2-128.png"
 			alt="<?php $this->eLanguage("alt_install"); ?>" ></img>
 	</div>
-	<div class="xyo-install__content">
+	<div class="xyo install-application_content">
 		<?php $this->generateCurrentView(); ?>
 	</div>
 </div>
-
 
 <?php
 
 	$this->generateComponent("xui.panel2-end");
 	$this->generateComponent("xui.box-x-900-end");
-

@@ -1,0 +1,196 @@
+
+
+
+.xui-form-autocomplete {
+	position: relative;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show {
+	position: absolute;
+	width: 100%;
+	margin-top: -2px;
+	z-index: 3;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
+	outline: none;
+	border-radius:  0px 0px 3px 3px;
+	color: #444444;
+	background-color: #FFFFFF;
+	border-top: 0px solid #1A72E2;
+	border-right: 1px solid #1A72E2;
+	border-bottom: 1px solid #1A72E2;
+	border-left: 1px solid #1A72E2;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item{
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+
+	height: 32px;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
+	background-color: #1A72E2;
+	color: #FFFFFF;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
+	background-color: #1A72E2;
+	color: #000000;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item strong {
+	font-weight: bold;
+}
+
+/* --- */
+
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
+	outline: none;
+	border-radius:  0px 0px 3px 3px;
+	color: #1A72E2;
+	background-color: #FFFFFF;
+	border-top: 0px solid #1A72E2;
+	border-right: 1px solid #1A72E2;
+	border-bottom: 1px solid #1A72E2;
+	border-left: 1px solid #1A72E2;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
+	background-color: #1A72E2;
+	color: #FFFFFF;
+}
+
+.xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
+	background-color: #1A72E2;
+	color: #000000;
+}
+
+
+.xui.form-text.-primary + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
+	outline: none;
+	border-radius:  0px 0px 3px 3px;
+	color: #1A72E2;
+	background-color: #FFFFFF;
+	border-top: 0px solid #1A72E2;
+	border-right: 1px solid #1A72E2;
+	border-bottom: 1px solid #1A72E2;
+	border-left: 1px solid #1A72E2;
+}
+
+.xui.form-text.-primary + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
+	background-color: #1A72E2;
+	color: #FFFFFF;
+}
+
+.xui.form-text.-primary + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
+	background-color: #1A72E2;
+	color: #000000;
+}
+
+
+.xui.form-text.-success + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
+	outline: none;
+	border-radius:  0px 0px 3px 3px;
+	color: #7ABA35;
+	background-color: #FFFFFF;
+	border-top: 0px solid #7ABA35;
+	border-right: 1px solid #7ABA35;
+	border-bottom: 1px solid #7ABA35;
+	border-left: 1px solid #7ABA35;
+}
+
+.xui.form-text.-success + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
+	background-color: #7ABA35;
+	color: #FFFFFF;
+}
+
+.xui.form-text.-success + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
+	background-color: #7ABA35;
+	color: #000000;
+}
+
+
+.xui.form-text.-info + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
+	outline: none;
+	border-radius:  0px 0px 3px 3px;
+	color: #1AA2D1;
+	background-color: #FFFFFF;
+	border-top: 0px solid #1AA2D1;
+	border-right: 1px solid #1AA2D1;
+	border-bottom: 1px solid #1AA2D1;
+	border-left: 1px solid #1AA2D1;
+}
+
+.xui.form-text.-info + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
+	background-color: #1AA2D1;
+	color: #FFFFFF;
+}
+
+.xui.form-text.-info + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
+	background-color: #1AA2D1;
+	color: #000000;
+}
+
+
+.xui.form-text.-warning + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
+	outline: none;
+	border-radius:  0px 0px 3px 3px;
+	color: #FFB807;
+	background-color: #FFFFFF;
+	border-top: 0px solid #FFB807;
+	border-right: 1px solid #FFB807;
+	border-bottom: 1px solid #FFB807;
+	border-left: 1px solid #FFB807;
+}
+
+.xui.form-text.-warning + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
+	background-color: #FFB807;
+	color: #FFFFFF;
+}
+
+.xui.form-text.-warning + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
+	background-color: #FFB807;
+	color: #000000;
+}
+
+
+.xui.form-text.-danger + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
+	outline: none;
+	border-radius:  0px 0px 3px 3px;
+	color: #DE182C;
+	background-color: #FFFFFF;
+	border-top: 0px solid #DE182C;
+	border-right: 1px solid #DE182C;
+	border-bottom: 1px solid #DE182C;
+	border-left: 1px solid #DE182C;
+}
+
+.xui.form-text.-danger + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
+	background-color: #DE182C;
+	color: #FFFFFF;
+}
+
+.xui.form-text.-danger + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
+	background-color: #DE182C;
+	color: #000000;
+}
+
+
+

@@ -7,24 +7,33 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
-<form>
-
-<label class="xui-form-label xui-form-label_default">Date picker</label><br>
-<input type="text" value="" class="xui-form-text xui-form-text_default datepicker-here" data-language="en"></input>
-<br />
-<br />
-<label class="xui-form-label xui-form-label_default">Datetime picker</label><br>
-<input type="text" value="" class="xui-form-text xui-form-text_default datepicker-here" data-timepicker="true" data-language="en"></input>
-<br />
-<br />
-
-</form>
+<div class="xui text -label-40">
+	Form - Datepicker - Date
 </div>
+<form>
+	<input type="text" class="xui form-text" id="datepicker-1" name="datepicker-1" value="" data-language="en"></input>
+</form>
+
+<div class="xui text -label-40">
+	Form - Datepicker - Datetime
+</div>
+<form>
+	<input type="text" class="xui form-text" id="datepicker-2" name="datepicker-2" value="" data-timepicker="true" data-language="en"></input>
+</form>
+
+<div class="xui text -label-40">
+	Form - Datepicker - Time
+</div>
+<form>
+	<input type="text" class="xui form-text" id="datepicker-3" name="datepicker-3" value="" data-timepicker="true" data-time-format="hh:ii" data-language="en"></input>
+</form>
+
+<?php
+
+$js="\$(\"#datepicker-1\").datepicker({autoClose:true});";
+$js.="\$(\"#datepicker-2\").datepicker({autoClose:true});";
+$js.="\$(\"#datepicker-3\").datepicker({autoClose:true,onlyTimepicker:true});";
+
+$this->setHtmlJsSourceOrAjax($js,"load");

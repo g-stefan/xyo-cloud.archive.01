@@ -14,8 +14,8 @@ if(count($this->tableDelete)==0){
 };
 
 ?>
-<div class="xyo-app-table__responsive">
-    <table class="xui-table xui-table_danger">
+<div class="xyo app-table_responsive">
+    <table class="xui table -danger">
 	<thead>
                 <?php
                 foreach ($this->tableDelete as $key => $value) {

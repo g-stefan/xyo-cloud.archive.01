@@ -7,7 +7,7 @@
 //
 */
 
-#xyo-app-table__table{
+#xyo-app-table_table{
 	position: relative;
 	width: 100%;
 	border-collapse: collapse;
@@ -21,7 +21,7 @@
 	box-sizing: border-box;
 }
 
-#xyo-app-table__table th{
+#xyo-app-table_table th{
 	border: 1px solid #DDDDDD;
 	border-left: 0px solid #DDDDDD;
 
@@ -31,7 +31,7 @@
 	box-sizing: border-box;
 }
 
-#xyo-app-table__table td{
+#xyo-app-table_table td{
 	border: 1px solid #DDDDDD;
 	border-left: 0px solid #DDDDDD;
 
@@ -40,15 +40,15 @@
 	box-sizing: border-box;
 }
 
-#xyo-app-table__table td:last-child {
+#xyo-app-table_table td:last-child {
 	border-right: 0px solid #000000;
 }
 
-#xyo-app-table__table tr:nth-child(even){
+#xyo-app-table_table tr:nth-child(even){
 	background-color: #EEEEEE;
 }
 
-#xyo-app-table__table thead th{
+#xyo-app-table_table thead th{
 	vertical-align:middle;
 	background-color:#fff;
 	border:1px solid #DDDDDD;
@@ -63,67 +63,67 @@
 	box-sizing: border-box;
 }
 
-#xyo-app-table__table thead th:last-child {
+#xyo-app-table_table thead th:last-child {
 	border-right: 0px solid #000000;
 }
 
-#xyo-app-table__table tr td{
+#xyo-app-table_table tr td{
 	font-size: 16px;
 	line-height: 20px;
 
 	font-family: "Roboto", sans-serif;
 }
 
-#xyo-app-table__table tr:hover{
+#xyo-app-table_table tr:hover{
 	background-color: #E6F0FC;
 }
 
 /* --- */
 
-#xyo-app-table-modal-new__form{
+#xyo-app-table-modal-new_form{
 	padding-bottom: 16px;
 }
 
-#xyo-app-table-modal-new__action{
+#xyo-app-table-modal-new_action{
 	border-top: 1px solid #C2CEE1;
 	padding-top: 16px;
 }
 
-#xyo-app-table-modal-new__form .xui-application-form {
+#xyo-app-table-modal-new_form .xui.application-form {
 	padding-top: 0px;
 }
 
 /* --- */
 
-#xyo-app-table-modal-edit__form{
+#xyo-app-table-modal-edit_form{
 	padding-bottom: 16px;
 }
 
-#xyo-app-table-modal-edit__action{
+#xyo-app-table-modal-edit_action{
 	border-top: 1px solid #C2CEE1;
 	padding-top: 16px;
 }
 
-#xyo-app-table-modal-edit__form .xui-application-form {
+#xyo-app-table-modal-edit_form .xui.application-form {
 	padding-top: 0px;
 }
 
 /* --- */
 
-#xyo-app-table-modal-delete__form{
+#xyo-app-table-modal-delete_form{
 	padding-bottom: 16px;
 }
 
-#xyo-app-table-modal-delete__action{
+#xyo-app-table-modal-delete_action{
 	border-top: 1px solid #C2CEE1;
 	padding-top: 16px;
 }
 
-#xyo-app-table-modal-delete__form .xui-application-form {
+#xyo-app-table-modal-delete_form .xui.application-form {
 	padding-top: 0px;
 }
 
-.xyo-app-table__responsive{
+.xyo.app-table.-responsive{
 	position: relative;
 	display: block;
 	width:100%;
@@ -134,31 +134,31 @@
 	box-sizing: border-box;
 }
 
-#xyo-app-table__table td {
+#xyo-app-table_table td {
 	position: relative;
 }
-
-#xyo-app-table__table td a.xyo-app-table__table_action{
+                          
+#xyo-app-table_table td a.xyo.app-table_table_action{
 	position: relative;
 	display: inline-block;
 	text-decoration: none;
 	color: #1853A0;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table_action:hover{
+#xyo-app-table_table td a.xyo.app-table_table_action:hover{
 	color: #000000;
 	font-weight: normal;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table_action:visited{
+#xyo-app-table_table td a.xyo.app-table_table_action:visited{
 	color: #1853A0;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table_action:visited:hover{
+#xyo-app-table_table td a.xyo.app-table_table_action:visited:hover{
 	color: #000000;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table_action::before{
+#xyo-app-table_table td a.xyo.app-table_table_action::before{
 	content: "";
 	transition:0.3s all ease;
 	left: 50%;
@@ -171,64 +171,72 @@
 	backface-visibility: hidden;
 }
 
-#xyo-app-table__table td a.xyo-app-table__table_action:hover::before{
+#xyo-app-table_table td a.xyo.app-table_table_action:hover::before{
 	width:100%;
 }
 
-.xui-application-table-toolbar-top__left{
+.xui.application-table_toolbar-top_left{
 	display:inline-block;
 	width:100%;
 	box-sizing: border-box;
 }
 
-.xui-application-table-toolbar-top__right{
+.xui.application-table_toolbar-top_right{
 	display:none;
 	width:50%;
 	box-sizing: border-box;
 }
 
-.xyo-app-table__indicator_items{
+.xyo.app-table_indicator_items{
 	display:inline-block;
 	box-sizing: border-box;
 }
 
-.xyo-app-table__indicator_items__info{
+.xyo.app-table_indicator_items_info {
 	display:none;
 	box-sizing: border-box;
 }
 
-.xyo-app-table__col_important{
+.xyo.app-table_col_important {
 	display: table-cell;
 }
 
-.xyo-app-table__col_normal{
+.xyo.app-table_col_normal {
 	display: none;
 }
 
+.xyo.app-table_content {
+	position: relative;
+	display:block;
+	box-sizing: border-box;
+	width: 100%;
+	height: calc(100% - 80px);
+	overflow: auto;
+}
 
 @media only screen and (min-width: 600px){
 
-	.xui-application-table-toolbar-top__left{
+	.xui.application-table_toolbar-top_left{
 		width:50%;
 	}
 
-	.xui-application-table-toolbar-top__right{
+	.xui.application-table_toolbar-top_right{
 		display:inline-block;
 	}
 
-	.xyo-app-table__indicator_items{
+	.xyo.app-table_indicator_items{
 		display:inline-block;
 	}
 
-	.xyo-app-table__indicator_items__info{
+	.xyo.app-table_indicator_items_info{
 		display:inline-block;
 	}
 
-	.xyo-app-table__col_important{
+	.xyo.app-table_col_important{
 		display: table-cell;
 	}
 
-	.xyo-app-table__col_normal{
+	.xyo.app-table_col_normal{
 		display: table-cell;
 	}
 

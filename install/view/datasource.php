@@ -20,14 +20,14 @@ $layerList = array(
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"default",
 	"try"=>"disabled",
 	"next"=>"primary"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
 if ($this->isError()) {
@@ -36,7 +36,7 @@ if ($this->isError()) {
 
 ?>
 
-	<select class="xui-form-select" name="<?php $this->eElementName("layer"); ?>" onChange="this.form.submit();">
+	<select class="xui form-select" id="<?php $this->eElementName("layer"); ?>" name="<?php $this->eElementName("layer"); ?>" onChange="this.form.submit();">
 <?php
                     foreach ($layerList as $value) {
                         $selected = "";

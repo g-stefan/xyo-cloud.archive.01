@@ -1,0 +1,625 @@
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.table {
+	position: relative;
+	box-sizing: border-box;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+	width: auto;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	border: 0px solid #000000;
+	border-spacing: 0px;
+	box-sizing: border-box;
+}
+
+.xui.table thead,
+.xui.table thead tr,
+.xui.table tbody,
+.xui.table tbody tr {
+	width: 100%;
+}
+
+.xui.table thead > tr > th {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: normal;
+	box-sizing: border-box;
+	border-right: 0px solid #000000;
+	border-bottom: 0px solid #000000;
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	box-sizing: border-box;
+}
+
+.xui.table thead th:last-child {
+	border-bottom: 0px solid #000000;
+}
+
+.xui.table tbody > tr > td {
+	border-right: 0px solid #000000;
+	border-bottom: 0px solid #000000;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 4px;
+	box-sizing: border-box;
+}
+
+.xui.table thead tr:first-child th:first-child {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.xui.table thead tr:first-child th:last-child {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.xui.table tbody tr:last-child td:first-child {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 0px;
+}
+
+.xui.table tbody tr:last-child td:last-child {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 3px;
+}
+
+
+.xui.table thead tr th {
+	color: #000000;
+}
+
+.xui.table thead tr {
+	background-color: #FFFFFF;
+}
+
+.xui.table tbody tr {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.xui.table thead th {
+	border-top: 1px solid #DDDDDD;
+	border-left: 1px solid #DDDDDD;
+	color: #000000;
+}
+
+.xui.table thead th:last-child {
+	border-top: 1px solid #DDDDDD;
+	border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+}
+
+.xui.table tbody tr td {
+	border-top: 1px solid #DDDDDD;
+	border-left: 1px solid #DDDDDD;
+}
+
+.xui.table tbody tr td:last-child {
+	border-top: 1px solid #DDDDDD;
+	border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+}
+
+.xui.table tbody tr:nth-child(even) {
+	background-color: #EEEEEE;
+}
+
+.xui.table tbody tr:last-child td {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.xui.table tbody tr:hover {
+	background-color: #E0EBF9;
+	color: #000000;
+}
+
+.xui.table tbody tr:hover td {
+	border-top: 1px solid #4A89DC;
+	border-left: 1px solid #9FC1ED;
+	border-bottom: 1px solid #4A89DC;
+}
+
+.xui.table tbody tr:hover + tr > td {
+	border-top: 0px solid #4A89DC;
+}
+
+.xui.table tbody tr:hover td:first-child {
+	border-top: 1px solid #4A89DC;
+	border-left: 1px solid #4A89DC;
+}
+
+.xui.table tbody tr:hover td:last-child {
+	border-top: 1px solid #4A89DC;
+	border-right: 1px solid #4A89DC;
+}
+
+.xui.table tbody tr:last-child:hover > td {
+	border-bottom: 1px solid #4A89DC;
+}
+
+
+
+.xui.table.-primary thead tr th {
+	color: #1B4C8C;
+}
+
+.xui.table.-primary thead tr {
+	background-color: #FFFFFF;
+}
+
+.xui.table.-primary tbody tr {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.xui.table.-primary thead th {
+	border-top: 1px solid #2363B6;
+	border-left: 1px solid #2363B6;
+	color: #000000;
+}
+
+.xui.table.-primary thead th:last-child {
+	border-top: 1px solid #2363B6;
+	border-left: 1px solid #2363B6;
+	border-right: 1px solid #2363B6;
+}
+
+.xui.table.-primary tbody tr td {
+	border-top: 1px solid #2363B6;
+	border-left: 1px solid #2363B6;
+}
+
+.xui.table.-primary tbody tr td:last-child {
+	border-top: 1px solid #2363B6;
+	border-left: 1px solid #2363B6;
+	border-right: 1px solid #2363B6;
+}
+
+.xui.table.-primary tbody tr:nth-child(even) {
+	background-color: #E0EBF9;
+}
+
+.xui.table.-primary tbody tr:last-child td {
+	border-bottom: 1px solid #2363B6;
+}
+
+.xui.table.-primary tbody tr:hover {
+	background-color: #CADDF5;
+	color: #000000;
+}
+
+.xui.table.-primary tbody tr:hover td {
+	border-top: 1px solid #174076;
+	border-left: 1px solid #1B4C8C;
+	border-bottom: 1px solid #174076;
+}
+
+.xui.table.-primary tbody tr:hover + tr > td {
+	border-top: 0px solid #174076;
+}
+
+.xui.table.-primary tbody tr:hover td:first-child {
+	border-top: 1px solid #174076;
+	border-left: 1px solid #174076;
+}
+
+.xui.table.-primary tbody tr:hover td:last-child {
+	border-top: 1px solid #174076;
+	border-right: 1px solid #174076;
+}
+
+.xui.table.-primary tbody tr:last-child:hover > td {
+	border-bottom: 1px solid #174076;
+}
+
+
+
+.xui.table.-success thead tr th {
+	color: #4B6D27;
+}
+
+.xui.table.-success thead tr {
+	background-color: #FFFFFF;
+}
+
+.xui.table.-success tbody tr {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.xui.table.-success thead th {
+	border-top: 1px solid #659234;
+	border-left: 1px solid #659234;
+	color: #000000;
+}
+
+.xui.table.-success thead th:last-child {
+	border-top: 1px solid #659234;
+	border-left: 1px solid #659234;
+	border-right: 1px solid #659234;
+}
+
+.xui.table.-success tbody tr td {
+	border-top: 1px solid #659234;
+	border-left: 1px solid #659234;
+}
+
+.xui.table.-success tbody tr td:last-child {
+	border-top: 1px solid #659234;
+	border-left: 1px solid #659234;
+	border-right: 1px solid #659234;
+}
+
+.xui.table.-success tbody tr:nth-child(even) {
+	background-color: #E3F0D5;
+}
+
+.xui.table.-success tbody tr:last-child td {
+	border-bottom: 1px solid #659234;
+}
+
+.xui.table.-success tbody tr:hover {
+	background-color: #D7E9C3;
+	color: #000000;
+}
+
+.xui.table.-success tbody tr:hover td {
+	border-top: 1px solid #3E5A20;
+	border-left: 1px solid #4B6D27;
+	border-bottom: 1px solid #3E5A20;
+}
+
+.xui.table.-success tbody tr:hover + tr > td {
+	border-top: 0px solid #3E5A20;
+}
+
+.xui.table.-success tbody tr:hover td:first-child {
+	border-top: 1px solid #3E5A20;
+	border-left: 1px solid #3E5A20;
+}
+
+.xui.table.-success tbody tr:hover td:last-child {
+	border-top: 1px solid #3E5A20;
+	border-right: 1px solid #3E5A20;
+}
+
+.xui.table.-success tbody tr:last-child:hover > td {
+	border-bottom: 1px solid #3E5A20;
+}
+
+
+
+.xui.table.-info thead tr th {
+	color: #18627E;
+}
+
+.xui.table.-info thead tr {
+	background-color: #FFFFFF;
+}
+
+.xui.table.-info tbody tr {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.xui.table.-info thead th {
+	border-top: 1px solid #2084A9;
+	border-left: 1px solid #2084A9;
+	color: #000000;
+}
+
+.xui.table.-info thead th:last-child {
+	border-top: 1px solid #2084A9;
+	border-left: 1px solid #2084A9;
+	border-right: 1px solid #2084A9;
+}
+
+.xui.table.-info tbody tr td {
+	border-top: 1px solid #2084A9;
+	border-left: 1px solid #2084A9;
+}
+
+.xui.table.-info tbody tr td:last-child {
+	border-top: 1px solid #2084A9;
+	border-left: 1px solid #2084A9;
+	border-right: 1px solid #2084A9;
+}
+
+.xui.table.-info tbody tr:nth-child(even) {
+	background-color: #D1ECF6;
+}
+
+.xui.table.-info tbody tr:last-child td {
+	border-bottom: 1px solid #2084A9;
+}
+
+.xui.table.-info tbody tr:hover {
+	background-color: #BCE4F2;
+	color: #000000;
+}
+
+.xui.table.-info tbody tr:hover td {
+	border-top: 1px solid #145168;
+	border-left: 1px solid #18627E;
+	border-bottom: 1px solid #145168;
+}
+
+.xui.table.-info tbody tr:hover + tr > td {
+	border-top: 0px solid #145168;
+}
+
+.xui.table.-info tbody tr:hover td:first-child {
+	border-top: 1px solid #145168;
+	border-left: 1px solid #145168;
+}
+
+.xui.table.-info tbody tr:hover td:last-child {
+	border-top: 1px solid #145168;
+	border-right: 1px solid #145168;
+}
+
+.xui.table.-info tbody tr:last-child:hover > td {
+	border-bottom: 1px solid #145168;
+}
+
+
+
+.xui.table.-warning thead tr th {
+	color: #B07908;
+}
+
+.xui.table.-warning thead tr {
+	background-color: #FFFFFF;
+}
+
+.xui.table.-warning tbody tr {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.xui.table.-warning thead th {
+	border-top: 1px solid #E19B0B;
+	border-left: 1px solid #E19B0B;
+	color: #000000;
+}
+
+.xui.table.-warning thead th:last-child {
+	border-top: 1px solid #E19B0B;
+	border-left: 1px solid #E19B0B;
+	border-right: 1px solid #E19B0B;
+}
+
+.xui.table.-warning tbody tr td {
+	border-top: 1px solid #E19B0B;
+	border-left: 1px solid #E19B0B;
+}
+
+.xui.table.-warning tbody tr td:last-child {
+	border-top: 1px solid #E19B0B;
+	border-left: 1px solid #E19B0B;
+	border-right: 1px solid #E19B0B;
+}
+
+.xui.table.-warning tbody tr:nth-child(even) {
+	background-color: #FEF8EC;
+}
+
+.xui.table.-warning tbody tr:last-child td {
+	border-bottom: 1px solid #E19B0B;
+}
+
+.xui.table.-warning tbody tr:hover {
+	background-color: #FDF0D4;
+	color: #000000;
+}
+
+.xui.table.-warning tbody tr:hover td {
+	border-top: 1px solid #986807;
+	border-left: 1px solid #B07908;
+	border-bottom: 1px solid #986807;
+}
+
+.xui.table.-warning tbody tr:hover + tr > td {
+	border-top: 0px solid #986807;
+}
+
+.xui.table.-warning tbody tr:hover td:first-child {
+	border-top: 1px solid #986807;
+	border-left: 1px solid #986807;
+}
+
+.xui.table.-warning tbody tr:hover td:last-child {
+	border-top: 1px solid #986807;
+	border-right: 1px solid #986807;
+}
+
+.xui.table.-warning tbody tr:last-child:hover > td {
+	border-bottom: 1px solid #986807;
+}
+
+
+
+.xui.table.-danger thead tr th {
+	color: #841A25;
+}
+
+.xui.table.-danger thead tr {
+	background-color: #FFFFFF;
+}
+
+.xui.table.-danger tbody tr {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.xui.table.-danger thead th {
+	border-top: 1px solid #AF2331;
+	border-left: 1px solid #AF2331;
+	color: #000000;
+}
+
+.xui.table.-danger thead th:last-child {
+	border-top: 1px solid #AF2331;
+	border-left: 1px solid #AF2331;
+	border-right: 1px solid #AF2331;
+}
+
+.xui.table.-danger tbody tr td {
+	border-top: 1px solid #AF2331;
+	border-left: 1px solid #AF2331;
+}
+
+.xui.table.-danger tbody tr td:last-child {
+	border-top: 1px solid #AF2331;
+	border-left: 1px solid #AF2331;
+	border-right: 1px solid #AF2331;
+}
+
+.xui.table.-danger tbody tr:nth-child(even) {
+	background-color: #F7D9DC;
+}
+
+.xui.table.-danger tbody tr:last-child td {
+	border-bottom: 1px solid #AF2331;
+}
+
+.xui.table.-danger tbody tr:hover {
+	background-color: #F3C4C8;
+	color: #000000;
+}
+
+.xui.table.-danger tbody tr:hover td {
+	border-top: 1px solid #6F161F;
+	border-left: 1px solid #841A25;
+	border-bottom: 1px solid #6F161F;
+}
+
+.xui.table.-danger tbody tr:hover + tr > td {
+	border-top: 0px solid #6F161F;
+}
+
+.xui.table.-danger tbody tr:hover td:first-child {
+	border-top: 1px solid #6F161F;
+	border-left: 1px solid #6F161F;
+}
+
+.xui.table.-danger tbody tr:hover td:last-child {
+	border-top: 1px solid #6F161F;
+	border-right: 1px solid #6F161F;
+}
+
+.xui.table.-danger tbody tr:last-child:hover > td {
+	border-bottom: 1px solid #6F161F;
+}
+
+
+
+.xui.table.-disabled thead tr th {
+	color: #CCCCCC;
+}
+
+.xui.table.-disabled thead tr {
+	background-color: #FFFFFF;
+}
+
+.xui.table.-disabled tbody tr {
+	background-color: #FFFFFF;
+	color: #CCCCCC;
+}
+
+.xui.table.-disabled thead th {
+	border-top: 1px solid #EEEEEE;
+	border-left: 1px solid #EEEEEE;
+	color: #CCCCCC;
+}
+
+.xui.table.-disabled thead th:last-child {
+	border-top: 1px solid #EEEEEE;
+	border-left: 1px solid #EEEEEE;
+	border-right: 1px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr td {
+	border-top: 1px solid #EEEEEE;
+	border-left: 1px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr td:last-child {
+	border-top: 1px solid #EEEEEE;
+	border-left: 1px solid #EEEEEE;
+	border-right: 1px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr:nth-child(even) {
+	background-color: #FFFFFF;
+}
+
+.xui.table.-disabled tbody tr:last-child td {
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr:hover {
+	background-color: #FFFFFF;
+	color: #CCCCCC;
+}
+
+.xui.table.-disabled tbody tr:hover td {
+	border-top: 1px solid #EEEEEE;
+	border-left: 1px solid #EEEEEE;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr:hover + tr > td {
+	border-top: 0px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr:hover td:first-child {
+	border-top: 1px solid #EEEEEE;
+	border-left: 1px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr:hover td:last-child {
+	border-top: 1px solid #EEEEEE;
+	border-right: 1px solid #EEEEEE;
+}
+
+.xui.table.-disabled tbody tr:last-child:hover > td {
+	border-bottom: 1px solid #EEEEEE;
+}
+
+
+
+
+
+

@@ -10,14 +10,14 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"default",
 	"try"=>"default",
 	"next"=>"primary"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
 
@@ -44,6 +44,7 @@ echo "<br />";
                     $packagePath = $path = "package/";
                     $modSetup = &$this->cloud->getModule("xyo-mod-setup");
                     if ($modSetup) {
+
                         if ($mode === "all") {
                             $listModuleToCheck = $modSetup->getPackageList2($packagePath);
                         } else {
@@ -51,16 +52,9 @@ echo "<br />";
                         };
 
                         foreach ($listModuleToCheck as $key => $value) {
-				echo "<div class=\"panel panel-default\">";
-					echo "<div class=\"panel-heading\">";
-						echo "<h3 class=\"panel-title\">";
-							echo $this->getFromLanguage("label_license")." ".$key;
-						echo "</h3>";
-					echo "</div>";
-					echo "<div class=\"panel-body\">";
-		                            $modSetup->runPackageLicense($key);						
-					echo "</div>";
-				echo "</div>";
+				echo $this->getFromLanguage("label_license")." ".$key;
+				echo "<hr />";
+				$modSetup->runPackageLicense($key);						
                         };
 
                     };

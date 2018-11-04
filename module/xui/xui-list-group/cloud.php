@@ -9,3 +9,9 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setModuleAsApplication($module);
+$this->setVersion($module, "1.0.0");
+
+$this->setReferenceLink($module, "xui-palette");
+$this->setReferenceLink($module, "xui-button");
+$this->setReferenceLink($module, "xui-form-text");
+$this->setReferenceLink($module, "xui-responsive");

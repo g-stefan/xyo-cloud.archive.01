@@ -16,7 +16,9 @@ SQLite Data Source Layer, stored in repository.
 You can change location from
 config/config.sqlite.db.php .
 </p>
-<div class="xui-alert xui-alert_warning">
+<br />
+<div class="xui alert -warning">
 Warning: If you store sesitive information is
 advised to change the location outside of website.
 </div>
+<br />

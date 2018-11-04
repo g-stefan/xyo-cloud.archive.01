@@ -9,4 +9,4 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 ?>
-<div class="xui-separator"></div>
+<div class="xui separator"></div>

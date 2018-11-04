@@ -1,0 +1,137 @@
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-checkbox.-box input[type="checkbox"] + label::after {
+	display: block;	
+	cursor: pointer;
+	position: absolute;
+	top: 15px;
+	left: 10px;
+	content: " ";
+
+	border-radius: 3px;
+
+	width: 2px;
+	height: 2px;
+
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+
+	background-color: transparent;
+	background-image: none;
+}
+
+.xui.form-checkbox.-box input[type="checkbox"]:checked + label::after {
+	top: 10px;
+	left: 5px;
+	width: 12px;
+	height: 12px;
+
+	background-color: #2363B6;	
+	background-image: none;
+}
+
+.xui-form-checkbox.-box input[type="checkbox"]:focus:checked + label::after,
+.xui.form-checkbox.-box input[type="checkbox"]:active:checked + label::after{
+	top: 10px;
+	left: 5px;
+	width: 12px;
+	height: 12px;
+
+	background-color: #1A72E2;
+	background-image: none;
+}
+
+
+.xui.form-checkbox.-box.-primary input[type="checkbox"]:checked + label::after {
+	background-color: #2363B6;
+	background-image: none;	
+}
+
+.xui-form-checkbox.-box.-primary input[type="checkbox"]:focus:checked + label::after,
+.xui.form-checkbox.-box.-primary input[type="checkbox"]:active:checked + label::after{
+	background-color: #1A72E2;
+	background-image: none;
+}
+
+
+.xui.form-checkbox.-box.-success input[type="checkbox"]:checked + label::after {
+	background-color: #659234;
+	background-image: none;	
+}
+
+.xui-form-checkbox.-box.-success input[type="checkbox"]:focus:checked + label::after,
+.xui.form-checkbox.-box.-success input[type="checkbox"]:active:checked + label::after{
+	background-color: #7ABA35;
+	background-image: none;
+}
+
+
+.xui.form-checkbox.-box.-info input[type="checkbox"]:checked + label::after {
+	background-color: #2084A9;
+	background-image: none;	
+}
+
+.xui-form-checkbox.-box.-info input[type="checkbox"]:focus:checked + label::after,
+.xui.form-checkbox.-box.-info input[type="checkbox"]:active:checked + label::after{
+	background-color: #1AA2D1;
+	background-image: none;
+}
+
+
+.xui.form-checkbox.-box.-warning input[type="checkbox"]:checked + label::after {
+	background-color: #E19B0B;
+	background-image: none;	
+}
+
+.xui-form-checkbox.-box.-warning input[type="checkbox"]:focus:checked + label::after,
+.xui.form-checkbox.-box.-warning input[type="checkbox"]:active:checked + label::after{
+	background-color: #FFB807;
+	background-image: none;
+}
+
+
+.xui.form-checkbox.-box.-danger input[type="checkbox"]:checked + label::after {
+	background-color: #AF2331;
+	background-image: none;	
+}
+
+.xui-form-checkbox.-box.-danger input[type="checkbox"]:focus:checked + label::after,
+.xui.form-checkbox.-box.-danger input[type="checkbox"]:active:checked + label::after{
+	background-color: #DE182C;
+	background-image: none;
+}
+
+
+
+.xui.form-checkbox.-box.-disabled input[type="checkbox"]:checked + label::after,
+.xui.form-checkbox.-box.-disabled input[type="checkbox"]:focus + label::after,
+.xui.form-checkbox.-box.-disabled input[type="checkbox"]:active + label::after,
+.xui-form-checkbox.-box.-disabled input[type="checkbox"]:focus:checked + label::after,
+.xui.form-checkbox.-box.-disabled input[type="checkbox"]:active:checked + label::after {
+	background-color: #CCCCCC;
+	background-image: none;	
+}
+
+
+

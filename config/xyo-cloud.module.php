@@ -25,7 +25,9 @@ $this->setModule("lib",null,"lib-cropit");
 $this->setModule("lib",null,"lib-rainbow");
 $this->setModule("lib",null,"lib-jquery-autocompleter");
 //
+include("xyo-cloud.xui-lib.php");
 include("xyo-cloud.xui.php");
+include("xyo-cloud.xui-build.php");
 //
 $this->setModule("lib",null,"lib-js-cookie");
 $this->setModule("lib",null,"lib-jquery-form");

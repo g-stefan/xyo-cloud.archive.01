@@ -11,15 +11,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_FormTextarea";
 
 class xui_FormTextarea extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_FormTextarea")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
+			$this->setHtmlCss($this->site."lib/xui/css/xui-form-textarea.css");
         	}
 	}
-
 }

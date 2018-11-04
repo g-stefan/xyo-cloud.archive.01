@@ -1,0 +1,89 @@
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.alert {
+	display: block;
+	position: relative;
+	width: auto;
+
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+	font-family: "Roboto", sans-serif;
+
+	border-radius: 3px;
+
+	padding-top: 13px;
+	padding-left: 16px;
+	padding-bottom: 13px;
+	padding-right: 16px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	color: #444444;
+	background-color: #FFFFFF;
+	border-top: 1px solid #DDDDDD; 
+	border-right: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+	border-left: 1px solid #DDDDDD;
+}
+
+
+.xui.alert.-primary {
+	color: #174076;
+	background-color: #CADCF5;
+	border: 1px solid #2363B6;
+}
+
+
+.xui.alert.-success {
+	color: #3E5A20;
+	background-color: #D7E9C2;
+	border: 1px solid #659234;
+}
+
+
+.xui.alert.-info {
+	color: #145269;
+	background-color: #BCE4F2;
+	border: 1px solid #2084A9;
+}
+
+
+.xui.alert.-warning {
+	color: #986907;
+	background-color: #FDF0D5;
+	border: 1px solid #E19B0B;
+}
+
+
+.xui.alert.-danger {
+	color: #6F161F;
+	background-color: #F3C4C9;
+	border: 1px solid #AF2331;
+}
+
+
+.xui.alert.-disabled {
+	color: #EEEEEE;
+	background-color: #FFFFFF;
+	border: 1px solid #EEEEEE;
+}
+
+
+
+

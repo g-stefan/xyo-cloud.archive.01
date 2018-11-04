@@ -1,3 +1,4 @@
+
 /*
 //
 // Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
@@ -7,21 +8,22 @@
 //
 */
 
-/* --- effect ripple --- */
 
-.xui_effect-ripple__element {
+
+.xui.-effect-ripple_element {
 	display: block;
 	position: absolute;
-	background-color: #000000;
+	background-color: rgba(0,0,0,0.1);
 	border-radius: 50%;
 	opacity: 0.1;
 }
 
-.xui_effect-ripple__super {
+.xui.-effect-ripple_super {
 	display: block;
 	position: relative;
 	overflow: visible;
 	height: 0px;
 	width: 100%;
 }
+
 

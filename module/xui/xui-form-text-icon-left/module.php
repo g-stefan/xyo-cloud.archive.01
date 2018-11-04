@@ -11,15 +11,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_FormTextIconLeft";
 
 class xui_FormTextIconLeft extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_FormTextIconLeft")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
+			$this->setHtmlCss($this->site."lib/xui/css/xui-form-text-icon-left.css");
         	}
 	}
-
 }

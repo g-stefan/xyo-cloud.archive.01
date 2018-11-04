@@ -11,14 +11,11 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_Responsive";
 
 class xui_Responsive extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Responsive")) {
 			$this->setHtmlCss($this->site."lib/xui/css/xui-responsive.css");
 			$this->setHtmlJs($this->site."lib/xui/js/xui-responsive.js");
-			$this->setHtmlJs($this->site."lib/xui/js/xui-responsive-element.js");
         	}
 	}
-
 }

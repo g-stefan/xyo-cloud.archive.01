@@ -11,19 +11,11 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_FormTextMaterial";
 
 class xui_FormTextMaterial extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_FormTextMaterial")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
-			$this->setHtmlJs($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"js"
-			)));
+			$this->setHtmlCss($this->site."lib/xui/css/xui-form-text-material.css");
+			$this->setHtmlJs($this->site."lib/xui/js/xui-form-text-material.js");
         	}
 	}
-
 }

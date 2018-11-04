@@ -7,24 +7,24 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
+
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Form - Switch - <?php echo ucfirst($context); ?>
+</div>
 <form>
-
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<div class="xui-form-switch xui-form-switch_<?php echo $key; ?>">
-    <input type="checkbox" id="chekbox-item-<?php echo $key; ?>" name="chekbox-item" value="chekbox-option-<?php echo $key; ?>"<?php echo $disabled; ?>></input>
-    <label for="chekbox-item-<?php echo $key; ?>"><?php echo $key; ?></label>
-</div>
-<br />
-<?php }; ?>
-
+	<div class="xui form-switch -<?php echo $context; ?>">
+		<input type="checkbox" id="switch-item-1-<?php echo $context; ?>" name="switch-item-1-<?php echo $context; ?>" value="switch-option-1-<?php echo $context; ?>"<?php echo $disabled; ?> checked="checked"></input>
+		<label for="switch-item-1-<?php echo $context; ?>">Item 1</label>
+	</div>
+	<div class="xui form-switch -<?php echo $context; ?>">
+		<input type="checkbox" id="switch-item-2-<?php echo $context; ?>" name="switch-item-2-<?php echo $context; ?>" value="switch-option-2-<?php echo $context; ?>"<?php echo $disabled; ?>></input>
+		<label for="switch-item-2-<?php echo $context; ?>">Item 2</label>
+	</div>
 </form>
-</div>
+<?php }; ?>
+	

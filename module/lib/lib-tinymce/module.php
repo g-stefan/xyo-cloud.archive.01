@@ -15,8 +15,8 @@ class lib_TinyMCE extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_TinyMCE")) {
-		$this->setHtmlJs($this->site."lib/tinymce/js/tinymce.min.js");
-		$this->setHtmlJs($this->site."lib/tinymce/js/jquery.tinymce.min.js");
+		$this->setHtmlJs($this->site."lib/tinymce/tinymce.min.js");
+		$this->setHtmlJs($this->site."lib/tinymce/jquery.tinymce.min.js");
 	}
     }
 

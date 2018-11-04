@@ -10,6 +10,6 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
                                                 
-$this->palette["core-bittersweet-v1"]="#FC6E51";
-$this->palette["core-bittersweet-v2"]="#E9573F";
-$this->palette["core-bittersweet"]=$this->xuiColor->rgbHexMiddle($this->palette["core-bittersweet-v1"],$this->palette["core-bittersweet-v2"]);
+$this->palette["core-bittersweet-1"]="#FC6E51";
+$this->palette["core-bittersweet-2"]="#E9573F";
+$this->palette["core-bittersweet"]=$this->color->rgbHexMiddle($this->palette["core-bittersweet-1"],$this->palette["core-bittersweet-2"]);

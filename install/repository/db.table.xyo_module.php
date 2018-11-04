@@ -15,9 +15,6 @@ if ($setup) {
 	$setup->registerModule(null, null, "xui");
 	$setup->registerModuleAcl("xui", "xyo-none", null, null, 0, true);
 
-	$setup->registerModule("xui", null, "xui-app-xui");
-	$setup->registerModuleAcl("xui-app-xui", "xyo-control-panel", "administrator", "wheel", 300, true);
-
 	// xyo-app
 	$setup->registerModule(null, null, "xyo-app");
 	$setup->registerModuleAcl("xyo-app", "xyo-none", null, null, 0, true);

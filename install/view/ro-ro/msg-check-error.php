@@ -9,6 +9,6 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 ?>
-<div class="xui-alert xui-alert_danger">
+<div class="xui alert -danger">
 Modificati drepturile si incercati din nou!
 </div>

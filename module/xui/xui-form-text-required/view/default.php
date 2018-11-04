@@ -7,24 +7,18 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
-<form>
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
 
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<label class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label><br>
-<div class="xui-form-text-required xui-form-text-required_<?php echo $key; ?>">
-<input type="text" value="" <?php echo $disabled; ?>></input>
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Form - Text Required - <?php echo ucfirst($context); ?>
 </div>
-<br />
-<?php }; ?>
-
+<form style="position:relative;width:480px;">
+	<div class="xui form-text-required -<?php echo $context; ?>">
+		<input type="text" name="text-required-<?php echo $context; ?>" value="<?php echo $context; ?>"<?php echo $disabled; ?>></input>
+	</div>
 </form>
-</div>
+<?php }; ?>	

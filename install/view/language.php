@@ -16,22 +16,22 @@ $languageList = array(
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"disabled",
 	"try"=>"disabled",
 	"next"=>"primary"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
 ?>
-			<label for="website_language" class="xui-form-label">
-			<?php $this->generateViewLanguage("msg-language"); ?>
-			</label>
-			<br />
-                    <select class="xui-form-select" name="website_language" onChange="this.form.submit();">
+	<label for="website_language" class="xui form-label">
+	<?php $this->generateViewLanguage("msg-language"); ?>
+	</label>
+	<br />
+	<select class="xui form-select -defult" id="website_language" name="website_language" data-xui-select-theme="-default" onChange="this.form.submit();">
 <?php
                     foreach ($languageList as $key => $value) {
                         $selected = "";
@@ -42,13 +42,15 @@ echo "<br />";
                     }
 
 ?>
-		    </select> 
+	</select> 
+
+
 
 <?php
-                    $this->eFormRequest(array(
-                        "back" => "language",
-                        "this" => "language",
-                        "next" => "license"
-                    ));
+	$this->eFormRequest(array(
+        	"back" => "language",
+		"this" => "language",
+		"next" => "license"
+	));
 
 $this->generateComponent("xui.form-action-end");

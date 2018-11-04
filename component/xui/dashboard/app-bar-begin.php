@@ -1,1 +1,0 @@
-<div class="xui-app-bar xui_elevation_4">

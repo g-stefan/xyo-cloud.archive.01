@@ -10,10 +10,10 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->palette["tango-aluminium-p1"]="#EEEEEC";
-$this->palette["tango-aluminium-p2"]="#D3D7CF";
-$this->palette["tango-aluminium-p3"]="#BABDB6";
-$this->palette["tango-aluminium-p4"]="#888A85";
-$this->palette["tango-aluminium-p5"]="#555753";
-$this->palette["tango-aluminium-p6"]="#2E3436";
+$this->palette["tango-aluminium-1"]="#EEEEEC";
+$this->palette["tango-aluminium-2"]="#D3D7CF";
+$this->palette["tango-aluminium-3"]="#BABDB6";
+$this->palette["tango-aluminium-4"]="#888A85";
+$this->palette["tango-aluminium-5"]="#555753";
+$this->palette["tango-aluminium-6"]="#2E3436";
 

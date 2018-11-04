@@ -11,12 +11,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_ListGroup";
 
 class xui_ListGroup extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_ListGroup")) {
 			$this->setHtmlCss($this->site."lib/xui/css/xui-list-group.css");
         	}
 	}
-
 }

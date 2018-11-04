@@ -21,14 +21,14 @@ foreach ($path as $key => $value) {
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"default",
 	"try"=>"default",
 	"next"=>$allOk?"primary":"disabled"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
 
@@ -36,19 +36,28 @@ if($allOk){
 	$this->generateViewLanguage("msg-check-ok");
 }else{
 	$this->generateViewLanguage("msg-check-error");
-	echo "<ul class=\"list-group\">";
+	echo "<br />";
+	echo "<div class=\"xui list-group\">";
+	echo "<div class=\"xui list-group_content\">";
 
 		foreach ($path as $key => $value) {
 			if ($value == "yes") {
 				continue;
 			};
-			echo "<li class=\"list-group-item list-group-item-danger\">";
-                        echo $key;
-			echo "<span class=\"glyphicon glyphicon-remove pull-right\"></span>";
-                        echo "</li>";
+			echo "<div class=\"xui list-group_item\">";
+				echo "<div class=\"xui list-group_item_text\">";
+		                        echo $key;
+				echo "</div>";			
+				echo "<div class=\"xui list-group_item_icon-right\" style=\"color: #AA0000;\">";
+					echo "<i class=\"material-icons\">highlight_off</i>";
+	                        echo "</div>";
+                        echo "</div>";
 		};
 
-	echo "</ul>";
+	echo "</div>";
+	echo "</div>";
+	echo "<br />";
+	echo "<br />";
 };
 
 

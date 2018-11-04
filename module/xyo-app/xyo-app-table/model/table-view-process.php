@@ -104,7 +104,7 @@ $this->viewData = array();
 $data = array();
 
 
-$count = trim($this->getRequest("count", 15));
+$count = trim($this->getRequest("count", 25));
 $page = trim($this->getRequest("page", 1));
 
 $this->setKeepRequest("view_count",$count);

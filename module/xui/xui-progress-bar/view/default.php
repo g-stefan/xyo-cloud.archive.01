@@ -7,22 +7,22 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
 
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<div class="xui-progress-bar xui-progress-bar_<?php echo $key; ?>">
-	<div class="xui-progress-bar__background"></div>
-	<div class="xui-progress-bar__bar"></div>
-	<div class="xui-progress-bar__label">50%</div>
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+
+<div class="xui text -label-40">
+	Progress Bar - <?php echo ucfirst($context); ?>
 </div>
-<br />
+
+<div class="xui progress-bar -<?php echo $context; ?>">
+	<div class="xui progress-bar_background"></div>
+	<div class="xui progress-bar_bar"></div>
+	<div class="xui progress-bar_label">50%</div>
+</div>
+
 <?php }; ?>
-
-</div>
+	

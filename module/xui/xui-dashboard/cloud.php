@@ -9,14 +9,14 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setModuleAsApplication($module);
+$this->setVersion($module, "1.0.0");
 
-$this->setReferenceLink($module, "lib-material-icons");
-
-$this->setReferenceLink($module, "xui-core");
-$this->setReferenceLink($module, "xui-effect-ripple");
-$this->setReferenceLink($module, "xui-color");
-$this->setReferenceLink($module, "xui-palette");
+$this->setReferenceLink($module, "xui-text");
+$this->setReferenceLink($module, "xui-toggle");
+$this->setReferenceLink($module, "xui-button");
 $this->setReferenceLink($module, "xui-elevation");
 $this->setReferenceLink($module, "xui-responsive");
-$this->setReferenceLink($module, "xui-typography");
-$this->setReferenceLink($module, "xui-toggle");
+$this->setReferenceLink($module, "xui-action");
+$this->setReferenceLink($module, "xui-menu");
+$this->setReferenceLink($module, "xui-app-header");
+$this->setReferenceLink($module, "xui-app-user");

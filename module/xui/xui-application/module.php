@@ -16,7 +16,7 @@ class xui_Application extends xyo_Module {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Application")) {
 			$this->setHtmlCss($this->site."lib/xui/css/xui-application.css");
-        	}
+        	}	
 	}
 
 }

@@ -15,7 +15,7 @@ if($this->getElementValueNumber($element,0)>0){
 };
 
 ?>
-<div class="xui-form-switch <?php if($this->isElementError($element)){echo " xui-form-switch_danger";}; ?>">
+<div class="xui form-switch <?php if($this->isElementError($element)){echo " -danger";}; ?>">
 	<input type="checkbox"
 	name="<?php $this->eElementName($element); ?>"
 	value="1" <?php echo $on; ?>

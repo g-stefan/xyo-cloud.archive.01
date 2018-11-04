@@ -10,6 +10,6 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->palette["core-lavender-v1"]="#AC92EC";
-$this->palette["core-lavender-v2"]="#967ADC";
-$this->palette["core-lavender"]=$this->xuiColor->rgbHexMiddle($this->palette["core-lavender-v1"],$this->palette["core-lavender-v2"]);
+$this->palette["core-lavender-1"]="#AC92EC";
+$this->palette["core-lavender-2"]="#967ADC";
+$this->palette["core-lavender"]=$this->color->rgbHexMiddle($this->palette["core-lavender-1"],$this->palette["core-lavender-2"]);

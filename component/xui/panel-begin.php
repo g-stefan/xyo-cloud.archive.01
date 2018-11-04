@@ -12,9 +12,9 @@ $title=$this->getArgument("title-text",$this->getFromLanguage($this->getArgument
 $noTitle=$this->getArgument("no-title",0);
 
 ?>
-<div class="xui-panel">
+<div class="xui panel -elevation-4">
 <?php if(!$noTitle) {?>
-	<div class="xui-panel__title"><?php echo $title; ?></div>
-	<div class="xui-panel__line"></div>
+	<div class="xui panel_title"><?php echo $title; ?></div>
+	<div class="xui panel_line"></div>
 <?php }; ?>
-	<div class="xui-panel__content">
+	<div class="xui panel_content">

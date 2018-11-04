@@ -7,52 +7,40 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
+?>
 
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
+
+<?php
 
 $script="";
 
-$script.="var data = [";
-$script.="  { value: \"one\", label: \"one\" },";
-$script.="  { value: \"two\", label: \"two\" },";
-$script.="  { value: \"three\", label: \"three\" }";
-$script.="];";
-
 ?>
 
-<div style="padding:32px;">
-<form>
-
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<div class="xui-form-autocompleter" style="width:240px;">
-	<label class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label><br>
-	<input type="text" id="autocomplete_<?php echo $key; ?>" value="" class="xui-form-text xui-form-text_<?php echo $key; ?>"<?php echo $disabled; ?> autocomplete="off" style="width:100%;"></input>
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Form - Autocomplete - <?php echo ucfirst($context); ?>
 </div>
-<br />
+<form style="position:relative;width:480px;">
+	<input class="xui form-text -<?php echo $context; ?>" type="text" id="autocomplete-<?php echo $context; ?>" name="autocomplete-<?php echo $context; ?>" value=""<?php echo $disabled; ?> autocomplete="off"></input>
+</form>
+
 <?php
 
-$script.="$(\"#autocomplete_".$key."\").autocompleter({";
-if($key==="primary"){
-	$script.="source: \"".$this->requestUriThis(array("action"=>"data","ajax"=>"1"))."\",";
-}else{
-	$script.="source: data,";
-};
+$script.="$(\"#autocomplete-".$context."\").autocompleter({";
+$script.="source: \"".$this->requestUriThis(array("action"=>"data","ajax"=>"1"))."\",";
 $script.="delay: 300,";
 $script.="highlightMatches: true,";
 $script.="limit: 10,";
 $script.="cache: false,";
-$script.="customClass:[\"xui-form-autocompleter\"]";
+$script.="customClass:[\"xui-form-autocomplete\"]";
 $script.="});";
 
 ?>
 
-<?php }; ?>
+<?php }; ?>	
 
-</form>
-</div>
+<?php
 
-<?php 
 $this->setHtmlJsSourceOrAjax($script,"load");

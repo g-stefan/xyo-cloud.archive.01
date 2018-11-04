@@ -16,23 +16,21 @@ defined("XYO_CLOUD") or die("Access is denied");
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<?php $this->eHtmlTitle(); ?>
 		<?php $this->eHtmlDescription(); ?>
+		<?php $this->eHtmlIcon(); ?>
 		<?php $this->eHtmlCss(); ?>
-		<style>
-		.xui-panel__title{
-			background-color: #EEEEEE !important;
-		}
-		</style>
 	</head>
     <body<?php $this->eHtmlBodyClass(); ?>>
 
+	<div class="xyo install-application-top-space"></div>
+
 	<?php
-	$this->generateComponent("xui.box-x-900-begin",array("top-space"=>1));
+	$this->generateComponent("xui.box-x-900-begin");
 	$this->generateComponent("xui.panel2-begin");
 	?>
 	
 	            <img src="<?php echo $this->site; ?>lib/xyo/images/xyo-32.png" style="width:32px;height:32px;border: 0px;vertical-align: middle;" alt="XYO" ></img>
         	    <span style="font-family:arial;color:#0194FE;font-size:22px;font-weight:bold;vertical-align: middle;">&#160;CLOUD&#160;</span>
-	            <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;padding-top:16px;padding-bottom:0px;margin-bottom:0px;overflow:hidden;height:32px;box-sizing: border-box;">
+	            <span class="xui -right" style="font-family:arial;color:#0194FE;font-size:11px;padding-top:16px;padding-bottom:0px;margin-bottom:0px;overflow:hidden;height:32px;box-sizing: border-box;">
         	        <?php echo $this->cloud->get("xyo_cloud_version"); ?>
 	            </span>
 
@@ -43,7 +41,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 	$this->generateComponent("xui.panel2-footer");
 
 	?>
-        	    <span class="xui_right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2018&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
+        	    <span class="xui -right" style="font-family:arial;color:#0194FE;font-size:11px;"><?php echo $this->getFromLanguage("copyright"); ?>&#160;&copy;&#160;2018&#160;<a href="http://www.xyo.ro" style="text-decoration:none;"><span style="font-family:arial;color:#0194FE;">Grigore Stefan</span></a></span>
 
 	<?php
 

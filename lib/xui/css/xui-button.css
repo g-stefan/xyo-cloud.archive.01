@@ -1,0 +1,139 @@
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.button.-size-32x40{
+	position: relative;
+	border-radius: 3px;
+	width: 32px;
+	height: 40px;
+	padding-left: 4px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-right: 4px;
+	overflow: hidden;
+	cursor: pointer;
+	font-size:24px;
+	line-height: 24px;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.button.-size-32x40.-circle{
+	position: relative;
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;	
+	padding-left: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 4px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	overflow: hidden;
+	cursor: pointer;
+	font-size:24px;
+	line-height: 24px;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.button.-size-40x40{
+	position: relative;
+	border-radius: 3px;
+	width: 40px;
+	height: 40px;	
+	padding-left: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-right: 8px;
+	overflow: hidden;
+	cursor: pointer;
+	font-size:24px;
+	line-height: 24px;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+a.xui.button,
+a.xui.button:link
+a.xui.button:hover,
+a.xui.button:active,
+a.xui.button:visited {
+	color:inherit;
+	text-align: center;
+	text-decoration: none;
+}
+

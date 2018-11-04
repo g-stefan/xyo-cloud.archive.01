@@ -7,21 +7,17 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
-<form>
-
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<label class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label>
-<br />
-<?php }; ?>
-
-</form>
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
+<?php foreach($xuiContext->context as $context){ ?>
+<div class="xui text -label-40">
+	Form - Label - <?php echo ucfirst($context); ?>
 </div>
+<form>
+	<label class="xui form-label -<?php echo $context; ?>">
+	Label - <?php echo $context; ?>
+	</label>
+</form>
+<?php }; ?>
+	

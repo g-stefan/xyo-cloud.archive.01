@@ -7,26 +7,33 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-
-$xuiColor=&$this->getModule("xui-color");
-$xuiPalette=&$this->getModule("xui-palette");
-$xuiTheme=&$this->getModule("xui-theme");
-
 ?>
 
-<div style="padding:32px;">
-<form>
+<?php $xuiContext=&$this->getModule("xui-context"); ?>
 
-<?php foreach($xuiTheme->theme as $key=>$value){ ?>
-<?php $disabled=""; if($key=="disabled"){ $disabled=" disabled=\"disabled\""; }; ?>
-<label class="xui-form-label xui-form-label_<?php echo $key; ?>"><?php echo $key; ?></label><br>
-<div class="xui-form-text-icon-right xui-form-text-icon-right_<?php echo $key; ?>">
-<input type="text" value="" <?php echo $disabled; ?>></input>
-<i class="material-icons">person</i>
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Form - Text Icon Right - <?php echo ucfirst($context); ?>
 </div>
-<br />
+<form style="position:relative;width:480px;">
+	<div class="xui form-text-icon-right -<?php echo $context; ?>">
+		<input type="text" name="text-icon-right-<?php echo $context; ?>" value="<?php echo $context; ?>"<?php echo $disabled; ?>></input>
+		<i class="material-icons">person</i>
+	</div>
+</form>
 <?php }; ?>
 
-</form>
+<?php foreach($xuiContext->context as $context){ ?>
+<?php $disabled=($context=="disabled")?" disabled=\"disabled\"":""; ?>
+<div class="xui text -label-40">
+	Form - Text Icon Right - Required - <?php echo ucfirst($context); ?>
 </div>
+<form style="position:relative;width:480px;">
+	<div class="xui form-text-icon-right -required -<?php echo $context; ?>">
+		<input type="text" name="text-icon-right-required-<?php echo $context; ?>" value="<?php echo $context; ?>"<?php echo $disabled; ?>></input>
+		<i class="material-icons">person</i>
+	</div>
+</form>
+<?php }; ?>
 

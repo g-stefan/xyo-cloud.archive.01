@@ -8,7 +8,7 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 ?>                 
-<div class="xui-button xui-button_size-40x40 xui_left" style="text-align:center;" id="xyo-mod-status-ajax">
+<div class="xui button -size-32x40 -circle -left" style="text-align:center;" id="xyo-mod-status-ajax">
 	<i class="material-icons">wifi</i>
 	<i class="material-icons" id="xyo-mod-status-ajax-error">report</i>
 </div>

@@ -8,18 +8,13 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$className = "xui_FormTextRquired";
+$className = "xui_FormTextRequired";
 
-class xui_FormTextRquired extends xyo_Module {
-
+class xui_FormTextRequired extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
-		if ($this->isBase("xui_FormTextRquired")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
+		if ($this->isBase("xui_FormTextRequired")) {
+			$this->setHtmlCss($this->site."lib/xui/css/xui-form-text-required.css");
         	}
 	}
-
 }

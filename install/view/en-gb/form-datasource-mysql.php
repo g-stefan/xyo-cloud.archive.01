@@ -18,7 +18,9 @@ $this->generateComponent("xui.form-text-icon-left",array("element"=>"database","
 $this->generateComponent("xui.form-text-icon-left",array("element"=>"prefix","icon"=>"<i class=\"material-icons\">device_hub</i>"));
 
 ?>
-                                                        
-<div class="xui-alert xui-alert_info">
+
+<br />                                                        
+<div class="xui alert -info">
 Notice: Database must already exists on your server before installation.
 </div>
+<br />

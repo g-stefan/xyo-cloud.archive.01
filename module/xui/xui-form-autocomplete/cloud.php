@@ -9,14 +9,10 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $this->setModuleAsApplication($module);
-$this->setReferenceLink($module, "lib-normalize");
-$this->setReferenceLink($module, "lib-roboto-regular");
-$this->setReferenceLink($module, "lib-jquery-autocompleter");
+$this->setVersion($module, "1.0.0");
+
+$this->setReferenceLink($module, "xui-context");
 $this->setReferenceLink($module, "xui-core");
-$this->setReferenceLink($module, "xui-elevation");
-$this->setReferenceLink($module, "xui-effect-ripple");
-$this->setReferenceLink($module, "xui-typography");
-$this->setReferenceLink($module, "xui-color");
-$this->setReferenceLink($module, "xui-palette");
-$this->setReferenceLink($module, "xui-form-label");
+$this->setReferenceLink($module, "xui-text");
 $this->setReferenceLink($module, "xui-form-text");
+$this->setReferenceLink($module, "lib-jquery-autocompleter");

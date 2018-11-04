@@ -12,4 +12,4 @@ $title=$this->getArgument("title",$this->getParameter("form_title"));
 
 ?>
 	</div>
-	<div class="xui-inner-box-1x2">
+	<div class="xui inner-box -x1x2">

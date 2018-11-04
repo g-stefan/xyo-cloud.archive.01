@@ -10,14 +10,14 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 $this->generateComponent("xui.form-action-begin");
 
-echo "<div class=\"xui_right\">";
+echo "<div class=\"xui -right\">";
 $this->generateComponent("xui.form-submit-button-group",array("group"=>array(
 	"back"=>"default",
 	"try"=>"default",
 	"next"=>"primary"
 )));
 echo "</div>";
-echo "<div class=\"xui-separator\"></div>";
+echo "<div class=\"xui separator\"></div>";
 echo "<br />";
 
                     $mode = $this->getRequest("mode");
@@ -84,28 +84,28 @@ echo "<br />";
                     }
 	
 
-		echo "<ul class=\"list-group\">";
+		echo "<div class=\"xui list-group\">";
+		echo "<div class=\"xui list-group_content\">";
+
 
                     $error = false;
                     foreach ($listModule as $key => $value) {
                         if ($value) {
-				echo "<li class=\"list-group-item list-group-item-success\">";
-	                            echo $key;
-				echo "<span class=\"glyphicon glyphicon-ok pull-right\"></span>";
-	                        echo "</li>";
-				
+				echo "<div class=\"xui list-group_item\">";
+					echo "<div class=\"xui list-group_item_text\">".$key."</div>";
+					echo "<div class=\"xui list-group_item_icon-right\"><i class=\"material-icons\">done</i></div>";
+				echo "</div>";				
                         } else {
-
-				echo "<li class=\"list-group-item list-group-item-danger\">";
-	                            echo $key;
-				echo "<span class=\"glyphicon glyphicon-remove pull-right\"></span>";
-	                        echo "</li>";
-
+				echo "<div class=\"xui list-group_item\">";						
+					echo "<div class=\"xui list-group_item_text\">".$key."</div>";
+					echo "<div class=\"xui list-group_item_icon-right\"><i class=\"material-icons\">highlight_off</i></div>";
+				echo "</div>";
                             $error = true;
                         }
                     }
 
-		echo "</ul>";
+		echo "</div>";
+		echo "</div>";
 
                     if ($error) {
                         $this->setError("module_not_found");

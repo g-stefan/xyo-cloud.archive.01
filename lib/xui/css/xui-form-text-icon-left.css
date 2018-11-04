@@ -1,0 +1,250 @@
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-text-icon-left{
+	position: relative;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+.xui.form-text-icon-left > input {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+	width: 100%;
+
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+
+	color: #444444;
+	background-color: #FFFFFF;
+	border-radius:  3px;
+	height: 32px;
+
+	transition: border 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+.xui.form-text-icon-left > input:focus{
+	outline: none;
+}
+
+
+.xui.form-text-icon-left > input{
+	color: #444444;
+	border: 1px solid #C2CEE1;
+}
+
+.xui.form-text-icon-left > input:focus{
+	color: #000000;
+	border: 1px solid #1A72E2; 
+	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+}
+
+
+.xui.form-text-icon-left.-primary > input{
+	color: #2363B6;
+	border: 1px solid #2363B6;
+}
+
+.xui.form-text-icon-left.-primary > input:focus{
+	color: #000000;
+	border: 1px solid #1A72E2; 
+	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+}
+
+
+.xui.form-text-icon-left.-success > input{
+	color: #659234;
+	border: 1px solid #659234;
+}
+
+.xui.form-text-icon-left.-success > input:focus{
+	color: #000000;
+	border: 1px solid #7ABA35; 
+	box-shadow: 0px 0px 0px 3px rgba(122,186,53,0.2510);
+}
+
+
+.xui.form-text-icon-left.-info > input{
+	color: #2084A9;
+	border: 1px solid #2084A9;
+}
+
+.xui.form-text-icon-left.-info > input:focus{
+	color: #000000;
+	border: 1px solid #1AA2D1; 
+	box-shadow: 0px 0px 0px 3px rgba(26,162,209,0.2510);
+}
+
+
+.xui.form-text-icon-left.-warning > input{
+	color: #E19B0B;
+	border: 1px solid #E19B0B;
+}
+
+.xui.form-text-icon-left.-warning > input:focus{
+	color: #000000;
+	border: 1px solid #FFB807; 
+	box-shadow: 0px 0px 0px 3px rgba(255,184,7,0.2510);
+}
+
+
+.xui.form-text-icon-left.-danger > input{
+	color: #AF2331;
+	border: 1px solid #AF2331;
+}
+
+.xui.form-text-icon-left.-danger > input:focus{
+	color: #000000;
+	border: 1px solid #DE182C; 
+	box-shadow: 0px 0px 0px 3px rgba(222,24,44,0.2510);
+}
+
+
+.xui.form-text-icon-left.-disabled > input,
+.xui.form-text-icon-left.-disabled > input:focus{
+	outline: none;
+	color: #D3D7CF;
+	border: 1px solid #D3D7CF;
+	box-shadow: none; 
+}
+
+
+
+
+
+.xui.form-text-icon-left input{
+	padding-left: 32px;
+}
+
+.xui.form-text-icon-left i{
+	display: block;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	font-size: 24px;
+	line-height: 24px;
+
+	color: #8FA5C8;
+
+	transition: all 0.3s ease;
+}
+
+.xui.form-text-icon-left input:focus + i{
+	color: #1A72E2;
+}
+
+
+.xui.form-text-icon-left.-primary i{
+	color: #2363B6;
+}
+
+.xui.form-text-icon-left.-primary input:focus + i{
+	color: #1A72E2;
+}
+
+
+.xui.form-text-icon-left.-success i{
+	color: #659234;
+}
+
+.xui.form-text-icon-left.-success input:focus + i{
+	color: #7ABA35;
+}
+
+
+.xui.form-text-icon-left.-info i{
+	color: #2084A9;
+}
+
+.xui.form-text-icon-left.-info input:focus + i{
+	color: #1AA2D1;
+}
+
+
+.xui.form-text-icon-left.-warning i{
+	color: #E19B0B;
+}
+
+.xui.form-text-icon-left.-warning input:focus + i{
+	color: #FFB807;
+}
+
+
+.xui.form-text-icon-left.-danger i{
+	color: #AF2331;
+}
+
+.xui.form-text-icon-left.-danger input:focus + i{
+	color: #DE182C;
+}
+
+
+.xui.form-text-icon-left.-disabled i{
+	color: #CCCCCC;
+}
+
+.xui.form-text-icon-left.-disabled input:focus + i{
+	color: #CCCCCC;
+}
+
+
+
+
+
+/*
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+
+
+.xui.form-text-icon-left.-required::after{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	width: 8px;
+	height: 8px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	overflow: hidden;
+	background-color: #AF2331;
+}
+
+.xui.form-text-icon-left.-required.-disabled::after{
+	background-color: #CCCCCC;
+}
+
+

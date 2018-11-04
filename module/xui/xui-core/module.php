@@ -11,15 +11,11 @@ defined("XYO_CLOUD") or die("Access is denied");
 $className = "xui_Core";
 
 class xui_Core extends xyo_Module {
-
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("xui_Core")) {
-			$this->setHtmlCss($this->site."lib/xui/css/xui.css");
-			$this->setHtmlJs($this->site."lib/xui/js/xui.js");
-			$this->setHtmlClass("xui-html");
-			$this->setHtmlBodyClass("xui-body");
+			$this->setHtmlCss($this->site."lib/xui/css/xui-core.css");
+			$this->setHtmlJs($this->site."lib/xui/js/xui-core.js");
         	}
 	}
-
 }

@@ -15,9 +15,9 @@ class lib_AirDatePicker extends xyo_Module {
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("lib_AirDatePicker")) {
-			$this->setHtmlCss($this->site."lib/air-datepicker/css/datepicker.min.css");
-			$this->setHtmlJs($this->site."lib/air-datepicker/js/datepicker.min.js");
-			$this->setHtmlJs($this->site."lib/air-datepicker/js/i18n/datepicker.en.js");
+			$this->setHtmlCss($this->site."lib/air-datepicker/datepicker.min.css");
+			$this->setHtmlJs($this->site."lib/air-datepicker/datepicker.min.js");
+			$this->setHtmlJs($this->site."lib/air-datepicker/i18n/datepicker.en.js");
         	}
 	}
 

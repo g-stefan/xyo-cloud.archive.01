@@ -24,7 +24,7 @@ $layer=$this->getElementValueString("layer","xyo");
     }
 </script>
 
-<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" class="xui-application-form">
+<form name="<?php $this->eFormName(); ?>" method="POST" action="<?php $this->eFormAction(); ?>" class="xui application-form">
 
 <?php
 
@@ -34,12 +34,12 @@ $this->generateComponent("xui.panel-begin",array("title-text"=>$this->getFromLan
 ?>
 
 			
-						<label class="xui-form-label" for="<?php $this->eElementId("connection"); ?>">
+						<label class="xui form-label" for="<?php $this->eElementId("connection"); ?>">
 							<?php $this->eLanguage("select_connection"); ?>
 					    	</label><br />
 						<?php $this->generateView("form-select-connection"); ?>
 						<br />
-						<label class="xui-form-label" for="<?php $this->eElementId("layer"); ?>">
+						<label class="xui form-label" for="<?php $this->eElementId("layer"); ?>">
 							<?php $this->eLanguage("backup_to"); ?>
 						</label><br />
 						<?php $this->generateView("form-select-layer"); ?>

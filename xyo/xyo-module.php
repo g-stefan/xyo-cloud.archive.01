@@ -554,6 +554,10 @@ class xyo_Module extends xyo_Config {
 
 					$this->language->includeFile("component/".$componentPath."/language/".strtolower($this->getSystemLanguage())."/".$componentName.".php");
 					$this->processComponentX($componentPath."/",".require");
+					$componentPathLevel=dirname($componentFileName);
+					if(strcmp($componentPathLevel,$componentPath)!=0){
+						$this->processComponentX($componentPathLevel."/",".require");
+					};
 					$this->processComponentX($componentFileName,".require");
 					$this->componentCache[$appComponent]=$componentFileName;
 					if(file_exists("component/".$componentFileName.".php")) {
@@ -1070,6 +1074,10 @@ class xyo_Module extends xyo_Config {
 		return $this->cloud->get($name,$default);
 	}
 
+	public function getCloudPath() {
+		return $this->cloud->getCloudPath();
+	}
+
 	//
 	//  Util
 	//
@@ -1196,8 +1204,8 @@ class xyo_Module extends xyo_Config {
 		return false;
 	}
 
-	public function ePath() {
-		echo $this->path;
+	public function eSite() {
+		echo $this->site;
 	}
 
 	public function getArgumentParameterRequest($name, $default=null) {

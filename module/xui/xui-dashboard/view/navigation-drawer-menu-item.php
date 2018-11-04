@@ -1,103 +1,79 @@
 <?php
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+defined("XYO_CLOUD") or die("Access is denied");
+
 $item=$this->getArgument("item",array());
+
+$isPopup=false;
+if(array_key_exists("popup",$item)){
+	if(count($item["popup"])){
+		$isPopup=true;
+	};
+};
 
 $active=false;
 if(array_key_exists("active",$item)){
 	$active=$item["active"];
 };
 
-if(array_key_exists("popup",$item)){
-	if(count($item["popup"])){
-		$on=false;
-		if(array_key_exists("on",$item)){
-			$on=$item["on"];
-		};
-		if($on){
-			if($active){
-				echo "<div class=\"xui-popup xui-popup_active xui-popup_on\">";
-			}else{
-				echo "<div class=\"xuipopup xui-popup_on\">";
-			}
-		}else{
-			echo "<div class=\"xui-popup xui-popup_off\">";
-		};
-
-		if($active){
-			echo "<div class=\"xui-action xui-action_active xui_effect-ripple xui_toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup_on, xui-popup_off\">";
-		}else{
-			echo "<div class=\"xui-action xui_effect-ripple xui_toggle\" data-xui-toggle=\"parent\" data-xui-toggle-class=\"xui-popup_on, xui-popup_off\">";
-		};
-
-		echo "<div class=\"xui-icon-left\">";
-		if(array_key_exists("icon",$item)){
-			echo $item["icon"];
-		};
-		echo "</div>";
-		echo "<div class=\"xui-text\">";
-		if(array_key_exists("text",$item)){
-			echo $item["text"];
-		};
-		echo "</div>";
-		echo "<div class=\"xui-icon-right\">";
-			echo "<i class=\"material-icons\">chevron_right</i>";
-		echo "</div>";
-        
-		echo "</div>";
-
-		echo "<div class=\"xui-next\">";
-		$this->generateNavigationDrawerMenuView($item["popup"]);
-		echo "</div>";
-
-		echo "</div>";
-		return;
-	};	
+$url=" href=\"#\" onclick=\"return false;\"";
+if(array_key_exists("url",$item)){
+	$url=" href=\"".$item["url"]."\"";
+	if($isPopup){
+		$url.=" onclick=\"return false;\"";
+	};
 };
 
-$separator=false;
+$icon="";
+if(array_key_exists("icon",$item)){
+	$icon=$item["icon"];
+};
+
+$text="";
+if(array_key_exists("text",$item)){
+	$text=$item["text"];
+};
+
+
 if(array_key_exists("separator",$item)){
 	if($item["separator"]){
-		echo "<div class=\"xui-separator\">";
-		echo "<div class=\"xui-line\">";
-		echo "</div>";
+		echo "<div class=\"xui separator\">";
+			echo "<div class=\"xui line\"></div>";
 		echo "</div>";
 		return;
 	};
 };
-if(array_key_exists("url",$item)){
 
-	if($active){
-		echo "<a class=\"xui-action xui-action_active xui_effect-ripple\" href=\"".$item["url"]."\">";
-	}else{
-		echo "<a class=\"xui-action xui_effect-ripple\" href=\"".$item["url"]."\">";
-	};
-	echo "<div class=\"xui-icon-left\">";
-	if(array_key_exists("icon",$item)){
-		echo $item["icon"];
-	};
-	echo "</div>";
-	echo "<div class=\"xui-text\">";
-	if(array_key_exists("text",$item)){
-		echo $item["text"];
-	};
-	echo "</div>";
+echo "<div class=\"xui menu_item".($isPopup?" -submenu":"")."\">";
+echo "<div class=\"xui menu_item_content\">";
+	echo "<a class=\"xui action -effect-ripple".($active?" -selected":"").($isPopup?" -toggle":"")."\"".$url.($isPopup?" data-xui-toggle=\"parent-2\"":"").">";
+		echo "<div class=\"xui action_content\">";
+			echo "<div class=\"xui action_left\"></div>";
+			echo "<div class=\"xui action_icon-left\">";
+				echo $icon;
+			echo "</div>";
+			echo "<div class=\"xui action_text\">".$text."</div>";
+			echo "<div class=\"xui action_right\"></div>";
+			if($isPopup){
+				echo "<div class=\"xui action_icon-right\">";
+					echo "<i class=\"material-icons\">chevron_right</i>";
+				echo "</div>";
+			};
+		echo "</div>";
 	echo "</a>";
-	return;
-};
-
-if($active){
-	echo "<div class=\"xui-action xui-action_active xui_effect-ripple\">";
-}else{
-	echo "<div class=\"xui-action xui_effect-ripple\">";
-};
-echo "<div class=\"xui-icon-left\">";
-if(array_key_exists("icon",$item)){
-	echo $item["icon"];
-};
 echo "</div>";
-echo "<div class=\"xui-text\">";
-if(array_key_exists("text",$item)){
-	echo $item["text"];
+if($isPopup){
+	echo "<div class=\"xui menu_submenu\">";
+		echo "<div class=\"xui menu_submenu_content\">";
+			$this->generateNavigationDrawerMenuView($item["popup"]);
+		echo "</div>";
+	echo "</div>";
 };
-echo "</div>";
 echo "</div>";
 

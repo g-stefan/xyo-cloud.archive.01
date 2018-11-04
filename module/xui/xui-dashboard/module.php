@@ -8,25 +8,16 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$className = "xui_Dasboard";
+$className = "xui_Dashboard";
 
-class xui_Dasboard extends xyo_Module {
-
-	public $navigationDrawerOpenWidth;
-	public $navigationDrawerMiniWidth;
+class xui_Dashboard extends xyo_Module {
 
 	public function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
-		if ($this->isBase("xui_Dasboard")) {
-			$this->setHtmlCss($this->requestUriThis(array(
-				"ajax"=>1,
-				"action"=>"css"
-			)));
+		if ($this->isBase("xui_Dashboard")) {
+			$this->setHtmlCss($this->site."lib/xui/css/xui-dashboard.css");
 			$this->setHtmlJs($this->site."lib/xui/js/xui-dashboard.js");
         	}
-		
-		$this->navigationDrawerOpenWidth=(48+12+12)*4;
-		$this->navigationDrawerMiniWidth=48+12+12;		
 	}
 
 	public function scanNavigationDrawerMenuActive(&$menu){

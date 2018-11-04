@@ -8,7 +8,7 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-echo "<div class=\"xyo-mod-sys-panel\">";
+echo "<div class=\"xyo mod-sys-panel\">";
 
 if (count($this->panel)) {
 
@@ -16,9 +16,9 @@ if (count($this->panel)) {
 
 	if($item["type"]=="item"){
 
-		echo "<a class=\"thumbnail\" href=\"" . $item["url"] . "\">";
+		echo "<a class=\"xyo thumbnail\" href=\"" . $item["url"] . "\">";
 			echo $item["img"];
-			echo "<p class=\"caption\">";
+			echo "<p class=\"xyo caption\">";
 			echo $item["title"];
 			echo "</p>";
 		echo "</a>";
