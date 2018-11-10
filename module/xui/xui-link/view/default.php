@@ -8,6 +8,9 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 ?>
-<div class="xui box -space"></div>
-<div class="xui panel -elevation-4">
-	<div class="xui panel_title">
+
+<div class="xui text -label-40">
+	Link
+</div>
+
+<a class="xui link" href="#" onclick="return false;">link</a>

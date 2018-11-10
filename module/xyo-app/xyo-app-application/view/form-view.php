@@ -31,3 +31,4 @@ $this->generateComponent("xui.form-action-end",array(
 	)
 ));
 $this->generateView("form-call");
+$this->generateComponent("xui.box-space");

@@ -106,6 +106,12 @@ defined("XYO_CLOUD") or die("Access is denied");
 	clear: both;
 }
 
+@media only screen and (max-width: 599px){
+	.xui.panel.-elevation-4 {
+		box-shadow: none;
+	}
+}
+
 @media only screen and (min-width: 600px){
 
 	.xui.panel{

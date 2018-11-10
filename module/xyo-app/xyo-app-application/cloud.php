@@ -13,5 +13,7 @@ $this->setReferenceLink($module, "xyo-mod-toolbar");
 $this->setReferenceLink($module, "xui-alert");
 $this->setReferenceLink($module, "xui-responsive");
 $this->setReferenceBase($module, "xyo-mod-application");
+$this->setReferenceLink($module, "xui-application");
+
 $this->setVersion($module, "2.0.0");
 

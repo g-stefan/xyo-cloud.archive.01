@@ -42,6 +42,9 @@ defined("XYO_CLOUD") or die("Access is denied");
 	box-sizing: border-box;
 
 	font-family: "Roboto", sans-serif;
+
+	min-width: 22px;
+	min-height: 32px; 
 }
 
 /* --- */

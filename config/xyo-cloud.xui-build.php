@@ -68,4 +68,5 @@ $this->setModuleGroup("xui-inner-box","xui-build",++$order);
 $this->setModuleGroup("xui-line","xui-build",++$order);
 $this->setModuleGroup("xui-application","xui-build",++$order);
 $this->setModuleGroup("xui-form-separator","xui-build",++$order);
+$this->setModuleGroup("xui-link","xui-build",++$order);
 //

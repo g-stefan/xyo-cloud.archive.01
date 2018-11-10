@@ -21,8 +21,6 @@ if ($this->isAlert()) {
             $msgLang = $msg;
         }
     }
-
-	$this->hasAlert__=true;
 	
     ?>
 <div class="xui alert -info">

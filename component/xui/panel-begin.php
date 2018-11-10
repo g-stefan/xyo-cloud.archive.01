@@ -12,6 +12,7 @@ $title=$this->getArgument("title-text",$this->getFromLanguage($this->getArgument
 $noTitle=$this->getArgument("no-title",0);
 
 ?>
+<div class="xui box -space"></div>
 <div class="xui panel -elevation-4">
 <?php if(!$noTitle) {?>
 	<div class="xui panel_title"><?php echo $title; ?></div>

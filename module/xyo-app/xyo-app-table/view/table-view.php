@@ -205,13 +205,13 @@ function doValueSave(key){
 
 <?php
 		
-	echo "<div class=\"xui application-table\">";
-	echo "<div class=\"xui application-table_toolbar-top\">";
-	echo "<div class=\"xui application-table_toolbar-top_left\">";
+	echo "<div class=\"xyo application-table\">";
+	echo "<div class=\"xyo application-table_toolbar-top\">";
+	echo "<div class=\"xyo application-table_toolbar-top_left\">";
 	
 	if($has_search){
                 ?>
-		    <div class="xui -left" style="margin-left:4px;margin-top:4px;height:32px;">
+		    <div class="xui -left" style="margin-left:4px;margin-top:4px;">
 			<div class="xui form-input-group">
 				<input type="text" name="search" value="<?php echo $search_value; ?>" size="32" style="width:196px" placeholder="<?php $this->eLanguage("search"); ?>"></input>
 				<button type="submit" name="submit_search" onclick="$('#submit_search').val(1);$('#<?php $this->eFormName(); ?>').submit();return false;"><i class="material-icons">search</i></button>
@@ -223,12 +223,12 @@ function doValueSave(key){
           
 
         echo "</div>";
- 	echo "<div class=\"xui application-table_toolbar-top_right\">";
+ 	echo "<div class=\"xyo application-table_toolbar-top_right\">";
  	                        
         foreach (array_reverse($this->tableSelect,true) as $key => $value) {
             if ($value) {
                 ?>
-		<div class="xui -right" style="margin-right:4px;">
+		<div class="xui -right" style="margin-right:4px;margin-top:4px;">
 		<select name="view_select_<?php echo $key; ?>"
 			size="1"
 			onChange="this.form.submit();"		
@@ -260,7 +260,7 @@ function doValueSave(key){
                 foreach ($this->tableHead as $key => $value) {
 
 	                if ($key === "#") {
-	                    echo "<th class=\"xyo app-table_col_important\" style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;text-align:left;\">";
+	                    echo "<th class=\"xyo app-table_col_important -index\">";
 			}else{
 				$isImportant=false;
 				if(count($this->tableImportant)==0){
@@ -276,7 +276,7 @@ function doValueSave(key){
 					$classImportant="xyo app-table_col_important";
 				};
 
-				echo "<th class=\"".$classImportant."\" style=\"vertical-align:middle;\">";
+				echo "<th class=\"".$classImportant." -field-".$key."\">";
 			};
 
 
@@ -370,7 +370,7 @@ function doValueSave(key){
                 foreach ($this->tableHead as $key_ => $value_) {
 
 			if ($key_ === "#") {
-				echo "<td class=\"xyo app-table_col_important\" style=\"vertical-align:middle;width:32px;padding-top:0px;padding-bottom:4px;height:32px;text-align:left;\">";
+				echo "<td class=\"xyo app-table_col_important -index\">";
 			}else{
 				$isImportant=false;
 				if(count($this->tableImportant)==0){
@@ -499,7 +499,7 @@ function doValueSave(key){
 				};
 			}else
 			if($this->tableType[$key_][0]=="order"){
-				echo "<div class=\"xui form-input-group -left\">";
+				echo "<div class=\"xui form-input-group -left\" style=\"min-width: 130px;\">";
 		        		echo "<input type=\"text\"";
 						echo " name=\"order_" . $value[$this->primaryKey] . "\"";
 						echo " value=\"" . $value[$key_] . "\"";
@@ -630,7 +630,7 @@ function doValueSave(key){
 							}
                         		}
 					$p .= "}";
-		                        echo "<a class=\"xyo app-table_table_action\" href=\"".$this->requestUriThis($parameters)."\" onclick=\"callActionLink_".$key_."(".$p.");return false;\">" . $valueX . "</a>";
+		                        echo "<a class=\"xui link\" href=\"".$this->requestUriThis($parameters)."\" onclick=\"callActionLink_".$key_."(".$p.");return false;\">" . $valueX . "</a>";
 				}else{
 					echo $valueX;
 				};				
@@ -662,7 +662,7 @@ function doValueSave(key){
 				};
 
 				if($value["@write"]){
-		                        echo "<a class=\"xyo app-table_table_action\" href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $valueX . "</a>";
+		                        echo "<a class=\"xui link\" href=\"".$this->requestUriThis(array("action"=>"form-edit","primary_key_value"=>$value[$this->primaryKey]))."\" onclick=\"cmdDialogEdit('".$value[$this->primaryKey]."');return false;\">" . $valueX . "</a>";
 				}else{
 					echo $valueX;
 				};
@@ -692,7 +692,7 @@ function doValueSave(key){
 </div>
 
 </div>
-<div class="xui application-table_toolbar-bottom">
+<div class="xyo application-table_toolbar-bottom">
         <div style="margin-left:4px;margin-right:4px">
 	<div class="xui -left">
 		<div class="xui form-input-group">
@@ -831,33 +831,32 @@ foreach($this->tableType as $key_=>$value_){
 	$this->generateView("table-view-call");
 
 	$this->setHtmlJsSource(
-		"$(\"#xyo-app-table_table\").stickyTableHeaders({scrollableArea:$(\"#table-content\")});"
+		"\$(\"#xyo-app-table_table\").stickyTableHeaders({scrollableArea:\$(\"#table-content\")});"
 	,"load");
 
 	if($this->dialogNew_){
 		$this->setHtmlJsSource(
-			"$(\"#xyo-app-table-modal-new\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
+			"\$(\"#xyo-app-table-modal-new\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 		,"load");
 	};
 
 	if($this->dialogEdit_){
 		$this->setHtmlJsSource(
-			"$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
+			"\$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 		,"load");
 	};
 
 	$this->setHtmlJsSource(
-		"$(\"#xyo-app-table-modal-delete\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
+		"\$(\"#xyo-app-table-modal-delete\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 	,"load");
 
 	if($this->dialogNew_){
 		$originalFormName=$this->getFormName();			
 		$this->setFormName($originalFormName."_new");
 		$this->setHtmlJsSource(
-		"\r\n".
 		"function cmdDialogNew(){".
 			"\$(\"#xyo-app-table-modal-new\").iziModal(\"startLoading\");".
-			"$.post(\"".$this->requestUriThis()."\", { action: \"table-dialog-new\", ajax: 1 } )".
+			"\$.post(\"".$this->requestUriThis()."\", { action: \"table-dialog-new\", ajax: 1 } )".
   			".done(function(result){".
 				"\$(\"#xyo-app-table-modal-new_button\").off(\"click\").on(\"click\",function(){".
 					"\$(\"#xyo-app-table-modal-new\").iziModal(\"startLoading\");".

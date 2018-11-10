@@ -7,7 +7,8 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
+
+$title=$this->getArgument("title",$this->getParameter("form_title"));
+
 ?>
 <div class="xui box -space"></div>
-<div class="xui panel -elevation-4">
-	<div class="xui panel_title">

@@ -74,6 +74,7 @@ $this->setModule("xui",null,"xui-inner-box");
 $this->setModule("xui",null,"xui-line");
 $this->setModule("xui",null,"xui-application");
 $this->setModule("xui",null,"xui-form-separator");
+$this->setModule("xui",null,"xui-link");
 //
 $this->setModule("xui",null,"xui-complete");
 //

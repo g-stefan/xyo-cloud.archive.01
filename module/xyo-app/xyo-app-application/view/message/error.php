@@ -25,8 +25,6 @@ if ($this->isError()) {
 	return;
     };
 
-	$this->hasError__=true;
-
     ?>
 <div class="xui alert -danger">
         <?php if (strlen($msgTxt)) { ?>

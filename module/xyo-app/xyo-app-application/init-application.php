@@ -13,5 +13,6 @@ $this->setDefaultAction($this->getRequest("action", "default"));
 
 $this->requireComponent(array(
 	"xui.form-action-begin",
-	"xui.form-action-end"
+	"xui.form-action-end",
+	"xui.box-space"
 ));

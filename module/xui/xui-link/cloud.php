@@ -14,5 +14,4 @@ $this->setVersion($module, "1.0.0");
 $this->setReferenceLink($module, "xui-context");
 $this->setReferenceLink($module, "xui-core");
 $this->setReferenceLink($module, "xui-text");
-$this->setReferenceLink($module, "xui-alert");
-$this->setReferenceLink($module, "xui-app-toolbar");
+

@@ -95,6 +95,18 @@ defined("XYO_CLOUD") or die("Access is denied");
 	margin-left: 0px;
 }
 
+.xui.box.-space{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 0px;
+	box-sizing: border-box;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	clear: both;
+	overflow: hidden;
+}
+
 @media only screen and (min-width: 600px){
 
 	.xui.box.-row{
@@ -147,6 +159,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 		margin-right: auto;
 		padding-left: 16px;
 		padding-right: 16px;		
+	}
+
+	.xui.box.-space{
+		height: 32px;
 	}
 
 }

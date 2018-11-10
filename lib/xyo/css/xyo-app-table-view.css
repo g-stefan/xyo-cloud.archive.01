@@ -7,6 +7,37 @@
 //
 */
 
+.xyo.application-table{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+.xyo.application-table .xyo.application-table_toolbar-top{
+	position: relative;
+	height: 40px;
+	width: 100%;
+	overflow: visible;
+	box-shadow: none;
+	box-sizing: border-box;
+}
+
+.xyo.application-table .xyo.application-table_toolbar-bottom{
+	position: relative;
+	height: 40px;
+	width: 100%;
+	overflow: visible;
+	padding-top: 3px;
+	border-top: 1px solid #EEEEEE;
+	border-bottom: 0px solid #EEEEEE;
+	box-shadow: none;
+	box-sizing: border-box;
+}
+
 #xyo-app-table_table{
 	position: relative;
 	width: 100%;
@@ -36,6 +67,7 @@
 	border-left: 0px solid #DDDDDD;
 
 	padding-left: 4px;
+	padding-right: 4px;
 
 	box-sizing: border-box;
 }
@@ -48,9 +80,9 @@
 	background-color: #EEEEEE;
 }
 
-#xyo-app-table_table thead th{
-	vertical-align:middle;
-	background-color:#fff;
+#xyo-app-table_table thead > tr > th{
+	vertical-align: middle;
+	background-color: #fff;
 	border:1px solid #DDDDDD;
 	border-left: 0px solid #DDDDDD;
 
@@ -61,21 +93,32 @@
 	font-family: "Roboto", sans-serif;
 
 	box-sizing: border-box;
+	min-width: 128px;
 }
 
-#xyo-app-table_table thead th:last-child {
+#xyo-app-table_table > thead > tr > th:last-child {
 	border-right: 0px solid #000000;
 }
 
-#xyo-app-table_table tr td{
+#xyo-app-table_table > tbody > tr > td{
 	font-size: 16px;
 	line-height: 20px;
 
 	font-family: "Roboto", sans-serif;
 }
 
-#xyo-app-table_table tr:hover{
+#xyo-app-table_table > tbody > tr:hover{
 	background-color: #E6F0FC;
+}
+
+#xyo-app-table_table thead > tr > th.xyo.-index,
+#xyo-app-table_table tbody > tr > td.xyo.-index {
+	vertical-align:middle;
+	width:32px;
+	height:32px;
+	padding-left:5px;
+	text-align:left;
+	min-width: 32px;
 }
 
 /* --- */
@@ -89,10 +132,6 @@
 	padding-top: 16px;
 }
 
-#xyo-app-table-modal-new_form .xui.application-form {
-	padding-top: 0px;
-}
-
 /* --- */
 
 #xyo-app-table-modal-edit_form{
@@ -104,10 +143,6 @@
 	padding-top: 16px;
 }
 
-#xyo-app-table-modal-edit_form .xui.application-form {
-	padding-top: 0px;
-}
-
 /* --- */
 
 #xyo-app-table-modal-delete_form{
@@ -117,10 +152,6 @@
 #xyo-app-table-modal-delete_action{
 	border-top: 1px solid #C2CEE1;
 	padding-top: 16px;
-}
-
-#xyo-app-table-modal-delete_form .xui.application-form {
-	padding-top: 0px;
 }
 
 .xyo.app-table.-responsive{
@@ -138,50 +169,13 @@
 	position: relative;
 }
                           
-#xyo-app-table_table td a.xyo.app-table_table_action{
-	position: relative;
-	display: inline-block;
-	text-decoration: none;
-	color: #1853A0;
-}
-
-#xyo-app-table_table td a.xyo.app-table_table_action:hover{
-	color: #000000;
-	font-weight: normal;
-}
-
-#xyo-app-table_table td a.xyo.app-table_table_action:visited{
-	color: #1853A0;
-}
-
-#xyo-app-table_table td a.xyo.app-table_table_action:visited:hover{
-	color: #000000;
-}
-
-#xyo-app-table_table td a.xyo.app-table_table_action::before{
-	content: "";
-	transition:0.3s all ease;
-	left: 50%;
-	transform: translateX(-50%);	
-	position:absolute;
-	bottom: -1px;
-	height: 1px;
-	width: 0px;
-	background: #5392E5;
-	backface-visibility: hidden;
-}
-
-#xyo-app-table_table td a.xyo.app-table_table_action:hover::before{
-	width:100%;
-}
-
-.xui.application-table_toolbar-top_left{
+.xyo.application-table_toolbar-top_left{
 	display:inline-block;
 	width:100%;
 	box-sizing: border-box;
 }
 
-.xui.application-table_toolbar-top_right{
+.xyo.application-table_toolbar-top_right{
 	display:none;
 	width:50%;
 	box-sizing: border-box;
@@ -216,12 +210,20 @@
 
 @media only screen and (min-width: 600px){
 
-	.xui.application-table_toolbar-top_left{
-		width:50%;
+	.xyo.application-table_toolbar-top_left{
+		position: relative;
+		display: inline-block;
+		width: auto;
+		float: left;
+		height: 32px;
 	}
 
-	.xui.application-table_toolbar-top_right{
-		display:inline-block;
+	.xyo.application-table_toolbar-top_right{
+		position: relative;
+		display: inline-block;
+		width: auto;
+		float: right;
+		height: 32px;
 	}
 
 	.xyo.app-table_indicator_items{
@@ -238,6 +240,24 @@
 
 	.xyo.app-table_col_normal{
 		display: table-cell;
+	}
+
+	/* --- */
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-id {
+		width: 128px;
+	}
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-enabled {
+		width: 128px;
+	}
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-default {
+		width: 128px;
+	}
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-order {
+		width: 140px;
 	}
 
 }

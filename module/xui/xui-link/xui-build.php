@@ -7,7 +7,8 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
-?>
-<div class="xui box -space"></div>
-<div class="xui panel -elevation-4">
-	<div class="xui panel_title">
+
+$this->buildCSS("xui-link");
+$this->buildUI();
+
+$this->settings["xui-link-color"]=$this->color->rgbHexHSLAdjust($this->palette["core-blue-jeans-2"],0,0,-15);

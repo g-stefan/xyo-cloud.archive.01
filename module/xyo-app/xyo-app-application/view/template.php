@@ -7,8 +7,17 @@
 //
 
 defined("XYO_CLOUD") or die("Access is denied");
+
+$hasMessage=false;
+if($this->isAlert()){
+	$hasMessage=true;
+};
+if($this->isError()){
+	$hasMessage=true;
+};
+
 ?>
-<div class="xui application">
+<div class="xui application -has-toolbar<?php if($hasMessage)echo "-has-message"; ?>">
 	<div class="xui app-toolbar" id="xui-app-toolbar">
 		<div class="xui app-toolbar_content" id="xui-app-toolbar_content">
 <?php
@@ -23,15 +32,16 @@ defined("XYO_CLOUD") or die("Access is denied");
 	</div>
 
 <?php
-	if ($this->isAlert()) {
-    		$this->generateView("message/alert");
-	}
-	if ($this->isError()) {
-		$this->generateView("message/error");
-	}
-
+	if($hasMessage){
+		if ($this->isError()) {
+			$this->generateView("message/error");
+		}else
+		if ($this->isAlert()) {
+    			$this->generateView("message/alert");
+		}
+	};
 ?>
-	<div class="xui application_content -has-toolbar <?php if($this->hasAlert__){echo "-has-message-alert";}; ?> <?php if ($this->hasError__){echo "-has-message-error";}; ?>">
+	<div class="xui application_content">
 	<?php $this->generateCurrentView(); ?>
 	</div>
 </div>
