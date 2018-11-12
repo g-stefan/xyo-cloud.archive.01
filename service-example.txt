@@ -24,3 +24,37 @@ include("[realtive path to xyo-cloud]/xyo/xyo-cloud-service.php");
 
 	php index.php
 
+Module instance
+
+1. Make foo.php with following content:
+
+<?php
+//
+// for public app
+// $xyoCloudServiceSite="[path to public xyo-cloud]";
+//
+include("[realtive path to xyo-cloud]/xyo/xyo-cloud-run.php");
+
+[module code]
+
+2. Run it:
+
+	php foo.php
+
+xyoCloud instance
+
+1. Make foo.php with following content:
+
+<?php
+//
+// for public app
+// $xyoCloudServiceSite="[path to public xyo-cloud]";
+//
+include("[realtive path to xyo-cloud]/xyo/xyo-cloud-instance.php");
+
+[cloud code]
+
+2. Run it:
+
+	php foo.php
+

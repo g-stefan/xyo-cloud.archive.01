@@ -35,7 +35,7 @@
 //	$xyoCloudServiceModuleName
 //
 
-if (defined('XYO_CLOUD')) {
+if (defined("XYO_CLOUD")) {
 	return;
 };
 define("XYO_CLOUD_SERVICE", 1);
