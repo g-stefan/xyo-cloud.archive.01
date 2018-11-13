@@ -13,8 +13,7 @@ $this->tableHead = array(
     "name" => "head_name",
     "user_group" => "head_user_group",
     "principal" => "head_principal",
-    "enabled" => "head_enabled",
-    "id" => "head_id"
+    "enabled" => "head_enabled"
 );
 
 $this->tableSearch = array(
@@ -45,8 +44,7 @@ $this->tableType=array(
 $this->tableSort = array(
     "name" => "ascendent",
     "user_group" => "none",
-	"enabled" => "none",
-	"id" => "none"
+	"enabled" => "none"
 );
 
 if ($this->xyo_user_id) {

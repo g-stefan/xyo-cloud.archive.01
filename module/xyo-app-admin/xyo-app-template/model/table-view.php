@@ -12,8 +12,7 @@ $this->tableHead = array(
     "#" => "#",
     "module_name" => "head_module_name",
     "active" => "head_active",
-    "core_name" => "head_core_name",
-    "id" => "head_id"
+    "core_name" => "head_core_name"
 );
 
 $this->tableSearch = array(
@@ -36,8 +35,7 @@ $this->tableType=array(
 $this->tableSort = array(
     "module_name" => "ascendent",
     "active" => "none",
-    "core_name" => "none",
-    "id" => "none"
+    "core_name" => "none"
 );
 
 $this->processModel("select-xyo-core");

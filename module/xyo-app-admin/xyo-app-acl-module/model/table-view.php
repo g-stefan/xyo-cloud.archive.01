@@ -15,8 +15,7 @@ $this->tableHead = array(
     "order" => "head_order",
     "core_name" => "head_core_name",
     "user_group_name" => "head_user_group_name",
-    "enabled" => "head_enabled",
-    "id" => "head_id"
+    "enabled" => "head_enabled"
 );
 
 $this->tableSearch = array(
@@ -42,8 +41,7 @@ $this->tableSort = array(
 	"order" => "none",
     "core_name" => "none",
     "user_group_name" => "none",
-    "enabled" => "none",
-	"id"=> "none"
+    "enabled" => "none"
 );
 
 $this->processModel("select-enabled");
@@ -96,8 +94,7 @@ $this->tableDelete= array(
     "module_name" => true,
     "module_group_name" => true,
     "core_name" => true,
-    "user_group_name" => true,
-    "id" => true
+    "user_group_name" => true
 );
 
 $this->tableImportant=array(

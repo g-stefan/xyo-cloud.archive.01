@@ -12,8 +12,7 @@ $this->tableHead = array(
     "#" => "#",
     "name" => "head_name",
     "description" => "head_description",
-    "enabled" => "head_enabled",
-    "id" =>"head_id"
+    "enabled" => "head_enabled"
 );
 
 $this->tableSearch = array(
@@ -32,8 +31,7 @@ $this->tableType=array(
 $this->tableSort = array(
 	"name" => "ascendent",
 	"description" => "none",
-	"enabled" => "none",
-	"id" => "none"
+	"enabled" => "none"
 );
 
 $this->processModel("select-enabled");

@@ -16,8 +16,7 @@ $this->tableHead = array(
     "logged_at" => "head_logged_at",
     "created_at" => "head_created_at",
     "invisible" => "head_invisible",
-    "enabled" => "head_enabled",
-    "id" => "head_id"
+    "enabled" => "head_enabled"
 );
 
 $this->tableSearch = array(
@@ -52,8 +51,7 @@ $this->tableSort = array(
 	"logged_at" => "none",
 	"created_at" => "none",
 	"invisible" => "none",
-	"enabled" => "none",
-	"id" => "none"
+	"enabled" => "none"
 );
 
 $this->processModel("select-xyo-user-group");
@@ -66,8 +64,7 @@ $this->tableSelectInfo = array(
 
 $this->tableDelete = array(
     "name" => true,
-    "username" => true,
-    "id" => true
+    "username" => true
 );
 
 $this->tableImportant=array(

@@ -214,6 +214,7 @@ if ($this->ds) {
 
         $this->viewData[$this->ds->{$this->primaryKey}] = array();
         $this->viewData[$this->ds->{$this->primaryKey}]["#"] = $index;
+        $this->viewData[$this->ds->{$this->primaryKey}][$this->primaryKey] = $this->ds->{$this->primaryKey};
         $this->viewData[$this->ds->{$this->primaryKey}]["@write"] = true;
         foreach ($this->tableHead as $key => $value) {
             if ($key === "#")

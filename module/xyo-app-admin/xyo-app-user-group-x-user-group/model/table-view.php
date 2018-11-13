@@ -12,8 +12,7 @@ $this->tableHead = array(
     "#" => "#",
     "user_group_super" => "head_user_group_super",
     "user_group" => "head_user_group",
-    "enabled" => "head_enabled",
-    "id" => "head_id"
+    "enabled" => "head_enabled"
 );
 
 $this->tableSearch = array(
@@ -34,8 +33,7 @@ $this->tableType=array(
 $this->tableSort = array(
 	"user_group_super" => "ascendent",
 	"user_group" => "none",
-	"enabled" => "none",
-	"id" => "none"
+	"enabled" => "none"
 );
 
 $this->processModel("select-xyo-user-group");

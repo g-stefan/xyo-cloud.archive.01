@@ -13,8 +13,8 @@ $prefix=$this->getParameterRequest("prefix","xui_image_captcha");
 
 // safe characters no visual colision
 $cpatchaChr="23456789abcdefhijkmnpqrstuvwxyz";
-
-$captchaFont="lib/roboto-regular/roboto-regular.ttf";
+              
+$captchaFont=$this->getCloudPath()."lib/roboto-regular/roboto-regular.ttf";
 $captchaFontSz=32; //32points
 $captchaImgW=200; //px
 $captchaImgH=48;  //px
@@ -27,7 +27,7 @@ $pixColor=imagecolorallocate($captchaImg, 0x00, 0x00, 0x00);
 
 $captchaLn=strlen($cpatchaChr)-1;
 $captchaStr=array();
-for($k=0;$k<5;++$k){
+for($k=0;$k<5;++$k){		
 	$chIndex=rand(0,$captchaLn);
 	$captchaStr[$k]=substr($cpatchaChr,$chIndex,1);
 };

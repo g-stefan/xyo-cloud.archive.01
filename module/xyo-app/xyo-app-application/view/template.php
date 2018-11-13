@@ -17,7 +17,7 @@ if($this->isError()){
 };
 
 ?>
-<div class="xui application -has-toolbar<?php if($hasMessage)echo "-has-message"; ?>">
+<div class="xui application -has-toolbar<?php if($hasMessage){echo " -has-message";}; ?>">
 	<div class="xui app-toolbar" id="xui-app-toolbar">
 		<div class="xui app-toolbar_content" id="xui-app-toolbar_content">
 <?php
