@@ -117,7 +117,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 	box-sizing: border-box;
 
-	border: 1px solid #CCCCCC;
+	border: 1px solid <?php echo $this->settings["form-text-default-border-color"]; ?>;
 	border-radius: 3px;
 
 	transition: all 0.3s ease;

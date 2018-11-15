@@ -48,7 +48,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 	border: 0px solid #000000;
 }
 
-.xui.application > .xui.application_content > .xui.alert{
+.xui.application > .xui.alert{
 	border-radius: 0px;
 	border-left: 0px;
 	border-right: 0px;

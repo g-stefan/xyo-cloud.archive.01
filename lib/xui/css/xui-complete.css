@@ -9191,7 +9191,7 @@ a.xui.action:active {
 
 	box-sizing: border-box;
 
-	border: 1px solid #DDDDDD;
+	border: 1px solid #C2CEE1;
 
 	transition: border 0.3s ease, box-shadow 0.3s ease;
 }
@@ -9510,7 +9510,7 @@ a.xui.action:active {
 
 	box-sizing: border-box;
 
-	border: 1px solid #CCCCCC;
+	border: 1px solid #C2CEE1;
 	border-radius: 3px;
 
 	transition: all 0.3s ease;
@@ -9974,7 +9974,7 @@ a.xui.action:active {
 
 	box-sizing: border-box;
 
-	border: 1px solid #DDDDDD;
+	border: 1px solid #C2CEE1;
 	border-radius: 3px;
 
 	transition: all 0.3s ease;
@@ -11835,9 +11835,9 @@ a.xui.action:active {
 
 	color: #444444;
 	background-color: #FFFFFF;
-	border: 0px solid #DDDDDD;
+	border: 0px solid #C2CEE1;
 	border-radius: 0px 0px 0px 0px;
-	box-shadow: 0px 0px 0px 1px #DDDDDD;
+	box-shadow: 0px 0px 0px 1px #C2CEE1;
 
 	height: 30px;
 	outline: none;
@@ -11845,7 +11845,7 @@ a.xui.action:active {
 
 .xui.form-input-group > input:hover{
 	outline: none;
-	box-shadow: 0px 0px 0px 1px #1A72E2;		
+	box-shadow: 0px 0px 0px 1px #1A72E2;
 	transition: border 0.3s ease, box-shadow 0.3s ease;
 	z-index: +1;
 }
@@ -11891,9 +11891,9 @@ a.xui.action:active {
 
 	color: #444444;
 	background-color: #FFFFFF;
-	border: 0px solid #DDDDDD;
+	border: 0px solid #C2CEE1;
 	border-radius: 0px 0px 0px 0px;
-	box-shadow: 0px 0px 0px 1px #DDDDDD;
+	box-shadow: 0px 0px 0px 1px #C2CEE1;
 
 	outline: none;
 
@@ -13463,10 +13463,10 @@ a.xui.action:active {
 	min-height: 96px;
 	text-align: center;
 
-	border-top: 1px solid #EEEEEE;
-	border-right: 1px solid #EEEEEE;
-	border-bottom: 0px solid #EEEEEE;
-	border-left: 1px solid #EEEEEE;
+	border-top: 1px solid #C2CEE1;
+	border-right: 1px solid #C2CEE1;
+	border-bottom: 0px solid #C2CEE1;
+	border-left: 1px solid #C2CEE1;
 
 	padding: 2px 2px 2px 2px;
 	margin: 0px 0px 0px 0px;
@@ -15216,7 +15216,7 @@ a.xui.app-toolbar_button:visited {
 	border: 0px solid #000000;
 }
 
-.xui.application > .xui.application_content > .xui.alert{
+.xui.application > .xui.alert{
 	border-radius: 0px;
 	border-left: 0px;
 	border-right: 0px;

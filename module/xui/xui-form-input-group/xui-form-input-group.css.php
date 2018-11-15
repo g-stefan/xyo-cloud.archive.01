@@ -50,9 +50,9 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 	color: #444444;
 	background-color: #FFFFFF;
-	border: 0px solid #DDDDDD;
+	border: 0px solid <?php echo $this->settings["form-text-default-border-color"]; ?>;
 	border-radius: 0px 0px 0px 0px;
-	box-shadow: 0px 0px 0px 1px #DDDDDD;
+	box-shadow: 0px 0px 0px 1px <?php echo $this->settings["form-text-default-border-color"]; ?>;
 
 	height: 30px;
 	outline: none;
@@ -60,7 +60,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 .xui.form-input-group > input:hover{
 	outline: none;
-	box-shadow: 0px 0px 0px 1px <?php echo $this->settings["form-text-primary-focus-border-color"]; ?>;		
+	box-shadow: 0px 0px 0px 1px <?php echo $this->settings["form-text-primary-focus-border-color"]; ?>;
 	transition: border 0.3s ease, box-shadow 0.3s ease;
 	z-index: +1;
 }
@@ -106,9 +106,9 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 	color: #444444;
 	background-color: #FFFFFF;
-	border: 0px solid #DDDDDD;
+	border: 0px solid <?php echo $this->settings["form-text-default-border-color"]; ?>;
 	border-radius: 0px 0px 0px 0px;
-	box-shadow: 0px 0px 0px 1px #DDDDDD;
+	box-shadow: 0px 0px 0px 1px <?php echo $this->settings["form-text-default-border-color"]; ?>;
 
 	outline: none;
 

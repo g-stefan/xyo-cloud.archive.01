@@ -49,10 +49,10 @@ defined("XYO_CLOUD") or die("Access is denied");
 	min-height: 96px;
 	text-align: center;
 
-	border-top: 1px solid <?php echo $this->settings["form-button-background-color"]; ?>;
-	border-right: 1px solid <?php echo $this->settings["form-button-background-color"]; ?>;
-	border-bottom: 0px solid <?php echo $this->settings["form-button-background-color"]; ?>;
-	border-left: 1px solid <?php echo $this->settings["form-button-background-color"]; ?>;
+	border-top: 1px solid <?php echo $this->settings["form-text-default-border-color"]; ?>;
+	border-right: 1px solid <?php echo $this->settings["form-text-default-border-color"]; ?>;
+	border-bottom: 0px solid <?php echo $this->settings["form-text-default-border-color"]; ?>;
+	border-left: 1px solid <?php echo $this->settings["form-text-default-border-color"]; ?>;
 
 	padding: 2px 2px 2px 2px;
 	margin: 0px 0px 0px 0px;
