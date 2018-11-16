@@ -15,16 +15,14 @@ class xyo_datasource_EmptyField {
 class xyo_DataSource extends xyo_Config {
 
 	var $dataSourceConnectionProvider_;
-	var $dataSourceCache_;
-	var $dataSourceAs_;
+	var $dataSourceCache_;	
 	var $dataSourceDescriptor_;
 
 	function __construct(&$cloud) {
 		parent::__construct($cloud);
 
 		$this->dataSourceProvider_ = array();
-		$this->dataSourceCache_ = array();
-		$this->dataSourceAs_ = array();
+		$this->dataSourceCache_ = array();		
 		$this->dataSourceDescriptor_ = array();
 		$this->dataSourceConnectionProvider_=array();
 	}
@@ -41,27 +39,19 @@ class xyo_DataSource extends xyo_Config {
 		return $this->dataSourceConnectionProvider_;
 	}
 
-	function setDataSourceAs($nameNew, $nameOld) {
-		if (strcmp($nameNew, $nameOld) == 0) {
-			return;
-		}
-		$this->dataSourceAs_[$nameNew] = $nameOld;
-	}
-
-	function getDataSourceAsList($connection) {
+	function getDataSourceList($connection) {
 		$connectionX=$connection.".";
-		$list_ = $this->dataSourceAs_;
+		$list_ = array();
 
 		$list = array();
 		$path="datasource";
-		if (!$dh = @opendir($path)) {
-		} else {
+		$dh = @opendir($path);
+		if (false !== $dh) {
 			while (false !== ($obj = readdir($dh))) {
 				if ($obj == '.' || $obj == '..') {
 					continue;
 				};
-				if (is_dir($path . $obj)) {
-				} else {
+				if (!is_dir($path . $obj)) {
 					array_push($list, $obj);
 				};
 			};
@@ -78,31 +68,16 @@ class xyo_DataSource extends xyo_Config {
 		return $list_;
 	}
 
-	function &getDataSource($name, $as_=null) {
+	function &getDataSource($name) {
 		if (array_key_exists($name, $this->dataSourceCache_)) {
 			$rVal = &$this->dataSourceCache_[$name]->copyThis();
 			return $rVal;
 		};
-		if (array_key_exists($name, $this->dataSourceAs_)) {
-			$v_ = &$this->getDataSource($this->dataSourceAs_[$name], $name);
-			if ($v_) {
-				$this->dataSourceCache_[$name] = &$v_->copyThis();
-			};
-			return $v_;
-		};
-		if (!$as_) {
-			if (file_exists($this->cloud->getCloudPath()."datasource/".$name.".php")) {
-				$this->setDataSourceDescriptor($name, $this->cloud->getCloudPath()."datasource/". $name.".php");
-				if (array_key_exists($name, $this->dataSourceAs_)) {
-					$v_ = &$this->getDataSource($this->dataSourceAs_[$name], $name);
-					if ($v_) {
-						$this->dataSourceCache_[$name] = &$v_->copyThis();
-					};
-					return $v_;
-				};
-			};
-		};
-
+		if (!file_exists($this->cloud->getCloudPath()."datasource/".$name.".php")) {
+			$rNull = null;
+			return $rNull;			
+		};		
+		$this->setDataSourceDescriptor($name, $this->cloud->getCloudPath()."datasource/". $name.".php");
 		$matches = array();
 		if(preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
@@ -112,8 +87,7 @@ class xyo_DataSource extends xyo_Config {
 						if(array_key_exists($name,$this->dataSourceDescriptor_)) {
 							$module->setDataSourceDescriptor($name,$this->dataSourceDescriptor_[$name]);
 						};
-
-						$rVal = &$module->getDataSource($name, $as_);
+						$rVal = &$module->getDataSource($name);
 						if ($rVal) {
 							$this->dataSourceCache_[$name] = &$rVal;
 							$rVal = &$rVal->copyThis();

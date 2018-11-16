@@ -73,11 +73,9 @@ class xyo_datasource_Quantum extends xyo_Module {
 		return $retV;
 	}
 
-	function &getDataSource($name, $as_=null) { // system.connexion_name.query.name
+	function &getDataSource($name) { // connexion.query.name
 		$v_ = null;
-		if ($name) {
-
-		} else {
+		if (!$name) {
 			return $v_;
 		};
 		$matches = array();
@@ -94,10 +92,8 @@ class xyo_datasource_Quantum extends xyo_Module {
 						if ($this->dataSourceList_[$name]) {
 							if (strcmp($matches[2], "query") == 0) {
 								if ($this->connectionList_[$matches[1]]->open()) {
-									$v_ = new xyo_datasource_quantum_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-									if ($v_->isOk()) {
-
-									} else {
+									$v_ = new xyo_datasource_quantum_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name]);
+									if (!$v_->isOk()) {
 										$v_ = null;
 									};
 								};

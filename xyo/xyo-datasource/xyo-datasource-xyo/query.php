@@ -14,7 +14,6 @@ class xyo_datasource_xyo_Query extends xyo_Config {
 	var $connection_;
 	var $name_;
 	var $datasource_;
-	var $as_;
 	var $descriptor_;
 	//---
 	var $queryTable_;
@@ -58,14 +57,13 @@ class xyo_datasource_xyo_Query extends xyo_Config {
 
 	var $fieldSelect_;
 
-	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $as_, $doInit=true) {
+	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $doInit=true) {
 		parent::__construct($module->getCloud());
 
 		$this->module_ = &$module;
 		$this->connection_ = &$connection;
 		$this->name_ = $name;
-		$this->datasource_ = $datasource;
-		$this->as_ = $as_;
+		$this->datasource_ = $datasource;	
 		$this->descriptor_=$descriptor;
 
 		$this->resultTable_ = array();
@@ -235,7 +233,7 @@ class xyo_datasource_xyo_Query extends xyo_Config {
 	}
 
 	function &copyThis() {
-		$retV = new xyo_datasource_xyo_Query($this->module_, $this->connection_, $this->name_, $this->datasource_, true, $this->as_, false);
+		$retV = new xyo_datasource_xyo_Query($this->module_, $this->connection_, $this->name_, $this->datasource_, true, false);
 		if ($retV) {
 
 			$retV->queryTable_ = &$this->queryTable_;

@@ -19,11 +19,6 @@ class xyo_datasource_Mysqli extends xyo_Module {
 	var $connectionList_;
 	var $dataSourceList_;
 
-	//----
-	var $notifyBeforeLoad_;
-	var $notifyBeforeSave_;
-	var $notifyBeforeDelete_;
-
 	function __construct(&$object, &$cloud) {
 		parent::__construct($object, $cloud);
 
@@ -38,11 +33,6 @@ class xyo_datasource_Mysqli extends xyo_Module {
 
 		$this->connectionList_ = array();
 		$this->dataSourceList_ = array();
-
-		$this->notifyBeforeLoad_ = null;
-		$this->notifyBeforeSave_ = null;
-		$this->notifyBeforeDelete_ = null;
-
 	}
 
 	function setConnection($name, $user, $password, $server, $port, $database, $prefix) {
@@ -58,10 +48,6 @@ class xyo_datasource_Mysqli extends xyo_Module {
 				$v_->setForceUse($value);
 			} else if (strcmp($option, "log") == 0) {
 				$v_->setLog($value);
-			} else if (strcmp($option, "notify") == 0) {
-				foreach($value as $keyX=>$valueX){
-					$v_->setNotify($keyX,$valueX);
-				};
 			};
 		};
 	}
@@ -96,8 +82,11 @@ class xyo_datasource_Mysqli extends xyo_Module {
 		return $retV;
 	}
 
-	function &getDataSource($name, $as_=null) { // mysqli.connexion_name.table/query.name
+	function &getDataSource($name) { // connexion.table/query.name
 		$v_ = null;
+		if (!$name) {
+			return $v_;
+		};
 		$matches = array();
 		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
@@ -114,10 +103,8 @@ class xyo_datasource_Mysqli extends xyo_Module {
 								if ($this->connectionList_[$matches[1]]->open()) {
 
 									if ($this->connectionList_[$matches[1]]->useDb()) {
-										$v_ = new xyo_datasource_mysqli_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-										if ($v_->isOk()) {
-
-										} else {
+										$v_ = new xyo_datasource_mysqli_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name]);
+										if (!$v_->isOk()) {
 											$v_ = null;
 										};
 									};
@@ -125,10 +112,8 @@ class xyo_datasource_Mysqli extends xyo_Module {
 							} else if (strcmp($matches[2], "query") == 0) {
 								if ($this->connectionList_[$matches[1]]->open()) {
 									if ($this->connectionList_[$matches[1]]->useDb()) {
-										$v_ = new xyo_datasource_mysqli_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-										if ($v_->isOk()) {
-
-										} else {
+										$v_ = new xyo_datasource_mysqli_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name]);
+										if (!$v_->isOk()) {
 											$v_ = null;
 										};
 									};

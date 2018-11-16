@@ -26,10 +26,6 @@ class xyo_datasource_quantum_Connection {
 
 	}
 
-	function setNotify($datasource,$moduleName){
-
-	}
-
 }
 
 

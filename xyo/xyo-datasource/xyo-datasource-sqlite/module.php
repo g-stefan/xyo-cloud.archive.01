@@ -49,10 +49,6 @@ class xyo_datasource_Sqlite extends xyo_Module {
 				$v_->setDebug($value);
 			} else if (strcmp($option, "log") == 0) {
 				$v_->setLog($value);
-			}else if (strcmp($option, "notify") == 0) {
-				foreach($value as $keyX=>$valueX){
-					$v_->setNotify($keyX,$valueX);
-				};
 			};
 		};
 	}
@@ -87,7 +83,7 @@ class xyo_datasource_Sqlite extends xyo_Module {
 		return $retV;
 	}
 
-	function &getDataSource($name, $as_=null) { // sqlite.connexion_name.table/query.name
+	function &getDataSource($name) { // connexion.table/query.name
 		$v_ = null;
 		$matches = array();
 		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
@@ -103,19 +99,15 @@ class xyo_datasource_Sqlite extends xyo_Module {
 						if ($this->dataSourceList_[$name]) {
 							if (strcmp($matches[2], "table") == 0) {
 								if ($this->connectionList_[$matches[1]]->open()) {
-									$v_ = new xyo_datasource_sqlite_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-									if ($v_->isOk()) {
-
-									} else {
+									$v_ = new xyo_datasource_sqlite_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name]);
+									if (!$v_->isOk()) {
 										$v_ = null;
 									};
 								};
 							} else if (strcmp($matches[2], "query") == 0) {
 								if ($this->connectionList_[$matches[1]]->open()) {
-									$v_ = new xyo_datasource_sqlite_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-									if ($v_->isOk()) {
-
-									} else {
+									$v_ = new xyo_datasource_sqlite_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name]);
+									if (!$v_->isOk()) {
 										$v_ = null;
 									};
 								};

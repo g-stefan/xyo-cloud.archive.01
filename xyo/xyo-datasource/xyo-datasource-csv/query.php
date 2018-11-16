@@ -13,8 +13,7 @@ class xyo_datasource_csv_Query extends xyo_Config {
 	var $module_;
 	var $connection_;
 	var $name_;
-	var $datasource_;
-	var $as_;
+	var $datasource_;	
 	var $descriptor_;
 	//---
 	var $queryTable_;
@@ -59,14 +58,13 @@ class xyo_datasource_csv_Query extends xyo_Config {
 	var $fieldSelect_;
 
 
-	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $as_, $doInit=true) {
+	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $doInit=true) {
 		parent::__construct($module->getCloud());
 
 		$this->module_ = &$module;
 		$this->connection_ = &$connection;
 		$this->name_ = $name;
-		$this->datasource_ = $datasource;
-		$this->as_ = $as_;
+		$this->datasource_ = $datasource;		
 		$this->descriptor_=$descriptor;
 
 
@@ -179,9 +177,7 @@ class xyo_datasource_csv_Query extends xyo_Config {
 
 			foreach ($this->queryTable_ as $key_ => $value_) {
 				$this->fieldTable_[$key_] = &$this->module_->ds->getDataSource($value_);
-				if ($this->fieldTable_[$key_]) {
-
-				} else {
+				if (!$this->fieldTable_[$key_]) {
 					trigger_error(
 						'In query definition `' . $this->name_ .
 						'` queryTable: ' . $value_ . ' not found '
@@ -240,7 +236,7 @@ class xyo_datasource_csv_Query extends xyo_Config {
 	}
 
 	function &copyThis() {
-		$retV = new xyo_datasource_csv_Query($this->module_, $this->connection_, $this->name_, $this->datasource_, $this->descriptor_, $this->as_, false);
+		$retV = new xyo_datasource_csv_Query($this->module_, $this->connection_, $this->name_, $this->datasource_, $this->descriptor_, false);
 		if ($retV) {
 
 			$retV->queryTable_ = &$this->queryTable_;

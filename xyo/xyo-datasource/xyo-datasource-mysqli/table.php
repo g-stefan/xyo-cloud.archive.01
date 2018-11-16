@@ -14,8 +14,7 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 	var $connection_;
 	var $name_;
 	var $datasource_;
-	var $realName_;
-	var $as_;
+	var $realName_;	
 	var $datasourceName_;
 	var $descriptor_;
 	//----
@@ -44,29 +43,17 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 
 	var $fieldAutoIncrement_;
 
-	//----
-	var $notify_;
-
-	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $as_, $doInit=true) {
+	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $doInit=true) {
 		parent::__construct($module->getCloud());
 
 		$this->module_ = &$module;
 		$this->connection_ = &$connection;
 		$this->name_ = $name;
 		$this->datasource_ = $datasource;
-		$this->realName_ = $connection->getPrefix().$name;
-		$this->as_ = $as_;
+		$this->realName_ = $connection->getPrefix().$name;	
 		$this->descriptor_=$descriptor;
 
-		if(array_key_exists($datasource,$connection->notify)){
-			$this->notify_=$connection->notify[$datasource];			
-		};
-
 		$this->datasourceName_ = $datasource;
-		if ($as_) {
-			$this->datasourceName_ = $as_;
-		};
-
 
 		if ($doInit) {
 			$this->includeFile($this->descriptor_);
@@ -172,30 +159,18 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 
 	function &copyThis() {
 
-		$retV = new xyo_datasource_mysqli_Table($this->module_, $this->connection_, $this->name_, $this->datasource_, $this->descriptor_, $this->as_, false);
+		$retV = new xyo_datasource_mysqli_Table($this->module_, $this->connection_, $this->name_, $this->datasource_, $this->descriptor_, false);
 		if ($retV) {
 			$retV->realName_ =$this->realName_;
 
-			if($retV->notify_){
-				$retV->primaryKey_ = $this->primaryKey_;
-				$retV->fieldType_ = $this->fieldType_;
-				$retV->fieldExtra_ = $this->fieldExtra_;
-				$retV->fieldDefaultValue_ = $this->fieldDefaultValue_;
-				$retV->fieldAttribute_ = $this->fieldAttribute_;
-				$retV->fieldAutoIncrement_=$this->fieldAutoIncrement_;
-				$retV->tableLink_ = $this->tableLink_;
-				$retV->cloudDataSource_=$this->cloudDataSource_;
-			}else{
-				$retV->primaryKey_ = &$this->primaryKey_;
-				$retV->fieldType_ = &$this->fieldType_;
-				$retV->fieldExtra_ = &$this->fieldExtra_;
-				$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
-				$retV->fieldAttribute_ = &$this->fieldAttribute_;
-				$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
-				$retV->tableLink_ = &$this->tableLink_;
-				$retV->cloudDataSource_=&$this->cloudDataSource_;
-			};
-
+			$retV->primaryKey_ = &$this->primaryKey_;
+			$retV->fieldType_ = &$this->fieldType_;
+			$retV->fieldExtra_ = &$this->fieldExtra_;
+			$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
+			$retV->fieldAttribute_ = &$this->fieldAttribute_;
+			$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
+			$retV->tableLink_ = &$this->tableLink_;
+			$retV->cloudDataSource_=&$this->cloudDataSource_;		
 
 			$retV->fieldGroup_ = $this->fieldGroup_;
 			$retV->fieldOrder_ = $this->fieldOrder_;
@@ -582,10 +557,6 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 	}
 
 	function save() {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeSave($this);
-		};
 		
 		if($this->primaryKey_) {
 
@@ -720,10 +691,6 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 	function delete() {
 		if ($this->isValid()) {
 
-			if($this->notify_){
-				$this->notify_->onDataSourceBeforeDelete($this);
-			};
-
 			if(count($this->tableLink_)) {
 				foreach($this->tableLink_ as $key=>$value) {
 					$ds=&$this->cloudDataSource_->getDataSource($value[0]);
@@ -776,20 +743,10 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 	}
 
 	function load($start=null, $length=null) {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeLoad($this);
-		};
-
 		return $this->loadDirectCode($this->getLoadDirectCode($start, $length));
 	}
 
 	function tryLoad($start=null, $length=null) {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeLoad($this);
-		};
-
 		return $this->tryLoadDirectCode($this->getLoadDirectCode($start, $length));
 	}
 
@@ -860,11 +817,6 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 	}
 
 	function count() {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeLoad($this);
-		};
-		
 		$query = $this->getLoadQuery("SELECT COUNT(*)", true);
 		return $this->connection_->queryValueDefaultDirect($query, 0);
 	}
@@ -948,11 +900,6 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 	}
 
 	function destroyStorage() {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeDestroyStorage($this);
-		};
-	
 		$query = "DROP TABLE IF EXISTS `" . $this->realName_ . "`;";
 		$result = $this->connection_->queryDirect($query);
 		if ($result) {
@@ -962,11 +909,6 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 	}
 
 	function createStorage() {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeCreateStorage($this);
-		};
-
 		$before = false;
 		$query = "CREATE TABLE IF NOT EXISTS `" . $this->realName_ . "` (";
 		foreach ($this->fieldType_ as $key_ => $value_) {
@@ -1125,10 +1067,6 @@ class xyo_datasource_mysqli_Table extends xyo_Config {
 		$this->fieldFunctionAs_ = array();
 		$this->fieldOperator_ = array();
 		$this->fieldSelect_=null;
-	}
-
-	function disableNotify(){
-		$this->notify_=false;
 	}
 
 	function getStorageName(){

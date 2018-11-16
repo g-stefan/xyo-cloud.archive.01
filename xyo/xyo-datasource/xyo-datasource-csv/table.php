@@ -40,8 +40,7 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	var $connection_;
 	var $name_;
 	var $datasource_;
-	var $realName_;
-	var $as_;
+	var $realName_;	
 	var $datasourceName_;
 	var $descriptor_;
 	//----
@@ -81,30 +80,18 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	var $fieldSelect_;
 
 	var $fieldAutoIncrement_;
-
-	//----
-	var $notify_;
 	
-	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $as_, $doInit=true) {
+	function __construct(&$module, &$connection, $name, $datasource, $descriptor, $doInit=true) {
 		parent::__construct($module->getCloud());
 
 		$this->module_ = &$module;
 		$this->connection_ = &$connection;
 		$this->name_ = $name;
 		$this->datasource_ = $datasource;
-		$this->realName_ = $name;
-		$this->as_ = $as_;
-		$this->descriptor_=$descriptor;
-		$this->notify_=false;
-
-		if(array_key_exists($datasource,$connection->notify)){
-			$this->notify_=$connection->notify[$datasource];			
-		};		
+		$this->realName_ = $name;		
+		$this->descriptor_=$descriptor;		
 
 		$this->datasourceName_ = $datasource;
-		if ($as_) {
-			$this->datasourceName_ = $as_;
-		};
 
 		if ($doInit) {
 			$this->includeFile($this->descriptor_);
@@ -220,7 +207,7 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function &copyThis() {
 
-		$retV = new xyo_datasource_csv_Table($this->module_, $this->connection_, $this->name_, $this->datasource_, $this->descriptor_, $this->as_, false);
+		$retV = new xyo_datasource_csv_Table($this->module_, $this->connection_, $this->name_, $this->datasource_, $this->descriptor_, false);
 		if ($retV) {
 
 			$retV->realName_ =$this->realName_;
@@ -229,25 +216,14 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 			$retV->fileName_ = $this->fileName_;
 
-			if($retV->notify_){
-				$retV->primaryKey_ = $this->primaryKey_;
-				$retV->fieldType_ = $this->fieldType_;
-				$retV->fieldExtra_ = $this->fieldExtra_;
-				$retV->fieldDefaultValue_ = $this->fieldDefaultValue_;
-				$retV->fieldAttribute_ = $this->fieldAttribute_;
-				$retV->fieldAutoIncrement_=$this->fieldAutoIncrement_;
-				$retV->tableLink_ = $this->tableLink_;
-				$retV->cloudDataSource_=$this->cloudDataSource_;
-			}else{
-				$retV->primaryKey_ = &$this->primaryKey_;
-				$retV->fieldType_ = &$this->fieldType_;
-				$retV->fieldExtra_ = &$this->fieldExtra_;
-				$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
-				$retV->fieldAttribute_ = &$this->fieldAttribute_;
-				$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
-				$retV->tableLink_ = &$this->tableLink_;
-				$retV->cloudDataSource_=&$this->cloudDataSource_;
-			};
+			$retV->primaryKey_ = &$this->primaryKey_;
+			$retV->fieldType_ = &$this->fieldType_;
+			$retV->fieldExtra_ = &$this->fieldExtra_;
+			$retV->fieldDefaultValue_ = &$this->fieldDefaultValue_;
+			$retV->fieldAttribute_ = &$this->fieldAttribute_;
+			$retV->fieldAutoIncrement_=&$this->fieldAutoIncrement_;
+			$retV->tableLink_ = &$this->tableLink_;
+			$retV->cloudDataSource_=&$this->cloudDataSource_;			
 
 			$retV->fieldGroup_ = $this->fieldGroup_;
 			$retV->fieldOrder_ = $this->fieldOrder_;
@@ -431,10 +407,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function save() {
 
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeSave($this);
-		};
-
 		if($this->primaryKey_) {
 			$tablePrimaryKeyValue = $this-> {$this->primaryKey_};
 			if (is_array($tablePrimaryKeyValue)) {
@@ -476,11 +448,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function delete() {
 		if ($this->isValid()) {
-
-			if($this->notify_){
-				$this->notify_->onDataSourceBeforeDelete($this);
-			};
-
 			if(count($this->tableLink_)) {
 				foreach($this->tableLink_ as $key=>$value) {
 					$ds=&$this->cloudDataSource_->getDataSource($value[0]);
@@ -505,10 +472,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	}
 
 	function load($start=null, $length=null) {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeLoad($this);
-		};
 
 		if($this->primaryKey_) {
 			if (is_null($this-> {$this->primaryKey_})) {
@@ -554,10 +517,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function tryLoad($start=null, $length=null) {
 
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeLoad($this);
-		};
-
 		if($this->primaryKey_) {
 			if (is_null($this-> {$this->primaryKey_})) {
 				if (($this->fieldType_[$this->primaryKey_] === "int")||
@@ -598,11 +557,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	}
 
 	function count() {
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeLoad($this);
-		};
-
 		$this->resultLoadAll_ = false;
 		$this->loadRecords_();
 		$this->prepareResult_();
@@ -827,11 +781,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 
 	function destroyStorage() {
 		if (file_exists($this->fileName_)) {
-
-			if($this->notify_){
-				$this->notify_->onDataSourceBeforeDestroyStorage($this);
-			};
-
 			return unlink($this->fileName_);
 		};
 		return true;
@@ -841,10 +790,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 		if (file_exists($this->fileName_)) {
 			return true;
 		}
-
-		if($this->notify_){
-			$this->notify_->onDataSourceBeforeCreateStorage($this);
-		};
 
 		$this->resultPrimaryKeyIndex_ = 0;
 		$this->resultCol_ = array();
@@ -1679,10 +1624,6 @@ class xyo_datasource_csv_Table extends xyo_Config {
 		$this->fieldSelect_=null;
 	}
 
-	function disableNotify(){
-		$this->notify_=false;		
-	}
-
 	function getStorageName(){
 		return $this->get("name", $this->name_);
 	}
@@ -1725,11 +1666,8 @@ class xyo_datasource_csv_Table extends xyo_Config {
 	}
 
 	function setField($name,$type,$defaultValue,$attribute=null,$extra=null,$atIndex=null){
-
 		$this->$name = new xyo_datasource_EmptyField();
-
 		$this->fieldType_=$this->setKeyAtIndex($this->fieldType_,$name,$type,$atIndex);		
-
 		$this->fieldAttribute_[$name]=$attribute;
 		$this->fieldDefaultValue_[$name]=$defaultValue;		
 		$this->fieldExtra_[$name]=$extra;

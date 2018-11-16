@@ -22,7 +22,6 @@ class xyo_datasource_postgresql_Connection {
 	var $password;
 	var $database;
 	var $prefix;	
-	var $notify;
 	
 	function __construct(&$cloud, &$module, $name, $user, $password, $server,$port, $database, $prefix) {
 		$this->cloud = &$cloud;
@@ -38,8 +37,6 @@ class xyo_datasource_postgresql_Connection {
 		$this->db = null;
 		$this->debug = false;
 		$this->log = false;
-
-		$this->notify=array();
 	}
 
 	function setLog($log) {
@@ -294,11 +291,6 @@ class xyo_datasource_postgresql_Connection {
 
 	function safeLikeValue($value) {
 		return addcslashes(pg_escape_string($this->db, $value), "%_");
-	}
-
-	function setNotify($datasource,$moduleName){
-		$this->notify[$datasource]=&$this->module->getModule($moduleName);
-	}
-	
+	}	
 }
 

@@ -82,7 +82,7 @@ class xyo_datasource_Xyo extends xyo_Module {
 		return $retV;
 	}
 
-	function &getDataSource($name, $as_=null) { // system.connexion_name.table/query.name
+	function &getDataSource($name, $as_=null) { // connexion.table/query.name
 		$v_ = null;
 		if (!$name) {
 			return $v_;
@@ -101,20 +101,16 @@ class xyo_datasource_Xyo extends xyo_Module {
 						if ($this->dataSourceList_[$name]) {
 							if (strcmp($matches[2], "table") == 0) {
 								if ($this->connectionList_[$matches[1]]->open()) {
-									$v_ = new xyo_datasource_xyo_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-									if ($v_->isOk()) {
-
-									} else {
+									$v_ = new xyo_datasource_xyo_Table($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name]);
+									if (!$v_->isOk()) {
 										$v_ = null;
 									};
 								};
 							};
 							if (strcmp($matches[2], "query") == 0) {
 								if ($this->connectionList_[$matches[1]]->open()) {
-									$v_ = new xyo_datasource_xyo_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name], $as_);
-									if ($v_->isOk()) {
-
-									} else {
+									$v_ = new xyo_datasource_xyo_Query($this, $this->connectionList_[$matches[1]], $matches[3], $name, $this->dataSourceList_[$name]);
+									if (!$v_->isOk()) {
 										$v_ = null;
 									};
 								};

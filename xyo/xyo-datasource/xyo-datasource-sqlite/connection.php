@@ -18,7 +18,6 @@ class xyo_datasource_sqlite_Connection {
 	var $name;
 	var $database;
 	var $mode;
-	var $notify;
 
 	function __construct(&$cloud, &$module, $name, $database, $mode, $prefix="") {
 		$this->cloud = &$cloud;
@@ -31,8 +30,6 @@ class xyo_datasource_sqlite_Connection {
 		$this->db = null;
 		$this->debug = false;
 		$this->log = false;
-
-		$this->notify=array();
 	}
 
 	function setLog($log) {
@@ -371,10 +368,6 @@ class xyo_datasource_sqlite_Connection {
 
 	function safeLikeValue($value) {
 		return SQLite3::escapeString($value);
-	}
-
-	function setNotify($datasource,$moduleName){
-		$this->notify[$datasource]=&$this->module->getModule($moduleName);
 	}
 
 }

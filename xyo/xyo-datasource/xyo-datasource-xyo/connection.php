@@ -13,14 +13,11 @@ class xyo_datasource_xyo_Connection {
 	var $module;
 	var $name;
 	var $databasePath;
-	var $notify;
 	
 	function __construct(&$module, $name, $databasePath) {
 		$this->module = &$module;
 		$this->name = $name;
 		$this->databasePath = $databasePath;
-
-		$this->notify=array();
 	}
 
 	function open() {
@@ -32,10 +29,6 @@ class xyo_datasource_xyo_Connection {
 
 	function close() {
 
-	}
-
-	function setNotify($datasource,$moduleName){
-		$this->notify[$datasource]=&$this->module->getModule($moduleName);
 	}
 
 };
