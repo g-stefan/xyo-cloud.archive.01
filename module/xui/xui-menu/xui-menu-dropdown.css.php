@@ -20,7 +20,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 <style>
 
-.xui.menu.-dropdown{	
+.xui.menu.-dropdown{
 	width: 100%;
 	overflow: visible;
 	display: table;

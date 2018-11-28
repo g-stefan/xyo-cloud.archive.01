@@ -137,3 +137,5 @@ defined("XYO_CLOUD") or die("Access is denied");
 <?php $this->includeCSS("xui-menu","xui-menu-accordion"); ?>
 <?php $this->includeCSS("xui-menu","xui-menu-mini"); ?>
 <?php $this->includeCSS("xui-menu","xui-menu-dropdown"); ?>
+<?php $this->includeCSS("xui-menu","xui-menu-popup"); ?>
+
