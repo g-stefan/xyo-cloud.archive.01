@@ -31,4 +31,15 @@ class xyo_Config extends xyo_Attributes {
 		return $this->cloud->getCloudPath()."config/";
 	}
 
+	public function includeConfigWithPattern($name) {
+		$retV = false;
+		$path = $this->getConfigPath();
+		$config = $path . $name . ".*.php";
+		foreach(glob($config) as $configFilename){
+			if ($this->includeFile($configFilename)) {
+				$retV = true;
+			};
+		};
+		return $retV;
+	}
 }

@@ -35,8 +35,28 @@ class xyo_datasource_Mysqli extends xyo_Module {
 		$this->dataSourceList_ = array();
 	}
 
-	function setConnection($name, $user, $password, $server, $port, $database, $prefix) {
-		$this->connectionList_[$name] = new xyo_datasource_mysqli_Connection($this->cloud, $this, $name, $user, $password, $server, $port, $database, $prefix);
+	function setConnection($name, $username, $password, $server, $port, $database, $prefix) {
+		$this->connectionList_[$name] = new xyo_datasource_mysqli_Connection($this->cloud, $this, $name, $username, $password, $server, $port, $database, $prefix);
+	}
+
+	function setConnectionProvider($name, $config){
+		$this->connectionList_[$name] = new xyo_datasource_mysqli_Connection($this->cloud, $this, $name,
+			$config["username"],
+			$config["password"],
+			$config["server"],
+			$config["port"],
+			$config["database"],
+			$config["prefix"]
+		);
+		if(array_key_exists("debug",$config)){
+			$this->connectionList_[$name]->setDebug($config["debug"]);
+		};
+		if(array_key_exists("force.use",$config)){
+			$this->connectionList_[$name]->setForceUse($config["force.use"]);
+		};
+		if(array_key_exists("log",$config)){
+			$this->connectionList_[$name]->setLog($config["log"]);
+		};
 	}
 
 	function setConnectionOption($name, $option, $value) {
@@ -44,7 +64,7 @@ class xyo_datasource_Mysqli extends xyo_Module {
 		if ($v_) {
 			if (strcmp($option, "debug") == 0) {
 				$v_->setDebug($value);
-			} else if (strcmp($option, "force_use") == 0) {
+			} else if (strcmp($option, "force.use") == 0) {
 				$v_->setForceUse($value);
 			} else if (strcmp($option, "log") == 0) {
 				$v_->setLog($value);
@@ -73,11 +93,8 @@ class xyo_datasource_Mysqli extends xyo_Module {
 
 	function &getConnection($name) {
 		$retV = null;
-		if (!array_key_exists($name, $this->connectionList_)) {
-			$this->includeConfig("config.ds.".$name);
-		};
 		if (array_key_exists($name, $this->connectionList_)) {
-			$retV = $this->connectionList_[$name];
+			$retV = &$this->connectionList_[$name];
 		};
 		return $retV;
 	}
@@ -90,11 +107,6 @@ class xyo_datasource_Mysqli extends xyo_Module {
 		$matches = array();
 		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
-
-				if (!array_key_exists($matches[1], $this->connectionList_)) {
-					$this->includeConfig("config.ds.".$matches[1]);
-				};
-
 				if (array_key_exists($matches[1], $this->connectionList_)) {
 					if (array_key_exists($name, $this->dataSourceList_)) {
 						if ($this->dataSourceList_[$name]) {

@@ -29,7 +29,7 @@ class xyo_datasource_csv_Connection {
 
 	function close() {
 
-	}	
+	}
 	
 };
 

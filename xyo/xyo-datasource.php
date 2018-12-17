@@ -28,11 +28,14 @@ class xyo_DataSource extends xyo_Config {
 	}
 
 	function loadConfig() {
-		$this->includeConfig("config.ds");
+		$this->setDataSourceConnectionProvider("quantum",array(
+			"type"=>"xyo-datasource-quantum"
+		));
+		$this->includeConfigWithPattern("datasource");
 	}
 
-	function setDataSourceConnectionProvider($name, $provider) {
-		$this->dataSourceConnectionProvider_[$name] = $provider;
+	function setDataSourceConnectionProvider($name, $providerConfiguration) {
+		$this->dataSourceConnectionProvider_[$name] = $providerConfiguration;
 	}
 
 	function getDataSourceConnectionProviderList() {
@@ -82,18 +85,19 @@ class xyo_DataSource extends xyo_Config {
 		if(preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
 				if(array_key_exists($matches[1],$this->dataSourceConnectionProvider_)){
-					$module = &$this->cloud->getModule($this->dataSourceConnectionProvider_[$matches[1]]);
+					$module = &$this->cloud->getModule($this->dataSourceConnectionProvider_[$matches[1]]["type"]);
 					if ($module) {
+						$module->setConnectionProvider($matches[1],$this->dataSourceConnectionProvider_[$matches[1]]);
 						if(array_key_exists($name,$this->dataSourceDescriptor_)) {
 							$module->setDataSourceDescriptor($name,$this->dataSourceDescriptor_[$name]);
-						};
+						};						
 						$rVal = &$module->getDataSource($name);
 						if ($rVal) {
 							$this->dataSourceCache_[$name] = &$rVal;
 							$rVal = &$rVal->copyThis();
 							return $rVal;
 						};
-					};					
+					};
 				};
 			};
 		};
@@ -137,14 +141,20 @@ class xyo_DataSource extends xyo_Config {
 	}
 
 	function &getDataSourceConnection($name) {
+		$retV=null;
 		if(!array_key_exists($name,$this->dataSourceConnectionProvider_)){
-			return null;			
+			return $retV;
 		};
-		$module = &$this->cloud->getModule($this->dataSourceConnectionProvider_[$name]);
+		$module = &$this->cloud->getModule($this->dataSourceConnectionProvider_[$name]["type"]);
 		if(!$module){
-			return null;
+			return $retV;
 		};
-		return $module->getConnection($name);
+		$retV=$module->getConnection($name);
+		if(is_null($retV)){
+			$module->setConnectionProvider($name,$this->dataSourceConnectionProvider_[$name]);
+			$retV=$module->getConnection($name);
+		};
+		return $retV;
 	}
 
 }

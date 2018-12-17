@@ -22,8 +22,6 @@ if ($this->isRequest("website_language")) {
 /* --- */
 $this->includeConfig("config.website");
 /* --- */
-$this->includeConfig("xyo-cloud.module");
-/* --- */
 $this->setModule(null, "install", "xyo-app-install", true, null, true,false);
 $this->setModule("xyo-app-install", null, "xyo-tpl-install", true,null,true,false);
 $this->setModuleGroup("xyo-tpl-install", "xyo-system-run");

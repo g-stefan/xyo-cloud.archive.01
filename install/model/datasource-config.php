@@ -11,7 +11,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 $layer = $this->getElementValue("layer", "xyo");
 
 $configFileName = null;
-$fileName = "config/config.ds.db.php";
+$fileName = "config/datasource.db.php";
 $moduleName = "";
 if ($layer === "xyo") {    
     $moduleName = "xyo-datasource-xyo";
@@ -52,88 +52,73 @@ if ($fileHandle) {
     fwrite($fileHandle, "// \r\n");
 
     if ($layer === "xyo") {
-        fwrite($fileHandle, "\$this->setConnection" .
-                "(\"db\"," .
-                "\"repository/datasource/db/\");" .
-                "\r\n");
+        fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(" .
+                "\"db\",array(\r\n".
+		"\t\"type\"=>\"".$moduleName."\",\r\n".
+		"\t\"repository\"=>\"repository/datasource/db/\"\r\n".
+		"));\r\n");
     } else
     if ($layer === "csv") {
-        fwrite($fileHandle, "\$this->setConnection" .
-                "(\"db\"," .
-                "\"repository/datasource/db/\");" .
-                "\r\n");
+        fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(" .
+                "\"db\",array(\r\n".
+		"\t\"type\"=>\"".$moduleName."\",\r\n".
+		"\t\"repository\"=>\"repository/datasource/db/\"\r\n".
+		"));\r\n");
     } else
     if ($layer === "mysqli") {
-        fwrite($fileHandle, "\$this->setConnection(" .
-                "\"db\",\"" .
-                addslashes($this->getElementValueString("username")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("password")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("server")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("port")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("database")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("prefix")) .
-                "\");\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"debug\",true);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"log\",false);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"force_use\",false);\r\n");
+        fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(" .
+		"\"db\",array(\r\n".
+		"\t\"type\"=>\"".$moduleName."\",\r\n".
+		"\t\"username\"=>\"".addslashes($this->getElementValueString("username"))."\",\r\n".
+		"\t\"password\"=>\"".addslashes($this->getElementValueString("password"))."\",\r\n".
+		"\t\"server\"=>\"".addslashes($this->getElementValueString("server"))."\",\r\n".
+		"\t\"port\"=>\"".addslashes($this->getElementValueString("port"))."\",\r\n".
+		"\t\"database\"=>\"".addslashes($this->getElementValueString("database"))."\",\r\n".
+		"\t\"prefix\"=>\"".addslashes($this->getElementValueString("prefix"))."\",\r\n".
+		"\t\"force.use\"=>\"false\",\r\n".
+		"\t\"debug\"=>\"true\",\r\n".
+		"\t\"log\"=>\"false\"\r\n".
+		"));\r\n");
     } else
     if ($layer === "mysql") {
-        fwrite($fileHandle, "\$this->setConnection(" .
-                "\"db\",\"" .
-                addslashes($this->getElementValueString("username")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("password")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("server")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("port")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("database")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("prefix")) .
-                "\");\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"debug\",true);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"log\",false);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"force_use\",false);\r\n");
+        fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(" .
+		"\"db\",array(\r\n".
+		"\t\"type\"=>\"".$moduleName."\",\r\n".
+		"\t\"username\"=>\"".addslashes($this->getElementValueString("username"))."\",\r\n".
+		"\t\"password\"=>\"".addslashes($this->getElementValueString("password"))."\",\r\n".
+		"\t\"server\"=>\"".addslashes($this->getElementValueString("server"))."\",\r\n".
+		"\t\"port\"=>\"".addslashes($this->getElementValueString("port"))."\",\r\n".
+		"\t\"database\"=>\"".addslashes($this->getElementValueString("database"))."\",\r\n".
+		"\t\"prefix\"=>\"".addslashes($this->getElementValueString("prefix"))."\",\r\n".
+		"\t\"force.use\"=>\"false\",\r\n".
+		"\t\"debug\"=>\"true\",\r\n".
+		"\t\"log\"=>\"false\"\r\n".
+		"));\r\n");
     } else
     if ($layer === "postgresql") {
-        fwrite($fileHandle, "\$this->setConnection(" .
-                "\"db\",\"" .
-                addslashes($this->getElementValueString("username")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("password")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("server")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("port")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("database")) .
-                "\",\"" .
-                addslashes($this->getElementValueString("prefix")) .
-                "\");\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"debug\",true);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(" .
-                "\"db\",\"log\",false);\r\n");
+        fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(" .
+		"\"db\",array(\r\n".
+		"\t\"type\"=>\"".$moduleName."\",\r\n".
+		"\t\"username\"=>\"".addslashes($this->getElementValueString("username"))."\",\r\n".
+		"\t\"password\"=>\"".addslashes($this->getElementValueString("password"))."\",\r\n".
+		"\t\"server\"=>\"".addslashes($this->getElementValueString("server"))."\",\r\n".
+		"\t\"port\"=>\"".addslashes($this->getElementValueString("port"))."\",\r\n".
+		"\t\"database\"=>\"".addslashes($this->getElementValueString("database"))."\",\r\n".
+		"\t\"prefix\"=>\"".addslashes($this->getElementValueString("prefix"))."\",\r\n".
+		"\t\"debug\"=>\"true\",\r\n".
+		"\t\"log\"=>\"false\"\r\n".
+		"));\r\n");
     } else
     if ($layer === "sqlite") {
-        fwrite($fileHandle, "\$this->setConnection(\"db\"," .                
-                ".\"repository/datasource/db." . md5(date("l jS \of F Y h:i:s A")) . ".sqlite\",0666);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(\"db\",\"debug\"," .
-                "true);\r\n");
-        fwrite($fileHandle, "\$this->setConnectionOption(\"db\",\"log\"," .
-                "false);\r\n");
+        fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(" .
+                "\"db\",array(\r\n".
+		"\t\"type\"=>\"".$moduleName."\",\r\n".
+		"\t\"datasource\"=>\"repository/datasource/db." . md5(date("l jS \of F Y h:i:s A")) . ".sqlite\",\r\n".
+		"\t\"mode\"=>0666,\r\n".
+		"\t\"prefix\"=>\"\",\r\n".
+		"\t\"debug\"=>\"true\",\r\n".
+		"\t\"log\"=>\"false\"\r\n".
+		"));\r\n");
     };
 
     fwrite($fileHandle, "\r\n\r\n");
@@ -143,28 +128,7 @@ if ($fileHandle) {
     return;
 }
 
-$fileName = "config/config.ds.php";
-$fileHandle = null;
-if (strlen($fileName)) {
-    $fileHandle = fopen($fileName, "w");
-};
-
-if ($fileHandle) {
-    fwrite($fileHandle, "<" . "?" . "php\r\n");
-    fwrite($fileHandle, "defined(\"XYO_CLOUD\") or die(\"Access is denied\");\r\n");
-    fwrite($fileHandle, "// \r\n");
-    fwrite($fileHandle, "// DataSource Config\r\n");
-    fwrite($fileHandle, "// \r\n");
-    fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"quantum\",\"xyo-datasource-quantum\");\r\n");
-    fwrite($fileHandle, "\$this->setDataSourceConnectionProvider(\"db\",\"".$moduleName."\");\r\n");
-    fwrite($fileHandle, "\r\n\r\n");
-    fclose($fileHandle);
-} else {
-    $this->setError(array("config_not_writable" => $fileName));
-    return;
-}
-
-$this->cloud->dataSource->includeConfig("config.ds");
+$this->cloud->dataSource->loadConfig();
 
 if (!$this->isError()) {
     $conDb = &$this->cloud->dataSource->getDataSourceConnection("db");

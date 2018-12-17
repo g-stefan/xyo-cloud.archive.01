@@ -651,13 +651,11 @@ class xyo_Cloud extends xyo_Config {
 	public $isJson;
 
 	private function initRequestManager() {
-
 		$this->request=new xyo_Attributes(array_merge(xyo_Cloud_Request__stripSlashesDeep($_COOKIE),xyo_Cloud_Request__stripSlashesDeep($_GET),xyo_Cloud_Request__stripSlashesDeep($_POST)));
 		$this->requestBuilder=null;
 		$this->isAjax=false;
 		$this->isAjaxJs=false;
 		$this->isJson=false;
-
 	}
 
 	public function getRequest($name, $default=null) {
@@ -1287,7 +1285,7 @@ class xyo_Cloud extends xyo_Config {
 
 		parent::__construct($this);
 		
-		$this->set("xyo_cloud_core_version", "10.0.0.21");
+		$this->set("xyo_cloud_core_version", "11.0.0.22");
 		$this->set("site","");
 		$this->set("use_redirect",false);
 		$this->set("log_module",true);
@@ -1424,7 +1422,7 @@ class xyo_Cloud extends xyo_Config {
 		//
 		$this->initRequest();
 		$this->dataSource->loadConfig();
-		$this->includeConfig("xyo-cloud");
+		$this->includeConfigWithPattern("xyo-cloud");
 		//
 		$this->setSiteFromServerRequest();
 		//

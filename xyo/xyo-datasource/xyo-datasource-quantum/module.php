@@ -30,12 +30,13 @@ class xyo_datasource_Quantum extends xyo_Module {
 
 		$this->connectionList_ = array();
 		$this->dataSourceList_ = array();
-
-		//
-		$this->setConnection("quantum");
 	}
 
 	function setConnection($name) {
+		$this->connectionList_[$name] = new xyo_datasource_quantum_Connection($this, $name);
+	}
+
+	function setConnectionProvider($name, $config){
 		$this->connectionList_[$name] = new xyo_datasource_quantum_Connection($this, $name);
 	}
 
@@ -64,11 +65,8 @@ class xyo_datasource_Quantum extends xyo_Module {
 
 	function &getConnection($name) {
 		$retV = null;
-		if (!array_key_exists($name, $this->connectionList_)) {
-			$this->includeConfig("config.ds.".$name);
-		};
 		if (array_key_exists($name, $this->connectionList_)) {
-			$retV = $this->connectionList_[$name];
+			$retV = &$this->connectionList_[$name];
 		};
 		return $retV;
 	}
@@ -81,12 +79,6 @@ class xyo_datasource_Quantum extends xyo_Module {
 		$matches = array();
 		if (preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
-
-				if (!array_key_exists($matches[1], $this->connectionList_)) {
-					$this->includeConfig("config.ds.".$matches[1]);
-				};
-
-
 				if (array_key_exists($matches[1], $this->connectionList_)) {
 					if (array_key_exists($name, $this->dataSourceList_)) {
 						if ($this->dataSourceList_[$name]) {

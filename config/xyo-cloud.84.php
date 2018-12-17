@@ -8,39 +8,6 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->set("xyo_cloud_version", "11.1.0.60");
-
-//$this->set("log_module",true);
-//$this->set("log_request",true);
-//$this->set("log_response",true);
-//$this->set("log_language",true);
-//$this->set("use_redirect",true);
-$this->set("user_action",true);
-$this->set("user_captcha",true);
-$this->set("user_password_encoding","hash");
-// --- this will be generated automatically by installer in config.website
-$this->set("user_login_salt","unknown");
-// --- overwrite this in xyo-cloud.local.init
-$this->set("user_reco_salt","unknown");
-$this->set("service_key","unknown");
-$this->set("crypt_rpc_private_key","unknown");
-// ---
-
-//
-// some default values just in case
-//
-$this->set("language", "en-GB");
-$this->set("locale", "en-GB");
-$this->set("locale_date_format","Y-m-d");
-$this->set("locale_datetime_format","Y-m-d H:i:s");
-$this->set("locale_time_format","H:i:s");
-//
-//
-$this->set("configured", false);
-//
-// local init settings
-//
-$this->includeConfig("xyo-cloud.local.init");
 //
 // website settings
 //
@@ -51,7 +18,9 @@ $this->setSiteFromServerRequest();
 // ---
 if (!$this->get("configured",false)) {
 	define("XYO_CLOUD_INSTALL", 1);
-	$this->includeConfig("xyo-cloud.install");
+	if (file_exists("install/xyo-cloud.install.php")) {
+		require_once("install/xyo-cloud.install.php");
+	};
 	return;
 }
 $this->set("language", $this->get("default_language", "en-GB"));
@@ -102,10 +71,4 @@ $this->setModule("xyo", null, "xyo-mod-ds-loader-mod");
 $this->setModuleLoader("xyo-mod-ds-loader-mod");
 $this->setGroupLoader("xyo-mod-ds-loader-mod");
 //
-//
-$this->includeConfig("xyo-cloud.module");
-//
-// local configuration/settings
-//
-$this->includeConfig("xyo-cloud.local.config");
 //
