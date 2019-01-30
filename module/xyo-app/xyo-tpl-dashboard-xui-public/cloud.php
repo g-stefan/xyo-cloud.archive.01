@@ -32,7 +32,7 @@ $this->setReferenceLink($module, "xui-typography");
 $this->setReferenceLink($module, "xui-toggle");
 $this->setReferenceLink($module, "xui-box");
 $this->setReferenceLink($module, "xui-panel");
-$this->setReferenceLink($module, "xui-toolbar");
+$this->setReferenceLink($module, "xui-app-toolbar");
 $this->setReferenceLink($module, "xui-application");
 $this->setReferenceLink($module, "xui-dashboard");
 //
