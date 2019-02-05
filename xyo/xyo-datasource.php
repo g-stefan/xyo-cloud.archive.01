@@ -76,11 +76,13 @@ class xyo_DataSource extends xyo_Config {
 			$rVal = &$this->dataSourceCache_[$name]->copyThis();
 			return $rVal;
 		};
-		if (!file_exists($this->cloud->getCloudPath()."datasource/".$name.".php")) {
-			$rNull = null;
-			return $rNull;			
-		};		
-		$this->setDataSourceDescriptor($name, $this->cloud->getCloudPath()."datasource/". $name.".php");
+		if (!array_key_exists($name, $this->dataSourceDescriptor_)) {
+			if (!file_exists($this->cloud->getCloudPath()."datasource/".$name.".php")) {
+				$rNull = null;
+				return $rNull;			
+			};		
+			$this->setDataSourceDescriptor($name, $this->cloud->getCloudPath()."datasource/". $name.".php");
+		};
 		$matches = array();
 		if(preg_match("/([^\\.]*)\\.([^\\.]*)\\.([^\\.]*)/", $name, $matches)) {
 			if (count($matches) > 3) {
@@ -119,25 +121,21 @@ class xyo_DataSource extends xyo_Config {
 
 	function setModuleDataSource($module, $name) {
 		$descriptor = $this->cloud->getCloudPath()."datasource/" . $name . ".php";
-		if (!file_exists($descriptor)) {
-			$descriptorPath = $this->cloud->getModulePathBase($module);
-			if ($descriptorPath) {
-				$notFound=true;
-				foreach ($descriptorPath as $path) {
-					$descriptor=$path."datasource/" . $name . ".php";
-					if (file_exists($descriptor)) {
-						$notFound=false;
-						break;
-					};
-				};
-				if($notFound) {
-					return false;
+		if (file_exists($descriptor)) {
+			$this->setDataSourceDescriptor($name, $descriptor);
+			return true;
+		};
+		$descriptorPath = $this->cloud->getModulePathBase($module);
+		if ($descriptorPath) {		
+			foreach ($descriptorPath as $path) {
+				$descriptor=$path."datasource/" . $name . ".php";
+				if (file_exists($descriptor)) {
+					$this->setDataSourceDescriptor($name, $descriptor);
+					return true;				
 				};
 			};
-		};
-
-		$this->setDataSourceDescriptor($name, $descriptor);
-		return true;
+		};	
+		return false;
 	}
 
 	function &getDataSourceConnection($name) {

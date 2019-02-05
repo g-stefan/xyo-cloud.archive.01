@@ -1285,7 +1285,7 @@ class xyo_Cloud extends xyo_Config {
 
 		parent::__construct($this);
 		
-		$this->set("xyo_cloud_core_version", "11.0.0.22");
+		$this->set("xyo_cloud_core_version", "11.1.0.23");
 		$this->set("site","");
 		$this->set("use_redirect",false);
 		$this->set("log_module",true);
