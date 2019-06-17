@@ -20,55 +20,58 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 <style>
 
-<?php $this->setDefaultSelector(".-popup"); ?>
+.xui.menu.-popup{
+	width: 100%;
+	overflow: visible;
+	display: block;
+}
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?>{
+.xui.menu.-popup > .xui.menu_content {
+	overflow: visible;
+	display: block;
+	height: 40px;
+}
+
+.xui.menu.-popup .xui.menu_item {
+	overflow: visible;
+}
+
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item {
 	display: inline-block;
-	width: auto;
-	overflow: visible;	
+	height: 40px;
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content {
-	position: absolute;
-	top: calc(40px - 1px);
-	left: 0px;
-	width: 288px;
-	overflow: visible;
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> .xui.menu_item {
-	overflow: visible;
-	width: 288px;	
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> .xui.menu_item > .xui.menu_submenu {
+.xui.menu.-popup .xui.menu_item > .xui.menu_submenu {
 	overflow: visible;
 	height: auto;	
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> .xui.menu_item > .xui.menu_item_content{
-	height: 0px;
-	width: 288px;	
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
-	height: 0px;	
-	transition: none;
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item {
-	overflow: visible;
+.xui.menu.-popup .xui.menu_item > .xui.menu_item_content{
+	height: 40px;
 	width: 288px;
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?>:hover .xui.menu_item > .xui.menu_item_content{
-	height: 40px;
-	transition: height 0.5s ease;
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item > .xui.menu_item_content {
+	width: 100%;
+}
+
+.xui.menu.-popup .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
+	height: 0px;	
+}
+
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item {
+	overflow: hidden;
+	width: auto;
+}
+
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item.-submenu:hover {
+	overflow: visible;
+	transition: none;
 }
 
 /* --- border --- */
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content:after{
+/*.xui.menu.-popup:after{
 	content: "";	
 	display: block;
 	position: absolute;	
@@ -79,48 +82,9 @@ defined("XYO_CLOUD") or die("Access is denied");
 	pointer-events: none;
 	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
 	z-index: 6;
-}
+}*/
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item:hover:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item:first-child:hover:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item:last-child:hover:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px -1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item:only-child:hover:after{
+/*.xui.menu.-popup > .xui.menu_content > .xui.menu_item .xui.menu_item:hover > .xui.menu_item_content:after{
 	content: "";
 	display: block;
 	position: absolute;	
@@ -131,30 +95,13 @@ defined("XYO_CLOUD") or die("Access is denied");
 	pointer-events: none;
 	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
 	z-index: 13;	
-}
+}*/
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item.-submenu:hover:after{
-	display: none;
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item:hover > .xui.menu_item_content {
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item:hover > .xui.menu_item_content {
 	z-index: 12;
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content:after{
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content:after{
 	content: "";
 	display: block;
 	position: absolute;
@@ -167,7 +114,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 	z-index: 13;	
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:first-child > .xui.menu_item_content:after{
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:first-child > .xui.menu_item_content:after{
 	content: "";
 	display: block;
 	position: absolute;
@@ -180,7 +127,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 	z-index: 13;	
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:last-child > .xui.menu_item_content:after{
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:last-child > .xui.menu_item_content:after{
 	content: "";
 	display: block;
 	position: absolute;
@@ -193,7 +140,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 	z-index: 13;	
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:only-child > .xui.menu_item_content:after{
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item:only-child > .xui.menu_item_content:after{
 	content: "";
 	display: block;
 	position: absolute;
@@ -206,56 +153,64 @@ defined("XYO_CLOUD") or die("Access is denied");
 	z-index: 13;
 }
 
+.xui.menu.-popup > .xui.menu_content >
+ .xui.menu_item.-submenu:hover >
+  .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item:first-child > .xui.menu_item_content:after{
+	/*box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;*/
+	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD, inset 0px 1px 0px 0px #DDDDDD;
+}
+
 /*
 // Level 1
 */
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
- .xui.menu_item:hover > .xui.menu_submenu {
-	position: absolute;
-	top: 0px;
-	left: calc(288px - 1px);
-	z-index:8;
-	background-color: red;
+.xui.menu.-popup > .xui.menu_content >
+ .xui.menu_item > .xui.menu_item_content >
+  .xui.action .xui.action_icon-right {
+	transition: none;
+	transform: rotate(90deg);	
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
+.xui.menu.-popup > .xui.menu_content >
+ .xui.menu_item > .xui.menu_submenu {
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	width: 288px;
+	z-index:8;	
+}
+
+.xui.menu.-popup > .xui.menu_content >
  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
-   .xui.menu_item > .xui.menu_item_content{
+  .xui.menu_item > .xui.menu_item_content{
 	height: 40px;
 	transition: height 0.5s ease;
-}
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
-  .xui.menu_item > .xui.menu_item_content >
-    .xui.action.-active .xui.action_icon-right {	
-	transition: none;
-	transform: rotate(0deg);
+	width: 100%;
 }
 
 /*
 // Level 2
 */
 
-
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
+.xui.menu.-popup > .xui.menu_content >
  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
   .xui.menu_item > .xui.menu_submenu {
 	position: absolute;
 	top: 0px;
-	left: calc(288px - 1px);
+	left: calc(100% - 1px);
 	z-index:8;
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
+.xui.menu.-popup > .xui.menu_content >
  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
   .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
    .xui.menu_item > .xui.menu_item_content{
 	height: 40px;
-	transition: height 0.5s ease;
+	transition: height 0.5s ease;	
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
+.xui.menu.-popup > .xui.menu_content >
   .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
    .xui.menu_item > .xui.menu_item_content >
     .xui.action.-active .xui.action_icon-right {	
@@ -267,7 +222,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 // Level 3
 */
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
+.xui.menu.-popup > .xui.menu_content >
  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
   .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
    .xui.menu_item > .xui.menu_submenu {
@@ -277,7 +232,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 	z-index:8;
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
+.xui.menu.-popup > .xui.menu_content >
  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
   .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
    .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
@@ -286,7 +241,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 	transition: height 0.5s ease;	
 }
 
-<?php $this->eSuperSelector(); ?>.xui.menu<?php $this->eSelector(); ?> > .xui.menu_content >
+.xui.menu.-popup > .xui.menu_content >
   .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
    .xui.menu_item > .xui.menu_submenu > .xui.menu_submenu_content >
     .xui.menu_item > .xui.menu_item_content >

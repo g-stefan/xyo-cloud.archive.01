@@ -31,11 +31,18 @@ defined("XYO_CLOUD") or die("Access is denied");
 	Menu - Popup
 </div>	
 <div class="xui menu -popup">
-	<div class="xui menu_button">
-		<div class="xui button -size-32x40 -circle -effect-ripple">
-			<i class="material-icons">person</i>
-		</div>
-	</div>
-	<?php $this->generateView("xui-menu-content"); ?>
+	<?php $this->generateView("xui-menu-content-popup"); ?>
 </div>
-	
+<br />	
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

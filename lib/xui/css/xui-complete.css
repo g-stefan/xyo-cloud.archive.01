@@ -7498,24 +7498,25 @@ a.xui.action:active {
 
 
 
-
 .xui.menu.-popup{
-	display: inline-block;
-	width: auto;
-	overflow: visible;	
+	width: 100%;
+	overflow: visible;
+	display: block;
 }
 
 .xui.menu.-popup > .xui.menu_content {
-	position: absolute;
-	top: calc(40px - 1px);
-	left: 0px;
-	width: 288px;
 	overflow: visible;
+	display: block;
+	height: 40px;
 }
 
 .xui.menu.-popup .xui.menu_item {
 	overflow: visible;
-	width: 288px;	
+}
+
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item {
+	display: inline-block;
+	height: 40px;
 }
 
 .xui.menu.-popup .xui.menu_item > .xui.menu_submenu {
@@ -7524,28 +7525,31 @@ a.xui.action:active {
 }
 
 .xui.menu.-popup .xui.menu_item > .xui.menu_item_content{
-	height: 0px;
-	width: 288px;	
+	height: 40px;
+	width: 288px;
+}
+
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item > .xui.menu_item_content {
+	width: 100%;
 }
 
 .xui.menu.-popup .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content {
 	height: 0px;	
-	transition: none;
 }
 
 .xui.menu.-popup > .xui.menu_content > .xui.menu_item {
-	overflow: visible;
-	width: 288px;
+	overflow: hidden;
+	width: auto;
 }
 
-.xui.menu.-popup:hover .xui.menu_item > .xui.menu_item_content{
-	height: 40px;
-	transition: height 0.5s ease;
+.xui.menu.-popup > .xui.menu_content > .xui.menu_item.-submenu:hover {
+	overflow: visible;
+	transition: none;
 }
 
 /* --- border --- */
 
-.xui.menu.-popup > .xui.menu_content:after{
+/*.xui.menu.-popup:after{
 	content: "";	
 	display: block;
 	position: absolute;	
@@ -7556,48 +7560,9 @@ a.xui.action:active {
 	pointer-events: none;
 	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
 	z-index: 6;
-}
+}*/
 
-.xui.menu.-popup > .xui.menu_content > .xui.menu_item:hover:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
-}
-
-.xui.menu.-popup > .xui.menu_content > .xui.menu_item:first-child:hover:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px 1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
-}
-
-.xui.menu.-popup > .xui.menu_content > .xui.menu_item:last-child:hover:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px -1px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
-}
-
-.xui.menu.-popup > .xui.menu_content > .xui.menu_item:only-child:hover:after{
+/*.xui.menu.-popup > .xui.menu_content > .xui.menu_item .xui.menu_item:hover > .xui.menu_item_content:after{
 	content: "";
 	display: block;
 	position: absolute;	
@@ -7608,27 +7573,10 @@ a.xui.action:active {
 	pointer-events: none;
 	box-shadow: inset 0px 0px 0px 1px #DDDDDD;
 	z-index: 13;	
-}
-
-.xui.menu.-popup > .xui.menu_content > .xui.menu_item.-submenu:hover:after{
-	display: none;
-}
+}*/
 
 .xui.menu.-popup > .xui.menu_content > .xui.menu_item:hover > .xui.menu_item_content {
 	z-index: 12;
-}
-
-.xui.menu.-popup > .xui.menu_content > .xui.menu_item.-submenu:hover > .xui.menu_item_content:after{
-	content: "";
-	display: block;
-	position: absolute;	
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	bottom: 0px;
-	pointer-events: none;
-	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;
-	z-index: 13;	
 }
 
 .xui.menu.-popup > .xui.menu_content > .xui.menu_item > .xui.menu_submenu .xui.menu_item > .xui.menu_item_content:after{
@@ -7683,44 +7631,52 @@ a.xui.action:active {
 	z-index: 13;
 }
 
+.xui.menu.-popup > .xui.menu_content >
+ .xui.menu_item.-submenu:hover >
+  .xui.menu_submenu > .xui.menu_submenu_content >
+   .xui.menu_item:first-child > .xui.menu_item_content:after{
+	/*box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD;*/
+	box-shadow: inset 1px 0px 0px 0px #DDDDDD, inset -1px 0px 0px 0px #DDDDDD, inset 0px 1px 0px 0px #DDDDDD;
+}
+
 /*
 // Level 1
 */
 
 .xui.menu.-popup > .xui.menu_content >
- .xui.menu_item:hover > .xui.menu_submenu {
+ .xui.menu_item > .xui.menu_item_content >
+  .xui.action .xui.action_icon-right {
+	transition: none;
+	transform: rotate(90deg);	
+}
+
+.xui.menu.-popup > .xui.menu_content >
+ .xui.menu_item > .xui.menu_submenu {
 	position: absolute;
-	top: 0px;
-	left: calc(288px - 1px);
-	z-index:8;
-	background-color: red;
+	top: 40px;
+	left: 0px;
+	width: 288px;
+	z-index:8;	
 }
 
 .xui.menu.-popup > .xui.menu_content >
  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
-   .xui.menu_item > .xui.menu_item_content{
+  .xui.menu_item > .xui.menu_item_content{
 	height: 40px;
 	transition: height 0.5s ease;
-}
-
-.xui.menu.-popup > .xui.menu_content >
-  .xui.menu_item > .xui.menu_item_content >
-    .xui.action.-active .xui.action_icon-right {	
-	transition: none;
-	transform: rotate(0deg);
+	width: 100%;
 }
 
 /*
 // Level 2
 */
 
-
 .xui.menu.-popup > .xui.menu_content >
  .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
   .xui.menu_item > .xui.menu_submenu {
 	position: absolute;
 	top: 0px;
-	left: calc(288px - 1px);
+	left: calc(100% - 1px);
 	z-index:8;
 }
 
@@ -7729,7 +7685,7 @@ a.xui.action:active {
   .xui.menu_item:hover > .xui.menu_submenu > .xui.menu_submenu_content >
    .xui.menu_item > .xui.menu_item_content{
 	height: 40px;
-	transition: height 0.5s ease;
+	transition: height 0.5s ease;	
 }
 
 .xui.menu.-popup > .xui.menu_content >
