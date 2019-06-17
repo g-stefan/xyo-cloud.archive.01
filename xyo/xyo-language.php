@@ -14,13 +14,15 @@ class xyo_Language extends xyo_Attributes {
 	protected $log;
 	public $type;
 	public $name;
+	public $moduleName;
 
-	public function __construct(&$cloud) {
+	public function __construct(&$cloud, $moduleName) {
 		parent::__construct();
 		$this->cloud = &$cloud;
 		$this->log = $this->cloud->get("log_language");
 		$this->type = "ltr";
 		$this->name = "en";
+		$this->moduleName = $moduleName;
 	}
 
 	public function get($name, $default=null) {
@@ -33,7 +35,7 @@ class xyo_Language extends xyo_Attributes {
 			return $default;
 		};
 		if ($this->log) {
-			$this->cloud->logMessage("language", "NOT-FOUND:" . $this->name . ":" . $name);
+			$this->cloud->logMessage("language", "[" . $this->moduleName . "] NOT-FOUND:" .$this->name . ":" . $name);
 		};
 		return $name;
 	}

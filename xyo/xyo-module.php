@@ -202,7 +202,7 @@ class xyo_Module extends xyo_Config {
 	protected $language;
 
 	private function initLanguageManager() {
-		$this->language=new xyo_Language($this->cloud);
+		$this->language=new xyo_Language($this->cloud,$this->name);
 	}
 
 	function loadLanguage() {
@@ -254,7 +254,6 @@ class xyo_Module extends xyo_Config {
 	public function isLanguageType($type) {
 		return $this->language->isLanguageType($type);
 	}
-
 
 	public function getFromLanguage($name, $default_=null) {
 		return $this->language->get($name, $default_);
@@ -1588,6 +1587,7 @@ class xyo_Module extends xyo_Config {
 
 	public function __construct(&$moduleObject, &$cloud) {
 		parent::__construct($cloud);
+		$this->initModuleCore($moduleObject);
 		$this->initParametersManager($moduleObject);
 		$this->initArgumentsManager();
 		$this->initAlertManager();
@@ -1596,7 +1596,6 @@ class xyo_Module extends xyo_Config {
 		$this->initFormManager();
 		$this->initComponentManager();
 		$this->initRequestManager();
-		$this->initModuleCore($moduleObject);
 		$this->initModelViewControllerManager();
 	}
 }

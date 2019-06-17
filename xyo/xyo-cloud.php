@@ -1285,7 +1285,7 @@ class xyo_Cloud extends xyo_Config {
 
 		parent::__construct($this);
 		
-		$this->set("xyo_cloud_core_version", "11.1.0.23");
+		$this->set("xyo_cloud_core_version", "11.2.0.24");
 		$this->set("site","");
 		$this->set("use_redirect",false);
 		$this->set("log_module",true);
@@ -1446,7 +1446,7 @@ class xyo_Cloud extends xyo_Config {
 		if ($this->get("log_response",false)) {
 			ob_start();
 			$x=array(0=>$this->path . "log/",1=>$this->getClientIP());
-			register_shutdown_function(xyo_Cloud::$logResponseShutdown, $x);
+			register_shutdown_function(array("xyo_Cloud","logResponseShutdown"), $x);
 		};
 
 		$this->runGroup("xyo-system-init");

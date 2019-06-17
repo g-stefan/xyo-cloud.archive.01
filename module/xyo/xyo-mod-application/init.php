@@ -8,4 +8,4 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->setApplicationTitle($this->getFromLanguage("application_title"));
+$this->setApplicationTitle($this->getFromLanguage("application_title",$this->name));
