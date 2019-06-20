@@ -145,6 +145,23 @@
 
 /* --- */
 
+#xyo-app-table-modal-filter_form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-filter_action{
+	border-top: 1px solid #C2CEE1;
+	padding-top: 16px;
+}
+
+#application-table_btn-filter > .xui.app-toolbar_button{
+	height: 32px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+/* --- */
+
 #xyo-app-table-modal-delete_form{
 	padding-bottom: 16px;
 }
@@ -178,6 +195,24 @@
 .xyo.application-table_toolbar-top_right{
 	display:none;
 	width:50%;
+	box-sizing: border-box;
+}
+
+.xyo.application-table_toolbar-top_left_filter{
+	position: relative;
+	display: inline-block;
+	width: auto;
+	float: left;
+	height: 32px;
+	box-sizing: border-box;
+}
+
+.xyo.application-table_toolbar-top_right_filter{
+	position: relative;
+	display: inline-block;
+	width: auto;
+	float: right;
+	height: 32px;
 	box-sizing: border-box;
 }
 

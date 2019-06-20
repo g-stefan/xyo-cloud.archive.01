@@ -51,5 +51,10 @@ $this->set("delete_this_and_many_more","... si mai multe");
 
 $this->set("label_button_new","Aplica");
 $this->set("label_button_edit","Aplica");
+$this->set("label_button_filter","Aplica");
 
 $this->set("search", "Cauta");
+
+$this->set("label_filter","Filtreaza");
+$this->set("form_title_filter","Filtreaza");
+

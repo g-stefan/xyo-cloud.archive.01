@@ -35,6 +35,7 @@ class xyo_app_Table extends xyo_app_Application {
 //
 	protected $dialogNew_;
 	protected $dialogEdit_;
+	protected $dialogFilter_;
         protected $isDialog;
 
 	public function __construct(&$object, &$cloud) {
@@ -59,6 +60,7 @@ class xyo_app_Table extends xyo_app_Application {
 		$this->tableIsDelete=false;
 		$this->dialogNew_=false;
 		$this->dialogEdit_=false;
+		$this->dialogFilter_=false;
 		$this->isDialog=false;
 	}
 
@@ -127,6 +129,10 @@ class xyo_app_Table extends xyo_app_Application {
 
 	public function setDialogEdit($value){
 		$this->dialogEdit_=$value;
+	}
+
+	public function setDialogFilter($value){
+		$this->dialogFilter_=$value;
 	}
 
 }

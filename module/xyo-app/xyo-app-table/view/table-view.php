@@ -207,7 +207,11 @@ function doValueSave(key){
 		
 	echo "<div class=\"xyo application-table\">";
 	echo "<div class=\"xyo application-table_toolbar-top\">";
-	echo "<div class=\"xyo application-table_toolbar-top_left\">";
+	if($this->dialogFilter_){
+		echo "<div class=\"xyo application-table_toolbar-top_left_filter\">";
+	}else{
+		echo "<div class=\"xyo application-table_toolbar-top_left\">";
+	};
 	
 	if($has_search){
                 ?>
@@ -223,30 +227,49 @@ function doValueSave(key){
           
 
         echo "</div>";
- 	echo "<div class=\"xyo application-table_toolbar-top_right\">";
- 	                        
-        foreach (array_reverse($this->tableSelect,true) as $key => $value) {
-            if ($value) {
-                ?>
-		<div class="xui -right" style="margin-right:4px;margin-top:4px;">
-		<select name="view_select_<?php echo $key; ?>"
-			size="1"
-			onChange="this.form.submit();"		
-			class="xui form-select -default" id="view_select_<?php echo $key; ?>"
-			data-xui-select-theme="-default"><?php
-        foreach ($select_info[$key] as $key_ => $value_) {
-            $selected = "";
-            if (strcmp($key_, $select_value[$key]) == 0) {
-                $selected = " selected=\"selected\"";
-            }
-            echo "<option value=\"" . $key_ . "\" " . $selected . ">" . $value_ . "</option>";
-        }
-                ?></select>
-		</div>
-                <?php
-            }
-        }
-       
+	if($this->dialogFilter_){
+	 	echo "<div class=\"xyo application-table_toolbar-top_right_filter\">";
+	}else{
+	 	echo "<div class=\"xyo application-table_toolbar-top_right\">";
+	};
+
+	if($this->dialogFilter_){
+		?>
+		    <div class="xui -right" id="application-table_btn-filter" style="margin-right:4px;margin-top:4px;">
+			<div class="xui app-toolbar_button -info -effect-ripple" onclick="cmdDialogFilter();">
+				<div class="xui app-toolbar_button_icon">
+					<i class="material-icons">filter_list</i>
+				</div>
+				<div class="xui app-toolbar_button_text">
+				<?php $this->eLanguage("label_filter"); ?>
+				</div>
+			</div>
+ 		    </div>		
+		<?php
+	}else{ 	                        
+	        foreach (array_reverse($this->tableSelect,true) as $key => $value) {
+			if ($value) {
+                	?>
+			<div class="xui -right" style="margin-right:4px;margin-top:4px;">
+			<select name="view_select_<?php echo $key; ?>"
+				size="1"
+				onChange="this.form.submit();"		
+				class="xui form-select -default" id="view_select_<?php echo $key; ?>"
+				data-xui-select-theme="-default"><?php
+				foreach ($select_info[$key] as $key_ => $value_) {
+					$selected = "";
+					if (strcmp($key_, $select_value[$key]) == 0) {
+						$selected = " selected=\"selected\"";
+					};
+					echo "<option value=\"" . $key_ . "\" " . $selected . ">" . $value_ . "</option>";
+				};
+                	?></select>
+			</div>
+                	<?php
+			};
+		};
+	};
+
         echo "</div>";
 
         echo "</div>";
@@ -760,13 +783,16 @@ function doValueSave(key){
                     <input type="hidden" name="search_reset" value="" id="search_reset" />
                 <?php
 	};
-?>
-
-    <?php
 
     foreach ($sort_value as $key => $value) {
         echo "<input type=\"hidden\" name=\"sort_v_" . $key . "\" value=\"" . $value . "\" />";
     };
+
+	foreach ($this->tableSelect as $key => $value) {
+		if ($value) {
+			echo "<input type=\"hidden\" name=\"view_select_" . $key . "\" id=\"view_select_" . $key . "\" value=\"".$this->getParameterRequest("view_select_" . $key,"*")."\" />";
+		};
+	};
 
 	$this->eFormRequest();
 
@@ -788,6 +814,15 @@ function doValueSave(key){
 	<div id="xyo-app-table-modal-edit_form"></div>
 	<div id="xyo-app-table-modal-edit_action" style="text-align: right;">
 		<button type="button" class="xui form-button -primary" id="xyo-app-table-modal-edit_button">&nbsp;&nbsp;&nbsp;&nbsp;<?php $this->eLanguage("label_button_edit"); ?>&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div>
+</div>
+<?php }; ?>
+
+<?php if($this->dialogFilter_){ ?>
+<div id="xyo-app-table-modal-filter" data-izimodal-title="<?php $this->eLanguage("form_title_filter"); ?>">
+	<div id="xyo-app-table-modal-filter_form"></div>
+	<div id="xyo-app-table-modal-filter_action" style="text-align: right;">
+		<button type="button" class="xui form-button -primary" id="xyo-app-table-modal-filter_button">&nbsp;&nbsp;&nbsp;&nbsp;<?php $this->eLanguage("label_button_filter"); ?>&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
 </div>
 <?php }; ?>
@@ -843,6 +878,12 @@ foreach($this->tableType as $key_=>$value_){
 	if($this->dialogEdit_){
 		$this->setHtmlJsSource(
 			"\$(\"#xyo-app-table-modal-edit\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
+		,"load");
+	};
+
+	if($this->dialogFilter_){
+		$this->setHtmlJsSource(
+			"\$(\"#xyo-app-table-modal-filter\").iziModal({transitionIn:\"comingIn\",padding:\"10px\",headerColor:\"#FFFFFF\",radius: 0,focusInput:true,restoreDefaultContent:true,fullscreen:false,closeButton:true});"
 		,"load");
 	};
 
@@ -916,6 +957,38 @@ foreach($this->tableType as $key_=>$value_){
 				"\$(\"#xyo-app-table-modal-edit_form\").html(result);".
 				"\$(\"#xyo-app-table-modal-edit\").iziModal(\"open\");".
 				"\$(\"#xyo-app-table-modal-edit\").iziModal(\"stopLoading\");".
+			"});".
+		"};".
+		"\r\n"
+		);
+		$this->setFormName($originalFormName);		
+	};
+
+	if($this->dialogFilter_){
+		$originalFormName=$this->getFormName();			
+		$this->setFormName($originalFormName."_filter");
+		$scriptX="";
+		foreach ($this->tableSelect as $key => $value) {
+			if($value){
+				$scriptX.="var filterVal=\$(\"#fn_filter_e_".$key."\").val();";
+				$scriptX.="if(filterVal){}else{filterVal=\"*\";};";
+				$scriptX.="\$(\"#view_select_".$key."\").val(filterVal);";
+			};
+		};
+
+		$this->setHtmlJsSource(
+		"function cmdDialogFilter(){".
+			"\$(\"#xyo-app-table-modal-filter\").iziModal(\"startLoading\");".
+			"\$.post(\"".$this->requestUriThis()."\", { action: \"table-dialog-filter\", ajax: 1 } )".
+  			".done(function(result){".
+				"\$(\"#xyo-app-table-modal-filter_button\").off(\"click\").on(\"click\",function(){".
+					$scriptX.
+					"\$(\"#xyo-app-table-modal-filter\").iziModal(\"close\");".
+					"doCommand(\"table-view\");".
+				"});".
+				"\$(\"#xyo-app-table-modal-filter_form\").html(result);".
+				"\$(\"#xyo-app-table-modal-filter\").iziModal(\"open\");".
+				"\$(\"#xyo-app-table-modal-filter\").iziModal(\"stopLoading\");".
 			"});".
 		"};".
 		"\r\n"

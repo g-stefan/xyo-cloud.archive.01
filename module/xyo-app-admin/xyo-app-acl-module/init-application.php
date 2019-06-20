@@ -15,6 +15,7 @@ $this->setPrimaryKey("id");
 
 $this->setDialogNew(true);
 $this->setDialogEdit(true);
+$this->setDialogFilter(true);
 
 $this->requireComponent(array(
 	"xui.form-select",
