@@ -8,7 +8,7 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->set("xyo_cloud_version", "12.2.0.65");
+$this->set("xyo_cloud_version", "12.2.1.66");
 
 //$this->set("log_module",true);
 //$this->set("log_request",true);

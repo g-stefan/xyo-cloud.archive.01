@@ -9,7 +9,11 @@
 defined("XYO_CLOUD") or die("Access is denied");
 
 $element = $this->getArgument("element");
-$format = $this->getArgument("format",$this->cloud->get("locale_time_format",""));
+$format = $this->getElementValueString($element."_format","");
+if(strlen($format)){
+	$format=base64_decode($format);
+};
+$format = $this->getArgument("format",strlen($format)?$format:$this->cloud->get("locale_date_format",""));
 if(strlen($format)){
 	if($format=="H:i:s"){
 		$value=$this->getElementValueString($element);

@@ -74,11 +74,14 @@ if($hasValue){
 };
 
 ?>
-<label class="xui form-label<?php if($this->isElementError($element)){echo " xui form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui form-label<?php if($this->isElementError($element)){echo " -danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
-<input type="text"<?php echo $maxlength; ?> class="xui-form-text<?php if($this->isElementError($element)){echo " xui-form-text_danger";}; ?>" placeholder=""
+<input type="text"<?php echo $maxlength; ?> class="xui form-text<?php if($this->isElementError($element)){echo " -danger";}; ?>" placeholder=""
 	name="<?php $this->eElementName($element); ?>"
 	value="<?php $this->eElementValue($element, ""); ?>"
 	id="<?php $this->eElementId($element); ?>"
 	data-date-format="<?php echo $format; ?>" data-timepicker="true" data-language="en" data-time-format="hh:ii"></input>
+<?php if(strlen($format)){ ?>
+	<input type="hidden" name="<?php $this->eElementName($element); ?>_format" value="<?php echo base64_encode($format); ?>"></input>
+<?php }; ?>
 <br>

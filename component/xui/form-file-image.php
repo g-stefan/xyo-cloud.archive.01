@@ -120,7 +120,7 @@ $this->setHtmlJsSourceOrAjax($src,"load");
 
 </style>
 
-<label class="xui form-label<?php if($this->isElementError($element)){echo " xui form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui form-label<?php if($this->isElementError($element)){echo " -danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
 <div class="xui form-file-image" id="<?php $this->eElementId($element); ?>_component">
 <div class="xui form-file-image_image">

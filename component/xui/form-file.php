@@ -11,7 +11,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 $element = $this->getArgument("element");
 
 ?>
-<label class="xui form-label<?php if($this->isElementError($element)){echo " xui form-label_danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
+<label class="xui form-label<?php if($this->isElementError($element)){echo " -danger";}; ?>" for="<?php $this->eElementId($element); ?>"><?php $this->eLanguage("label_" . $element); ?><?php if($this->isElementError($element)){echo " - "; $this->eElementError($element);}; ?></label>
 <br>
 <div class="xui form-file" style="width:100%;display:block;">
 <input type="file" name="<?php $this->eElementName($element); ?>" id="<?php $this->eElementId($element); ?>" class="xui form-file_file"></input>
