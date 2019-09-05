@@ -1,0 +1,299 @@
+/*
+//
+// Copyright (c) 2018-2019 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xyo.application-table{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+.xyo.application-table .xyo.application-table_toolbar-top{
+	position: relative;
+	height: 40px;
+	width: 100%;
+	overflow: visible;
+	box-shadow: none;
+	box-sizing: border-box;
+}
+
+.xyo.application-table .xyo.application-table_toolbar-bottom{
+	position: relative;
+	height: 40px;
+	width: 100%;
+	overflow: visible;
+	padding-top: 3px;
+	border-top: 1px solid #EEEEEE;
+	border-bottom: 0px solid #EEEEEE;
+	box-shadow: none;
+	box-sizing: border-box;
+}
+
+#xyo-app-table_table{
+	position: relative;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0px;
+
+	border-top: 1px solid #DDDDDD;
+
+	border-left: 0px solid #DDDDDD;
+	border-right: 0px solid #DDDDDD;
+
+	box-sizing: border-box;
+}
+
+#xyo-app-table_table th{
+	border: 1px solid #DDDDDD;
+	border-left: 0px solid #DDDDDD;
+
+	padding-left: 4px;
+	padding-right: 4px;
+
+	box-sizing: border-box;
+}
+
+#xyo-app-table_table td{
+	border: 1px solid #DDDDDD;
+	border-left: 0px solid #DDDDDD;
+
+	padding-left: 4px;
+	padding-right: 4px;
+
+	box-sizing: border-box;
+}
+
+#xyo-app-table_table td:last-child {
+	border-right: 0px solid #000000;
+}
+
+#xyo-app-table_table tr:nth-child(even){
+	background-color: #EEEEEE;
+}
+
+#xyo-app-table_table thead > tr > th{
+	vertical-align: middle;
+	background-color: #fff;
+	border:1px solid #DDDDDD;
+	border-left: 0px solid #DDDDDD;
+
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	font-family: "Roboto", sans-serif;
+
+	box-sizing: border-box;
+	min-width: 128px;
+}
+
+#xyo-app-table_table > thead > tr > th:last-child {
+	border-right: 0px solid #000000;
+}
+
+#xyo-app-table_table > tbody > tr > td{
+	font-size: 16px;
+	line-height: 20px;
+
+	font-family: "Roboto", sans-serif;
+}
+
+#xyo-app-table_table > tbody > tr:hover{
+	background-color: #E6F0FC;
+}
+
+#xyo-app-table_table thead > tr > th.xyo.-index,
+#xyo-app-table_table tbody > tr > td.xyo.-index {
+	vertical-align:middle;
+	width:32px;
+	height:32px;
+	padding-left:5px;
+	text-align:left;
+	min-width: 32px;
+}
+
+/* --- */
+
+#xyo-app-table-modal-new_form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-new_action{
+	border-top: 1px solid #C2CEE1;
+	padding-top: 16px;
+}
+
+/* --- */
+
+#xyo-app-table-modal-edit_form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-edit_action{
+	border-top: 1px solid #C2CEE1;
+	padding-top: 16px;
+}
+
+/* --- */
+
+#xyo-app-table-modal-filter_form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-filter_action{
+	border-top: 1px solid #C2CEE1;
+	padding-top: 16px;
+}
+
+#application-table_btn-filter > .xui.app-toolbar_button{
+	height: 32px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+/* --- */
+
+#xyo-app-table-modal-delete_form{
+	padding-bottom: 16px;
+}
+
+#xyo-app-table-modal-delete_action{
+	border-top: 1px solid #C2CEE1;
+	padding-top: 16px;
+}
+
+.xyo.app-table.-responsive{
+	position: relative;
+	display: block;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.iziModal-content{
+	box-sizing: border-box;
+}
+
+#xyo-app-table_table td {
+	position: relative;
+}
+                          
+.xyo.application-table_toolbar-top_left{
+	display:inline-block;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.xyo.application-table_toolbar-top_right{
+	display:none;
+	width:50%;
+	box-sizing: border-box;
+}
+
+.xyo.application-table_toolbar-top_left_filter{
+	position: relative;
+	display: inline-block;
+	width: auto;
+	float: left;
+	height: 32px;
+	box-sizing: border-box;
+}
+
+.xyo.application-table_toolbar-top_right_filter{
+	position: relative;
+	display: inline-block;
+	width: auto;
+	float: right;
+	height: 32px;
+	box-sizing: border-box;
+}
+
+.xyo.app-table_indicator_items{
+	display:inline-block;
+	box-sizing: border-box;
+}
+
+.xyo.app-table_indicator_items_info {
+	display:none;
+	box-sizing: border-box;
+}
+
+.xyo.app-table_col_important {
+	display: table-cell;
+}
+
+.xyo.app-table_col_normal {
+	display: none;
+}
+
+.xyo.app-table_content {
+	position: relative;
+	display:block;
+	box-sizing: border-box;
+	width: 100%;
+	height: calc(100% - 80px);
+	overflow: auto;
+}
+
+@media only screen and (min-width: 600px){
+
+	.xyo.application-table_toolbar-top_left{
+		position: relative;
+		display: inline-block;
+		width: auto;
+		float: left;
+		height: 32px;
+	}
+
+	.xyo.application-table_toolbar-top_right{
+		position: relative;
+		display: inline-block;
+		width: auto;
+		float: right;
+		height: 32px;
+	}
+
+	.xyo.app-table_indicator_items{
+		display:inline-block;
+	}
+
+	.xyo.app-table_indicator_items_info{
+		display:inline-block;
+	}
+
+	.xyo.app-table_col_important{
+		display: table-cell;
+	}
+
+	.xyo.app-table_col_normal{
+		display: table-cell;
+	}
+
+	/* --- */
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-id {
+		width: 128px;
+	}
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-enabled {
+		width: 128px;
+	}
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-default {
+		width: 128px;
+	}
+
+	#xyo-app-table_table thead > tr > th.xyo.app-table_col_normal.-field-order {
+		width: 140px;
+	}
+
+}
+

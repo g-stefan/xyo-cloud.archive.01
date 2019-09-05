@@ -1,0 +1,37 @@
+/*
+//
+// Copyright (c) 2018-2019 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+.xyo.mod-sys-panel i{
+	font-size:64px;
+	color:#999;
+	text-align:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.xyo.mod-sys-panel img{
+	width:64px;
+	height:64px;
+	border:0px;
+}
+
+.xyo.mod-sys-panel .xyo.thumbnail{
+	width:128px;
+	height:128px;
+	cursor:pointer;
+	float:left;
+	text-decoration:none;
+	margin-left:6px;
+}
+
+.xyo.mod-sys-panel .xyo.caption{
+	text-align:center;
+}
+
