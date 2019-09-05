@@ -15,8 +15,8 @@ class lib_iziModal extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_iziModal")) {
-		$this->setHtmlCss($this->site."lib/izimodal/css/izimodal.min.css");
-		$this->setHtmlJs($this->site."lib/izimodal/js/izimodal.min.js");
+		$this->setHtmlCss($this->site."lib/izimodal/izimodal.min.css");
+		$this->setHtmlJs($this->site."lib/izimodal/izimodal.min.js");
 	}
     }
 

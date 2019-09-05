@@ -15,7 +15,7 @@ class lib_Md5 extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_Md5")) {
-		$this->setHtmlJs($this->site."lib/md5/js/md5.js");
+		$this->setHtmlJs($this->site."lib/md5/md5.js");
         }
     }
 

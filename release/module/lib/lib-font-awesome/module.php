@@ -15,7 +15,7 @@ class lib_FontAwesome extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_FontAwesome")) {
-		$this->setHtmlCss($this->site."lib/font-awesome/css/font-awesome.min.css");
+		$this->setHtmlCss($this->site."lib/font-awesome/font-awesome.min.css");
         }
     }
 }

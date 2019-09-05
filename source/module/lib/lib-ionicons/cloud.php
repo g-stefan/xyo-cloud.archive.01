@@ -8,4 +8,4 @@
 
 defined("XYO_CLOUD") or die("Access is denied");
 
-$this->setVersion($module, "2.0.0");
+$this->setVersion($module, "2.1.0");

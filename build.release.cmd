@@ -9,7 +9,6 @@ set XUI_VERSION=2.4.0
 7zr x dependency/xui-%XUI_VERSION%.7z
 move xui-%XUI_VERSION% release
 
-del /Q release\config\xyo-cloud.44.xui-build.php
 del /Q release\config\xyo-cloud.46.xui-build-tpl.php
 
 xcopy /E /H /K /Y source release

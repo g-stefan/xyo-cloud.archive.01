@@ -15,7 +15,7 @@ class lib_IonIcons extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_IonIcons")) {
-		$this->setHtmlCss($this->site."lib/ionicons/css/ionicons.min.css");
+		$this->setHtmlCss($this->site."lib/ionicons/ionicons.min.css");
         }
     }
 }

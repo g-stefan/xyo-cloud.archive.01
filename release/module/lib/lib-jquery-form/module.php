@@ -15,7 +15,7 @@ class lib_JQueryForm extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_JQueryForm")) {
-		$this->setHtmlJs($this->site."lib/jquery-form/js/jquery.form.min.js");
+		$this->setHtmlJs($this->site."lib/jquery-form/jquery.form.min.js");
 	}
     }
 

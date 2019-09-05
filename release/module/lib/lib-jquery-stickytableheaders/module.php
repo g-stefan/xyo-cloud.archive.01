@@ -15,7 +15,7 @@ class lib_JQueryFixedHeaderTable extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_JQueryFixedHeaderTable")) {
-		$this->setHtmlJs($this->site."lib/jquery-stickytableheaders/js/jquery.stickytableheaders.min.js");
+		$this->setHtmlJs($this->site."lib/jquery-stickytableheaders/jquery.stickytableheaders.min.js");
         }
     }
 }

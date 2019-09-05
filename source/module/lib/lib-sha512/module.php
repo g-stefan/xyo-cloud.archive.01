@@ -15,7 +15,7 @@ class lib_Sha512 extends xyo_Module {
     public function __construct(&$object, &$cloud) {
         parent::__construct($object, $cloud);
         if ($this->isBase("lib_Sha512")) {
-		$this->setHtmlJs($this->site."lib/sha512/js/sha512.min.js");
+		$this->setHtmlJs($this->site."lib/sha512/sha512.min.js");
         }
     }
 

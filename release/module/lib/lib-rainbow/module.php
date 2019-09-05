@@ -16,14 +16,14 @@ class lib_Rainbow extends xyo_Module {
 		parent::__construct($object, $cloud);
 		if ($this->isBase("lib_Rainbow")) {
 			$this->setHtmlCss($this->site."lib/rainbow/themes/blackboard.css");
-			$this->setHtmlJs($this->site."lib/rainbow/js/rainbow.min.js");
-			$this->setHtmlJs($this->site."lib/rainbow/js/language/generic.js");
-			$this->setHtmlJs($this->site."lib/rainbow/js/language/css.js");
-			$this->setHtmlJs($this->site."lib/rainbow/js/language/html.js");
-			$this->setHtmlJs($this->site."lib/rainbow/js/language/javascript.js");
-			$this->setHtmlJs($this->site."lib/rainbow/js/language/json.js");
-			$this->setHtmlJs($this->site."lib/rainbow/js/language/php.js");
-			$this->setHtmlJs($this->site."lib/rainbow/js/language/shell.js");
+			$this->setHtmlJs($this->site."lib/rainbow/rainbow.min.js");
+			$this->setHtmlJs($this->site."lib/rainbow/language/generic.js");
+			$this->setHtmlJs($this->site."lib/rainbow/language/css.js");
+			$this->setHtmlJs($this->site."lib/rainbow/language/html.js");
+			$this->setHtmlJs($this->site."lib/rainbow/language/javascript.js");
+			$this->setHtmlJs($this->site."lib/rainbow/language/json.js");
+			$this->setHtmlJs($this->site."lib/rainbow/language/php.js");
+			$this->setHtmlJs($this->site."lib/rainbow/language/shell.js");
         	}
 	}
 
