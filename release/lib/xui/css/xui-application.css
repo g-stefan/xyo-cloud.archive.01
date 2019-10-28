@@ -30,7 +30,7 @@
 
 .xui.application.-has-toolbar > .xui.application_content{
 	height: calc(100% - 48px);
-	border-top: 1px solid #C2CEE1;
+	border-top: 1px solid #D5DEE6;
 }
 
 .xui.application.-has-toolbar.-has-message > .xui.application_content{

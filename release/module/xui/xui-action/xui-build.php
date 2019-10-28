@@ -11,10 +11,11 @@ defined("XYO_CLOUD") or die("Access is denied");
 $this->buildCSS("xui-action");
 $this->buildUI();
 
-$this->settings["action-hover-background-color"]=$this->color->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-1"],0,0,30);
-$this->settings["action-hover-ripple-background-color"]=$this->color->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-1"],0,0,20);
-$this->settings["action-selected-background-color"]=$this->color->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-1"],0,0,30);
-$this->settings["action-selected-hover-background-color"]=$this->color->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-1"],0,0,20);
-$this->settings["action-selected-hover-ripple-background-color"]=$this->color->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-1"],0,0,10);
-$this->settings["action-selected-left-color"]=$this->color->rgbHexHSLAdjust($this->xuiPalette->palette["core-blue-jeans-1"],0,0,-15);
+$delta=10;
+$this->settings["action-hover-background-color"]=$this->color->rgbHexHSLAdjustL($this->xuiPalette->palette["science-blue-1"],30+$delta);
+$this->settings["action-hover-ripple-background-color"]=$this->color->rgbHexHSLAdjustL($this->xuiPalette->palette["science-blue-1"],20+$delta);
+$this->settings["action-selected-background-color"]=$this->color->rgbHexHSLAdjustL($this->xuiPalette->palette["science-blue-1"],30+$delta);
+$this->settings["action-selected-hover-background-color"]=$this->color->rgbHexHSLAdjustL($this->xuiPalette->palette["science-blue-1"],20+$delta);
+$this->settings["action-selected-hover-ripple-background-color"]=$this->color->rgbHexHSLAdjustL($this->xuiPalette->palette["science-blue-1"],10+$delta);
+$this->settings["action-selected-left-color"]=$this->color->rgbHexHSLAdjustL($this->xuiPalette->palette["science-blue-1"],-15+$delta);
 $this->settings["action-selected-icon-left-color"]=$this->settings["app-bar-background-color"];

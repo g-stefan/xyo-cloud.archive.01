@@ -96,7 +96,7 @@
 
 	box-sizing: border-box;
 
-	border: 1px solid #C2CEE1;
+	border: 1px solid #D5DEE6;
 	border-radius: 3px;
 
 	transition: all 0.3s ease;
@@ -105,19 +105,19 @@
 .xui.form-switch input[type="checkbox"]:focus + label::before,
 .xui.form-switch input[type="checkbox"]:active + label::before {
 	outline: none;
-	border: 1px solid #1A72E2;
-	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+	border: 1px solid #298CEF;
+	box-shadow: 0px 0px 0px 3px rgba(41,140,239,0.2510);
 }
 
 .xui.form-switch input[type="checkbox"]:checked + label::before {
-	border: 1px solid #2363B6;
-	background-color: #2363B6;
+	border: 1px solid #3465A4;
+	background-color: #3465A4;
 }
 
 .xui.form-switch input[type="checkbox"]:checked:focus + label::before,
 .xui.form-switch input[type="checkbox"]:checked:active + label::before {
-	border: 1px solid #1A72E2;
-	background-color: #1A72E2;
+	border: 1px solid #298CEF;
+	background-color: #298CEF;
 }
 
 .xui.form-switch input[type="checkbox"] + label::after {
@@ -145,7 +145,7 @@
 
 	box-sizing: border-box;
 
-	background-color: #8FA5C8;
+	background-color: #A5B8C9;
 
 	transition: all 0.3s ease;
 }
@@ -159,7 +159,7 @@
 
 .xui.form-switch input[type="checkbox"]:focus + label::after,
 .xui.form-switch input[type="checkbox"]:active + label::after {
-	background-color: #1A72E2;
+	background-color: #298CEF;
 }
 
 .xui.form-switch input[type="checkbox"]:focus:checked + label::after,
@@ -172,34 +172,34 @@
 
 
 .xui.form-switch.-primary label::before {
-	border: 1px solid #2363B6;
+	border: 1px solid #3465A4;
 }
 
 .xui.form-switch.-primary input[type="checkbox"]:focus + label::before,
 .xui.form-switch.-primary input[type="checkbox"]:active + label::before {
 	outline: none;
-	border: 1px solid #1A72E2;
-	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+	border: 1px solid #298CEF;
+	box-shadow: 0px 0px 0px 3px rgba(41,140,239,0.2510);
 }
 
 .xui.form-switch.-primary input[type="checkbox"]:checked + label::before {
-	border: 1px solid #2363B6;
-	background-color: #2363B6;
+	border: 1px solid #3465A4;
+	background-color: #3465A4;
 }
 
 .xui.form-switch.-primary input[type="checkbox"]:checked:focus + label::before,
 .xui.form-switch.-primary input[type="checkbox"]:checked:active + label::before {
-	border: 1px solid #1A72E2;
-	background-color: #1A72E2;
+	border: 1px solid #298CEF;
+	background-color: #298CEF;
 }
 
 .xui.form-switch.-primary input[type="checkbox"] + label::after {
-	background-color: #2363B6;
+	background-color: #3465A4;
 }
 
 .xui.form-switch.-primary input[type="checkbox"]:focus + label::after,
 .xui.form-switch.-primary input[type="checkbox"]:active + label::after {
-	background-color: #1A72E2;
+	background-color: #298CEF;
 }
 
 .xui.form-switch.-primary input[type="checkbox"]:checked + label::after {
@@ -208,34 +208,34 @@
 
 
 .xui.form-switch.-success label::before {
-	border: 1px solid #659234;
+	border: 1px solid #5FAD12;
 }
 
 .xui.form-switch.-success input[type="checkbox"]:focus + label::before,
 .xui.form-switch.-success input[type="checkbox"]:active + label::before {
 	outline: none;
-	border: 1px solid #7ABA35;
-	box-shadow: 0px 0px 0px 3px rgba(122,186,53,0.2510);
+	border: 1px solid #8AE234;
+	box-shadow: 0px 0px 0px 3px rgba(138,226,52,0.2510);
 }
 
 .xui.form-switch.-success input[type="checkbox"]:checked + label::before {
-	border: 1px solid #659234;
-	background-color: #659234;
+	border: 1px solid #5FAD12;
+	background-color: #5FAD12;
 }
 
 .xui.form-switch.-success input[type="checkbox"]:checked:focus + label::before,
 .xui.form-switch.-success input[type="checkbox"]:checked:active + label::before {
-	border: 1px solid #7ABA35;
-	background-color: #7ABA35;
+	border: 1px solid #8AE234;
+	background-color: #8AE234;
 }
 
 .xui.form-switch.-success input[type="checkbox"] + label::after {
-	background-color: #659234;
+	background-color: #5FAD12;
 }
 
 .xui.form-switch.-success input[type="checkbox"]:focus + label::after,
 .xui.form-switch.-success input[type="checkbox"]:active + label::after {
-	background-color: #7ABA35;
+	background-color: #8AE234;
 }
 
 .xui.form-switch.-success input[type="checkbox"]:checked + label::after {
@@ -244,34 +244,34 @@
 
 
 .xui.form-switch.-info label::before {
-	border: 1px solid #2084A9;
+	border: 1px solid #0086B3;
 }
 
 .xui.form-switch.-info input[type="checkbox"]:focus + label::before,
 .xui.form-switch.-info input[type="checkbox"]:active + label::before {
 	outline: none;
-	border: 1px solid #1AA2D1;
-	box-shadow: 0px 0px 0px 3px rgba(26,162,209,0.2510);
+	border: 1px solid #29BDEF;
+	box-shadow: 0px 0px 0px 3px rgba(41,189,239,0.2510);
 }
 
 .xui.form-switch.-info input[type="checkbox"]:checked + label::before {
-	border: 1px solid #2084A9;
-	background-color: #2084A9;
+	border: 1px solid #0086B3;
+	background-color: #0086B3;
 }
 
 .xui.form-switch.-info input[type="checkbox"]:checked:focus + label::before,
 .xui.form-switch.-info input[type="checkbox"]:checked:active + label::before {
-	border: 1px solid #1AA2D1;
-	background-color: #1AA2D1;
+	border: 1px solid #29BDEF;
+	background-color: #29BDEF;
 }
 
 .xui.form-switch.-info input[type="checkbox"] + label::after {
-	background-color: #2084A9;
+	background-color: #0086B3;
 }
 
 .xui.form-switch.-info input[type="checkbox"]:focus + label::after,
 .xui.form-switch.-info input[type="checkbox"]:active + label::after {
-	background-color: #1AA2D1;
+	background-color: #29BDEF;
 }
 
 .xui.form-switch.-info input[type="checkbox"]:checked + label::after {
@@ -280,34 +280,34 @@
 
 
 .xui.form-switch.-warning label::before {
-	border: 1px solid #E19B0B;
+	border: 1px solid #D79400;
 }
 
 .xui.form-switch.-warning input[type="checkbox"]:focus + label::before,
 .xui.form-switch.-warning input[type="checkbox"]:active + label::before {
 	outline: none;
-	border: 1px solid #FFB807;
-	box-shadow: 0px 0px 0px 3px rgba(255,184,7,0.2510);
+	border: 1px solid #FCCB46;
+	box-shadow: 0px 0px 0px 3px rgba(252,203,70,0.2510);
 }
 
 .xui.form-switch.-warning input[type="checkbox"]:checked + label::before {
-	border: 1px solid #E19B0B;
-	background-color: #E19B0B;
+	border: 1px solid #D79400;
+	background-color: #D79400;
 }
 
 .xui.form-switch.-warning input[type="checkbox"]:checked:focus + label::before,
 .xui.form-switch.-warning input[type="checkbox"]:checked:active + label::before {
-	border: 1px solid #FFB807;
-	background-color: #FFB807;
+	border: 1px solid #FCCB46;
+	background-color: #FCCB46;
 }
 
 .xui.form-switch.-warning input[type="checkbox"] + label::after {
-	background-color: #E19B0B;
+	background-color: #D79400;
 }
 
 .xui.form-switch.-warning input[type="checkbox"]:focus + label::after,
 .xui.form-switch.-warning input[type="checkbox"]:active + label::after {
-	background-color: #FFB807;
+	background-color: #FCCB46;
 }
 
 .xui.form-switch.-warning input[type="checkbox"]:checked + label::after {
@@ -316,34 +316,34 @@
 
 
 .xui.form-switch.-danger label::before {
-	border: 1px solid #AF2331;
+	border: 1px solid #B30000;
 }
 
 .xui.form-switch.-danger input[type="checkbox"]:focus + label::before,
 .xui.form-switch.-danger input[type="checkbox"]:active + label::before {
 	outline: none;
-	border: 1px solid #DE182C;
-	box-shadow: 0px 0px 0px 3px rgba(222,24,44,0.2510);
+	border: 1px solid #EF2929;
+	box-shadow: 0px 0px 0px 3px rgba(239,41,41,0.2510);
 }
 
 .xui.form-switch.-danger input[type="checkbox"]:checked + label::before {
-	border: 1px solid #AF2331;
-	background-color: #AF2331;
+	border: 1px solid #B30000;
+	background-color: #B30000;
 }
 
 .xui.form-switch.-danger input[type="checkbox"]:checked:focus + label::before,
 .xui.form-switch.-danger input[type="checkbox"]:checked:active + label::before {
-	border: 1px solid #DE182C;
-	background-color: #DE182C;
+	border: 1px solid #EF2929;
+	background-color: #EF2929;
 }
 
 .xui.form-switch.-danger input[type="checkbox"] + label::after {
-	background-color: #AF2331;
+	background-color: #B30000;
 }
 
 .xui.form-switch.-danger input[type="checkbox"]:focus + label::after,
 .xui.form-switch.-danger input[type="checkbox"]:active + label::after {
-	background-color: #DE182C;
+	background-color: #EF2929;
 }
 
 .xui.form-switch.-danger input[type="checkbox"]:checked + label::after {

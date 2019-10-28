@@ -17,10 +17,10 @@
 	border-radius:  0px 0px 3px 3px;
 	color: #444444;
 	background-color: #FFFFFF;
-	border-top: 0px solid #1A72E2;
-	border-right: 1px solid #1A72E2;
-	border-bottom: 1px solid #1A72E2;
-	border-left: 1px solid #1A72E2;
+	border-top: 0px solid #298CEF;
+	border-right: 1px solid #298CEF;
+	border-bottom: 1px solid #298CEF;
+	border-left: 1px solid #298CEF;
 }
 
 .xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item{
@@ -45,12 +45,12 @@
 }
 
 .xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
-	background-color: #1A72E2;
+	background-color: #298CEF;
 	color: #FFFFFF;
 }
 
 .xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
-	background-color: #1A72E2;
+	background-color: #298CEF;
 	color: #000000;
 }
 
@@ -64,21 +64,21 @@
 .xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
 	outline: none;
 	border-radius:  0px 0px 3px 3px;
-	color: #1A72E2;
+	color: #298CEF;
 	background-color: #FFFFFF;
-	border-top: 0px solid #1A72E2;
-	border-right: 1px solid #1A72E2;
-	border-bottom: 1px solid #1A72E2;
-	border-left: 1px solid #1A72E2;
+	border-top: 0px solid #298CEF;
+	border-right: 1px solid #298CEF;
+	border-bottom: 1px solid #298CEF;
+	border-left: 1px solid #298CEF;
 }
 
 .xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
-	background-color: #1A72E2;
+	background-color: #298CEF;
 	color: #FFFFFF;
 }
 
 .xui.form-text + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
-	background-color: #1A72E2;
+	background-color: #298CEF;
 	color: #000000;
 }
 
@@ -86,21 +86,21 @@
 .xui.form-text.-primary + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
 	outline: none;
 	border-radius:  0px 0px 3px 3px;
-	color: #1A72E2;
+	color: #298CEF;
 	background-color: #FFFFFF;
-	border-top: 0px solid #1A72E2;
-	border-right: 1px solid #1A72E2;
-	border-bottom: 1px solid #1A72E2;
-	border-left: 1px solid #1A72E2;
+	border-top: 0px solid #298CEF;
+	border-right: 1px solid #298CEF;
+	border-bottom: 1px solid #298CEF;
+	border-left: 1px solid #298CEF;
 }
 
 .xui.form-text.-primary + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
-	background-color: #1A72E2;
+	background-color: #298CEF;
 	color: #FFFFFF;
 }
 
 .xui.form-text.-primary + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
-	background-color: #1A72E2;
+	background-color: #298CEF;
 	color: #000000;
 }
 
@@ -108,21 +108,21 @@
 .xui.form-text.-success + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
 	outline: none;
 	border-radius:  0px 0px 3px 3px;
-	color: #7ABA35;
+	color: #8AE234;
 	background-color: #FFFFFF;
-	border-top: 0px solid #7ABA35;
-	border-right: 1px solid #7ABA35;
-	border-bottom: 1px solid #7ABA35;
-	border-left: 1px solid #7ABA35;
+	border-top: 0px solid #8AE234;
+	border-right: 1px solid #8AE234;
+	border-bottom: 1px solid #8AE234;
+	border-left: 1px solid #8AE234;
 }
 
 .xui.form-text.-success + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
-	background-color: #7ABA35;
+	background-color: #8AE234;
 	color: #FFFFFF;
 }
 
 .xui.form-text.-success + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
-	background-color: #7ABA35;
+	background-color: #8AE234;
 	color: #000000;
 }
 
@@ -130,21 +130,21 @@
 .xui.form-text.-info + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
 	outline: none;
 	border-radius:  0px 0px 3px 3px;
-	color: #1AA2D1;
+	color: #29BDEF;
 	background-color: #FFFFFF;
-	border-top: 0px solid #1AA2D1;
-	border-right: 1px solid #1AA2D1;
-	border-bottom: 1px solid #1AA2D1;
-	border-left: 1px solid #1AA2D1;
+	border-top: 0px solid #29BDEF;
+	border-right: 1px solid #29BDEF;
+	border-bottom: 1px solid #29BDEF;
+	border-left: 1px solid #29BDEF;
 }
 
 .xui.form-text.-info + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
-	background-color: #1AA2D1;
+	background-color: #29BDEF;
 	color: #FFFFFF;
 }
 
 .xui.form-text.-info + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
-	background-color: #1AA2D1;
+	background-color: #29BDEF;
 	color: #000000;
 }
 
@@ -152,21 +152,21 @@
 .xui.form-text.-warning + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
 	outline: none;
 	border-radius:  0px 0px 3px 3px;
-	color: #FFB807;
+	color: #FCCB46;
 	background-color: #FFFFFF;
-	border-top: 0px solid #FFB807;
-	border-right: 1px solid #FFB807;
-	border-bottom: 1px solid #FFB807;
-	border-left: 1px solid #FFB807;
+	border-top: 0px solid #FCCB46;
+	border-right: 1px solid #FCCB46;
+	border-bottom: 1px solid #FCCB46;
+	border-left: 1px solid #FCCB46;
 }
 
 .xui.form-text.-warning + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
-	background-color: #FFB807;
+	background-color: #FCCB46;
 	color: #FFFFFF;
 }
 
 .xui.form-text.-warning + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
-	background-color: #FFB807;
+	background-color: #FCCB46;
 	color: #000000;
 }
 
@@ -174,21 +174,21 @@
 .xui.form-text.-danger + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list {
 	outline: none;
 	border-radius:  0px 0px 3px 3px;
-	color: #DE182C;
+	color: #EF2929;
 	background-color: #FFFFFF;
-	border-top: 0px solid #DE182C;
-	border-right: 1px solid #DE182C;
-	border-bottom: 1px solid #DE182C;
-	border-left: 1px solid #DE182C;
+	border-top: 0px solid #EF2929;
+	border-right: 1px solid #EF2929;
+	border-bottom: 1px solid #EF2929;
+	border-left: 1px solid #EF2929;
 }
 
 .xui.form-text.-danger + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item:hover{
-	background-color: #DE182C;
+	background-color: #EF2929;
 	color: #FFFFFF;
 }
 
 .xui.form-text.-danger + .autocompleter.xui-form-autocomplete.autocompleter-focus.autocompleter-show > ul.autocompleter-list > li.autocompleter-item-selected {
-	background-color: #DE182C;
+	background-color: #EF2929;
 	color: #000000;
 }
 

@@ -44,37 +44,37 @@
 
 
 .xui.alert.-primary {
-	color: #174076;
-	background-color: #CADCF5;
-	border: 1px solid #2363B6;
+	color: #22416A;
+	background-color: #CEDDEF;
+	border: 1px solid #3465A4;
 }
 
 
 .xui.alert.-success {
-	color: #3E5A20;
-	background-color: #D7E9C2;
-	border: 1px solid #659234;
+	color: #39680B;
+	background-color: #D2F7AE;
+	border: 1px solid #5FAD12;
 }
 
 
 .xui.alert.-info {
-	color: #145269;
-	background-color: #BCE4F2;
-	border: 1px solid #2084A9;
+	color: #004D67;
+	background-color: #9AE5FF;
+	border: 1px solid #0086B3;
 }
 
 
 .xui.alert.-warning {
-	color: #986907;
-	background-color: #FDF0D5;
-	border: 1px solid #E19B0B;
+	color: #8B5F00;
+	background-color: #FFEBBE;
+	border: 1px solid #D79400;
 }
 
 
 .xui.alert.-danger {
-	color: #6F161F;
-	background-color: #F3C4C9;
-	border: 1px solid #AF2331;
+	color: #670000;
+	background-color: #FF9A9A;
+	border: 1px solid #B30000;
 }
 
 

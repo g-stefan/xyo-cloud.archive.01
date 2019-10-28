@@ -11,4 +11,4 @@ defined("XYO_CLOUD") or die("Access is denied");
 $this->buildCSS("xui-link");
 $this->buildUI();
 
-$this->settings["xui-link-color"]=$this->color->rgbHexHSLAdjust($this->palette["core-blue-jeans-2"],0,0,-15);
+$this->settings["xui-link-color"]=$this->color->rgbHexHSLAdjustL($this->palette["sky-blue-2"],0);

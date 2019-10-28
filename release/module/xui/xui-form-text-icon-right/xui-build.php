@@ -11,4 +11,4 @@ defined("XYO_CLOUD") or die("Access is denied");
 $this->buildCSS("xui-form-text-icon-right");
 $this->buildUI();
 
-$this->settings["form-text-icon-right-default-icon-color"]=$this->color->rgbHexHSLAdjust($this->settings["context-default-color"],0,0,-15);
+$this->settings["form-text-icon-right-default-icon-color"]=$this->color->rgbHexHSLAdjustL($this->settings["context-default-color"],-15);

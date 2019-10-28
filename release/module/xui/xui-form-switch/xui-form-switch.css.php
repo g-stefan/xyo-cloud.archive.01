@@ -156,7 +156,7 @@ defined("XYO_CLOUD") or die("Access is denied");
 
 	box-sizing: border-box;
 
-	background-color: <?php echo $this->color->rgbHexHSLAdjust($this->settings["form-text-default-border-color"],0,0,-15); ?>;
+	background-color: <?php echo $this->color->rgbHexHSLAdjustL($this->settings["form-text-default-border-color"],-15); ?>;
 
 	transition: all 0.3s ease;
 }

@@ -12,3 +12,5 @@ $this->setModuleAsApplication($module);
 $this->setVersion($module, "1.0.0");
 
 $this->setReferenceLink($module, "xui-text");
+$this->setReferenceLink($module, "xui-card");
+$this->setReferenceLink($module, "xui-grid");

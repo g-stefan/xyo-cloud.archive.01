@@ -86,116 +86,116 @@
 }
 
 .xui.app-toolbar_button:hover{
-	background-color: #E6E9ED;
+	background-color: #BFCBCF;
 }
 
 .xui.app-toolbar_button.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: #AAB2BD;
+	background-color: #838E93;
 }
 
 
 .xui.app-toolbar_button.-primary .xui.app-toolbar_button_icon{
-	color: #2363B6;
+	color: #3465A4;
 }
 
 .xui.app-toolbar_button.-primary:hover .xui.app-toolbar_button_icon{
-	color: #174076;
+	color: #22416A;
 }
 
 .xui.app-toolbar_button.-primary:hover{
-	background-color: #CADCF5;
+	background-color: #CEDDEF;
 }
 
 .xui.app-toolbar_button.-primary.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: #8AB3E8;
+	background-color: #94B4DD;
 }
 
 .xui.app-toolbar_button.-primary:active .xui.app-toolbar_button_icon{
-	color: #174076;
+	color: #22416A;
 }
 
 
 .xui.app-toolbar_button.-success .xui.app-toolbar_button_icon{
-	color: #659234;
+	color: #5FAD12;
 }
 
 .xui.app-toolbar_button.-success:hover .xui.app-toolbar_button_icon{
-	color: #3E5A20;
+	color: #39680B;
 }
 
 .xui.app-toolbar_button.-success:hover{
-	background-color: #D7E9C2;
+	background-color: #D2F7AE;
 }
 
 .xui.app-toolbar_button.-success.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: #B1D58A;
+	background-color: #ACEF69;
 }
 
 .xui.app-toolbar_button.-success:active .xui.app-toolbar_button_icon{
-	color: #3E5A20;
+	color: #39680B;
 }
 
 
 .xui.app-toolbar_button.-info .xui.app-toolbar_button_icon{
-	color: #2084A9;
+	color: #0086B3;
 }
 
 .xui.app-toolbar_button.-info:hover .xui.app-toolbar_button_icon{
-	color: #145269;
+	color: #004D67;
 }
 
 .xui.app-toolbar_button.-info:hover{
-	background-color: #BCE4F2;
+	background-color: #9AE5FF;
 }
 
 .xui.app-toolbar_button.-info.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: #7CC9E6;
+	background-color: #4DD2FF;
 }
 
 .xui.app-toolbar_button.-info:active .xui.app-toolbar_button_icon{
-	color: #145269;
+	color: #004D67;
 }
 
 
 .xui.app-toolbar_button.-warning .xui.app-toolbar_button_icon{
-	color: #E19B0B;
+	color: #D79400;
 }
 
 .xui.app-toolbar_button.-warning:hover .xui.app-toolbar_button_icon{
-	color: #986907;
+	color: #8B5F00;
 }
 
 .xui.app-toolbar_button.-warning:hover{
-	background-color: #FDF0D5;
+	background-color: #FFEBBE;
 }
 
 .xui.app-toolbar_button.-warning.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: #F9D58C;
+	background-color: #FFD371;
 }
 
 .xui.app-toolbar_button.-warning:active .xui.app-toolbar_button_icon{
-	color: #986907;
+	color: #8B5F00;
 }
 
 
 .xui.app-toolbar_button.-danger .xui.app-toolbar_button_icon{
-	color: #AF2331;
+	color: #B30000;
 }
 
 .xui.app-toolbar_button.-danger:hover .xui.app-toolbar_button_icon{
-	color: #6F161F;
+	color: #670000;
 }
 
 .xui.app-toolbar_button.-danger:hover{
-	background-color: #F3C4C9;
+	background-color: #FF9A9A;
 }
 
 .xui.app-toolbar_button.-danger.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: #E7858E;
+	background-color: #FF4D4D;
 }
 
 .xui.app-toolbar_button.-danger:active .xui.app-toolbar_button_icon{
-	color: #6F161F;
+	color: #670000;
 }
 
 

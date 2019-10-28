@@ -57,73 +57,73 @@
 
 .xui.form-text-required > input{
 	color: #444444;
-	border: 1px solid #C2CEE1;
+	border: 1px solid #D5DEE6;
 }
 
 .xui.form-text-required > input:focus{
 	color: #000000;
-	border: 1px solid #1A72E2; 
-	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+	border: 1px solid #298CEF; 
+	box-shadow: 0px 0px 0px 3px rgba(41,140,239,0.2510);
 }
 
 
 .xui.form-text-required.-primary > input{
-	color: #2363B6;
-	border: 1px solid #2363B6;
+	color: #3465A4;
+	border: 1px solid #3465A4;
 }
 
 .xui.form-text-required.-primary > input:focus{
 	color: #000000;
-	border: 1px solid #1A72E2; 
-	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+	border: 1px solid #298CEF; 
+	box-shadow: 0px 0px 0px 3px rgba(41,140,239,0.2510);
 }
 
 
 .xui.form-text-required.-success > input{
-	color: #659234;
-	border: 1px solid #659234;
+	color: #5FAD12;
+	border: 1px solid #5FAD12;
 }
 
 .xui.form-text-required.-success > input:focus{
 	color: #000000;
-	border: 1px solid #7ABA35; 
-	box-shadow: 0px 0px 0px 3px rgba(122,186,53,0.2510);
+	border: 1px solid #8AE234; 
+	box-shadow: 0px 0px 0px 3px rgba(138,226,52,0.2510);
 }
 
 
 .xui.form-text-required.-info > input{
-	color: #2084A9;
-	border: 1px solid #2084A9;
+	color: #0086B3;
+	border: 1px solid #0086B3;
 }
 
 .xui.form-text-required.-info > input:focus{
 	color: #000000;
-	border: 1px solid #1AA2D1; 
-	box-shadow: 0px 0px 0px 3px rgba(26,162,209,0.2510);
+	border: 1px solid #29BDEF; 
+	box-shadow: 0px 0px 0px 3px rgba(41,189,239,0.2510);
 }
 
 
 .xui.form-text-required.-warning > input{
-	color: #E19B0B;
-	border: 1px solid #E19B0B;
+	color: #D79400;
+	border: 1px solid #D79400;
 }
 
 .xui.form-text-required.-warning > input:focus{
 	color: #000000;
-	border: 1px solid #FFB807; 
-	box-shadow: 0px 0px 0px 3px rgba(255,184,7,0.2510);
+	border: 1px solid #FCCB46; 
+	box-shadow: 0px 0px 0px 3px rgba(252,203,70,0.2510);
 }
 
 
 .xui.form-text-required.-danger > input{
-	color: #AF2331;
-	border: 1px solid #AF2331;
+	color: #B30000;
+	border: 1px solid #B30000;
 }
 
 .xui.form-text-required.-danger > input:focus{
 	color: #000000;
-	border: 1px solid #DE182C; 
-	box-shadow: 0px 0px 0px 3px rgba(222,24,44,0.2510);
+	border: 1px solid #EF2929; 
+	box-shadow: 0px 0px 0px 3px rgba(239,41,41,0.2510);
 }
 
 
@@ -150,7 +150,7 @@
 	box-sizing: border-box;
 	border-radius: 3px;
 	overflow: hidden;
-	background-color: #AF2331;
+	background-color: #B30000;
 }
 
 .xui.form-text-required.-disabled::after{

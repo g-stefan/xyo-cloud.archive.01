@@ -24,9 +24,10 @@ $this->setModule("xui",null,"xui-effect-ripple");
 $this->setModule("xui",null,"xui-responsive");
 $this->setModule("xui",null,"xui-toggle");
 $this->setModule("xui",null,"xui-elevation");
-$this->setModule("xui",null,"xui-button");
-$this->setModule("xui",null,"xui-palette");
 $this->setModule("xui",null,"xui-grid");
+$this->setModule("xui",null,"xui-card");
+$this->setModule("xui",null,"xui-palette");
+$this->setModule("xui",null,"xui-button");
 /*
 // dashboard
 */

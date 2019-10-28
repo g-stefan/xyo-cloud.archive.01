@@ -23,16 +23,16 @@
 	font-family: "Roboto", sans-serif;
 	box-sizing: border-box;
 	
-	background-color: #174076;
+	background-color: #093F76;
 	color: #FFFFFF;
 }
 
 .xui.app-bar .xui.button.-effect-ripple:hover{
-	background-color: #2363B6;
+	background-color: #0E66BD;
 }
 
 .xui.app-bar .xui.button.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: #4A89DC;
+	background-color: #0066CC;
 }
 
 

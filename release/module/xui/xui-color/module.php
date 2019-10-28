@@ -45,10 +45,10 @@ class xui_Color extends xyo_Module {
 
 	public function hslToRGBHex($h, $s, $l){
 
-		if($h>360){
+		while($h>360){
 			$h-=360;
 		};
-		if($h<0){
+		while($h<0){
 			$h+=360;
 		};
 
@@ -78,9 +78,12 @@ class xui_Color extends xyo_Module {
 			$m2=$l+$s-$l*$s;
 		};
 		$m1=$l*2-$m2;
-		return "#".$this->toHex(round($this->hueToColor($m1, $m2, $h+1/3)*255)).
-			$this->toHex(round($this->hueToColor($m1, $m2, $h)*255)).
-			$this->toHex(round($this->hueToColor($m1, $m2, $h-1/3)*255));
+
+		$r=round($this->hueToColor($m1, $m2, $h+1/3)*255);
+		$g=round($this->hueToColor($m1, $m2, $h)*255);
+		$b=round($this->hueToColor($m1, $m2, $h-1/3)*255);
+
+		return "#".$this->toHex($r).$this->toHex($g).$this->toHex($b);
 	}
 
 	public function rgbHexToHSL($hex){
@@ -135,30 +138,40 @@ class xui_Color extends xyo_Module {
 		return array($h,$s,$l);
 	}
 
-	public function rgbHexHSLAdjust($hex, $h_, $s_, $l_, $mode=0){
+	public function rgbHexHSLAdjustH($hex, $h_){
 		list($h,$s,$l)=$this->rgbHexToHSL($hex);
-		if($mode&0x04){
-			$h=$h_;
-		}else{
-			$h+=$h_;
-		};
-		if($mode&0x02){
-			$s=$s_;
-		}else{
-			$s+=$s_;
-		};
-		if($mode&0x01){
-			$l=$l_;
-		}else{
-			$l+=$l_;
-		};
+		$h+=$h_;
 		return $this->hslToRGBHex($h,$s,$l);
 	}
 
-        public function rgbHexMiddle($rgbHex1,$rgbHex2){
-		list($h1,$s1,$l1)=$this->rgbHexToHSL($rgbHex1);
-		list($h2,$s2,$l2)=$this->rgbHexToHSL($rgbHex2);
-		return $this->hslToRGBHex(($h1+$h2)/2,($s1+$s2)/2,($l1+$l2)/2);
+	public function rgbHexHSLAdjustS($hex, $s_){
+		list($h,$s,$l)=$this->rgbHexToHSL($hex);
+		$s+=$s_;
+		return $this->hslToRGBHex($h,$s,$l);
+	}
+
+	public function rgbHexHSLAdjustL($hex, $l_){
+		list($h,$s,$l)=$this->rgbHexToHSL($hex);
+		$l+=$l_;
+		return $this->hslToRGBHex($h,$s,$l);
+	}
+
+        public function rgbHexBlend($rgbHex1,$rgbHex2,$alphaHex){
+		$r1=hexdec($rgbHex1[1].$rgbHex1[2]);
+		$g1=hexdec($rgbHex1[3].$rgbHex1[4]);
+		$b1=hexdec($rgbHex1[5].$rgbHex1[6]);
+
+		$r2=hexdec($rgbHex2[1].$rgbHex2[2]);
+		$g2=hexdec($rgbHex2[3].$rgbHex2[4]);
+		$b2=hexdec($rgbHex2[5].$rgbHex2[6]);
+
+		$alpha=hexdec($alphaHex);
+
+		$r=floor(($r1*(255-$alpha)+$r2*$alpha)/255);
+		$g=floor(($g1*(255-$alpha)+$g2*$alpha)/255);
+		$b=floor(($b1*(255-$alpha)+$b2*$alpha)/255);
+
+		return "#".$this->toHex($r).$this->toHex($g).$this->toHex($b);
 	}
 
 	public function rgbHexToRGBA($hex,$alpha){

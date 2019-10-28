@@ -11,6 +11,6 @@ defined("XYO_CLOUD") or die("Access is denied");
 $this->buildCSS("xui-app-brand");
 $this->buildUI();
 
-$this->settings["app-brand-logo-color"]=$this->color->rgbHexHSLAdjust($this->palette["core-mint-1"],0,0,-15);
+$this->settings["app-brand-logo-color"]=$this->color->rgbHexHSLAdjustL($this->palette["mint-1"],-15);
 $this->settings["app-brand-color"]=$this->settings["app-bar-background-color"];
 $this->settings["app-brand-mark-color"]="#000000";

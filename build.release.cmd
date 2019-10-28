@@ -5,7 +5,7 @@ rem Created by Grigore Stefan <g_stefan@yahoo.com>
 
 if exist release\ rmdir /Q /S release
 
-set XUI_VERSION=2.4.0
+set XUI_VERSION=3.0.0
 7zr x dependency/xui-%XUI_VERSION%.7z
 move xui-%XUI_VERSION% release
 

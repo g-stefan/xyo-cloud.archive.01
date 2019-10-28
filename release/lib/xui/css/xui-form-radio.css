@@ -91,7 +91,7 @@
 
 	box-sizing: border-box;
 
-	border: 1px solid #C2CEE1;
+	border: 1px solid #D5DEE6;
 
 	transition: border 0.3s ease, box-shadow 0.3s ease;
 }
@@ -99,8 +99,8 @@
 .xui.form-radio input[type="radio"]:focus + label::before,
 .xui.form-radio input[type="radio"]:active + label::before {
 	outline: none;
-	border: 1px solid #1A72E2;
-	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+	border: 1px solid #298CEF;
+	box-shadow: 0px 0px 0px 3px rgba(41,140,239,0.2510);
 }
 
 .xui.form-radio input[type="radio"] + label::after {
@@ -134,146 +134,146 @@
 
 .xui.form-radio input[type="radio"]:focus + label::after,
 .xui.form-radio input[type="radio"]:active + label::after {
-	background-color: rgba(26,114,226,0.2510);
+	background-color: rgba(41,140,239,0.2510);
 }
 
 .xui.form-radio input[type="radio"]:checked + label::after {
-	background-color: #2363B6;
+	background-color: #3465A4;
 }
 
 .xui.form-radio input[type="radio"]:focus:checked + label::after,
 .xui.form-radio input[type="radio"]:active:checked + label::after{
-	background-color: #1A72E2;
+	background-color: #298CEF;
 }
 
 
 .xui.form-radio.-primary label::before {
-	border: 1px solid #2363B6;
+	border: 1px solid #3465A4;
 }
 
 .xui.form-radio.-primary input[type="radio"]:focus + label::before,
 .xui.form-radio.-primary input[type="radio"]:active + label::before {
 	outline: none;
-	border: 1px solid #1A72E2;
-	box-shadow: 0px 0px 0px 3px rgba(26,114,226,0.2510);
+	border: 1px solid #298CEF;
+	box-shadow: 0px 0px 0px 3px rgba(41,140,239,0.2510);
 }
 
 .xui.form-radio.-primary input[type="radio"]:focus + label::after,
 .xui.form-radio.-primary input[type="radio"]:active + label::after {
-	background-color: rgba(26,114,226,0.2510);
+	background-color: rgba(41,140,239,0.2510);
 }
 
 .xui.form-radio.-primary input[type="radio"]:checked + label::after {
-	background-color: #2363B6;
+	background-color: #3465A4;
 }
 
 .xui.form-radio.-primary input[type="radio"]:focus:checked + label::after,
 .xui.form-radio.-primary input[type="radio"]:active:checked + label::after{
-	background-color: #1A72E2;
+	background-color: #298CEF;
 }
 
 
 .xui.form-radio.-success label::before {
-	border: 1px solid #659234;
+	border: 1px solid #5FAD12;
 }
 
 .xui.form-radio.-success input[type="radio"]:focus + label::before,
 .xui.form-radio.-success input[type="radio"]:active + label::before {
 	outline: none;
-	border: 1px solid #7ABA35;
-	box-shadow: 0px 0px 0px 3px rgba(122,186,53,0.2510);
+	border: 1px solid #8AE234;
+	box-shadow: 0px 0px 0px 3px rgba(138,226,52,0.2510);
 }
 
 .xui.form-radio.-success input[type="radio"]:focus + label::after,
 .xui.form-radio.-success input[type="radio"]:active + label::after {
-	background-color: rgba(122,186,53,0.2510);
+	background-color: rgba(138,226,52,0.2510);
 }
 
 .xui.form-radio.-success input[type="radio"]:checked + label::after {
-	background-color: #659234;
+	background-color: #5FAD12;
 }
 
 .xui.form-radio.-success input[type="radio"]:focus:checked + label::after,
 .xui.form-radio.-success input[type="radio"]:active:checked + label::after{
-	background-color: #7ABA35;
+	background-color: #8AE234;
 }
 
 
 .xui.form-radio.-info label::before {
-	border: 1px solid #2084A9;
+	border: 1px solid #0086B3;
 }
 
 .xui.form-radio.-info input[type="radio"]:focus + label::before,
 .xui.form-radio.-info input[type="radio"]:active + label::before {
 	outline: none;
-	border: 1px solid #1AA2D1;
-	box-shadow: 0px 0px 0px 3px rgba(26,162,209,0.2510);
+	border: 1px solid #29BDEF;
+	box-shadow: 0px 0px 0px 3px rgba(41,189,239,0.2510);
 }
 
 .xui.form-radio.-info input[type="radio"]:focus + label::after,
 .xui.form-radio.-info input[type="radio"]:active + label::after {
-	background-color: rgba(26,162,209,0.2510);
+	background-color: rgba(41,189,239,0.2510);
 }
 
 .xui.form-radio.-info input[type="radio"]:checked + label::after {
-	background-color: #2084A9;
+	background-color: #0086B3;
 }
 
 .xui.form-radio.-info input[type="radio"]:focus:checked + label::after,
 .xui.form-radio.-info input[type="radio"]:active:checked + label::after{
-	background-color: #1AA2D1;
+	background-color: #29BDEF;
 }
 
 
 .xui.form-radio.-warning label::before {
-	border: 1px solid #E19B0B;
+	border: 1px solid #D79400;
 }
 
 .xui.form-radio.-warning input[type="radio"]:focus + label::before,
 .xui.form-radio.-warning input[type="radio"]:active + label::before {
 	outline: none;
-	border: 1px solid #FFB807;
-	box-shadow: 0px 0px 0px 3px rgba(255,184,7,0.2510);
+	border: 1px solid #FCCB46;
+	box-shadow: 0px 0px 0px 3px rgba(252,203,70,0.2510);
 }
 
 .xui.form-radio.-warning input[type="radio"]:focus + label::after,
 .xui.form-radio.-warning input[type="radio"]:active + label::after {
-	background-color: rgba(255,184,7,0.2510);
+	background-color: rgba(252,203,70,0.2510);
 }
 
 .xui.form-radio.-warning input[type="radio"]:checked + label::after {
-	background-color: #E19B0B;
+	background-color: #D79400;
 }
 
 .xui.form-radio.-warning input[type="radio"]:focus:checked + label::after,
 .xui.form-radio.-warning input[type="radio"]:active:checked + label::after{
-	background-color: #FFB807;
+	background-color: #FCCB46;
 }
 
 
 .xui.form-radio.-danger label::before {
-	border: 1px solid #AF2331;
+	border: 1px solid #B30000;
 }
 
 .xui.form-radio.-danger input[type="radio"]:focus + label::before,
 .xui.form-radio.-danger input[type="radio"]:active + label::before {
 	outline: none;
-	border: 1px solid #DE182C;
-	box-shadow: 0px 0px 0px 3px rgba(222,24,44,0.2510);
+	border: 1px solid #EF2929;
+	box-shadow: 0px 0px 0px 3px rgba(239,41,41,0.2510);
 }
 
 .xui.form-radio.-danger input[type="radio"]:focus + label::after,
 .xui.form-radio.-danger input[type="radio"]:active + label::after {
-	background-color: rgba(222,24,44,0.2510);
+	background-color: rgba(239,41,41,0.2510);
 }
 
 .xui.form-radio.-danger input[type="radio"]:checked + label::after {
-	background-color: #AF2331;
+	background-color: #B30000;
 }
 
 .xui.form-radio.-danger input[type="radio"]:focus:checked + label::after,
 .xui.form-radio.-danger input[type="radio"]:active:checked + label::after{
-	background-color: #DE182C;
+	background-color: #EF2929;
 }
 
 

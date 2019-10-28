@@ -113,19 +113,19 @@ defined("XYO_CLOUD") or die("Access is denied");
 }
 
 .xui.app-toolbar_button<?php echo $selector; ?>:hover .xui.app-toolbar_button_icon{
-	color: <?php echo $this->color->rgbHexHSLAdjust($this->settings["form-text-".$context."-border-color"],0,0,-15); ?>;
+	color: <?php echo $this->color->rgbHexHSLAdjustL($this->settings["form-text-".$context."-border-color"],-15); ?>;
 }
 
 .xui.app-toolbar_button<?php echo $selector; ?>:hover{
-	background-color: <?php echo $this->color->rgbHexHSLAdjust($this->settings["form-text-".$context."-border-color"],0,0,45); ?>;
+	background-color: <?php echo $this->color->rgbHexHSLAdjustL($this->settings["form-text-".$context."-border-color"],45); ?>;
 }
 
 .xui.app-toolbar_button<?php echo $selector; ?>.-effect-ripple > .xui.-effect-ripple_element{
-	background-color: <?php echo $this->color->rgbHexHSLAdjust($this->settings["form-text-".$context."-border-color"],0,0,30); ?>;
+	background-color: <?php echo $this->color->rgbHexHSLAdjustL($this->settings["form-text-".$context."-border-color"],30); ?>;
 }
 
 .xui.app-toolbar_button<?php echo $selector; ?>:active .xui.app-toolbar_button_icon{
-	color: <?php echo $this->color->rgbHexHSLAdjust($this->settings["form-text-".$context."-border-color"],0,0,-15); ?>;
+	color: <?php echo $this->color->rgbHexHSLAdjustL($this->settings["form-text-".$context."-border-color"],-15); ?>;
 }
 
 <?php }; ?>

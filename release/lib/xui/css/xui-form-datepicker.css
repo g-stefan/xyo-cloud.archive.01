@@ -9,19 +9,19 @@
 }
 
 .datepicker--day-name{
-	color: #2363B6;
+	color: #3465A4;
 }
 
 .datepicker--cell.-current-{
-	color: #2363B6;
+	color: #3465A4;
 }
 
 .datepicker--cell.-selected-{
-	background-color: #1A72E2;
+	background-color: #298CEF;
 }
 
 .datepicker--cell.-selected-.-focus-{
-	background-color: #1A72E2;
+	background-color: #298CEF;
 }
 
 

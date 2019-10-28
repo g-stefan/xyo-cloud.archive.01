@@ -27,47 +27,21 @@ class xui_Palette extends xyo_Module {
 		$this->color=&$this->xuiColor;
 		$this->palette=array();
 
-		include("xui-palette-core-grapefruit.php");
-		include("xui-palette-core-bittersweet.php");
-		include("xui-palette-core-sunflower.php");
-		include("xui-palette-core-grass.php");
-		include("xui-palette-core-mint.php");
-		include("xui-palette-core-aqua.php");
-		include("xui-palette-core-blue-jeans.php");
-		include("xui-palette-core-lavender.php");
-		include("xui-palette-core-pink-rose.php");
-		include("xui-palette-core-light-gray.php");
-		include("xui-palette-core-medium-gray.php");
-		include("xui-palette-core-dark-gray.php");
-		include("xui-palette-material-red.php");
-		include("xui-palette-material-pink.php");
-		include("xui-palette-material-purple.php");
-		include("xui-palette-material-deep-purple.php");
-		include("xui-palette-material-indigo.php");
-		include("xui-palette-material-blue.php");
-		include("xui-palette-material-light-blue.php");
-		include("xui-palette-material-cyan.php");
-		include("xui-palette-material-teal.php");
-		include("xui-palette-material-green.php");
-		include("xui-palette-material-light-green.php");
-		include("xui-palette-material-lime.php");
-		include("xui-palette-material-yellow.php");
-		include("xui-palette-material-amber.php");
-		include("xui-palette-material-orange.php");
-		include("xui-palette-material-deep-orange.php");
-		include("xui-palette-material-brown.php");
-		include("xui-palette-material-grey.php");
-		include("xui-palette-material-blue-grey.php");
-		include("xui-palette-material-black.php");
-		include("xui-palette-material-white.php");
-		include("xui-palette-tango-butter.php");
-		include("xui-palette-tango-orange.php");
-		include("xui-palette-tango-chocolate.php");
-		include("xui-palette-tango-chameleon.php");
-		include("xui-palette-tango-sky-blue.php");
-		include("xui-palette-tango-plum.php");
-		include("xui-palette-tango-scarlet-red.php");
-		include("xui-palette-tango-aluminium.php");
+		include("xui-palette-butter.php");
+		include("xui-palette-orange.php");
+		include("xui-palette-chocolate.php");
+		include("xui-palette-chameleon.php");
+		include("xui-palette-sky-blue.php");
+		include("xui-palette-plum.php");
+		include("xui-palette-scarlet-red.php");
+		include("xui-palette-aluminium.php");
 
+		// ---
+
+		include("xui-palette-aqua.php");
+		include("xui-palette-mint.php");
+		include("xui-palette-sunflower.php");
+		include("xui-palette-science-blue.php");
+		include("xui-palette-rock.php");
 	}
 }

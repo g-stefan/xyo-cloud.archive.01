@@ -13,5 +13,5 @@ defined("XYO_CLOUD") or die("Access is denied");
 	Effect - Ripple
 </div>
 
-<div class="xui -effect-ripple" style="border:1px solid #000000;width:64px;height:48px;background-color:#FFFFFF;overflow:hidden;">
+<div class="xui -effect-ripple" style="border:1px solid #000000;width:256px;height:128px;background-color:#FFFFFF;overflow:hidden;">
 </div>

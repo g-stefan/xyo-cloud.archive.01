@@ -107,11 +107,11 @@ a.xui.action:active {
 }
 
 .xui.action:hover {
-	background-color: #E6F0FC;
+	background-color: #E7F2FD;
 }
 
 .xui.action:hover > .xui.-effect-ripple_element{
-	background-color: #B8D4F7;
+	background-color: #B7D8FA;
 }
 
 .xui.action:hover .xui.action_icon-left{
@@ -119,23 +119,23 @@ a.xui.action:active {
 }
 
 .xui.action.-selected {
-	background-color: #E6F0FC;
+	background-color: #E7F2FD;
 }
 
 .xui.action.-selected .xui.action_left {
-	background-color: #1A72E2;
+	background-color: #127FED;
 }
 
 .xui.action.-selected .xui.action_icon-left {
-	color: #174076;
+	color: #093F76;
 }
 
 .xui.action.-selected:hover {
-	background-color: #B8D4F7;
+	background-color: #B7D8FA;
 }
 
 .xui.action.-selected:hover > .xui.-effect-ripple_element{
-	background-color: #8BB8F1;
+	background-color: #88BFF6;
 }
 
 .xui.action.-active .xui.action_icon-right {

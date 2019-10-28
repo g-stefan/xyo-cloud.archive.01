@@ -14,7 +14,7 @@
 	position: relative;
 	display: inline-block;
 	text-decoration: none;
-	color: #2363B6;
+	color: #3465A4;
 }
 
 .xui.link:hover{
@@ -23,7 +23,7 @@
 }
 
 .xui.link:visited{
-	color: #2363B6;
+	color: #3465A4;
 }
 
 .xui.link:visited:hover{
@@ -39,7 +39,7 @@
 	bottom: -1px;
 	height: 1px;
 	width: 0px;
-	background: #1A72E2;
+	background: #298CEF;
 	backface-visibility: hidden;
 }
 

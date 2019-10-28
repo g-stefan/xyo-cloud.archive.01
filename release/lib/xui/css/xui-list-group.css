@@ -52,9 +52,9 @@
     width: 100%;
     bottom: 0px;
     pointer-events: none;
-    box-shadow: inset 0px 1px 0px 0px #C2CEE1,
-		inset 1px 0px 0px 0px #C2CEE1,
-		inset -1px 0px 0px 0px #C2CEE1;
+    box-shadow: inset 0px 1px 0px 0px #D5DEE6,
+		inset 1px 0px 0px 0px #D5DEE6,
+		inset -1px 0px 0px 0px #D5DEE6;
     z-index: 1;  
 }
 
@@ -64,12 +64,12 @@
 
 .xui.list-group_item:last-child:after {
 	border-radius: 0px 0px 3px 3px;
-	box-shadow: inset 0px 0px 0px 1px #C2CEE1;
+	box-shadow: inset 0px 0px 0px 1px #D5DEE6;
 }
 
 .xui.list-group_item.-active {
 	color: #FFFFFF;
-	background-color: #2363B6;
+	background-color: #3465A4;
 }
 
 .xui.list-group_item.-active:after {
@@ -85,14 +85,14 @@
 }
 
 .xui.list-group_item.-active + .xui.list-group_item:after {
-    box-shadow: inset 1px 0px 0px 0px #C2CEE1,
-		inset -1px 0px 0px 0px #C2CEE1;	
+    box-shadow: inset 1px 0px 0px 0px #D5DEE6,
+		inset -1px 0px 0px 0px #D5DEE6;	
 }
 
 .xui.list-group_item.-active + .xui.list-group_item:last-child:after {
-    box-shadow: inset 1px 0px 0px 0px #C2CEE1,
-		inset -1px 0px 0px 0px #C2CEE1,
-		inset 0px -1px 0px 0px #C2CEE1;
+    box-shadow: inset 1px 0px 0px 0px #D5DEE6,
+		inset -1px 0px 0px 0px #D5DEE6,
+		inset 0px -1px 0px 0px #D5DEE6;
 }
 
 .xui.list-group_item_id {

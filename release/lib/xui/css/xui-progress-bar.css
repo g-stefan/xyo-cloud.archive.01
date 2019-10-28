@@ -92,8 +92,8 @@
 
 .xui.progress-bar > .xui.progress-bar_bar {
 	color: #000000;
-	background-color: #F5F8FD;
-	border: 1px solid #4A89DC;
+	background-color: #BBCFE9;
+	border: 1px solid #3465A4;
 }
 
 .xui.progress-bar > .xui.progress-bar_label {
@@ -102,57 +102,57 @@
 
 
 .xui.progress-bar.-primary > .xui.progress-bar_bar {
-	color: #174076;
-	background-color: #CADDF5;
-	border: 1px solid #2363B6;
+	color: #0F1D30;
+	background-color: #94B4DD;
+	border: 1px solid #22416A;
 }
 
 .xui.progress-bar.-primary > .xui.progress-bar_label {
-	color: #174076;
+	color: #0F1D30;
 }
 
 
 .xui.progress-bar.-success > .xui.progress-bar_bar {
-	color: #3E5A20;
-	background-color: #D7E9C3;
-	border: 1px solid #659234;
+	color: #274807;
+	background-color: #C0F38E;
+	border: 1px solid #4D8D0F;
 }
 
 .xui.progress-bar.-success > .xui.progress-bar_label {
-	color: #3E5A20;
+	color: #274807;
 }
 
 
 .xui.progress-bar.-info > .xui.progress-bar_bar {
-	color: #145168;
-	background-color: #BCE4F2;
-	border: 1px solid #2084A9;
+	color: #002633;
+	background-color: #66D9FF;
+	border: 1px solid #006080;
 }
 
 .xui.progress-bar.-info > .xui.progress-bar_label {
-	color: #145168;
+	color: #002633;
 }
 
 
 .xui.progress-bar.-warning > .xui.progress-bar_bar {
-	color: #986807;
-	background-color: #FDF0D4;
-	border: 1px solid #E19B0B;
+	color: #583D00;
+	background-color: #FFDB8B;
+	border: 1px solid #A47100;
 }
 
 .xui.progress-bar.-warning > .xui.progress-bar_label {
-	color: #986807;
+	color: #583D00;
 }
 
 
 .xui.progress-bar.-danger > .xui.progress-bar_bar {
-	color: #6F161F;
-	background-color: #F3C4C8;
-	border: 1px solid #AF2331;
+	color: #330000;
+	background-color: #FF6666;
+	border: 1px solid #800000;
 }
 
 .xui.progress-bar.-danger > .xui.progress-bar_label {
-	color: #6F161F;
+	color: #330000;
 }
 
 

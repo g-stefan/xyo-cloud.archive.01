@@ -16,5 +16,5 @@ $this->settings["app-toolbar-background-color"]="#FFFFFF";
 $this->settings["app-toolbar-color"]="#000000";
 $this->settings["app-toolbar-height"]=48;
 $this->settings["app-toolbar-padding"]=4;
-$this->settings["app-toolbar-buton-hover-background-color"]=$this->palette["core-light-gray-2"];
-$this->settings["app-toolbar-buton-ripple-background-color"]=$this->palette["core-medium-gray-2"];
+$this->settings["app-toolbar-buton-hover-background-color"]=$this->palette["rock-2"];
+$this->settings["app-toolbar-buton-ripple-background-color"]=$this->palette["rock-4"];

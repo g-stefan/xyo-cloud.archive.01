@@ -16,9 +16,10 @@ $this->setModuleGroup("xui-effect-ripple","xui-build",++$order);
 $this->setModuleGroup("xui-responsive","xui-build",++$order);
 $this->setModuleGroup("xui-toggle","xui-build",++$order);
 $this->setModuleGroup("xui-elevation","xui-build",++$order);
-$this->setModuleGroup("xui-button","xui-build",++$order);
-$this->setModuleGroup("xui-palette","xui-build",++$order);
 $this->setModuleGroup("xui-grid","xui-build",++$order);
+$this->setModuleGroup("xui-card","xui-build",++$order);
+$this->setModuleGroup("xui-palette","xui-build",++$order);
+$this->setModuleGroup("xui-button","xui-build",++$order);
 /*
 // dashboard
 */

@@ -54,7 +54,7 @@
 }
 
 .xui.form-textarea-material.-focus > label{
-	color: #1A72E2;
+	color: #298CEF;
 	font-size: 14px;
 }
 
@@ -100,13 +100,13 @@
 
 .xui.form-textarea-material > textarea:focus + .xui.form-textarea-material_border{
 	width: 100%;
-	background-color: #1A72E2;
+	background-color: #298CEF;
 }
 
 .xui.form-textarea-material > textarea:focus {
 	outline-color: transparent;
 	outline-style: none;
-	border-bottom: 1px solid #1A72E2;
+	border-bottom: 1px solid #298CEF;
 }
 
 .xui.form-textarea-material.-focus > label + .xui-form-textarea-material_border{
@@ -115,137 +115,137 @@
 
 
 .xui.form-textarea-material.-primary label{
-	color: #2363B6;
+	color: #3465A4;
 }
 
 .xui.form-textarea-material.-primary > textarea{
-	color: #2363B6;
-	border-bottom: 1px solid #2363B6;
+	color: #3465A4;
+	border-bottom: 1px solid #3465A4;
 }
 
 .xui.form-textarea-material.-primary > textarea + .xui.form-textarea-material_border{
-	background-color: #1A72E2;	
+	background-color: #298CEF;	
 }
 
 .xui.form-textarea-material.-focus.-primary > label{
-	color: #1A72E2;
+	color: #298CEF;
 }
 
 .xui.form-textarea-material.-primary > textarea:focus{
 	color: #000000;
-	border-bottom: 1px solid #1A72E2;
+	border-bottom: 1px solid #298CEF;
 }
 
 .xui.form-textarea-material.-primary > textarea:focus + .xui.form-textarea-material_border{
-	background-color: #1A72E2;	
+	background-color: #298CEF;	
 }
 
 
 .xui.form-textarea-material.-success label{
-	color: #659234;
+	color: #5FAD12;
 }
 
 .xui.form-textarea-material.-success > textarea{
-	color: #659234;
-	border-bottom: 1px solid #659234;
+	color: #5FAD12;
+	border-bottom: 1px solid #5FAD12;
 }
 
 .xui.form-textarea-material.-success > textarea + .xui.form-textarea-material_border{
-	background-color: #7ABA35;	
+	background-color: #8AE234;	
 }
 
 .xui.form-textarea-material.-focus.-success > label{
-	color: #7ABA35;
+	color: #8AE234;
 }
 
 .xui.form-textarea-material.-success > textarea:focus{
 	color: #000000;
-	border-bottom: 1px solid #7ABA35;
+	border-bottom: 1px solid #8AE234;
 }
 
 .xui.form-textarea-material.-success > textarea:focus + .xui.form-textarea-material_border{
-	background-color: #7ABA35;	
+	background-color: #8AE234;	
 }
 
 
 .xui.form-textarea-material.-info label{
-	color: #2084A9;
+	color: #0086B3;
 }
 
 .xui.form-textarea-material.-info > textarea{
-	color: #2084A9;
-	border-bottom: 1px solid #2084A9;
+	color: #0086B3;
+	border-bottom: 1px solid #0086B3;
 }
 
 .xui.form-textarea-material.-info > textarea + .xui.form-textarea-material_border{
-	background-color: #1AA2D1;	
+	background-color: #29BDEF;	
 }
 
 .xui.form-textarea-material.-focus.-info > label{
-	color: #1AA2D1;
+	color: #29BDEF;
 }
 
 .xui.form-textarea-material.-info > textarea:focus{
 	color: #000000;
-	border-bottom: 1px solid #1AA2D1;
+	border-bottom: 1px solid #29BDEF;
 }
 
 .xui.form-textarea-material.-info > textarea:focus + .xui.form-textarea-material_border{
-	background-color: #1AA2D1;	
+	background-color: #29BDEF;	
 }
 
 
 .xui.form-textarea-material.-warning label{
-	color: #E19B0B;
+	color: #D79400;
 }
 
 .xui.form-textarea-material.-warning > textarea{
-	color: #E19B0B;
-	border-bottom: 1px solid #E19B0B;
+	color: #D79400;
+	border-bottom: 1px solid #D79400;
 }
 
 .xui.form-textarea-material.-warning > textarea + .xui.form-textarea-material_border{
-	background-color: #FFB807;	
+	background-color: #FCCB46;	
 }
 
 .xui.form-textarea-material.-focus.-warning > label{
-	color: #FFB807;
+	color: #FCCB46;
 }
 
 .xui.form-textarea-material.-warning > textarea:focus{
 	color: #000000;
-	border-bottom: 1px solid #FFB807;
+	border-bottom: 1px solid #FCCB46;
 }
 
 .xui.form-textarea-material.-warning > textarea:focus + .xui.form-textarea-material_border{
-	background-color: #FFB807;	
+	background-color: #FCCB46;	
 }
 
 
 .xui.form-textarea-material.-danger label{
-	color: #AF2331;
+	color: #B30000;
 }
 
 .xui.form-textarea-material.-danger > textarea{
-	color: #AF2331;
-	border-bottom: 1px solid #AF2331;
+	color: #B30000;
+	border-bottom: 1px solid #B30000;
 }
 
 .xui.form-textarea-material.-danger > textarea + .xui.form-textarea-material_border{
-	background-color: #DE182C;	
+	background-color: #EF2929;	
 }
 
 .xui.form-textarea-material.-focus.-danger > label{
-	color: #DE182C;
+	color: #EF2929;
 }
 
 .xui.form-textarea-material.-danger > textarea:focus{
 	color: #000000;
-	border-bottom: 1px solid #DE182C;
+	border-bottom: 1px solid #EF2929;
 }
 
 .xui.form-textarea-material.-danger > textarea:focus + .xui.form-textarea-material_border{
-	background-color: #DE182C;	
+	background-color: #EF2929;	
 }
 
 
